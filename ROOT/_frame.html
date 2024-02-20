@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>사이트명</title>
+<meta name="author" content="사이트명">
+<meta name="keywords" content="사이트명">
+<meta name="description" content="사이트명">
+</head>
+<frameset title="사이트명" cols="252,*" border="0"><!-- border는문법에어긋나지만브라우저들은이게없으면보더를표시함 -->
+	<frameset title="사이트명 사이드바" rows="*,200" border="0">
+		<frame title="사이트명 목록" src="./share/list.html" name="news_list" id="news_list" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="no" />
+		<frame title="사이트명 검색" src="./share/search.html" name="news_search" id="news_search" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="no" />
+	</frameset>
+	<frame title="사이트명 내용" src="./content/main.html" name="news_content" id="news_content" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="no" />
+	<noframes title="사이트명">
+	<body>
+	<h1>사이트명</h1>
+	<p>이 사이트는 프레임 대응환경을 대상으로 디자인되어 있습니다.</p>
+	<p>비대응환경의 사용자는 아래 링크를 통해서 보시기 바랍니다.</p>
+	<ul>
+	<li><a href="<%=sitePath%>/main/">메인 페이지로 가기</a></li>
+	</ul>
+	</body>
+	</noframes>
+</frameset>
+</html>

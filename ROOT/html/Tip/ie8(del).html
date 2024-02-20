@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'IE Bug Fix | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>IE8</h1>
+
+<p>
+v2009.06.11
+v2009.03.20
+v2009.02.10
+</p>
+
+<dl>
+
+<dt>[IE8 한글판 정식버전 버전 8.0.6001.18702 (date 2009-03-19)] 렌더링 테스트</dt>
+<dd>
+<dfn>
+<h6>IE7과 차이</h6>
+
+* <em>colgroup, col 의 style 적용 제한</em> - FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가)<br />
+* <em>line-height 上下 공백값 상이</em><br />
+
+<table class="t3" summary="브라우저별 line-height 에 따른 상하 공백값">
+<colgroup style="white-space: nowrap;"><col /><col span="3" style="text-align: center;" /></colgroup>
+<col style="" />
+<thead>
+<tr>
+<th>css</th>
+<th>IE8</th>
+<th>IE7,IE6</th>
+<th>FF,Op,Sf,GC,Fl</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>font-size/line-height<br /><span style="display: block; background: #ff0; opacity: 0.5; -ms-filter: 'alpha(opacity=50)'; filter: alpha(opacity=50);">12px/1.25</span></td>
+<td>0+12+3px</td>
+<td>1+12+3px</td>
+<td>1+12+3px</td>
+<td>세부버전업글을 기대해본다! 다음 세부버전업글을 기대해본다!</td>
+</tr>
+<tr>
+<td style="background: #0ff; opacity: 0.8; filter: alpha(opacity=80);">colgroup, col 적용 가능 CSS</span></td>
+<td></td>
+<td>text-align: white-space:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+※ 위 표를 IE8에서 확인해보세요! 가운데 정렬인가? 상하공백이 다른지? 투명필터가적용 되었는지?<br />
+
+<h6>IE7과 동일</h6>
+* filter: 속성 적용 가능.
+<xmp class="xmp">
+background: #0ff; opacity: 0.5; filter: alpha(opacity=50);
+</xmp>
+
+<h6>Bug</h6>
+* display: none; display: block; 동작시 가끔 늘어나고 줄어드는 공간이 틀어져 겹쳐지는 문제 발생.
+* display: inline-block; 오류.. 간헐적으로 발생하여 정확한 증상은 파악하기 힘듦.
+
+
+</dfn>
+
+<strong>※ 더봐야할거 :</strong><br />
+<ul class="bu">
+<li><a href="http://naradesign.net/wp/2009/03/12/670/">웹 표준 개발자의 IE8 고려사항</a></li>
+<li><a href="http://html.nhndesign.com/2323">IE8 fieldset/legend bug</a></li>
+</ul>
+</dd>
+
+<dt>[IE8 한글판 Release Candidate 1 버전 8.0.6001.18372 (date 2009-01-23)] 렌더링 테스트</dt>
+<dd>
+IE8 한글판 Beta 2의 버그(display적용지연 등)들이 대부분 잡혔다.
+<dfn>
+<h6>Bug</h6>
+* colgroup, col 의 style 적용도 FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가)<br />
+* line-height 에 따른 <em>상하 공백값</em>이 예전과 달라졌다.<br />
+<h6>Hack</h6>
+<xmp class="xmp">
+background: #0ff; opacity: 0.5; -ms-filter: "alpha(opacity=50)"; filter: alpha(opacity=50);
+</xmp>
+</dfn>
+</dd>
+
+<dt>[IE8 한글판 Beta 2 버전 8.0.6001.18241 ] 렌더링 테스트</dt>
+<dd>
+<em>아래 IE8 영문판 Beta 렌더링 오류는 모두 수정되었다.</em>
+옛날 IE는 잊어라~ 이제 표준 준수 브라우저라 불러도 되겠다!
+<dfn>
+** 핵 테스트 - 아래 IE 용 핵들 전부 IE8에는 적용안됨.<br />
+<xmp class="xmp">
+* html {  } /*IE6이하*/
+*:first-child+html {  } /*IE7만*/
+*property: value; /* IE7, IE6  */
+_property: value; /* IE6 */
+</xmp>
+<h6>Bug</h6>
+* 탭콘텐츠에서 탭 클릭 후 display 적용이 엄청 오래 걸림.. 10초이상?<br />
+* colgroup, col 의 style 적용도 FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가)<br />
+* line-height 에 따른 <em>상하 공백값</em>이 예전과 달라졌다.<br />
+<h6>Hack</h6>
+* <em>opacity: 0.5; filter: alpha(opacity=50); 둘다 안되므로 IE8용 속성 -ms-filter: "alpha(opacity=50)"; 를 추가해야함.</em>
+<xmp class="xmp">background: #0ff; opacity: 0.5; -ms-filter: "alpha(opacity=50)"; filter: alpha(opacity=50);</xmp>
+filter: 뒤에 -ms-filter: 가 오면 IE8호환모드에서 필터효과가 적용안되므로 위 순서대로 코딩하자!
+</dfn>
+</dd>
+
+<dt>[IE8 영문판 Beta] 렌더링 오류</dt>
+<dd>
+<dfn>
+** 사천시 작업 [http://project.정보행동.co.kr:9100/_lib/sub/]
+<xmp class="xmp">
+<a name="sidemenu"></a> 원치않는 공간
+<noscript></noscript> 원치않는 공간
+이미지 플로터 감싸는 박스 폭 1px 크게 잡아야 안밀림.
+텍스트 플로터 li 를 inline 으로 두니 원치않는 상단 공간 발생하므로 아래처럼 수정 필요..
+ul li { display: inline; float: left; }
+ul li a { display: inline; float: left; .. }
+letter-spacing 속성 값이 적용안됨.
+</xmp>
+** 횡성군 본청 메인 [hsg.go.kr]
+<xmp class="xmp">
+overflow: hidden;
+position
+</xmp>
+</dfn>
+</dd>
+
+</dl>
+<hr />
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS - Base Reset | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Base Reset CSS</h1>
+
+<br />
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#RWD">RWD</a></li>
+<li><a href="#Desktop">Desktop</a></li>
+<li><a href="#Mobile">Mobile</a></li>
+<li><a href="#HTML">HTML</a></li>
+<li><a href="http://meyerweb.com/eric/tools/css/reset/" target="_blank">Eric Meyer’s “Reset CSS”</a></li>
+<li><a href="http://necolas.github.io/normalize.css/"><strong class="h1">normalize.css</strong></a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+<br />
+
+<!-- box1 -->
+<div class="box1">
+<strong class="h1">normalize.css</strong>
+<p>부트스트랩 등 반응형 프레임워크에서 대부분 이용하고, 네이버에서도 이용중이다.
+이거 흡수해서 사용하자.</p>
+
+</div>
+<!-- /box1 -->
+
+<h2 id="RWD">RWD</h2>
+
+<xmp class="xmp">
+@charset "utf-8";
+/**
+ * @File Name : base.css
+ * @Description : (@font-face) | Base Reset | Property Solo | UX
+ * @Modification Information
+ * <pre>
+ * 수정일 | 수정자 | 수정내용
+ * 2015.03.25 | 문영신 | 최초 등록
+ * </pre>
+ * @author 웹표준화실 문영신
+ * @since 2015.03.25
+ *
+ * @Copyright (C) IACTS.CO.KR All rights reserved.
+ */
+
+/* (@font-face) | Base Reset | Property Solo | UX */
+
+/* @font-face. 20150325. ◆◆◆ */
+/*
+ * Nanum Gothic (Korean) http://www.google.com/webfonts/earlyaccess
+ @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+ */
+
+@font-face {
+	font-family:'Nanum Gothic';
+	font-style:normal;
+	font-weight:400;
+	src:url('//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
+		url('//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.woff') format('woff');
+}
+@font-face {
+	font-family:'Nanum Gothic';
+	font-style:normal;
+	font-weight:700;
+	src:url('//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
+		url('//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Bold.woff') format('woff');
+}
+
+/* Base Reset. 20141010.20150119.20150320. ◆◆◆ */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+html{/* overflow-x:hidden; */overflow-y:scroll;}
+body{margin:0;background:#fff;font-size:81.25%;line-height:1.75;/* word-wrap:break-word; >> sub.css */-webkit-text-size-adjust:none;}
+body,input,select,button,textarea,pre,code,kbd,samp{font-family:'맑은 고딕','Malgun Gothic','나눔고딕',NanumGothic,'Nanum Gothic','돋움',Dotum,AppleGothic,helvetica,sans-serif;}
+html:lang(ko) body{font-family:AppleGothic,'Microsoft JhengHei','맑은 고딕','Malgun Gothic','나눔고딕',NanumGothic,'Nanum Gothic','돋움',Dotum,helvetica,sans-serif;}
+i,em,cite,dfn,var,address{font-style:normal;}
+label,select,input,button,textarea{font-size:1em;vertical-align:middle;/* ☆ overflow:visible; */}
+/* 20150320 */
+button,input[type=submit],input[type=reset],input[type=button],input[type=image],input[type=radio],input[type=checkbox]{overflow:visible;cursor:pointer;}
+img,form,fieldset,iframe,object,embed,video,audio{border:0;vertical-align:top;}
+img{/* width:inherit; ☆부모폭있으면100%값과같으니주의! */max-width:100%;height:auto;} /* 20150116 */
+table,pre{font-size:1em;}
+table{border-collapse:collapse;border-spacing:0;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.333em;margin-bottom:1.333em;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+a{text-decoration:none;}
+a:link,a:visited{color:#334 /* ☆ */;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#000;text-decoration:underline;}
+small,sub,sup{font-size:.923em}
+abbr{cursor:help}
+em{color:#d00;}
+hr{display:none;}
+/* body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,li,menu,blockquote,form,fieldset,pre{list-style:none;margin:0;padding:0;} */
+/* Class */
+.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;/* opacity:0;filter:alpha(opacity=0); */}
+	*+html .blind{height:0;}
+	caption.blind{position:relative;}
+.blind.onshow:focus{display:block;position:relative;left:0;width:auto;height:auto;margin:0 0 1em 0;padding:.5em 1em;background:#ee0;color:#850;font-size:1em;line-height:normal;overflow:hidden;}
+.dpn{display:none !important;}
+.ellipsis1{text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+.ellipsis1 *{white-space:nowrap !important;}
+/* * html .png24{tmp:expression(setPng24(this));} */
+
+/* Reset Initialize */
+/* 초기화하려는 배치요소(#head, #foot, #sidebar, …, #visual)에 .init 속성 추가하면 스타일링이 편하다.
+ ☆ 주의! board.css 에 정의된 input.text{} 들은 우선순위가 같지만 all.css 보다 뒤에 불러오기에.. 재 초기화가 필요할 수도 있다.
+ */
+.init,
+.init *{list-style:none;max-width:none /* ☆ */;margin:0;padding:0; /* border-width:0;background:transparent;font-size:1em;line-height:normal; */ text-decoration:none !important;}
+
+/* Property Solo (※d=default값). 20140901.20150305  ◆◆◆ */
+/* layout */
+.dpn{display:none !important;}
+.dpb{display:block !important;}
+.dpi{display:inline !important;}
+.dpib{display:inline-block !important;}
+.lstn{list-style-type:none !important;}
+.lstdlz{list-style-type:decimal-leading-zero !important;}
+.fl{display:inline !important;float:left !important;}
+.fr{display:inline !important;float:right !important;}
+.clb{clear:both !important;}
+.cll{clear:left !important;}
+.clr{clear:right !important;}
+.psr{position:relative !important;}
+.zia{z-index:auto !important;}
+.ofa{overflow:auto !important;}
+.ofh{overflow:hidden !important;}
+.ofv{overflow:visible !important;}
+/* box */
+.w100{width:100% !important;}
+.h100{height:100% !important;}
+.wh100{width:100% !important;height:100% !important;}
+.waha{width:auto !important;height:auto !important;}
+.mwnmhn{max-width:none !important;max-height:none !important;}
+.mg0{margin:0 !important;}
+.mgt0{margin-top:0 !important;}
+.mgb0{margin-bottom:0 !important;}
+.mgl0{margin-left:0 !important;}
+.mgr0{margin-right:0 !important;}
+.mgl1em{margin-left:1em !important;}
+.mgl-1em{margin-left:-1em !important;}
+.pd0{padding:0 !important;}
+.pdt0{padding-top:0 !important;}
+.pdb0{padding-bottom:0 !important;}
+.pdl0{padding-left:0 !important;}
+.pdr0{padding-right:0 !important;}
+.bdb0{border:0 !important;}
+.bgf{background:#fff !important;}
+.bin{background-image:none !important;}
+
+/* color,font,text */
+.cd{color:#555 !important;}
+.cdL{color:#767676 !important;}/* Light */
+.cdD{color:#333 !important;}/* Dark */
+.cdW{color:#fff !important;}
+.cdB{color:#000 !important;}
+.fsn{font-style:normal !important;}
+.fsi{font-style:italic !important;}
+.fwn{font-weight:normal !important;}
+.fwb{font-weight:bold !important;}
+/* body{font-size:87.5%;}=14px */
+.fsXXS{font-size:.786em !important;}/* 11/14 */
+.fsXS{font-size:.857em !important;}/* 12/14 */
+.fsS{font-size:.929em !important;}/* 13/14 */
+.fsd{font-size:1em !important;}/* 14/14 */
+.fsm{font-size:1.071em !important;}/* 15/14 */
+.fsM{font-size:1.143em !important;}/* 16/14 */
+.fsL{font-size:1.286em !important;}/* 18/14 */
+.fsXL{font-size:1.429em !important;}/* 20/14 */
+.fsXXL{font-size:1.714em !important;}/* 24/14 */
+.fsXXXL{font-size:2.143em !important;}/* 30/14 */
+/* body{font-size:81.25%;}=13px */
+.fsXXS{font-size:.769em !important;}/* 10/13 */
+.fsXS{font-size:.846em !important;}/* 11/13 */
+.fsS{font-size:.923em !important;}/* 12/13 */
+.fsd{font-size:1em !important;}/* 13/13 */
+.fsms{font-size:1.077em !important;}/* 14/13 */
+.fsm{font-size:1.154em !important;}/* 15/13 */
+.fsM{font-size:1.231em !important;}/* 16/13 */
+.fsL{font-size:1.385em !important;}/* 18/13 */
+.fsXL{font-size:1.538em !important;}/* 20/13 */
+.fsXXL{font-size:1.846em !important;}/* 24/13 */
+.fsXXL{font-size:2.308em !important;}/* 30/13 */
+.lhd{line-height:1.5 !important;}
+.ffd{font-family:'돋움',Dotum !important;}
+.ffe{font-family:tahoma !important;}
+html:lang(ko) .ffc{font-family:AppleGothic,'Microsoft JhengHei','맑은 고딕','Malgun Gothic','나눔고딕',NanumGothic,'Nanum Gothic','돋움',Dotum,helvetica,sans-serif !important;}
+.ls-1{letter-spacing:-1px !important;}
+.ls0{letter-spacing:0 !important;}
+.nowrap{white-space:nowrap !important;}
+.onwrap{white-space:normal !important;}
+.tdu{text-decoration:underline !important;}
+.tdlt{text-decoration:line-through !important;}
+.tdn{text-decoration:none !important;}
+.tal{text-align:left !important;}
+.tar{text-align:right !important;}
+.tac{text-align:center !important;}
+.vat{vertical-align:top !important;}
+.vab{vertical-align:bottom !important;}
+.vam{vertical-align:middle !important;}
+.vabl{vertical-align:baseline !important;}
+.wwbw{word-wrap:break-word !important;} /* 20140616 */
+
+/* UX ◆◆◆ 메인페이지에도 필요한 스타일만 둔다.  */
+
+/* ☆웹접근성 */
+#skipnav{z-index:9999;position:absolute;left:0;top:0;width:100%;}
+#skipnav *{display:inline;list-style:none;margin:0;padding:0;}
+#skipnav a{display:block;position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden;}
+#skipnav a:focus{left:0;width:100%;height:auto;background:#578;color:#fff;font:bold 1em/2.5 '맑은 고딕';text-decoration:none;text-align:center;}
+
+/* Old UX ◆◆◆ */
+/* [JS] initmSelect('selectId','optionId'); initmSelect("mselect2","moption2",10); */
+.mselect{z-index:10;position:relative;width:200px;line-height:normal;}
+.mselect *{list-style:none;margin:0;padding:0;text-decoration:none !important;}
+.mselect .h1{display:inline;font-size:1em !important;} /* [JS] selectEl.getElementsByTagName("*")[0]; */
+.mselect .h1 a /* [JS]created */{display:block;position:relative;height:30px;padding:0 24px 0 0;border:1px solid #bbb;border-radius:3px 3px 0 0;background:#fff url(../../img/inc/combobg.png) no-repeat 100% 0;color:#333 !important;font-weight:normal;line-height:28px /* ☆ */;text-decoration:none;}
+.mselect .h1 a span /* [JS]created */{padding:0 2px 0 6px;background:#fff;}
+.mselect .moption{position:absolute;left:0;top:0;width:198px;padding-top:31px;border:1px solid #bbb;border-radius:3px;background:url(../../img/inc/combobg.png) no-repeat 100% 0;}
+.mselect .moption ul{width:100%;padding:5px 0;border-top:1px dotted #bbb;overflow:auto;}
+.mselect .moption li{display:inline;}
+.mselect .moption li a{display:block;padding:2px 6px;background:#fff;color:#000;text-decoration:none;white-space:nowrap;}
+.mselect .moption li a:hover,
+.mselect .moption li a:focus{background:#666;color:#fff;}
+.mselect .moption li.on a{color:#f00;}
+#mselect1{z-index:12;}
+#mselect2{z-index:11;}
+#mselect3{z-index:10;}
+
+
+/* RWD ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ */
+
+@media all and (min-width:768px){/* ◇◆◇◆◇◆◇◆◇◆ */
+
+/* ☆body{font-size:87.25%;} */
+
+} /* /(min-width:768px) */
+
+@media all and (min-width:768px) and (max-width:999px){/* ◇◆◇◆◇◆◇◆◇◆ */
+
+} /* /(min-width:768px) and (max-width:999px) */
+
+@media all and (min-width:1000px){/* ◇◆◇◆◇◆◇◆◇◆ */
+
+
+
+} /* /(min-width:1000px) */
+
+</xmp>
+
+
+<h2 id="Desktop">Desktop</h2>
+<code class="xmp">
+/* Base Reset.20140317 */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+html{overflow-y:scroll;}
+i,em,cite,dfn,var,address{font-style:normal;}
+body{margin:0;background:#fff;font-size:75%;line-height:1.75;-webkit-text-size-adjust:none;}
+body,input,select,button,textarea,pre,code,kbd,samp{font-family:/* '나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','Nanum Gothic', */'돋움',Dotum,AppleGothic,helvetica,sans-serif;}
+select,input,button,textarea{font-size:1em;vertical-align:middle;}
+label,button,input[type=submit],input[type=reset],input[type=button],input[type=image],input[type=radio],input[type=checkbox]{cursor:pointer;overflow:visible;}
+img,form,fieldset,iframe,object,embed,video,audio{max-width:100%;/* height:auto; */border:0;vertical-align:top;}
+table,pre{font-size:1em;}
+table{border-collapse:collapse;border-spacing:0;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+a{text-decoration:none;}
+a:link,a:visited{color:#04c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+small,sub,sup{font-size:.88em}
+abbr{cursor:help}
+em{color:#e00;}
+hr{display:none;}
+.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;/* opacity:0;filter:alpha(opacity=0); */}
+*+html .blind{height:0;}
+caption.blind{position:relative;}
+/* * html .png24{tmp:expression(setPng24(this));} */
+</code>
+
+<h2 id="Mobile">Mobile</h2>
+<code class="xmp">
+@charset "utf-8";
+/* 20121226.MoonYoungShin. */
+
+/* Base */
+html{overflow-y:scroll;}
+body,table,pre,input,select,textarea,button{font-style:normal;font-family:'맑은고딕','나눔고딕','돋움',Dotum,sans-serif;-webkit-text-size-adjust:none}
+address,cite,em,i,var{font-style:normal}
+header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption{display:block}
+label,button,input[type=submit],input[type=reset],input[type=button]{cursor:pointer;overflow:visible}
+body{margin:0;font-size:87.5%;line-height:1.65;word-wrap:break-word}
+a{text-decoration:none;cursor:default;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+hr{display:none}
+input.text,
+textarea.text{padding:.1em;border:1px solid #ccc}
+img,object{max-width:100%;height:auto;border:0;vertical-align:top;}
+acronym,abbr{cursor:help}
+em{color:#06c}
+.blind{position:absolute;left:-9999px;top:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}
+.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0}
+</code>
+
+<h2 id="HTML">HTML</h2>
+<xmp class="xmp">
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<thead>
+<tr>
+<th scope="col">프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림</th>
+<th scope="col">프리포맷티드굴림</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">프리포맷티드굴림</th>
+<td>프리포맷티드굴림</td>
+</tr>
+</tbody>
+</table>
+
+<pre>
+프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림프리포맷티드굴림
+프리포맷티드굴림
+프리포맷티드굴림
+프리포맷티드굴림
+</pre>
+
+
+<form action="">
+<fieldset><legend class="blind">레전드</legend>
+
+<label for="textA" class="label">인풋텍스트라벨</label><input type="text" name="textA" id="textA" value="인풋텍스트" class="text" />
+<label for="pwA" class="label">인풋패스워드라벨</label><input type="password" name="pwA" id="pwA" value="인풋패스워드" class="text" />
+<label for="fileA" class="label">인풋파일라벨</label><input type="file" name="fileA" id="fileA" value="인풋파일" class="file" />
+
+<label for="uri" class="label">셀렉드라벨</label>
+<select name="uri" id="uri" class="select">
+<optgroup label="셀렉드옵트그룹">
+<option value="" selected="selected">셀렉드옵션</option>
+</optgroup>
+</select>
+
+<input type="hidden" name="" value="인풋히든" />
+
+<input type="radio" name="radioA" id="radioA0" value="" checked="checked" class="radio" /><label for="radioA0" class="label">인풋라디오라벨</label>
+<input type="checkbox" name="checkA" id="checkA0" value="" checked="checked" class="checkbox" /><label for="checkA0" class="label">인풋체크박스라벨</label>
+
+<label for="textareaA" class="label"></label><textarea name="" id="textareaA" rows="2" cols="80" class="textarea">텍스트에어리어라벨</textarea>
+<br />
+<input type="image" src="" alt="인풋이미지" class="image" />
+
+<input type="submit" value="인풋서브밋" class="button" />
+<input type="reset" value="인풋리셋" class="button" />
+<input type="button" value="인풋버튼" class="button" />
+
+<button type="submit" class="button">버튼서브밋</button>
+<button type="reset" class="button">버튼리셋</button>
+<button type="button" class="button">버튼버튼</button>
+
+</fieldset>
+</form>
+</xmp>
+
+
+<hr />
+
+<h2>관련 정보</h2>
+
+<ul class="bu">
+<li><strong>▶ Font Simulation</strong> <a href="http://html.nhndesign.com/preview">http://html.nhndesign.com/preview</a></li>
+<li>em Chart <a href="http://aloestudios.com/tools/emchart/">http://aloestudios.com/tools/emchart/</a></li>
+</ul>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150420.
+20150325.
+20150324.
+20150309.
+20140317.
+20130123. 20130122.
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

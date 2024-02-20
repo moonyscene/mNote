@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Mobile miscellany | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Mobile miscellany</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#MWSCAP">모바일 웹 표준, 호환, 접근성, 성능</a></li>
+<li><a href="#Tip">Tip</a>
+	<ul>
+	<li><a href="#Hacosa">Hacosa 모바일 </a></li>
+	<li><a href="#vistorUA"">국내 모바일기기 인터넷 방문 점유율</a>
+		<ul class="bu">
+		<li><a href="http://trend.logger.co.kr/" target="_blank">Internet Trend</a></li>
+		</ul>
+	</li>
+	<li><a href="#mobileUA">모바일 웹 브라우저</a></li>
+	<li><a href="#mobileWebBM">모바일 웹 마크업 및 용량 비교</a></li>
+	</ul>
+</li>
+<li><a href="#Link">Link</a></li>
+</menu>
+
+<ul>
+<li class="cs6"><a href="../../html/Mobile/mobileOK.html">모바일OK</a> Deprecated</li>
+<li class="cs6"><a href="../../html/Mobile/jQueryMobile.html">jQuery Mobile</a></li>
+<li class="cs6 todo"><a href="../../html/Mobile/SenchaTouch.html">Sencha Touch <em>*</em></a></li>
+<li class="cs6 todo"><a href="../../html/Mobile/PhoneGap.html">PhoneGap <em>*</em></a></li>
+<li class="cs6 todo"><a href="../../html/Mobile/Appspresso.html">Appspresso <em>*</em></a></li>
+<li><a href="../../html/Note/HTML5API+CSS3+MobileApp.html">[book]HTML5API+CSS3+MobileApp</a></li>
+</ul>
+
+
+</div><!-- /mtab1 -->
+
+
+<p class="pd1em-lh bg-alert">
+	Fininshed1) 20170321. 드물게 참조하는 콘텐츠 링크 좌메뉴에서 여기 메뉴로 이동
+</p>
+
+
+<div id="" class="box3"><!-- box3 -->
+<ol class="bo1 num00">
+<li>가로 전환</li>
+<li>320*480 아이폰, 갤럭시S, 옴니아2, 옵티머스원, 아이패드, 갤럭시탭</li>
+</ol>
+<!-- /box3 --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:100%;margin:0 1% 0 0;">
+
+
+<h2 class="hb1 h2">모바일 기기 UA Info</h2>
+
+<dl class="as_table">
+<dt>NAVER APP<br /> with 갤S2</dt>
+<dd>
+navigator.appName : Netscape<br />
+navigator.userAgent : Mozilla/5.0 (Linux; U; Android 4.1.2; ko-kr; SHW-M250S Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 NAVER(inapp; search; 220; 4.6.2)
+</dd>
+</dl>
+
+
+<hr />
+<h2 id="SCAP">모바일 웹 표준, 호환, 접근성, 성능</h2>
+
+<ol>
+<li>20110812. 안드로이드 접근성 TalkBack 은 Native UI Component 도 제대로 읽어 주지 않음. 터치 했다는 정도만 알리고, 일부 운영체제 설명글만 읽어준다.</li>
+<li>110812_모바일_애플리케이션_접근성_지침_최종_대외공지용.pdf 정독!!</li>
+</ol>
+
+
+
+<h2 id="Tip">Tip</h2>
+
+<ol class="dfn">
+<li><strong>안드로이드 이벤트 투과 문제</strong> ※ <a href="http://jindo.dev.naver.com/jindo_home/doc/preventClickEventForAndroid.docx" target="_blank">http://jindo.dev.naver.com/jindo_home/doc/preventClickEventForAndroid.docx</a><br />
+(증상) <em>Android 4.0.x 버전 이하 Default Browser에서는 레이어를 띄울 경우, 이벤트가 투과 되어 레이어 뒷면에까지 이벤트가 전달되는 버그</em>가 있다.<br />
+이 문제는 원천적으로 해결할 수 는 없다. 하지만, 다음과 같은 접근 방식으로 문제를 해결할 수 있다.
+	<ol class="bo1 num00">
+	<li><b>(해결1) 상위 레이어에 백그라운드 컬러를 주기</b>
+	다만, 모든 단말기에서 처리할 수 있는 것은 아니고, 4.0.x버전의 LG단말기에서는 이러한 문제를 해결 할 수 있기 때문에 궁극적인 해결책은 아니다.</li>
+	<li><b>(해결2) 레이어 뒷면의 엘리먼트 숨기기</b>
+	레이어에서 투과될 수 있는 경우를 원천적으로 제거하는 방식으로, 하위 레이어에 존재하는 클릭 될 수 있는 엘리먼트를 제거하는 방식이다.
+	위 그림의 버튼이나 하위 레이어를 display:none 한다. </li>
+	<li><b>touchstart에서 이벤트 막는 방법</b>
+	이 방식은 상위 레이어에서 발생하는 모든 이벤트를 막고, 상위 레이어에서 투과되어야 할 엘리먼트에 대해서는 이벤트를 막지 않는 방식이다.
+	상위 레이어에서 발생하는 이벤트를 막기 위해서는 touchstart 에서 이벤트를 막아야 한다. 또한, 상위 엘리먼트의 버튼도 해당 액션 처리 후 이벤트를 막아야 한다.
+	아래는 class가 “pass” 라는 엘리먼트를 제외하고는 모든 이벤트를 touchstart에서 막는 코드이다.
+	<xmp class="xmp">
+	<button id="btn" class='pass'>버튼</button>
+
+	jindo.$Fn(function(we) {
+		console.log("버튼 선택");
+		we.stop(jindo.$Event.CANCEL_ALL);
+	}, this).attach("btn", "touchstart");
+
+	jindo.$Fn(function(we) {
+		var wel = jindo.$Element(we.element);
+		if(!wel.hasClass("pass")) {
+			we.stop(jindo.$Event.CANCEL_ALL);
+		} 
+	}, this).attach("상위레이어", "touchstart");
+	</xmp>
+	단, 안드로이드 2.x 대에서는 이벤트는 막히지만, 하이라이트나 롱 탭은 발생한다.<br /></li>
+	</ol>
+</li>
+<li><strong>iframe</strong> iOS Safari, Android Default Browser 에서 가능하지만 overflow:auto; 안되고 hidden 으로만 표현됩니다.<br />
+| iframe 의 <b>viewport</b> 를 바닥 페이지와 다르게 할 수는 없다.<br />
+</li>
+<li><strong><b>상단 주소바(툴바)</b></strong> 사라지게 하기
+<xmp class="xmp">
+if(window.addEventListener)window.addEventListener('load',function(){setTimeout(scrollTo,0,0,1);},false);
+</xmp>
+<xmp class="xmp">
+function hideAddressBar() {
+	if(!window.location.hash) {
+		if(document.height < window.outerHeight)
+			document.body.style.height = (window.outerHeight + 50) + 'px';
+		setTimeout( function(){
+			window.scrollTo(0,1);
+			document.body.style.height = 'auto';
+		}, 50 );
+	}
+}
+</xmp>
+</li>
+<li><strong>background-size:</strong> 짝수px 짝수px; 로 해야지 갤럭시S2,3 에서 조금이나마 더 선명하게 이미지가 표시되더라.</li>
+
+<li><strong>로딩중... 움직이는.gif</strong> 의 경우. img 요소에 position 속성 주면.. Android2.3 에서 움직임 없이 멈춘상태로 보여준다. img 를 포함하는 요소를 추가해서 거기에 주면 해결된다.<br />
+<xmp class="xmp">
+<div class="loading"><div class="bg"></div><span class="pic"><img src="<?=$sitePath?>/img/inc/loading.gif" width="32" height="32" alt="로딩중..." /></span></div>
+</xmp>
+<xmp class="xmp">
+.loading .bg{z-index:999;position:fixed;left:0;top:0;width:100%;height:100%;background:#fff;filter:alpha(opacity=50);opacity:0.5;}
+.loading .pic{z-index:1000;position:fixed;left:50%;top:155px;display:block;margin:0 0 0 -16px;}
+</xmp>
+</li>
+<li>iOS Safari <strong>전화번호 자동 링크 제거</strong>
+<xmp class="xmp">
+<meta name="format-detection" content="telephone=no" />
+</xmp>
+전화번호 링크 연결
+<xmp class="xmp">
+<a href="tel:111-222-3333">전화걸기</a>
+<a href="sms:000-0000-0000">문자발송</a>
+</xmp>
+</li>
+<li>iOS Safari 에서는 영문이 한글보다 1px 더 아래 표현됩니다. (해결) vertical-align:top</li>
+<li>iOS 이미지 사이즈 제한 = width * height ≤ 3byte(24bit) * 1024 * 1024 = 최대 3Mbytes</li>
+<li>iOS Safari <strong>입력상자스타일제거</strong>
+<xmp class="xmp">
+input.text,input.file,textarea{-webkit-border-radius:0;-webkit-appearance:none}
+</xmp>
+</li>
+</ol>
+
+
+<h3 id="Hacosa">Hacosa 모바일 20100822~20120214 -- 315 articles</h3>
+<!-- <h3>Hacosa 모바일 20100822~20110905 -- 255ea</h3> -->
+
+<ol class="bu">
+<li>모바일 작업을 하는데 IE6,7 을 맞추어야 하는 이유가 있나요? 현재 대부분 모바일은 HTML5, CSS3로 작업이 되는데, 이는 IE8조차도 지원해주지 못하는 겁니다..</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">같은 UI를 갖고 패드와 폰을 맞춘다는건 사실상 논리에 맞지 않습니다.</a></li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">jQuery Mobile을 활용한 국내 사이트는?</a> --[m] 없나부다?  </li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">iscroll을 사용해보았는데 영역안에 체크박스가 체크가 안됩니다.</a></li>
+<li>모바일웹 아이콘 사이즈 질문<br />
+아이폰4 =114x114
+아이폰3gs = 57x57 (아이폰4 사이즈로 하시면 축소 됨 비율마쳐서.)
+아이패드 = 72x72
+안드로이드 = 72x72
+</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">아이폰에서 폰트 볼드체</a>
+strong{font-weight:normal;-webkit-text-stroke-width:.02em;}
+</li>
+<li>디자인 <a href="http://www.jqmgallery.com/">http://www.jqmgallery.com/</a>
+기능 <a href="http://jquerymobile.com/">http://jquerymobile.com/</a>
+</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=3&menuid=169&boardtype=L&articleid=35862&referrerAllArticles=false">모바일 웹 개발 참고사항(공유)</a>
+<a href="http://mydeute.com/txp/article/631">CSS3 Media queries Vol.1</a>
+</li>
+<li><a href="http://cysstory.blog.me/150118331386">해상도 선택</a><br />
+<a href="http://blog.naver.com/jsl1prime/20131102046">웹, 웹앱, 앱 해상도</a> {-webkit-min-device-pixel-ratio:1}
+</li>
+<li>아이폰에서 체크박스<br />
+input,textarea{margin:0;padding:0;-webkit-appearance:none;-webkit-border-radius:0;}
+input[type="checkbox"]{-webkit-appearance:checkbox;}
+input[type="radio"]{-webkit-appearance:radio;-webkit-border-radius:10px;}
+</li>
+<li>모바일웹 이미지 .bg{-webkit-background-size:00px 00px;}</li>
+<li><a href="http://cafe.naver.com/hacosa/34720">스마트폰 해상도.20111019</a></li>
+<li><a href="http://cafeptthumb2.phinf.naver.net/20110926_68/7793690_1317013647976Aw44q_jpg/mobile_size_7793690.jpg?type=w740">모바일기기별 해상도 크기</a>
+아이폰 3.5" (480x320, 960x640) 3:2 비율<br />
+갤럭시U,K 3.7" (800x480) 5:3 비율<br />
+갤럭시 S 4.0" (800x480) 5:3 비율<br />
+갤럭시 S2 4.3" (800x480) 5:3 비율<br />
+HTC 홀리데이 4.5" (960x540) 16:9 비율<br />
+델 스트릭 5.0" (800x480) 5:3 비율<br />
+갤럭시 노트 5.3" (1280x800) 16:10 비율<br />
+갤럭시 탭 7.0" (1024x600) 128:75 비율<br />
+갤럭시 탭 7.7" (1280x800) 16:10 비율<br />
+갤럭시 탭 8.9" (1280x800) 16:10 비율<br />
+아이패드 9.7" (1024x768) 4:3 비율<br />
+갤럭시 탭 10.1" (1280x800) 16:10 비율<br />
+※ 주의) 기기별 도트피치에 따라서 실작업 해상도는 달라질수있습니다.<br />
+</li>
+<li>모바일 날짜 시간 셀렉트.. jquery mobile 이나 sencha touch 같은 모바일 프레임워크,  picker 플러그, ..</li>
+<li>jquerymobile, sencha touch 로 코딩한 모바일웹을 앱으로 바꾸려면..
+<a href="http://appspresso.com/ko/developer-ko/getting-started-ko">앱스프레소</a>
+<a href="http://www.phonegap.com/start">폰갭</a>
+</li>
+<li>iphone url bar 완전 제거
+예) <a href="http://m.avexnet.jp/a_index.php?id=exile&guid=ON">[예]</a>
+<a href="http://m.avexnet.jp/js/iscroll.js">http://m.avexnet.jp/js/iscroll.js</a>
+</li>
+<li>webkit-inner-spin-button
+<a href="http://stackoverflow.com/questions/5363234/html5-input-type-number-detect-whether-spinbox-or-not-and-no-other-features">[예]</a>
+</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=1&menuid=169&boardtype=L&articleid=32514&referrerAllArticles=false">jQuery Mobile Pagination Plugin - 페이지 이동 플러그인 - 슬라이딩</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=1&menuid=169&boardtype=L&articleid=32248&referrerAllArticles=false">.live("click", function(){ .... })</a>
+<xmp class="xmp">
+if( $(......).length == 0 ){
+	alert("그런거 없수~");
+}
+</xmp>
+</li>
+<li>홈 화면 아이콘 <a href="http://docs.cena.co.kr/?mid=textyle&document_srl=10809">※스마트폰 즐겨찾기 아이콘 웹설정 방법및 각 폰 설정방법</a>
+<xmp class="xmp">
+<link rel="apple-touch-icon-precomposed" href="/img/main/ic_home.png" /><!-- 안드로이드 -->
+<link rel="apple-touch-icon" href="/img/main/ic_home.png" /><!-- 아이폰 -->
+</xmp>
+</li>
+<li><a href="http://blog.daum.net/cknet/11788548">user-agent로 아이폰과 안드로이드폰 접속 분기하기</a></li>
+<li>input type="file" 안되므로 파일첨부는 앱으로 만들어야 한다.</li>
+<li>아이패드/탭까지 아우르는 모바일 코딩이 가능할까요? 미디어 쿼리 추천<br />포털사이트를 참고 하시면 아이패드는 pc화면, 갤럭시탭은 모바일화면으로 로딩됩니다. 사이즈 때문이겠죠^^</li>
+<li>모바일 화면의 스크롤 막을 수 있을까요?
+<a href="http://yooor.com/open/ms_may/view2.html">[예]</a>
+</li>
+<li>모바일 이미지 선명도 문제? 480x800(안드로이드) 또는 640x960(아이폰4) 기준으로 큰 이미지가 있어야 선명하게 나오게 할 수 있답니다.</li>
+<li>폰트 14로 해놓은 글씨나 10으로 해놓은 글씨나 크기가 똑같이 출력? (A1) html{<em>-webkit-text-size-adjust:none;</em>}</li>
+<li>디바이스 별 테스트 방법? 모바일 작업해본 결과 무조건 직접 기계를 가지고 테스트하는 방법밖에는 없는거 같습니다.</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=3&menuid=169&boardtype=L&articleid=31135&referrerAllArticles=false">하이브리드 앱을 만들기위한 여러 프래임워크들에대해</a></li>
+<li>모바일에서는 device값을 가져오지 못하나요? 웹으로는 개인을 식별할만한 고유정보의 접근이 불가능하겠죠. 앱과는 다릅니다.</li>
+<li>media query, viewport, retina display, -webkit-min-deivce-pixel-ratio</li>
+<li>제이쿼리 모바일 좌우 버튼 이미지 변경? 가능. 참조 - document나 api 읽어보고.. <a href="http://cafe.naver.com/webappdev">웹앱을 만드는 사람들의 모임</a></li>
+<li>가로 회전 막기? 안될걸여??</li>
+<li>gif 애니메이션? 아이폰은 되는데, 안드로이드에서는 허용된 프레임과 사이즈가 정해져 있습니다.
+애플에서 어도비 플래시를 배척하는것과 마찬가지로 안드로이드 자체에서 움직이는 gif 가 아니더라도 gif 포맷 자체를 권장하지 않는것으로 알고 있습니다.
+html5 canvas 태그등을 이용해서 사용하시는게 해결책일듯 싶습니다.
+</li>
+<li>터치 드래그, 슬라이드? iscroll, jquery swipe, <a href="http://sorgalla.com/projects/jcarousel/">jCarousel</a></li>
+<li><a href="http://m.mkexdev.net/34">뷰 포트(Viewport)</a></li>
+<li>보더를 넣어도 유동적으로 사이즈조절되는 탭메뉴? li{display:table-cell;border-left:1px solid #f8f8f8;} 하면.. 알아서 넓이를 잡아요.</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=4&menuid=169&boardtype=L&articleid=30744&referrerAllArticles=false">html5의 canvas에서 텍스트가 이미지밑에 가려집니다. https://github.com/farinspace/jquery.imgpreload 이런 이미지 프리로드 스크립을 사용해서 모든 이미지를 미리 불러온 다음 캔버스를 생성하게 하세요.</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=4&menuid=169&boardtype=L&articleid=30721&referrerAllArticles=false">480해상도로 작업하면 메타테그 적용시 320해상도에서도 화면에 맞게 보이나요? 그냥.. 320이 나아요</a></li>
+<li>키패드도 번호만 나오게 하는 법? &lt;input type="number" /&gt;</li>
+<li>2011.07.04  30514  하이브리드 어플을 만들기 위한 도구 ~ ★남은작업:이전부터 보면 된다.</li>
+<li>useragent를 구분해서 분기
+<xmp class="xmp">
+<script>
+//<![CDATA[
+var mobileKeyWords = new Array('Mobile', 'iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Nokia', 'SymbianOS', 'Opera Mobi', 'Opera Mini','Android', 'NetFront');
+for (var word in mobileKeyWords){
+	if (navigator.userAgent.match(mobileKeyWords[word]) != null){
+		document.location.href = "모바일주소";
+		break;
+	}
+}
+//]]>
+</script>
+</xmp>
+</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">jqtouch는 개발 중단된지 오래됐습니다 sencha touch에 흡수됐죠.</a></li>
+<li>select는 css로 조절이 불가능합니다. width정도만 먹죠.
+레이어로 select를 덮은 뒤 해당 레이어에 디자인을 하고, select는 opacity:0으로 숨기면 대충 디자인은 가능해요.. 텍스트 나오는 부분은 스크립트로 어케 처리하심 되구요..
+</li>
+<li>모바일웹에서 터치영역 숨김? -webkit-tap-highlight-color:rgba(0,0,0,0)</li>
+<li>모바일 동영상 재생 (유튜브) 관련 질문 - youtobe에서 제공해주는 아이프레임 소스로하면 되는거 아닌가여??</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">모바일 레이어 스크롤 제어 질문 - 모바일 환경 자체가 스크롤이라는걸 인식 않는다는 걸 이해하세요.</a></li>
+<li>border-image</li>
+<li>html5 audio - Android 2.2 이하는 지원하는 포맷이 없습니다. 2.3은 mp3만 지원합니다.</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">W3C mobileOK Checker</a> - 80%이상통과. 100% 도 가능은 하다.</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">tab markup 100% 문의</a>
+ 1~2pixel 여백? display: table;, display: table-cell;
+</li>
+<li>애플고딕, 드로이드serif, 기타 모바일 전용 폰트들은 한글 bold 지원을 하지 않습니다. 별도의 bold 서체를 함께 제공하기도 하지만.. 
+bold 하지말라고 기획/디자인/고객들한테 정확하게 이야기해주세요. 안그러믄 나중에 많이 꼬여요.
+</li>
+<li>.9.png 파일</li>
+<li>box-sizing:border-box</li>
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=12566436%26search.menuid=59%26search.boardtype=L">모바일 리스트 a링크</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=13&menuid=169&boardtype=L&articleid=26500&referrerAllArticles=false">모바일 폰트...폰트스타일</a></li>
+<li>26459 <a href="http://xguru.net/625">아이패드 홈화면에 바로가기 버튼 추가</a> 2011.03.23</li>
+<li>안드로이드에서 animate gif 에 제약이 있습니다. gif 파일의 프레임을 조정해야 합니다.</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=14&menuid=169&boardtype=L&articleid=26125&referrerAllArticles=false">레이어를 띄울 경우 안드로이드에서 그 밑에 있는 폼요소/anchor 태그가 클릭이 되는 현상이 발생합니다.</a> -- 안드로이드 브라우저 버그입니다.</li>
+<li><a href="http://hyeonseok.com/soojung/apple/2010/10/17/602.html">아이폰 사파리 뷰포트 메타 태그와 줌 설정</a></li>
+<li>동영상 재생 프로토콜 mms 프로토콜 안되나? rtsp 프로토콜은 뭐지?</li>
+<li>border-image-slice:</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=14&menuid=169&boardtype=L&articleid=25928&referrerAllArticles=false">모바일웹으로 자동이동 후 pc버전 눌렀을 때..</a> pc버젼 링크의 주소뒤에 인자값을 줘서 location.href 또는 location.search 또는 location.hash 로</li>
+<li>아이패드 확인? 사파리에서 <a href="http://ipadpeek.com/">http://ipadpeek.com/</a> 들어가 봐~ 정확하지는 않아.. 맥을 사용하신다면 iPhone Simulator를..<br />
+(m) 아이폰 시물 <a href="http://www.testiphone.com/">http://www.testiphone.com/</a><br />
+안드로이드 시뮬레이터는 JDK 설치하시고 eclipse 설치하시면 eclipse에 add on방식으로 실행하실 수 있습니다.<br />
+</li>
+<li>2011.02.16. 안드로이드에서의 input 요소.. checkbox 나 radio 같은 경우.. widht, height 값이 적용이 안되네요? (A1) 이미지로 처리하더라구요... 비활성 활성 이렇게 만들어서</li>
+<li>웹 상에 퍼져있는 소스는 휴대폰으로 접속했을 때 header를 파싱해 폰으로 접속하는 것이 확인 될 경우 m.xxx 로 리다이렉트 (페이지이동) 시키는 것이구요.</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=15&menuid=169&boardtype=L&articleid=24300&referrerAllArticles">팝업, 새 창, 레이어 팝업. window.close(); self.close();</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=15&menuid=169&boardtype=L&articleid=24242&referrerAllArticles=false">아이폰과 아이패드, 갤럭시와 갤럭시탭 모두에 들어갈 앱디자인 해상도는??</a>
+<dl class="bu">
+<dt>(A1)</dt>
+<dd>
+	<ul class="bu">
+	<li>meta를 사용하여 content width를 일정하게 맞추고 하는 경우도 있고,</li>
+	<li>폼의 크기를 전부 %로 줘서 기기크기마다 자동으로 늘어나게 보여주는 방법도 있고,</li>
+	<li>user agent로 기기구분을 해서 기기별로 각자 다른 css를 적용시키는 방법도 있고,</li>
+	<li>css의 transform scale을 사용하여 화면을 늘리거나 줄여서 화면에 딱 맞게 표시하는 방법도 있습니다.</li>
+	</ul>
+</dd>
+</dl>
+</li>
+<li>모바일 동영상 재생 질문입니다. 일단 모바일에선 독타입이 html5가 아니어도 video태그가 실행되는걸 확인하였으나...</li>
+<li>좌우로 드래그 시에 움직이는 효과? ontouchstart, ontouchmove, ontouchend </li>
+<li>max-width:100%;</li>
+<li>HTML5 모바일 사이트? http://m.lig.co.kr/</li>
+<li>상단 메뉴를 고정하려면? 야후 메일이나 지메일쪽 모바일 사이트 소스 참고</li>
+<li>-webkit-apprearance:none; (A1) background:url(none)</li>
+<li>2011.01.20. 모바일 position:fixed 가 안됨? (A1) 속도문제로 모바일에서는 disable 되어있습니다. 아마 안드로이드는 되고 아이폰은 안되고 그럴거에요. querymobile의 fixed toolbar를 살펴보시면 힌트를..</li>
+<li>차트? (A)
+	<ul class="bu">
+	<li><a href="http://code.google.com/p/flot/">http://www.filamentgroup.com/examples/charting_v2/</a></li>
+	<li><a href="http://g.raphaeljs.com/">http://g.raphaeljs.com/</a></li>
+	<li><a href="http://code.google.com/p/flot/">http://code.google.com/p/flot/</a></li>
+	</ul>
+</li>
+<li>모바일웹에서 사진첨부/파일첨부 기능의 구현은? - 안드로이드 2.2 부터 지원한다고 하나 휴대폰 제조사에서 기능 삭제? 아이폰 지원 안함. 심비안(노키아 휴대폰) 지원됨.</li>
+<li>모바일웹 롤오버버튼효과를 줘도 되는지? a:hover 보다는 a:active 효과를 쓰지요</li>
+<li>png, jpg, gif<br />
+(A1) 제가 알기로는 gif로 만들면 모바일 기기마다 색상이 다르게 나와 의도한 디자인이 나오지 않는 경우가 많아고하네요. 하지만 png로 작업하면 거의 동일한 색상이 나온다고 알고있습니다</li>
+<li>모바일에서도 동영상 플레이 됩니다.
+단, 모바일 기기에 따라 플레이 할 수 있는 동영상 파일 포맷에 제약이 있을 수 있습니다.
+동영상 포맷이 모바일에서 재생할 수 없는 경우 동영상을 모두 변환해주어야 합니다.
+기존의 동영상을 수동으로 일일이 변환할 수 없는 경우 별도의 동영상 서버 구축이 필요합니다.</li>
+<li><a href="http://www.readactor.com/articles/jquery-checkbox-radio-button-and-selectbox-css-styling-solutions/">셀렉트박스를 사용하되 디자인을 입히는 방법</a>이 있습니다.</li>
+<li><a href="http://nightly.webkit.org/">WebKit Nightly Builds</a> 설치 어떻게 하나요?<br />
+(A1) 생긴건 사파리같이 생겼지만 그게 웹킷입니다. 정확히 말하면 웹킷에 사파리 껍데기 얹은거죠.<br />
+(A2) 개발툴이라면 "Web Inspector"말씀하시는 건가요? Web Inspactor라면 Safari에도 있습니다. 편집->기본설정에서 '고급'탭 가시면 '메뉴 막대에서 개발자용 메뉴 보기'체크박스가 나오는데..
+그곳에 체크를 하시면 메뉴 막대에 "개발자용"이란 메뉴가 생겨납니다. 여기서 Ctrl+Alt+I 를 누르시거나 "개발자용->웹 속성 보기"를 누르시면 됩니다.
+또한, Google Chrome도 웹킷이라 똑같이 Ctrl+Shift+I 를 누르시면 같은 녀석이 나타납니다..<br />
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=18&menuid=169&boardtype=L&articleid=22971&referrerAllArticles=false">구글 맵 API 모바일에 적용하기</a></li>
+<li>말줄임표(...) text-overflow:ellipsis;</li>
+<li><a href=" http://www.gmarwaha.com/jquery/jcarousellite/">jQuery 슬라이드 - jCarouselLite</a></li>
+<li>디자이어 웹으로 볼땐 멀쩡히 나오던게 앱안에서 호출하면 완전 그지같이 나오는데 이유가 뭘까요? (A1) HTC (디자이어) 브라우저는 조금 변태성이 있답니다.</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=18&menuid=169&boardtype=L&articleid=22373&referrerAllArticles=false">desire 에서는 user-scalable=no 가 안먹는다네요</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=18&menuid=169&boardtype=L&articleid=22225&referrerAllArticles=false">20101216. 모바일 사이트 개발하면서 겪은일 정리...</a></li>
+</li>
+<li>20101213. <a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=18&menuid=169&boardtype=L&articleid=22124&referrerAllArticles=false">갤럭시는 mp4 스트리밍이 안되나요? 해결방법 : 곰인코더 사용</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=19&menuid=169&boardtype=L&articleid=22063&referrerAllArticles=false">엑박의 공포~!</a><br />
+<xmp class="xmp">
+<link rel='apple-touch-icon' href='/img/iphone_home_icon.png' />
+</xmp>
+ (A1) PHP 개발자이신듯 한데... 코드 습관을 조금 바꾸시는게 좋을듯 합니다.</li>
+<li>QR 코드 생성? (A1) <a href="http://www.scany.net/kr/generator/">http://www.scany.net/kr/generator/</a></li>
+<li>기기별 디자인 고려사항은 기획에서 가이드를 잡아주겠죠.</li>
+<li>20101201. <a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=20&menuid=169&boardtype=L&articleid=21724&referrerAllArticles=false">모바일 웹사이트 제작시 필수사항</a></li>
+<li>앱에서 이미지가 바뀌지않는경우 해결법? 삭제하시려면 캐쉬를 삭제하셔야죠. 그리고 그 이미지가 계속 업데이트 되는거라면 파일명 뒤에 타임스탬프나 넘버링을 붙여보세요.</li>
+<li>뷰 포트(Viewport) <a href="http://sungsmy.egloos.com/1604179">http://sungsmy.egloos.com/1604179</a> <a href="http://m.mkexdev.net/34">http://m.mkexdev.net/34</a></li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=20&menuid=169&boardtype=L&articleid=21455&referrerAllArticles=false">CSS3 media 쿼리@media orientation:landscape;</a></li>
+<li>모바일 사이트 참고 <a href="http://m.movist.com/">http://m.movist.com/</a>
+모바일 사이트 모음 <a href="http://www.umoby.co.kr/">http://www.umoby.co.kr/</a>
+</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=20&menuid=169&boardtype=L&articleid=20715&referrerAllArticles=false">스마트폰용 동영상 변환 질문</a></li>
+<li>이미지텍스트가 아닌 굴림이나 돋음체나 같은 일반 텍스트같은 경우에
+보통 웹페이지는 기본사이즈가 12pt인데 모바일용으로는 15px정도 잡으시면 되실겁니다
+저는 모바일용으로 작업할때 픽셀로 했거든요 em이나 이런거는 잡기가 힘들어서요
+이미지텍스트일 경우에는 포토샵에서 17이나 18로 하시면 기본적인 사이즈로 나오실꺼에요</li>
+<li>유튜브 영상에 오른쪽구석인가 아이콘 있지 않나요? URL만 딸수도 있고 embed 소스도 있구
+<a href="http://blog.naver.com/PostView.nhn?blogId=jongsbee&logNo=20056986992&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true">유튜브 영상 이용</a>
+<a href="http://jjeong.tistory.com/376">http://jjeong.tistory.com/376</a>
+</li>
+<li>중요 카테고리마다 QR코드를 생성?
+(A1) php 로 QR Code 만들어주는 라이브러리는 이미 많이 있으니 검색해서 적용하시면 될듯해요.
+GD 라이브러리 연동해서 이미지 형태로 만들어주는 것이니
+라이브러리를 이용하여 미리 generate 해놓거나(generate 된 파일이 없다면 새로 생성) 하여
+HTML 문서 상에 &lt;img/&gt; 태그를 통해 호출하시면 되겠네요.
+나머지 부분은 모바일과 일반 웹이 크게 다른 부분이 없습니다.
+그냥 똑같은 웹이에요. 단지 해상도가 좀 다를뿐~ 이 부분은 프로그램보다는 디자인과 HTML 마크업에서 차이가 나겠지요. 개발단에서 신경쓰실 부분은 거의 없습니다.
+</li>
+<li>JQuery Mobile</li>
+<li>Opera Mobile emulator</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=21&menuid=169&boardtype=L&articleid=19177&referrerAllArticles=false">애플 폰갭 공식 인정</a></li>
+<li>google App Inventor for Android</li>
+<li>아이폰 웹 테스트, <a href="http://www.testiphone.com/">아이폰 웹 시뮬레이터</a></li>
+<li><a href="http://webdevmobile.com/xe/free/15412">새로운 웹 랩퍼 타이타니움</a> - 폰갭보다 더 많은 부분을 커퍼하고 있다네요</li>
+<li><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=21&menuid=169&boardtype=L&articleid=18955&referrerAllArticles=false">아이폰 웹 개발을 위한 프레임워크 여러가지 안내</a></li>
+</ol>
+
+
+<h3 id="vistorUA">국내 모바일기기 인터넷 방문 점유율</h3>
+
+<table border="1" class="t3" summary=""><caption><a href="http://trend.logger.co.kr/trendForward.tsp">국내 모바일기기 인터넷 방문 점유율</a> 2011.01.26~2011.02.23</caption>
+<thead>
+<tr>
+<th scope="col">순위</th>
+<th scope="col">구분</th>
+<th scope="col">기간내평균</th>
+<th scope="col">기간시작(2011-01-26)</th>
+<th scope="col">기간끝(2011-02-23)</th>
+<th scope="col">기간내변화율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1</th>
+<td>SmartPhone/<strong>iPhone</strong></td>
+<td>50.62%</td>
+<td>51.79%</td>
+<td>52.08%</td>
+<td>0.29%▲</td>
+</tr>
+<tr>
+<th scope="row">2</th>
+<td>SmartPhone/<strong>GALAXY S</strong>(SAMSUNG)</td>
+<td>17.47%</td>
+<td>17.17%</td>
+<td>16.23%</td>
+<td>0.94%▼</td>
+</tr>
+<tr>
+<th scope="row">3</th>
+<td>SmartPhone/Android</td>
+<td>4.85%</td>
+<td>3.46%</td>
+<td>5.89%</td>
+<td>2.43%▲</td>
+</tr>
+<tr>
+<th scope="row">4</th>
+<td>Mobile/iPad</td>
+<td>4.58%</td>
+<td>4.81%</td>
+<td>4.92%</td>
+<td>0.11%▲</td>
+</tr>
+<tr>
+<th scope="row">5</th>
+<td>Mobile/GALAXY Tab(SAMSUNG)</td>
+<td>2.48%</td>
+<td>2.50%</td>
+<td>2.35%</td>
+<td>0.15%▼</td>
+</tr>
+<tr>
+<th scope="row">6</th>
+<td>SmartPhone/<strong>OPTIMUS ONE</strong>(LG)</td>
+<td>2.24%</td>
+<td>2.13%</td>
+<td>2.09%</td>
+<td>0.04%▼</td>
+</tr>
+<tr>
+<th scope="row">7</th>
+<td>Mobile/Web-Viewers</td>
+<td>1.97%</td>
+<td>2.40%</td>
+<td>1.81%</td>
+<td>0.59%▼</td>
+</tr>
+<tr>
+<th scope="row">8</th>
+<td>SmartPhone/GALAXY U(SAMSUNG)</td>
+<td>1.64%</td>
+<td>1.58%</td>
+<td>1.66%</td>
+<td>0.08%▲</td>
+</tr>
+<tr>
+<th scope="row">9</th>
+<td>SmartPhone/VEGA(SKY)</td>
+<td>1.56%</td>
+<td>1.55%</td>
+<td>1.42%</td>
+<td>0.13%▼</td>
+</tr>
+<tr>
+<th scope="row">10</th>
+<td>Unknown</td>
+<td>1.08%</td>
+<td>1.24%</td>
+<td>0.98%</td>
+<td>0.26%▼</td>
+</tr>
+<tr>
+<th scope="row">11</th>
+<td>SmartPhone/DESIRE(HTC)</td>
+<td>1.02%</td>
+<td>0.95%</td>
+<td>0.98%</td>
+<td>0.03%▲</td>
+</tr>
+</tbody>
+</table>
+<p>
+iPhone + GALAXY S = 68.31%<br />
+iPhone + GALAXY S + Android + OPTIMUS ONE = 76.29%<br />
+iPhone + GALAXY S + Android + iPad + GALAXY Tab + OPTIMUS ONE = 83.56%<br />
+<em>※ Omnia2 는 1% 미만이니 호환 대상에서 제외해도 되겠다.</em><br />
+</p>
+
+<h3 id="mobileUA">모바일 웹 브라우저</h3>
+
+<h4>Test : 국내 출시된 주요 모바일 기기 해상도</h4>
+
+<h5><a href="http://mvisit.geoje.go.kr/">2011거제방문의해</a></h5>
+
+<xmp class="xmp">
+<meta name="viewport" content="width=device-width,maximum-scale=2.4,minimum-scale=0.75,user-scalable=yes" />
+*{font-style:normal;font-family:"맑은고딕","나눔고딕","돋움",Dotum,sans-serif}
+#container{width:320px;margin:0 auto}
+</xmp>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: ;" /><col />
+<thead>
+<tr>
+<th scope="col">Test항목</th>
+<th scope="col">iPhone4</th>
+<th scope="col">iPod Touch 2세대</th>
+<th scope="col">GalaxyS</th>
+<th scope="col">Omnia2</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Resolution</th>
+<td>640*960  (320*480)</td>
+<td>320*480<br />
+가로모드 : 상태바 20 주소바 44 버튼바 44<br />
+세로모드 : 상태바 20 주소바 32 버튼바 32<br />
+<em>풀스크린 : 480-20-44=416px</em><br />
+</td>
+<td>480*800 (<b>320*533</b>)<br />
+가로모드 : 상태바 26 주소바 57? 버튼바 0<br />
+세로모드 : ?<br />
+<em>풀스크린 : 533-26-0=507px</em><br />
+</td>
+<td>480*800</td>
+<td>
+480*854 = 모토로이,<br />
+480*800 = HTC디자이어(넥서스원), 옵티머스Q, 갤럭시A, 시리우스, 베가<br />
+</td>
+</tr>
+<tr>
+<th scope="row">OS</th>
+<td>iOS4.2</td>
+<td>iOS4.2</td>
+<td>Android2.2(프로요)</td>
+<td>WindowMobile6.5</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">UA(엔진)</th>
+<td>Safari(webkit) 버전모름</td>
+<td>Safari(webkit) 버전모름</td>
+<td>인터넷(?) 버전모름</td>
+<td>웹뷰어(?), Opera mobile, IE mobile, Opera mini</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Font</th>
+<td>Apple Gothic (선명해짐)</td>
+<td>Apple Gothic (Mac유사-가로긴글꼴)</td>
+<td>맑은고딕?</td>
+<td>고딕?</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">viewport</th>
+<td>세로보기 최적화면, 가로보기 최적화면</td>
+<td>세로보기 최적화면, 가로보기 되던데.. 어떻게 하면 되는지? 내 기기가 고물이라서 그런가?</td>
+<td>세로보기 최적화면, 가로보기 w320</td>
+<td>브라우저마다 다르고 최적화면 안됨<br />
+Opera mini 가 최악? w320 그대로 보여 좌우공간?
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">File Upload</th>
+<td>App필요</td>
+<td>App필요</td>
+<td>App필요</td>
+<td>자체가능</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>종류</h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Mobile Web Broswer</th>
+<th scope="col">OS (엔진) / 단말기기</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">인프라웨어 Polaris </th>
+<td></td>
+<td>국내 출시 단말 약 70%</td>
+</tr>
+<tr>
+<th scope="row">Opera mobile</th>
+<td>(9.2 이하 presto 기반, 9.5 이상 Presto Core 2 기반 ) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">MS IE mobile</th>
+<td>Windows mobile </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Google Chrome</th>
+<td>Android (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Apple Safari</th>
+<td>MAC OS (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Access Netfront</th>
+<td>Multi Platform </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Nokia oss</th>
+<td>S60 (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Mozilla Fennec</th>
+<td>linux , Windows Mobile (gecko기반) </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">단말기기</th>
+<th scope="col">User Agent</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">IPod Touch</th>
+<td>Safari</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">옴니아폰</th>
+<td>웹뷰어, Opera mobile, IE mobile</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="mobileWebBM">모바일 웹 마크업 및 용량 비교</h3>
+
+<table border="1" class="t3" summary=""><caption>mobileWeb total weight 2010.12.17.</caption>
+<thead>
+<tr>
+<th scope="col">메인</th>
+<th scope="col">글목록</th>
+<th scope="col">썸네일목록</th>
+<th scope="col">글읽기</th>
+<th scope="col">글쓰기</th>
+<th scope="col">Browser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul class="bu">
+<li><a href="http://m.naver.com/">네이버</a> 170.9K bytes</li>
+<li><a href="http://m.daum.net/">다음</a> 125.0K bytes</li>
+<li><a href="http://m.nate.com/">네이트</a> 110.9K bytes</li>
+<li><a href="http://m.google.com/">google</a> PC!=mobile</li>
+<li><a href="http://m.myspace.com/">myspace</a> 13.9K bytes</li>
+<li><a href="http://m.seoul.go.kr/">모바일서울</a> 435.3K bytes</li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://iphone.allblog.net/#___5__">올블로그</a></li>
+<li><a href="http://iphone.facebook.com/">facebook</a></li>
+<li><a href="http://m.me2day.net/p/me2/mobile_menu">미투데이</a></li>
+<li><a href="http://m.media.daum.net/">미디어 다음</a></li>
+<li><a href="http://m.myspace.com/premium/messaging/messagelist.wap?bfd=offdeck&folderid=0">myspace</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.flickr.com/#/explore/interesting/">flickr</a> 532.4K bytes</li>
+<li><a href="http://m.youtube.com/">youtube</a> 23.6K bytes</li>
+<li><a href="http://books.google.com/googlebooks/mobile/#Browse">google booksearch</a> 32.5K bytes</li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.digg.com/">digg</a></li>
+<li><a href="http://m.flickr.com/#/photos/baldmonk/3381703853/in/explore-1237911884/">flickr</a></li>
+<li><a href="http://m.media.daum.net/sports/view.html?cateid=1004&newsid=20090326010307295&p=poctan">미디어 다음</a></li>
+<li><a href="http://www.opera.com/mini/features/">opera
+</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://iphone.facebook.com/#/message.php">facebook</a></li>
+<li><a href="http://hmail2.daum.net/hanmailex/mobile/basic/Compose.daum?folderName=%EB%B0%9B%EC%9D%80%ED%8E%B8%EC%A7%80%ED%95%A8">한메일</a></li>
+<li><a href="http://m.myspace.com/blog/createblog.wap?friendid=128768984&bfd=offdeck">myspace</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.opera.com/">opera</a> PC!=mobile</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div id="" class="contentsBlock" style="float:left;width:39%;margin:0 0 0 1%;"><!-- contentsBlock -->
+<hr />
+<h2 id="Link">Reference Link</h2>
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150417. 
+20140410. 20140107.
+20131219. 20130718.
+20120214.
+20101125.
+</p>
+<hr />
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'JavaScript DOM Reference | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+
+<script>/*<![CDATA[*/
+$(window).on('scroll', function(){
+	console.log(pageXOffset+'  '+pageYOffset)
+});
+/*]]>*/</script>
+
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">JavaScript DOM Reference</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul class="col-1">
+<li><a href="#BOMwindow" class="tac">window</a></li>
+</ul>
+<ul class="col-5">
+<li><a href="#BOMnavigator">navigator</a></li>
+<li><a href="#BOMscreen">screen</a></li>
+<li><a href="#BOMhistory">history</a></li>
+<li><a href="#BOMlocation">location</a></li>
+<li><a href="#DOM">document</a>
+	<ul>
+	<li><a href="#CoreDOM">Core DOM</a></li>
+	<li><a href="#HTMLDOM">HTML DOM</a></li>
+	</ul>
+</li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="BOM">BOM(Browser Object Model)</h2>
+
+<table border="1" class="t3 w100 tlf">
+<caption>
+	<strong class="h1">Object Properties / Methods</strong>
+	<span class="fr">(window=45, navigator+screen+history+location=30)</span>
+</caption>
+<col style="width:18%;" /><col style="width:66%;" /><col />
+<thead>
+<tr>
+<th scope="col" scope="row">Object</th>
+<th scope="col">Properties / Methods</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" id="BOMwindow"><a href="http://www.w3schools.com/jsref/obj_window.asp">window</a>.프로퍼티</th>
+<td>
+<pre>
+closed // =<code><script>document.write(window.closed);</script></code>
+defaultStatus // =<code><script>document.write(window.defaultStatus);</script></code>
+<a href="#DOM"><b class="em1">document</b></a> // =<code><script>document.write(window.document);</script></code>
+frames // =<code><script>document.write(window.frames);</script></code>
+<a href="#BOMhistory"><b class="em1">history</b></a> // =<code><script>document.write(window.history);</script></code>
+innerHeight // =<code><script>document.write(window.innerHeight);</script></code>
+innerWidth // =<code><script>document.write(window.innerWidth);</script></code>
+length // =<code><script>document.write(window.length);</script></code>
+<a href="#BOMlocation"><b class="em1">location</b></a> // =<code><script>document.write(window.location);</script></code>
+name // =<code><script>document.write(window.name);</script></code>
+<a href="#BOMnavigator"><b class="em1">navigator</b></a> // =<code><script>document.write(window.navigator);</script></code>
+opener // =<code><script>document.write(window.opener);</script></code>
+outerHeight // =<code><script>document.write(window.outerHeight);</script></code>
+outerWidth // =<code><script>document.write(window.outerWidth);</script></code>
+pageXOffset // =<code><script>document.write(window.pageXOffset);</script></code>
+pageYOffset // =<code><script>document.write(window.pageYOffset);</script></code>
+parent // =<code><script>document.write(window.parent);</script></code>
+<a href="#BOMscreen"><b class="em1">screen</b></a> // =<code><script>document.write(window.screen);</script></code>
+screenLeft // =<code><script>document.write(window.screenLeft);</script></code>
+screenTop // =<code><script>document.write(window.screenTop);</script></code>
+screenX // =<code><script>document.write(window.screenX);</script></code>
+screenY // =<code><script>document.write(window.screenY);</script></code>
+self // =<code><script>document.write(window.self);</script></code>
+status // =<code><script>document.write(window.status);</script></code>
+top // =<code><script>document.write(window.top);</script></code>
+</pre>
+</td>
+<td>25<br />
+window. 생략 가능.
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.w3schools.com/jsref/obj_window.asp">window</a>.메소드()</th>
+<td>
+<pre>
+alert() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="alert();">alert();</button></code>
+blur() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="blur();">blur();</button></code>
+<a href="http://www.w3schools.com/jsref/met_win_clearinterval.asp">clearInterval()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="clearInterval(varInterval);">clearInterval(varInterval);</button></code>
+<a href="http://www.w3schools.com/jsref/met_win_cleartimeout.asp">clearTimeout()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="clearTimeout(varTimeout);">clearTimeout(varTimeout);</button></code>
+close() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="close();">close();</button></code>
+confirm() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="confirm();">confirm();</button></code>
+createPopup() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="createPopup();">createPopup();</button></code>
+focus() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="focus();">focus();</button></code>
+moveBy() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="moveBy();">moveBy();</button></code>
+moveTo() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="moveTo();">moveTo();</button></code>
+open() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="open();">open();</button></code>
+print() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="print();">print();</button></code>
+prompt() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="prompt();">prompt();</button></code>
+resizeBy() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="resizeBy();">resizeBy();</button></code>
+resizeTo() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="resizeTo();">resizeTo();</button></code>
+scroll() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="scroll();">scroll();</button></code>
+scrollBy() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="scrollBy();">scrollBy();</button></code>
+scrollTo() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="scrollTo();">scrollTo();</button></code>
+<a href="http://www.w3schools.com/jsref/met_win_setinterval.asp">setInterval()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="varInterval=self.setInterval(function(){window.status='Interval is on'},1000);">var varInterval=self.setInterval(function(){window.status='Interval is on'},1000);</button></code>
+<a href="http://www.w3schools.com/jsref/met_win_settimeout.asp">setTimeout()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="varTimeout=self.setTimeout(function(){window.status='Timer is on'},1000);">var varTimeout=self.setTimeout(function(){window.status='Timer is on'},1000);</button></code>
+</pre>
+</td>
+<td>20<br />
+window. 생략 가능.
+</td>
+</tr>
+<tr>
+<th scope="row" id="BOMnavigator"><a href="http://www.w3schools.com/jsref/obj_navigator.asp">navigator</a>.프로퍼티</th>
+<td>
+<pre>
+appCodeName // =<code><script>document.write(navigator.appCodeName);</script></code>
+appName // =<code><script>document.write(navigator.appName);</script></code>
+appVersion // =<code><script>document.write(navigator.appVersion);</script></code>
+cookieEnabled // =<code><script>document.write(navigator.cookieEnabled);</script></code>
+onLine // =<code><script>document.write(navigator.onLine);</script></code>
+platform // =<code><script>document.write(navigator.platform);</script></code>
+userAgent // =<code><script>document.write(navigator.userAgent);</script></code>
+</pre>
+</td>
+<td>7</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.w3schools.com/jsref/obj_navigator.asp">navigator</a>.메소드()</th>
+<td>
+<pre>
+<a href="http://www.w3schools.com/jsref/met_nav_javaenabled.asp">javaEnabled()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="navigator.javaEnabled();">navigator.javaEnabled();</button></code>
+<a href="http://www.w3schools.com/jsref/met_nav_taintenabled.asp">taintEnabled()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="navigator.taintEnabled();">navigator.taintEnabled();</button></code>
+</pre>
+</td>
+<td>2</td>
+</tr>
+<tr>
+<th scope="row" id="BOMscreen"><a href="http://www.w3schools.com/jsref/obj_screen.asp">screen</a>.프로퍼티</th>
+<td>
+<pre>
+availHeight // =<code><script>document.write(screen.availHeight);</script></code>
+availWidth // =<code><script>document.write(screen.availWidth);</script></code>
+colorDepth // =<code><script>document.write(screen.colorDepth);</script></code>
+height // =<code><script>document.write(screen.height);</script></code>
+pixelDepth // =<code><script>document.write(screen.pixelDepth);</script></code>
+width // =<code><script>document.write(screen.width);</script></code>
+</pre>
+</td>
+<td>6</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.w3schools.com/jsref/obj_screen.asp">screen</a>.메소드()</th>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<th scope="row" id="BOMhistory"><a href="http://www.w3schools.com/jsref/obj_history.asp">history</a>.프로퍼티</th>
+<td>
+length // =<code><script>document.write(history.length);</script></code>
+</td>
+<td>1</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.w3schools.com/jsref/obj_history.asp">history</a>.메소드()</th>
+<td>
+<pre>
+back() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="history.back();">history.back();</button></code>
+forward() // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="history.forward();">history.forward();</button></code>
+<a href="http://www.w3schools.com/jsref/met_his_go.asp">go()</a> // =<code><button class="waha mg0 pd0 bd0 bgn" onclick="history.go(-1);">history.go(-1);</button></code>
+</pre>
+</td>
+<td>3</td>
+</tr>
+<tr>
+<th scope="row" id="BOMlocation"><a href="http://www.w3schools.com/jsref/obj_location.asp">location</a>.프로퍼티</th>
+<td>
+<pre>
+hash // = http://host.ain.net:8080/html/index.jsp?email=someone@ex.com<i class="em">#anchor</i>
+host // = http://<i class="em">host.domain.net:8080</i>/html/index.jsp?email=someone@ex.com#anchor
+hostname // = http://<i class="em">host.domain.net</i>:8080/html/index.jsp?email=someone@ex.com#anchor
+href // = <i class="em">http://host.domain.net:8080/html/index.jsp?email=someone@ex.com#anchor</i>
+pathname // = http://host.domain.net:8080<i class="em">/html/index.jsp</i>?email=someone@ex.com#anchor
+port // = http://host.domain.net:<i class="em">8080</i>/html/index.jsp?email=someone@ex.com#anchor
+protocol // = <i class="em">http:</i>//host.domain.net:8080/html/index.jsp?email=someone@ex.com#anchor
+search // = http://host.domain.net:8080/html/index.jsp<i class="em">?email=someone@ex.com</i>#anchor
+</pre>
+</td>
+<td>8</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.w3schools.com/jsref/obj_location.asp">location</a>.메소드()</th>
+<td>
+<pre>
+<a href="http://www.w3schools.com/jsref/met_loc_assign.asp" onclick="location.assign(this.href);return false;">assign()</a> // history 기록 남음. location.href 과 기능상 같다. 보통 같은 페이지 내의 # 위치 이동 위해서 사용됨. <a href="http://ckbcorp.tistory.com/583" target="_blank" title="새 창">※</a>예) location.assign('#manual');
+<del>Task) 이거 사용하다가 서버 다운된 적이 있음. 과연 그럴까? 테스트 필요!</del>
+<a href="http://www.w3schools.com/jsref/met_loc_reload.asp" onclick="location.reload(this.href);return false;">reload()</a> // history 기록 남음
+<a href="http://www.w3schools.com/jsref/met_loc_replace.asp" onclick="location.assign(this.href);return false;">replace()</a> // history 기록 안남음
+</pre>
+</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="DOM">DOM(Document Object Model)</h2>
+
+<p>참고: <a href="https://developer.mozilla.org/ko/docs/Gecko_DOM_Reference/%EC%86%8C%EA%B0%9C" target="_blank" title="새 창">DOM 소개 - 문서 객체 모델 (DOM) | MDN</a></p>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="CoreDOM">Core DOM Objects</h3>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">DOM Method</h4>
+
+
+
+<table class="t3 w100 tttal ">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:6em;" /><col style="width:42em;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">사용법</th>
+<th scope="col">설명, 용례</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">노드 선택</th>
+<td>
+	element = document.<em>getElementById</em>(ID);<br />
+	element = document.<em>querySelector</em>(CSS선택자); // <b class="em0">[IE8일부][IE9+]</b> 첫 번째 요소만 선택<br />
+	<br />
+	// 여러 문서객체 선택<br />
+	elements = document.<em>getElementsByTagName</em>(tagname);<br />
+	elements = document.<em>getElementsByClassName</em>(클래스명); // <b class="em0"><a href="https://caniuse.com/#search=getElementsByClassName" target="_blank" title="새 창">[IE9+]</a></b><br />
+	elements = document.<em>querySelectorAll</em>(CSS선택자); // <b class="em0">[IE8일부][IE9+]</b><br />
+	<br />
+	attributeValue = element.<em>getAttribute</em>(attributeName);<br />
+	booleanValue = element.<em>hasChildNodes</em>;<br />
+</td>
+<td>
+	document.getElementsByTagName('img'); // 대소문자 구분 없다.<br />
+	if(els[i].tagName=="LI"){} // <em>tagName 은 대문자로만 인식</em>.<br />
+	hasChildNodes : 자식 노드 존재 여부(참/거짓)<br />
+	<a href="https://caniuse.com/#search=querySelector" target="_blank" title="새 창">[IE8일부]</a>
+	Partial support in IE8 is due to being limited to CSS 2.1 selectors and a small subset of CSS 3 selectors (see notes there).
+	Additionally, it will have trouble with selectors including unrecognized tags (for example HTML5 ones).
+</td>
+</tr>
+<tr>
+<th scope="row">노드 조작</th>
+<td>
+	innerText<br />
+	innerHTML<br />
+</td>
+<td>
+	요소 내부의 텍스트를 읽거나 변경<br />
+	요소 내부의 HTML을 읽거나 변경<br />
+</td>
+</tr>
+<tr>
+<th scope="row">속성 조작</th>
+<td>
+	element.<em>setAttribute</em>(속성명, 값);<br />
+	element.<em>getAttribute</em>(속성명);<br />
+	element.<em>removeAttribute</em>(속성명);<br />
+</td>
+<td>
+	<em>요소노드.속성명</em> 으로 값을 get 또는 set 할 수 있다.<br />
+	단, class 속성은 <em>className</em> 을 사용한다.<br />
+	DTD 에 없는 사용자 정의 속성이나, 브라우저가 지원하지 않는 속성은<br />
+		<em>getAttribute, setAttribute</em> 을 이용해야 한다.
+</td>
+</tr>
+<tr>
+<th scope="row">노드 생성</th>
+<td>
+reference = document.<em>createElement</em>(element);<br />
+reference = document.<em>createTextNode</em>(text);<br />
+</td>
+<td>
+var newNode = document.createElement("a");
+</td>
+</tr>
+<tr>
+<th scope="row">노드 복사</th>
+<td>reference = node.<em>cloneNode</em>(true | false);<br /></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">노드 추가</th>
+<td>
+reference1 = containerObj.<em>appendChild</em>(newChild);<br />
+reference2 = containerObj.<em>insertBefore</em>(newNode,targetNode);<br />
+</td>
+<td>
+reference2 는 targetNode
+</td>
+</tr>
+<tr>
+<th scope="row">노드 삭제</th>
+<td>reference = element.<em>removeChild</em>(node);<br /></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">노드 변경</th>
+<td>
+reference = element.<em>replaceChild</em>(newChild,oldChild);<br />
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="bu">
+<li>[IE]는
+frameset, html, head, title, style,
+table, col, colgroup, thead, tbody, tfoot, tr 태그의 <em>innerHTML</em> 속성 변경은 안됨. 그외 표준 브라우저는 가능하다.</li>
+<li><em>innerHTML</em> 는 W3C DOM 에서 공식 지원을 시작했으므로 사용해도 된다. 노드 생성 방법보다 속도도 빠르다.</li>
+</ul>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Node Property</h4>
+
+<table border="1" class="t3 w100" summary="노드 프로퍼티"><caption class="blind"></caption>
+<col style="width:10%;" /><col style="width:35%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">사용법</th>
+<th scope="col">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">노드 이름</th>
+<td>nameString = node.<em>nodeName</em>;</td>
+<td>
+읽기전용. 문자열 반환<br />
+요소 노드, 속성 노드는 이름을 반환<br />
+텍스트 노드 : "#text" 라는 문자열 반환<br />
+코멘트 노드 : "#comment" 라는 문자열 반환
+</td>
+</tr>
+<tr>
+<th scope="row">노드 형식</th>
+<td>typeInteger = node.<em>nodeType</em></td>
+<td>
+읽기 전용. 정수값(1~12) 반환<br />
+1. ELEMENT_NODE<br />
+2. ATTRIBUTE_NODE<br />
+3. TEXT_NODE<br />
+4. CDATA_SECTION_NODE<br />
+5.	ENTITY_REFERENCE_NODE<br />
+6. ENTITY_NODE<br />
+7. PROCESSING_INSTRUCTION_NODE<br />
+8. COMMENT_NODE<br />
+9. DOCUMENT_NODE<br />
+10. DOCUMENT_TYPE_NODE<br />
+11. DOCUMENT_FRAGMENT_NODE<br />
+12. NOTATION_NODE<br />
+<em>※ 주의 : IE vs IE외 차이</em><br />
+
+document.getElementsByTagName("*");//<em>[IE] 주석(COMMENT_NODE) 포함.</em><br />
+obj.childNodes;//<em>[IE외] 줄바꿈(TEXT_NODE), 주석(COMMENT_NODE) 포함.</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row">노드 값</th>
+<td>valueString = node.<em>nodeValue</em>;<br /></td>
+<td>
+읽기 쓰기 가능. 문자열 반환<br />
+요소 노드 : 빈(null) 값 반환(읽기 전용)<br />
+속성 노드는  속성값, 텍스트 노드느 텍스트 내용 반환</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">노드 내부 구조 보기</h4>
+
+<table border="1" class="t3 w100" summary="노드 내부 구조 보기"><caption class="blind"></caption>
+<col style="width:10%;" /><col style="width:30%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">사용법</th>
+<th scope="col">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">자식노드 배열</th>
+<td>nodeArray = node.<em>childNodes;</em></td>
+<td>
+targetNode.childNodes[0] = newNode;//IE 안됨<br />
+</td>
+</tr>
+<tr>
+<th scope="row">자식노드 첫째</th>
+<td>nodeObj = node.<em>firstChild;</em></td>
+<td>읽기전용</td>
+</tr>
+<tr>
+<th scope="row">자식노드 막내</th>
+<td>nodeObj = node.<em>lastChild;</em></td>
+<td>읽기전용</td>
+</tr>
+<tr>
+<th scope="row">부모노드</th>
+<td>nodeObj = node.<em>parentNode;</em></td>
+<td>읽기전용</td>
+</tr>
+<tr>
+<th scope="row">이전 형제 노드</th>
+<td>nodeObj = node.<em>previousSibling;</em></td>
+<td>읽기전용</td>
+</tr>
+<tr>
+<th scope="row">다음 형제 노드</th>
+<td>nodeObj = node.<em>nextSibling;</em></td>
+<td>읽기전용</td>
+</tr>
+</tbody>
+</table>
+<p>
+<em>※ 노드가 읽기전용 이라도 프로퍼티는 읽기 쓰기 가능</em>
+※ 주의 : IE vs IE외 차이 
+</p>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="HTMLDOM"><a href="http://www.w3schools.com/jsref/dom_obj_document.asp">HTML DOM Objects</a></h3>
+
+
+<table border="1" class="t3 w100" summary=""><caption class="blind"></caption>
+<col style="width:10%;" /><col style="width:30%;" /><col />
+<thead>
+<tr>
+<th scope="col">Objects</th>
+<th scope="col">Usage</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">document</th><td></td><td></td>
+</tr><tr>
+<th scope="row">events</th><td></td><td></td>
+</tr><tr>
+<th scope="row">elements</th><td></td><td></td>
+</tr><tr>
+<th scope="row">anchor</th><td></td><td></td>
+</tr><tr>
+<th scope="row">area</th><td></td><td></td>
+</tr><tr>
+<th scope="row">base</th><td></td><td></td>
+</tr><tr>
+<th scope="row">body</th><td></td><td></td>
+</tr><tr>
+<th scope="row">button</th><td></td><td></td>
+</tr><tr>
+<th scope="row">form</th><td></td><td></td>
+</tr><tr>
+<th scope="row">frame/iframe</th><td></td><td></td>
+</tr><tr>
+<th scope="row">frameset</th><td></td><td></td>
+</tr><tr>
+<th scope="row">image</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input button</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input checkbox</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input file</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input hidden</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input password</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input radio</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input reset</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input submit</th><td></td><td></td>
+</tr><tr>
+<th scope="row">input text</th><td></td><td></td>
+</tr><tr>
+<th scope="row">link</th><td></td><td></td>
+</tr><tr>
+<th scope="row">meta</th><td></td><td></td>
+</tr><tr>
+<th scope="row">object</th><td></td><td></td>
+</tr><tr>
+<th scope="row">option</th><td></td><td></td>
+</tr><tr>
+<th scope="row">select</th><td></td><td></td>
+</tr><tr>
+<th scope="row"><a href="?">style</a></th><td></td><td></td>
+</tr><tr>
+<th scope="row">table</th><td></td><td></td>
+</tr><tr>
+<th scope="row">td / th</th><td></td><td></td>
+</tr><tr>
+<th scope="row">tr</th><td></td><td></td>
+</tr><tr>
+<th scope="row">textarea</th><td></td><td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<hr class="show" />
+<p><strong>History</strong>
+: 20120515~
+20181211.
+20181129.
+20181128.
+20180126. 스타일 조정.
+20150625. location.assign() 보강.
+20140107. 탐색 링크 정리
+20130719. assign() 다시 정리..
+20130208.
+20120515.
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

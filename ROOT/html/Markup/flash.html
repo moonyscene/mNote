@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Flash | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Flash : 접근성을 고려한 플래시 콘텐츠</h1>
+
+<ul class="bu">
+<li><a href="#h2n3">플래시 자체 접근성을 준수하지 못할 경우 HTML버전도 제공필요!</a></li>
+<li><a href="#h2n1">플래시 콘텐츠 제작시 유의점</a></li>
+<li><a href="#h2n2">플래시 기본 샘플 코드</a></li>
+<li><a href="#h2n4">브라우저별 예외 환경 검사 결과 (Screen Reader 시험 추가)</a></li>
+<li><a href="#h2n5">관련정보</a></li>
+<li><a href="#h2n6">Revision Note</a></li>
+</ul>
+
+<h2 id="h2n3">플래시 자체 접근성을 준수하지 못할 경우 HTML버전도 제공필요!</h2>
+
+<h3>wmode="window" 가 아닌 경우</h3>
+
+<p>
+ex) 전라북도교육청 - <a href="http://www.jbe.go.kr/06about/08_03.asp">청사배치도</a>, <a href="http://www.jbe.go.kr/06about/08_04_01.asp">찾아오시는 길</a>
+</p>
+
+<xmp class="xmp">
+<!-- building1 ★Flash wmode="window" 아니면 HTML버전도 제공필요! -->
+<div id="building1">
+<div class="afocus">
+<a href="#building1_flash" onclick="var el1=document.getElementById('building1_flash');el1.style.zIndex='10';var el2=document.getElementById('building1_html');el2.style.zIndex='';">Flash Version</a>
+<a href="#building1_html" onclick="var el1=document.getElementById('building1_flash');el1.style.zIndex='';var el2=document.getElementById('building1_html');el2.style.zIndex='10';">HTML Version</a>
+</div>
+<div id="building1_flash">
+<%="<object"%> classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="675" height="375">
+<param name="movie" value="/flash/06_08_plan.swf" />
+<param name="wmode" value="opaque" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="/flash/06_08_plan.swf" width="675" height="375">
+<param name="wmode" value="opaque" />
+<!--<![endif]-->
+<div class="noFlash">
+<a href="http://www.adobe.com/kr/products/flashplayer/">Free Flash Player</a>
+<a href="#building1_html">HTML Version</a>
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>
+<div id="building1_html" title="HTML Version">
+<ul>
+<li><img src="/img/06/building1_B1.gif" width="606" height="375" alt="B1 : 주차장(157대), 창고, 기계·전기실, 기계제어실, 전기실, 발전기실" /></li>
+<li><img src="/img/06/building1_1F.gif" width="606" height="375" alt="1F : 민원기록담당, 고객지원실, 교육금고, 차량관리실, 영상홍보관리실, 당직실, 민원자료실, 행정자료실, 여성휴게·영유아실, 교육홍보관등" /></li>
+<li><img src="/img/06/building1_2F.gif" width="606" height="375" alt="2F : 총무과, 대회의실, 출입기자실" /></li>
+<li><img src="/img/06/building1_3F.gif" width="606" height="375" alt="3F : 비상계획담당, 정책협의실, 기록관리실" /></li>
+<li><img src="/img/06/building1_4F.gif" width="606" height="375" alt="4F : 미래인재과, 교육정보통합운영센터, 취업지원센터" /></li>
+<li><img src="/img/06/building1_5F.gif" width="606" height="375" alt="5F : 교육감실, 부교육감실, 교육국장실, 행정국장실, 정책공보담당관, 대변인실(공보), 교육정책협의실, 정책공보협의실" /></li>
+<li><img src="/img/06/building1_6F.gif" width="606" height="375" alt="6F : 예산과, 행정과, 재무과, 시설과, 학교안전공제회" /></li>
+<li><img src="/img/06/building1_7F.gif" width="606" height="375" alt="7F : 학교교육과,교원인사과,교육혁신과" /></li>
+<li><img src="/img/06/building1_8F.gif" width="606" height="375" alt="8F : 감사담당관, 인성건강과, 보건교육담당, 인성인권상담실" /></li>
+<li><img src="/img/06/building1_9F.gif" width="606" height="375" alt="9F : 구내식당" /></li>
+</ul>
+</div>
+</div>
+<!-- /building1 -->
+
+<style type="text/css">/*<![CDATA[*/
+/* 청사배치도 */
+#building1{position:relative;width:675px;height:375px;}
+#building1 *{list-style:none;margin:0;padding:0;}
+#building1 #building1_flash{z-index:10;position:absolute;left:0;top:0;}
+#building1 #building1_html{position:absolute;left:0;top:0;width:675px;height:375px;background:#fff;overflow:auto;}
+#building1 #building1_flash .noFlash{background:#ffd;}
+/* 키보드접근성 */
+.afocus{z-index:9999;position:absolute;left:0;top:0}
+.afocus *{list-style:none;margin:0;padding:0;}
+.afocus a{display:block;width:1px;height:1px;overflow:hidden;color:#000;white-space:nowrap;}
+.afocus a:focus,
+.afocus a:active{width:auto;height:auto;padding:2px;background:#ffd;}
+/*]]>*/</style>
+</xmp>
+
+<h3>wmode="window" 인데.. 자체 접근성 하려고 해도 안되는 경우</h3>
+
+<p>HTML 버전 display:none; 으로 시작하고 버전 선택할 때 토글시켰다.</p>
+
+<p>
+ex) 한국폴리텍Ⅶ대학 - <a href="http://www.jbe.go.kr/06about/08_03.asp">메인 플래시</a></a>
+</p>
+
+<xmp class="xmp">
+<div class="afocus">
+<a href="#department_flash" onclick="var el1=document.getElementById('department_flash');el1.style.zIndex='10';el1.style.display='block';var el2=document.getElementById('department_html');el2.style.zIndex='';el2.style.display='none';">Flash Version</a>
+<a href="#department_html" onclick="var el1=document.getElementById('department_flash');el1.style.zIndex='';el1.style.display='none';var el2=document.getElementById('department_html');el2.style.zIndex='10';el2.style.display='block';">HTML Version</a>
+</div>
+ …
+<object …>
+<div class="noFlash">
+<a href="http://www.adobe.com/kr/products/flashplayer/">Free Flash Player</a><br />
+<a href="#department_html">HTML Version</a><br />
+</div>
+</object>
+ …
+</xmp>
+
+<xmp class="xmp">
+<style type="text/css">/*<![CDATA[*/
+#department{position:absolute;left:0;top:0;margin:-58px 0 0;}
+#department #department_flash{z-index:10;position:absolute;left:0;top:58px;width:460px;height:448px;}
+#department #department_html{display:none;position:absolute;left:0;top:58px;width:460px;height:448px;background:#fff;overflow:auto;}
+#department #department_html h4{margin:1.33em 0;font-size:1.33em;font-family:'돋움',dotum;}
+#department #department_html li{margin:1.17em 0;font-weight:bold;}
+#department #department_html li li{margin:1.33em 0;font-weight:normal;}
+#department #department_flash .noFlash{padding:2px;background:#ffd;line-height:1.5;}
+/* 키보드접근성 */
+.afocus{z-index:9999;position:absolute;left:0;top:0}
+.afocus *{list-style:none;margin:0;padding:0;}
+.afocus a{display:block;width:1px;height:1px;overflow:hidden;color:#000;white-space:nowrap;}
+.afocus a:focus,
+.afocus a:active{width:auto;height:auto;padding:2px;background:#ffd;line-height:1.5;}
+/*]]>*/</style>
+</xmp>
+
+
+<h2 id="h2n1">플래시 콘텐츠 제작시 유의점</h2>
+
+<!-- box4 -->
+<div class="box4">
+<h3>플래셔, 콘텐츠디자인코더에게 바란다.</h3>
+<ol class="bu">
+<li>초당 3~49번 깜박임은 넣지 말아주세요..
+<br />- 나쁜예 : <a href="http://cng.go.kr/01appeal/01_02.asp">비쥬얼 플래시가 과도하게 깜박임</a></li>
+<li>플래시 무비 ActionScript 에 Stage.scaleMode = "noScale"; 가 있으면 화면 확대가 안됩니다.<br />
+- 나쁜예 : <a href="http://www.hsg.go.kr/z1.html ">화면 확대 버튼 클릭해보면 비쥬얼 확대 안됨.</a></li>
+<li>플래시 콘텐츠 자체 접근성 보강 최선의 방법은? 탭인덱스와 대체텍스트를 반드시 지정하자!<br />
+<em style="font-size: 2em;">※ 참고 : <a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/flash_accessibility_02.html">플래시 콘텐츠 자체 접근성 보강</a></em><br />
+- 나쁜예 : <a href="http://cng.go.kr/01appeal/01_02.asp">배치도 플래시 탭 이동 순서가 뒤죽박죽</a></li>
+<li style="font-size: 1.5em;"><em>플래시 자체적인 접근성을 준수하거나, 
+플래시 없는 버전 (HTML, Image)을 제공하여 사용자가 대체 콘텐츠를 선택하여 이용할 수 있어야 한다.</em><br />
+※ <a href="http://www.wah.or.kr/Example/wcag_desc.asp?cate=65">플래시 콘텐츠 접근성 제작 방법 등</a><br />
+※ <a href="http://www.uiryeong.go.kr/04economy/06_01.asp">HTML버전 제공예 : 의령군 읍면별 주산작물</a><br />
+<div style="font-size: 0.62em;">
+플래시 자체 탭키 이동, 대체텍스트 작업 완료하였습니다.
+플래시 콘텐츠는 화면낭독프로그램 종류에 따라 접근 여부를 장담할 수 없습니다.
+그래서, 화면에는 보이지 않지만 별도의 HTML 버전도 제공하여
+화면낭독프로그램 이용자가 선택하여 이용할 수 있게 하였습니다.
+</div>
+</li>
+<li>2008.10.29 이후 프로젝트에서 플래시 코딩은 아래의 플래시 기본 샘플 코드를 사용하자!<br />
+이전 방식 코드에서 google 크롬 0.2.149.30 버전에서 플래시 안보이는 것은 클라이언트 요청시에만 수정해주세요.<br />
+</li>
+<li style="font-size: 1.5em;"><strong>wmode 가 opaque, transparent 일 경우 IE7,8외에는 키보드 운용 안됨. window 로 하세요.</strong></li>
+</ol>
+</div>
+<!-- //box4 -->
+
+
+<h2 id="h2n2">플래시 기본 샘플 코드</h2>
+
+<h3>조건주석문으로 IE이외의 표준 브라우저 지원</h3>
+
+<p>
+2008.12.09 : &lt;param name="wmode" value="window" /&gt; 를 조건주석문 안으로 넣었다.
+</p>
+
+<xmp class="xmp">
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="635" height="410">
+<param name="movie" value="/flash/main_visual.swf" />
+<param name="wmode" value="window" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="/flash/main_visual.swf" width="635" height="410">
+<param name="wmode" value="window" />
+<!--<![endif]-->
+<p>이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.</p>
+<div>
+대체 콘텐츠
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</xmp>
+<dfn>
+<strong>asp</strong> 에서 위의 코드를 사용하면 오브젝트 중첩 오류가 발생하는데 첫번째 &lt;object를 <em>&lt;%="&lt;object"%&gt;</em>와 같이 표기하여 오류를 피할 수 있다.<br />
+<a href="http://www.iezn.com/test/ie/index.php">IE ActiveX 패치 방법</a> : 소스 수정없이
+외부스트립트(<a href="http://www.iezn.com/test/ie/iezn_embed_patch.0.43.js">iezn_embed_patch.0.43.js</a>) 삽입만으로 패치가 완료됩니다.
+</dfn>
+
+<h3>웹표준 object 코딩 -- <em>20081210현재 문제점 있으니 사용하지 말것</em></h3>
+
+<p>
+아래는..  IE6, IE7, FF3.0.1, Op9.52, Sf3.1.2 그리고 google 크롬 0.2.149.27 과 Flock 1.2.5 에서 플래시가 바르게 표시되는 것을 확인하였음.<br />
+<!-- 표준방식으로 코딩해도 제대로 나오는데, 왜 그동안 IE는 ActiveX로 해야 한다고 그랬는지..?<br />
+현재 <a href="http://gimhae.go.kr/05administration/02_03_01.jsp">김해시 약도 플래시</a> 에 적용중이며 문제점 있는지 지속적으로 살피고 있음.<br /> -->
+</p>
+
+<xmp class="xmp">
+<object type="application/x-shockwave-flash" data="/flash/main_visual.swf" width="635" height="410">
+<param name="movie" value="/flash/main_visual.swf" />
+<param name="wmode" value="opaque" />
+<p>이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.</p>
+<div>
+대체 콘텐츠
+</div>
+</object>
+</xmp>
+
+
+<ul class="bu">
+<li>[문제점1]2008.12.09 <em>IE6 ActiveX 패치 안된 브라우저에서 외부스트립트(<a href="http://www.iezn.com/test/ie/iezn_embed_patch.0.43.js">iezn_embed_patch.0.43.js</a>) 적용해도 테두리 보이므로 당분간 사용하지 말자!</em><br />(사천시에서 테두리 안보이게 해달라고 요청해왔음.)</li>
+<li>[문제점2]2008.12.10 <em>classid 가 없으면 IE에서 스트리밍이 되지 않는다.</em> (부산교통공사 안전가이드 플래시로 확인했음)<br />
+20150105. 플래시 자체의 스트리밍이지.. 
+플래시 동영상 플레이어가 불러오는 비디오의 스트리밍을 말하는게 아니다.
+<em>classid 유무와 관계없고, 비디오 스트리밍은 해당 파일이 스트리밍 서비스 되고 있는지에 따른다.</em>
+
+</li>
+</ul>
+
+
+<h3 id="preview"><a href="flash_preview.html">[미리보기 샘플]</a></h3>
+
+
+
+<h3><a href="?">파라미터 속성</a></h3>
+
+<dl class="bu">
+<dt>&lt;param name="wmode" value="window" /&gt;</dt>
+<dd>
+	<ul class="bu">
+	<li><strong>window</strong> : 기본값으로 모든 html 엘리먼트 위로 flash 가 나타납니다.<br /></li>
+	<li><strong>opaque</strong> : flash 위에 html 엘리먼트를 위치 시킬때 사용합니다.<br /></li>
+	<li><strong>transparent</strong> : flash 를 투명하게 하여 flash 아래의 html 엘리먼트가 화면상에 나오게 됩니다.<br /></li>
+	</ul>
+<dd>
+<dt>&lt;param name="salign" value="lt" /&gt;</dt>
+<dd>l(좌측), c(중앙), r(우측) ||  t(상단), m(중앙), b(하단)</dd>
+<dt>&lt;param name="allowScriptAccess" value="always" /&gt;</dt>
+<dd>
+	<ul class="bu">
+	<li><strong>sameDomain</strong> : <br /></li>
+	<li><strong>always</strong> : 로컬 실행(플래시 플레이어8이상)<br /></li>
+	</ul>
+</dd>
+<dt>&lt;param name="scale" value="noscale" /&gt;</dt>
+<dd></dd>
+<dt>&lt;param name="menu" value="false" /&gt;</dt>
+<dd></dd>
+</dl>
+<hr />
+
+
+<h2 id="h2n4">브라우저별 예외 환경 검사 결과 (Screen Reader 시험 추가)</h2>
+
+<p>
+※ 예외 환경이란? 일반 환경(CSS 지원, JavaScript 지원, Flash Plugin 지원)에서 기능이 1가지 이상 지원되지 않는 경우
+</p>
+
+<h3 id="disable">Disable Plugin 일 때는 대체콘텐츠가 올바로 보이는지(들리는지) 유무 체크</h3>
+
+<em>센스리더PE2.2 의 경우 Disable Plugin 일 때만 대체텍스트(object 요소 안쪽의 대체콘텐츠)를 읽어준다.</em><br />
+그러므로, 반드시 <strong>플래시 자체적인 접근성을 준수하거나,  그러지 못할 경우<br />
+플래시 없는 버전 (HTML, Image)을 제공하여 사용자가 대체 콘텐츠를 선택하여 이용할 수 있어야 한다.</strong>
+
+<table class="t3" summary="브라우저별, 스크린리더별 예외 환경 테스트 표" ><caption></caption>
+<colgroup><col span="7" style="white-space: nowrap;"><col></colgroup>
+<thead>
+<th scope="col">Num</th>
+<th scope="col">Disable</th>
+<th scope="col">IE6</th>
+<th scope="col">IE7</th>
+<th scope="row">FF</th>
+<th scope="row">Op</th>
+<th scope="row">Sf</th>
+<th scope="row">센스리더PE2.2</th>
+<th scope="row">드림보이스6.21</th>
+<th scope="col">Note</th>
+</thead>
+<tfoot>
+<tr><td>00</td>
+<th scope="col">Note</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tfoot>
+<tbody>
+<tr><td>01</td>
+<th scope="row">Enable All</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td><strong>안읽음</strong></td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>02</td>
+<th scope="row">CSS</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>안읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>03</td>
+<th scope="row">JS</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>안읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>04</td>
+<th scope="row">Plugin</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>05</td>
+<th scope="row">CSS+JS</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>안읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>06</td>
+<th scope="row">JS+Plugin</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>07</td>
+<th scope="row">Plugin+CSS</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>08</td>
+<th scope="row">CSS+JS+Plugin</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+<tr><td>09</td>
+<th scope="row">Images</th>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>안읽음</td>
+<td>읽음</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>
+※ JS 안에 CSS 참조링크 코드를 넣어 두어, Disable JS 하면 CSS 도 같이 비지원 하도록 구성하였다.
+</p>
+
+
+<h3><em>스크린리더 확인</em></h3>
+<h5>[센스리더 PE2.2]</h5>
+<ul class="bu">
+<li>플래시 탭이동 불가, 플래시 자체 대체콘텐츠 읽어주지 않고 온마우스시에도 안읽음.<br /></li>
+<li>object 태그의 대체콘텐츠는 플래시 플러그인 제거시에만 읽음.<br /></li>
+<li>플래시 플러그인 활성화시 &lt;!--[if !IE]&gt;--&gt;대체텍스트&lt;!--&lt;![endif]--&gt;  읽지 않음.<br /></li>
+<li>noscript 안의 내용은 읽지 않음.<br /></li>
+</ul>
+<h5>[드림보이스6.21]</h5>
+<ul class="bu">
+<li>플래시 탭이동 불가, 플래시 자체 대체콘텐츠 읽어주지 않지만 온마우스시에는 읽음.<br /></li>
+<li>object 태그의 대체콘텐츠는 읽음. (js 파일에서 document.write 해도 읽음.)<br /></li>
+<li>&lt;!--[if !IE]&gt;--&gt;대체텍스트&lt;!--&lt;![endif]--&gt; 부분도 읽음(가끔 못 읽을 때도 있음).<br /></li>
+<li>noscript 안의 내용은 읽지 않음.<br /></li>
+</ul>
+
+
+<h3>브라우저별 예외 환경 조성 방법</h3>
+<ul class="bu">
+<li>IE6 : <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&displaylang=en">IE Developer Toolbar</a> 설치 후 검사.<br /></li>
+<li>IE7 : IE6 과 동일한 방법 사용. <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&displaylang=en">IE Developer Toolbar</a> 의 Disable Script 기능을 사용할 수 없었음.(IE7 for Vista)<br /></li>
+<li>FF : <a href="https://addons.mozilla.org/ko/firefox/addon/60">Web Developer Toolbar</a> 설치 후 검사.<br /> Plugin Disable 기능은 없으므로 object 요소의 type="" data="" 속성을 제거 후 검사<br />(플래시를 안보이게 하는 플러그인 <a href="http://update.mozilla.or.kr/addons/?p=264&application=firefox&addonType=extension">FlashBlock</a> 등이 있으나 대체텍스트를 보여주지는 않는다.)</li>
+<li>Op : 브라우저에 Disable 기능이 모두 기본으로 제공.<br /></li>
+<li>Sf : <del>작성자 CSS Disable 기능이 없고 사용자 CSS 추가만 가능함. 그외 기능은 모두 기본 제공.</del><br />
+[개발자용] 메뉴에서 제공.. 단, 플러그인 비활성화는 [편집]-[기본설정]에서 제공.
+<br />
+</li>
+</ul>
+
+<hr>
+
+<h2 id="h2n5">관련정보</h2>
+<ul class="bu">
+<li><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=854&page=2&cType=&FindTxt=">플래시에 포함되는 내용에 따라 다릅니다.</a></li>
+<li><a href="http://www.adobe.com/accessibility/products/flash/tutorial/">&#8220;Adobe Flash CS4 Professional accessibility&#8221;라는 튜토리얼</a><br />
+주요 구성은 개요(Introduction), 시각장애인을 위한 플래시 디자인, 키보드 접근성, 청각장애인을 위한 플래시 디자인, 참고자료로 구성되어 있습니다.
+</li>
+<li><a href="http://www.wah.or.kr/RIA/Flash/fsh_desc02.asp">브라우저에 따라 미세한 차이가 존재한다. 예를 들면 FireFox, Opera, Sapari에서는 object 태그와 param 태그를 이용하는 경우에 Flash 콘텐츠를 표시하지 못하는 경우가 발생한다. 또한 </li>Internet Explorer에서는 embed 태그와 param 태그를 함께 설정하지 않으면 JavaScript 함수 호출은 가능하나 함수의 리턴 값을 사용할 수 없는 경우가 발생한다. </a>
+</ul>
+
+
+<h2 id="h2n6">Revision Note</h2>
+
+<p>
+<a href="#upgradenote" onclick="displayOn('upgradenote'); return false;">업글노트 보기</a> |<br />
+20150105. 플래시 스트리밍 내용 보강.<br />
+20130423. 20120604.<br />
+20100804. 20100504.<br />
+20091105. 최신 내용으로 보완중~<br />
+20091005. 접근성을 위해 샘플 코드 wmode 를 window 로 제공<br />
+20090812. HTML버전 제공예 추가.<br />
+20090616.
+<a href="flash.20080526.html">v.2009.05.26</a>
+v.2008.12.10
+<a href="flash.20081029.html">v.2008.10.29</a>
+<a href="flash.20080910.html">v.2008.09.10</a>
+<a href="flash.20080905.html">v.2008.09.05</a>
+</p>
+<!-- 업글노트 -->
+<div class="box4" id="upgradenote" style="display: none;">
+<h4>처리 완료</h4>
+<ul class="bu">
+<!-- <li>자바스크립트가 동작하지 않을 경우 플래시 콘텐츠가 안보이던 문제 해결.<br />(2007 정통부 웹접근성 실태조사에서 "항목13 신기술의 사용" 점수 감정 요인 제거)</li>
+<li><a href="http://approval.rrl.go.kr/">정보통신부 전파연구소</a>의 IE에서 대체콘텐츠 안보이는 문제 해결. (조건주석문 수정)</li> -->
+<li>
+<em>google 크롬 0.2.149.30 브라우저에서 <a href="#preview">[미리보기 샘플 A1]</a> 소스를 확인해보니, 플래시가 나오지 않음.</em><br />
+기존, getFlash() 이용, 조건주석문 1개짜리는 제대로 나오기에 소스 확인해보니,<br />
+object 요소 다음에 바로 param 요소가 와야지만 제대로 표시가 됨.<br />
+위 소스에서 첫번째 object 요소 다음에 param 요소를 중복으로 적는 방법 또는 웹표준 object 코딩을 사용할 수 있음.<br />
+</li>
+<li>wmode 가 "transparent" 일 때 키보드로 플래시 콘텐츠 자체에 접근하는 방법은 없는가?<br />
+<del>현재로선 없으니..</del>
+2008.11.13 현재 IE7이상에서만 가능하므로(FF, Op, Sa 안됨), <em>wmode 는 "window" 를 기본으로 하고</em>,<br />
+플래시 위에 다른 콘텐츠가 올 때는 <em>"opaque" 를 쓰자!</em><br />
+"transparent" 는 진짜 진짜 플래시 투명 영역 밑으로 다른 콘텐츠가 보여야 할 경우에만 쓰자!<br />
+- 예 : <a href="http://cng.go.kr/01appeal/01_02.asp">플래시 배치도 wmode 를 "window" 로도 가능한데 "transparent"를 사용한 경우</a> 
+</li>
+</ul>
+<h4>연구 과제</h4>
+<ul class="bu">
+<!-- <li>플래시 콘텐츠 자체 접근성 보강 최선의 방법은? <em>탭인덱스와 대체텍스트를 반드시 지정하자!</em></li> -->
+<li>크롬. 플락, IE8 등 새로운 브라우저에서 플래시 확인 필요..</li>
+<li>스크린리더 구버전 문제들.. <a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)</a> 확인 필요
+	<ul class="bu">
+	<li>Flash 를 지원하는 경우 대체텍스트를 스크린리더가 읽지 않는다.</li>
+	<li>스크린리더 실행 후 플래시 콘텐츠 자체 링크 들 Tab키로 이동할 수 없음.</li>
+	</ul>
+</li>
+<li>ActiveX 방식의 &lt;object classid=""&gt; 는 opaque 사용시 순간적으로 흰색(배경색?)이 보이는 경우가 있던데, transparent 사용하니 해결되었다.</li>
+</ul>
+
+</div>
+<!-- //업글노트 -->
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

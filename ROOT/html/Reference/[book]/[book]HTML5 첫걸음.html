@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]HTML5 첫걸음 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>[book]HTML5 첫걸음. Introducing HTML5</h1>
+| <a href="http://www.yes24.com/24/goods/4315677">View</a>
+<!-- | <a href="?">Demo</a> -->
+| <a href="http://introducinghtml5.com/">Exam / Link / Errata</a>
+| <a href="http://developer.firefoxmania.uci.cu/files/2013/02/Introducing-HTML5-New-Riders.pdf">[PDF]</a>
+<br />
+| Read 313p/30h = 10.433333333333333333333333333333/h ???
+<br />
+
+<!-- toc -->
+<div class="toc box2">111
+</div><!-- /toc -->
+
+<script>/*<![CDATA[*/
+/* all.20120525.MoonYoungShin. */
+jQuery(function($){
+	var text1='';
+	$('h3').each(function(){
+		text1+=$(this).text()+'<br />';
+	});
+	$('.toc').html(text1);
+});
+/*]]>*/</script>
+
+<h2 id="Exam">Exam Code</h2>
+
+
+<h3>1장 기본 구조</h3>
+<pre>
+「head」 영역
+새로운 HTML5 구조 엘리먼트
+CSS를 사용한 HTML5 스타일
+HTML5 구조 엘리먼트의 사용법
+정리
+</pre>
+
+<h3>2장 텍스트</h3>
+<pre>
+메인 컨텐츠 영역 구성
+코멘트 추가
+HTML5 문서 구조
+WAI-ARIA에 대한 이해
+<div class="box1">role, aria-*
+HTML5 유효성 검사만 통과한다.
+기본적으로 HTML5를 사용하고 추가로 필요한 곳에만 ARIA 를 적용해 유효성을 해치지 않는 범위에서 과도기에 접근성을 높이기 위한 수단으로 이용해야 한다.
+<a href="http://www.w3.org/TR/wai-aria/">ARIA 스펙</a> Candidate Recommendation
+</div><!-- /box1 -->
+더 많은 구조 엘리먼트
+재정의된 엘리먼트
+글로벌 속성
+<div class="box1">contenteditable
+contextmenu
+data-*
+dragable
+hidden
+item, itemprop, subject
+role, aria-*
+spellcheck
+tabindex(="-1")
+</div><!-- /box1 -->
+이 책에서 다루지 않는 내용
+<div class="box1"><xmp class="xmp">
+<embed>
+<keygen>
+<progress>, <meter>
+<menu>, <command>
+microdata
+<style scoped></style></xmp></div><!-- /box1 -->
+정리
+</pre>
+//----
+<h3>3장 폼</h3>
+<pre>
+HTML의 선물
+새로운 input 형식
+<div class="box1"><xmp class="xmp">
+<input type="email" />
+<input type="url" />
+<input type="date" />
+<input type="time" />
+<input type="datetime" />
+<input type="month" />
+<input type="week" />
+<input type="number" />
+<input type="range" />
+<input type="search" />
+<input type="tel" />
+<input type="color" /></xmp></div><!-- /box1 -->
+새로운 속성
+<div class="box1">list
+<xmp class="xmp">
+<input id=form-person-title type=text list=mylist>
+	<datalist id=mylist>
+	<option label=Mr value=Mr>
+	<option label=Ms value=Ms>
+	<option label=Prof value=”Mad Professor”>
+	</datalist>
+</xmp>
+<input id=form-person-title type=text list=mylist>
+	<datalist id=mylist>
+	<option label=Mr value=Mr>
+	<option label=Ms value=Ms>
+	<option label=Prof value=”Mad Professor”>
+	</datalist>
+autofocus <input type="text" /> <!--  ★☆할일 : 코딩중 방해되는 autofocus 제거 ▶ <input type="text" autofocus /> -->
+placeholder <input type="text" placeholder="검색어" />
+브라우저 기능 보완 <a href="http://introducinghtml5.com/examples/ch03/polyfilling.html">polyfilling</a>
+required <input type="text" required aria-required />
+multiple <input type="file" multiple />
+pattern <input pattern="[0-9][A-Z]{3}" name="part" title="A part number is a digit followed by three uppercase letters." placeholder="9AAA" />
+정규표현식 <a href="http://blog.stevenlevithan.com/">http://blog.stevenlevithan.com/</a>
+autocomplete="on|off" <input type="text" autocomplete="on" />
+min max <input type=date min=2010-01-01 max=2010-12-31>
+step <input type=number mix=0 max=100 step=5>
+<input name=favtime type=time step=any>
+</div><!-- /box1 -->
+통합 적용 예제
+<div class="box1"><xmp class="xmp">
+<form>
+<label for=form-name>Name</label>
+<input name=form-name id=form-name type=text required>
+<label for=form-email>Email</label>
+<input name=form-email id=form-email type=email required>
+<label for=form-url>URL</label>
+<input name=form-url id=form-url type=url>
+<label for=form-comment>Comment</label>
+<textarea name=form-comment id=form-comment required>
+</textarea>
+<input type=submit>
+</form>
+</xmp>
+<form>
+<label for=form-name>Name</label>
+<input name=form-name id=form-name type=text required>
+<label for=form-email>Email</label>
+<input name=form-email id=form-email type=email required>
+<label for=form-url>URL</label>
+<input name=form-url id=form-url type=url>
+<label for=form-comment>Comment</label>
+<textarea name=form-comment id=form-comment required>
+</textarea>
+<input type=submit>
+</form>
+<xmp class="xmp">
+<input id=tap
+name=tap
+type=range
+min=1
+max=11
+value=0
+role=slider
+aria-valuemin=1
+aria-valuemax=11
+aria-valuenow=0
+onchange="this.setAttribute('aria-valuenow', this.value)">
+<style type="text/css">/*<![CDATA[*/
+input[type=range]::before {content: attr(min);}
+input[type=range]::after {content: attr(max);}
+input[type=range]{width:500px; color:red; font-family:cursive; font-size:2em;}
+/*]]>*/</style>
+<output onforminput="value=tap.value">5</output>
+</xmp>
+<input id=tap
+name=tap
+type=range
+min=1
+max=11
+value=0
+role=slider
+aria-valuemin=1
+aria-valuemax=11
+aria-valuenow=0
+onchange="this.setAttribute('aria-valuenow', this.value)"> <output onforminput="value=tap.value">5</output>
+<style type="text/css">/*<![CDATA[*/
+input[type=range]::before {content: attr(min);}
+input[type=range]::after {content: attr(max);}
+input[type=range]{width:500px; color:red; font-family:cursive; font-size:2em;}
+/*]]>*/</style>
+[m]output 동작 안됨TT
+</div><!-- /box1 -->
+오래된 브라우저를 위한 하위 호환성 <a href="http://modernizr.com/">http://modernizr.com/</a>
+폼 스타일과 에러 메시지 -- 폼 양식에 스타일을 입히고 싶은 마음은 굴뚝같겠지만 (<a href="http://meyerweb.com/eric/thoughts/2007/05/15/formal-weirdness/">어쩌면 엉망진창이 될 수도 있습니다.</a>) 폼은 브라우저의 기본 모양을 그대로 놔두는 것이 좋습니다.
+브라우저 오버라이딩
+자바스크립트를 사용한 DIY 유효성 검사
+유효성 검사 방지
+정리
+</pre>
+
+<h3>4장 비디오와 오디오</h3>
+<pre>
+멀티미디어 기본 지원
+코덱 전쟁
+<div class="box1">
+<xmp class="xmp">
+<video controls>
+<source src="vidoe.ogv" type="video/ogg; codecs='theora, vorbis'">
+<source src="vidoe.mp4" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
+<p>Your browser doesn't support video. Please download the video in
+<a href=leverage-a-synergy.ogv>Ogg</a> or <a href=leverage-a-synergy.mp4>mp4</a> format.</p>
+</video>
+</xmp>
+<xmp class="xmp">
+<video controls>
+<source src="vidoe.ogv" type="video/ogg; codecs='theora, vorbis'">
+<source src="vidoe.mp4" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
+<embed src="http://www.youtube.com/v/cmtcc94Tv3A&hl=en_GB&fs=1&rel=0" type="application/x-shockwave-flash"
+allowscriptaccess="always" allowfullscreen="true" width="425" height="344">
+</video>
+</xmp>
+<source src="vidoe.ogv" type="video/ogg; codecs='theora, vorbis'">
+<source src="vidoe.mp4" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
+<embed src="http://www.youtube.com/v/cmtcc94Tv3A&hl=en_GB&fs=1&rel=0" type="application/x-shockwave-flash"
+allowscriptaccess="always" allowfullscreen="true" width="425" height="344">
+</video>
+<a href="https://github.com/etianen/html5media">html5media</a>
+<xmp class="xmp">
+<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+</xmp>
+</div><!-- /box1 -->
+커스텀 컨트롤 영역
+<div class="box1">&#x25BA; &#x2590;&#x2590;
+<a href="http://www.annodex.net/~silvia/itext/">Demos of HTML5 Video and Audio Tag Accessibility</a>
+</div><!-- /box1 -->
+정리
+<div class="box1"><a href="http://html5video.org/">http://html5video.org/</a> -- 모든 브라우저에서 작동하는 오픈소스 비디오 플레이어	
+<a href="http://www.jplayer.org/">http://www.jplayer.org/</a> -- HTML5 Audio & Video for jQuery : 플레이 리스트 기능 지원, CSS 스킨 가능. (구브라우저에서는 플래시 사용)
+</div><!-- /box1 -->
+</pre>
+
+<h3>5장 캔버스</h3>
+<pre>
+캔버스 기초
+<div class="box1">사각형 그리기
+<canvas class="canvas1" style="border:1px solid #000;"></canvas>
+<script>/*<![CDATA[*/
+var ctx = document.querySelector('.canvas1').getContext('2d');
+ctx.fillStyle = 'rgb(0, 255, 0)';
+ctx.fillRect(10, 20, 50, 50); // creates a solid square
+ctx.strokeStyle = 'rgb(0, 182, 0)';
+ctx.lineWidth = 5;
+ctx.strokeRect(9, 19, 52, 52); // draws an outline
+/*]]>*/</script>
+그라데이션
+<canvas class="canvas2" style="border:1px solid #000;"></canvas>
+<script>/*<![CDATA[*/
+var canvas = document.querySelector('.canvas2'),
+	ctx = canvas.getContext('2d'),
+	gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+gradient.addColorStop(0, '#fff');
+gradient.addColorStop(1, '#000');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+/*]]>*/</script>
+<canvas class="canvas3" style="border:1px solid #000;"></canvas>
+<script>/*<![CDATA[*/
+var canvas = document.querySelector('.canvas3'),
+	ctx = canvas.getContext('2d'),
+	gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0,	canvas.width/2, canvas.height/2, 150);
+gradient.addColorStop(0, '#fff');
+gradient.addColorStop(1, '#000');
+ctx.fillStyle = gradient;
+ctx.fillRect(0, 0, canvas.width, canvas.width);
+/*]]>*/</script>
+<xmp class="xmp">
+var radians = degrees * Math.PI / 180;
+</xmp>
+패턴
+<canvas class="canvas4" style="border:1px solid #000;"></canvas>
+<script>/*<![CDATA[*/
+var canvas = document.querySelector('.canvas4'),
+	img = document.createElement('img'),
+	ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth/2;
+canvas.height = window.innerHeight/2;
+img.onload = function () {
+	ctx.fillStyle = ctx.createPattern(this, 'repeat');
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+img.src = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQqMEy6JVPeTlWYD7PK4hJp-s1oz4L1I6DhLQw8VU538EWUHNGN';
+/*]]>*/</script>
+</div><!-- /box1 -->
+path 생성
+<div class="box1">
+<canvas class="canvas5" style="border:1px solid #000;"></canvas>
+<script>/*<![CDATA[*/
+var canvas5 = document.querySelector('.canvas5'),
+	ctx5 = canvas5.getContext('2d');
+ctx5.beginPath();
+ctx5.arc(100, 50, 30, 0, Math.PI*2, true); // head
+ctx5.fill();
+ctx5.beginPath();
+// draw the smile
+ctx5.strokeStyle = '#c00';
+ctx5.lineWidth = 3;
+ctx5.arc(100, 50, 20, 0, Math.PI, false);
+ctx5.stroke();
+ctx5.beginPath();
+ctx5.fillStyle = '#c00';
+// start the left eye
+ctx5.arc(90, 45, 3, 0, Math.PI*2, true);
+ctx5.fill();
+ctx5.moveTo(113, 45);
+// draw the right eye
+ctx5.arc(110, 45, 3, 0, Math.PI*2, true);
+ctx5.fill();
+ctx5.stroke(); // thicker eyes
+/*]]>*/</script>
+</div><!-- /box1 -->
+픽셀과 변형
+이미지 캡처
+픽셀 단위 작업
+캔버스 요소 애니메이션
+정리
+<a href="http://m.mkexdev.net/86">jQuery Visualize : jQuery Visualize, HTML5 차트 라이브러리 소개</a>
+<a href="http://www.filamentgroup.com/examples/charting_v2/">http://www.filamentgroup.com/examples/charting_v2/</a>
+
+</pre>
+▼▼◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+<h3>6장 데이터 스토리지</h3>
+<pre>
+저장 옵션
+웹 스토리지
+웹 SQL 데이터베이스
+정리
+</pre>
+
+<h3>7장 오프라인</h3>
+<pre>
+오프라인 환경
+cache manifest
+manifest 제공 방법
+브라우저 서버 통신 방법
+applicationCache
+manifest를 사용한 연결 확인
+캐시 제거...1장 기본 구조
+「head」 영역
+새로운 HTML5 구조 엘리먼트
+CSS를 사용한 HTML5 스타일
+HTML5 구조 엘리먼트의 사용법
+정리
+</pre>
+
+<h3>8장 드래그앤드롭</h3>
+<pre>
+드래그
+드래그 정보 상호 교환
+드래그 가능 엘리먼트
+드래그 아이콘
+접근성
+정리
+</pre>
+
+<h3>9장 위치 정보</h3>
+<pre>
+사용자 위치 지정
+API 메소드
+마법 같은 작동 방법
+정리
+</pre>
+
+<h3>10장 메시지 워커, 소켓</h3>
+<pre>
+메시징 API를 사용한 채팅
+웹 워커와 스레드
+웹 소켓을 사용한 스트리밍 데이터
+정리
+책을 마치며 
+</pre>
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130619.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

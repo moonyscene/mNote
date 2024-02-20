@@ -1,0 +1,78 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>Mobile Note',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+body{margin:10px;}
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+//터치드래그.20110812.
+function initTouchDrag(selector,onoff){
+	if(!window.addEventListener)return false;
+	var dragScope=document.getElementById(selector);
+	if(dragScope){
+		var test=document.getElementById('test');//<div id="test" style="background:#ff0;">결과</div>
+		var startX=startY=startLeft=startTop=dragX=dragY=dragScope.style.left=dragScope.style.top=0;
+		_myFn1=function(e){e.preventDefault();
+			startX=e.targetTouches[0].pageX;
+			startY=e.targetTouches[0].pageY;
+		}
+		_myFn2=function(e){e.preventDefault();
+			dragX=startX-e.targetTouches[0].pageX;
+			dragY=startY-e.targetTouches[0].pageY;
+			if(test)test.innerHTML="x:"+dragX+" y:"+dragY+" l:"+this.style.left+" t:"+this.style.top+" w:"+(this.parentNode.offsetWidth-this.offsetWidth)+" t:"+(this.parentNode.offsetHeight-this.offsetHeight);
+		}
+		_myFn3=function(e){e.preventDefault();
+			var bodyW=document.body.offsetWidth;
+			if(dragX<-(bodyW/20)){alert('prev');dragX=0;}
+			if(dragX>(bodyW/20)){alert('next');dragX=0;}
+		}
+		dragScope.addEventListener('touchstart',_myFn1,false);
+		dragScope.addEventListener('touchmove',_myFn2,false);
+		dragScope.addEventListener('touchend',_myFn3,false);
+	}
+}
+/*]]>*/</script>
+</head>
+<body>
+
+
+<div id="test" style="height:100px;background:#ff0;">결과</div>
+<script>initTouchDrag('test');</script>
+
+
+
+<h1>Mobile Note</h1>
+
+<ul class="bu">
+<li><a href="s.html">Script Test</a></li>
+</ul>
+
+<h2>04.Touch Gesture Test</h2>
+
+<ol>
+<li><a href="/Mobile/ex.html">/Mobile/ex.html</a></li>
+</ol>
+
+<h2>iframe</h2>
+
+<iframe title="네이버" name="iframe1" src="w.html" frameborder="0" scrolling="no" allowtransparency="true"
+style="width:100%;height:320px;overflow:auto;">
+<a href="w.html">네이버</a>
+</iframe>
+
+
+
+<h2>API</h2>
+
+<ol class="num">
+<li><a href="./Mashup/googleMap1.html">googleMap1</a></li>
+<li><a href="./Mashup/googleMap2.html">googleMap2</a></li>
+</ol>
+
+</body>
+</html>

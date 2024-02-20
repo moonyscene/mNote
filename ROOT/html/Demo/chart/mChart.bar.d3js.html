@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211018 | @m | 최초작성
+ * 20211018 | @m | 최초완성
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chart Bar [d3.js] by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	Chart Bar
+	<small class="dpib">[d3.js]</small>
+</h1>
+
+
+<link rel="stylesheet" href="../../share/vendor/animated-bar-chart-master/dist/bar.chart.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src='https://d3js.org/d3.v4.min.js'></script>
+<script src="../../share/vendor/animated-bar-chart-master/dist/jquery.bar.chart.min.js"></script>
+
+
+<h2 class="hb1 h2">vertical</h2>
+
+
+<div class="w1myChart1" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<div id="myChart1" class="bcBar"></div>
+</div>
+
+
+<script>/*<![CDATA[*/
+	$(function() {
+		var chart_data = getData();
+
+		var options = {
+			 data: chart_data, // data for chart rendering
+			 params: { // columns from data array for rendering graph
+					group_name: 'group', // title for group name to be shown in legend
+					name: 'level', // name for xaxis
+					value: 'people' // value for yaxis
+			 },
+			 horizontal_bars: false, // default chart orientation
+			 chart_height: 400, // default chart height in px
+			 colors: null, // colors for chart
+			 show_legend: true, // show chart legend
+			 legend: { // default legend settings
+					position: LegendPosition.bottom, // legend position (bottom/top/right/left)
+					width: 200 // legend width in pixels for left/right
+			 },
+			 x_grid_lines: false, // show x grid lines
+			 y_grid_lines: true, // show y grid lines
+			 tweenDuration: 300, // speed for tranistions
+			 bars: { // default bar settings
+					padding: 0.075, // padding between bars
+					opacity: 0.8, // default bar opacity
+					opacity_hover: 1, // default bar opacity on mouse hover
+					disable_hover: false, // disable animation and legend on hover
+					hover_name_text: 'Level', // text for name column for label displayed on bar hover
+					hover_value_text: '인원수', // text for value column for label displayed on bar hover
+			 },
+			 number_format: { // default locale for number format
+					format: '', // default number format
+					decimal: '.', // decimal symbol
+					thousands : ',', // thousand separator symbol
+					grouping: [3], // thousand separator grouping
+					currency: ['$'] // currency symbol
+			 },
+			 margin: { // margins for chart rendering
+					top: 0, // top margin
+					right: 20, // right margin
+					bottom: 20, // bottom margin
+					left: 40 // left margin
+			 },
+			 rotate_x_axis_labels: { // rotate xaxis label params
+					process: true, // process xaxis label rotation
+					minimun_resolution: 720, // minimun_resolution for label rotating
+					bottom_margin: 15, // bottom margin for label rotation
+					rotating_angle: 90, // angle for rotation,
+					x_position: 9, // label x position after rotation
+					y_position: -3 // label y position after rotation
+			 }
+		};
+
+		$('#myChart1').animatedBarChart(options);
+
+		function getData() {
+			return [
+				 { "group": "GROUP1", "level": "100", "people": 0 },
+				 { "group": "GROUP1", "level": "200", "people": 1 },
+				 { "group": "GROUP1", "level": "400", "people": 6 },
+				 { "group": "GROUP1", "level": "500", "people": 0 },
+
+				 { "group": "GROUP2", "level": "100", "people": 1 },
+				 { "group": "GROUP2", "level": "200", "people": 2 },
+				 { "group": "GROUP2", "level": "400", "people": 1 },
+				 { "group": "GROUP2", "level": "500", "people": 0 },
+
+				 { "group": "GROUP3", "level": "100", "people": 1 },
+				 { "group": "GROUP3", "level": "200", "people": 0 },
+				 { "group": "GROUP3", "level": "400", "people": 2 },
+				 { "group": "GROUP3", "level": "500", "people": 1 },
+
+				 { "group": "GROUP4", "level": "100", "people": 3 },
+				 { "group": "GROUP4", "level": "200", "people": 0 },
+				 { "group": "GROUP4", "level": "400", "people": 0 },
+				 { "group": "GROUP4", "level": "500", "people": 0 },
+
+				 { "group": "GROUP5", "level": "100", "people": 0 },
+				 { "group": "GROUP5", "level": "200", "people": 1 },
+				 { "group": "GROUP5", "level": "400", "people": 0 },
+				 { "group": "GROUP5", "level": "500", "people": 0 },
+
+				 { "group": "GROUP6", "level": "100", "people": 0 },
+				 { "group": "GROUP6", "level": "200", "people": 0 },
+				 { "group": "GROUP6", "level": "400", "people": 0 },
+				 { "group": "GROUP6", "level": "500", "people": 0 },
+
+				 { "group": "GROUP7", "level": "100", "people": 0 },
+				 { "group": "GROUP7", "level": "200", "people": 0 },
+				 { "group": "GROUP7", "level": "400", "people": 0 },
+				 { "group": "GROUP7", "level": "500", "people": 0 },
+			];
+		}
+
+	});
+/*]]>*/</script>
+
+
+<h2 class="hb1 h2">horizontal</h2>
+
+
+<div class="w1myChart2" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<div id="myChart2" class="bcBar"></div>
+</div>
+
+
+<script>/*<![CDATA[*/
+	$(function() {
+		var chart_data = getData();
+
+		var options = {
+			 data: chart_data, // data for chart rendering
+			 params: { // columns from data array for rendering graph
+					group_name: 'group', // title for group name to be shown in legend
+					name: 'level', // name for xaxis
+					value: 'people' // value for yaxis
+			 },
+			 horizontal_bars: true, // default chart orientation // 20211018 ☆  */
+			 chart_height: 400, // default chart height in px
+			 colors: null, // colors for chart
+			 show_legend: true, // show chart legend
+			 legend: { // default legend settings
+					position: LegendPosition.bottom, // legend position (bottom/top/right/left)
+					width: 200 // legend width in pixels for left/right
+			 },
+			 x_grid_lines: true, // show x grid lines
+			 y_grid_lines: false, // show y grid lines
+			 tweenDuration: 300, // speed for tranistions
+			 bars: { // default bar settings
+					padding: 0.075, // padding between bars
+					opacity: 0.8, // default bar opacity
+					opacity_hover: 1, // default bar opacity on mouse hover
+					disable_hover: false, // disable animation and legend on hover
+					hover_name_text: 'Level', // text for name column for label displayed on bar hover
+					hover_value_text: '인원수', // text for value column for label displayed on bar hover
+			 },
+			 number_format: { // default locale for number format
+					format: '', // default number format
+					decimal: '.', // decimal symbol
+					thousands : ',', // thousand separator symbol
+					grouping: [3], // thousand separator grouping
+					currency: ['$'] // currency symbol
+			 },
+			 margin: { // margins for chart rendering
+					top: 0, // top margin
+					right: 20, // right margin
+					bottom: 20, // bottom margin
+					left: 40 // left margin
+			 },
+			 rotate_x_axis_labels: { // rotate xaxis label params
+					process: true, // process xaxis label rotation
+					minimun_resolution: 720, // minimun_resolution for label rotating
+					bottom_margin: 15, // bottom margin for label rotation
+					rotating_angle: 90, // angle for rotation,
+					x_position: 9, // label x position after rotation
+					y_position: -3 // label y position after rotation
+			 }
+		};
+
+		$('#myChart2').animatedBarChart(options);
+
+		function getData() {
+			return [
+				 { "group": "GROUP1", "level": "100", "people": 0 },
+				 { "group": "GROUP1", "level": "200", "people": 1 },
+				 { "group": "GROUP1", "level": "400", "people": 6 },
+				 { "group": "GROUP1", "level": "500", "people": 0 },
+
+				 { "group": "GROUP2", "level": "100", "people": 1 },
+				 { "group": "GROUP2", "level": "200", "people": 2 },
+				 { "group": "GROUP2", "level": "400", "people": 1 },
+				 { "group": "GROUP2", "level": "500", "people": 0 },
+
+				 { "group": "GROUP3", "level": "100", "people": 1 },
+				 { "group": "GROUP3", "level": "200", "people": 0 },
+				 { "group": "GROUP3", "level": "400", "people": 2 },
+				 { "group": "GROUP3", "level": "500", "people": 1 },
+
+				 { "group": "GROUP4", "level": "100", "people": 3 },
+				 { "group": "GROUP4", "level": "200", "people": 0 },
+				 { "group": "GROUP4", "level": "400", "people": 0 },
+				 { "group": "GROUP4", "level": "500", "people": 0 },
+
+				 { "group": "GROUP5", "level": "100", "people": 0 },
+				 { "group": "GROUP5", "level": "200", "people": 1 },
+				 { "group": "GROUP5", "level": "400", "people": 0 },
+				 { "group": "GROUP5", "level": "500", "people": 0 },
+
+				 { "group": "GROUP6", "level": "100", "people": 0 },
+				 { "group": "GROUP6", "level": "200", "people": 0 },
+				 { "group": "GROUP6", "level": "400", "people": 0 },
+				 { "group": "GROUP6", "level": "500", "people": 0 },
+
+				 { "group": "GROUP7", "level": "100", "people": 0 },
+				 { "group": "GROUP7", "level": "200", "people": 0 },
+				 { "group": "GROUP7", "level": "400", "people": 0 },
+				 { "group": "GROUP7", "level": "500", "people": 0 },
+			];
+		}
+
+	});
+/*]]>*/</script>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Layout Guide',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+/* all+form Base */
+*{font-style:normal;font-family:AppleGothic,"나눔고딕","돋움",Dotum,"굴림",Gulim,sans-serif;}
+html, body{min-height:100%;margin:0;padding:0;background:#fff;}
+html{height:100%;}
+* html body{height:100%;}
+body{width:1000px;margin:0 auto;background:#fff;color:#333;font-size:75%;line-height:1.5;}
+table, pre{font-size:1em;}
+form, img{margin:0;padding:0;border:0;}
+input, select, textarea, button{font-size:1em;line-height:1.25;vertical-align:middle;}
+input.text,
+input.file{padding:2px 2px 1px 2px;border:1px solid #aaa;background:#fff;}
+.button{display:inline-block;padding:3px 7px 1px;border:1px solid #999;line-height:1.25;text-decoration:none !important;cursor:pointer;}
+.dpn{display:none !important;}
+strong{color:#009;font-weight:bold;}
+em{color:#e00 !important;font-style:normal !important;}
+b{color:#c0d;font-weight:bold;font-size:1.33em;}
+i{color:#080;}
+.fl{display:inline !important;float:left !important;}
+.fr{display:inline !important;float:right !important;}
+xmp,/* inValid */
+.xmp{display:block;margin:.5em 0 0.67em 0;padding:.8em 1.2em;border:1px solid #bbdd99;border-left:3px solid #bbdd99;border-radius:5px;background:#f9ffee;font-size:1em;font-family:'나눔고딕';white-space:pre;}
+xmp{border:1px solid #ffcc99;border-left:3px solid #ffcc99;border-radius:5px;background:#fffff9;}
+
+/* Layout */
+#container{position:relative;width:95%;margin:1% 0;padding:1%;border:.5em dashed #ccc;background:#fff;}
+#head{position:relative;width:80%;margin:1%;padding:1%;border:.5em solid #333;}
+#visual{position:relative;width:80%;height:5em;margin:1%;padding:1%;border:.5em solid #ccc;}
+#wrap{position:relative;width:80%;margin:1%;padding:1%;border:.5em dashed #333;overflow:hidden;}
+	.spot{position:relative;width:94%;margin:1%;padding:1%;border:.4em solid #ccc;}
+	#side{float:left;position:relative;width:20%;margin:1%;padding:1%;border:.2em solid #666;}
+	.colgroup{float:left;position:relative;width:70%;margin:1%;padding:1%;border:.2em dotted #ccc;}
+	#body{float:left;width:65%;margin:1%;padding:1%;border:.2em solid #666;}
+		#body_head{margin:1%;padding:1%;border:.1em solid #999;}
+		#body_content{margin:1%;padding:1%;border:.1em solid #f90;}
+		#body_foot{margin:1%;padding:1%;border:.1em solid #999;}
+	#aside{float:left;width:25%;margin:1%;padding:1%;border:.2em solid #666;}
+#foot{position:relative;width:80%;margin:1%;padding:1%;border:.5em solid #333;}
+#wing{position:absolute;right:0;top:20em;width:11.5%;margin:1%;padding:1%;border:.25em dashed #333;}
+@media print{
+.pb{page-break-before:always}
+}
+/*]]>*/</style>
+<link rel="stylesheet" type="text/css" href="../../_lib/share/css/style.css" />
+</head>
+<body>
+
+
+<h1>Layout Area Selector(id/class)</h1>
+
+<h2>Sub Layout</h2>
+
+<!-- container -->
+<div id="container">
+<strong>#container</strong> : 컨테이너 - 문서전체(#head, #wrap, #foot, #wing) 담는다.<br />
+<em>&lt;div id="bg2top" class="bg"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+　#skipnavigation : 본문 바로가기, ..<br />
+<!-- head -->
+<div id="head">
+<strong>#head</strong> (<i>header</i>#header) : 헤더(머리) 영역<br />
+　.stb h1#logo : Site(Service) Title Bar(Block). 사이트 로고<br />
+　.gnb #gn1, #gn2, .. : Global Navigation Bar. 홈, 로그인, 사이트맵, 외국어, ..<br />
+　.lnb #topmenu : Local Navigation Bar. 주메뉴<br />
+　#search1 : 검색<br />
+　#allmenu : 전체메뉴<br />
+</div>
+<!-- /head -->
+<!-- visual -->
+<div id="visual">
+<strong>#visual</strong> : 비쥬얼<br />
+　#v1, #v2, .. : 비쥬얼 여러개<br />
+　#t1, #t2, .. : 텍스트 카피, 슬로건, 캐치프레이즈<br />
+</div>
+<!-- /visual -->
+<!-- wrap -->
+<div id="wrap">
+<div style="width:100%;"><strong>#wrap</strong>(#wrapper) :  래퍼(감싸기) - #side 와 #body 를 감싼다.</div>
+<!-- spot -->
+<div class="spot"><strong>.spot</strong> : 강조 콘텐츠</div>
+<!-- /spot -->
+<!-- side -->
+<div id="side">
+<strong>#side</strong> (#sidebar) : 사이드바<br />
+　#sidemenu : 부메뉴<br />
+　<i>nav</i>.snb :<br />
+　Side Navigation Bar<br />
+　#sn1, .. : 보충메뉴<br />
+</div>
+<!-- /side -->
+<!-- colgroup -->
+<div class="colgroup">
+<strong>.colgroup</strong> : 컬럼 그룹핑 (일반적으로 .colgroup 와 #aside 는 생략)
+<!-- body -->
+<div id="body">
+<strong>#body</strong> : 바디(본문) 영역
+<!-- body_head -->
+<div id="body_head">
+<strong>#body_head</strong> : <br />
+　#location (#path) : 현재 웹페이지 위치 경로<br />
+　#bn1, .. : 본문 유틸리티(인쇄,위로,뒤로)<br />
+　#body_title : &lt;h1&gt; 본문 제목<br />
+</div>
+<!-- /body_head -->
+<!-- body_content -->
+<div id="body_content">
+<strong>#body_content</strong> : 본문 콘텐츠<br />
+　#contenttabmenu : 본문1차메뉴탭<br />
+　<i>section</i>.section1 콘텐츠 영역1<br />
+　　&lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, .. 본문 소제목<br />
+　<i>section</i>.section2 콘텐츠 영역2<br />
+　　&lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, .. 본문 소제목<br />
+</div>
+<!-- /body_content -->
+<!-- body_foot -->
+<div id="body_foot">
+<strong>#body_foot</strong> : <br />
+　#charge : 본문 책임자, 최종수정일<br />
+　#satisfaction : 만족도조사<br />
+</div>
+<!-- /body_foot -->
+</div>
+<!-- /body -->
+<!-- aside -->
+<div id="aside">
+<strong><i>aside</i>#aside</strong> : 곁가지<br />
+　#an1, .. : 추가메뉴<br />
+　.ad1, .. : 광고<br />
+　<i>section</i>.section1, ..<br />
+</div>
+<!-- /aside -->
+</div>
+<!-- /colgroup -->
+</div>
+<!-- /wrap -->
+<!-- wing -->
+<div id="wing">
+<strong>	#wing</strong> : 날개 영역<br />
+　#wn1 : 날개 메뉴<br />
+　.gotop : 위로<br />
+</div>
+<!-- /wing -->
+<em>&lt;div id="bg2foot"&gt;&lt;div class="bg"&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+<!-- foot -->
+<div id="foot">
+<strong>#foot</strong> (<i>footer</i>#footer) : 푸터(바닥) 영역<br />
+<!-- 　#siteutil : 사이트 유틸<br /> -->
+<!-- 　#familysite : 패밀리 사이트<br /> -->
+<!-- 　#siteguide : 사이트 안내 및 정책<br /> -->
+　#fn1, .. : 안내/정책<br />
+　#visitor : 방문자수<br />
+　#authorinfo : 작성자 (연락처/저작권)<br />
+</div>
+<!-- /foot -->
+<em>&lt;div id="bg2btm" class="bg"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+</div>
+<!-- /container -->
+
+<hr class="pb" />
+<h2>Main Layout</h2>
+
+<!-- container -->
+<div id="container">
+<strong>#container</strong> : 컨테이너 - 문서전체(#head, #wrap, #foot, #wing) 담는다.<br />
+<em>&lt;div id="bg2top" class="bg"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+<!-- head -->
+<div id="head">
+<strong>#head</strong> (<i>header</i>#header) : 헤더(머리) 영역<br />
+　.stb h1#logo : Site(Service) Title Bar(Block). 사이트 로고<br />
+　.gnb #gn1, #gn2, .. : Global Navigation Bar. 홈, 로그인, 사이트맵, 외국어, ..<br />
+　.lnb #topmenu (.lnb) : Local Navigation Bar. 주메뉴<br />
+　#search1 : 검색<br />
+　#allmenu : 전체메뉴<br />
+</div>
+<!-- /head -->
+<!-- visual -->
+<div id="visual">
+<strong>#visual</strong> : 비쥬얼<br />
+　#v1, #v2, .. : 비쥬얼 여러개<br />
+　#t1, #t2, .. : 텍스트 카피, 슬로건, 캐치프레이즈<br />
+</div>
+<!-- /visual -->
+<!-- wrap -->
+<div id="wrap">
+<div style="width:100%;"><strong>#wrap</strong>(#wrapper) :  래퍼(감싸기) - #side 없이 #body 를 감싼다.</div>
+<!-- body -->
+<div id="body" style="display: block; float: none; width: 97%; margin: 0; padding: 1%; background: transparent;">
+<strong>#body</strong> : 바디(본문) 영역<br />
+　<i>section</i>.section1 콘텐츠 영역1<br />
+　#pr1, #pr2, .. : 홍보·알림 순환 (#picpr1(이미지홍보,배너존))<br />
+　#bbs1, #bbs2, ..  : 최근 게시물 (.focus 형태 포함)<br />
+　#gallery1, ..  : 갤러리<br />
+　#menu1, #menu2, ..  : 추천 메뉴<br />
+　#info1, ..  : 링크 없는 정보<br />
+　<i>section</i>.section2 콘텐츠 영역2<br />
+　#timetable1, ..  : 일정 달력<br />
+　#sns1, ..  : 소셜네트워크서비스<br />
+　#banner1, ..  : 배너<br />
+　#gouri1, ..  : 바로가기<br />
+　#m1, #m2, .. : 갖가지 잡다한 메인콘텐츠<br />
+</div>
+<!-- /body -->
+</div>
+<!-- /wrap -->
+<em>&lt;div id="bg2foot"&gt;&lt;div class="bg"&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+<!-- foot -->
+<div id="foot">
+<strong>#foot</strong> (<i>footer</i>#footer) : 푸터(바닥) 영역<br />
+<!-- 　#siteutil : 사이트 유틸<br /> -->
+<!-- 　#familysite : 패밀리 사이트<br /> -->
+<!-- 　#siteguide : 사이트 안내 및 정책<br /> -->
+　#fn1, .. : 안내/정책<br />
+　#visitor : 방문자수<br />
+　#authorinfo : 작성자 (연락처/저작권)<br />
+</div>
+<!-- /foot -->
+<em>&lt;div id="bg2btm" class="bg"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</em><br />
+</div>
+<!-- /container -->
+
+<p>메인페이지 마크업에는 &lt;body class="main"&gt; 또는 &lt;body class="d"&gt; 처럼 class 이름을 줘서 서브페이지와 구분한다.<br />
+서브 레이아웃과 다른 메인 스타일은 body 선택자{ } 또는 body.main 선택자{ } 또는 body.d 선택자{ } 로 우선 순위를 높게 재정의한다.
+</p>
+<h3>main.css</h3>
+<xmp class="xmp">
+body #head{height:110px;}
+body #visual img{left:20px;}
+body #body{display:block;float:none;width:100%;height:500px;margin:0;padding:0;background:transparent;}
+</xmp>
+
+<br />
+<hr class="show" />
+<p class="fl">
+<strong>History</strong>
+20130328.
+20130327.
+20130325. 2nd Finished.
+20100526. 1st Finished.
+20100526. Started.
+</p>
+<p class="fr">
+<strong>by</strong>
+MoonYoungshin
+</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Hack | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Hack</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#CSSHack">CSS Hack</a></li>
+<li><a href="#ConditionalCommentsHack">About Conditional Comments Hack</a></li>
+<li><a href="#prepareTest">표준 CSS 문법 준수 진단 대비</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+<p>
+브라우저가 버전업되면서(FF2 → FF3, OP9 → OP9.5, IE6 → IE7 → IE8 → IE9) 핵은 점점 사라져 가고 있다.<br />
+속성을 이용한 핵은 CSS 문법 유효성을 통과하지 못한다.<br />
+hack 은 최후의 수단으로 사용한다. <em>핵은 진짜 참말로 억수로 안될 때만 사용하자!</em><br />
+</p>
+
+
+<h2 id="CSSHack">CSS Hack</h2>
+
+<table border="1" class="t3" summary="">
+	<caption>
+		<strong class="h1">[표] 브라우저 버전별 사용 가능한 핵 -- <span class="bg-alert">이 배경색인 것들만 CSS 문법 유효성 통과</span></strong>
+	</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">User Agent</th>
+<th scope="col">Standard Mode (DTD존재)</th>
+<th scope="col">★valid</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">IE6</th>
+<td><span class="bg-alert"><em>* html</em> Selector{}</span><br />
+<em>*html</em> Selector{}
+</td>
+<td>★valid<br />
+invalid<br />
+</td>
+<td>IE4~6, Mac IE4~5 적용<br />
+IE 적용<br />
+</td>
+</tr>
+<tr>
+<th scope="row">IE7</th>
+<td><span class="bg-alert"><em>*+html</em> Selector{}</span></td>
+<td>★valid</td>
+
+<style type="text/css">/*<![CDATA[*/
+*+html .abc{background:#ff0;}
+/*]]>*/</style>
+
+
+<td class="abc">IE7<del>, Firefox</del> 적용</td>
+</tr>
+<tr>
+<th scope="row">IE8</th>
+<td>Selector{Property:Value<em>\0</em>}<br />
+<span class="bg-alert">Selector<em>:lang(ko)</em>{}</span>
+</td>
+<td>invalid<br />
+★valid
+</td>
+<td>IE8, IE9 적용<br />
+<b>[m]</b> IE8 이상 표준 적용<br />
+</td>
+</tr>
+<tr>
+<th scope="row">IE9</th>
+<td>Selector{Property:Value<em>\0</em>}<br />
+<em>:root</em> Selector{Property:Value<em>\0 !important</em>}<br />
+<span class="bg-alert"><em>:root</em> Selector{}</span></td>
+<td>invalid<br />
+invalid<br />
+★valid<br />
+</td>
+<td>IE8, IE9 적용<br />
+IE9 적용<br />
+IE9, Firefox, Safari, Chrome, Opera 적용
+</td>
+</tr>
+<tr>
+<th scope="row">Firefox</th>
+<td><em>html>/**/body</em> Selector<em>,x:-moz-any-link,x:default</em>{}<br />
+input<em>::-moz-focus-inner</em>{padding:0;border:0;}<br />
+button<em>::-moz-focus-inner</em>{padding:0;border:0;}<br />
+<em>:root</em> Selector{}
+</td>
+<td>invalid<br />
+invalid<br />
+<br />
+★valid<br />
+</td>
+<td>Firefox 적용<br />
+<b>[m]</b> FF 버튼(button/input) extra padding 제거<br />
+<br />
+IE9, Firefox, Safari, Chrome, Opera 적용<br />
+</td>
+</tr>
+<tr>
+<th scope="row">Safari, Chrome</th>
+<td><em>:root</em> Selector{}</td>
+<td>★valid</td>
+<td>IE9, Firefox, Safari, Chrome, Opera 적용</td>
+</tr>
+<tr>
+<th scope="row">Opera</th>
+<td><em>:root</em> Selector{}</td>
+<td>★valid</td>
+<td>IE9, Firefox, Safari, Chrome, Opera 적용</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="bu">
+<li><strong>[m]</strong> Quirks Mode 는 hack 이 다르고, IE7 과 IE8 을 구분할 수 없으므로 표준 웹문서로 변환하세요.</li>
+<li><strong>[m]</strong> CSS 문법에 유효한(valid) 핵만 사용하면, IE9, Safari, Chrome, Opera 를 구분할 방법은 없다.</li>
+<li><strong>[m]</strong> CSS 문법에 무효한(invalid) 핵을 사용해도,  Safari, Chrome, Opera 를 구분할 방법은 없다.</li>
+</ul>
+
+<h3>!important Hack - ★valid CSS</h3>
+<code class="xmp">
+selecter { <span class="em1">background: #ff0 !important; background: #0f0;</span> } /* IE6 #0f0 적용, IE7과 IE8이상 최신브라우저 #ff0 */
+</code>
+아래와 같이 분리 하면 IE6 도 #ff0 적용된다.<br />
+body { background: #ff0 !important; }<br />
+body { background: #0f0; }<br />
+
+<h3>Property Hack - invalid CSS</h3>
+<xmp class="xmp">
+property: value; /* All browser */
+*property: value; /* IE6~7 */
+_property: value; /* IE4~6 */
+#property: value; /* IE4~6, old Mac IE5, old Opera7, old Mozila, old Firefox */
+</xmp>
+
+
+<h2 id="ConditionalCommentsHack">Conditional Comments Hack</h2>
+
+<p>See the full syntax for conditional comments at <a href="http://bit.ly/ie-comments">http://bit.ly/ie-comments</a></p>
+
+<h3>IE 일 경우 (Mackup Valid)</h3>
+<xmp class="xmp">
+<!--[if IE]>
+<p>According to the conditional comment this is IE</p>
+<![endif]-->
+ 
+<!--[if IE 6]>
+<p>According to the conditional comment this is IE 6</p>
+<![endif]-->
+ 
+<!--[if gte IE 5]>
+<p>According to the conditional comment this is IE 5 and up</p>
+<![endif]-->
+ 
+<!--[if lt IE 6]>
+<p>According to the conditional comment this is IE lower than 6</p>
+<![endif]-->
+ 
+<!--[if lte IE 5.5]>
+<p>According to the conditional comment this is IE lower or equal to 5.5</p>
+<![endif]-->
+</xmp>
+</dd>
+
+<h3>IE 가 아닐 경우</h3>
+
+<!-- <xmp class="xmp">
+<![if !IE]>
+<p>You are not using Internet Explorer.</p>
+<![endif]>
+</xmp>
+<p>
+※ 위 코드는 Mackup 유효성을 통과하지 못하므로 아래 형태로 사용한다.
+</p> -->
+<xmp class="xmp">
+<!--[if !IE]>-->
+<p>You are not using Internet Explorer.</p>
+<!--<![endif]-->
+</xmp>
+
+
+<h2 id="prepareTest">웹 호환성(표준 CSS 문법 준수) 진단 대비</h2>
+
+<strong>[m]</strong>
+<a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.w3.org%2F&profile=css3&usermedium=all&warning=1&vextwarning=&lang=ko">W3C 웹사이트 CSS3 유효성 검사 결과</a> 를 보면 에러가 상당히 많다.<br />
+주로 -moz-, -webkit-, -o- 로 시작하는 벤더별 속성으로, 브라우저 호환과 신기술을 적용하기 위해서는 어쩔 수 없이 이렇게 해야 한다.<br />
+그럼에도 불구하고 행안부에서는 CSS 문법 오류를 평가하기에..<br />
+우리는 아래와 같이 스크립트에서 외부 CSS 파일 참조하게 하여, HTML 웹페이지 주소로 CSS 유효성 검사할 때 CSS 파일을 찾지 못하도록 하고 있다.<br />
+<xmp class="xmp">
+<script>/*<![CDATA[*/document.writeln('<link rel="stylesheet" type="text/css" href="/share/css/all.css" />');/*]]>*/</script>
+</xmp>
+이렇게 하면 보통의 경우(2009~2011 행안부 웹호환성 진단) CSS 문법 진단을 쉽게 통과하지만,<br />
+진단시 CSS 파일을 직접 검사한다면, 문법 오류는 발견될 것이다.<br />
+<b>그러므로, hack 은 최후의 수단으로 사용한다. 핵은 진짜 참말로 억수로 안될 때만 사용하자!</b><br />
+<em>2012 행안부 웹호환성 진단 부터는 *.css 파일을 직접 검사하므로, 꼼수는 더 이상 통하지 않을것이다.</em>
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130627. 조건주석문 구문 링크.
+20130527. 예제 보기 편하게.
+20130313. 
+20120904. ★valid, invalid 유효성 테스트 정리. 표준 CSS 문법 준수 진단 대비.
+20120518. FF, IE8이상표준 hack 추가.
+20120316.
+<a href="hack.v20101105.html">v20101105</a>
+20100915
+20100831
+20090514
+<a href="hack.20081029.html">v20081029</a>
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

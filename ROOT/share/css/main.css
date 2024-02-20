@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*! Mainpage(Homepage) Layout+Contents Template v0.1 | (c) 20150526 @MoonYoungshin //creativecommons.org/licenses/by/3.0/deed.ko */
+/** Outline ))
+ * @Filename : _main.css
+ * @Description : .info1, menu1, bbs1, list1, gallery1, focus1, sns1
+ * @Required : [~IE8] respond.min.js + selectivizr-min.js
+ * @Note : Support [IE7~]
+ * @Ref : //demo/main.html/
+ * @Task)
+ * 
+ */
+/** Table of contents ))
+ * 
+ */
+
+/* ◇◆ Layout[main+sub] ◇◆◇◆◇◆◇◆◇◆◇◆ */
+
+/* #wrap */
+
+#body{position:relative;min-height:0;margin:1.5%;}
+
+
+/* ◇◆ StyleName. YYYYMMDD. @Who	 ◇◆ */
+
+
+
+/* RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */
+
+/* small~xlarge */
+@media all and (max-width:639px){/* small ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(max-width:639px) */
+@media all and (min-width:640px){/* medium ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(min-width:640px) */
+@media all and (min-width:640px) and (max-width:999px){/* ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(min-width:640px) and (max-width:999px) */
+@media all and (min-width:1000px){/* large ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(min-width:1000px) */
+@media all and (min-width:1260px){/* xlarge ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(min-width:1260px) */
+/* /RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */

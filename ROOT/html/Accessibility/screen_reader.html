@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Screen Reader (시각장애인용 화면 낭독 프로그램) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Screen Reader (시각장애인용 화면 낭독 프로그램)</h1>
+
+
+<h2>최신버전 Review</h2>
+
+<ul class="bu">
+<li>2013502. 최신버전 센스리더Pro 3.0.7.0 
+<a href="http://xvtech.com/xvtech/?mid=qna&sort_index=readed_count&order_type=asc&document_srl=5894">센스리더로 pdf 파일을 읽고 싶습니다</a> [m]현재 센스리더는 어도비 리더 9버전에 최적화 되어 있어 상위 버전에서는 문서를 제대로 읽을 수 없습니다.
+</li>
+</ul>
+
+<p>201208현재. 웹 접근성 품질마크 사용자심사 심사환경 ( 사용 브라우저 및 스크린리더 버전)<br />
+IE 8.0.6001, 한글 죠스 11.0..1430 , 센스리더Pro 3.0.0.1</p>
+
+<h3 id="SenseReader">한글 죠스</h3>
+
+))) 20150806. <a href="http://nuli.navercorp.com/sharing/blog/post/1132738" target="_blank" title="새 창">한국어 JAWS for Windows 15.0(Korean JAWS for Windows 15.0) 소개</a> 
+
+<dl class="bu">
+<dt>20120823. <strong>[2012.08.WA마크18회.<a href="http://www.jinju.go.kr/">진주시</a>]</strong> <b>사용자 심사 - (전맹_죠스)</b><br /></dt>
+<dd>
+약도이미지에 별도페이지(Longdec속성이용)로 대체정보를 제공하고 있으나, 해당 이미지에 이미 링크가 제공되어 longdesc로 연결된 페이지가 아닌, 링크 페이지로 이동됨.<br />
+죠스로 운용 시에는 해당 동영상 제어버튼이 인지, 운용되지 않아 동영상을 재생하지 못함.<br />
+<i>(해결방안)</i> object 태그에 classid와 param값을 적절히 제공함. (class id를 미디어플레이어 6.4 버전 이하로 지정함)<br />
+</dd>
+</dl>
+
+<h3 id="SenseReader">센스리더</h3>
+
+<h4>20130716현재. v3.2.1</h4>
+
+<h4>20130405현재. v3.0.7.0</h4>
+
+<ol class="bo num">
+<li>20130405. <strong>&lt;span&gt;2&lt;/span&gt;&lt;span&gt;1&lt;/span&gt;</strong><br />
+"이십일" 로 읽음.
+</li>
+<li>20120330. <strong>title=""</strong><br />
+<em>&lt;a title="툴팁글"&gt;내용물&lt;/a&gt;</em> 은 툴팁글 음성 출력안함<br />
+<em>&lt;span title="툴팁글"&gt;내용물&lt;/span&gt; &lt;div title="툴팁글"&gt;내용물&lt;/div&gt;</em> 은 툴팁글 음성 출력함. 내용물과 다른 라인으로 인식하여 화살표키 상하(↑↓)로 툴팁글과 내용물 구분해서 인지할 수 있음.<br />
+</li>
+</ol>
+
+<h2>스크린리더 대응 작업</h2>
+
+<ul class="bu">
+<!-- <li><a href="http://www.uiryeong.go.kr/04economy/06_01.asp">#의령군 - 읍면별주산작물</a></li> -->
+<li><a href="http://health.hygn.go.kr/">함양보건소</a> - 플래시 자체 접근성 없을 때 HTML버전 제공 - 대체콘텐츠 이미지</li>
+<li><a href="http://www.hygn.go.kr/">함양군 대표사이트</a> - 플래시 자체 접근성 없을 때 HTML버전 제공 - 대체콘텐츠 텍스트</li>
+</ul>
+
+<h3>플래시 자체 접근성 없을 때 HTML버전 제공</h3>
+
+<xmp class="xmp">
+<!-- visual ★Flash wmode="window" 아니면 HTML버전도 제공필요! -->
+<div id="visual">
+<div class="afocus">
+<a href="#visual_flash" onclick="var el1=document.getElementById('visual_flash');el1.style.zIndex='10';var el2=document.getElementById('visual_html');el2.style.zIndex='';">Flash Version</a>
+<a href="#visual_html" onclick="var el1=document.getElementById('visual_flash');el1.style.zIndex='';var el2=document.getElementById('visual_html');el2.style.zIndex='10';">HTML Version</a>
+</div>
+<div id="visual_flash">
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="1000" height="396">
+<param name="movie" value="/flash/main_visual01.swf" />
+<param name="wmode" value="opaque" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="/flash/main_visual01.swf" width="1000" height="396">
+<param name="wmode" value="opaque" />
+<!--<![endif]-->
+<div class="noFlash afocus">
+<a href="http://www.adobe.com/kr/products/flashplayer/">Free Flash Player</a>
+<a href="#visual_html">HTML Version</a>
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>
+<div id="visual_html" title="HTML Version"><img src="/img/main/v.jpg" width="1000" height="396" alt="건강이 최고의 행복입니다. 건강수명 함께 늘려갑시다. 건강증진을 위해 언제나 최선을 다하겠습니다!" /></div>
+</div>
+<!-- /visual -->
+</xmp>
+<xmp class="xmp">
+<style type="text/css">/*<![CDATA[*/
+/* 플래시대체콘텐츠 */
+body #visual #visual_flash{z-index:10;position:absolute;left:0;top:-60px;}
+body #visual #visual_html{position:absolute;left:0;top:-60px;}
+body #visual #visual_html img{position:absolute;left:0;top:0;}
+body #visual .on{z-index:10;}
+body #visual #visual_flash .noFlash{background:#ffd;}
+/* 키보드접근성 */
+.afocus{z-index:9999;position:absolute;left:0;top:0}
+.afocus *{list-style:none;margin:0;padding:0;}
+.afocus a{display:block;width:1px;height:1px;overflow:hidden;color:#000;white-space:nowrap;}
+.afocus a:focus,
+.afocus a:active{width:auto;height:auto;background:#ffd;}
+/*]]>*/</style>
+</xmp>
+
+
+<h2 id="buyedu">스크린리더 구입/교육</h2>
+
+<p>센스리더 v1.0 버전 구입하면.. 2012.03.28. <a href="http://xvtech.com/xvtech/?document_srl=5243#0">센스리더 v3.0 (7 / XP / Vista)</a> BASIC 버전 설치가능</p>
+
+<!-- box2 -->
+<div class="box2">
+<h3>스크린리더 구입 관련</h3>
+<pre>
+= 엑스비전 고객센터 ☏02-888-1623 문의 결과
+* 제품명: <strong>센스리더 프로페셔널 에디션</strong>(Sense reader Professional Edition)
+* 제작사: 엑스비전 테크놀로지(<a href="http://www.xvtech.com">http://www.xvtech.com</a>)
+* 주문방법: 02-888-1623 전화 통화 후 입금하면 배송
+* 가격
+  Basic : 38만5천원
+  Full : 68만5천원 - Basic과 차이는 영한, 한영, 영문 읽기, 목소리 2가지.
+* 장애인 보조금 지원.
+  시각 장애인만 가능. 회사에서 구입시 지원 안됨.
+* 기타: 여러대 설치 가능하나 동시 로그인 안됨.
+* 남은질문
+현재 최신버전 2.5.0.6? 버전업 지원?
+
+= 제작사 사이트 부실하므로, 구입방법 사용법 등..
+궁금한 사항은 02-888-1623 으로 전화해서 물어보시면 됩니다.
+</pre>
+
+<h3>스크린리더 사용법 교육</h3>
+<pre>
+스크린리더 사용법을 일반인에게 가르쳐 주는 곳은 딱히 없습니다.
+제품에 동봉된 매뉴얼 보고 직접 사용해보거나,
+센스리더 제작사 엑스비전 테크놀로지 고객센터 ☏02-888-1623 로 문의해 보십시요.
+간헐적으로 세미나를 통해서 정보를 구하실 수도 있습니다.
+</pre>
+
+<ul class="bu">
+<li><a href="http://www.onoffmix.com/e/astar2/1061">2009.09.26. 웹 개발자를 위한 스크린 리더 이해 세미나</a> - 마감되었네요;</li>
+<li><a href="http://www.wah.or.kr/Education/edu.asp">웹 접근성 연구소 &gt; 웹접근성 교육/세미나</a> - 시각장애인의 인터넷 활용(스크린리더 시연) 을 간략히 보여주기도 합니다.</li>
+<li><a href="http://able.kado.or.kr/doumi_edu/introduction/businessInfo.asp">한국정보화진흥원 &gt; 장애인정보화교육 &gt; 정보화도우미</a> - 장애인 대상 개별 방문 교육	</li>
+</ul>
+
+</div>
+<!-- //box2 -->
+
+
+<h2>관련정보</h2>
+<ul class="bu">
+<li><a href="http://html.nhncorp.com/blog/search/keyword?s=%EC%84%BC%EC%8A%A4%EB%A6%AC%EB%8D%94">20140325~20080712. "센스리더" 에 대한 블로그 검색결과 - NULI -</a><br />
+센스리더 최신버전(v3.2.1) 업데이트 내용 리뷰 작성일 2013.07.12
+</li>
+<li><a href="http://haeppa.kr/28">2009.09.22. 센스리더 테이블 읽기 방법 (th, scope 지원)</a></li>
+<li><a href="http://njpaiks.egloos.com/2431363#1">2009.07.08. 웹 접근과 개발자 그리고 보조공학기기 업체 - 주메뉴와 부메뉴의 display:none, display:block</a></li>
+<li><a href="http://www.haeppa.kr/10?category=4">2009.05.06. 센스리더 프로페셔널 에디션 버그 리포트 - 인터넷 익스플로러 8</a></li>
+</ul>
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20090618~
+20150807.
+20140428.
+20130716. 20130405. 20130311.
+20120823. 20120330.
+20111122. 20110322.
+20090924.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

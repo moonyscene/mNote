@@ -1,0 +1,324 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>Button 버튼, 단추. 라운드 가변 button1</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+table caption{padding:.5em;font-weight:bold;font-size:1.17em;text-align:left;}
+
+/* UI Object */
+.btn_pack,
+.btn_pack *{display:inline-block;overflow:visible;position:relative;margin:0;padding:0;border:0;background:url(../img/inc/btn_pack.gif) no-repeat;font-size:12px;font-family:Tahoma, Sans-serif;color:#333;text-decoration:none !important;vertical-align:top;white-space:nowrap}
+.btn_pack{margin-right:4px}
+.btn_pack *{left:4px;cursor:pointer;_cursor:hand}
+.btn_pack.medium,
+.btn_pack.medium *{height:24px;line-height:24px}
+.btn_pack.large,
+.btn_pack.large *{height:30px;line-height:30px}
+.btn_pack.xlarge,
+.btn_pack.xlarge *{height:36px;line-height:36px}
+.btn_pack.small,
+.btn_pack.small *{height:19px;line-height:19px}
+.btn_pack.medium{background-position:left 0}
+.btn_pack.large{background-position:left -30px}
+.btn_pack.xlarge{background-position:left -65px}
+.btn_pack.small{background-position:left -106px}
+.btn_pack.medium *{padding:0 10px 0 6px;background-position:right top;font-size:12px}
+.btn_pack.large *{padding:0 10px 0 6px;background-position:right -30px;font-size:16px}
+.btn_pack.xlarge *{padding:0 10px 0 6px;background-position:right -65px;font-size:20px}
+.btn_pack.small *{padding:0 6px 0 2px;background-position:right -106px;font-size:11px}
+.btn_pack *:hover,
+.btn_pack *:active,
+.btn_pack *:focus{color:#690}
+.btn_pack.strong *{font-weight:bold !important}
+.btn_pack.icon *{padding-left:20px}
+.btn_pack.small.icon *{padding-left:16px}
+.btn_pack.icon span{width:20px;margin-right:-20px;padding:0 !important}
+.btn_pack.medium .check{background-position:4px -150px}
+.btn_pack.large .check{background-position:4px -146px}
+.btn_pack.xlarge .check{background-position:5px -144px}
+.btn_pack.small .check{background-position:3px -153px}
+.btn_pack.medium .add{background-position:-16px -150px}
+.btn_pack.large .add{background-position:-14px -146px}
+.btn_pack.xlarge .add{background-position:-14px -144px}
+.btn_pack.small .add{background-position:-18px -153px}
+.btn_pack.medium .delete{background-position:-34px -150px}
+.btn_pack.large .delete{background-position:-34px -146px}
+.btn_pack.xlarge .delete{background-position:-34px -144px}
+.btn_pack.small .delete{background-position:-37px -153px}
+.btn_pack.medium .calendar{background-position:-56px -150px}
+.btn_pack.large .calendar{background-position:-56px -146px}
+.btn_pack.xlarge .calendar{background-position:-56px -144px}
+.btn_pack.small .calendar{background-position:-59px -153px}
+.btn_pack.medium .refresh{background-position:-76px -150px}
+.btn_pack.large .refresh{background-position:-76px -146px}
+.btn_pack.xlarge .refresh{background-position:-76px -144px}
+.btn_pack.small .refresh{background-position:-79px -153px}
+.btn_pack.medium .download{background-position:-96px -151px}
+.btn_pack.large .download{background-position:-96px -147px}
+.btn_pack.xlarge .download{background-position:-96px -145px}
+.btn_pack.small .download{background-position:-99px -154px}
+/* //UI Object */
+
+.button1{display:inline-block;overflow:visible;position:relative;height:22px;margin:0;padding:0 7px;border:0;border:1px solid #999;border-color:#bbb #888 #888 #bbb;border-radius:4px;background:#fff url(../img/inc/button_bg.png) no-repeat 50% 50%;color:#333 !important;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:22px;vertical-align:top;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.button1input,
+.button1button{height:24px;line-height:24px;}
+
+a.button,
+input.button,
+button.button{display:inline-block;margin:0;padding:3px 7px 1px 16px;
+border:1px solid #999;border-color:#ccc #999 #999 #ccc;border-radius:4px;background:#fff url(/img/inc/button_bg.png) no-repeat 0 50%;color:#000 !important;
+line-height:1.25;vertical-align:middle;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+img.button{vertical-align:middle;cursor:pointer;}
+/* [IE]상하패딩각각-1px,좌우패딩각각-6px */
+* html input.button{height:21px;padding:2px 1px 0 10px !important;}
+*+html input.button{height:21px;padding:2px 1px 0 10px !important;}
+* html button.button{height:21px;margin-left:4px !important;padding:2px 1px 0 10px !important;}
+*+html button.button{height:21px;margin-left:4px !important;padding:2px 1px 0 10px !important;}
+/* CSS3:root [FF,SF,CR,OP] 상하패딩각각=0,좌우패딩각각-3px */
+:root input.button,
+:root button.button{height:21px;padding:.05em 4px 0 1.09em !important;line-height:1.59;overflow:hidden;}
+
+.mbtn1,
+.mbtn1 *{display:inline-block;overflow:visible;position:relative;height:24px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:24px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn1{background-position:0 0;}
+.mbtn1 *{padding:0 7px;background-position:100% 0;vertical-align:top;}
+
+.mbtn2,
+.mbtn2 *{display:inline-block;overflow:visible;position:relative;height:24px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:24px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn2{background-position:0 -30px;}
+.mbtn2 *{padding:0 7px 0 22px;background-position:100% -30px;vertical-align:top;}
+
+.mbtn3,
+.mbtn3 *{display:inline-block;overflow:visible;position:relative;height:24px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:24px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn3{background-position:100% -60px;}
+.mbtn3 *{padding:0 22px 0 7px;background-position:0 -60px;vertical-align:top;}
+
+.mbtn2m,
+.mbtn2m *{display:inline-block;overflow:visible;position:relative;;height:21px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:21px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn2m{background-position:0 -90px;}
+.mbtn2m *{padding:0 7px 0 22px;background-position:100% -90px;vertical-align:top;}
+
+.mbtn1s,
+.mbtn1s *{display:inline-block;overflow:visible;position:relative;height:19px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:11px !important;font-family:'돋움',Dotum,sans-serif;line-height:19px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn1s{background-position:0 -120px;}
+.mbtn1s *{padding:0 7px;background-position:100% -120px;letter-spacing:-1px;vertical-align:top;}
+
+.mbtn2b,
+.mbtn2b *{display:inline-block;overflow:visible;position:relative;height:30px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:30px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn2b{background-position:0 -150px;}
+.mbtn2b *{padding:0 9px 0 22px;background-position:100% -150px;vertical-align:top;}
+
+.mbtn1ic,
+.mbtn1ic *{display:inline-block;overflow:visible;position:relative;height:24px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat;color:#333 !important;font-weight:normal;font-size:1em !important;font-family:'돋움',Dotum,sans-serif;line-height:24px;white-space:nowrap;text-decoration:none !important;cursor:pointer;}
+.mbtn1ic{background-position:0 0;}
+.mbtn1ic *{padding:0 7px 0 22px;background-position:100% 0;vertical-align:top;}
+.mbtn1ic .check{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat 0 -210px;}
+.mbtn1ic .add{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat -18px -210px;}
+.mbtn1ic .delete{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat -38px -210px;}
+.mbtn1ic .calendar{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat -59px -210px;}
+.mbtn1ic .refresh{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat -79px -210px;}
+.mbtn1ic .download{display:inline-block;position:absolute;left:5px;top:5px;width:14px;height:14px;margin:0;padding:0;border:0;background:url(../img/inc/button1bgs.png) no-repeat -99px -210px;}
+
+/*]]>*/</style>
+
+
+<link rel="stylesheet" type="text/css" href="../P2012_Client.Project/web/[_mLib]/share/css/board.css" />
+
+
+<script>/*<![CDATA[*/
+
+/*]]>*/</script>
+</head>
+<body>
+<h1>Button 버튼, 단추</h1>
+
+<!-- <ol class="num">
+<li>
+</li>
+</ol> -->
+
+<h2>라운드 가변 button1</h2>
+
+<table border="1" cellspacing="0" cellpadding="10" style="border-collapse:collapse;"><caption>버튼</caption>
+<col style="width:10%;" /><col style="width:20%;" /><col style="width:20%;" /><col style="width:20%;" /><col style="width:30%;" />
+<thead>
+<tr>
+<th scope="col">class</th>
+<th scope="col">a</th>
+<th scope="col">input</th>
+<th scope="col">button</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">none</th>
+<td><a href="?">앵커</a></td>
+<td><input type="submit" value="인풋" /></td>
+<td><button>버튼</button></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">텍스트<br />.button1</th>
+<td><a href="?" class="button1">버튼너비같은가</a></td>
+<td><input type="submit" value="버튼너비같은가" class="button1 button1input" /></td>
+<td><button class="button1 button1button">버튼너비같은가</button></td>
+<td>&lt;* class="button1"&gt;&lt;/*&gt;
+<!-- 너비 같네.. 어떻게? font-size:1em; --></td>
+</tr>
+<tr>
+<th scope="row">텍스트<br />.mbtn1</th>
+<td><b class="mbtn1"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn1"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn1"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn1"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">불릿 텍스트<br />.mbtn2</th>
+<td><b class="mbtn2"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn2"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn2"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn2"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">텍스트 불릿<br />.mbtn3</th>
+<td><b class="mbtn3"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn3"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn3"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn3"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">텍스트 mid<br />.mbtn2m</th>
+<td><b class="mbtn2m"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn2m"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn2m"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn2m"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">텍스트 small<br />.mbtn1s</th>
+<td><b class="mbtn1s"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn1s"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn1s"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn1s"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">텍스트 big<br />.mbtn2b</th>
+<td><b class="mbtn2b"><a href="?">버튼너비같은가</a></b></td>
+<td><b class="mbtn2b"><input type="submit" value="버튼너비같은가" /></b></td>
+<td><b class="mbtn2b"><button>버튼너비같은가</button></b></td>
+<td>&lt;b class="mbtn2b"&gt;*&lt;/b&gt;</td>
+</tr>
+<tr>
+<th scope="row">아이콘 텍스트<br />.mbtn2 .check</th>
+<td>
+<b class="mbtn1ic"><b class="check"></b><a href="?">버튼너비같은가</a></b><br />
+<b class="mbtn1ic"><b class="add"></b><a href="?">버튼너비같은가</a></b><br />
+<b class="mbtn1ic"><b class="delete"></b><a href="?">버튼너비같은가</a></b><br />
+<b class="mbtn1ic"><b class="calendar"></b><a href="?">버튼너비같은가</a></b><br />
+<b class="mbtn1ic"><b class="refresh"></b><a href="?">버튼너비같은가</a></b><br />
+<b class="mbtn1ic"><b class="download"></b><a href="?">버튼너비같은가</a></b><br />
+</td>
+<td>
+<b class="mbtn1ic"><b class="check"></b><input type="submit" value="버튼너비같은가" /></b><br />
+<b class="mbtn1ic"><b class="add"></b><input type="submit" value="버튼너비같은가" /></b><br />
+<b class="mbtn1ic"><b class="delete"></b><input type="submit" value="버튼너비같은가" /></b><br />
+<b class="mbtn1ic"><b class="calendar"></b><input type="submit" value="버튼너비같은가" /></b><br />
+<b class="mbtn1ic"><b class="refresh"></b><input type="submit" value="버튼너비같은가" /></b><br />
+<b class="mbtn1ic"><b class="download"></b><input type="submit" value="버튼너비같은가" /></b><br />
+</td>
+<td>
+<b class="mbtn1ic"><b class="check"></b><button>버튼너비같은가</button></b><br />
+<b class="mbtn1ic"><b class="add"></b><button>버튼너비같은가</button></b><br />
+<b class="mbtn1ic"><b class="delete"></b><button>버튼너비같은가</button></b><br />
+<b class="mbtn1ic"><b class="calendar"></b><button>버튼너비같은가</button></b><br />
+<b class="mbtn1ic"><b class="refresh"></b><button>버튼너비같은가</button></b><br />
+<b class="mbtn1ic"><b class="download"></b><button>버튼너비같은가</button></b><br />
+</td>
+<td>&lt;b class="mbtn1ic"&gt;&lt;b class="check"&gt;*&lt;/b&gt;*&lt;/b&gt;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th scope="row">NULI</th>
+<td><span class="btn_pack small"><a href="#">anchor</a></span><br /><span class="btn_pack small"><a href="#">버튼너비같다</a></span> </td>
+<td><span class="btn_pack small"><button type="button">button</button></span><br /><span class="btn_pack small"><button type="button">버튼너비같다</button></span></td>
+<td><span class="btn_pack small"><input value="input" type="submit"></span><br /><span class="btn_pack small"><input value="버튼너비같다" type="submit"></span></td>
+<td>너비 같네.. 어떻게? font-size:12px;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+
+다른 요소와의 어울림에는 문제가 없는가?
+
+<form action="?">
+<fieldset><legend>다른 요소와의 어울림에는 문제가 없는가?</legend>
+
+<p>
+legend 요소는 브라우저별 css 렌더링이 상이해서 디자인 적용 불가
+<b class="mbtn2m"><a href="?">버튼너비같은가</a></b>
+<b class="mbtn2m"><input type="submit" value="버튼너비같은가" /></b>
+<b class="mbtn2m"><button>버튼너비같은가</button></b>
+서식 요소는 브라우저 버전별로도 차이가 있기에 비슷하게 보이는 수준으로만 작업함.
+</p>
+
+<label for="textA">인풋텍스트</label> <input type="text" name="textA" id="textA" value="" class="text" />
+<label for="select1e0">셀렉트0</label>
+<select name="select1e0" id="select1e0" class="select" title="셀렉트0">
+<optgroup label="그룹이름">
+<option value="" selected="selected">셀렉트0</option>
+</optgroup>
+</select>
+<label for="select1e1" class="blind">셀렉트1</label>
+<select name="select1e1" id="select1e1" class="select" title="셀렉트1">
+<optgroup label="그룹이름">
+<option value="" selected="selected">셀렉트1</option>
+</optgroup>
+</select>
+<a href="?" class="button">앵커</a>
+<input type="submit" value="인풋" class="button" />
+
+<b class="mbtn2m"><a href="?">버튼너비같은가</a></b>
+<b class="mbtn2m"><input type="submit" value="버튼너비같은가" /></b>
+<b class="mbtn2m"><button>버튼너비같은가</button></b>
+
+<button class="button">버튼</button>
+<input type="image" src="/img/board/btn_search.gif" alt="인풋이미지" class="image" />
+<img src="/img/board/btn_search.gif" width="40" height="21" alt="이미지버튼" class="button" />
+<input type="radio" name="radioA" id="radioA0" value="" checked="checked" class="radio" /><label for="radioA0">적용</label>
+<input type="radio" name="radioA" id="radioA1" value="" class="radio" /><label for="radioA1">미적용</label>
+<input type="checkbox" name="checkA" id="checkA0" value="" checked="checked" class="checkbox" /><label for="checkA0">예</label>
+<input type="checkbox" name="checkA" id="checkA1" value="" class="checkbox" /><label for="checkA1">아니오</label>
+<label for="textareaA">텍스트에어리어 한줄</label> <textarea  name="textareaA" id="textareaA" rows="1" cols="1" class="textarea" style="height: 15px;"></textarea>
+<label for="textareaB">텍스트에어리어 다줄</label> <textarea name="textareaB" id="textareaB" class="textarea scroll" rows="2" cols="20">rows="2" cols="20" default값</textarea>
+<label for="textB">인풋텍스트B</label><input type="text" name="textB" id="textB" value="초기값" class="text" />
+<label for="fileA">첨부</label><input type="file" name="fileA" id="fileA" value="파일" class="file" />
+
+</fieldset>
+</form>
+
+
+
+
+<br />
+<hr />
+<p>Revision. 20120814.</p>
+
+</body>
+</html>

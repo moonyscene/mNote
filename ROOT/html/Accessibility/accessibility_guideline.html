@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹 접근성 평가 가이드라인(안) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>웹 접근성 평가 가이드라인</h1>
+
+<p>
+2010.06.24
+2008.09.01
+</p>
+
+
+<h2>웹 접근성 준수평가 가이드라인 (Now 현재)</h2>
+
+<p><big><strong><a href="http://www.wah.or.kr/Guide/valuation.asp"><em>웹 접근성 향상을 위한 국가표준 기술 가이드라인(2009.3.17)</em></a></strong></big></p>
+<p>주) 위 가이드라인은 2009.03 부터 행안부-정보화진흥원의 웹접근성 품질마크, 실태조사의 평가 기준이며 2010.상반기까지 적용이 예상된다.</p>
+
+<br />
+<hr class="dash" />
+<h2>웹 접근성 준수평가 가이드라인 (Past 과거)</h2>
+
+<p>
+2008년 8월 28일 <a href="http://www.iabf.or.kr">정보통신 접근성 향상 표준화 포럼(www.iabf.or.kr)</a> 주최로<br /> 
+<a href="https://www.kado.or.kr/">한국정보문화진흥원(KADO)</a> 에서  "2008년 정보통신 접근성 향상 표준화 포럼 웹 접근성 세미나" 가 있었습니다.
+</p>
+<p>
+주요내용 : 
+<strong>"장애인 차별금지 및 권리구제 등에 관한 법률 시행에 따른 웹 접근성 평가 가이드라인(안)"</strong> 이<br />
+향후 작업에 적지 않은 영향을 줄 것으로 예상되어 요약해 보았습니다.<br />
+</p>
+<dfn>
+<a href="../Reference/080825 실태조사 기본계획(최종).hwp">2008년 장애인 웹 접근성 실태조사 시행계획</a>을 보면 <a href="accessibility_checklist.html">기존 체크리스트(51개)</a> 그대로 평가를 합니다만,<br />
+아시다시피 여러가지 문제점이 많아서 현재 변경을 추진중에 있습니다.<br />
+<a href="http://www.iabf.or.kr/Seminar/SeminarView.asp?pg=1&sSeq=76">세미나 안내</a>, <a href="http://www.iabf.or.kr/Pds/TrendList.asp">세미나 자료 </a> 중 161, 162, 163번 자료는 반드시 읽어 보시기 바랍니다.
+</dfn>
+
+
+<!-- contentmenu -->
+<div class="contentmenu">
+<div class="contentmenu_wrap">
+<ul>
+<li id="cm1"><a href="#c1" onclick="activeOnly('cm',4,1);">웹 접근성 준수 가이드라인 체크리스트(안)</a></li>
+<li id="cm2"><a href="#c2" onclick="activeOnly('cm',4,2);">2008년 4월 11일부터 장차법 시행 !!</a></li>
+<li id="cm3"><a href="#c3" onclick="activeOnly('cm',4,3);">웹 접근성 평가 개선 방향</a></li>
+<li id="cm4"><a href="#c4" onclick="activeOnly('cm',4,4);">웹 접근성 준수 가이드라인 추진 일정</a></li>
+</ul>
+</div>
+</div>
+<script src="/share/js/all.js"></script>
+<!-- //contentmenu -->
+
+
+<h3 id="c1">웹 접근성 준수 가이드라인 체크리스트(초안:19개) - 장차법 소송시 평가기준(안)</h3>
+
+
+<table class="t3" summary=""><caption></caption>
+<colgroup><col style="width: 40%;" /><col style="width: 60%;" /></colgroup>
+<thead>
+<tr>
+<th>변경 체크리스트 (19개)</th>
+<th>비고(초안 작업팀 검토사항).. </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <strong>이미지</strong>의 의미나 목적을 이해할 수 있도록 적절한 <strong>대체 텍스트</strong>를 제공해야 한다.<br />※ 의미가 있는 이미지의 경우 대체 텍스트를 의미나 기능이 동일하게 제공<br />※ 의미가 없는 이미지의 경우 대체 텍스트를 blank(alt="")로 제공</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 자동 평가(<a href="http://www.iabf.or.kr/Lab/Kadowah/Kadowah.asp">KADO-WAH</a> 준수율 90%이상)+수동 평가 모두 만족해야 함.</li>
+<li>텍스트 아닌 콘텐츠 → 이미지로 한정 (동영상등 중복 평가 배제)<br /></li>
+<li><em>longdesc</em> 는 대체텍스트를 제공하는 방법 중에 하나이기 때문에 통합<br /></li>
+<li>"링크", "버튼", "로고", "바로가기" .. <em>구체적인 설명을 제공.. 은 삭제</em></li>
+<li>자동가입 방지 이미지의 대체 콘텐츠는.. 검색봇에 의한 크롤링을 방지하면서 시각장애인에게 동등한 접근권을 보장하기 위해서 음성을 제공해야 함</li>
+</ul>
+</td>
+</tr><tr>
+<td>(2) <strong>배경 이미지</strong>가 의미를 갖는 경우, 배경 이미지의 의미를 이해할 수 있도록 대체 콘텐츠를 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : CSS 제거 후 확인<br /></li>
+<li>준수 예 : 이미지 대체(<em>Image Replacement</em>) 기법을 사용하여 동등한 정보를 제공할 경우에는 준수한 것으로 판단.</li>
+<li>확인 방법 : <a href="http://www.mozilla.or.kr/">파이어폭스</a> [보기]-[문서 스타일]-[스타일 제거]</li>
+</ul>
+</td>
+</tr><tr>
+<td>(3) 멀티미디어 콘텐츠(<strong>동영상, 오디오</strong> 등)를 이해할 수 있도록 자막 또는 원고 등을 제공해야 한다.<br />* 실시간 방송의 경우는 평가에서 예외로 함</td>
+<td>
+<ul class="bu">
+<li>위반 예 : <em>요약 정보</em>만 제공하는 경우</li>
+</ul>
+</td>
+</tr><tr>
+<td>(4) <strong>색상</strong>을 배제하여도 원하는 내용을 전달할 수 있도록, 색상 이외에도 <strong>명암이나 패턴</strong>으로 콘텐츠 구분이 가능해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : <em>흑백 프린터</em> 및 모니터로 출력할 경우 콘텐츠를 구분하지 못하면 위반.<br /></li>
+<li><em>색상 대비, 글자 크기</em>는 객관적 평가(Testable) 방법 고민중..</li>
+</ul>
+</td>
+</tr><tr>
+<td>(5) <strong>서버측 이미지 맵</strong>을 제공할 경우, 해당 내용 및 기능을 사용할 수 있는 대체 콘텐츠를 제공해야 한다.<br />* 지리정보시스템(<em>GIS</em>)은 평가에서 예외로 함</td>
+<td>
+<ul class="bu">
+<li>클라이언트측 이미지 맵(Client-side Image Map)의 경우 영역별로 태체 텍스트를 적절하게 제공해야 함.</li>
+<li>서버측 이미지 맵에 사용된 링크 목록이 키보드로 접근 가능한 대체 링크로 제공된 경우 접근성이 있다고 판단함</li>
+<li><em>불필요하게 서버측 이미지 맵..</em> 부분은 주관적인 평가여서 제외.</li>
+<li><em>.. 동등하게 사용할 수 있는 대체 수단을 제공..</em> 부분은 유지하면서 문맥을 수정.<br />(표준 2.0 작성시 수정 필요)</li>
+</ul>
+</td>
+</tr><tr>
+<td>(6) <strong>프레임</strong>을 제공할 경우, 프레임의 내용을 이해할 수 있도록 적절한 제목(<strong>title</strong> 속성)을 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 해당 페이지의 소스에서 frame 과 iframe 요소를 찾아, title 속성으로 프레임 제목을 제공하고 있으면 준수한 것으로 판단.</li>
+<li>자동 평가 결과 준수율 95% 이상인 경우 준수한 것으로 판단.</li>
+<li><em>..용도 이외로 프레임을 사용..</em> 부분은 삭제.</li>
+<li><em>많은 수(4개 이상) 프레임을 사용..</em> 부분은 보다 명확하게 문구 수정.<br />(표준 2.0 작성시 수정 필요)</li>
+</ul>
+</td>
+</tr><tr>
+<td>(7) <strong>깜빡이는 콘텐츠</strong>를 제공할 경우, 사전에 경고하고, 콘텐츠를 이용할 수 있도록 깜빡이지 않는 대체 페이지를 제공해야 한다.<br />※ 깜박임 기준: 초당 3~49번을 깜박이는 콘텐츠</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 깜박이는 콘텐츠 여부를 자동평가도구(<a href="#" onclick="alert('어디에서 찾지?'); return false;">Flickering and photosensitive Epilepsy?</a>)를 활용하여 판단.<br /></li>
+<li>메인 페이지에서 깜빡임이 있는 경우에는 사전에 경고할 수 없음으로 준수하지 못한 것으로 파악.</li>
+<li><em>동영상/멀티미디어 콘텐츠를 정지된 상태에서 제공..</em> 은 현 국가표준에서 다루고 있지 않는 내용으로 다소 확대 해석한 것으로 삭제함.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(8) <strong>키보드</strong>만으로 콘텐츠가 제공하는 모든 기능을 이용할 수 있어야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 마우스와 키보드 이벤트 기능이 동일한지 실제 작동되는 기능을 보고 판단.<br /></li>
+<li>실제 키보드로 접근시에 사용에 무리가 없는 경우에는 준수한 것으로 판단.<br /></li>
+<li><em>focus</em>만으로 급격하게 상황이 바뀌지.. 는 판단이 애매모호할 수 있음.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(9) 반복되는 링크를 건너뛸 수 있도록 건너뛰기 링크(<strong>skip navigation</strong>)를 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : css 제거 또는 HTML 코드로 판단.<br /></li>
+<li>확인 방법 : <a href="http://www.microsoft.com/korea/windows/downloads/ie/getitnow.mspx">익스플로러</a> <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&displaylang=en">IE Developer Toolbar 다운로드</a> 설치 후 [Disable]-[All CSS] 체크<br /></li>
+</ul>
+</td>
+</tr><tr>
+<td>(10) <strong>이용에 시간 제한</strong>이 있는 콘텐츠를 제공할 경우, 시간 <strong>제어 기능</strong>을 제공해야 한다.<br />※ 예외 : 경매, 실시간 게임 등과 같이 시간제한이 필수적인 콘텐츠</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 자동 갱신 콘텐츠는 사용자가 이를 제어하고 (지나간)콘텐츠를 확인할 수 있는 수단을 제공하면 준수한 것으로 판단.<br /></li>
+<li>포커스시 멈춤 + 이전 다음 기능이 있으면 된다.<br /></li>
+<li><em>경고</em>를.. 모두 제공하는 것은 어려움(흐르는 콘텐츠, 실시간 검색순위 등).</li>
+</ul>
+</td>
+</tr><tr>
+<td>(11) <strong>새 창</strong>(팝업창 포함)을 제공할 경우, 사용자에게 사전에 알려야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 평가 페이지에서 팝업창의 개수를 파악.<br /></li>
+<li><em>메인 페이지</em>는 좀 더 고려</li>
+</ul>
+</td>
+</tr><tr>
+<td>(12) <strong>데이터 테이블</strong>을 제공할 경우, 테이블의 내용을 이해할 수 있는 정보(<strong>제목, 요약정보</strong> 등)를 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 데이터 테이블에 해당하는 소스를 분석하여 테이블을 쉽게 이해할 수 있도록 제목을 <em>summary 속성, caption 태그, h1~h6 중 하나라도 제공</em>하고 있는지 여부를 파악<br /></li>
+</ul>
+</td>
+</tr><tr>
+<td>(13) <strong>데이터 테이블</strong>을 제공할 경우, <strong>제목 셀과 내용 셀</strong>을 구분할 수 있어야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 1행이 제목 셀, 1열이 제목 셀, 1행 1열이 제목 셀인 경우 th 사용 여부 판단.<br /></li>
+<li><em>thead, tbody, tfoot, 헤더는.. 적절히 배치, scope="col" 또는 scope="row", abbr 속성</em> 은 데이터 테이블의 형태에 따라 적용되는 것으로 필수적인 사항은 아니므로, 평가의 객관성 보장이 어려워서 제외.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(14) 해당 페이지를 잘 이해할 수 있도록 페이지 제목(<strong>&lt;title&gt;</strong>)을 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 제목(&lt;title&gt;)은 각 페이지를 구분할 수 있는 간단하면서도 명료하게 표현.<br /></li>
+<li>위반 예 : 자바스크립트로 구현시, URL을 고정하기 위한 빈 프레임을 사용한 경우.<br /></li>
+<li><em>h1~h6, p, ul, ol, dl 등 적절한 HTML 사용</em>은 객관성 확보가 어려워 제외.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(15) 콘텐츠는 <strong>논리적인 순서</strong>로 구성되어야 한다.</td>
+<td>
+<ul class="bu">
+<li>평가 예 : 콘텐츠간의 배치순서, Tab 이동의 논리적 순서, 서식(form) 간의 이동 순서</li>
+<li><em>.. 구조화를 위한 태그를 레이아웃용 테이블에 사용..</em> 은 접근성에 크게 영향을 미치지 않아서 제외.</li>
+<li><em>링크만 독립적으로 접근..</em> 은 사용성에 관계되며 객관적 평가 어려워서 제외.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(16) <strong>온라인 서식</strong>을 제공할 경우, 레이블(<strong>&lt;label&gt;</strong>)을 제공해야 한다.</td>
+<td>
+<ul class="bu">
+<li>id와 for를 적절히 매칭.. 은 당연히 유지되며 문구에 포함된다고 보면 됨.</li>
+<li>필드를 여러 개로 나누어 입력.. title 속성 제공.. 사례로 다루는 것이 바람직.</li>
+<li><em>키보드만으로 서식의 이용.., 포커스의 이동 순서..</em> 는 2-4 항목으로 통합</li>
+</ul>
+</td>
+</tr><tr>
+<td>(17) <strong>애플릿, 플러그인(ActiveX, 플래시)</strong> 등 부가 애플리케이션이 제공하는 경우, 해당 애플리케이션이 <strong>자체적인 접근성</strong>을 준수하거나 또는 사용자가 <strong>대체 콘텐츠</strong>를 선택하여 이용할 수 있어야 한다.</td>
+<td>
+※ 예외사항 : <em>공인인증서, 보안결재</em>의 경우에는 접근성을 보장하는 애플리케이션이 2008년 8월 현재 국내에 존재하지 않음으로 예외로 처리(단, 접근성 보장 애플리케이션이 등장할 경우까지만 예외로 인정)
+<ul class="bu">
+<li><em>자체적인 접근성, 대체 콘텐츠를 통합하여 1개만이라도 제공</em>할 경우 준수한 것으로 판단</li>
+<li>테스트 방법을 보다 객관하게 되는 방법을 고민할 필요가 있음.</li>
+<li>평가 예 : ActiveX의 보안프로그램 등의 애플리케이션 이용시 키보드 이용보장, 서식에 대한 레이블 제공, 이미지에 대한 대체 정보 제공 등 자체적인 접근성 지침의 준수 여부를 평가</li>
+<li>위반 예 : 플래시로 구현된 내비게이션의 메뉴 이동 순서가 올바르지 않으면 자체적 접근성 미준수로 판단.<br />※ 플래시로 구현한 내비게이션은 플래시 기술을 제작한 Adobe에서 제공하는 접근할 수 있는 플래시(<a href="http://www.adobe.com/resources/accessibility/best_practices/best_practices_acc_flash.pdf">Best Practices for Accessiblel Flash Design</a>) 방법을 이용해서, 대체 텍스트와 이동 순서를 보장해야 함.</li>
+<li>준수 예 : 플러그인을 사용하지 않을 때, 기능을 사용할 수 있는 대체 콘텐츠가 존재하면 준수한 것으로 판단.</li>
+<li>준수 예 : 사이트 전체를 플래시 플러그인으로 만들었지만 동등한 내용을 접근할 수 있는 대체 콘텐츠를 제공하고 있으면 준수한 것으로 판단.</li>
+<li>확인 방법 : <a href="http://www.opera.com/">오페라</a> - [도구]-[빠른 설정]-[플러그인 사용] 체크 해제.</li>
+</ul>
+</td>
+</tr><tr>
+<td>(18) <strong>링크, 서식, 버튼</strong>은 자바스크립트 없이도 작동할 수 있는가?</td>
+<td>
+<ul class="bu">
+<li><em>링크, 서식, 버튼으로 한정하여 평가</em><br />
+[m] 메인에서 자바스크립트 제거시 콘텐츠 안보여도 감점하지 않는가?</li>
+<li>평가 예 : 링크의 값을 올바르게 제공하지 않고 자바스크립트로 제공한 경우 준수하지 못한 것으로 판단.</li>
+<li>확인 방법 : <a href="http://www.mozilla.or.kr/">파이어폭스</a> <a href="https://addons.mozilla.org/ko/firefox/addon/60">Web Developer Extension 다운로드</a> 설치 후 [Disable]-[Disable JavaScript]-[All JavaScript] 체크<br /></li>
+</ul>
+</td>
+</tr><tr>
+<td>(19) 애플리케이션의 링크나 애플리케이션을 다운받을 수 있는 페이지의 링크를 제공하고 있는가?</td>
+<td>
+<ul class="bu">
+<li>기존 그대로 유지하였으나, 국가표준에서 직접적으로 언급되지 않음으로 제외할 것을 검토할 필요가 있음.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="c2">2008년 4월 11일부터 '장애인 차별금지 및 권리구제 등에 관한 법률' 시행 !!</h3>
+
+<ul class="bu">
+<li><a href="http://imnews.imbc.com/replay/nwtoday/article/2151588_2710.html">장애인 차별 금지법 시행 기사(사례)</a></li>
+</ul>
+
+<h4>「장애인차별금지 및 권리구제 등에 관한 법률」제정 (07.4월)</h4>
+<dfn>
+<ul class="bu">
+<li>동법 제21조 (정보통신·의사소통에서의 정당한 편의제공)
+	<ul class="bu">
+	<li>행위자는 장애인에게 전자정보 및 비전자정보를 동등하게 접근 이용할 수 있는 필요한 수단을 제공</li>
+	</ul>
+</li>
+<li>동법 시행령 제14조 [정보접근·의사소통에서의 정당한 편의 제공의 단계적 범위 및 편의의 내용)<br />
+&lt;필요한 수단&gt; 1. 누구든지 신체적 · 기술적 여건과 관계없이 웹사이트를 통하여 원하는 서비스를 이용할 수 있도록 접근성이 보장되는 웹사이트
+</li>
+</ul>
+</dfn>
+
+<h3 id="c3">웹 접근성 평가 개선 방향</h3>
+
+<ul class="bu">
+<li>핵심(Core)요소로 한정
+	<ul class="bu">
+	<li>사용성(Usability)과 관련된 요소는 가급적 배제</li>
+	<li>호환성(Interoperability)과 관련된 요소도 가급적 배제</li>
+	</ul>
+</li>
+<li>검증가능성(Testability)
+	<ul class="bu">
+	<li>평가자의 주관적 요소를 가급적 배제</li>
+	</ul>
+</li>
+<li>기존 평가(실태조사 & 품질마크) 지표의 단순화
+	<ul class="bu">
+	<li>항목(13개), 지표(26개), 체크리스트(51개) → 항목(13개), 체크리스트(19개)로 단순화</li>
+	</ul>
+</li>
+</ul>
+
+<h3 id="c4">웹 접근성 준수 가이드라인 추진 일정</h3>
+
+<ul class="bu">
+<li>7월말 ~ 8월 중순 : 초안 작성
+	<ul class="bu">
+	<li>웹 접근성 평가 체크리스트 개발 실무작업반 구성·운영(3회)</li>
+	<li>실무반 및 검토반 공동 회의 개최(1회)</li>
+	<li>전문가 의견수렴(13명, 웹 접근성 표준 작업반 및 품질마크 심사자)</li>
+	</ul>
+</li>
+<li>8월 중순 : 의견 수렴
+	<ul class="bu">
+	<li>장애인단체 및 장애인 보조기기 업체 의견 수렴 회의(8.14)</li>
+	<li>포털 사이트 담당자 대상 의견 수렴(8.20)</li>
+	</ul>
+</li>
+<li>향후일정 : 이해당사자 의견수렴 후 초안 수정 → 공청회 개최(9월중순)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

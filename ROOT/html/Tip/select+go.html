@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Guide - Design | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>&lt;select&gt;(목록상자) [이동]버튼</h1>
+
+<p>
+Revision : 2010.05.04
+</p>
+
+<div class="box2">
+
+<form action="/share/ui/gouri.jsp" target="_blank">
+<fieldset><legend>서식제목</legend>
+<select name="uri" class="select" title="바로가기">
+<optgroup label="옵션그룹이름">
+<option value="">선택 후 이동을 클릭</option>
+<option value="http://192.168.0.60/">웹접근성표준</option>
+</optgroup>
+</select>
+<input type="submit" value="이동" class="button" onclick="goSelect(this.form,'_blank'); return false;" title="새 창" />
+</fieldset>
+</form>
+
+<script>
+//선택상자바로가기
+function goSelect(form,target) {
+	var myindex=form.uri.selectedIndex
+	myUri = form.uri.options[myindex].value;
+	if(myUri!="") { window.open(myUri,target); }
+}
+</script>
+
+</div>
+
+<dfn>
+웹 접근성 : 위와 같은 형태의 콘텐츠를 자바스크립트 없이도 작동하도록 하는 소스<br />
+(X)HTML, JavaScript, ASP, PHP, JSP
+</dfn>
+
+<dl class="bu">
+
+<dt>(X)HTML</dt>
+<dd>
+<xmp class="xmp">
+<form action="/share/ui/gouri.jsp" target="_blank">
+<fieldset><legend>서식제목</legend>
+<select name="uri" class="select" title="바로가기">
+<optgroup label="옵션그룹이름">
+<option value="">선택 후 이동을 클릭</option>
+<option value="http://www.wah.or.kr/">웹 접근성 연구소</option>
+</optgroup>
+</select>
+<input type="submit" value="이동" class="button" onclick="goSelect(this.form,'_blank'); return false;" title="새 창에서 열림" />
+</fieldset>
+</form>
+</xmp>
+
+<p>
+gouri.* 가 있으면 onclick="goSelect(this.form,'_blank'); return false;" 삭제하여도 되지만,<br />
+&lt;option value=""&gt; 의 경우 빈 새 창을 보여주므로 그냥 두는 것이 좋겠다.<br />
+팝업 창처럼 새 창의 윈도우 모양을 제어하려면 goSelect()를 수정하여 사용.<br />
+</p>
+
+<dfn>
+※ 이동버튼은 아래 3가지 중 상황에 따라 사용하세요.<br />
+<xmp class="xmp">
+<input type="submit" value="" class="button" />
+<input type="image" src="" alt="이동" class="image" />
+<button type="submit" class="button">이동</button>
+</xmp>
+</dfn>
+</dd>
+
+<dt>JavaScript</dt>
+<dd>
+<xmp class="xmp">
+<script>
+//선택상자바로가기
+function goSelect(form,target){
+	var myindex=form.uri.selectedIndex;
+	myUri=form.uri.options[myindex].value;
+	if(myUri!=""){window.open(myUri,target);}
+}
+</script>
+</xmp>
+</dd>
+
+<dt>ASP : /share/ui/gouri.asp</dt>
+<dd>
+<xmp class="xmp">
+<%
+Dim uri
+uri = Request("uri")
+IF uri <> "" Then
+Response.Redirect uri
+Response.end
+End IF
+%>
+</xmp>
+</dd>
+
+<dt>JSP : /share/ui/gouri.jsp</dt>
+<dd>
+<xmp class="xmp">
+<%@ page contentType="text/html; charset=utf-8" %>
+<%
+String uri = request.getParameter("uri");
+if(uri!=null && !uri.equals("")) response.sendRedirect(uri);
+%>
+</xmp>
+</dd>
+
+<dt>PHP : /share/ui/gouri.php</dt>
+<dd>
+<xmp class="xmp">
+<?
+if($uri && $uri!="") header("Location:".$uri);
+?>
+</xmp>
+</dd>
+
+</dl>
+
+
+
+<hr>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

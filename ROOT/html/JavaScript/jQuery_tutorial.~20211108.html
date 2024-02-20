@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery Tutorial | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<script>/*<![CDATA[*/
+//jQuery.noConflict();
+jQuery(function($){
+	/* var v={};
+	$('.hdl1 dd').css({overflow:'hidden', height:'1em'});
+	v.a = $('.hdl1 dd').css('height');
+	$('.hdl1 dt').on('click', function(){
+		var heightVal = ($(this).next('dd').css('height') == v.a)? 'auto': '1em';
+		$(this).next('dd').css({height:heightVal});
+		console.log(v.a);
+	}); */
+});///jQuery(function($){
+/*]]>*/</script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">jQuery Tutorial</h1>
+
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+설명보강 jQuery.cssHooks ~
+</div>
+<!-- /panel1 -->
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Selectors">Selectors<br /><span class="em4">선택</span></a></li>
+<li><a href="#AttributesCSS">Attributes / CSS<br /><span class="em4">속성 / 스타일</span></a></li>
+<li><a href="#Manipulation">Manipulation<br /><span class="em4">조작</span></a></li>
+<li><a href="#Traversing">Traversing<br /><span class="em4">탐색</span></a></li>
+<li><a href="#Events">Events<br /><span class="em4">이벤트</span></a></li>
+<li><a href="#Effects">Effects<br /><span class="em4">효과</span></a></li>
+<li><a href="#Ajax">Ajax<br /><span class="em4">비동기</span></a></li>
+<li><a href="#Core">Core<br /><span class="em4">핵심</span></a></li>
+<li><a href="#Glossary">Glossary</a></li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="WebDev">jQuery Version 1.10~</h2>
+
+<div class="fr" style="position:relative;margin:-45px 20px 45px 0;"><cite><a href="http://oscarotero.com/jquery/">jQuery Quick API Reference</a></cite></div>
+
+<!-- mtile1 -->
+<div class="mtile1">
+<ol>
+<li><a href="#S02-01"></a></li>
+</ol>
+</div><!-- /mtile1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Selectors">Selectors <small class="em4">선택</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+
+<h4 class="h1">Basics<br />기초</h4>
+<dl>
+<dt>*</dt>
+<dd>전체</dd>
+<dt>.class</dt>
+<dd>클래스</dd>
+<dt>element</dt>
+<dd>요소</dd>
+<dt>#id</dt>
+<dd>아이디</dd>
+<dt>selector1, selectorN, ...</dt>
+<dd>복수</dd>
+</dl>
+
+<h4 class="h1">Hierarchy<br />계층</h4>
+<dl>
+<dt>parent > child</dt>
+<dd>자식</dd>
+<dt>ancestor descendant</dt>
+<dd>자손</dd>
+<dt>prev + next</dt>
+<dd>바로 뒤 형제</dd>
+<dt>prev ~ siblings</dt>
+<dd>뒤따르는 형제</dd>
+</dl>
+
+<h4 class="h1">Basic Filters<br />기본 필터</h4>
+<dl>
+<dt class="a1">:animated</dt>
+<dd>움직이는거</dd>
+<dt>:eq()</dt>
+<dd>인덱스</dd>
+<dt>:even</dt>
+<dd><em class="em">인덱스 짝수번째</em>. 첫째, 셋째, .. 선택</dd>
+<dt>:first</dt>
+<dd>첫번째</dd>
+<dt>:gt()</dt>
+<dd>인덱스 보다 큰 인덱스</dd>
+<dt class="a1">:header</dt>
+<dd>h1~h6</dd>
+<dt>:lang()</dt>
+<dd>lang 속성을 가진</dd>
+<dt>:last</dt>
+<dd>마지막</dd>
+<dt>:lt()</dt>
+<dd>인덱스 보다 작은 인덱스</dd>
+<dt>:not()</dt>
+<dd>인덱스 아닌</dd>
+<dt>:odd</dt>
+<dd><em class="em">인덱스 홀수번째</em>. 둘째, 넷째, .. 선택</dd>
+<dt>:root</dt>
+<dd>문서의 루트 ( html 문서에서는 html 요소)</dd>
+<dt class="a1">:target</dt>
+<dd>예) http://example.com/#foo 문서에서 $( "p:target" ) 는 \&lt;p id="foo"\&gt; 요소</dd>
+</dl>
+
+<h4 class="h1">Content Filters<br />콘텐츠 필터</h4>
+<dl>
+<dt>:contains('문자열')</dt>
+<dd>문자열을 포함</dd>
+<dt class="a1">:empty</dt>
+<dd>텍스트 노드 포함하여 자식 없는거. 예) $('td:empty')</dd>
+<dt>:has(선택자)</dt>
+<dd>선택자 자손 있는거.  예) $('div:has(p)')</dd>
+<dt class="a1">:parent</dt>
+<dd>텍스트 노드 포함하여 자식 있는거. 예) $('td:parent')<br />
+내가 부모가 되는거.
+</dd>
+</dl>
+
+<h4 class="h1">Visibility Filters<br />가시성 필터</h4>
+<dl>
+<dt class="a1">:hidden</dt>
+<dd>숨겨진거. 본인 또는 부모로 인하여 {display: none} 또는 {width: 0; heigth: 0;} 또는 type="hidden" 등 웹문서에서 보이지 않고 배치 공간도 차지하지 않는 것.<br />
+단, 배치 공간 차지하는 {visibility: hidden} 와 {opacity: 0} 는 보이는 걸로 간주한다.</dd>
+<dt>:visible</dt>
+<dd>보이는</dd>
+</dl>
+
+<h4 class="h1">Attribute<br />속성</h4>
+<dl>
+<dt class="a1">[name|="value"]</dt>
+<dd>속성 name 값 value 또는 value 로 시작</dd>
+<dt>[name*="value"]</dt>
+<dd>속성 name 값 value 포함 (공백으로 분리된 값과 정확하게 일치하지 않아도 선택)</dd>
+<dt>[name~="value"]</dt>
+<dd>속성 name 값 value 포함	 (공백으로 분리된 값이 일치해야 한다)</dd>
+<dt>[name$="value"]</dt>
+<dd>속성 name 값 value 로 끝남</dd>
+<dt>[name="value"]</dt>
+<dd>속성 name 값 value</dd>
+<dt>[name!="value"]</dt>
+<dd>속성 name 값 value 가 아닌</dd>
+<dt>[name^="value"]</dt>
+<dd>속성 name 값 value 로 시작</dd>
+<dt>[name]</dt>
+<dd>속성 name 이 포함</dd>
+<dt>[name="value"][name2="value2"]</dt>
+<dd>복수</dd>
+</dl>
+
+<h4 class="h1">Child Filters<br />자식 필터</h4>
+<dl>
+<dt>:first-child</dt>
+<dd>첫째 자식인거 </dd>
+<dt>:first-of-type</dt>
+<dd>같은 요소 중 첫째인거</dd>
+<dt>:last-child</dt>
+<dd>맨끝 자식인거</dd>
+<dt>:last-of-type</dt>
+<dd>같은 요소 중 맨끝인거</dd>
+<dt>:nth-child(?)</dt>
+<dd>?번째인거 ? 는 인덱스/even/odd/공식</dd>
+<dt>:nth-last-child(?)</dt>
+<dd>뒤에서 ?번째인거</dd>
+<dt>:nth-last-of-type(?)</dt>
+<dd>같은 요소 중 뒤에서 ?번째인거</dd>
+<dt>:nth-of-type(?)</dt>
+<dd>같은 요소 중 ?번째인거</dd>
+<dt class="a1">:only-child</dt>
+<dd>다른 자식이 없이 하나뿐인 자식인거</dd>
+<dt>:only-of-type</dt>
+<dd class="a1">같은 요소의 다른 자식이 없이 하나뿐인거</dd>
+</dl>
+
+<h4 class="h1">Forms<br />양식</h4>
+<dl>
+<dt class="a1">:button</dt>
+<dd>$( "button, input[type='button']" )</dd>
+<dt>:checkbox</dt>
+<dd>$( "[type='checkbox']" )</dd>
+<dt>:checked</dt>
+<dd>$( "[checked='checked']" ) (checkboxes, radio buttons, and select 요소)</dd>
+<dt>:disabled</dt>
+<dd>$( "[disabled='disabled']" ) (button, input, optgroup, option, select, textarea 요소)</dd>
+<dt class="a1">:enabled</dt>
+<dd>이용 가능 상태인거. :not([disabled]) 와는 미묘한 차이. (button, input, optgroup, option, select, textarea 요소)</dd>
+<dt class="a1">:focus</dt>
+<dd>현재 초점중인거</dd>
+<dt>:file</dt>
+<dd>$( "[type='file']" )</dd>
+<dt>:image</dt>
+<dd>$( "[type='image']" )</dd>
+<dt class="a1">:input</dt>
+<dd>$( "input, select, textarea, button" )</dd>
+<dt>:password</dt>
+<dd>$( "[type='password']" )</dd>
+<dt>:radio</dt>
+<dd>$( "[type='radio']" )</dd>
+<dt>:reset</dt>
+<dd>$( "[type='reset']" )</dd>
+<dt>:selected</dt>
+<dd>$( "select option:selected" )</dd>
+<dt class="a1">:submit</dt>
+<dd>$( "input[type='submit'], button[type='submit']" )</dd>
+<dt>:text</dt>
+<dd>$( "[type'=text']" )</dd>
+</dl>
+
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="AttributesCSS">Attributes / CSS <small class="em4">속성 / 스타일</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+
+<h4 class="h1">Attributes</h4>
+<dl>
+<dt>.attr()</dt>
+<dd>
+<code class="xmp">
+.attr( 'checked' );
+.attr( "title", "Photo by Kelly Clark" );
+$( "#greatphoto" ).attr({
+  alt: "Beijing Brush Seller",
+  title: "photo by Kelly Clark"
+});
+$( "#greatphoto" ).attr( "title", function( i, val ) {
+  return val + " - photo by Kelly Clark";
+});
+</code>
+</dd>
+<dt class="a1">.prop()</dt>
+<dd>
+.attr()는 HTML의 속성(attribute), .prop()는 JavaScript의 프로퍼티(property)를 취급.<br />
+<code class="xmp">
+$link.prop('href');
+$checkbox.prop('checked');
+</code>
+※ <a href="http://javascriptandjquerydev.blogspot.kr/2012/07/attr-prop.html">.attr() .prop() 왜 나누어졌는가</a>?
+</dd>
+<dt>.removeAttr()</dt>
+<dd>속성을 제거</dd>
+<dt class="a1">.removeProp()</dt>
+<dd>property 제거</dd>
+<dt class="a1">.val()</dt>
+<dd>
+서식 select, input 값
+<code class="xmp">
+$( "select.foo option:selected").val();
+$( "select.foo" ).val();
+$( "input:checkbox:checked" ).val();
+$( "input:radio[name=bar]:checked" ).val();
+$('input.file',$this).on('change', function(){
+	// <em class="em1">파일 선택 요소는 특이해서 $("input:file").attr('value'); 로는 안된다.</em>
+	$('input.text',$this).val($(this).val());
+});
+</code>
+</dd>
+</dl>
+
+<h4 class="h1">CSS</h4>
+<dl>
+<dt>.addClass()</dt>
+<dd>클래스 추가</dd>
+<dt>.css()</dt>
+<dd>
+.css( propertyName ) // CSS 속성값 반환<br />
+.css( propertyName, value ) // CSS 속성값 추가<br />
+</dd>
+<dt class="a2"><a href="https://api.jquery.com/jQuery.cssHooks/" target="_blank" title="새 창">jQuery.cssHooks</a></dt>
+<dd>
+Hook directly into jQuery to override how particular CSS properties are retrieved or set, normalize CSS property naming, or create custom properties.<br />
+</dd>
+<dt>.hasClass()</dt>
+<dd>class 소유 여부. true/false 반환</dd>
+<dt>.removeClass()</dt>
+<dd>class 제거.
+<pre class="mg0">
+<code class="xmp">
+removeClass(); // class 속성값 모두 제거
+removeClass('on'); // on 값만 제거
+removeClass('say hear'); // say 값 hear 값 제거
+</code>
+</pre>
+
+
+</dd>
+<dt>.toggleClass()</dt>
+<dd>class 토글(추가 또는 삭제)</dd>
+</dl>
+
+<h4 class="h1">Dimensions</h4>
+<dl>
+<dt>.height()</dt>
+<dd>현재의 <em class="em">계산된 높이</em>를 반환<br />
+.css('height') 와 .height() 의 차이점은 픽셀 텍스트의 유무. 예를 들어, 순서대로 400px 과 400 의 차이.<br />
+<xmp class="xmp">
+$(window).height(); // returns height of browser viewport
+$(document).height(); // returns height of HTML document
+</xmp>
+height() 함수는 컨텐츠의 높이만 반환. CSS의 box-sizing 속성값과는 무관.<br />
+<xmp class="xmp">
+$(this).height(30); // style="height: 30px;"
+</xmp>
+</dd>
+<dt>.innerHeight()</dt>
+<dd><em class="em">padding, scrollBar 포함</em>. border, margin 제외.</dd>
+<dt>.innerWidth()</dt>
+<dd><em class="em">padding, scrollBar 포함</em>. border, margin 제외.</dd>
+<dt>.outerHeight()</dt>
+<dd>
+outerHeight() // <em class="em">padding, border 포함</em><br />
+outerHeight(true) // <em class="em">padding, border, margin 포함</em><br />
+</dd>
+<dt>.outerWidth()</dt>
+<dd>
+outerWidth() // <em class="em">padding, border 포함</em><br />
+outerWidth(true) // <em class="em">padding, border, margin 포함</em><br />
+</dd>
+<dt>.width()</dt>
+<dd>현재의 <em class="em">계산된 넓이</em>를 반환<br />
+나머지 설명은 .height() 를 보세요.<br />
+</dd>
+</dl>
+
+<h4 class="h1">Offset</h4>
+<dl>
+<dt class="a1">.offset()</dt>
+<dd>
+<em>웹문서 body 요소 기준</em>으로 현재 좌표를 얻는다.
+<xmp class="xmp">
+var offset = $( this ).offset();
+$( this ).text( this.tagName + " coords ( " + offset.left + ", " + offset.top + " )" );
+$( "p:last" ).offset({ top: 10, left: 30 });
+</xmp>
+</dd>
+<dt>.offsetParent()</dt>
+<dd>
+오프셋 부모 객체 (position: 값; relative; absolute; fixed; 인 가장 가까운 조상)
+<xmp class="xmp">
+$( "li.item-a" ).offsetParent().css( "background-color", "red" );
+</xmp>
+</dd>
+<dt class="a1">.position()</dt>
+<dd>
+<em>오프셋 부모 offsetParent() 기준</em>으로 현재 좌표를 얻는다.
+<xmp class="xmp">
+var p = $( "p:first" );
+var position = p.position();
+$( "p:last" ).text( "left: " + position.left + ", top: " + position.top );
+</xmp>
+</dd>
+<dt>.scrollLeft()</dt>
+<dd>스크롤된 x 좌표</dd>
+<dt>.scrollTop()</dt>
+<dd>스크롤된 y 좌표</dd>
+</dl>
+
+<h4 class="h1">Data</h4>
+<dl>
+<dt class="a1">jQuery.data()</dt>
+<dd>
+<pre class="mg0">
+<code class="xmp">
+jQuery.data( document.body, "foo", 52 );
+jQuery.data( document.body, "bar", "test" );
+</code>
+</pre>
+<pre class="mg0">
+<code class="xmp">
+var div = $( "div" )[ 0 ];
+jQuery.data( div, "test", {
+  first: 16,
+  last: "pizza!"
+});
+$( "span:first" ).text( jQuery.data( div, "test" ).first );
+$( "span:last" ).text( jQuery.data( div, "test" ).last );
+</code>
+</pre>
+<em class="em8">jQuery.data() 와 .data() 차이는?</em>
+<a href="#?" target="_blank" title="새 창">※ 여기 참조 ※</a>
+<pre class="mg0">
+<code class="xmp">
+$("#myDiv").data("key","arbitrary value"); // Using the data method:
+$.data($("#myDiv").get(0),"key","arbitrary value"); // Using the data function:
+</code>
+</pre>
+</dd>
+<dt class="a1">.data()</dt>
+<dd>
+<a href="http://bluepoet.me/2012/02/14/jquery-data-api-%EC%8B%A4%EC%8A%B5/">※ 여기 참조 ※</a>
+<xmp class="xmp">
+$('<div data-some-key="some value">').data('someKey'); // = "some value"
+$( "div" ).data( "test1", "VALUE-1" );
+</xmp>
+</dd>
+<dt class="a1">jQuery.hasData()</dt>
+<dd>
+<a href="http://blog.daum.net/i_sinclare/74">※ 여기 참조 ※</a>
+이 메소드는 jQuery.data() 메소드에 의해 현재 저장된 값들이 있는지 검사한다.
+요소와 관련된 data 가 없다면 (data object 가 전혀 없거나 비었다면),  false 반환, 그렇지 않으면 true 를 반환하다.
+</dd>
+<dt class="a1">jQuery.removeData()</dt>
+<dd>데이터를 제거 <a href="http://findfun.tistory.com/420">※ 여기 참조 ※</a>
+<pre class="mg0">
+<code class="xmp">
+var div = $("div")[0];
+$("span:eq(0)").text("" + $("div").data("test1"));
+jQuery.data(div, "test1", "VALUE-1");
+jQuery.data(div, "test2", "VALUE-2");
+$("span:eq(1)").text("" + jQuery.data(div, "test1"));
+jQuery.removeData(div, "test1");
+$("span:eq(2)").text("" + jQuery.data(div, "test1"));
+$("span:eq(3)").text("" + jQuery.data(div, "test2"));
+</code>
+</pre>
+</dd>
+<dt class="a1">.removeData()</dt>
+<dd>
+<xmp class="xmp">
+$( "div" ).removeData( "test1" );
+</xmp>
+</dd>
+</dl>
+
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Manipulation">Manipulation <small class="em4">조작</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+
+<h4 class="h1">Copying</h4>
+<dl>
+<dt>.clone()</dt>
+<dd>
+복제<br />
+<br />
+</dd>
+</dl>
+
+<h4 class="h1">DOM Insertion, Around</h4>
+<dl>
+<dt class="a1">.wrap()</dt>
+<dd>
+일치하는 요소를 (wrappingElement) 로 감싼다.
+<xmp class="xmp">
+$('.inner').wrap('<div class="wrap1" />');
+</xmp>
+<xmp class="xmp">
+$('.inner').wrap(function() {
+  return '<div class="' + $(this).text() + '" />';
+});
+</xmp>
+</dd>
+<dt class="a1">.wrapAll()</dt>
+<dd>
+일치하는 요소들 모두를 (wrappingElement) 로 감싼다.
+일치하는 요소 중간에 일치하지 않는 요소는 wrappingElement 다음으로 보낸다.
+<xmp class="xmp">
+$('.inner').wrap('<div class="wrap1" />');
+</xmp>
+</dd>
+<dt class="a1">.wrapInner()</dt>
+<dd>
+일치하는 요소의 안쪽 내용을 (wrappingElement) 로 감싼다.
+</dd>
+</dl>
+
+<h4 class="h1">DOM Insertion, Inside</h4>
+<dl>
+<dt>.append()</dt>
+<dd>객체 내부 뒷부분에 ()객체 추가</dd>
+<dt>.appendTo()</dt>
+<dd>객체를 ()객체 내부 뒷부분에 추가</dd>
+<dt>.html()</dt>
+<dd>객체 내부 HTML 검사. 추가</dd>
+<dt>.prepend()</dt>
+<dd>객체 내부 앞부분에 ()객체 추가</dd>
+<dt>.prependTo()</dt>
+<dd>객체를 ()객체 내부 앞부분에 추가</dd>
+<dt>.text()</dt>
+<dd>객체 내부 TEXT 검사. 추가</dd>
+</dl>
+
+<h4 class="h1">DOM Insertion, Outside</h4>
+<dl>
+<dt>.after()</dt>
+<dd>객체 외부 뒤에 ()객체 추가</dd>
+<dt>.before()</dt>
+<dd>객체 외부 앞에 ()객체 추가</dd>
+<dt>.insertAfter()</dt>
+<dd>객체를 ()객체 외부 뒤에 추가</dd>
+<dt>.insertBefore()</dt>
+<dd>객체를 ()객체 외부 앞에 추가</dd>
+</dl>
+
+<h4 class="h1">DOM Removal</h4>
+<dl>
+<dt class="a1">.detach()</dt>
+<dd>객체를	 분리한다.<br />
+<em class="em">.remove() 와 다른 점은 .detach() 에 의해 제거된 것은  jQuery 데이터 형태로 유지된다.</em><br />
+즉, 이 함수는 DOM에서 분리했다가 추후에 다시 삽입할 때 유용하다.<br />
+</dd>
+<dt>.empty()</dt>
+<dd>객체 내부를 비운다.</dd>
+<dt>.remove()</dt>
+<dd>객체를 제거한다.<br />
+지정한 요소를 포함 하위요소 모두제거 &amp; 요소와 관련된 이벤트와 데이터 모두 제거
+</dd>
+<dt class="a1">.unwrap()</dt>
+<dd>
+선택한 요소의 부모 요소를 제거
+<xmp class="xmp">
+$('.inner').unwrap();
+</xmp>
+아래처럼 선택한 요소를 제거할 수도 있다.
+<xmp class="xmp">
+$('.wrap1').contents().unwrap();
+</xmp>
+</dd>
+</dl>
+
+<h4 class="h1">DOM Replacement</h4>
+<dl>
+<dt class="a1">.replaceAll()</dt>
+<dd>
+선택요소로 (target)을 교체<br />
+<xmp class="xmp">
+$('<h2>New heading</h2>').replaceAll('.inner');
+</xmp>
+</dd>
+<dt class="a1">.replaceWith()</dt>
+<dd>
+선택요소를 (newContent)로 교체<br />
+<xmp class="xmp">
+$('div.target').replaceWith('<h2>New heading</h2>');
+</xmp>
+</dd>
+</dl>
+
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Traversing">Traversing <small class="em4">탐색</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+<h4 class="h1">Filtering</h4>
+<dl>
+<dt>.eq()</dt>
+<dd>선택요소들 중 (index) 번호에 해당하는 요소<br />
+index 정수값으로 0 이 맨 처음 요소다.<br />
+음수형 정수값을 사용하면 맨 끝 요소부터 역순으로 선택할 수 있다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('li').eq(-1); // 마지막 요소
+</code>
+</pre>
+</dd>
+<dt>.filter()</dt>
+<dd>선택요소들 중에서 (selector) 를 선택한다. (선택 요소를 줄일 수 있다.)<br />
+</dd>
+<dt>.first()</dt>
+<dd>선택요소들 중에서 첫번째 요소를 선택</dd>
+<dt class="a1">.has()</dt>
+<dd>선택요소들 중에서 (selector) 를 자식 요소로 가지는 요소를 선택</dd>
+<dt>.is()</dt>
+<dd>
+선택요소가 (selector) 로 비교하여 맞으면 true 아니면 false 를 반환<br />
+.is()를 이용한 animate 상태 체크<br />
+<pre class="mg0">
+<code class="xmp">
+if(_elemFocus.is(":animated")){ // 애니메이션 중이면
+  return false;
+}
+</code>
+</pre>
+</dd>
+<dt>.last()</dt>
+<dd>선택요소들 중에서 마지막 요소를 선택</dd>
+<dt class="a1">$.map()</dt>
+<dd>
+.map( array, callback(elementOfArray, indexInArray) )<br />
+(array)를 콜백함수(callback) 실행하여 새로운 배열을 반환<br />
+.map( arrayOrObject, callback( value, indexOrKey) )<br />
+(array) 또는 (object)를 콜백함수(callback) 실행하여 새로운 배열 또는 객체를 반환<br />
+※ <a href="http://findfun.tistory.com/415" target="_blank" title="새 창">jQuery.map(), 새로운 배열 요소로 변경</a><br />
+<pre class="mg0">
+<code class="xmp">
+var arr = [ "a", "b", "c", "d", "e" ];
+$("div.orignArr").text(arr.join(", ")); // a, b, c, d, e
+
+arr = jQuery.map(arr, function(n, i){
+  return (n.toUpperCase() + i);
+});
+$("div.result1").text(arr.join(", ")); // A0, B1, C2, D3, E4
+
+arr = jQuery.map(arr, function (a) {
+  return a + a;
+});
+$("div.result2").text(arr.join(", ")); // A0A0, B1B1, C2C2, D3D3, E4E4
+</code>
+</pre>
+<pre class="mg0">
+<code class="xmp">
+var dimensions = { width: 10, height: 15, length: 20 };
+dimensions = $.map( dimensions, function( value, index ) {
+  return value * 2;
+});
+// Result : [20, 30, 40] // 원본 오브젝트의 value에 2를 곱합니다.
+</code>
+</pre>
+<pre class="mg0">
+<code class="xmp">
+var dimensions = { width: 10, height: 15, length: 20 },
+    keys = $.map( dimensions, function( value, index ) {
+      return index; // 오브젝트의 key를 반환
+    });
+// Result : ["width", "height", "length"]
+</code>
+</pre>
+
+</dd>
+<dt>.not()</dt>
+<dd>
+선택요소들 중에서 조건 (selector) 에 불일치하는 요소 선택<br />
+<em class="em">.not() 은 .filter() 와 반대개념</em>. filter() 는 조건 (selector) 에 일치하는 요소 선택<br />
+</dd>
+<dt class="a1">.slice()</dt>
+<dd>
+선택요소들 중에서 ( startIndex, [endIndex] ) startIndex ~ endIndex 앞 인덱스를 선택.<br />
+endIndex 없으면 마지막 인덱스까지 선택.<br />
+<pre class="mg0">
+<code class="xmp">
+$('li').slice(2).css('background-color', 'red'); // li 중 3rd, 4th, 5th 의 배경색이 빨간색
+$('li').slice(2, 4).css('background-color', 'red'); // li 중 3rd, 4th 의 배경색이 빨간색
+</code>
+</pre>
+
+※ <a href="http://findfun.tistory.com/231" target="_blank" title="새 창">인덱스 범위로 자르기, slice()</a><br />
+</dd>
+</dl>
+<h4 class="h1">Miscellaneous Traversing</h4>
+<dl>
+<dt>.add()</dt>
+<dd>선택요소 추가</dd>
+<dt><del>.andSelf()</del></dt>
+<dd></dd>
+<dt class="a1">.contents()</dt>
+<dd>
+※ <a href="http://findfun.tistory.com/185" target="_blank">텍스트 노드를 포함한 자식요소 가져오기, contents()</a>
+</dd>
+<dt>.each()</dt>
+<dd>선택된 요소 루프 (반복문 for 역할)</dd>
+<dt class="a1">.end()</dt>
+<dd>
+※ <a href="http://findfun.tistory.com/194" target="_blank">이전 선택요소로 돌아가기, end()</a>
+</dd>
+</dl>
+<h4 class="h1">Tree Traversal</h4>
+<dl>
+<dt>.addBack()</dt>
+<dd>이전 선택요소 추가</dd>
+<dt>.children()</dt>
+<dd>자식 요소들 선택</dd>
+<dt class="a1 fwb">.closest()</dt>
+<dd>
+현재 요소에 가장 가까운 조상 선택<br />
+리턴되는 객체 수는 0 또는 1개.<br />
+※ <a href="http://ismydream.tistory.com/94" target="_blank">jQuery closest(), parents() 메소드의 차이</a><br />
+))) <em class="em">parent() 와 parents() 대신에 closest() 를 사용하자!</em><br />
+parent() 는 HTML 변경 시 선택되지 않을 수 있고,
+parents() 는 다수가 선택될 수 있으므로..
+</dd>
+<dt>.find()</dt>
+<dd>자손 요소 찾기</dd>
+<dt>.next()</dt>
+<dd>다음 요소 선택</dd>
+<dt>.nextAll()</dt>
+<dd>다음 요소 모두 선택</dd>
+<dt>.nextUntil()</dt>
+<dd>다음 요소들 선택하는데 (selector) 전까지만</dd>
+<dt>.parent()</dt>
+<dd>부모 요소 선택</dd>
+<dt>.parents()
+</dt>
+<dd>
+부모 요소부터 시작해서 조상들을 탐색<br />
+리턴되는 객체 수는 0 또는	 1이상<br />
+</dd>
+<dt>.parentsUntil()</dt>
+<dd>
+조상들 선택하는데 (selector) 전까지만
+</dd>
+<dt>.prev()</dt>
+<dd>이전 요소 선택</dd>
+<dt>.prevAll()</dt>
+<dd>이전 요소 모두 선택</dd>
+<dt>.prevUntil()</dt>
+<dd>다음 요소들 선택하는데 (selector) 전까지만</dd>
+<dt>.siblings()</dt>
+<dd>형제 요소들 선택</dd>
+</dl>
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Events">Events <small class="em4">이벤트</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+<h4 class="h1">Browser Events</h4>
+<dl>
+<dt><del class="">.error()</del></dt>
+<dd>에러가 있을 때</dd>
+<dt>.resize()</dt>
+<dd>원도의 크기를 변화시킬 때<br />
+$( window ).resize(function() {}); // = $( window ).on('resize', function() {});
+</dd>
+<dt>.scroll()</dt>
+<dd>윈도를 스크롤할 때
+$( window ).scroll( function() {}); // = $( window ).on('scroll', function() {});<br />
+$( "#target" ).scroll( function() {});
+</dd>
+</dl>
+<h4 class="h1">Document Loading</h4>
+<dl>
+<dt class="a1">.holdReady()</dt>
+<dd><a href="http://cometkorea.tistory.com/155">※ 여기 참조 ※</a>
+<code class="xmp">
+$.holdReady( true ); // <em>DOM 로드 지연</em>시킨다.
+$.getScript( "myplugin.js", function() { // myplugin.js 가 로드되면..
+  $.holdReady( false ); // DOM 로드 지연을 해제한다.
+});
+</code>
+</dd>
+<dt><del class="">.load()</del></dt>
+<dd>윈도(문서 객체)를 불러들일 때</dd>
+<dt>.ready()</dt>
+<dd>문서 객체가 준비 완료되면
+<code class="xmp">
+$( document ).ready( function() {});
+$().ready( function() {}); // this is not recommended
+$( function() {});
+</code>
+<code class="xmp">
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+  // Code using $ as usual goes here.
+});
+</code>
+</dd>
+<dt><del class="">.unload()</del></dt>
+<dd>윈도(문서 객체)를 닫을 때</dd>
+</dl>
+<h4 class="h1">Event Handler Attachment</h4>
+<dl>
+<dt>.bind()</dt>
+<dd>현재 존재하는 문서 객체에 이벤트를 연결. on() 으로 대체하여 사용 권장!<br />
+<code class="xmp">
+$('h1').on('click', function(){});
+</code>
+</dd>
+<dt>.delegate()</dt>
+<dd>현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결. on() 으로 대체하여 사용 권장!<br />
+<code class="xmp">
+$('#wrap').on('click'<b class="em2">, 'h1'</b>, function(){});
+</code>
+</dd>
+<dt><del class="">.die()</del></dt>
+<dd>off() 사용 권장!</dd>
+<dt><del class="">.live()</del></dt>
+<dd>현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결. on() 으로 사용해야 한다!<br />
+<b>live()</b>에 문제가 많다고 하여(속도 측면, 이벤트 중복바인딩 등), 1.4 버전에서 <b>delegate()</b>로 개선되었고 (이벤트 위임), 이후 1.7 버전에서 <b>on()</b>으로 통일되었다.
+<code class="xmp">
+$(document).on('click'<b class="em3">, '.lst1 .li1'</b>, function(){});
+</code>
+</dd>
+<dt>.off()</dt>
+<dd>이벤트 핸들러 제거</dd>
+<dt><a href="http://api.jquery.com/on/">.on()</a></dt>
+<dd>이벤트 핸들러 연결
+<code class="xmp">
+$( "div.test" ).on({
+  click: function() {
+    $( this ).toggleClass( "active" );
+  }, mouseenter: function() {
+    $( this ).addClass( "inside" );
+  }, mouseleave: function() {
+    $( this ).removeClass( "inside" );
+  }
+});
+</code>
+<xmp class="xmp">
+$( "body" ).on( "click", "p", function() {
+  $( this ).after( "<p>Another paragraph! " + (++count) + "</p>" );
+});
+</xmp>
+<code class="xmp">
+$( "body" ).on( "click", "p", function() {
+  alert( $( this ).text() );
+});
+</code>
+<code class="xmp">
+$( "body" ).on( "click", "a", function( event ) {
+  event.preventDefault();
+});
+</code>
+</dd>
+<dt>.one()</dt>
+<dd>이벤트를 한 번만 연결</dd>
+<dt>.trigger()</dt>
+<dd>이벤트 강제 발생</dd>
+<dt>.triggerHandler()</dt>
+<dd>이벤트 핸들러 강제 실행. <del>이벤트는 발생안함.</del> <ins>기본 동작 실행안함.</ins> 초점은 받는다.<br />
+<a href="http://blog.naver.com/PostView.nhn?blogId=pjh445&logNo=220704813303&categoryNo=0&parentCategoryNo=35&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search" target="_blank" title="새 창">※ 차이 .trigger() .triggerHandler()</a><br />
+<a href="http://stackoverflow.com/questions/3772537/triggerhandler-vs-trigger-in-jquery" target="_blank">The .triggerHandler() method does not cause the default behavior of an event to occur (such as a form submission).</a><br />
+
+</dd>
+<dt>.unbind()</dt>
+<dd>off() 사용 권장!</dd>
+<dt>.undelegate()</dt>
+<dd>off() 사용 권장!</dd>
+</dl>
+<h4 class="h1">Form Events</h4>
+<dl>
+<dt>.blur()</dt>
+<dd>초점이 사라지면<br />
+<em>이벤트에 이벤트 처리기를 바인딩하거나 요소에 해당 이벤트를 트리거합니다.</em> [m] 아래 각 이벤트별로 설명 적용 가능하다.</dd>
+<dt>.change()</dt>
+<dd>내용을 변경할 때</dd>
+<dt>.focus()</dt>
+<dd>초점을 맞추면</dd>
+<dt>.select()</dt>
+<dd>입력 양식을 선택할 때. 단, input[type='text'] 및 textarea 제외.<br />
+※ <a href="http://api.jquery.com/select/" target="_blank" title="새 창">//api.jquery.com/select/</a> Examples: 확인해보니..<br />
+input[type='text'] 에서는 초점 있을 때가 아니고, 입력 박스 안의 텍스트를 드래그해서 모두 선택했을 때 이벤트 발생한다.<br />
+</dd>
+<dt>.submit()</dt>
+<dd>submit 버튼을 누르면</dd>
+<!-- <dt>.reset()</dt>
+<dd>reset 버튼을 누르면</dd> -->
+</dl>
+<h4 class="h1">Keyboard Events</h4>
+<dl>
+<dt>.keydown()</dt>
+<dd>키보드 누를 때</dd>
+<dt>.keypress()</dt>
+<dd>글자가 입력될 때</dd>
+<dt>.keyup()</dt>
+<dd>키보드 뗄 때</dd>
+</dl>
+<h4 class="h1">Mouse Events</h4>
+<dl>
+<dt>.click()</dt>
+<dd>클릭</dd>
+<dt>.dblclick()</dt>
+<dd>더블클릭</dd>
+<dt>.focusin()</dt>
+<dd>초점이 맞추어지기 바로 전에</dd>
+<dt>.focusout()</dt>
+<dd>초점이 사라지기 바로 전에</dd>
+<dt>.hover()</dt>
+<dd>mouseenter 이벤트와 mouseleave 이벤트를 동시에 연결</dd>
+<dt>.mousedown()</dt>
+<dd>마우스 버튼을 누를 때</dd>
+<dt>.mouseenter()</dt>
+<dd>마우스가 요소의 경계 외부에서 내부로 이동할 때. <em>이벤트 버블링 안한다.</em> 대부분 이걸로 사용.</dd>
+<dt>.mouseleave()</dt>
+<dd>마우스가 요소의 경계 내부에서 외부로 이동할 때. <em>이벤트 버블링 안한다.</em> 대부분 이걸로 사용.</dd>
+<dt>.mousemove()</dt>
+<dd>마우스 움직일 때</dd>
+<dt>.mouseout()</dt>
+<dd>마우스가 요소를 벗어날 때. <em>이벤트 버블링 한다.</em></dd>
+<dt>.mouseover()</dt>
+<dd>마우스가 요소 안으로 들어올 때. <em>이벤트 버블링 한다.</em></dd>
+<dt>.mouseup()</dt>
+<dd>마우스 버튼을 뗄 때</dd>
+<dt><del class="">.toggle()</del></dt>
+<dd></dd>
+</dl>
+<h4 class="h1">Event Object</h4>
+<dl>
+<dt class="a1">event.currentTarget</dt>
+<dd>이벤트 버블 링 단계에서 현재 DOM 요소</dd>
+<dt class="a1">event.data</dt>
+<dd>현재 실행 핸들러가 결합 될 때 이벤트 메서드에 전달 된 데이터의 선택적 객체입니다.
+<a href="https://api.jquery.com/event.data/" target="_blank" title="새 창">※ 여기 Example: 참조 ※</a>
+<pre class="mg0">
+<samp class="xmp">
+button = 0, event.data.value = 0, i = 5
+button = 1, event.data.value = 1, i = 5
+button = 2, event.data.value = 2, i = 5
+…
+</samp>
+</pre>
+이벤트 실행될 때 for 문은 이미 마친 상태이여서  i = 5 로 동일하지만,
+event.data.value 은 결합될 때 값이어서 다르다. ( 현재 반복 값을 보존 )
+</dd>
+<dt class="a1">event.isDefaultPrevented()</dt>
+<dd>
+이 객체에서 event.preventDefault() 가 호출된 적이 있는지 여부 ( true | false )
+(( <a href="https://api.jquery.com/event.isDefaultPrevented/" target="_blank" title="새 창">※</a>
+<pre class="mg0">
+<code class="xmp">
+$( "a" ).click(function( event ) {
+  alert( event.isDefaultPrevented() ); // false
+  event.preventDefault();
+  alert( event.isDefaultPrevented() ); // true
+});
+</code>
+</pre>
+</dd>
+<dt class="a1">event.isImmediatePropagationStopped()</dt>
+<dd>event.stopImmediatePropagation()이 호출됐는지 여부 ( true | false )
+(( <a href="http://hyeonstorage.tistory.com/64" target="_blank" title="새 창">※</a>
+</dd>
+<dt class="a1">event.isPropagationStopped()</dt>
+<dd>event.stopPropagation()이 호출 됐는지 여부 ( true | false )</dd>
+<dt class="a1">event.namespace</dt>
+<dd>이벤트가 tirgger 됐을때, 발생한 이벤트의 namespace
+</dd>
+<dt>event.pageX</dt>
+<dd>브라우저 화면 기준 마우스 X 좌표</dd>
+<dt>event.pageY</dt>
+<dd>브라우저 화면 기준 마우스 Y 좌표</dd>
+<dt>event.preventDefault()</dt>
+<dd>현재 이벤트의 기본 동작을 제거
+((<a href="http://programmingsummaries.tistory.com/313" target="_blank" title="새 창">※</a>))
+<!-- panel1 -->
+<div class="panel1 clearfix">
+	<strong class="em0">return false</strong><br />
+	jQuery 사용하지 않으면 event.preventDefault() 를 수행한 것과 같다.<br />
+	jQuery 사용하면  event.preventDefault() 와 event.stopPropagation() 를 수행한 것과 같다.<br />
+	(기본 동작을 제거하고 이벤트 전파도 중단)<br />
+	event.stopImmediatePropagation() 는 수행하지 않는다<br />
+</div>
+<!-- /panel1 -->
+
+</dd>
+<dt class="a1">event.relatedTarget</dt>
+<dd>해당 이벤트와 관련된 다른 DOM 요소 선택
+</dd>
+<dt class="a1">event.result</dt>
+<dd>해당 이벤트가 실행한 이벤트 핸들러 함수에 의해 리턴되는 가장 마지막 값
+</dd>
+<dt class="a1">event.stopImmediatePropagation()</dt>
+<dd>이벤트 버블링 중단하고 현재 요소의 다른 이벤트도 중단.<br />
+<b class="em0">@m)</b><em class="em">이거 실행 이후에 정의한 이벤트 핸들러를 중단한다. 이전 거는 수행한다.</em>
+</dd>
+<dt>event.stopPropagation()</dt>
+<dd>이벤트 버블링(상위로 전파)되지 않도록 중단</dd>
+<dt class="a1">event.target</dt>
+<dd>이벤트가 발생한 요소</dd>
+<dt class="a1">event.timeStamp</dt>
+<dd>이전 이벤트와 현재 이벤트가 발생한 시간의 차이 milliseconds</dd>
+<dt class="a1">event.type</dt>
+<dd>실행된 event 타입</dd>
+<dt class="a1">event.which</dt>
+<dd>이벤트가 발생된 요소의 key (키보드 값(숫자), 마우스(좌1, 중2, 우3))</dd>
+</dl>
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Effects">Effects <small class="em4">효과</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+<h4 class="h1">Basics</h4>
+<dl>
+<dt>.hide()</dt>
+<dd>작아지며 사라진다.
+기본, 슬라이드, 페이드 효과 메서드들은 4가지 형태로 사용한다.
+<code class="xmp">
+$(slector).method();
+$(slector).method(duration); // duration 은 밀리초 또는 'slow' | 'normal' | 'fast' (각각 600 | 400 | 200 밀리초)
+$(slector).method(duration, function(){}); //  function(){} 은 효과 완료 후 실행할 callback 함수
+$(slector).method(duration, easing, function(){}); // easing 은 'linear' | 'swing' 만 가능.
+</code>
+별도의 플러그인을 사용하면.. 다양한 완화 동작 가능하다.
+</dd>
+<dt>.show()</dt>
+<dd>커지면서 보여준다.</dd>
+<dt>.toggle()</dt>
+<dd>show() 와 hide() 를 번갈아 실행한다.</dd>
+</dl>
+<h4 class="h1">Custom</h4>
+<dl>
+<dt>.animate()</dt>
+<dd>사용자 정의 효과. 4가지 형태로 사용한다.
+<code class="xmp">
+$(slector).animate(object); // CSS 속성 객체{}
+$(slector).animate(object, duration);
+$(slector).animate(object, duration, function(){});
+$(slector).animate(object, duration, easing, function(){});
+</code>
+입력 가능한 속성 {opacity: , left: , top: , right: , bottom: , width: , height: , margin: , padding: }
+</dd>
+<dt class="a1">.clearQueue()</dt>
+<dd>큐의 내용을 제거<br />
+$(slector).clearQueue();
+// 큐를 비운 뒤에 추가하는 효과가 실행되지 않지만, 이전에 실행되던 애니메이션은 모두 끝까지 진행한다.
+</dd>
+<dt>.delay()</dt>
+<dd>큐에 있는 명령을 잠시 중지.</dd>
+<dt class="a1">.dequeue()</dt>
+<dd>
+대기열의 animate() 실행
+</dd>
+<dt class="a1">jQuery.dequeue()</dt>
+<dd>
+<pre class="mg0">
+<code class="xmp">
+$("button").click(function () {
+  $("div").animate({left:'+=200px'}, 2000);
+  $("div").animate({top:'0px'}, 600);
+  $("div").queue(function () {
+    $(this).toggleClass("red");
+    $(this).dequeue();
+  });
+  $("div").animate({left:'10px', top:'30px'}, 700);
+});
+</code>
+</pre>
+</dd>
+<dt class="a1">.finish()</dt>
+<dd>
+선택요소의 애니메이션 효과를 종료하고 마지막 결과를 적용한다.<br />
+<b class="em0">.stop()</b> 은 효과 진행 상태 그대로 멈춥니다.<br />
+</dd>
+<dt class="a1">jQuery.fx.interval</dt>
+<dd>
+애니메이션 효과 초당 프레임 수 조절
+<pre class="mg0">
+<code class="xmp">
+jQuery.fx.interval = 13; // 기본값 13 밀리세컨드 (1000/13 = 76.923~ fps)
+</code>
+</pre>
+※ jQuery 는 하나의 global interval 을 사용한다.<br />
+</dd>
+<dt class="a1">jQuery.fx.off</dt>
+<dd>
+이 속성값이 true 라면, 모든 에니메이션 효과를 전역적으로 불가상태로 만든다.<br />
+아래와 같은 상황일 때 필요할 수 있다.<br />
+01) jQuery 가 낮은 사양의 기기에서 실행될 때.<br />
+02) 접근성 문제가 발생했을 경우.<br />
+<pre class="mg0">
+<code class="xmp">
+var toggleFx = function() {
+  $.fx.off = !$.fx.off;
+};
+toggleFx();
+</code>
+</pre>
+</dd>
+<dt class="a1">.queue()</dt>
+<dd>
+선택요소에 실행되고 있는 함수 큐를 보여준다. (무슨 함수들이 실행되고 있는지 보여준다.)<br />
+선택요소에 실행되고 있는 함수 큐를 조작한다.<br />
+<pre class="mg0">
+<code class="xmp">
+var n = $( "div" )[ 0 ].queue( "fx" );
+$( "span" ).text( n.length );
+</code>
+</pre>
+</dd>
+<dt class="a1">jQuery.queue()</dt>
+<dd>
+<pre class="mg0">
+<code class="xmp">
+var n = jQuery.queue( $( "div" )[ 0 ], "fx" );
+$( "span" ).text( n.length );
+</code>
+</pre>
+</dd>
+<dt class="a1">.stop()</dt>
+<dd>효과 및 애니메이션을 정지한다.
+<code class="xmp">
+$(slector).stop([clearQueue][, goToEnd]); // 용법
+$(slector).<b>stop()</b>; // == $(slector).stop(false, false); <em>clearQueue, goToEnd 모두 false </em>
+$(slector).stop(true); // clearQueue = true 는 clearQueue() 실행과 동일.
+$(slector).stop(false, true); // goToEnd = true 는 효과 최종 상태로 가서 효과Queue 순차 진행. 효과Queue 없으면 멈춤.
+$(slector).stop(true, true); // 효과 최종 상태로 가서 멈춤
+</code>
+</dd>
+</dl>
+<h4 class="h1">Fading</h4>
+<dl>
+<dt>.fadeIn()</dt>
+<dd>페이드 효과로 보여준다.</dd>
+<dt>.fadeOut()</dt>
+<dd>페이드 효과로 사라진다.</dd>
+<dt>.fadeTo()</dt>
+<dd>
+.fadeTo( duration, opacity [, easing ] [, complete ] );
+  $( "#book" ).fadeTo( "slow" , 0.5, function() {
+    // Animation complete.
+  });
+</dd>
+<dt>.fadeToggle()</dt>
+<dd>fadeIn() 과 fadeOut() 을 번갈아 실행한다.</dd>
+</dl>
+<h4 class="h1">Sliding</h4>
+<dl>
+<dt>.slideDown()</dt>
+<dd>슬라이드 효과로 보여준다.</dd>
+<dt>.slideToggle()</dt>
+<dd>slideDown() 과 slideUp() 을 번갈아 실행한다.</dd>
+<dt>.slideUp()</dt>
+<dd>슬라이드 효과로 사라진다.</dd>
+</dl>
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Ajax">Ajax <small class="em4">비동기</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+<h4 class="h1">Global Ajax Event Handlers</h4>
+<dl>
+
+<dt>.ajaxComplete()</dt>
+<dd>Ajax 요청이 완료되면 jQuery는 ajaxComplete 이벤트를 발생시킵니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('.log').ajaxComplete(function() {
+  $(this).text('Triggered ajaxComplete handler.');
+});
+</code>
+</pre>
+</dd>
+
+<dt>.ajaxError()</dt>
+<dd>Ajax 요청이 에러가 났다면 jQuery는 ajaxError 이벤트를 발생시킵니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$("div.log").ajaxError(function() {
+  $(this).text( "Triggered ajaxError handler." );
+});
+</code>
+</pre>
+</dd>
+
+<dt>.ajaxSend()</dt>
+<dd>jQuery는 Ajax 요청을 보내기 전에 매번 ajaxSend 이벤트를 발생 시킵니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('.log').ajaxSend(function() {
+  $(this).text('Triggered ajaxSend handler.');
+});
+</code>
+</pre>
+</dd>
+
+<dt>.ajaxStart()</dt>
+<dd>Ajax 요청을 보내기 전에, jQuery는 진행중인 Ajax 요청이 있는지 체크합니다. 만일 진행중인 Ajax 요청이 없다면, jQuery는 ajaxStart 이벤트를 발생시킵니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('.log').ajaxStart(function() {
+  $(this).text('Triggered ajaxStart handler.');
+});
+</code>
+</pre>
+</dd>
+
+<dt>.ajaxStop()</dt>
+<dd>Ajax 요청을 완료되면, jQuery는 진행중인 Ajax 요청이 있는지 체크합니다. 만일 진행중인 Ajax 요청이 없다면, jQuery는 ajaxStop 이벤트를 발생시킵니다. .ajaxStop() 함수에서 등록된 모든 핸들러가 실행되게 됩니다. 또한, ajaxStop 이벤트는 마지막 Ajax 요청이 beforeSend 콜백 함수네에서 false를 반환하여 취소가 되어도 발생하게 됩니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('.log').ajaxStop(function() {
+  $(this).text('Triggered ajaxStop handler.');
+});
+</code>
+</pre>
+</dd>
+
+<dt>.ajaxSuccess()</dt>
+<dd>Ajax 요청이 성공적으로 완료 때마다, jQuery ajaxSuccess 이벤트를 발생시킵니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('.log').ajaxSuccess(function() {
+  $(this).text('Triggered ajaxSuccess handler.');
+});
+</code>
+</pre>
+</dd>
+
+</dl>
+<h4 class="h1">Helper Functions</h4>
+<dl>
+<dt>.serialize()</dt>
+<dd>데이터를 보내기 위해 폼 요소 집합을 문자열로 인코딩 합니다.<br />
+표준 URL-encoded 표기법으로 텍스트 문자열을 만듭니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('form').submit(function() {
+  alert($(this).serialize());
+  return false;
+});
+</code>
+</pre>
+위 예제는 표준 형태의 쿼리 스트링을 만들어 내게 됩니다.<br />
+<pre class="mg0">
+<samp class="xmp">
+a=1&b=2&c=3&d=4&e=5
+</samp>
+</pre>
+Warning: 폼과 내부 자식 요소를 동시에 선택하면 직렬화 시 중복 문자열이 발생할 수 있습니다.<br />
+Note: 오로지 "successful controls" 들만 문자열로 직렬화가 됩니다. 폼 요소는 반드시 name 속성을 가지고 있어야 직렬화에 포함 됩니다. checkboxes 와 radio button 은 선택된 것만 포함이 됩니다. type='file' 요소는 포함되지 않습니다.<br />
+</dd>
+<dt>.serializeArray()</dt>
+<dd>폼 요소를 names와 values 배열로 인코딩합니다.<br />
+ JSON 문자열 형태로 JavaScript 배열 객체를 만듭니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('form').submit(function() {
+  console.log($(this).serializeArray());
+  return false;
+});
+</code>
+</pre>
+위 예제는 아래와 같은 결과물을 만들어 내게 됩니다.<br />
+<pre class="mg0">
+<samp class="xmp">
+[
+  {
+    name: "a",
+    value: "1"
+  },
+  {
+    name: "b",
+    value: "2"
+  },
+  {
+    name: "c",
+    value: "3"
+  },
+  {
+    name: "d",
+    value: "4"
+  },
+  {
+    name: "e",
+    value: "5"
+  }
+]
+</samp>
+</pre>
+
+</dd>
+<dt>jQuery.param()</dt>
+<dd></dd>
+</dl>
+<h4 class="h1">Low-Level Interface</h4>
+<dl>
+<dt>jQuery.ajax()</dt>
+<dd>비동기 HTTP (Ajax) 요청을 수행합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  url: 'ajax/test.html',
+  success: function(data) {
+    $('.result').html(data);
+    alert('Load was performed.');
+  }
+});
+</code>
+</pre>
+예제) 서버에 데이터를 보내고 완료되면 사용자에게 알립니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  type: "POST",
+  url: "some.php",
+  data: { name: "John", location: "Boston" }
+}).done(function( msg ) {
+  alert( "Data Saved: " + msg );
+});
+</code>
+</pre>
+예제) HTML 페이지의 최신 버전을 요청합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  url: "test.html",
+  cache: false
+}).done(function( html ) {
+  $("#results").append(html);
+});
+</code>
+</pre>
+예제) XML 데이터를 서버에 보냅니다. processData 옵션값을 false로 하여 자동으로 데이터가 string으로 변환되는 것을 방지합니다.
+<pre class="mg0">
+<code class="xmp">
+var xmlDocument = [create xml document];
+var xmlRequest = $.ajax({
+  url: "page.php",
+  processData: false,
+  data: xmlDocument
+});
+
+xmlRequest.done(handleResponse);
+</code>
+</pre>
+예제) 서버로 데이터를 보내고, 서버는 저장 후 특정 메시지를 보내 줍니다. 완료되면 로그 메시지를 갱신하고 실패하면 알림창을 나타냅니다.<br />
+<pre class="mg0">
+<code class="xmp">
+var menuId = $("ul.nav").first().attr("id");
+var request = $.ajax({
+  url: "script.php",
+  type: "POST",
+  data: {id : menuId},
+  dataType: "html"
+});
+
+request.done(function(msg) {
+  $("#log").html( msg );
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});
+</code>
+</pre>
+
+예제) JavaScript 파일을 로드하고 실행합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+});
+</code>
+</pre>
+
+</dd>
+<dt>jQuery.ajaxSetup()</dt>
+<dd>Ajax 요청 시 사용되는 옵션값들을 세세하게 정의할 수 있습니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajaxSetup({
+   url: "/xmlhttp/",
+   global: false,
+   type: "POST"
+
+ });
+ $.ajax({ data: myData });
+</code>
+</pre>
+
+</dd>
+<dt>jQuery.ajaxTransport()</dt>
+<dd>ajax데이타의 실제 전달하는 객체를 만듭니다.<br />
+
+</dd>
+<dt>jQuery.prefilter()</dt>
+<dd>Ajax 요청을 보내기 전이나 $.ajax() 함수에 의해 호출되기 전에 Ajax 옵션들을 수정하거나 조작합니다.<br />
+
+</dd>
+</dl>
+<h4 class="h1">Shorthand Methods</h4>
+<dl>
+<dt>.load()</dt>
+<dd>서버로부터 데이터를 받아서 일치하는 요소 안에 HTML을 추가합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('#result').load('ajax/test.html');
+</code>
+</pre>
+<pre class="mg0">
+<code class="xmp">
+$('#result').load('ajax/test.html', function() {
+  alert('Load was performed.');
+});
+</code>
+</pre>
+아래처럼 공백을 주고 jQuery 선택자(selector)를 적어주면 그 URL에 있는 내용중에 선택자에 해당하는 부분만 가져올 수 있습니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$('#result').load('ajax/test.html #container');
+</code>
+</pre>
+</dd>
+
+<dt>jQuery.get()</dt>
+<dd>HTTP GET 방식 요청을 통해 서버로부터 데이터를 받습니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  url: url,
+  data: data,
+  success: callback,
+  dataType: dataType
+});
+</code>
+</pre>
+</dd>
+
+<dt>jQuery.getJSON()</dt>
+<dd>HTTP GET 방식 요청을 통해 서버로부터 받은 JSON 데이터를 로드합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  url: url,
+  dataType: 'json',
+  data: data,
+  success: callback
+});
+</code>
+</pre>
+</dd>
+
+<dt>jQuery.getScript()</dt>
+<dd>HTTP GET 방식 요청을 통해 서버로부터 받은 JavaScript 파일을 로드하고 실행합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  url: url,
+  dataType: "script",
+  success: success
+});
+</code>
+</pre>
+</dd>
+
+<dt>jQuery.post()</dt>
+<dd>HTTP POST 방식 요청을 통해 서버로부터 데이터를 받습니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.ajax({
+  type: 'POST',
+  url: url,
+  data: data,
+  success: success,
+  dataType: dataType
+});
+</code>
+</pre>
+</dd>
+
+</dl>
+</div>
+<!-- /hdl1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Core">Core <small class="em4">핵심</small></h3>
+
+<!-- hdl1 -->
+<div class="hdl1">
+
+<h4 class="h1">jQuery Object</h4>
+<dl>
+<dt>jQuery()</dt>
+<dd>CSS 선택자를 포함하는 문자열을 받아 들인다.<br />
+</dd>
+<dt>jQuery.holdReady()</dt>
+<dd><a href="http://m-gosu.tistory.com/52" target="_blank" title="새 창">((※</a><br />
+$.holdReady(true); 로 DOM 로드를 멈추게 하고 스크립트 를 실행.<br />
+$.holdReady(false); 로 DOM 로드를 해제하는 순간  $(document).ready(); 구문 실행<br />
+</dd>
+<dt>jQuery.noConflict()</dt>
+<dd>$에 대해 충돌 해결.<br />
+jQuery 라이브러리가 선언된 뒤에 jQuery.noConflict()를 호출해야 합니다.<br />
+</dd>
+<dt><del>jQuery.sub()</del></dt>
+<dd>새로운 jQuery 함수를 정의할때, 네임스페이스의 충돌로 다른 개발자의 함수에 영향을 주지 않도록 캡슐화된 플러그인을 만들고자 할때 $.sub() 로 복사하여 사용<br />
+ <pre class="mg0">
+<code class="xmp">
+(function(){
+    var sub$ = jQuery.sub();
+    sub$.fn.myCustomMethod = function(){
+      return 'just for me';
+    };
+
+    sub$(document).ready(function() {
+      sub$('body').myCustomMethod() // 'just for me'
+    });
+  })();
+
+  typeof jQuery('body').myCustomMethod // undefined
+</code>
+</pre>
+</dd>
+<dt>jQuery.when()</dt>
+<dd><a href="http://seongilman.tistory.com/7" target="_blank" title="새 창">((※</a>
+jQuery.when(deferreds) : deferreds에 대한 처리 후 콜백처리<br />
+<pre class="mg0">
+<code class="xmp">
+$.when($.ajax("test.aspx")).done(function(){
+	alert("ajax 처리 후 실행");
+})
+</code>
+</pre>
+</dd>
+</dl>
+
+<h4 class="h1">Deferred Object
+	<span class="dpib">지연된 객체</span>
+</h4>
+<dl>
+<dt>.promise()</dt>
+<dd>
+	<a href="http://webframeworks.kr/tutorials/angularjs/angularjs_promise_deferred/" target="_blank" title="새 창">비동기 프로그래밍을 위한 Promise와 Deferred 알아보기</a><br />
+	<a href="http://uwostudy.tistory.com/54" target="_blank" title="새 창">jQuery 에서 Promise 패턴 간략 예제</a><br />
+	<a href="https://www.youtube.com/watch?v=30oDbHYyaME" target="_blank" title="새 창">jQuery Deferred Object(지연객체) 소개와 사용법. - YouTube</a> - 김춘경<br />
+	<a href="http://neocjmix.github.io/2015/11/23/jquery-deferred" target="_blank" title="새 창">jQuery deferred</a><br />
+	<a href="http://noname2.tistory.com/180" target="_blank" title="새 창">Deferred Object</a><br />
+</dd>
+<dt>deferred.always()</dt>
+<dd>Deferred object가 resolved 되거나 rejected 될 때 항상 호출될 핸들러들을 추가.<br />
+<pre class="mg0">
+<code class="xmp">
+pomise.done(function(){ ... });
+pomise.fail(function(){ ... });
+pomise.always(function(){ ... });
+</code>
+</pre>
+
+</dd>
+<dt>deferred.done()</dt>
+<dd>Deferred object가 resolved 되면 호출될 핸들러를 추가.<br />
+<pre class="mg0">
+<code class="xmp">
+// 이 API를 위한 Promise 객체를 얻는다.
+var dataPromise = getData();
+
+// 데이터가 해결됐을 때 호출될 함수를 등록한다.
+dataPromise.done(function(data){
+  alert("We got data: " + data);
+});
+
+// 오류 함수를 등록한다.
+dataPromise.fail(function(ex){
+  alert("oops, some problem occured: " + ex);
+});
+
+// 참고: 원하는 만큼 dataPromise.done(...)을 많이 가질 수 있다.
+dataPromise.done(function(data){
+  alert("We asked it twice, we get it twice: " + data);
+});
+</code>
+</pre>
+</dd>
+<dt>deferred.fail()</dt>
+<dd>Deferred object가 rejected 되면 호출될 핸들러를 추가.<br />
+<pre class="mg0">
+<code class="xmp">
+$.get( "test.php" )
+  .done(function() {
+    alert( "$.get succeeded" );
+  })
+  .fail(function() {
+    alert( "$.get failed!" );
+  });
+</code>
+</pre>
+</dd>
+<dt><del>deferred.isRejected()</del></dt>
+<dd></dd>
+<dt><del>deferred.isResolved()</del></dt>
+<dd></dd>
+<dt>deferred.notify()</dt>
+<dd>resolve, reject, notify 를 이용하면 done, fail, progress 시점에 예약된 callback을 실행시킬 수 있다.</dd>
+<dt>deferred.notifyWith()</dt>
+<dd>resolveWith, rejectWith, notifyWith 를 이용해서 각 시점에 메시지를 전달할 수 있다.</dd>
+<dt><del>deferred.pipe()</del></dt>
+<dd></dd>
+<dt>deferred.progress()</dt>
+<dd>지연된 객체가 진행 알림을 생성 할 때 호출 할 핸들러를 추가합니다.</dd>
+<dt>deferred.promise()</dt>
+<dd>실패하든 성공하든, 모든 비동기 요청이 종료되었을 때 callback을 실행하기 위해서는 promise를 한겹 더 사용해야 한다.</dd>
+<dt>deferred.reject()</dt>
+<dd>resolve, reject, notify 를 이용하면 done, fail, progress 시점에 예약된 callback을 실행시킬 수 있다.</dd>
+<dt>deferred.rejectWith()</dt>
+<dd>resolveWith, rejectWith, notifyWith 를 이용해서 각 시점에 메시지를 전달할 수 있다.</dd>
+<dt>deferred.resolve()</dt>
+<dd>resolve, reject, notify 를 이용하면 done, fail, progress 시점에 예약된 callback을 실행시킬 수 있다.</dd>
+<dt>deferred.resolveWith()</dt>
+<dd>resolveWith, rejectWith, notifyWith 를 이용해서 각 시점에 메시지를 전달할 수 있다.</dd>
+<dt>deferred.state()</dt>
+<dd>지연된 객체의 현재 상태를 확인합니다.<br />
+    "resolved",
+	"rejected",
+    "pending" (neither "rejected" nor "resolved")
+</dd>
+<dt>deferred.then()</dt>
+<dd>then은 done이 되었을 때, fail이 되었을 때, 진행중일 때 각각의 상태에 따른 콜백메서드를 정의한다.<br />
+<pre class="mg0">
+<code class="xmp">
+Deferred.then(donecallback[, failcallback][, progresscallback])
+</code>
+</pre>
+</dd>
+<dt>jQuery.Deferred()</dt>
+<dd>Deferred 객체를 리턴한다. 즉 $.Deferred는 생성자 메서드다.</dd>
+</dl>
+
+<h4 class="h1">Utilities</h4>
+<dl>
+<dt><del>jQuery.boxModel</del></dt>
+<dd></dd>
+<dt><del>jQuery.browser</del></dt>
+<dd></dd>
+<dt>jQuery.contains()</dt>
+<dd>DOM 요소가 다른 DOM 요소의 후손이 있는지 확인합니다.<br />
+jQuery.contains( container, contained )<br />
+<pre class="mg0">
+<code class="xmp">
+$.contains( document.documentElement, document.body ); // true
+$.contains( document.body, document.documentElement ); // false
+</code>
+</pre>
+</dd>
+<dt>jQuery.each()</dt>
+<dd>jQuery 객체 만큼 반복하고, 선택된 요소들에 함수를 실행합니다.<br />
+</dd>
+<dt>jQuery.extend()</dt>
+<dd>두개 이상의 객체를 합친다.<br />
+<pre class="mg0">
+<code class="xmp">
+var object = $.extend({}, object1, object2);
+</code>
+</pre>
+</dd>
+<dt>jQuery.globalEval()</dt>
+<dd>문자열로 명령어를 실행시켜준다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.globalEval("var newVar = true;"); // newVar == true
+</code>
+</pre>
+</dd>
+<dt>jQuery.grep()</dt>
+<dd>배열의 요소를 찾아 필터 합니다. 원본 배열에 영향을 주지 않습니다.<br />
+예제) zero 보다 큰 요소들만 반환합니다.<br />
+<pre class="mg0">
+<code class="xmp">
+$.grep( [0,1,2], function(n,i){
+   return n > 0;
+ });
+// Result : [1, 2]
+</code>
+</pre>
+예제) zero 보다 크지 않은 요소들만 반환합니다. invert 인자가 true로 세팅되면 결과의 반대가 반환됩니다.
+<pre class="mg0">
+<code class="xmp">
+$.grep( [0,1,2], function(n,i){
+    return n > 0;
+},true);
+//Result : [0]
+</code>
+</pre>
+
+</dd>
+<dt>jQuery.inArray()</dt>
+<dd>배열 내의 값을 찾아서 인덱스를 반환합니다.(요소가 없을 경우 -1을 반환).<br />
+<pre class="mg0">
+<code class="xmp">
+var arr = [ 4, "Pete", 8, "John" ];
+jQuery.inArray("John", arr); // 3
+jQuery.inArray(4, arr); // 0
+jQuery.inArray("Karl", arr); // -1
+jQuery.inArray("Pete", arr, 2); // -1
+</code>
+</pre>
+</dd>
+<dt>jQuery.isArray()</dt>
+<dd>JavaScript 배열인지 검증하여 Boolean을 반환</dd>
+<dt>jQuery.isEmptyObject()</dt>
+<dd>객체(object)가 empty 인지 체크합니다.</dd>
+<dt>jQuery.isFunction()</dt>
+<dd>JavaScript 함수인지 판별합니다.</dd>
+<dt>jQuery.isNumeric()</dt>
+<dd>숫자인지 판별합니다.</dd>
+<dt>jQuery.isPlainObject()</dt>
+<dd>인자가 일반적인 object(plain object) 인지 확인합니다. (plain object : "{}" 나 "new Object" 로 만들어진).</dd>
+<dt>jQuery.isWindow()</dt>
+<dd>자바스크립트의 전역객체 window 가 맞는지 확인해서 true/false 를 반환해주는 메서드</dd>
+<dt>jQuery.isXMLDoc()</dt>
+<dd>XML 문서의 DOM 노드 또는 XML 문서인지 체크합니다.</dd>
+<dt>jQuery.makeArray()</dt>
+<dd>진정한 자바 스크립트 배열로 변환합니다.</dd>
+<dt>jQuery.map()</dt>
+<dd>배열의 모든 요소(items)를 새로운 배열 요소로 변경합니다.</dd>
+<dt>jQuery.merge()</dt>
+<dd>두 개의 배열을 첫번째 배열에 합칩니다.</dd>
+<dt>jQuery.noop()</dt>
+<dd>no operation, 아무런 동작을 하지 않는 빈 함수.<br />
+<a href="http://egloos.zum.com/okjungsoo/v/5561108" target="_blank" title="새 창">※ jQuery.noop()</a><br />
+</dd>
+<dt>jQuery.now()</dt>
+<dd>현재 시간을 number로 반환<br />
+<pre class="mg0">
+<code class="xmp">
+$('div').text(jQuery.now()); // Result : 1468990960645
+</code>
+</pre>
+</dd>
+<dt>jQuery.parseHTML()</dt>
+<dd>
+<a href="http://www.nextree.co.kr/p10091/" target="_blank" title="새 창">※ jQuery : Parsing (JSON, XML, HTML)</a>
+</dd>
+<dt><del>jQuery.parseJSON()</del></dt>
+<dd></dd>
+<dt>jQuery.parseXML()</dt>
+<dd></dd>
+<dt>jQuery.proxy()</dt>
+<dd>대리인을 통해 this유지</dd>
+<dt><del>jQuery.support</del></dt>
+<dd>jQuery.support 속성은 다른 브라우저의 기능이나 버그를 나타내는 속성의 컬렉션을 포함합니다.</dd>
+<dt>jQuery.trim()</dt>
+<dd>문자열 양쪽 끝의 공백을 제거합니다.</dd>
+<dt>jQuery.type()</dt>
+<dd>object의 type을 알아냅니다.<br />
+object가 undefined, null일 경우, "undefined" 이나 "null" 이 반환되게 됩니다.<br />
+jQuery.type(undefined) === "undefined"<br />
+jQuery.type() === "undefined"<br />
+jQuery.type(window.notDefined) === "undefined"<br />
+jQuery.type(null) === "null"<br />
+만약 브라우저 내장 객채에 해당되는 경우 아래와 같이 반환됩니다.<br />
+jQuery.type(true) === "boolean"<br />
+jQuery.type(3) === "number"<br />
+jQuery.type("test") === "string"<br />
+jQuery.type(function(){}) === "function"<br />
+jQuery.type([]) === "array"<br />
+jQuery.type(new Date()) === "date"<br />
+jQuery.type(/test/) === "regexp"<br />
+typeof 라는 JavaScript 내장 함수를 사용하면 왠만한건 다 "object"라고 반환합니다. 불편하죠. 이 함수를 사용해서 더 정교하게 컨트롤 할 수 있겠네요.<br />
+</dd>
+<dt><del>jQuery.unique()</del></dt>
+<dd></dd>
+<dt><del>jQuery.uniqueSort()</del></dt>
+<dd></dd>
+</dl>
+
+<h4 class="h1">DOM Element Methods</h4>
+<dl>
+<dt>.get()</dt>
+<dd><a href="http://fronteer.kr/bbs/view/250" target="_blank" title="새 창">※ jQuery 에서 .eq() 와 .get() 의 차이</a>
+<pre class="mg0">
+<code class="xmp">
+$("li").eq(0) // jQuery 확장집합 돌려줌
+$("li").get(0) // DOM element 돌려줌
+</code>
+</pre>
+</dd>
+<dt>.index()</dt>
+<dd>인덱스값 반환<br />
+	<em class="em">$(선택자).index() </em>는 선택자에 해당되지 않는 모든 형제 요소를 포함한 인덱스이고<br />
+	<em class="em">$(선택자).index(선택자)</em> 는 선택자에 해당되는 요소들 중에서 인덱스이다.<br />
+</dd>
+<dt><del>.size()</del></dt>
+<dd>jQuery 길이얻기 length 와 같은 결과를 반환. size() 는 length 를 콜하므로 미세하게 느리다.
+</dd>
+<dt>.toArray()</dt>
+<dd>jQuery 객체 안에 있는 DOM 객체들을 자바스크립트 배열로 만들어줍니다.</dd>
+</dl>
+
+<h4 class="h1">Internals</h4>
+<dl>
+<dt><del>.context</del></dt>
+<dd></dd>
+<dt>.jquery</dt>
+<dd>JQuery와 버전 번호가 포함 된 문자열.<br />
+<pre class="mg0">
+<code class="xmp">
+$.fn.jquery
+</code>
+</pre>
+</dd>
+<dt>.length</dt>
+<dd>요소의 개수를 구한다.</dd>
+<dt>.pushStack()</dt>
+<dd> jQuery 스택에 DOM 요소를 추가.</dd>
+<dt><del>.selector</del></dt>
+<dd></dd>
+<dt>jQuery.error()</dt>
+<dd>Takes a string and throws an exception containing it.</dd>
+</dl>
+
+<h4 class="h1">Callbacks Object</h4>
+<dl>
+<dt>callbacks.add()</dt>
+<dd>콜백 리스트에 콜백 또는 콜백 컬렉션을 추가</dd>
+<dt>callbacks.disable()</dt>
+<dd>callback 함수 사용을 중지</dd>
+<dt>callbacks.disabled()</dt>
+<dd>콜백 함수 사용 중지 여부를 반환</dd>
+<dt>callbacks.empty()</dt>
+<dd>콜백 함수 비우기</dd>
+<dt>callbacks.fire()</dt>
+<dd>콜백 함수 실행 시 인자 전달</dd>
+<dt>callbacks.fireWith()</dt>
+<dd>인자를 전달하여 콜백함수 실행</dd>
+<dt>callbacks.fired()</dt>
+<dd>callback 함수 호출 여부 반환</dd>
+<dt>callbacks.has()</dt>
+<dd>콜백 함수 존재 여부 반환</dd>
+<dt>callbacks.lock()</dt>
+<dd>현재 상태에서 콜백 리스트를 잠금</dd>
+<dt>callbacks.locked()</dt>
+<dd>콜백 리스트가 잠겨있는지 확인</dd>
+<dt>callbacks.remove()</dt>
+<dd>콜백 리스트에서 콜백 또는 콜백 컬렉션을 제거</dd>
+<dt>jQuery.Callbacks()</dt>
+<dd>콜백 목록을 관리 할 수있는 강력한 방법을 제공하는 다목적 콜백 목록 객체.</dd>
+</dl>
+
+</div>
+<!-- /hdl1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Glossary">Glossary Lab</h2>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Link Reference</h2>
+
+<ul class="bu">
+
+</ul>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20140401~
+20210722. removeClass() 예제
+20171128.
+20170720. 결함 수정.
+20161129.
+20160727.
+20160721.
+20160720.
+20160516. slice()~.
+20160427. ~slice().
+20160411. 빈거채움.
+20160323. for design
+20150331. event
+20150325.
+20150318. select
+20150311. detach, replaceAll, replaceWith, closest
+20140117.
+20140401.
+</p>
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

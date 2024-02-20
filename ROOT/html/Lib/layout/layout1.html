@@ -1,0 +1,157 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>Layout 레이아웃, 배치</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+.layout1col1 .wrap{z-index:20;clear:both;position:relative;width:1000px;margin:0 auto;background:#ddd;}
+.layout1col1 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1col1 .body{float:left;width:100%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+
+.layout1col2 .wrap{z-index:20;clear:both;position:relative;width:1000px;margin:0 auto;background:#ddd;}
+.layout1col2 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1col2 .side{float:left;width:250px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cde;}
+.layout1col2 .body{float:left;width:750px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+.layout1col2 .aside{float:right;width:250px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cee;}
+
+.layout1col3 .wrap{z-index:20;clear:both;position:relative;width:1000px;margin:0 auto;background:#ddd;}
+.layout1col3 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1col3 .side{float:left;width:200px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cde;}
+.layout1col3 .body{float:left;width:600px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+.layout1col3 .aside{float:right;width:200px;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cee;}
+
+.layout1var1col1 .wrap{z-index:20;clear:both;position:relative;width:100%;margin:0 auto;background:#ddd;}
+.layout1var1col1 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1var1col1 .body{float:left;width:100%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+
+.layout1var1col2 .wrap{z-index:20;clear:both;position:relative;width:100%;margin:0 auto;background:#ddd;}
+.layout1var1col2 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1var1col2 .side{float:left;width:25%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cde;}
+.layout1var1col2 .body{float:left;width:75%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+.layout1var1col2 .aside{float:right;width:25%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cee;}
+
+.layout1var1col3 .wrap{z-index:20;clear:both;position:relative;width:100%;margin:0 auto;background:#ddd;}
+.layout1var1col3 .wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+.layout1var1col3 .side{float:left;width:20%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cde;}
+.layout1var1col3 .body{float:left;width:60%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#eee;}
+.layout1var1col3 .aside{float:right;width:20%;min-height:20px;height:auto !important;height:20px;margin:0px 0 0 0;background:#cee;}
+
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+
+/*]]>*/</script>
+</head>
+<body>
+<h1>Layout 레이아웃, 배치</h1>
+
+<!-- <ol class="num">
+<li>
+</li>
+</ol> -->
+
+<h2>고정폭 1단</h2>
+<!-- layout1col1 -->
+<div class="layout1col1">
+<div class="wrap">
+	<div class="body"></div>
+</div>
+</div>
+<!-- /layout1col1 -->
+
+<h2>고정폭 2단(side)</h2>
+<!-- layout1col2 -->
+<div class="layout1col2">
+<div class="wrap">
+	<div class="side"></div>
+	<div class="body"></div>
+</div>
+</div>
+<!-- /layout1col2 -->
+
+<h2>고정폭 2단(aside)</h2>
+<!-- layout1col2 -->
+<div class="layout1col2">
+<div class="wrap">
+	<div class="body"></div>
+	<div class="aside"></div>
+</div>
+</div>
+<!-- /layout1col2 -->
+
+<h2>고정폭 3단(side+aside)</h2>
+<!-- layout1col3 -->
+<div class="layout1col3">
+<div class="wrap">
+	<div class="side"></div>
+	<div class="body"></div>
+	<div class="aside"></div>
+</div>
+</div>
+<!-- /layout1col3 -->
+
+<h2>가변폭 1단</h2>
+<!-- layout1var1col1 -->
+<div class="layout1var1col1">
+<div class="wrap">
+	<div class="body"></div>
+</div>
+</div>
+<!-- /layout1var1col1 -->
+
+<h2>가변폭 2단(side)</h2>
+<!-- layout1var1col2 -->
+<div class="layout1var1col2">
+<div class="wrap">
+	<div class="side"></div>
+	<div class="body"></div>
+</div>
+</div>
+<!-- /layout1var1col2 -->
+
+<h2>가변폭 2단(aside)</h2>
+<!-- layout1var1col2 -->
+<div class="layout1var1col2">
+<div class="wrap">
+	<div class="body"></div>
+	<div class="aside"></div>
+</div>
+</div>
+<!-- /layout1var1col2 -->
+
+<h2>가변폭 3단(side+aside)</h2>
+<!-- layout1var1col3 -->
+<div class="layout1var1col3">
+<div class="wrap">
+	<div class="side"></div>
+	<div class="body"></div>
+	<div class="aside"></div>
+</div>
+</div>
+<!-- /layout1var1col3 -->
+
+
+
+
+
+
+<br />
+<hr />
+<p>Revision. 20120816.</p>
+
+</body>
+</html>

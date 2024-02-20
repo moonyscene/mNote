@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Canvas | mNote',
+	page: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+
+/* canvas */
+canvas{background:#eee url(../../img/lib/b0grid10.png);}
+
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">Canvas </h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Ex">Ex</a></li>
+<li><a href="#Usage">Usage</a></li>
+<li><a href="#Tutorial">Canvas 튜토리얼</a>
+	<ol class="bo">
+	<li><a href="#Tutorial-01">기본 사용</a></li>
+	<li><a href="#Tutorial-02">도형 그리기</a></li>
+	<li><a href="#Tutorial-03">스타일 및 색상 적용하기</a></li>
+	<li><a href="#Tutorial-04">텍스트 그리기</a></li>
+	<li><a href="#Tutorial-05">이미지 사용하기</a></li>
+	<li><a href="#Tutorial-06">변형</a></li>
+	<li><a href="#Tutorial-07">합성 및 클리핑</a></li>
+	<li><a href="#Tutorial-08">기본 애니메이션</a></li>
+	<li><a href="#Tutorial-09">고급 애니메이션</a></li>
+	<li><a href="#Tutorial-10">픽셀 조작</a></li>
+	<li><a href="#Tutorial-11">히트 영역 및 접근성</a></li>
+	<li><a href="#Tutorial-12">Canvas 최적화하기</a></li>
+	<li><a href="#Tutorial-13">Finale</a></li>
+	</ol>
+</li>
+<li><a>Canvas 발전</a>
+	<ol class="bo">
+	</ol>
+</li>
+</menu>
+<menu>
+<!-- <li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li> -->
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Ex">Ex</h2>
+
+
+<h3 class="hb1 h3">Task 효과</h3>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Usage">Usage</h2>
+
+
+<canvas id="canvas"></canvas>
+<script>/*<![CDATA[*/
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'green';
+ctx.fillRect(10, 10, 150, 100);
+
+/*]]>*/</script>
+
+
+
+<h3 class="hb1 h6">HTML</h3>
+<xmp class="xmp">
+<canvas id="canvas"></canvas>
+</xmp>
+
+<h3 class="hb1 h6">JS</h3>
+<pre class="mg0">
+<code class="xmp">
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'green';
+ctx.fillRect(10, 10, 150, 100);
+</code>
+</pre>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Tutorial">
+	<a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">
+		SVG 튜토리얼 (( MDN
+	</a>
+</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-01">기본 사용</h3>
+
+
+
+<h4 class="hb1 h4">&lt;canvas&gt; 요소</h4>
+
+
+<canvas id="tutorial" width="150" height="150"></canvas>
+<xmp class="xmp">
+<canvas id="tutorial" width="150" height="150"></canvas>
+</xmp>
+
+<p>width 및 height 속성을 지정하지 않으면 캔버스의 처음 너비는 300 픽셀이고 높이는 150 픽셀입니다.</p>
+
+<canvas id="tutorial"></canvas>
+
+<p>렌더링하는 동안 이미지는 레이아웃 크기에 맞게 크기가 조정됩니다.</p>
+
+<canvas id="tutorial" width="3000" height="150"></canvas>
+
+<p>
+	만약 렌더링이 왜곡된 것처럼 보이는 경우 CSS를 사용하지 않고 <code class="dpib">&lt;canvas&gt;</code> 에서 width 및 height 속성을 명시적으로 지정하십시오.
+</p>
+
+<canvas id="tutorial" style="width:3000px;height:150px;"></canvas>
+
+<p>canvas 요소는 일반적인 이미지 (margin, border, background…) 처럼 스타일을 적용시킬 수 있습니다. </p>
+
+<canvas id="tutorial" style="width:300px;height:150px;margin:0 20px;border:10px solid #000;background:#ee0;"></canvas>
+
+
+<h5 class="hb1 h5">대체 콘텐츠</h5>
+
+<xmp class="xmp">
+<canvas id="stockGraph" width="150" height="150">
+  current stock price: $3.15 +0.15
+</canvas>
+
+<canvas id="clock" width="150" height="150">
+  <img src="images/clock.png" width="150" height="150" alt=""/>
+</canvas>
+</xmp>
+
+<h5 class="hb1 h5">&lt;/canvas&gt; 태그 필수</h5>
+
+<h4 class="hb1 h4">렌더링 컨텍스트</h4>
+
+<pre class="mg0">
+<code class="xmp">
+var canvas = document.getElementById('tutorial');
+var ctx = canvas.getContext('2d');
+</code>
+</pre>
+
+<h4 class="hb1 h4">지원여부 검사</h4>
+
+<pre class="mg0">
+<code class="xmp">
+var canvas = document.getElementById('tutorial');
+
+if (canvas.getContext){
+  var ctx = canvas.getContext('2d');
+  // drawing code here
+} else {
+  // canvas-unsupported code here
+}
+</code>
+</pre>
+
+<h4 class="hb1 h4">템플릿 뼈대</h4>
+
+
+<canvas id="e1canvas1" width="150" height="150"></canvas>
+<script>
+	function draw(){
+		var canvas = document.getElementById('e1canvas1');
+		if (canvas.getContext){
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillStyle = "rgb(200,0,0)";
+			ctx.fillRect (10, 10, 50, 50);
+
+			ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+			ctx.fillRect (30, 30, 50, 50);
+		}
+	}
+	draw();
+</script>
+
+<xmp class="xmp">
+<canvas id="e1canvas1" width="150" height="150"></canvas>
+<script>
+	function draw(){
+		var canvas = document.getElementById('e1canvas1');
+		if (canvas.getContext){
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillStyle = "rgb(200,0,0)";
+			ctx.fillRect (10, 10, 50, 50);
+
+			ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+			ctx.fillRect (30, 30, 50, 50);
+		}
+	}
+	draw();
+</script>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-02">도형 그리기</h3>
+
+
+<h4 class="hb1 h4">직사각형 그리기</h4>
+
+<p>
+	SVG 와는 다르게, &lt;canvas&gt;는 오직 하나의 원시적인 도형만을 제공합니다.<br />
+	바로 직사각형 입니다.<br />
+	다른 모든 도형들은 무조건 하나 혹은 하나 이상의 path 와 여러 점으로 이어진 선으로 만들어집니다.<br />
+</p>
+
+<dl class="fixed1auto1 tp1">
+<dt>fillRect(x, y, width, height)</dt>
+<dd>색칠된 직사각형을 그립니다.</dd>
+<dt>strokeRect(x, y, width, height)</dt>
+<dd>직사각형 윤곽선을 그립니다.</dd>
+<dt>clearRect(x, y, width, height)</dt>
+<dd>특정 부분을 지우는 직사각형이며, 이 지워진 부분은 완전히 투명해집니다.</dd>
+</dl>
+
+
+<canvas id="e2canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e2canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillRect(25, 25, 100, 100);
+			ctx.clearRect(45, 45, 60, 60);
+			ctx.strokeRect(50, 50, 50, 50);
+		}
+	})();
+/*]]>*/</script>
+
+
+<xmp class="xmp">
+<canvas id="e2canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e2canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillRect(25, 25, 100, 100);
+			ctx.clearRect(45, 45, 60, 60);
+			ctx.strokeRect(50, 50, 50, 50);
+		}
+	})();
+/*]]>*/</script>
+</xmp>
+
+
+<h4 class="hb1 h4">경로(path) 그리기</h4>
+
+<dl class="fixed1auto1 tp1">
+<dt>beginPath()</dt>
+<dd>새로운 경로를 만듭니다. 경로가 생성됬다면, 이후 그리기 명령들은 경로를 구성하고 만드는데 사용하게 됩니다.</dd>
+</dl>
+
+<h5 class="hb1 h5">Path 메소드 (Path methods)</h5>
+
+<p>물체를 구성할 때 필요한 여러 경로를 설정하는데 사용하는 함수입니다.</p>
+
+<dl class="fixed1auto1 tp1 dtw8em">
+<dt><b class="em4">closePath()</b></dt>
+<dd>
+	현재 하위 경로의 시작 부분과 연결된 직선을 추가합니다.<br />
+	fill() 메소드 호출 시, 열린 도형은 자동으로 닫히게 되므로  closePath()메소드를 호출하지 않아도 됩니다. 
+</dd>
+<dt><b class="em4">stroke()</b></dt>
+<dd>윤곽선을 이용하여 도형을 그립니다.</dd>
+<dt><b class="em4">fill()</b></dt>
+<dd>경로의 내부를 채워서 내부가 채워진 도형을 그립니다.</dd>
+<dt><b class="em4">moveTo(x, y)</b></dt>
+<dd>펜을  x와 y 로 지정된 좌표로 옮깁니다.</dd>
+<dt><b class="em4">lineTo(x, y)</b></dt>
+<dd>현재의 드로잉 위치에서 x와 y로 지정된 위치까지 선을 그립니다.</dd>
+<dt><b class="em4">arc(x, y, radius, startAngle, endAngle, anticlockwise)</b></dt>
+<dd>
+	(x, y) 위치에 원점을 두면서,<br />
+	반지름 r을 가지고,<br />
+	startAngle 에서 시작하여 endAngle 에서 끝나며<br />
+	주어진 anticlockwise 방향으로 향하는 (기본값은 시계방향 회전) 호를 그리게 됩니다.
+</dd>
+<dt><b class="em4">arcTo(x1, y1, x2, y2, radius)</b></dt>
+<dd>
+	주어진 제어점들과 반지름으로 호를 그리고,<br />
+	이전 점과 직선으로 연결합니다.<br />
+</dd>
+<dt><b class="em4">quadraticCurveTo(cp1x, cp1y, x, y)</b></dt>
+<dd>
+	cp1x 및 cp1y로 지정된 제어점을 사용하여 현재 펜의 위치에서 x와 y로 지정된 끝점까지<br />
+	이차 베지어 곡선을 그립니다.<br />
+</dd>
+<dt><b class="em4">bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</b></dt>
+<dd>
+	(cp1x, cp1y) 및 (cp2x, cp2y)로 지정된 제어점을 사용하여 현재 펜 위치에서 x 및 y로 지정된 끝점까지<br />
+	삼차 베지어 곡선을 그립니다.<br />
+</dd>
+<dt><b class="em4">rect(x, y, width, height)</b></dt>
+<dd>좌측상단이 (x, y)이고 폭과 높이가 width와 height인 직사각형을 그립니다.</dd>
+</dl>
+
+
+<h5 class="hb1 h5">삼각형 그리기</h5>
+
+
+<canvas id="e3canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e3canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			ctx.beginPath();
+			ctx.moveTo(75, 50);
+			ctx.lineTo(100, 75);
+			ctx.lineTo(100, 25);
+			ctx.fill();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">펜(pen) 이동하기</h5>
+
+<canvas id="e4canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e4canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			ctx.beginPath();
+			ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+			ctx.moveTo(110, 75);
+			ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+			ctx.moveTo(65, 65);
+			ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+			ctx.moveTo(95, 65);
+			ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">선</h5>
+
+
+<canvas id="e5canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e5canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			// Filled triangle
+			ctx.beginPath();
+			ctx.moveTo(25, 25);
+			ctx.lineTo(105, 25);
+			ctx.lineTo(25, 105);
+			ctx.fill();
+
+			// Stroked triangle
+			ctx.beginPath();
+			ctx.moveTo(125, 125);
+			ctx.lineTo(125, 45);
+			ctx.lineTo(45, 125);
+			ctx.closePath();
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">호(arc)</h5>
+
+
+<canvas id="e6canvas1" width="150" height="200"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e6canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			for (var i = 0; i < 4; i++) {
+			  for (var j = 0; j < 3; j++) {
+				ctx.beginPath();
+				var x = 25 + j * 50; // x coordinate
+				var y = 25 + i * 50; // y coordinate
+				var radius = 20; // Arc radius
+				var startAngle = 0; // Starting point on circle
+				var endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
+				var anticlockwise = i % 2 == 0 ? false : true; // clockwise or anticlockwise
+
+				ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+				if (i > 1) {
+				  ctx.fill();
+				} else {
+				  ctx.stroke();
+				}
+			  }
+			}	
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">베지어(Bezier) 곡선과 이차(Quadratic )곡선</h5>
+
+
+<h6 class="hb1 h6">이차 베지에 곡선(Quadratic Bezier curves)</h6>
+
+
+<canvas id="e7canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e7canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			// Quadratric curves example
+			ctx.beginPath();
+			ctx.moveTo(75, 25);
+			ctx.quadraticCurveTo(25, 25, 25, 62.5);
+			ctx.quadraticCurveTo(25, 100, 50, 100);
+			ctx.quadraticCurveTo(50, 120, 30, 125);
+			ctx.quadraticCurveTo(60, 120, 65, 100);
+			ctx.quadraticCurveTo(125, 100, 125, 62.5);
+			ctx.quadraticCurveTo(125, 25, 75, 25);
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h6 class="hb1 h6">삼차 베지어 곡선 (Cubic Bezier curves)</h6>
+
+
+<canvas id="e8canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e8canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			// Cubic curves example
+			ctx.beginPath();
+			ctx.moveTo(75, 40);
+			ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+			ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+			ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+			ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+			ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+			ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+			ctx.fill();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h6 class="hb1 h6">직사각형</h6>
+
+
+<h6 class="hb1 h6">조합하기</h6>
+
+
+<canvas id="e9canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e9canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			roundedRect(ctx, 12, 12, 150, 150, 15);
+			roundedRect(ctx, 19, 19, 150, 150, 9);
+			roundedRect(ctx, 53, 53, 49, 33, 10);
+			roundedRect(ctx, 53, 119, 49, 16, 6);
+			roundedRect(ctx, 135, 53, 49, 33, 10);
+			roundedRect(ctx, 135, 119, 25, 49, 10);
+
+			ctx.beginPath();
+			ctx.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7, false);
+			ctx.lineTo(31, 37);
+			ctx.fill();
+
+			for (var i = 0; i < 8; i++) {
+			  ctx.fillRect(51 + i * 16, 35, 4, 4);
+			}
+
+			for (i = 0; i < 6; i++) {
+			  ctx.fillRect(115, 51 + i * 16, 4, 4);
+			}
+
+			for (i = 0; i < 8; i++) {
+			  ctx.fillRect(51 + i * 16, 99, 4, 4);
+			}
+
+			ctx.beginPath();
+			ctx.moveTo(83, 116);
+			ctx.lineTo(83, 102);
+			ctx.bezierCurveTo(83, 94, 89, 88, 97, 88);
+			ctx.bezierCurveTo(105, 88, 111, 94, 111, 102);
+			ctx.lineTo(111, 116);
+			ctx.lineTo(106.333, 111.333);
+			ctx.lineTo(101.666, 116);
+			ctx.lineTo(97, 111.333);
+			ctx.lineTo(92.333, 116);
+			ctx.lineTo(87.666, 111.333);
+			ctx.lineTo(83, 116);
+			ctx.fill();
+
+			ctx.fillStyle = 'white';
+			ctx.beginPath();
+			ctx.moveTo(91, 96);
+			ctx.bezierCurveTo(88, 96, 87, 99, 87, 101);
+			ctx.bezierCurveTo(87, 103, 88, 106, 91, 106);
+			ctx.bezierCurveTo(94, 106, 95, 103, 95, 101);
+			ctx.bezierCurveTo(95, 99, 94, 96, 91, 96);
+			ctx.moveTo(103, 96);
+			ctx.bezierCurveTo(100, 96, 99, 99, 99, 101);
+			ctx.bezierCurveTo(99, 103, 100, 106, 103, 106);
+			ctx.bezierCurveTo(106, 106, 107, 103, 107, 101);
+			ctx.bezierCurveTo(107, 99, 106, 96, 103, 96);
+			ctx.fill();
+
+			ctx.fillStyle = 'black';
+			ctx.beginPath();
+			ctx.arc(101, 102, 2, 0, Math.PI * 2, true);
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.arc(89, 102, 2, 0, Math.PI * 2, true);
+			ctx.fill();
+		}
+	})();
+
+	// A utility function to draw a rectangle with rounded corners.
+
+	function roundedRect(ctx, x, y, width, height, radius) {
+		ctx.beginPath();
+		ctx.moveTo(x, y + radius);
+		ctx.lineTo(x, y + height - radius);
+		ctx.arcTo(x, y + height, x + radius, y + height, radius);
+		ctx.lineTo(x + width - radius, y + height);
+		ctx.arcTo(x + width, y + height, x + width, y + height-radius, radius);
+		ctx.lineTo(x + width, y + radius);
+		ctx.arcTo(x + width, y, x + width - radius, y, radius);
+		ctx.lineTo(x + radius, y);
+		ctx.arcTo(x, y, x, y + radius, radius);
+		ctx.stroke();
+	}
+
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">Path2D 오브젝트 (Path2D objects)</h4>
+
+<dl class="fixed1auto1 tp1 dtw8em">
+<dt><b class="em1">Path2D()</b></dt>
+<dd>
+	Path2D() 생성자는 새로운 Path2D 객체를 반환합니다.
+	선택적으로 다른 경로를 인수로 받거나(복사본을 생성), SVG 경로 데이터로 구성된 문자열을 받아서 객체로 반환합니다.
+</dd>
+<dt><b class="em2">Path2D.addPath(path [, transform])</b></dt>
+<dd>
+	옵션으로 변환 행렬(transformation matrix)을 사용하여 현재 경로에 경로를 추가합니다.
+</dd>
+</dl>
+
+
+<h5 class="hb1 h5">Path2D 예제</h5>
+
+<canvas id="e10canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var canvas = document.getElementById('e10canvas1');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext('2d');
+
+			var rectangle = new Path2D();
+			rectangle.rect(10, 10, 50, 50);
+
+			var circle = new Path2D();
+			circle.moveTo(125, 35);
+			circle.arc(100, 35, 25, 0, 2 * Math.PI);
+
+			ctx.stroke(rectangle);
+			ctx.fill(circle);
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">SVG paths 사용하기</h5>
+
+
+<pre class="mg0">
+<code class="xmp">
+var p = new Path2D('M10 10 h 80 v 80 h -80 Z');
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-03">스타일 및 색상 적용하기</h3>
+
+<dl class="fixed1auto1 tp1 dtw11em">
+<dt><b class="em4">fillStyle = color</b></dt>
+<dd>도형을 채우는 색을 설정합니다.</dd>
+<dt><b class="em4">strokeStyle = color</b></dt>
+<dd>도형의 윤곽선 색을 설정합니다.</dd>
+<dt><b class="em5">globalAlpha = transparencyValue</b></dt>
+<dd>
+	투명도 값이 설정되면 이후 캔버스에 그려지는 모든 도형들의 투명도가 바뀝니다.<br />
+	설정하는 값은 0.0(완전히 투명)과 1.0(완전히 불투명) 사이에 있어야 하며,<br />
+	초기 설정값은 1.0(완전히 불투명)입니다.<br />
+</dd>
+<dt><b class="em4">lineWidth = value</b></dt>
+<dd>이후 그려질 선의 두께를 설정합니다.</dd>
+<dt><b class="em4">lineCap = type</b></dt>
+<dd>
+	선의 끝 모양을 설정합니다.<br />
+
+	<dl class="fixed1auto1 dtw4em mgt05em mgb0 pdt075em pdb0 bdb0 lh1375">
+	<dt>butt</dt>
+	<dd>선의 끝이 좌표에 딱맞게 잘립니다.</dd>
+	<dt>round</dt>
+	<dd>선의 끝이 동그랗습니다.</dd>
+	<dt>square</dt>
+	<dd>선 끝에, 선 두께 반만큼의 사각형 영역이 더해집니다.</dd>
+	</dl>
+
+</dd>
+<dt><b class="em4">lineJoin = type</b></dt>
+<dd>
+	선들이 만나는 "모서리"의 모양을 설정합니다.<br />
+
+	<dl class="fixed1auto1 dtw4em mgt05em mgb0 pdt075em pdb0 bdb0 lh1375">
+	<dt>round</dt>
+	<dd>도형의 모서리를, 연결되는 부분들의 공통 끝점을 중심으로 하는 원 모양으로 만듭니다. 이때 원의 반지름은 선의 두께와 같습니다.</dd>
+	<dt>bevel</dt>
+	<dd>도형의 모서리를, 연결되는 부분들의 공통 끝점에서 세모 모양으로 만듭니다.</dd>
+	<dt>miter</dt>
+	<dd>
+		도형의 모서리를, 두 부분의 바깥쪽 테두리 선을 각각 연장하여 교차된 점으로 생긴 마름모꼴 모양으로 만듭니다.<br />
+		miterLimit 속성값에 따라 모양이 달라집니다.
+	</dd>
+	</dl>
+
+</dd>
+<dt><b class="em4">miterLimit = value</b></dt>
+<dd>
+	두 선이 예각으로 만날 때 접합점의 두께를 제어할 수 있도록, 연결부위의 크기를 제한하는 값을 설정합니다.
+	miterLimit = max miterLength / lineWidth = 1 / sin ( min θ / 2 )
+</dd>
+<dt><b class="em4">getLineDash()</b></dt>
+<dd>음수가 아닌 짝수를 포함하는 현재 선의 대시 패턴 배열을 반환합니다.</dd>
+<dt><b class="em4">setLineDash(segments)</b></dt>
+<dd>
+	현재 선의 대시 패턴을 설정합니다.<br />
+	setLineDash([4, 2, 16, 2])<br />
+</dd>
+<dt><b class="em4">lineDashOffset = value</b></dt>
+<dd>선의 대시 배열이 어디서 시작될지 지정합니다.</dd>
+<dt><b class="em5">createLinearGradient(x1, y1, x2, y2)</b></dt>
+<dd>시작점 좌표를 (x1, y1)로 하고, 종료점 좌표를 (x2, y2)로 하는 선형 그라디언트 오브젝트를 생성합니다.</dd>
+<dt><b class="em5">createRadialGradient(x1, y1, r1, x2, y2, r2)</b></dt>
+<dd>반지름이 r1이고 좌표 (x1, y1)을 중심으로 하는 원과, 반지름이 r2이고 좌표 (x2, y2)를 중심으로 하는 원을 사용하여 그라디언트가 생성됩니다.</dd>
+<dt><b class="em5">gradient.addColorStop(position, color)</b></dt>
+<dd>
+	gradient 오브젝트에 새로운 색 중단점(color stop)을 생성합니다.<br />
+	position은 0.0에서 1.0 사이의 숫자이고 그라디언트에서 색상의 상대적인 위치를 정의합니다.<br />
+	color 인자는 CSS <color>를 나타내는 문자열이어야하고, 그라디언트가 (전환효과로) 진행되면서 도달한 지점의 색상을 의미합니다.<br />
+</dd>
+<dt><b class="em4">createPattern(image, type)</b></dt>
+<dd>
+	새 캔버스 패턴 객체를 만들어 반환합니다. image는 CanvasImageSource(즉, HTMLImageElement, 다른 캔버스, &lt;video&gt; 요소 등등)입니다.<br />
+	type은 이미지 사용 방법을 나타내는 문자열입니다.<br />
+	type은 패턴을 만들기 위해 이미지를 사용하는 방법을 지정하며, 다음 문자열 값 중 하나 여야합니다.<br />
+
+	<dl class="fixed1auto1 dtw6em mgt05em mgb0 pdt075em pdb0 bdb0 lh1375">
+	<dt>repeat</dt>
+	<dd>수직 및 수평 방향으로 이미지를 이어 붙입니다.</dd>
+	<dt>repeat-x</dt>
+	<dd>수평 방향으로만 이미지를 이어 붙입니다.</dd>
+	<dt>repeat-y</dt>
+	<dd>수직 방향으로만 이미지를 이어 붙입니다.</dd>
+	<dt>no-repeat</dt>
+	<dd>이미지를 이어 붙이지 않습니다. 이미지는 한번만 사용됩니다.</dd>
+	</dl>
+</dd>
+<dt><b class="em5">shadowOffsetX = float</b></dt>
+<dd>그림자가 객체에서 연장되어야하는 수평 거리를 나타냅니다. 이 값은 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.</dd>
+<dt><b class="em5">shadowOffsetY = float</b></dt>
+<dd>그림자가 객체에서 연장되어야하는 수직 거리를 나타냅니다. 이 값은 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.</dd>
+<dt><b class="em5">shadowBlur = float</b></dt>
+<dd>흐림(blur) 효과의 크기를 나타냅니다. 이 값은 픽셀 수와 일치하지 않으며 현재 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.</dd>
+<dt><b class="em5">shadowColor = color</b></dt>
+<dd>그림자 효과의 색상을 나타내는 표준 CSS 색상 값. 기본적으로 완전 검은색입니다.</dd>
+</dl>
+
+
+<h4 class="hb1 h4">색상</h4>
+
+<pre class="mg0">
+<code class="xmp">
+// fillStyle에 적용되는 색은 모두 '오렌지'
+
+ctx.fillStyle = "orange";
+ctx.fillStyle = "#FFA500";
+ctx.fillStyle = "rgb(255, 165, 0)";
+ctx.fillStyle = "rgba(255, 165, 0, 1)";
+</code>
+</pre>
+
+
+<h5 class="hb1 h5">fillStyle 예제</h5>
+
+
+<canvas id="e11canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e11canvas1').getContext('2d');
+		for (var i = 0; i < 6; i++){
+			for (var j = 0; j < 6; j++){
+				ctx.fillStyle =
+					'rgb(' + Math.floor(255 - 42.5 * i)
+					+ ', '
+					+ Math.floor(255 - 42.5 * j)
+					+ ', 0)';
+				ctx.fillRect(j*25,i*25,25,25);
+			}
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">strokeStyle 예제</h5>
+
+
+<canvas id="e12canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e12canvas1').getContext('2d');
+		for (var i = 0; i < 6; i++) {
+			for (var j = 0; j < 6; j++) {
+			  ctx.strokeStyle =
+				'rgb(0, ' + Math.floor(255 - 42.5 * i)
+				+ ', '
+				+ Math.floor(255 - 42.5 * j)
+				+ ')';
+			  ctx.beginPath();
+			  ctx.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+			  ctx.stroke();
+			}
+		}
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">투명도</h4>
+
+
+<h5 class="hb1 h5">globalAlpha 예제</h5>
+
+<canvas id="e13canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e13canvas1').getContext('2d');
+
+		// 배경을 그린다
+		ctx.fillStyle = '#FD0';
+		ctx.fillRect(0, 0, 75, 75);
+		ctx.fillStyle = '#6C0';
+		ctx.fillRect(75, 0, 75, 75);
+		ctx.fillStyle = '#09F';
+		ctx.fillRect(0, 75, 75, 75);
+		ctx.fillStyle = '#F30';
+		ctx.fillRect(75, 75, 75, 75);
+		ctx.fillStyle = '#FFF';
+
+		// 투명값을 설정한다
+		ctx.globalAlpha = 0.2;
+
+		// 반투명한 원을 그린다
+		for (var i = 0; i < 7; i++){
+			ctx.beginPath();
+			ctx.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+			ctx.fill();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">rgba()를 사용한 예제</h5>
+
+
+<canvas id="e14canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e14canvas1').getContext('2d');
+
+		// 배경을 그린다
+		ctx.fillStyle = 'rgb(255,221,0)';
+		ctx.fillRect(0,0,150,37.5);
+		ctx.fillStyle = 'rgb(102,204,0)';
+		ctx.fillRect(0,37.5,150,37.5);
+		ctx.fillStyle = 'rgb(0,153,255)';
+		ctx.fillRect(0,75,150,37.5);
+		ctx.fillStyle = 'rgb(255,51,0)';
+		ctx.fillRect(0,112.5,150,37.5);
+
+		// 반투명한 사각형을 그린다
+		for (var i=0;i<10;i++){
+			ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+			for (var j=0;j<4;j++){
+			  ctx.fillRect(5+i*14,5+j*37.5,14,27.5)
+			}
+		}
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">선 모양</h4>
+
+
+<h5 class="hb1 h5">lineWidth 예제</h5>
+
+
+<canvas id="e15canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e15canvas1').getContext('2d');
+
+		for (var i = 0; i < 10; i++){
+			ctx.lineWidth = 1 + i;
+			ctx.beginPath();
+			ctx.moveTo(5 + i * 14, 5);
+			ctx.lineTo(5 + i * 14, 140);
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<p class="pd1em-rv bg-info">
+	선명한 선을 얻으려면 경로에 획을 어떻게 그려지는지 이해해야 합니다.
+	))) <a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Applying_styles_and_colors" target="_blank" rel="noopener" title="새 창" class="a1">MDN</a>
+</p>
+
+
+<h5 class="hb1 h5">lineCap 예제</h5>
+
+
+<canvas id="e16canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e16canvas1').getContext('2d');
+
+		var lineCap = ['butt','round','square'];
+
+		// 안내선을 그린다
+		ctx.strokeStyle = '#09f';
+		ctx.beginPath();
+		ctx.moveTo(10, 10);
+		ctx.lineTo(140, 10);
+		ctx.moveTo(10, 140);
+		ctx.lineTo(140, 140);
+		ctx.stroke();
+
+		// 선을 그린다
+		ctx.strokeStyle = 'black';
+		for (var i=0;i<lineCap.length;i++){
+			ctx.lineWidth = 15;
+			ctx.lineCap = lineCap[i];
+			ctx.beginPath();
+			ctx.moveTo(25 + i * 50, 10);
+			ctx.lineTo(25 + i * 50,140);
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">lineJoin 예제</h5>
+
+
+<canvas id="e17canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function draw() {
+		var ctx = document.getElementById('e17canvas1').getContext('2d');
+
+		var lineJoin = ['round', 'bevel', 'miter'];
+		ctx.lineWidth = 10;
+		for (var i=0;i<lineJoin.length;i++){
+			ctx.lineJoin = lineJoin[i];
+			ctx.beginPath();
+			ctx.moveTo(-5, 5 + i * 40);
+			ctx.lineTo(35, 45 + i * 40);
+			ctx.lineTo(75, 5 + i * 40);
+			ctx.lineTo(115, 45 + i * 40);
+			ctx.lineTo(155, 5 + i * 40);
+			ctx.stroke();
+		}
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">miterLimit 속성 예제</h5>
+
+
+<canvas id="e18canvas1"></canvas>
+
+<form onsubmit="return e18draw1();">
+	<label>Miter limit</label>
+	<input type="text" size="3" id="e18miterLimit1" value="10">
+	<input type="submit" value="Redraw">
+</form>
+
+<script>/*<![CDATA[*/
+	(e18draw1 = function() {
+		var ctx = document.getElementById('e18canvas1').getContext('2d');
+
+		// 캔버스를 비운다
+		ctx.clearRect(0,0,150,150);
+
+		// 안내선을 그린다
+		ctx.strokeStyle = '#09f';
+		ctx.lineWidth   = 2;
+		ctx.strokeRect(-5,50,160,50);
+
+		// 선 스타일을 설정한다
+		ctx.strokeStyle = '#000';
+		ctx.lineWidth = 10;
+
+		// 입력 값을 검사한다
+		var v1 = document.getElementById('e18miterLimit1').value;
+		if (v1.match(/\d+(\.\d+)?/)) {
+			ctx.miterLimit = parseFloat(v1);
+		} else {
+			alert('Value must be a positive number');
+		}
+
+		// 선을 그린다
+		ctx.beginPath();
+		ctx.moveTo(0,100);
+		for (i=0;i<24;i++){
+			var dy = i%2==0 ? 25 : -25 ;
+			ctx.lineTo(Math.pow(i,1.5)*2,75+dy);
+		}
+		ctx.stroke();
+		return false;
+
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">대시라인 사용하기</h5>
+
+
+<canvas id="e19canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(function() {
+		var ctx = document.getElementById('e19canvas1').getContext('2d');
+
+		var offset = 0;
+
+		function draw() {
+		  ctx.clearRect(0, 0, canvas.width, canvas.height);
+		  ctx.setLineDash([4, 2, 16, 2]);
+		  ctx.lineDashOffset = -offset;
+		  ctx.strokeRect(10, 10, 100, 100);
+		}
+
+		function march() {
+		  offset++;
+		  if (offset > 16) {
+			offset = 0;
+		  }
+		  draw();
+		  setTimeout(march, 20);
+		}
+
+		march();
+
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">그라디언트(Gradient)</h4>
+
+
+<pre class="mg0">
+<code class="xmp">
+var lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+var radialgradient = ctx.createRadialGradient(75, 75, 0, 75, 75, 100);
+</code>
+</pre>
+
+<p>
+	색 중단점은 원하는 만큼 마음대로 추가할 수 있습니다. 흰 색에서 검은 색으로 변하는 선형 그레이디언트를 만들려면 아래와 같이 합니다.
+</p>
+
+<pre class="mg0">
+<code class="xmp">
+var lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+lineargradient.addColorStop(0, 'white');
+lineargradient.addColorStop(1, 'black');
+</code>
+</pre>
+
+
+<h5 class="hb1 h5">createLinearGradient 예제</h5>
+
+
+<canvas id="e20canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e20draw1 = function() {
+		var ctx = document.getElementById('e20canvas1').getContext('2d');
+
+		// 그레이디언트를 생성한다
+		var lingrad = ctx.createLinearGradient(0, 0, 0, 150);
+		lingrad.addColorStop(0, '#00ABEB');
+		lingrad.addColorStop(0.5, '#fff');
+		lingrad.addColorStop(0.5, '#26C000');
+		lingrad.addColorStop(1, '#fff');
+
+		var lingrad2 = ctx.createLinearGradient(0, 50, 0, 95);
+		lingrad2.addColorStop(0.5, '#000');
+		lingrad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+		// 외곽선과 채움 스타일에 그레이디언트를 적용한다
+		ctx.fillStyle = lingrad;
+		ctx.strokeStyle = lingrad2;
+
+		// 도형을 그린다
+		ctx.fillRect(10, 10, 130, 130);
+		ctx.strokeRect(50, 50, 50, 50);
+
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">createRadialGradient 예제</h5>
+
+
+<canvas id="e21canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e21draw1 = function() {
+		var ctx = document.getElementById('e21canvas1').getContext('2d');
+
+		// 그라디언트를 생성한다
+		var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+		radgrad.addColorStop(0, '#A7D30C');
+		radgrad.addColorStop(0.9, '#019F62');
+		radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+		var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+		radgrad2.addColorStop(0, '#FF5F98');
+		radgrad2.addColorStop(0.75, '#FF0188');
+		radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+		var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+		radgrad3.addColorStop(0, '#00C9FF');
+		radgrad3.addColorStop(0.8, '#00B5E2');
+		radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+		var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+		radgrad4.addColorStop(0, '#F4F201');
+		radgrad4.addColorStop(0.8, '#E4C700');
+		radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+
+		// 도형을 그린다
+		ctx.fillStyle = radgrad4;
+		ctx.fillRect(0,0,150,150);
+		ctx.fillStyle = radgrad3;
+		ctx.fillRect(0,0,150,150);
+		ctx.fillStyle = radgrad2;
+		ctx.fillRect(0,0,150,150);
+		ctx.fillStyle = radgrad;
+		ctx.fillRect(0,0,150,150);
+
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">패턴(Patterns)</h4>
+
+<pre class="mg0">
+<code class="xmp">
+var img = new Image();
+img.src = 'someimage.png';
+var ptrn = ctx.createPattern(img, 'repeat');
+</code>
+</pre>
+
+<p class="pd1em-rv bg-warning">
+	<strong class="em0">참고</strong>: <code>drawImage()</code> 메서드와 마찬가지로 이 메소드를 호출하기 전에 이미지가 로드되었는지 확인해야합니다. 그렇지 않으면 패턴이 잘못 그려 질 수 있습니다.
+</p>
+
+
+<h5 class="hb1 h5">createPattern 예제</h5>
+
+
+<canvas id="e22canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e22draw1 = function() {
+		var ctx = document.getElementById('e22canvas1').getContext('2d');
+
+		// 패턴으로 사용할 이미지 오브젝트를 생성한다
+		var img = new Image();
+		img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+		img.onload = function() { // 이미지를 패턴에 적용하기 전에 불러오기가 완료되었는지 확인
+
+			// 패턴을 생성한다
+			var ptrn = ctx.createPattern(img,'repeat');
+			ctx.fillStyle = ptrn;
+			ctx.fillRect(0,0,300,150);
+
+		}
+
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">그림자</h4>
+
+
+<p class="pd1em-rv bg-warning">
+	<strong class="em0">알아둘 것</strong>: 음영은 <code>source-over</code> <em class="em">합성 작업</em>에만 사용됩니다.
+</p>
+
+
+<h5 class="hb1 h5">그림자 있는 글자 예제</h5>
+
+
+<canvas id="e23canvas1" style="background:#eee;"></canvas>
+<script>/*<![CDATA[*/
+	(e23draw1 = function() {
+		var ctx = document.getElementById('e23canvas1').getContext('2d');
+
+		ctx.shadowOffsetX = 2;
+		ctx.shadowOffsetY = 2;
+		ctx.shadowBlur = 2;
+		ctx.shadowColor = "rgba(0, 0, 0, .2)";
+
+		ctx.font = "bold 40px Times New Roman";
+		ctx.fillStyle = "Black";
+		ctx.fillText("Sample String", 24, 50);
+
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">캔버스 채우기 규칙</h4>
+
+
+<h5 class="hb1 h5">fill (혹은 clip 및 isPointinPath)</h5>
+
+<p>
+	경로가 교차하거나 중첩 된 경우에 채워지는지 여부를 결정
+	))) <a href="https://cf.ppt-online.org/files/slide/n/NnSmuvicdJXROgak4ZqBFol6fUb7PAy9K1Thwe/slide-16.jpg" target="_blank" rel="noopener" title="새 창" class="a1">그림참고</a>
+</p>
+
+
+<dl class="fixed1auto1 tp1 dtw4em">
+<dt>nonzero</dt>
+<dd>non-zero winding rule 알고리즘. 기본값.</dd>
+<dt>evenodd</dt>
+<dd>even-odd winding rule 알고리즘.</dd>
+</dl>
+
+
+<canvas id="e24canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e24draw1 = function() {
+		var ctx = document.getElementById('e24canvas1').getContext('2d');
+
+		ctx.beginPath(); 
+		ctx.arc(50, 50, 30, 0, Math.PI * 2, true);
+		ctx.arc(50, 50, 15, 0, Math.PI * 2, true);
+		//ctx.fill('nonzero');
+		ctx.fill('evenodd');
+
+	})();
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-04">텍스트 그리기</h3>
+
+
+<h4 class="hb1 h4">텍스트 그리기</h4>
+
+
+<dl class="fixed1auto1 tp1 dtw10em">
+<dt><b class="em4">fillText(text, x, y [, maxWidth])</b></dt>
+<dd>주어진 (x, y) 위치에 주어진 텍스트를 채웁니다. 최대 폭(width)은 옵션 값 입니다.</dd>
+<dt><b class="em4">strokeText(text, x, y [, maxWidth])</b></dt>
+<dd>주어진 (x, y) 위치에 주어진 텍스트를 칠(stroke)합니다. 최대 폭(width)은 옵션 값 입니다.</dd>
+<dt><b class="em5">font = value</b></dt>
+<dd>텍스트를 그릴 때 사용되는 현재 텍스트 스타일. 이 문자열은 CSS font 프로퍼티와 동일한구문을 사용합니다. 기본값으로 sans-serif의 10px가 설정되어 있습니다.</dd>
+<dt><b class="em5">textAlign = value</b></dt>
+<dd>텍스트 정렬 설정. 사용가능한 값: start, end, left, right, center. 기본 값은 start 입니다.</dd>
+<dt><b class="em5">textBaseline = value</b></dt>
+<dd>베이스라인 정렬 설정. 사용가능한 값: top, hanging, middle, alphabetic, ideographic, bottom. 기본 값은 alphabetic 입니다</dd>
+<dt><b class="em5">direction = value</b></dt>
+<dd>글자 방향. 사용가능한 값: ltr, rtl, inherit. 기본 값은 inherit 입니다.</dd>
+</dl>
+
+
+<h5 class="hb1 h5">fillText 예제</h5>
+
+
+<canvas id="e25canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e25draw1 = function() {
+		var ctx = document.getElementById('e25canvas1').getContext('2d');
+
+		ctx.font = '48px sans-serif';
+		ctx.fillText('Hello world', 20, 50);
+
+	})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">strokeText 예제</h5>
+
+
+<canvas id="e26canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e26draw1 = function() {
+		var ctx = document.getElementById('e26canvas1').getContext('2d');
+
+		ctx.font = '48px sans-serif';
+		ctx.strokeText('Hello world', 20, 50);
+
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">텍스트 스타일 적용하기</h4>
+
+
+<h5 class="hb1 h5">textBaseline를 이용한 다양한 베이스라인 설정</h5>
+
+<img src="http://www.whatwg.org/specs/web-apps/current-work/images/baselines.png" style="max-width:100%;height:auto;" alt="textBaseline를 이용한 다양한 베이스라인 설정" />		
+
+
+<h5 class="hb1 h5">textBaseline 예제</h5>
+
+<p>
+	아래의 코드를 수정하여 캔버스에서 어떻게 바뀌는지 실시간으로 확인해 보세요.
+</p>
+
+<pre class="mg0">
+<code class="xmp">
+ctx.font = '48px serif';
+ctx.textBaseline = 'hanging';
+ctx.strokeText('Hello world', 0, 100);
+</code>
+</pre>
+
+<div class="box1">
+	<iframe title="textBaseline 라이브 예제"
+		src="https://mdn.mozillademos.org/ko/docs/Drawing_text_using_a_canvas$samples/Playable_code?revision=1449272"
+		class="live-sample-frame sample-code-frame" id="frame_Playable_code"
+		style="width:700px;height:360px;"></iframe>
+</div>
+
+
+<h4 class="hb1 h4">어드밴스드 텍스트 측정</h4>
+
+
+<p>만약 텍스트에대해 조금 더 디테일한 것들을 얻고 싶다면 다음의 메소드를 이용해보세요.</p>
+
+<dl class="fixed1auto1 tp1 dtw6em">
+<dt>measureText()</dt>
+<dd>현재 스타일로 특정 텍스트가 그려질 때의 폭, 픽셀 등을 포함하는 TextMetrics 객체 리턴. </dd>
+</dl>
+
+<p>다음의 코드는 어떻게 텍스트를 측정하는 지, 그리고 폭을 구하는 예제입니다.</p>
+
+
+<canvas id="e27canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e27draw1 = function() {
+		var ctx = document.getElementById('e27canvas1').getContext('2d');
+
+		var text = ctx.measureText('foo'); // TextMetrics object
+		text.width; // 16;
+		console.log(text.width);
+	})();
+/*]]>*/</script>
+
+<p class="pd1em-rv bg-alert">
+	@m) 어떻게 활용하는지 모르겠다.
+</p>
+
+<h4 class="hb1 h4">Gecko 사용시 주의점</h4>
+
+<p>
+	Gecko(Firefox, Firefox OS외 Mozilla 기반의 에플리케이션 렌더링 엔진)에서는 캔버스에 텍스트를 그리기 위한 몇몇의 prefixed APIs가 구현되어 있습니다.
+	그리고 지금은 사용되지 않아 제거되었거나 작동을 보장하지 않는 것들도 있습니다. 
+</p>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-05">이미지 사용하기</h3>
+
+
+<dl class="fixed1auto1 tp1 dtw10em">
+<dt><b class="em4">HTMLImageElement</b></dt>
+<dd>&lt;img&gt; element와 마찬가지로, Image() constructor를 통해 만들어진 이미지입니다.</dd>
+<dt><b class="em4">SVGImageElement</b></dt>
+<dd>&lt;image&gt; element 를 사용해 불러온 이미지입니다.</dd>
+<dt><b class="em4">HTMLVideoElement</b></dt>
+<dd>HTML &lt;video&gt; 요소를 이미지 소스로 사용하여 비디오의 현재 프레임을 이미지로 불러옵니다.</dd>
+<dt><b class="em4">HTMLCanvasElement</b></dt>
+<dd>다른 &lt;canvas&gt; 요소를 이미지 소스로 사용합니다.</dd>
+<dt><b class="em5">drawImage(image, x, y)</b></dt>
+<dd>이미지 매개 변수로 지정된 CanvasImageSource를 좌표 (x, y)에 그립니다.</dd>
+<dt><b class="em4">drawImage(image, x, y, width, height)</b></dt>
+<dd>그러면 width 및 height 매개 변수가 추가되어 이미지를 캔버스에 그릴 때 이미지의 크기를 조절할 크기를 나타냅니다.</dd>
+<dt><b class="em5">drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</b></dt>
+<dd>Given an image, this function takes the area of the source image specified by the rectangle whose top-left corner is (sx, sy) and whose width and height are sWidth and sHeight and draws it into the canvas, placing it on the canvas at (dx, dy) and scaling it to the size specified by dWidth and dHeight.</dd>
+</dl>
+
+
+<h4 class="hb1 h4">이미지 불러오기</h4>
+
+<h5 class="hb1 h5">같은 페이지의 이미지 사용하기</h5>
+<h5 class="hb1 h5">다른 도메인의 이미지 사용하기</h5>
+<h5 class="hb1 h5">다른 캔버스 요소 (canvas elements) 사용하기</h5>
+<h5 class="hb1 h5">처음부터 이미지 만들기</h5>
+
+<pre class="mg0">
+<code class="xmp">
+var img = new Image();   // Create new img element
+img.src = 'myImage.png'; // Set source path
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+var img = new Image();   // Create new img element
+img.addEventListener('load', function() {
+  // execute drawImage statements here
+}, false);
+img.src = 'myImage.png'; // Set source path
+</code>
+</pre>
+
+<h5 class="hb1 h5">데이터를 사용하여 이미지 불러오기Embedding an image via data: URL</h5>
+
+<pre class="mg0">
+<code class="xmp">
+var img = new Image();   // Create new img element
+img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+</code>
+</pre>
+
+<h5 class="hb1 h5">비디오 프레임 사용하기Using frames from a video</h5>
+
+<pre class="mg0">
+<code class="xmp">
+function getMyVideo() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+    return document.getElementById('myvideo');
+  }
+}
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">이미지 그리기</h4>
+
+<p class="pd1em-rv bg-warning cv0">
+	SVG 이미지는 루트 &lt;svg&gt; 요소에서 width 와 height 를 지정해야합니다.
+</p>
+
+<h5 class="hb1 h5">예제: 기본 선 그래프</h5>
+
+<canvas id="e28canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e28draw1 = function() {
+		var ctx = document.getElementById('e28canvas1').getContext('2d');
+
+		var img = new Image();
+		img.onload = function() {
+			ctx.drawImage(img, 0, 0);
+			ctx.beginPath();
+			ctx.moveTo(30, 96);
+			ctx.lineTo(70, 66);
+			ctx.lineTo(103, 76);
+			ctx.lineTo(170, 15);
+			ctx.stroke();
+		};
+		img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">비례 크기 조정</h4>
+
+<h5 class="hb1 h5">예제: 이미지 기울이기</h5>
+
+<canvas id="e29canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e29draw1 = function() {
+		var ctx = document.getElementById('e29canvas1').getContext('2d');
+		var img = new Image();
+		img.onload = function() {
+			for (var i = 0; i < 4; i++) {
+			  for (var j = 0; j < 3; j++) {
+				ctx.drawImage(img, j * 50, i * 38, 50, 38);
+			  }
+			}
+		};
+		img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">이미지 자르기</h4>
+
+
+<h5 class="hb1 h5">예제: 이미지 프레임 넣기</h5>
+
+
+<canvas id="e30canvas1" width="150" height="150"></canvas>
+<div style="display:none;">
+	<img id="e30source1" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" width="300" height="227">
+	<img id="e30frame1" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" width="132" height="150">
+</div>
+
+<script>/*<![CDATA[*/
+	(e30draw1 = function() {
+		var ctx = document.getElementById('e30canvas1').getContext('2d');
+
+		// Draw slice
+		ctx.drawImage(document.getElementById('e30source1'),
+					33, 71, 104, 124, 21, 20, 87, 104);
+
+		// Draw frame
+		ctx.drawImage(document.getElementById('e30frame1'), 0, 0);
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">아트 갤러리 예제</h4>
+
+
+<p>
+	<em class="em">아래 예제 실패!</em>
+</p>
+
+
+<div id="e31">
+	<table>
+	<tr>
+	<td><img src="https://mdn.mozillademos.org/files/5399/gallery_1.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5401/gallery_2.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5403/gallery_3.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5405/gallery_4.jpg"></td>
+	</tr>
+	<tr>
+	<td><img src="https://mdn.mozillademos.org/files/5407/gallery_5.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5409/gallery_6.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5411/gallery_7.jpg"></td>
+	<td><img src="https://mdn.mozillademos.org/files/5413/gallery_8.jpg"></td>
+	</tr>
+	</table>
+	<img id="e31frame1" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" width="132" height="150">
+</div>
+
+<style>
+#e31 img{display:none;}
+#e31 table{margin:auto;}
+#e31 td{padding:15px;}
+</style>
+
+<script>/*<![CDATA[*/
+	var e31draw1 = function() {
+		// Loop through all images
+		for (var i = 0; i < document.images.length; i++) {
+
+			// Don't add a canvas for the frame image
+			if (document.images[i].getAttribute('id') != 'e31frame1') {
+
+				// Create canvas element
+				canvas = document.createElement('canvas');
+				canvas.setAttribute('width', 132);
+				canvas.setAttribute('height', 150);
+
+				// Insert before the image
+				document.images[i].parentNode.insertBefore(canvas,document.images[i]);
+
+				ctx = canvas.getContext('2d');
+
+				// Draw image to canvas
+				ctx.drawImage(document.images[i], 15, 20);
+
+				// Add frame
+				ctx.drawImage(document.getElementById('e31frame1'), 0, 0);
+			}
+		}
+	}
+	$(window).on('load', function(){
+		e31draw1();
+	});
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">이미지 비율 습성(scaling behavior) 제어하기</h4>
+
+
+<pre class="mg0">
+<code class="xmp">
+ctx.mozImageSmoothingEnabled = false;
+ctx.webkitImageSmoothingEnabled = false;
+ctx.msImageSmoothingEnabled = false;
+ctx.imageSmoothingEnabled = false;
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-06">변형</h3>
+
+
+<dl class="fixed1auto1 tp1 dtw8em">
+<dt><b class="em4">save()</b></dt>
+<dd>canvas의 모든 상태를 저장합니다.</dd>
+<dt><b class="em4">restore()</b></dt>
+<dd>가장 최근에 저장된 canvas 상태를 복원합니다.</dd>
+<dt><b class="em5">translate(x, y)</b></dt>
+<dd>그리드에서 canvas와 그 원점을 이동합니다. x는 이동시킬 수평 거리를 가리키고, y는 그리드에서 수직으로 얼마나 멀리 떨어지는지를 표시합니다. </dd>
+<dt><b class="em4">rotate(angle)</b></dt>
+<dd>canvas를 현재 원점을 기준으로 라디안의 angle 숫자만큼 시계방향으로 회전시킵니다.</dd>
+<dt><b class="em5">scale(x, y)</b></dt>
+<dd>canvas 단위를 수평으로 x만큼, 수직으로 y만큼 크기를 확대·축소합니다. 둘의 매개 변수는 실수입니다. 1.0보다 작은 값이면 단위의 크기를 축소하고, 1.0보다 큰 값이면 단위의 크기를 확대합니다. 값이 1.0이면 단위의 크기는 그대로입니다.</dd>
+<dt><b class="em4">transform(a, b, c, d, e, f)</b></dt>
+<dd>
+	인수(arguments)에 표시된 행렬을 이용해 현재 변환 행렬을 곱합니다. 변환 행렬은 다음과 같이 작성됩니다.
+	\left[ \begin{array}{ccc} a & c & e \\ b & d & f \\ 0 & 0 & 1 \end{array} \right]
+
+	<dl class="fixed1auto1 dtw5em mgt05em mgb0 pdt075em pdb0 bdb0 lh1375">
+	<dt>a (m11)</dt>
+	<dd>수평으로 확대·축소하기</dd>
+	<dt>b (m12)</dt>
+	<dd>수평으로 비스듬히 기울이기</dd>
+	<dt>c (m21)</dt>
+	<dd>수직으로 비스듬히 기울이기</dd>
+	<dt>d (m22)</dt>
+	<dd>수직으로 확대·축소하기</dd>
+	<dt>e (dx)</dt>
+	<dd>수평으로 이동하기</dd>
+	<dt>f (dy)</dt>
+	<dd>수직으로 이동하기</dd>
+	</dl>
+
+</dd>
+<dt><b class="em4">setTransform(a, b, c, d, e, f)</b></dt>
+<dd>현재 변형 상태를 단위 행렬로 재설정하고 나서 동일한 인수로 transform() 메소드를 적용합니다. 이는 기본적으로 현재의 변형을 무효로 한 후에 명시된 변형으로 바뀌는데, 한번에 모든 게 진행됩니다.</dd>
+<dt><b class="em4">resetTransform()</b></dt>
+<dd>현재 변형 상태를 단위 행렬로 재설정합니다. 이는 ctx.setTransform(1, 0, 0, 1, 0, 0); 호출과 같습니다.</dd>
+</dl>
+
+
+<h4 class="hb1 h4">상태(state)의 저장과 복원</h4>
+
+
+<h5 class="hb1 h5">save와 restore canvas 상태(state) 예제</h5>
+
+<canvas id="e32canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e32draw1 = function() {
+		var ctx = document.getElementById('e32canvas1').getContext('2d');
+
+		ctx.fillRect(0, 0, 150, 150);   // 기본 설정으로 사각형을 그리기
+		ctx.save();                  // 기본 상태를 저장하기
+
+		ctx.fillStyle = '#09F';      // 설정 변경하기
+		ctx.fillRect(15, 15, 120, 120); // 새로운 설정으로 사각형 그리기
+
+		ctx.save();                  // 현재 상태 저장하기
+		ctx.fillStyle = '#FFF';      // 설정 변경하기
+		ctx.globalAlpha = 0.5; 
+		ctx.fillRect(30, 30, 90, 90);   // 새로운 설정으로 사각형 그리기
+
+		ctx.restore();               // 이전 상태 복원하기
+		ctx.fillRect(45, 45, 60, 60);   // 복원된 설정으로 사각형 그리기
+
+		ctx.restore();               // 초기 상태를 복원하기
+		ctx.fillRect(60, 60, 30, 30);   // 복원된 설정으로 사각형 그리기
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">이동(translating)</h4>
+
+
+<h5 class="hb1 h5">translate 예제</h5>
+
+<canvas id="e33canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e33draw1 = function() {
+		var ctx = document.getElementById('e33canvas1').getContext('2d');
+
+		for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				ctx.save();
+				ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+				ctx.translate(10 + j * 50, 10 + i * 50);
+				ctx.fillRect(0, 0, 25, 25);
+				ctx.restore();
+			}
+		}
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">회전(rotating)</h4>
+
+
+<h5 class="hb1 h5">rotate 예제</h5>
+
+<p class="pd1em-rv bg-warning cv0">
+	<b class="em0">주의</b>:
+	각도의 단위는 도(degree)가 아닌 라디안(radian)입니다.
+	변환하려면 radians = (Math.PI/180)*degrees.를 사용합니다.
+</p>
+
+
+<canvas id="e34canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e34draw1 = function() {
+		var ctx = document.getElementById('e34canvas1').getContext('2d');
+
+		// 좌측 사각형, canvas 원점에서 회전하기
+		ctx.save();
+		// 파란 사각형
+		ctx.fillStyle = '#0095DD';
+		ctx.fillRect(30, 30, 100, 100); 
+		ctx.rotate((Math.PI / 180) * 25);
+		// 회색 사각형
+		ctx.fillStyle = '#4D4E53';
+		ctx.fillRect(30, 30, 100, 100);
+		ctx.restore();
+
+		// 우측 사각형, 사각형 중심에서 회전하기
+		// 파란 사각형 그리기
+		ctx.fillStyle = '#0095DD';
+		ctx.fillRect(150, 30, 100, 100);  
+
+		ctx.translate(200, 80); // 사각형 중심으로 이동하기 
+							  // x = x + 0.5 * width
+							  // y = y + 0.5 * height
+		ctx.rotate((Math.PI / 180) * 25); // 회전
+		ctx.translate(-200, -80); // 예전 위치로 이동하기
+
+		// 회색 사각형 그리기
+		ctx.fillStyle = '#4D4E53';
+		ctx.fillRect(150, 30, 100, 100);
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">확대·축소(scaling)</h4>
+
+
+<h5 class="hb1 h5">scale 예제</h5>
+
+<canvas id="e35canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e35draw1 = function() {
+		var ctx = document.getElementById('e35canvas1').getContext('2d');
+
+		// 간단하지만 확대·축소 비율을 적용한 사각형 그리기
+		ctx.save();
+		ctx.scale(10, 3);
+		ctx.fillRect(1, 10, 10, 10);
+		ctx.restore();
+
+		// 수평으로 대칭하기
+		ctx.scale(-1, 1);
+		ctx.font = '48px sans-serif';
+		ctx.fillText('MDN', -135, 120);
+	})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">변형(transforms)</h4>
+
+
+<h5 class="hb1 h5">transform과 setTransform 예제</h5>
+
+<canvas id="e36canvas1" width="300" height="300"></canvas>
+<script>/*<![CDATA[*/
+	(e36draw1 = function() {
+		var ctx = document.getElementById('e36canvas1').getContext('2d');
+
+		var sin = Math.sin(Math.PI / 6);
+		var cos = Math.cos(Math.PI / 6);
+		ctx.translate(100, 100);
+		var c = 0;
+		for (var i = 0; i <= 12; i++) {
+			c = Math.floor(255 / 12 * i);
+			ctx.fillStyle = 'rgb(' + c + ', ' + c + ', ' + c + ')';
+			ctx.fillRect(0, 0, 100, 10);
+			ctx.transform(cos, sin, -sin, cos, 0, 0);
+		}
+
+		ctx.setTransform(-1, 0, 0, 1, 100, 100);
+		ctx.fillStyle = 'rgba(255, 128, 255, 0.5)';
+		ctx.fillRect(0, 50, 100, 100);
+	})();
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-07">합성 및 클리핑</h3>
+
+
+<dl class="fixed1auto1 tp1 dtw1em">
+<dt><b class="em4">globalCompositeOperation = type</b></dt>
+<dd>
+	새로운 도형을 그릴 때, 도형 합성 방법을 설정합니다. type은 다음 26종류의 합성 방법 중에서 선택할 수 있습니다.
+	<dl class="fixed1auto1 dtw9em mgt05em mgb0 pdt075em pdb0 bdb0 lh1375">
+	<dt>source-over</dt>
+	<dd>기본 설정으로, 새로운 도형이 원래 도형 위에 그려집니다.</dd>
+	<dt>source-in</dt>
+	<dd>새로운 도형이 원래 도형과 겹치는 부분에만 그려지며, 나머지는 투명하게 설정됩니다.</dd>
+	<dt>source-out</dt>
+	<dd>새로운 도형이 원래 도형과 겹치지 않는 부분에만 그려집니다.</dd>
+	<dt>source-atop</dt>
+	<dd>새로운 도형이 원래 도형과 겹치는 부분에만 그려집니다.</dd>
+	<dt>destination-over</dt>
+	<dd>새로운 도형이 원래 도형 아래에 그려집니다.</dd>
+	<dt>destination-in</dt>
+	<dd>원래 도형 중 새로운 도형과 겹치는 부분이 유지되며, 나머지는 투명하게 설정됩니다.</dd>
+	<dt>destination-out</dt>
+	<dd>원래 도형 중 새로운 도형과 겹치지 않는 부분이 유지됩니다.</dd>
+	<dt>destination-atop</dt>
+	<dd>원래 도형 중 새로운 도형과 겹치는 부분만 유지됩니다. 새로운 도형은 원래 도형 아래에 그려집니다.</dd>
+	<dt>lighter</dt>
+	<dd>두 도형이 겹치는 곳의 색상이 두 색상값을 합한 값으로 결정됩니다.</dd>
+	<dt>copy</dt>
+	<dd>새로운 도형만 그려집니다.</dd>
+	<dt>xor</dt>
+	<dd>두 도형이 겹치는 곳이 투명하게 변하며, 나머지는 평범하게 그려집니다.</dd>
+	<dt>multiply</dt>
+	<dd>위쪽 레이어의 픽셀값이 아래쪽 레이어의 해당하는 픽셀값과 곱해지며, 결과적으로 어두운 이미지가 생성됩니다.</dd>
+	<dt>screen</dt>
+	<dd>픽셀값을 뒤집고 곱한 다음 도로 뒤집습니다. 결과적으로 밝은 이미지가 생성됩니다(multiply의 반대).</dd>
+	<dt>overlay</dt>
+	<dd>multiply와 screen의 조합입니다. 아래쪽 레이어의 어두운 부분은 더 어두워지고, 밝은 부분은 더 밝아집니다.</dd>
+	<dt>darken</dt>
+	<dd>두 레이어 중 어두운 픽셀값을 취합니다.</dd>
+	<dt>lighten</dt>
+	<dd>두 레이어 중 밝은 픽셀값을 취합니다.</dd>
+	<dt>color-dodge</dt>
+	<dd>아래쪽 레이어의 픽셀값을 위쪽 레이어의 뒤집힌 픽셀값으로 나눕니다.</dd>
+	<dt>color-burn</dt>
+	<dd>아래쪽 레이어의 뒤집힌 픽셀값을 위쪽 레이어의 픽셀값으로 나누고, 그 값을 도로 뒤집습니다.</dd>
+	<dt>hard-light</dt>
+	<dd>overlay와 같이 multiply와 screen의 조합이지만, 위아래 레이어의 순서가 바뀐 상태입니다.</dd>
+	<dt>soft-light</dt>
+	<dd>조금 더 부드러운 hard-light입니다. 완전한 검은색/흰색에서 무조건 완전한 검은색/흰색이 나오지 않습니다.</dd>
+	<dt>difference</dt>
+	<dd>한쪽 레이어의 픽셀값에서 다른 쪽 레이어의 픽셀값을 뺍니다. 빼는 순서는 결과값이 양수가 나오는 순서입니다.</dd>
+	<dt>exclusion</dt>
+	<dd>difference와 비슷하지만 대비가 덜합니다.</dd>
+	<dt>hue</dt>
+	<dd>아래쪽 레이어의 채도(chroma)와 명도(luma)를 보존하고 위쪽 레이어의 색상(hue)을 적용합니다.</dd>
+	<dt>saturation</dt>
+	<dd>아래쪽 레이어의 색상과 명도를 보존하고 위쪽 레이어의 채도를 적용합니다.</dd>
+	<dt>color</dt>
+	<dd>아래쪽 레이어의 명도를 보존하고 위쪽 레이어의 색상과 채도를 적용합니다.</dd>
+	<dt>luminosity</dt>
+	<dd>아래쪽 레이어의 색상과 채도를 보존하고 위쪽 레이어의 명도를 적용합니다.</dd>
+	</dl>
+</dd>
+<dt><b class="em5">clip()</b></dt>
+<dd>현재 그려지는 경로를 현재 잘라내기 경로로 만듭니다.</dd>
+</dl>
+
+
+<h4 class="hb1 h4">globalCompositeOperation</h4>
+
+
+<h5 class="hb1 h5">
+	<a href="https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Compositing/Example" target="_blank" rel="noopener" title="새 창" class="a1">
+		도형 합성 예제
+	</a>
+</h5>
+
+
+<h4 class="hb1 h4">잘라내기 경로(Clipping path)</h4>
+
+
+<h5 class="hb1 h5">clip 예제</h5>
+
+<canvas id="e37canvas1"></canvas>
+<script>/*<![CDATA[*/
+	(e37draw1 = function() {
+		var ctx = document.getElementById('e37canvas1').getContext('2d');
+
+		ctx.fillRect(0,0,150,150);
+		ctx.translate(75,75);
+
+		// 동그란 모양의 잘라내기 경로를 생성한다
+		ctx.beginPath();
+		ctx.arc(0,0,60,0,Math.PI*2,true);
+		ctx.clip();
+
+		// 배경을 그린다
+		var lingrad = ctx.createLinearGradient(0,-75,0,75);
+		lingrad.addColorStop(0, '#232256');
+		lingrad.addColorStop(1, '#143778');
+
+		ctx.fillStyle = lingrad;
+		ctx.fillRect(-75,-75,150,150);
+
+		// 위치와 크기가 모두 다른 50개의 별을 그립니다.
+		for (var j=1;j<50;j++){
+			ctx.save();
+			ctx.fillStyle = '#fff';
+			ctx.translate(75-Math.floor(Math.random()*150),
+						  75-Math.floor(Math.random()*150));
+
+			e37drawStar1(ctx,Math.floor(Math.random()*4)+2);
+			ctx.restore();
+		}
+	})();
+
+	// 별을 그린다
+	function e37drawStar1(ctx,r){
+	  ctx.save();
+	  ctx.beginPath()
+	  ctx.moveTo(r,0);
+	  for (var i=0;i<9;i++){
+		ctx.rotate(Math.PI/5);
+		if(i%2 == 0) {
+		  ctx.lineTo((r/0.525731)*0.200811,0);
+		} else {
+		  ctx.lineTo(r,0);
+		}
+	  }
+	  ctx.closePath();
+	  ctx.fill();
+	  ctx.restore();
+	}
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-08">기본 애니메이션</h3>
+
+
+<h4 class="hb1 h4">기본 애니메이션 단계</h4>
+
+<p>한 장면을 그리려면 아래와 같은 단계를 밟습니다.</p>
+
+<!-- panel1 -->
+<div class="panel1">
+	<ol class="bo mgtb0">
+	 <li><strong>캔버스를 비웁니다.</strong><br>
+	  그리려는 도형이 (배경 이미지를 만들 때처럼) 캔버스를 가득 채우는 것이 아니라면, 이전에 그려진 모든 도형을 지울 필요가 있습니다. 가장 쉬운 방법은 <code>clearRect()</code> 메소드를 사용하는 것입니다.</li>
+	 <li><strong>캔버스 상태를 저장합니다.</strong><br>
+	  캔버스 상태에 영향을 주는 (스타일 변경, 모양 변형 등의) 설정값을 바꾸려고 하고, 바뀐 값을 각 장면마다 사용하려고 한다면, 원래 상태를 저장할 필요가 있습니다.</li>
+	 <li><strong>애니메이션할 도형을 그립니다.</strong><br>
+	  실제 장면을 그리는 단계입니다.</li>
+	 <li><strong>캔버스 상태를 복원합니다.</strong><br>
+	  새로운 장면을 그리기 전에 저장된 상태를 복원합니다.</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+<h4 class="hb1 h4">애니메이션 제어하기</h4>
+
+
+<h5 class="hb1 h5">예정된 변경</h5>
+
+<p class="pd1em-rv bg-warning cv0">
+	<b class="em0">알아둘 것</b>:
+	현재는 애니메이션을 만드는 방법으로
+	<a href="https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="noopener" title="새 창" class="a1">window.requestAnimationFrame()</a> 메소드를 추천합니다.
+	이에 대한 튜토리얼은 곧 업데이트할 것입니다.
+</p>
+
+<dl class="fixed1auto1 tp1 dtw1em">
+<dt><b class="em4">setInterval(function, delay)</b></dt>
+<dd>delay 밀리세컨드(1,000분의 1초)마다 function 함수 반복 실행을 시작합니다.</dd>
+<dt><b class="em4">setTimeout(function, delay)</b></dt>
+<dd>delay 밀리세컨드(1,000분의 1초) 경과후, function 함수를 실행합니다.</dd>
+</dl>
+
+<h5 class="hb1 h5">사용자 상호 작용 변경</h5>
+
+<pre class="mg0">
+<code class="xmp">
+var myAnimation = new MiniDaemon(null, animateShape, 500, Infinity);
+</code>
+</pre>
+또는
+<pre class="mg0">
+<code class="xmp">
+var myAnimation = new Daemon(null, animateShape, 500, Infinity);
+</code>
+</pre>
+
+
+<h5 class="hb1 h5">태양계 애니메이션</h5>
+
+<canvas id="e38canvas1" width="300" height="300"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+
+	var sun = new Image();
+	var moon = new Image();
+	var earth = new Image();
+
+	(function init(){
+		sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+		moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+		earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+		setInterval(e38draw1,100);
+	})();
+
+	function e38draw1(){
+		var ctx = document.getElementById('e38canvas1').getContext('2d');
+	
+		ctx.globalCompositeOperation = 'destination-over';
+		ctx.clearRect(0,0,300,300); // 캔버스를 비운다
+
+		ctx.fillStyle = 'rgba(0,0,0,0.4)';
+		ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+		ctx.save();
+		ctx.translate(150,150);
+
+		// 지구
+		var time = new Date();
+		ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+		ctx.translate(105,0);
+		ctx.fillRect(0,-12,50,24); // Shadow
+		ctx.drawImage(earth,-12,-12);
+
+		// 달
+		ctx.save();
+		ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+		ctx.translate(0,28.5);
+		ctx.drawImage(moon,-3.5,-3.5);
+		ctx.restore();
+
+		ctx.restore();
+
+		ctx.beginPath();
+		ctx.arc(150,150,105,0,Math.PI*2,false); // 지구 궤도
+		ctx.stroke();
+
+		ctx.drawImage(sun,0,0,300,300);		
+	}
+
+})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">시계 애니메이션</h5>
+
+
+<canvas id="e39canvas1"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+
+	(function init(){
+		clock();
+		setInterval(clock,1000);
+	})();
+
+	function clock(){
+		var ctx = document.getElementById('e39canvas1').getContext('2d');
+
+		var now = new Date();
+
+		ctx.save();
+		ctx.clearRect(0,0,150,150);
+		ctx.translate(75,75);
+		ctx.scale(0.4,0.4);
+		ctx.rotate(-Math.PI/2);
+		ctx.strokeStyle = "black";
+		ctx.fillStyle = "white";
+		ctx.lineWidth = 8;
+		ctx.lineCap = "round";
+
+		// 시계판 - 시
+		ctx.save();
+		for (var i=0;i<12;i++){
+			ctx.beginPath();
+			ctx.rotate(Math.PI/6);
+			ctx.moveTo(100,0);
+			ctx.lineTo(120,0);
+			ctx.stroke();
+		}
+		ctx.restore();
+
+		// 시계판 - 분
+		ctx.save();
+		ctx.lineWidth = 5;
+		for (i=0;i<60;i++){
+			if (i%5!=0) {
+				ctx.beginPath();
+				ctx.moveTo(117,0);
+				ctx.lineTo(120,0);
+				ctx.stroke();
+			}
+			ctx.rotate(Math.PI/30);
+		}
+		ctx.restore();
+
+		var sec = now.getSeconds();
+		var min = now.getMinutes();
+		var hr  = now.getHours();
+		hr = hr>=12 ? hr-12 : hr;
+
+		ctx.fillStyle = "black";
+
+		// 시간 표시 - 시
+		ctx.save();
+		ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
+		ctx.lineWidth = 14;
+		ctx.beginPath();
+		ctx.moveTo(-20,0);
+		ctx.lineTo(80,0);
+		ctx.stroke();
+		ctx.restore();
+
+		// 시간 표시 - 분
+		ctx.save();
+		ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
+		ctx.lineWidth = 10;
+		ctx.beginPath();
+		ctx.moveTo(-28,0);
+		ctx.lineTo(112,0);
+		ctx.stroke();
+		ctx.restore();
+
+		// 시간 표시 - 초
+		ctx.save();
+		ctx.rotate(sec * Math.PI/30);
+		ctx.strokeStyle = "#D40000";
+		ctx.fillStyle = "#D40000";
+		ctx.lineWidth = 6;
+		ctx.beginPath();
+		ctx.moveTo(-30,0);
+		ctx.lineTo(83,0);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(0,0,10,0,Math.PI*2,true);
+		ctx.fill();
+		ctx.beginPath();
+		ctx.arc(95,0,10,0,Math.PI*2,true);
+		ctx.stroke();
+		ctx.fillStyle = "rgba(0,0,0,0)";
+		ctx.arc(0,0,3,0,Math.PI*2,true);
+		ctx.fill();
+		ctx.restore();
+
+		ctx.beginPath();
+		ctx.lineWidth = 14;
+		ctx.strokeStyle = '#325FA2';
+		ctx.arc(0,0,142,0,Math.PI*2,true);
+		ctx.stroke();
+
+		ctx.restore();	
+	}
+
+})();
+/*]]>*/</script>
+
+
+<h5 class="hb1 h5">움직이는 파노라마 사진</h5>
+
+
+<canvas id="e40canvas1" width="800" height="200"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+
+	var img = new Image();
+
+	// 변수
+	// 스크롤될 이미지, 방향, 속도를 바꾸려면 변수값을 바꾼다.
+
+	img.src = 'https://mdn.mozillademos.org/files/4553/Capitan_Meadows,_Yosemite_National_Park.jpg';
+	var CanvasXSize = 800;
+	var CanvasYSize = 200;
+	var speed = 30; // 값이 작을 수록 빨라진다
+	var scale = 1.05;
+	var y = -4.5; // 수직 옵셋
+
+	// 주요 프로그램
+
+	var dx = 0.75;
+	var imgW;
+	var imgH;
+	var x = 0;
+	var clearX;
+	var clearY;
+	var ctx;
+
+	img.onload = function() {
+		imgW = img.width*scale;
+		imgH = img.height*scale;
+		if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // 캔버스보다 큰 이미지
+		if (imgW > CanvasXSize) { clearX = imgW; } // 캔버스보다 큰 이미지
+		else { clearX = CanvasXSize; }
+		if (imgH > CanvasYSize) { clearY = imgH; } // 캔버스보다 큰 이미지
+		else { clearY = CanvasYSize; }
+		// 캔버스 요소 얻기
+		ctx = document.getElementById('e40canvas1').getContext('2d');
+		// 새로 그리기 속도 설정
+		return setInterval(draw, speed);
+	}
+
+	function draw(){
+
+		// 캔버스를 비운다
+		ctx.clearRect(0,0,clearX,clearY);
+		// 이미지가 캔버스보다 작거나 같다면 (If image is <= Canvas Size)
+		if (imgW <= CanvasXSize) {
+			// 재설정, 처음부터 시작
+			if (x > (CanvasXSize)) { x = 0; }
+			// 추가 이미지 그리기
+			if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-CanvasXSize+1,y,imgW,imgH); }
+		}
+		// 이미지가 캔버스보다 크다면 (If image is > Canvas Size)
+		else {
+			// 재설정, 처음부터 시작
+			if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
+			// 추가 이미지 그리기
+			if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-imgW+1,y,imgW,imgH); }
+		}
+		// 이미지 그리기
+		ctx.drawImage(img,x,y,imgW,imgH);
+		// 움직임 정도
+		x += dx;
+	}
+
+})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">또 다른 예제들</h4>
+
+
+<dl class="bu">
+<dt><a class="external" href="http://www.gartic.net/" rel="noopener" title="http://www.gartic.net/">Gartic</a></dt>
+<dd>다중 사용자 지원 그리기 놀이.</dd>
+<dt><a class="external" href="http://www.abrahamjoffe.com.au/ben/canvascape/" rel="noopener">Canvascape</a></dt>
+<dd>3D 어드벤처 게임 (1인칭 슈팅).</dd>
+<dt> <a href="/en-US/docs/Web/Guide/HTML/A_basic_ray-caster" title="/en-US/docs/Web/Guide/HTML/A_basic_ray-caster">A basic ray-caster</a></dt>
+<dd>키보드를 사용한 애니메이션 제어 방법에 대한 좋은 예제.</dd>
+<dt><a class="external" href="http://andrewwooldridge.com/canvas/canvasgame001/canvasgame002.html" rel="noopener">canvas adventure</a></dt>
+<dd>키보드 제어를 사용하는 또다른 좋은 예제.</dd>
+<dt><a class="external" href="http://www.blobsallad.se/" rel="noopener">An interactive Blob</a></dt>
+<dd>물방울 갖고 놀기.</dd>
+<dt><a class="external" href="http://arapehlivanian.com/wp-content/uploads/2007/02/canvas.html" rel="noopener">Flying through a starfield</a></dt>
+<dd>별, 동그라미, 네모가 떠다니는 우주를 누벼라.</dd>
+<dt><a class="external" href="http://igrapher.com/" rel="noopener" title="http://igrapher.com/">iGrapher</a></dt>
+<dd>주식 시장 자료 차트 예제.</dd>
+</dl>
+
+<h4 class="hb1 h4">이것도 보세요</h4>
+
+<ul class="bu">
+<li><a href="/en-US/docs/JavaScript/Timers" title="/en-US/docs/JavaScript/Timers">
+	JavaScript timers
+</a></li>
+<li><a href="/en-US/docs/DOM/window.setInterval#A_little_framework" title="/en-US/docs/DOM/window.setInterval#A_little_framework">
+	<code>setInterval</code> – A little framework
+</a></li>
+<li><a href="/en-US/docs/JavaScript/Timers/Daemons" title="/en-US/docs/JavaScript/Timers/Daemons">
+	JavaScript Daemons Management
+</a></li>
+<li><a href="/en-US/docs/DOM/HTMLCanvasElement" title="/en-US/docs/DOM/HTMLCanvasElement">
+	HTMLCanvasElement
+</a></li>
+</ul>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-09">고급 애니메이션</h3>
+
+
+<h4 class="hb1 h4">Drawing a ball</h4>
+
+
+<canvas id="e41canvas1" width="600" height="300"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+
+	var ctx = document.getElementById('e41canvas1').getContext('2d');
+
+	var ball = {
+	  x: 100,
+	  y: 100,
+	  radius: 25,
+	  color: 'blue',
+	  draw: function() {
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fillStyle = this.color;
+			ctx.fill();
+	  }
+	};
+
+	ball.draw();
+
+})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">Adding velocity</h4>
+
+
+<canvas id="e42canvas1" width="600" height="300" style="border:1px solid #000"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+
+	var canvas = document.getElementById('e42canvas1');
+	var ctx = canvas.getContext('2d');
+	var raf;
+
+	// Drawing a ball
+	var ball = {
+	  x: 100,
+	  y: 100,
+	  vx: 5,
+	  vy: 2,
+	  radius: 25,
+	  color: 'blue',
+	  draw: function() {
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fillStyle = this.color;
+			ctx.fill();
+	  }
+	};
+
+	function draw() {
+	  //ctx.clearRect(0,0, canvas.width, canvas.height);
+
+		// Trailing effect
+		ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	  ball.draw();
+
+		// Boundaries
+		if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+		  ball.vy = -ball.vy;
+		}
+		if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+		  ball.vx = -ball.vx;
+		}
+
+		// Acceleration
+		ball.vy *= .99;
+		ball.vy += .25;
+
+		// Adding velocity
+	  ball.x += ball.vx;
+	  ball.y += ball.vy;
+	  raf = window.requestAnimationFrame(draw);
+	}
+
+	canvas.addEventListener('mouseover', function(e) {
+	  raf = window.requestAnimationFrame(draw);
+	});
+
+	canvas.addEventListener('mouseout', function(e) {
+	  window.cancelAnimationFrame(raf);
+	});
+
+	// Drawing a ball
+	ball.draw();
+
+})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">Boundaries</h4>
+
+
+<pre class="mg0">
+<code class="xmp">
+if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+  ball.vy = -ball.vy;
+}
+if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+  ball.vx = -ball.vx;
+}
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">Acceleration</h4>
+
+
+<pre class="mg0">
+<code class="xmp">
+ball.vy *= .99;
+ball.vy += .25;
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">Trailing effect</h4>
+
+
+<pre class="mg0">
+<code class="xmp">
+ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">Adding mouse control</h4>
+
+
+<canvas id="e43canvas1" width="600" height="300" style="border:1px solid #000"></canvas>
+<script>/*<![CDATA[*/
+(function(){
+	var canvas = document.getElementById('e43canvas1');
+	var ctx = canvas.getContext('2d');
+	var raf;
+	var running = false;
+
+	var ball = {
+		x: 100,
+		y: 100,
+		vx: 5,
+		vy: 1,
+		radius: 25,
+		color: 'blue',
+		draw: function() {
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fillStyle = this.color;
+			ctx.fill();
+		}
+	};
+
+	function clear() {
+		ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+	}
+
+	function draw() {
+		clear();
+		ball.draw();
+		ball.x += ball.vx;
+		ball.y += ball.vy;
+
+		if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+			ball.vy = -ball.vy;
+		}
+		if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+			ball.vx = -ball.vx;
+		}
+
+		raf = window.requestAnimationFrame(draw);
+	}
+
+	canvas.addEventListener('mousemove', function(e) {
+		if (!running) {
+			clear();
+			ball.x = e.clientX;
+			ball.y = e.clientY;
+			ball.draw();
+		}
+	});
+
+	canvas.addEventListener('click', function(e) {
+		if (!running) {
+			raf = window.requestAnimationFrame(draw);
+			running = true;
+		}
+	});
+
+	canvas.addEventListener('mouseout', function(e) {
+		window.cancelAnimationFrame(raf);
+		running = false;
+	});
+
+	ball.draw();
+
+})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">Breakout</h4>
+
+
+<p>
+	이 짧은 장에서는 고급 애니메이션을 만드는 몇 가지 기술 만 설명합니다.<br />
+	더 많은 것이 있습니다! 패들과 벽돌을 추가하고 이 데모를 브레이크 아웃 게임으로 바꾸는 것은 어떻습니까?<br />
+	더 많은 게임 관련 기사는
+	<a href="https://developer.mozilla.org/en-US/docs/Games" target="_blank" rel="noopener" title="새 창" class="a1">Game development</a>
+	영역을 확인하십시오.
+</p>
+
+
+<h4 class="hb1 h4">See also</h4>
+
+
+<ul class="bu">
+<li><a href="/en-US/docs/Web/API/Window/requestAnimationFrame" title="The window.requestAnimationFrame() method tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. The method takes a callback as an argument to be invoked before the repaint."><code>window.requestAnimationFrame()</code></a></li>
+<li><a href="/en-US/docs/Games/Techniques/Efficient_animation_for_web_games">Efficient animation for web games</a></li>
+</ul>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-10">픽셀 조작</h3>
+
+
+<h4 class="hb1 h4">The ImageData object</h4>
+<h4 class="hb1 h4">Creating an ImageData object</h4>
+<h4 class="hb1 h4">Getting the pixel data for a context</h4>
+<h4 class="hb1 h4">Painting pixel data into a context</h4>
+<h4 class="hb1 h4">Zooming and anti-aliasing</h4>
+
+        
+<canvas id="e44canvas1" width="300" height="227"></canvas>
+<canvas id="e44zoom1" width="300" height="227"></canvas>
+<div>
+	<label for="smoothbtn">
+		<input type="checkbox" name="smoothbtn" checked="checked" id="smoothbtn">
+		Enable image smoothing
+</label>
+</div>
+<script>/*<![CDATA[*/
+(function(){
+
+	var img = new Image();
+	img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+	img.onload = function() {
+		draw(this);
+	};
+
+	function draw(img) {
+		var canvas = document.getElementById('e44canvas1');
+		var ctx = canvas.getContext('2d');
+		ctx.drawImage(img, 0, 0);
+		img.style.display = 'none';
+		var zoomctx = document.getElementById('e44zoom1').getContext('2d');
+	 
+		var smoothbtn = document.getElementById('smoothbtn');
+		var toggleSmoothing = function(event) {
+			zoomctx.imageSmoothingEnabled = this.checked;
+			zoomctx.mozImageSmoothingEnabled = this.checked;
+			zoomctx.webkitImageSmoothingEnabled = this.checked;
+			zoomctx.msImageSmoothingEnabled = this.checked;
+		};
+		smoothbtn.addEventListener('change', toggleSmoothing);
+
+		var zoom = function(event) {
+			var x = event.layerX;
+			var y = event.layerY;
+			zoomctx.drawImage(canvas,
+												Math.min(Math.max(0, x - 5), img.width - 10),
+												Math.min(Math.max(0, y - 5), img.height - 10),
+												10, 10,
+												0, 0,
+												200, 200);
+		};
+
+		canvas.addEventListener('mousemove', zoom);
+	}
+
+})();
+/*]]>*/</script>
+
+
+<h4 class="hb1 h4">Saving images</h4>
+<h4 class="hb1 h4">See also</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-11">히트 영역 및 접근성</h3>
+
+
+<p>
+	&lt;canvas&gt; 엘리먼트는 비트맵이며 그려진 객체에 대한 정보는 제공하지 않습니다.
+	캔버스 컨텐츠는 시멘틱 HTML과 같은 접근성 도구에 노출되지 않습니다.
+	일반적으로 접근성을 위한 웹 사이트 또는 앱에서는 캔버스를 사용하지 않는 것이 좋습니다.
+	본 가이드라인은 접근성이 향상된 캔버스를 만드는데 도움이 될 것입니다.
+</p>
+
+
+<h4 class="hb1 h4">대체 컨텐츠</h4>
+
+<xmp class="xmp">
+<canvas> 
+  <h2>Shapes</h2> 
+  <p>A rectangle with a black border. 
+   In the background is a pink circle. 
+   Partially overlaying the <a href="http://en.wikipedia.org/wiki/Circle" onfocus="drawCircle();" onblur="drawPicture();">circle</a>. 
+   Partially overlaying the circle is a green 
+   <a href="http://en.wikipedia.org/wiki/Square" onfocus="drawSquare();" onblur="drawPicture();">square</a> 
+   and a purple <a href="http://en.wikipedia.org/wiki/Triangle" onfocus="drawTriangle();" onblur="drawPicture();">triangle</a>,
+   both of which are semi-opaque, so the full circle can be seen underneath.</p> 
+</canvas> 
+</xmp>
+
+
+<h4 class="hb1 h4">ARIA 규칙</h4>
+
+
+<xmp class="xmp">
+<canvas id="button" tabindex="0" role="button" aria-pressed="false" aria-label="Start game"></canvas>
+</xmp>
+
+
+<h4 class="hb1 h4">히트(Hit) 영역</h4>
+
+
+<dl class="fixed1auto1 tp1 dtw8em">
+<dt>CanvasRenderingContext2D.addHitRegion() </dt>
+<dd>히트 영역을 캔버스에 추가합니다.</dd>
+<dt>CanvasRenderingContext2D.removeHitRegion() </dt>
+<dd>캔버스에서 해당 id를 가진 히트 영역을 제거합니다.</dd>
+<dt>CanvasRenderingContext2D.clearHitRegions() </dt>
+<dd>캔버스에서 모든 히트 영역을 제거합니다.</dd>
+</dl>
+
+<pre class="mg0">
+<code class="xmp">
+ctx.addHitRegion({control: element});
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">포커스 링(Focus rings)</h4>
+
+<dl class="fixed1auto1 tp1 dtw8em">
+<dt>CanvasRenderingContext2D.drawFocusIfNeeded() </dt>
+<dd>지정된 엘리먼트에 포커스가있는 경우,이 메소드는 현재 경로 주위에 포커스 링을 그립니다.</dd>
+<dt>CanvasRenderingContext2D.scrollPathIntoView() </dt>
+<dd>현재 경로 또는 지정된 경로를 뷰로 스크롤합니다.</dd>
+</dl>
+
+<h4 class="hb1 h4">See also</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-12">Canvas 최적화하기</h3>
+
+
+<h4 class="hb1 h4">성능 팁</h4>
+
+<ol class="bo">
+<li>캔버스에 표시되지 않는 비슷한 원시 혹은 반복 객체를 미리 그려라.</li>
+<li>부동 소수점 좌표를 피하고 대신 정수를 사용하라.</li>
+<li>drawImage에서 이미지 크기를 조정하지 마라.</li>
+<li>복잡한 장면에 여러 개의 레이어 캔버스를 사용하라.</li>
+<li>큰 배경 이미지는 일반 CSS를 사용하라.</li>
+<li>CSS 변환(transform)을 사용하여 캔버스 크기 조정하라.</li>
+<li>투명도를 사용하지 마라.</li>
+</ol>
+
+<h5 class="hb1 h5">추가 팁들</h5>
+
+<ol class="bo">
+<li>배치 캔버스를 함께 호출합니다. 예를 들어 여러 개의 개별 선 대신 폴리 라인을 그립니다.</li>
+<li>불필요한 캔버스 상태 변경을 피하십시오.</li>
+<li>화면의 차이만 렌더링하고 완전히 새로운 상태로 렌더링하지 마십시오.</li>
+<li>가능하면 shadowBlur 속성을 사용하지 마십시오.</li>
+<li>가능하면 텍스트 렌더링을 피하십시오.</li>
+<li>캔버스를 지우는 여러 가지 방법을 시도해보십시오 (clearRect() vs. fillRect() vs. 캔버스 크기 조정).</li>
+<li>애니메이션에서는 window.setInterval() 대신 window.requestAnimationFrame()을 사용하십시오.</li>
+<li>무거운 라이브러리를 주의하십시오.</li>
+</ol>
+
+
+<h4 class="hb1 h4">See also</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Tutorial-13">Finale</h3>
+
+
+<h4 class="hb1 h4">More examples and tutorials</h4>
+
+<dl class="bu">
+ <dt><a class="external" href="http://codepen.io/search?q=canvas" rel="noopener">Codepen.io</a></dt>
+ <dd>Front End Developer Playground &amp; Code Editor in the Browser.</dd>
+ <dt><a class="external" href="http://www.html5canvastutorials.com/" rel="noopener">HTML5 Canvas Tutorials</a></dt>
+ <dd>Examples for most canvas APIs.</dd>
+ <dt><a href="/en-US/docs/Games">Game development</a></dt>
+ <dd>Gaming is one of the most popular computer activities. New technologies are constantly arriving to make it possible to develop better and more powerful games that can be run in any standards-compliant web browser.</dd>
+</dl>
+
+<h4 class="hb1 h4">Other Web APIs</h4>
+
+<dl class="bu">
+ <dt><a href="/en-US/docs/Web/WebGL">WebGL</a></dt>
+ <dd>Advanced API for rendering complex graphics, including 3D.</dd>
+ <dt><a href="/en-US/docs/Web/SVG">SVG</a></dt>
+ <dd>Scalable Vector Graphics let you describe images as sets of vectors (lines) and shapes in order to allow them to scale smoothly regardless of the size at which they're drawn.</dd>
+ <dt><a href="/en-US/docs/Web/API/Web_Audio_API">Web Audio</a></dt>
+ <dd>The Web Audio API provides a powerful and versatile system for controlling audio on the Web, allowing developers to choose audio sources, add effects to audio, create audio visualizations, apply spatial effects (such as panning)&nbsp; and much more.</dd>
+</dl>
+
+<h4 class="hb1 h4">Questions</h4>
+
+<dl class="bu">
+ <dt><a class="external" href="http://stackoverflow.com/questions/tagged/canvas" rel="noopener">Stack Overflow</a></dt>
+ <dd>Questions tagged with "canvas".</dd>
+ <dt><a href="/en-US/docs/MDN">Comments about this tutorial – the MDN documentation community</a></dt>
+ <dd>If you have any comments about this tutorial or want to thank us, feel free to reach out to us!</dd>
+</dl>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Link</h2>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20200109~
+20200114.
+20200110.
+20200109.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

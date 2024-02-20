@@ -1,0 +1,496 @@
+@charset "utf-8";
+/* by@m 20151005~.. 20200220. 20200715.
+ */
+
+/* base.css, lib.css, .. )) Overwrite 20200602 ◆◆◆ */
+
+
+h1, h2, h3, h4, h5, h6{
+	margin:1.5em 0 1em;
+	color:#123;
+}
+
+.hb1[class]{display:block;position:relative;
+	margin:2em 0 1.5em;
+	color:#123;
+	font-weight:600;
+	line-height:1.375;
+	letter-spacing:-.03125em; /* 0.5/16 */
+}
+
+pre .hb1[class]{ 
+	margin:.25em 0 0;
+}
+
+.hb1.h1{font-size:2.333em; /* =28/12 (( 2=28/14 */
+	padding:.5em 0 0;
+	background:url(../../img/lib/h1bg.png) no-repeat;
+}
+.hb1.h2{font-size:2em; /* =24/12 */
+	padding:.5em 0 .375em 36px;
+	border:0;
+	border-top:1px solid #456;
+	border-bottom:1px solid #e7e7e7;
+	background:url(../../img/lib/h2bg.png) no-repeat 0 50%;
+}
+.hb1.h3{font-size:1.666em; /* =20/12 */
+	padding:.75em 0 .375em;
+	background:url(../../img/lib/h3bg.png) no-repeat 0 .25em;
+}
+.hb1.h4{font-size:1.333em; /* =16/12 */
+	padding:0 0 0 1.375em;
+	background:url(../../img/lib/h4bg.png) no-repeat 0 .175em;
+}
+.hb1.h5{font-size:1.167em; /* =14/12 */
+	background:url(../../img/lib/h5bg.png) no-repeat 0 .175em;
+}
+.hb1.h6{font-size:1.083em; /* =13/12 */
+	background:url(../../img/lib/h6bg.png) no-repeat 0 .166em;
+}
+
+.hb0{padding-left:0;border:0;background:transparent;}
+
+
+ul.bu li,
+ul.bu.bu1 li{background:url(../../img/lib/li1bg.png) no-repeat -.125em .25em;}
+
+
+/* 정의목록.불릿.인라인.분리. 20160428~ 20200110. 20200123. */
+.fixed1auto1.tp1{
+	padding:.375em 0;
+	border:1px solid #e7e7e7;
+	text-align:left;
+}
+.fixed1auto1.tp1>dt{
+	clear:both;
+	float:left;
+	position:relative;
+	width:auto;
+	min-width:6em;
+	margin:0;
+	padding:.5em 1em .5em 1em; /* () () () (dl.bu 고려) */
+}
+.fixed1auto1.tp1>dt:after{content:':';
+	position:absolute;right:0;top:0;
+	font-weight:normal;
+	padding:.5em .5em .5em 0;
+	opacity:.5;
+}
+.fixed1auto1.tp1>dd{
+	margin:0;
+	padding:.5em 1em .5em 0; /* () (dl.bu 고려) () ()  */
+	overflow:hidden;
+}
+.fixed1auto1.tp1>dt~dt,
+.fixed1auto1.tp1>dt~dt~dd{
+	border-top:1px solid #eee;
+}
+/* dt em */
+.dtem>dt{
+	color:#080;
+	font-weight:600;
+}
+
+html ol.bo1>li{padding-top:.166em;}
+
+table.t3{border-top-width:2px;}
+
+/* .big{font-size:1.5em !important;} */
+
+/* if( 1rem == 12px ) ☆)) Remove Other Size */
+.fsXXS{font-size:.833em !important;} /* 10/12 */
+.fsXS{font-size:.917em !important;} /* 11/12 */
+.fsS,
+.fsd, /* font size default */
+.fs1em{font-size:1em !important;} /* 12/12 */
+.fss{font-size:1.083em !important;} /* 13/12 */
+.fsD{font-size:1.167em !important;} /* 14/12 */
+.fsm{font-size:1.250em !important;} /* 15/12 */
+.fsM{font-size:1.333em !important;} /* 16/12 */
+.fsL{font-size:1.500em !important;} /* 18/12 */
+.fsXL{font-size:1.666em !important;} /* 20/12 */
+.fsXXL{font-size:2.000em !important;} /* 24/12 */
+.fsXXXL{font-size:2.5em !important;} /* 30/12 */
+
+
+/* ◇◆ Add Share ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* 컬럼 */
+.col-1{width:8.33333%;}
+.col-2{width:16.66667%;}
+.col-3{width:25%;}
+.col-4{width:33.33333%;}
+.col-5{width:41.66667%;}
+.col-6{width:50%;}
+.col-7{width:58.33333%;}
+.col-8{width:66.66667%;}
+.col-9{width:75%;}
+.col-10{width:83.33333%;}
+.col-11{width:91.66667%;}
+.col-12{width:100%;}
+
+
+/* ◇◆ Contents ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* Google material-icons 20181212*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+/* Menu Tap Grid 20200106 */
+.mtab1{position:relative;
+	margin:-1px 0 0;
+	padding:1em 0;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+.mtab1 .h1{clear:both;float:left;}
+.mtab1 > *{display:block;
+	list-style:none;
+	margin:0 -.1% .4%;
+	padding:0;
+}
+.mtab1 > *:before,
+.mtab1 > *:after{content:'';display:table;}
+.mtab1 > *:after{clear:both;}
+.mtab1 > * > li{display:inline-block;
+	margin:.4% .1%;
+	padding:0;
+	text-align:center;
+	vertical-align:top;
+}
+.mtab1 > * > li > a{display:block;
+	position:relative;
+	padding:.4375em 1em;
+	border-radius:3px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	color:#000;
+	text-decoration:none !important;
+	text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;
+	transition:.2s ease-out;
+}
+.mtab1 > * > li > a[href]:hover,
+.mtab1 > * > li > a[href]:focus{border-color:#059;background:#059;color:#fff;}
+.mtab1 > * > li > a[href]:hover > *,
+.mtab1 > * > li > a[href]:focus > *{color:#fff;}
+/* 2Depth~ */
+.mtab1 > * > li > *{
+	margin:-1px 0 0;
+	padding:.166em 0;
+	border-radius:3px;
+	border:1px solid #eee;
+	background:#fff;
+	overflow:hidden;
+}
+.mtab1 > * > li > ul{
+	margin-top:.375em;
+	text-align:left;
+}
+.mtab1 > * > li > * > li{display:block;
+	box-sizing:border-box; /* ☆ */
+	margin:0;
+	padding:.1875em .75em;
+	border-top:1px solid #f1f3f5;
+}
+.mtab1 > * > li > * > li > *{overflow:hidden;margin:.5em 0 .5em .5em;padding:0 0 0 .5em;border:0;border-left:1px solid #eee;border-radius:0;background:#fff;}
+.mtab1 > * > li > * > li > a{display:inline-block;height:auto;
+	margin:0;padding:0;
+	border-radius:3px;border:0;
+	background:#fff;
+	text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;
+	vertical-align:middle;
+}
+.mtab1 > * > li > * > li:first-child{border:0;}
+.mtab1 > * > li > * > li > a:hover{background:#f5f7f9;text-decoration:none;}
+
+/* ☆(-0.6+(100/(column1~12)))% */
+.mtab1 .col-1 > li{width:99.4%;text-align:left;} /* (-0.6+100)% */
+.mtab1 .col-2 > li{width:49.4%;text-align:left;} /* (-0.6+50)% */
+.mtab1 .col-3 > li{width:32.73333%;} /* (-0.6+33.33333)% */
+.mtab1 .col-4 > li{width:24.4%;} /* (-0.6+25)% */
+.mtab1 .col-5 > li{width:19.4%;} /* (-0.6+20)% */
+.mtab1 .col-6 > li{width:16.06667%;} /* (-0.6+16.66667)% */
+.mtab1 .col-7 > li{width:13.68571%;} /* (-0.6+14.28571)% */
+.mtab1 .col-8 > li{width:11.9%;} /* (-0.6+12.5)% */
+.mtab1 .col-9 > li{width:10.51111%;} /* (-0.6+11.11111)% */
+.mtab1 .col-10 > li{width:9.4%;} /* (-0.6+10)% */
+.mtab1 .col-11 > li{width:8.49091%;} /* (-0.6+9.09091)% */
+.mtab1 .col-12 > li{width:7.73333%;} /* (-0.6+8.33333)% */
+.mtab1 .col1 > li:nth-child(n+1),
+.mtab1 .col2 > li:nth-child(2n+1),
+.mtab1 .col3 > li:nth-child(3n+1),
+.mtab1 .col4 > li:nth-child(4n+1),
+.mtab1 .col5 > li:nth-child(5n+1),
+.mtab1 .col6 > li:nth-child(6n+1),
+.mtab1 .col7 > li:nth-child(7n+1),
+.mtab1 .col8 > li:nth-child(8n+1),
+.mtab1 .col9 > li:nth-child(9n+1),
+.mtab1 .col10 > li:nth-child(10n+1),
+.mtab1 .col11 > li:nth-child(11n+1),
+.mtab1 .col12 > li:nth-child(12n+1){clear:both;}
+
+
+/* mtile1 */
+.mtile1{width:100%;height:100%;border-radius:10px;}
+.mtile1 *{list-style:decimal-leading-zero inside;margin:0;padding:0;vertical-align:middle;}
+.mtile1 > *{width:100%;height:100%;overflow:hidden;}
+.mtile1 li{float:left;width:18%;height:20%;margin:.25%;padding:5px;border:1px solid #ddd;border-radius:3px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+.mtile1 li a{text-align:left;text-decoration:none;}
+.mtile1 li a:first-child{color:#000;}
+.mtile1 .a0{background:#eee;}
+.mtile1 .a1{background:#fec;}
+.mtile1 .a2{background:#efc;}
+.mtile1 .a3{background:#cef;}
+
+div.tab{position:relative;width:100%;margin:0 0 1.5em 0;}
+div.tab *{list-style:none;margin:0;padding:0;border:0;background:transparent;line-height:1.166;}
+div.tab .bg{position:absolute;bottom:0;_bottom:-1px;width:100%;border-bottom:1px solid #999;text-indent:-9999px;}
+div.tab ul{clear:both;position:relative;left:6px;overflow:hidden;}
+div.tab li{display:inline;position:relative;float:left;margin:0 0 0 2px;padding:0 0 0 10px;border:1px solid #999;border-bottom:1px solid #999;background:#eee;}
+div.tab li a{display:block;padding:5px 10px 3px 0px;background:#eee;color:#555;font-weight:bold;text-decoration:none;cursor:pointer;}
+div.tab li:hover,
+div.tab li:focus,
+div.tab li.on{border-bottom:0;background:#fff;}
+div.tab li:hover a,
+div.tab li:focus a,
+div.tab li.on a{padding-bottom:4px;background:#fff;color:#000;}
+
+ul.tab{list-style:none;clear:both;width:100%;margin:1em 0;overflow:hidden;}
+ul.tab li{display:inline;}
+ul.tab li a{display:inline;float:left;margin:0 .34em 0 0;padding:.4em .8em;border:1px solid #ccc;border-radius:4px;background:#eee;color:#555;font-weight:bold;text-decoration:none;cursor:pointer;
+	background:#eee -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#eee));
+	background:#eee -moz-linear-gradient(top, #f9f9f9, #eee);
+}
+ul.tab li a:hover,
+ul.tab li a:focus{border-color:#333;background:#555;color:#fff;
+	background:#555 -webkit-gradient(linear, 0 0, 0 100%, from(#666), to(#555));
+	background:#555 -moz-linear-gradient(top, #666, #555);
+}
+
+
+/* Contents Each */
+
+
+/* ☆.gallery1 [Book], Plugin */
+.gallery1{}
+.gallery1 ul,
+.gallery1 ol,
+.gallery1 .lst1{list-style:none;margin:0;padding:1px 0 0 1px;line-height:1.75;overflow:hidden;}
+.gallery1 li{display:block;
+	float:left;
+	box-sizing:border-box;
+	width:25%;height:212px;
+	margin:-1px 0 0 -1px;
+	padding:1.5%;
+	border:1px solid rgba(221, 221, 221, 1);
+	background:#fff;
+	overflow:auto;
+	overflow-x:hidden;
+	/* box-shadow:0 0 0 1px rgba(221, 221, 221, 1); */
+}
+.gallery1 li>*{display:block;margin:0 0 1em 0;overflow:hidden;}
+.gallery1 li img{width:80px;}
+.gallery1 li a>.ic{display:none !important;}
+.gallery1 li .h1{font-weight:bold;font-size:1.083em;line-height:1.375;}
+.gallery1 li .f1{float:left;margin:0 10px 10px 0;}
+
+.mPortfolio{width:100%;overflow:hidden;}
+.mPortfolio *{margin:0;padding:0;vertical-align:top;}
+.mPortfolio img{margin:0 10px 2em 0;}
+.mPortfolio dt{padding:5px;}
+.mPortfolio dd{padding:5px;}
+
+.markingpen1{padding:.2em !important;background:#fe6 !important;}
+.markingpen1 .fade1{padding:.2em !important;background:#fff8bb !important;}
+.markingpen2{padding:.2em !important;background:#ce6 !important;}
+.markingpen2 .fade1{padding:.2em !important;background:#efb !important;}
+
+.hdl1{border-bottom:1px solid #ddd;border-radius:0 0 0 1em;overflow:hidden;}
+/* .hdl1 *{list-style:none;margin:0;padding:0;border:0;} */
+.hdl1 .h1{clear:left;float:left;width:13%;margin:0;padding:1%;border:0;border-top:1px solid #ccc;
+	background:#fff;
+	color:#07b;
+	font-size:14px;
+	letter-spacing:0;
+}
+.hdl1 dl{clear:right;float:left;width:85%;margin:0;padding:0;border-top:1px solid #ccc;background:#f7f7f7;}
+.hdl1 dt{clear:left;float:left;width:24%;margin:0;padding:0;padding:2px 1% 3px;border-top:1px solid #fff;}
+.hdl1 dd{clear:right;float:left;width:72%;margin:0;padding:0;min-height:1.75em;margin:0 0 0 -1px;padding:2px 1%;border-top:1px solid #eee;border-left:1px solid #f7f7f7;background:#fff;}
+.hdl1 dt:first-child,
+.hdl1 dt:first-child+dd{border-top:0}
+.hdl1 dt.a1{background:#fe6;}
+.hdl1 dt.a2{background:#fce;}
+
+
+/* Add Share Contents Style ◇◆◇◆◇◆◇◆◇◆ */
+
+/* YYYYMMDD.Writer. ◇◆ */
+
+/* misc. 정리예정 */
+.two-column{display:inline;float:left;width:46%;margin:0 -1px 0 -1px;padding:0 2%;border-left:1px solid #ddd;}
+.new{display:inline-block;padding:.1em .3em .1em .2em;background:#f80;color:#fff !important;font:bold .8em/1 Arial;}
+.a{display:inline-block;padding:0 .3em 0 .2em;background:#767676;color:#fff !important;font:bold;}
+.otl{color:#f06;}
+.tt{color:#06f;}
+.fn{font-size:12px;font-weight:normal;}
+.program{display:inline-block;margin:0 0 .166em 0;padding:.166em;background:#f80;color:#fff !important;font-size:.929em;line-height:1.375;}
+.design{display:inline-block;margin:0 0 .166em 0;padding:.166em;background:#6a0;color:#fff !important;font-size:.929em;line-height:1.375;}
+.autotest{display:inline-block;margin:0 0 .166em 0;padding:.166em;background:#48d;color:#fff !important;font-size:.929em;line-height:1.375;}
+
+
+/* ◇◆ mNote Base Template 20180313. 20200221. ◇◆◇◆◇◆◇◆◇◆ */
+
+input.text,
+textarea.text{padding:.1em;border:1px solid #ccc}
+
+cite{color:#666;}
+dfn{display:inline-block;margin:0 0 1px 0;padding:0 3px;border-radius:3px;background:#fff9cc;color:#960;}
+dfn.box1{display:block;margin:4px 0;padding:8px;border:3px solid #fc9;color:#333;font-style:normal;font-size:1em;letter-spacing:0;}
+ins,
+ins *{color:#90c !important;text-decoration:none;}
+ins a{text-decoration:underline;}
+del{display:inline-block;color:#999;}
+
+blockquote{
+	margin:.75em 0 .75em .25em;
+	padding:0 0 0 .75em;
+	border-left:1px dotted #9c3;
+	color:#567;
+}
+
+code, kbd, samp, var{display:inline;
+	padding:0 .25em;
+	border-radius:2px;
+	background:#dfb;
+	color:#000;
+	line-height:1.375;
+	white-space:pre-wrap;
+}
+kbd{background:#fec;}
+samp{background:#def;}
+var{background:#edf;}
+code.example{display:block;background:transparent;white-space:pre;}
+
+pre.prettyprint{padding:1em;border:1px solid #9bd;background:#f8fafc;}
+
+pre ul,
+pre li{display:inline-block;margin-top:0;margin-bottom:0;}
+
+figcaption{
+	margin:20px auto 0;
+	padding:.5em 1em;
+	border-radius:.5em;
+	background:#eee;
+}
+
+
+/* ◇◆ xmp 20200220. inValid */
+xmp{display:inline-block;
+	margin:0;padding:0;
+	background:#ccc;
+	color:#630;
+	font-family:/* 'Open Sans', */Helvetica,
+		'Apple SD Gothic Neo','Microsoft JhengHei',
+		'나눔고딕',NanumGothic,'Nanum Gothic','맑은 고딕','Malgun Gothic','돋움',Dotum,
+		Arial,sans-serif;
+	vertical-align:top;
+}
+.xmp{display:block;
+	position:relative;
+	box-sizing:border-box;
+	margin:.5em 0 1em;
+	padding:0 1em;
+	border:1px solid #f1f2f3;
+	border-left:2px solid #58b;
+	border-radius:2px 2px 6px 2px;
+	background:#f7f8f9;
+	background:linear-gradient(#f7f8f9 0, #f7f8f9 22px, #fcfdfe 22px, #fcfdfe 44px);
+	background-size:100% 44px;
+	background-position:0 0;
+	color:#000;
+	font-size:12px;
+	line-height:22px;
+	font-family:Consolas,
+		'Open Sans', Helvetica,'Apple SD Gothic Neo','Microsoft JhengHei','나눔고딕',NanumGothic,'Nanum Gothic','맑은 고딕','Malgun Gothic','돋움',Dotum,Arial,sans-serif;
+	white-space:pre;
+	overflow-x:auto;
+	tab-size: 4;
+}
+.xmp xmp{margin:0;padding:0;border:0;background:transparent;font-size:1em;}
+.xmp code{padding:0;border:0;background:none;}
+pre .mnote1:before,
+.xmp:before{content:'';display:block;height:0;margin:0 0 -1.75em 0;overflow:hidden;}
+xmp.xmp:before{}
+pre .mnote1,
+pre .xmp,
+pre xmp{margin-bottom:-1.75em;}
+table xmp{display:block;
+	margin:.3em 0;
+	padding:.6em .9em;border-color:#9c6;background:#fcfff9;
+}
+code.xmp{
+	border-color:#f1f2f3;
+	border-left-color:#8b5;
+	/* background:linear-gradient(#efd 0, #efd 20px, #f9ffee 20px, #f9ffee 40px); */
+}
+kbd.xmp{
+	border-color:#cde;
+	border-left-color:#58b;
+	background:#eef7ff;
+	background:linear-gradient(#f4fcff 0, #f4fcff 20px, #fff 20px, #fff 40px);
+}
+samp.xmp{
+	border-color:#edc;
+	border-left-color:#b85;
+	background:#fffcf9;
+	background:linear-gradient(#fffcee 0, #fffcee 20px, #fff 20px, #fff 40px);
+}
+var.xmp{
+	border-color:#dce;
+	border-left-color:#96c;
+	background:#fcf7ff;
+	background:linear-gradient(#fcf7ff 0, #fcf7ff 20px, #fff 20px, #fff 40px);
+}
+.before-1:before{content:'';display:block;margin:0 0 -1.75em 0;}
+
+.mnote1{margin:.5em 0 0.75em 0;padding:.6em 1em;border:1px solid #e7eeee;border-radius:5px;background:#eef7f7;}
+

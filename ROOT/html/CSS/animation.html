@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS Animation | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+
+
+<style type="text/css">/*<![CDATA[*/
+@import url(../../share/css/animate.css);
+/*]]>*/</style>
+
+
+
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">CSS Animation</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#AnimationProperties">Animation Properties</a></li>
+<li><a href="#Practice">Practice</a></li>
+<li><a href="#animate_css">animate.css</a></li>
+
+<li><a href="#Entrances">Entrances</a></li>
+<li><a href="#Misc">Misc</a></li>
+<li><a href="#Howitworks">How it works</a></li>
+<li><a href="#AddingEffects">Adding Effects</a></li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">유의사항</strong>
+	<div class="body1">
+		<ol class="bo">
+		<li><b class="em1">브라우저 호환 [IE10+]</b></li>
+		</ol>
+		<p>My name is Yeongshin. I live in Buasn, Korea and work as a UI Developer at Web Agency. Previously, I was at home in Busan.
+		In my free time I created a set of CSS3 Shapes, Animations and designed my own book. I make Hybird Web too.</p>
+	</div>
+</div>
+<!-- /panel1 -->
+
+
+
+<!-- even-grid -->
+<div class="even-grid float-left gap30px">
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-12 medium-6 column">
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Entrances">Animation Properties</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">@keyframes{} animation{}</h3>
+
+
+
+<div class="box2">
+<strong class="fsM">animation: <em class="fsXXS em2">모션이름 가속도 동작시간 지연시간 반복횟수 방향지정</em>;</strong>
+</div>
+
+<p class="pd1em-rv bg-info">
+<small class="fwn fsXS">속성값 순서는 상관없다.</small>
+</p>
+
+<!-- box1 -->
+<div class="box1 em0">
+<pre class="mg0">
+<b class="em5">@keyframes 모션이름</b>{
+	from, 50%, to {
+		transform: translate3d(0,0,0);
+	}
+	25, 75% {
+		transform: translate3d(0,0,0);
+	}
+}
+<b class="em5">animation-delay:</b> 지연시간
+	0s;
+	.2s;
+	200ms;
+<b class="em5">animation-direction:</b> 방향지정
+	normal;
+	reverse;
+	alternate;
+	alternate-reverse;
+<b class="em5">animation-duration:</b> 동작시간
+	0s;
+	.2s;
+	200ms;
+<b class="em5">animation-iteration-count:</b> 반복횟수
+	1;	2.3;
+	infinite;
+<b class="em5">animation-name:</b> 모션이름
+<b class="em5">animation-play-state:</b> 동작상태
+	running;
+	paused;
+<b class="em5">animation-timing-function:</b> 가속도
+	linear;
+	ease;
+	ease-in;
+	ease-out;
+	ease-in-out;
+	step-start;
+	step-end;
+	cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */
+	cubic-bezier(1.000, 0.000, 0.000, 1.000); /* easeInOutExpo */
+<b class="em5">animation-fill-mode:</b> 시작전이나 종료후 값 지정.
+	none;
+	forwards;
+	backwards;
+	both;
+</pre>
+</div>
+<!-- /box1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Tip</h3>
+
+<ol class="bo">
+<li>파이어폭스 삐죽삐죽 라인 결함 해결
+<pre class="mg0">
+<code class="xmp">
+outline: 1px solid transparent;
+</code>
+</pre>
+</li>
+</ol>
+
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-12 medium-6 column">
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Link</h2>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Examples">Examples</h3>
+
+<ol class="bo">
+<li>
+	<a href="https://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/" target="_blank" rel="noopener" title="새 창">
+		A Collection of Page Transitions
+	</a><br />
+	: <b class="em1">페이지 전환</b> + 이전 다음 제스처<br />
+	))) <a href="../../__lab.get/PageTransitions_@m/index.html" target="_blank" rel="noopener" title="새 창">@m.Lab</a>
+</li>
+<li><a href="https://webdesign.tutsplus.com/articles/15-inspiring-examples-of-css-animation-on-codepen--cms-23937" target="_blank" title="새 창">15 Inspiring Examples of CSS Animation on CodePen</a></li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Reference">Reference</h3>
+
+<ol class="bo">
+<li><a href="https://matthewlein.com/ceaser/" target="_blank" title="새 창">CSS Easing Animation Tool</a></li>
+<li><a href="http://cssanimate.com" target="_blank" title="새 창"><b class="em0">CSS3 Keyframes Animation Generator</b></a></li>
+<li><a href="https://daneden.github.io/animate.css/" target="_blank" title="새 창"><b class="em3 fsL">Animate.css</b></a> <i class="label1">*</i>
+	<b class="em0">animate.css</b> (71KB)
+</li>
+<li><a href="http://www.justinaguilar.com/animations/" target="_blank" title="새 창">CSS3 Animation Cheat Sheet</a>
+	<b class="em0">animations.css</b> (19KB)
+</li>
+<li><a href="http://learn.shayhowe.com/advanced-html-css/transitions-animations/" target="_blank" title="새 창">Transitions & Animations</a> - Learn to Code</li>
+<li><a href="https://webdesign.tutsplus.com/ko/tutorials/a-beginners-introduction-to-css-animation--cms-21068" target="_blank" title="새 창">CSS 애니메이션 초보자 입문서</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" title="새 창">MDN ) CSS 애니메이션 사용하기</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation" target="_blank" title="새 창">MDN ) CSS ) animation</a></li>
+<li><a href="http://www.w3schools.com/css/css3_animations.asp">W3Schools ) CSS3 Animations</a></li>
+<li><a href="https://desandro.github.io/3dtransforms/" target="_blank" title="새 창">Intro to CSS <b class="em0">3D transforms</b></a> <i class="label1 round">*</i></li>
+</ol>
+
+
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+</div>
+<!-- /even-grid -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Practice">Practice</h2>
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) translateX</h4>
+
+((( 마우스 오버해봐요! )))
+<a href="?" class="kf1tX1" style="display:inline-block;margin:.333em 0;background:#efd;">display:inline-block;</a><br />
+
+<style type="text/css">/*<![CDATA[*/
+.kf1tX1{
+  animation:kf1tX1 ease 2s .5s infinite alternate;
+}
+@keyframes kf1tX1{
+  0{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(200px);
+  }
+}
+a[class*='kf1']:hover,
+a[class*='kf1']:focus{
+  animation-play-state:paused;
+}
+/*]]>*/</style>
+
+<pre class="mg0">
+<code class="xmp">
+.kf1tX1{
+  animation:kf1tX1 ease 2s .5s infinite alternate;
+}
+@keyframes kf1tX1{
+  0{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(200px);
+  }
+}
+a[class*='kf1']:hover,
+a[class*='kf1']:focus{
+  animation-play-state:paused;
+}
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) translateY</h4>
+
+<a href="?" class="kf1tY1" style="display:inline-block;margin:.333em 0;background:#efd;">display:inline-block;</a><br />
+
+<style type="text/css">/*<![CDATA[*/
+.kf1tY1{
+  animation:kf1tY1 linear 1s .5s infinite;
+}
+@keyframes kf1tY1{
+  0, 50%, 100%{
+    transform:translateY(0);
+  }
+  25%{
+    transform:translateY(10px);
+  }
+ 75%{
+    transform:translateY(-10px);
+  }
+}
+/*]]>*/</style>
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) transform: translateY</h4>
+
+<a href="?" class="kf1tY1" style="display:inline-block;margin:.333em 0;background:#efd;">display:inline-block;</a><br />
+
+<style type="text/css">/*<![CDATA[*/
+.kf1tY1{
+  animation:kf1tY1 linear 1s .5s infinite;
+}
+@keyframes kf1tY1{
+  0, 50%, 100%{
+    transform:translateY(0);
+  }
+  25%{
+    transform:translateY(10px);
+  }
+ 75%{
+    transform:translateY(-10px);
+  }
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) transform: rotate(180deg)</h4>
+
+<!-- <a href="?" class="kf1r180d" style="display:block;margin:.333em 0;background:#def;">display:block;</a><br /> -->
+<a href="?" class="kf1r180d" style="display:inline-block;margin:.333em 0;background:#def;">display:inline-block;</a><br />
+<!-- <a href="?" class="kf1r180d" style="float:left;margin:.333em 0;background:#def;">float:left;</a><br /> -->
+
+<style type="text/css">/*<![CDATA[*/
+.kf1r180d{
+	animation:kf1r180d ease 2s;
+	animation-fill-mode:forwards;
+}
+@keyframes kf1r180d{
+	from{transform:rotate(0deg);}
+	to{transform:rotate(180deg);}
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) transform: rotate(360deg)</h4>
+
+<a href="?" class="kf1r360d" style="display:inline-block;margin:.333em 0;background:#def;">display:inline-block;</a><br />
+
+
+<style type="text/css">/*<![CDATA[*/
+.kf1r360d{
+	animation:kf1r360d ease 2s infinite alternate;
+}
+@keyframes kf1r360d{
+	from{transform:rotate(0deg);}
+	to{transform:rotate(360deg);}
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Ex01) transform: rotate3d(x,y,z ,angle); <em class="em">perspective:1000px;</em></h4>
+
+<p><em class="em">아래 마우스 오버하면 동작하는데.. 마우스 아웃하면 멈춰버림.
+	))) JS 로 클래스명 추가 삭제하도록 해야할까?</em>
+</p>
+
+<div class="wrap1perspective1">
+	<div class="kf1r3d1X1">rotate3d(1, 0, 0, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1Y1">rotate3d(0, 1, 0, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1Z1">rotate3d(0, 0, 1, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1XY1">rotate3d(1, 1, 0, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1YZ1">rotate3d(0, 1, 1, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1ZX1">rotate3d(1, 0, 1, 180deg);</div>
+</div>
+<div class="wrap1perspective1">
+<div class="kf1r3d1XYZ1">rotate3d(1, 1, 1, 180deg);</div>
+</div>
+
+
+<style type="text/css">/*<![CDATA[*/
+
+[class*='wrap1perspective1']{display:inline-block;
+	perspective:1000px;
+}
+[class*='wrap1perspective1']:hover [class*='kf1r3d'],
+[class*='wrap1perspective1']:focus [class*='kf1r3d']{
+  animation-play-state:running;
+}
+[class*='kf1r3d']{display:inline-block;width:120px;height:120px;margin:.333em;background:#693;color:#fff;
+	animation-duration:1s;
+	animation-timing-function:ease;
+	animation-fill-mode:forwards;
+	animation-play-state:paused;
+	outline: 1px solid transparent;
+}
+@keyframes kf1r3d1X1{
+	from{transform: rotate3d(1, 0, 0, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1Y1{
+	from{transform: rotate3d(0, 1, 0, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1Z1{
+	from{transform: rotate3d(0, 0, 1, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1XY1{
+	from{transform: rotate3d(1, 1, 0, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1YZ1{
+	from{transform: rotate3d(0, 1, 1, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1ZX1{
+	from{transform: rotate3d(1, 0, 1, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+@keyframes kf1r3d1XYZ1{
+	from{transform: rotate3d(1, 1, 1, 180deg);}
+	to{transform: rotate3d(0, 0, 0, 180deg);}
+}
+
+.kf1r3d1X1{animation-name:kf1r3d1X1;}
+.kf1r3d1Y1{animation-name:kf1r3d1Y1;}
+.kf1r3d1Z1{animation-name:kf1r3d1Z1;}
+.kf1r3d1XY1{animation-name:kf1r3d1XY1;}
+.kf1r3d1YZ1{animation-name:kf1r3d1YZ1;}
+.kf1r3d1ZX1{animation-name:kf1r3d1ZX1;}
+.kf1r3d1XYZ1{animation-name:kf1r3d1XYZ1;}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="animate_css"><a href="https://daneden.github.io/animate.css/" target="_blank" title="새 창">animate.css</a></h2>
+
+
+<pre class="mg0">
+<code class="xmp">
+<b class="em2">.animated</b> {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+<b class="em2">.animated.infinite</b> {
+  animation-iteration-count: infinite;
+}
+<b class="em2">@keyframes bounce</b> {
+  from, 20%, 53%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+}
+<b class="em2">.bounce</b> {
+  animation-name: bounce;
+  transform-origin: center bottom;
+}
+</code>
+</pre>
+
+
+<style type="text/css">/*<![CDATA[*/
+#demo_animate_css{
+	border:1px solid #eee;
+}
+#demo_animate_css .column{
+	border:1px solid #eee;
+	overflow:hidden;
+}
+.h1tm1{display:block;
+	margin:0 0 .666em;
+	padding:.166em .333em;
+	background:#eee;
+	border-radius:2px;
+	font-weight:400;
+}
+.ic1circle{display:inline-block;
+	width:60px;height:60px;
+	border-radius:50%;
+	background:#69c;
+	outline:1px solid transparent;
+}
+/*]]>*/</style>
+
+
+<script>/*<![CDATA[*/
+(function(){
+	/** ◇◆ 애니메이션 제어. 20170425. MoonYoungshin.
+	 * 원하는 동작 안만들어져서 보류~
+	 */
+	$(function(){
+		$('.ic1circle').removeClass('animated infinite');	
+		$('#demo_animate_css .column').on('mouseenter', function(){
+			$('.ic1circle', this).addClass('animated');	
+		});
+		$('#demo_animate_css .column').on('mouseleave', function(){
+			$('.ic1circle', this).removeClass('animated');	
+		});
+	});
+})/* () */;
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆ even-grid -->
+<div id="demo_animate_css" class="even-grid evenmix-2468 float-left border-box gap1pct tac mgl0 mgr0">
+<div class="column">
+	<strong class="h1tm1 em1">bounce</strong>
+	<i class="ic1circle animated infinite bounce"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">flash</strong>
+	<i class="ic1circle animated infinite flash"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">pulse</strong>
+	<i class="ic1circle animated infinite pulse"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rubberBand</strong>
+	<i class="ic1circle animated infinite rubberBand"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">shake</strong>
+	<i class="ic1circle animated infinite shake"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">headShake</strong>
+	<i class="ic1circle animated infinite headShake"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">swing</strong>
+	<i class="ic1circle animated infinite swing"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">tada</strong>
+	<i class="ic1circle animated infinite tada"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">wobble</strong>
+	<i class="ic1circle animated infinite wobble"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">jello</strong>
+	<i class="ic1circle animated infinite jello"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em2">bounceIn</strong>
+	<i class="ic1circle animated infinite bounceIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceInDown</strong>
+	<i class="ic1circle animated infinite bounceInDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceInLeft</strong>
+	<i class="ic1circle animated infinite bounceInLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceInRight</strong>
+	<i class="ic1circle animated infinite bounceInRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceInUp</strong>
+	<i class="ic1circle animated infinite bounceInUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em3">bounceOut</strong>
+	<i class="ic1circle animated infinite bounceOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceOutDown</strong>
+	<i class="ic1circle animated infinite bounceOutDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceOutLeft</strong>
+	<i class="ic1circle animated infinite bounceOutLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceOutRight</strong>
+	<i class="ic1circle animated infinite bounceOutRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">bounceOutUp</strong>
+	<i class="ic1circle animated infinite bounceOutUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em4">fadeIn</strong>
+	<i class="ic1circle animated infinite fadeIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInDown</strong>
+	<i class="ic1circle animated infinite fadeInDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInDownBig</strong>
+	<i class="ic1circle animated infinite fadeInDownBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInLeft</strong>
+	<i class="ic1circle animated infinite fadeInLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInLeftBig</strong>
+	<i class="ic1circle animated infinite fadeInLeftBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInRight</strong>
+	<i class="ic1circle animated infinite fadeInRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInRightBig</strong>
+	<i class="ic1circle animated infinite fadeInRightBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInUp</strong>
+	<i class="ic1circle animated infinite fadeInUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeInUpBig</strong>
+	<i class="ic1circle animated infinite fadeInUpBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em4-5">fadeOut</strong>
+	<i class="ic1circle animated infinite fadeOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutDown</strong>
+	<i class="ic1circle animated infinite fadeOutDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutDownBig</strong>
+	<i class="ic1circle animated infinite fadeOutDownBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutLeft</strong>
+	<i class="ic1circle animated infinite fadeOutLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutLeftBig</strong>
+	<i class="ic1circle animated infinite fadeOutLeftBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutRight</strong>
+	<i class="ic1circle animated infinite fadeOutRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutRightBig</strong>
+	<i class="ic1circle animated infinite fadeOutRightBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutUp</strong>
+	<i class="ic1circle animated infinite fadeOutUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">fadeOutUpBig</strong>
+	<i class="ic1circle animated infinite fadeOutUpBig"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em5">flip</strong>
+	<i class="ic1circle animated infinite flip"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">flipInX</strong>
+	<i class="ic1circle animated infinite flipInX"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">flipInY</strong>
+	<i class="ic1circle animated infinite flipInY"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">flipOutX</strong>
+	<i class="ic1circle animated infinite flipOutX"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">flipOutY</strong>
+	<i class="ic1circle animated infinite flipOutY"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em5-6">lightSpeedIn</strong>
+	<i class="ic1circle animated infinite lightSpeedIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">lightSpeedOut</strong>
+	<i class="ic1circle animated infinite lightSpeedOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em6">rotateIn</strong>
+	<i class="ic1circle animated infinite rotateIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateInDownLeft</strong>
+	<i class="ic1circle animated infinite rotateInDownLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateInDownRight</strong>
+	<i class="ic1circle animated infinite rotateInDownRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateInUpLeft</strong>
+	<i class="ic1circle animated infinite rotateInUpLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateInUpRight</strong>
+	<i class="ic1circle animated infinite rotateInUpRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em7">rotateOut</strong>
+	<i class="ic1circle animated infinite rotateOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateOutDownLeft</strong>
+	<i class="ic1circle animated infinite rotateOutDownLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateOutDownRight</strong>
+	<i class="ic1circle animated infinite rotateOutDownRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateOutUpLeft</strong>
+	<i class="ic1circle animated infinite rotateOutUpLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rotateOutUpRight</strong>
+	<i class="ic1circle animated infinite rotateOutUpRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em8">hinge</strong>
+	<i class="ic1circle animated infinite hinge"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rollIn</strong>
+	<i class="ic1circle animated infinite rollIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">rollOut</strong>
+	<i class="ic1circle animated infinite rollOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em9">zoomIn</strong>
+	<i class="ic1circle animated infinite zoomIn"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomInDown</strong>
+	<i class="ic1circle animated infinite zoomInDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomInLeft</strong>
+	<i class="ic1circle animated infinite zoomInLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomInRight</strong>
+	<i class="ic1circle animated infinite zoomInRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomInUp</strong>
+	<i class="ic1circle animated infinite zoomInUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em0">zoomOut</strong>
+	<i class="ic1circle animated infinite zoomOut"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomOutDown</strong>
+	<i class="ic1circle animated infinite zoomOutDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomOutLeft</strong>
+	<i class="ic1circle animated infinite zoomOutLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomOutRight</strong>
+	<i class="ic1circle animated infinite zoomOutRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">zoomOutUp</strong>
+	<i class="ic1circle animated infinite zoomOutUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em1">slideInDown</strong>
+	<i class="ic1circle animated infinite slideInDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideInLeft</strong>
+	<i class="ic1circle animated infinite slideInLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideInRight</strong>
+	<i class="ic1circle animated infinite slideInRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideInUp</strong>
+	<i class="ic1circle animated infinite slideInUp"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1 em2">slideOutDown</strong>
+	<i class="ic1circle animated infinite slideOutDown"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideOutLeft</strong>
+	<i class="ic1circle animated infinite slideOutLeft"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideOutRight</strong>
+	<i class="ic1circle animated infinite slideOutRight"></i>
+</div>
+<div class="column">
+	<strong class="h1tm1">slideOutUp</strong>
+	<i class="ic1circle animated infinite slideOutUp"></i>
+</div>
+</div>
+<!-- /◇◆◇◆◇◆ even-grid -->
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Entrances">Entrances</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Misc">Misc</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Howitworks">How it works</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="AddingEffects">Adding Effects</h2>
+
+
+<pre class="mg0">
+<code class="xmp">
+/* ◇◆ @keyframes [IE10+] ◇◆ */
+/* @-webkit-keyframes kf1{} [CSS3]invalid)
+ */
+
+@keyframes <b class="em2">kf1ty-2</b>{
+	50%{transform:translateY(-2px);}
+}
+.kfx1ty2{animation:kfx1ty2 .6s ease-in-out infinite;}
+
+@keyframes <b class="em2">kf1tx-2</b>{
+	50%{transform:translateX(-2px);}
+}
+.kfx1tx2{animation:kfx1tx2 .6s ease-in-out infinite;}
+
+@keyframes <b class="em2">kf1ty20</b>{
+	50%{transform:translateY(20px);}
+}
+.kf1ty20{animation:kf1ty20 1.6s ease-in-out infinite;}
+
+@keyframes <b class="em2">kf1s120r-1</b>{
+	50%{transform:scale(1.2) rotate(-1deg);}
+}
+.kf1s120r-1{animation: kf1s120r-1 12s ease-in-out infinite;}
+
+@keyframes <b class="em2">kf1opacity1</b>{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+</code>
+</pre>
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+| 20170424~
+20190305.
+20190211. Adding Effects
+20180404.
+20170425.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

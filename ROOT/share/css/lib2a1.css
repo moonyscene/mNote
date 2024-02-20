@@ -1,0 +1,285 @@
+@charset "utf-8";
+/**
+ * @File Name : lib2.css
+ * @Description : Add Share Contents ..
+ * @Modification Information
+ * <pre>
+ * 수정일 | 수정자 | 수정내용
+ * 2020.07.07 | 문영신 | 최초 등록
+ * 2020.07.09 | 문영신 | 추가본문(6p+)
+ * 2020.07.24 | 문영신 | 유물 상세 추가
+ * </pre>
+ * @author 웹표준화실 문영신
+ * @since 2020.05.06
+ *
+ * @Copyright (C) IACTS.CO.KR All rights reserved.
+ */
+
+/*! CSS Library v0.1. 20190708~.  |
+ * 공유 콘텐츠 CSS 추가
+ * class 선택자에 정의한다. 우선순위 높은 id 선택자는 필연적일 때만 사용한다.
+ */
+
+/** Compatible! [IE9+] 20190112~ */
+
+/** Table of contents ))
+ | Overwrite
+ | Add Share Contents
+ | Components Library
+ | RWD
+ */
+
+
+/* All Device ◆◆◆◆◆◆◆◆◆◆ */
+
+
+/* … lib.css, lib1cp1.css )) Overwrite ◆◆◆ */
+
+
+
+/* ◇◆ Added to This Project, Content Styles to Share ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* 속성값 20200709 */
+.w100calc-5em{width:calc(100% - 5em);}
+.w100calc-4em{width:calc(100% - 4em);}
+.w100calc-3em{width:calc(100% - 3em);}
+
+
+/* 표to정의목록. 20200709 (유물검색 적용안함) */
+/* ◇◆ */
+@media all and (max-width:767px){
+	[class][class].table2dl1,
+	[class][class].table2dl1 thead,
+	[class][class].table2dl1 tbody,
+	[class][class].table2dl1 tr{
+		display:block;
+		overflow:hidden;
+	}
+	[class][class].table2dl1 th{
+		display:block;
+		float:left;
+		width:4em;
+		border-top-width:1px;
+	}
+	[class][class].table2dl1 td{
+		display:block;
+		border-top-width:1px;
+		overflow:hidden;
+	}
+	[class][class].table2dl1 tr:first-child th:nth-of-type(1),
+	[class][class].table2dl1 tr:first-child td:nth-of-type(1){
+		border-top-width:0;
+	}
+}
+
+
+/* ◇◆ #부가사이트$콘텐츠. 20200707~.Writer ◇◆ */
+
+
+/* 앨범목록(유물) 20200709 */
+.cp31album1{
+	position:relative;
+	margin:0 0 1.5em;
+	line-height:1.375;
+	overflow:hidden;
+}
+.cp31album1 a[href]{
+	text-decoration:none;
+}
+.cp31album1 .even-grid{
+	margin:-10px;
+}
+.cp31album1 .column{}
+.cp31album1 .w1{
+	display:block;
+	box-sizing:border-box; /* ☆ */
+	margin:10px;
+	padding:20px calc(10px + 4%);
+	border:1px solid #ddd;
+	overflow:hidden;
+}
+.cp31album1 [class*='w1c']{display:block;
+	box-sizing:border-box; /* ☆ */
+	overflow:hidden;
+}
+.cp31album1 .w1c1{
+	float:left;
+	width:25%;
+}
+.cp31album1 .w1c2{
+	padding-left:calc(10px + 4%);
+}
+/* ☆ */
+.cp31album1 .figs{display:block;}
+.cp31album1 a.figs:focus{ /* 초점 */
+	border:1px dotted #666;
+}
+.cp31album1 .f1{display:block;
+	position:relative;
+	margin:auto;
+	padding:0 0 140%; /* (420/300) */
+	background:#eee;
+	border-radius:6px;
+	text-align:center;
+	overflow:hidden;
+}
+.cp31album1 .f1p1{display:block;position:absolute;left:0;right:0;top:0;bottom:0;height:100%;}
+.cp31album1 .f1 img{display:block;position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;margin:auto;}
+/* ☆ */
+.cp31album1 .texts{display:block;}
+.cp31album1 .b1{
+	width:6em;
+	margin-bottom:0;
+}
+
+
+/* 아코디언 (FAQ) 20200709 */
+.cp31accordion1{
+	position:relative;
+}
+.cp31accordion1 .tab{
+	margin:-1px 0 0;
+	font-weight:400;
+	font-size:1em;
+}
+.cp31accordion1 .tab a.toggle{display:block;
+	padding:.75em 1em;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+	color:#333;
+	font-size:1em;
+	letter-spacing:-.03125em;
+	text-decoration:none;
+	overflow:hidden;
+}
+.cp31accordion1 .tab .ic1{display:inline-block;
+	float:left;
+	width:1.25em;
+	height:1.25em;
+	margin:0 .5em 0 0;
+	padding:.25em;
+	border-radius:9999px;
+	background:rgba(0,0,0, .2);
+	color:#fff;
+	line-height:1.25em;
+	text-align:center;
+	text-indent:-.0625em;
+	transition:.2s;
+}
+.cp31accordion1 .tab a.toggle .tg1{display:block;
+	padding:.125em 0;
+	overflow:hidden;
+}
+.cp31accordion1 .tab a.toggle .g1{
+	margin:0 .125em;
+}
+.cp31accordion1 .tab a.toggle .t1{}
+/* ☆ */
+.cp31accordion1 .tab a.toggle:hover .ic1,
+.cp31accordion1 .tab a.toggle:focus .ic1{
+	background:#09d;
+}
+.cp31accordion1 .tab a.toggle.on{
+	background:#09d;
+	color:#fff;
+}
+.cp31accordion1 .tab a.toggle.on .ic1{
+	background:#fff;
+	color:#09d;
+	font-weight:600;
+}
+/* ☆ */
+.cp31accordion1 .cont{
+	display:block !important;
+	max-height:0; /* ☆ */
+	padding:0 2em;
+	background:#f7f7f7;
+	font-size:.9375em;
+	word-break:keep-all;
+	overflow:hidden;
+	/* transition:.2s; */
+}
+.cp31accordion1 .cont.on{
+	max-height:999px; /* ☆ */
+	padding:2em;
+	/* transition:.4s; */
+}
+
+
+/* 내용 .even-grid (유물 상세..) 20200724 */
+.cp31view1{
+	position:relative;
+	margin:0 auto 30px;
+	padding:0 10px;
+	border-top:2px solid #333;
+	border-bottom:1px solid #c7c7c7;
+	line-height:1.375;
+}
+.cp31view1>.even-grid{}
+.cp31view1>.even-grid>.column{
+	padding:0 0 20px;
+}
+/* ◇◆ */
+@media all and (min-width:640px){
+	.cp31view1{
+		padding:36px 0;
+	}
+	.cp31view1>.even-grid{
+		margin:0 -20px;
+	}
+	.cp31view1>.even-grid>.column{
+		padding:0 20px;
+	}
+	.cp31view1>.even-grid>.column:first-child{
+		float:right;
+	}
+}
+
+
+/* 정보정의목록 20200724 */
+.cp31dlist4{
+	position:relative;
+	margin:1em 0;
+	line-height:1.375;
+}
+.cp31dlist4 .dl1{list-style:none;
+	margin:0;
+	padding:0;
+}
+.cp31dlist4 .di{display:block;
+	margin:8px 0;
+	overflow:hidden;
+}
+.cp31dlist4 .dt{float:left;
+	min-width:5em;
+	padding:.375em .75em;
+	border-radius:9999px;
+	background:#eee;
+	font-weight:400;
+	font-size:.875em;
+	text-align:center;
+}
+.cp31dlist4 .dd{display:block;
+	padding:.375em 0 0 .625em;
+	font-size:.9375em;
+	overflow:hidden;
+}
+
+
+/* ContentBlockName YYYYMMDD.Writer ◇◆ */
+
+
+/* RWD ◇◆◇◆ */
+/* ◇◆ */
+@media all and (min-width:640px){
+}
+/* ◇◆ */
+@media all and (min-width:768px){
+}
+/* ◇◆ */
+@media all and (min-width:1000px){
+}
+/* ◇◆ */
+@media all and (min-width:1260px){
+}

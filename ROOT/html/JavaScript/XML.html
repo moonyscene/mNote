@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - XML | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>XML</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#sitemap">sitemap.xml</a></li>
+<li><a href="#RSS">RSS</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="sitemap">sitemap.xml</h2>
+<xmp class="xmp">
+<menu name="메뉴1메뉴1메뉴1">
+<url>/sub/01/01_01.jsp</url>
+<param name="mAll">1,1,1,0</param>
+</xmp>
+
+<h2 id="RSS">RSS</h2>
+
+<xmp class="xmp">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>블로그 이름</title>
+<link>http://www.example.com/</link>
+<description>블로그 설명 (블로그에 대한 짤막한 소개글)</description>
+<item>
+	<title>두 번째 포스트의 제목</title>
+	<link>http://www.example.com/2007/02/foo.html</link>
+	<description>포스트 본문 전체, 또는 포스트의 첫부분 일부</description>
+	<pubDate>Tue, 06 Feb 2007 03:23:00 +0000</pubDate>
+	<guid>http://www.example.com/2007/02/foo.html</guid>
+</item>
+<item>
+	<title>첫 번째 포스트의 제목</title>
+	<link>http://www.example.com/2007/01/bar.html</link>
+	<description>포스트 본문 전체, 또는 포스트의 첫부분 일부</description>
+	<pubDate>Sat, 20 Jan 2007 03:38:00 +0000</pubDate>
+	<guid>http://www.example.com/2007/01/bar.html</guid>
+</item>
+<!-- 주석문이 필요할 경우에는 이렇게 -->
+</channel>
+</rss>
+</xmp>
+
+<h2>Tip</h2>
+
+<h3>Use</h3>
+
+
+
+<h2>with JSP, ASP, PHP</h2>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120320.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

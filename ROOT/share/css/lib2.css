@@ -1,0 +1,581 @@
+@charset "utf-8";
+/**
+ * @File Name : lib2.css
+ * @Description : Add Share Contents ..
+ * @Modification Information
+ * <pre>
+ * 수정일 | 수정자 | 수정내용
+ * 2020.11.10 | 문영신 | 최초 등록
+ * 2020.11.20 | 문영신 | 요구반영. 결함개선. 고도화.
+ * 2020.11.24 | 문영신 | 모니터링실 이용 신청 추가
+ * </pre>
+ * @author 웹표준화실 문영신
+ * @since 2020.11.10
+ *
+ * @Copyright (C) IACTS.CO.KR All rights reserved.
+ */
+
+/*! CSS Library v0.4. 20170608~. 20200925. 20201120. |
+ * 공유 콘텐츠 CSS 추가
+ * class 선택자에 정의한다. 우선순위 높은 id 선택자는 필연적일 때만 사용한다.
+ * 20201120. 고도화
+	 .fcontrol3 제거 ))) 대체 .fb1control1
+   | 반복 사용할 코드 lib.css 로 이동
+		.button.t1ic1b1
+	  .ui-datepicker
+		.a-view-larger
+		.fb1control1
+ */
+
+/** Compatible! [IE9+] 20190112~ */
+
+/** Table of contents ))
+ | Overwrite
+ | Add Share Contents
+ | Components Library
+ | RWD
+ */
+
+
+/* All Device ◆◆◆◆◆◆◆◆◆◆ */
+
+
+/* … lib.css, lib1cp1.css )) Overwrite ◆◆◆ */
+
+
+/* 추가색상 20200925 */
+.bdc-v1{border-color:#f3f4f6 !important;}
+.bgc-v1{background-color:#f3f4f6 !important;}
+.bgc-v2{background-color:#f1f4f7 !important;}
+[class].em11{color:#048;}
+
+
+/* 추가디자인제목 20201120 */
+.hb3.h3{
+	padding:0 0 0 calc(20px + .375em);
+	background:url(../../img/lib2/hb3h3bg.png) no-repeat 0 .25em;
+	color:#222;
+	font-size:1.375em; /* =22/16 */
+}
+.hb3.h4{
+	padding:0 0 0 calc(20px + .375em);
+	background:url(../../img/lib2/hb3h4bg.png) no-repeat 0 .5em;
+	color:#0072bc;
+	font-size:1.25em; /* =20/16 */
+}
+
+
+/* 폼콘트롤 20201120 */
+[class][class] input[disabled]{
+	border-color:transparent;
+	background:#f7f7f7;
+}
+[class][class] input[readonly]{
+	background:#f7f7f7;
+}
+
+
+/* 버튼 | 독립아이콘 ~20200417 */
+/* 20201120 */
+.ic1.indy.ic120paper3pen1{width:120px;height:120px;background-image:url(../../img/lib2/ic240a3c3paper3pen1.png);}
+
+
+/* 패널 20200117 */
+/* [class*='panel']>[class*='deco12']{
+	width:104px;height:104px;
+	margin:0 20px 0 10px;
+}
+[class*='panel']>.deco12clipboard1ckeck1{background-image:url(../../img/lib2/ic208a1c2clipboard1ckeck1.png);} */
+
+
+
+/* ◇◆ Added to This Project, Content Styles to Share ◇◆◇◆◇◆◇◆◇◆ */
+/* ◇◆ Components Library ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* 표 20201120 */
+.cp35table1{
+	margin:0 auto 2em;
+}
+.cp35table1 .branch{
+	float:left;
+	width:19px;
+	height:20px;
+	margin:-.5em .25em 0 .5em;
+	background:url(../../img/lib2/b1a1c2b1.png) no-repeat;
+}
+
+
+/* 대형전광판 20201120 */
+.cp35jumbotron1{
+	position:relative;
+	margin:1.375em 0;
+	padding:10px;
+	background:#f7f7f7 url(../../img/lib2/b1a1c2slash1.png);
+	text-align:center;
+	word-wrap:break-word;
+	word-break:keep-all;
+}
+.cp35jumbotron1 .wrap1{
+	padding:calc(18px + 4.286%) 6.25%; /* (18+(12/280)) (20/280) */
+	background:#fff;
+}
+.cp35jumbotron1 .ic1{} /* ))) .ic1.indy */
+.cp35jumbotron1 .tg1{}
+.cp35jumbotron1 .t1{display:block;
+	margin:.75em 0 0;
+	color:#333;
+	font-weight:600;
+	font-size:1.75em; /* (28/16) */
+	line-height:1.25;
+	letter-spacing:-.0625em;
+}
+.cp35jumbotron1 .t1 .em{
+	color:#00a5bb;
+}
+.cp35jumbotron1 .t2{display:block;
+	margin:.75em 0 0;
+	color:#888;
+	font-size:1.1875em; /* (19/16) */
+	line-height:1.5;
+}
+.cp35jumbotron1 .t2 .em{
+	color:#222;
+}
+.cp35jumbotron1 .btns{
+	margin:1.25em 0 0;
+}
+.cp35jumbotron1 .btns .button{
+	padding-left:2.5em;
+	padding-right:2.5em;
+	background:#202e70;
+}
+/* ◇◆ */
+@media all and (max-width:639px){
+	.cp35jumbotron1{
+		font-size:.875em;
+	}
+	.cp35jumbotron1 .ic1[class]{
+		width:80px;
+		height:80px;
+	}
+}
+
+
+/* 시간내비.이전다음 20201124 */
+.cp35time1nav1{
+	position:relative;
+	max-width:360px;
+	margin:0 auto 20px;
+	line-height:1.375;
+	letter-spacing:-.03125em;
+	text-align:center;
+}
+.cp35time1nav1 .month{
+	position:relative;
+	width:5em; /* ☆ */
+	margin:auto;
+	padding:0 40px;
+	font-size:36px;
+	line-height:40px;
+}
+.cp35time1nav1 .h1{
+	margin:0;padding:0;background:transparent;
+	font-weight:600;
+}
+.cp35time1nav1 .h1t1{color:#000;}
+.cp35time1nav1 .h1t2{color:#29b;}
+.cp35time1nav1 .em{color:#000;}
+.cp35time1nav1 .b1{display:inline-block;
+	position:absolute;top:50%;
+	width:40px;height:40px;
+	margin:-20px 0;
+	padding:0;
+	line-height:1;
+	vertical-align:middle;
+	text-decoration:none;
+	cursor:pointer;
+}
+.cp35time1nav1 .b1.prev{left:0;}
+.cp35time1nav1 .b1.next{right:0;}
+.cp35time1nav1 .b1 .ic1{display:inline-block;
+	position:absolute;left:50%;top:50%;
+	width:36px;height:36px;
+	margin:-18px;
+	background:url() no-repeat center center;
+	background-size:contain;text-indent:-9999px;
+	overflow:hidden;
+}
+.cp35time1nav1 .b1.prev .ic1{background-image:url(../../img/lib2/ic36a1c2left1.png);}
+.cp35time1nav1 .b1.next .ic1{background-image:url(../../img/lib2/ic36a1c2right1.png);}
+/* ☆ */
+.cp35time1nav1 .b2{display:inline-block;
+	position:absolute;right:0;top:50%;
+	box-sizing:border-box; /* ☆ */
+	height:36px;
+	margin:-18px;
+	padding:0 10px;
+	border:1px solid #bbb;
+	border-radius:9999px;
+	background:#fcfcfc;
+	color:#000;
+	font-size:0;
+	line-height:1;
+}
+.cp35time1nav1 .b2 .t1{display:inline-block;
+	color:inherit;
+	font-size:15px;
+	vertical-align:middle;
+}
+.cp35time1nav1 .b2 .ic1{display:inline-block;
+	float:none;
+	width:0;
+	height:100%;
+	margin:0;
+	background:url() no-repeat center center;
+	background-size:contain;
+	vertical-align:middle;
+}
+.cp35time1nav1 .b2.today .ic1{}
+
+
+/* 달력.예약현황.(각개클릭) 20201124 */
+.cp35timetable1schedule1{
+	position:relative;
+	margin:auto;
+	line-height:1.375;
+	letter-spacing:-.03125em;
+}
+/* 범례 표셀 메뉴 공통 */
+.cp35timetable1schedule1 .note{
+	margin:10px 0;
+	text-align:right;
+}
+.cp35timetable1schedule1 .menu{}
+.cp35timetable1schedule1 .menu a{display:inline-block;
+	box-sizing:border-box; /* ☆ */
+	margin:2px 0;
+	padding:.5625em;
+	border-radius:3px;
+	background:#666;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+.cp35timetable1schedule1 .menu a[href]:hover,
+.cp35timetable1schedule1 .menu a[href]:focus{
+	box-shadow:inset 0 0 99px 0 rgba(0, 0, 0, .5);
+}
+.cp35timetable1schedule1 .menu .t1{display:block;
+	font-size:.875em;
+	line-height:1.125;
+}
+.cp35timetable1schedule1 .menu .t1t1,
+.cp35timetable1schedule1 .menu .t1t2{display:inline-block;}
+.cp35timetable1schedule1 .menu .st1{background:#37b url(../../img/lib2/b1bg2s1.png);} /* 예약가능 */
+.cp35timetable1schedule1 .menu .st2{background:#959595 url(../../img/lib2/b1bg2s2.png);} /* 예약마감 */
+/* 범례 */
+.cp35timetable1schedule1 .note{
+	margin:10px 0;
+	text-align:right;
+}
+.cp35timetable1schedule1 .note a[class]{
+	margin:0 0 0 1em;
+	padding:0;
+	background:none;
+	white-space:nowrap;
+}
+.cp35timetable1schedule1 .note .ic1{display:inline-block;
+	float:none;
+	width:18px;
+	height:18px;
+	margin:0;
+	border-radius:3px;
+	background:#666;
+	overflow:hidden;
+	text-indent:-9999px;
+	vertical-align:middle;
+}
+.cp35timetable1schedule1 .note .t1{display:inline-block;
+	font-size:.875em;
+	vertical-align:middle;
+}
+.cp35timetable1schedule1 .note .st1{color:#37b;}
+.cp35timetable1schedule1 .note .st2{color:#555;}
+.cp35timetable1schedule1 .note .st1 .ic1{background:#37b url(../../img/lib2/b1bg2s1.png);}
+.cp35timetable1schedule1 .note .st2 .ic1{background:#959595 url(../../img/lib2/b1bg2s2.png);}
+/* 표 */
+.cp35timetable1schedule1 table.calendar1table1{table-layout:fixed;
+	clear:both;
+	width:100%;
+	margin:0 0 .5em;
+	border:0;
+	border-collapse:collapse;
+	border-top:2px solid #000;
+	font-size:.9375em;
+}
+.cp35timetable1schedule1 table.calendar1table1 th,
+.cp35timetable1schedule1 table.calendar1table1 td{
+	width:14.286%;
+	padding:30px 0 10px;
+	border:1px solid #ccc;
+	background:#f7f7f7;
+	font-weight:400; /* ((600 */
+	text-align:center;
+	vertical-align:top;
+}
+.cp35timetable1schedule1 table.calendar1table1 tr.day>th[scope]{ /* 우선순위! */
+	height:1em;
+	padding:.75em;
+	border:1px solid #ccc;
+	background:#f7f7f7;
+	color:#000; /* ☆ */
+	text-align:center;
+}
+.cp35timetable1schedule1 table.calendar1table1 tbody>tr:first-child>td{}
+.cp35timetable1schedule1 table.calendar1table1 tr.day th.sat,
+.cp35timetable1schedule1 table.calendar1table1 tr .sat .date{color:#07b;}
+.cp35timetable1schedule1 table.calendar1table1 tr.day th.sun,
+.cp35timetable1schedule1 table.calendar1table1 tr .sun .date,
+.cp35timetable1schedule1 table.calendar1table1 tr.day .hol,
+.cp35timetable1schedule1 table.calendar1table1 tr .hol .date{color:#e00;}
+.cp35timetable1schedule1 table.calendar1table1 td{background:#fff;}
+.cp35timetable1schedule1 table.calendar1table1 td .cell{
+	position:relative;
+}
+.cp35timetable1schedule1 table.calendar1table1 td .date{display:block;
+	position:absolute;left:0;
+	top:-30px; /* (td padding-top) */
+	margin:10px 10px 0;
+	color:#333;
+	font-weight:400;
+	text-align:left;
+}
+/* ☆ */
+.cp35timetable1schedule1 table.calendar1table1 td .menu{display:inline-block;
+	margin:4px;
+	vertical-align:middle;
+}
+.cp35timetable1schedule1 table.calendar1table1 td .menu a{
+	min-width:6em;
+}
+.cp35timetable1schedule1 table.calendar1table1 td .menu a:hover .t1,
+.cp35timetable1schedule1 table.calendar1table1 td .menu a:focus .t1{}
+/* ◇◆ */
+@media all and (max-width:414px){
+	.cp35timetable1schedule1{
+		zoom:.875; /* [~iOS13.3]bugFix) zoom 쓰려면 내부 font-size em값이어야 함 */
+	}
+}
+
+
+/* 라이트박스. 20201124 */
+/* 공통 */
+.cp35layer1lightbox1{display:none;
+	display:block !important; /* ☆ */
+	visibility:hidden;
+	z-index:100;
+	position:fixed;left:0;right:0;top:0;bottom:0;
+	/* background:rgba(0,0,0, .5); */
+	letter-spacing:-.03125em;
+	overflow:hidden;
+	overflow-y:auto;
+	opacity:0;
+	transition:.2s;
+}
+.cp35layer1lightbox1.on{
+	visibility:visible;
+	opacity:1;
+}
+.cp35layer1lightbox1>.wrap1{display:block;
+	height:100%;
+	padding:0 10px;
+	text-align:center;
+}
+.cp35layer1lightbox1>.wrap1:after{content:'';display:inline-block;
+	width:0;
+	height:100%;
+	vertical-align:middle;
+	overflow:hidden;
+}
+.cp35layer1lightbox1 .lightbox{display:inline-block;
+	position:relative;
+	box-sizing:border-box; /* ☆ */
+	width:98%; /* ☆ */
+	max-width:700px;
+	margin:3% -.25em;
+	background:#fff;
+	color:#555;
+	text-align:left;
+	overflow:hidden;
+	vertical-align:middle;
+	box-shadow:0 0 10px 0 rgba(0, 0, 0, .2);
+}
+/* ☆ */
+.cp35layer1lightbox1 .b1.close{float:left;
+	position:absolute;right:0;top:0;bottom:0;
+	width:2.625em; /* (1.375+.625*2) */
+	/* background:rgba(0,0,0, .25); */
+}
+.cp35layer1lightbox1 .b1.close>.ic1{float:left;
+	position:absolute;left:50%;top:50%;
+	width:20px;height:20px;
+	margin:-10px;
+	background:url(../../img/lib/b1x1c0.png) no-repeat center center;
+	text-indent:-9999px;overflow:hidden;
+}
+/* ☆ */
+.cp35layer1lightbox1 .hg1{
+	position:relative;
+	font-size:1.25em;
+}
+.cp35layer1lightbox1 .hg1 .h1{
+	margin:0;
+	padding:.5em 4.571%; /* () (32/700) */
+	background:#343b4d;
+	color:#fff;
+	font-weight:400;
+	font-size:1em;
+}
+.cp35layer1lightbox1 .h1t1{display:inline-block;
+	vertical-align:middle;
+}
+.cp35layer1lightbox1 .h1t2{display:inline-block;
+	position:relative;
+	margin:0 0 0 .5em;
+	padding:0 0 0 .5em;
+	font-weight:600;
+	vertical-align:middle;
+}
+.cp35layer1lightbox1 .h1t2:before{content:''; /*│*/
+	display:block;
+	position:absolute;left:0;top:50%;
+	width:0;
+	height:.625em;
+	margin:-.3125em 0;
+	border-left:1px solid rgba(255,255,255, .8);
+}
+.cp35layer1lightbox1 .cont{
+	padding:3.714%; /* (26/700) */
+	border:1px solid #678;
+	border-top:0;
+	font-size:.9375em;
+}
+/* ☆ */
+.cp35layer1lightbox1 .item{
+	padding:.25em 0;
+}
+.cp35layer1lightbox1 .item~.item{
+	border-top:1px solid #ddd;
+}
+/* ☆ */
+.cp35layer1lightbox1 .b2{float:right;
+	position:relative;
+	width:2.4em; /* (화면확인) */
+	height:2.4em;
+}
+.cp35layer1lightbox1 .b2>.ic1{float:left;
+	position:absolute;left:50%;top:50%;
+	width:15px;height:15px;
+	margin:-7.5px;
+	background:url(../../img/lib2/ic15a1c1down1.png) no-repeat center center;
+	transition:.2s;
+}
+/* ☆ */
+.cp35layer1lightbox1 .tgview{
+	display:none; /* ☆ */
+	clear:both;
+	margin:0 0 1em;
+	overflow:hidden;
+	overflow-x:auto;
+	/* transition:.6s; */
+}
+.cp35layer1lightbox1 .tgview table{
+	margin:.25em 0;
+}
+/* .item.on */
+.cp35layer1lightbox1 .item.on .tgview{
+	display:block;
+}
+.cp35layer1lightbox1 .item.on .b2>.ic1{
+	transform:rotate(180deg);
+}
+/* ◇◆ */
+@media all and (min-width:768px){
+	.cp35layer1lightbox1 .hg1{
+		font-size:2em;
+	}
+}
+
+
+/* cp35gallery1 20201124 */
+.cp35gallery1{
+	margin:0 0 1.5em;
+	border-top:2px solid #444;
+	border-bottom:1px solid #ccc;
+	line-height:1.375;
+	overflow:hidden;
+}
+.cp35gallery1 ul.even-grid{
+	overflow:hidden;
+}
+.cp35gallery1 ul.even-grid .column{
+	margin-top:-1px;
+	border-top:1px dashed #ddd;
+	padding-top:20px;
+	padding-bottom:10px;
+}
+.cp35gallery1 .a1{display:block;
+	text-decoration:none;
+	overflow:hidden;
+}
+.cp35gallery1 .a1 .f1{display:block;
+	position:relative;
+	margin:0 0 .75em;
+	padding-bottom:66.666%;
+	overflow:hidden;
+}
+.cp35gallery1 .a1 .f1p1{display:block;position:absolute;left:0;right:0;top:0;bottom:0;height:100%;overflow:hidden;}
+.cp35gallery1 .a1 .f1 img{display:block;
+	position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;
+	transition:.2s;
+}
+html.object-fit .cp35gallery1 .a1 .f1 img{ /* 20201124 [CR][EG] */
+	object-fit:cover;width:100%;height:100%;
+}
+/* ☆ */
+.cp35gallery1 .a1 .tg1{display:block;}
+.cp35gallery1 ul.lst1{
+	list-style:none;
+	margin:1em 0;
+	padding:0;
+}
+.cp35gallery1 ul.lst1 li{
+	margin:.5em 0;
+	padding:0 0 0 1em;
+	background:url(../../img/lib2/bu1.png) no-repeat .25em .5em;
+	color:#000;
+}
+/* ☆ */
+.cp35gallery1 .a1[href]:hover .f1 img,
+.cp35gallery1 .a1[href]:focus .f1 img{
+	transform:scale(1.1) rotate(.001deg);
+}
+
+
+/* ContentBlockName YYYYMMDD.Writer ◇◆ */
+
+
+/* RWD ◇◆◇◆ */
+/* ◇◆ */
+@media all and (max-width:767px){
+}
+/* ◇◆ */
+@media all and (min-width:768px){
+}
+/* ◇◆ */
+@media all and (min-width:1000px){
+}
+/* ◇◆ */
+@media all and (min-width:1260px){
+}

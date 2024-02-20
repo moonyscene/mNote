@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'DB(SQL) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>DB(SQL)</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Tutorial">Tutorial</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Basic">Basic</a></li>
+<li><a href="#misc">misc</a></li>
+<li><a href="#Link">Reference Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+<br />
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:59%;margin:0 1% 0 0;"><!-- contentsBlock -->
+
+<h2 id="Tutorial">DB(SQL) Tutorial</h2>
+
+<h3><cite><a href="http://opentutorials.org/course/195">생활코딩 - MySQL 수업</a></cite></h3>
+<p><!-- 동영상 위주고.. 정리된 텍스트는 별로 없다. --> 1.LightYellow) 텍스트 정리! 2.Yellow) 실습! 3.Green) 동영상 보자! </p>
+<div class="box3"><!-- box3 -->
+<span class="markingpen1"><!-- markingpen1 -->
+<span class="fade1">
+커버 페이지
+|| 데이터베이스란?
+|| 데이터베이스와 MYSQL
+| 설치
+| window
+| 리눅스(우분투)
+| Mac
+| 클라이언트
+| mysql monitor
+| phpMyAdmin
+| Navicat
+|| 데이터관리 - SQL
+| Database
+| Table
+| 삽입
+| 변경
+| 삭제
+| 조회
+| 그룹핑 (group by)
+| 정렬 (order)
+| index
+| JOIN
+|| 사용자 관리
+|| 프로그래밍과 연동
+|| 문제해결
+<!-- .fade1 --></span>
+<!-- .markingpen1 --></span>
+<!-- /box3 --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<pre>
+커버 페이지
+데이터베이스란?
+데이터베이스와 MYSQL
+<div class="box1"><!-- box1 -->
+<strong>데이터베이스란</strong>
+◦ 데이터의 저장소
+<strong>데이터베이스의 종류</strong>
+<div class="wsn"><!-- wsn -->
+<ul>
+<li>관계형 데이터베이스
+	<ul>
+	<li>MySQL, Oracle, MSSQL</li>
+	</ul>
+</li>
+<li>NoSQL
+	<ul>
+	<li><a href="http://opentutorials.org/course/72" target="_blank">mongodb</a></li>
+	<li><a href="http://nosql-database.org/" target="_blank">http://nosql-database.org/</a></li>
+	</ul>
+</li>
+</ul>
+[그림] Database Server, Database, Table, Column, Row, Field
+Databae Client : mysql monitor, phpMyAdmin Navicat, mysql query browser
+<!-- /wsn --></div>
+<!-- /box1 --></div>
+설치
+window
+리눅스(우분투)
+Mac
+클라이언트
+mysql monitor
+<div class="box1"><!-- box1 -->
+<strong>mysql monitor</strong>
+mysql서버의 번들로 제공하는 기본 프로그램
+명령어 기반
+<strong>사용법</strong>
+<kbd class="xmp">
+mysql -u아이디 -p비밀번호
+</kbd>
+<kbd class="xmp">
+mysql -h호스트주소 -p포트번호 -u아이디 -p비밀번호
+</kbd>
+<b>데이터베이스 생성</b>
+<code class="xmp">
+<b>CREATE DATABASE</b> music <b>CHARACTER SET</b> utf8 <b>COLLATE</b> utf8_general_ci;
+</code>
+<b>데이터베이스 선택</b>
+<code class="xmp">
+use music;
+</code>
+<b>테이블 생성</b>
+<code class="xmp">
+<b>CREATE TABLE</b> `favorite_music` (
+  `title` <b>varchar</b>(255) NOT NULL,
+  `musician` <b>varchar</b>(20) NOT NULL,
+  `duration` <b>varchar</b>(20) NOT NULL,
+  `album` <b>varchar</b>(30) NOT NULL
+) ENGINE=innodb;
+</code>
+<b>테이블에 데이터 추가</b>
+<code class="xmp">
+<b>INSERT INTO</b> favorite_music (`title`,`musician`, `duration`, `album`) <b>VALUES</b>(<i>'Chasing Pavements', '아델', '3:30', 19</i>);
+</code>
+<b>입력된 데이터 조회</b>
+<code class="xmp">
+<b>SELECT</b> * <b>FROM</b> favorite_music
+</code>
+<b>종료</b>
+<code class="xmp">
+mysql> exit;
+</code>
+<!-- /box1 --></div>
+phpMyAdmin
+<div class="box1"><!-- box1 -->
+<strong>phpMyAdmin</strong> : 웹기반으로 mysql을 제어할 수 있는 mysql-client
+<strong>다운로드</strong> : <a href="http://www.phpmyadmin.net/home_page/index.php" target="_blank">http://www.phpmyadmin.net/home_page/index.php</a>
+<strong>데비안(우분투 포함) 계열에서 phpMyAdmin 설치하기</strong>
+<kbd class="xmp">
+sudo apt-get install phpmyadmin
+</kbd>
+<!-- /box1 --></div>
+Navicat
+<div class="box1"><!-- box1 -->
+<strong>Navicat</strong> : GUI. 백업, 데이터 동기화, 모델링 도구 등 다양한 기능. 유료.
+<strong>다운로드</strong> : <a href="http://www.navicat.com/" target="_blank">http://www.navicat.com/</a>
+<!-- /box1 --></div>
+데이터관리 - SQL
+<div class="box1"><!-- box1 -->
+<strong>SQL</strong> : Structured Query Language, 데이터베이스에서 데이터를 저장하거나 얻기 위해서 사용하는 표준화된 언어.
+<strong>자료</strong>
+<div class="wsn"><!-- wsn -->
+<ul>
+<li><a href="http://dev.mysql.com/doc/index.html" target="_blank"><span style="text-decoration: underline;">mysql 공식 메뉴얼</span></a></li>
+<li><a href="http://www.mysqlkorea.co.kr/sub.html?mcode=manual&amp;scode=01&amp;lang=k" target="_blank"><span style="text-decoration: underline;">mysql 한글 메뉴얼</span></a></li>
+<li><a href="http://www.w3schools.com/sql/default.asp" target="_blank">w3school</a></li>
+<li><a href="http://cse.unl.edu/~sscott/ShowFiles/SQL/CheatSheet/SQLCheatSheet.html" target="_blank">cheatsheet</a></li>
+<li><a href="http://database.sarang.net/?criteria=mysql" target="_blank">데이터베이스 사랑넷</a></li>
+</ul>
+<!-- /wsn --></div>
+<!-- /box1 --></div>
+Database
+<div class="box1"><!-- box1 -->
+<strong>Database</strong>
+데이터가 실질적으로 적재되는 테이블들을 분류하는 상위 개념
+<strong>SQL</strong>
+<b>생성</b>
+<code class="xmp">
+<b>CREATE DATABASE</b> `데이터베이스명` <b>CHARACTER SET</b> utf8 <b>COLLATE</b> utf8_general_ci;
+</code>
+<b>삭제</b>
+<code class="xmp">
+<b>DROP DATABASE</b> `데이터베이스명`;
+</code>
+<b>열람</b>
+<code class="xmp">
+<b>SHOW DATABASES</b>;
+</code>
+<b>선택</b>
+<code class="xmp">
+<b>USE</b> <i>`데이터베이스명`</i>
+</code>
+<!-- /box1 --></div>
+Table
+<div class="box1"><!-- box1 -->
+<strong>Table</strong> : 데이터가 실질적으로 저장되는 저장소
+<strong>스키마(schema)란?</strong> : 테이블에 적재될 데이터의 구조와 형식을 정의 하는 것
+<b>테이블 생성</b>
+<code class="xmp">
+CREATE TABLE table_name (
+    칼럼명1 data_type,
+    칼럼명2 data_type
+)
+</code>
+<code class="xmp">
+CREATE TABLE `student` (
+    `id`  tinyint NOT NULL ,
+    `name`  char(4) NOT NULL ,
+    `sex`  enum('남자','여자') NOT NULL ,
+    `address`  varchar(50) NOT NULL ,
+    `birthday`  datetime NOT NULL ,
+    PRIMARY KEY (`id`)
+);
+</code>
+<b>테이블 리스트</b>
+<code class="xmp">
+SHOW tables;
+</code>
+<b>테이블 스키마 열람</b>
+<code class="xmp">
+DESC `테이블명`
+</code>
+<b>테이블 제거</b>
+<code class="xmp">
+DROP TABLE `테이블명`
+</code>
+<strong>데이터타입</strong> <a href="http://ra2kstar.tistory.com/82">※ MySQL 데이터 타입</a>
+<div class="wsn"><!-- wsn -->
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<tbody>
+<tr>
+<th scope="row" style="width:125px;">CHAR( )</th>
+<td>0 to 255 고정문자 길이</td>
+</tr>
+<tr>
+<th scope="row">VARCHAR( )</th>
+<td>0~65535 가변 문자 길이</td>
+</tr>
+<tr>
+<th scope="row">TINYTEXT</th>
+<td>최대 255 문자길이</td>
+</tr>
+<tr>
+<th scope="row">TEXT</th>
+<td>최대 65535 문자길이</td>
+</tr>
+<tr>
+<th scope="row">BLOB</th>
+<td>최대 65535 문자길이</td>
+</tr>
+<tr>
+<th scope="row">MEDIUMTEXT</th>
+<td>최대 16777215 문자길이</td>
+</tr>
+<tr>
+<th scope="row">MEDIUMBLOB</th>
+<td>최대 16777215 문자길이</td>
+</tr>
+<tr>
+<th scope="row">LONGTEXT</th>
+<td>최대 4294967295 문자길이</td>
+</tr>
+<tr>
+<th scope="row">LONGBLOB</th>
+<td>최대 4294967295 문자길이</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<tbody>
+<tr>
+<th scope="row" style="width:125px;">TINYINT( )</th>
+<td>-128 ~ 127 정수형<br>
+0 ~ 255 정수형, UNSIGNED</td>
+</tr>
+<tr>
+<th scope="row">SMALLINT( )</th>
+<td>-32768 ~ 32767, 정수형<br>
+0 ~ 65535, 정수형, UNSIGNED</td>
+</tr>
+<tr>
+<th scope="row">MEDIUMINT( )</th>
+<td>-8388608 to 8388607, 정수형<br>
+0 to 16777215 , 정수형, UNSIGNED</td>
+</tr>
+<tr>
+<th scope="row">INT( )</th>
+<td>-2147483648 ~ 2147483647 정수형<br>
+0 ~ 4294967295, 정수형, UNSIGNED</td>
+</tr>
+<tr>
+<th scope="row">BIGINT( )</th>
+<td>-9223372036854775808 ~ 9223372036854775807, 정수형<br>
+0 ~ 18446744073709551615, 정수형, UNSIGNED.</td>
+</tr>
+<tr>
+<th scope="row">FLOAT</th>
+<td>작은 부동소수점</td>
+</tr>
+<tr>
+<th scope="row">DOUBLE( , )</th>
+<td>큰 부동소수점</td>
+</tr>
+<tr>
+<th scope="row">DECIMAL( , )</th>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<tbody>
+<tr>
+<th scope="row" style="width:125px;">DATE</th>
+<td>YYYY-MM-DD.</td>
+</tr>
+<tr>
+<th scope="row">DATETIME</th>
+<td>YYYY-MM-DD HH:MM:SS.</td>
+</tr>
+<tr>
+<th scope="row">TIMESTAMP</th>
+<td>YYYYMMDDHHMMSS.</td>
+</tr>
+<tr>
+<th scope="row">TIME</th>
+<td>HH:MM:SS.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<tbody>
+<tr>
+<th scope="row" style="width:125px;">ENUM ( )</th>
+<td>정해진 값을 강제</td>
+</tr>
+<tr>
+<th scope="row">SET</th>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<!-- /wsn --></div>
+<!-- /box1 --></div>
+삽입
+<div class="box1"><!-- box1 -->
+<strong>INSERT</strong> : 테이블에 데이터를 삽입
+문법
+<code class="xmp">
+INSERT INTO table_name VALUES (value1, value2, value3,...)
+INSERT INTO table_name (column1, column2, column3,...) VALUES (value1, value2, value3,...)
+</code>
+예제
+<code class="xmp">
+INSERT INTO `student` VALUES ('2', 'leezche', '여자', '서울', '2000-10-26');
+INSERT INTO `student` (`id`, `name`, `sex`, `address`, `birthday`) VALUES (
+</code>
+-- [m] 계속해서.. SQL문. 변경, 삭제, 조회(+그룹핑,정렬까지) 학습하기 위해서는 아래 코드로 데이터를 입력하도록 하자!
+<code class="xmp">
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(4) NOT NULL,
+  `sex` enum('남자','여자') NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `birthday` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  
+INSERT INTO `student` VALUES (1, '이숙경', '여자', '청주', '1982-11-16 00:00:00');
+INSERT INTO `student` VALUES (2, '박재숙', '남자', '서울', '1985-10-26 00:00:00');
+INSERT INTO `student` VALUES (3, '백태호', '남자', '경주', '1989-2-10 00:00:00');
+INSERT INTO `student` VALUES (4, '김경훈', '남자', '제천', '1979-11-4 00:00:00');
+INSERT INTO `student` VALUES (8, '김정인', '남자', '대전', '1990-10-1 00:00:00');
+INSERT INTO `student` VALUES (6, '김경진', '여자', '제주', '1985-1-1 00:00:00');
+INSERT INTO `student` VALUES (7, '박경호', '남자', '영동', '1981-2-3 00:00:00');
+</code>
+
+<!-- /box1 --></div>
+변경
+<div class="box1"><!-- box1 -->
+<strong>UPDATE</strong> : 데이터를 수정
+문법
+<code class="xmp">
+UPDATE 테이블명 SET 컬럼1=컬럼1의 값, 컬럼2=컬럼2의 값 WHERE 대상이 될 컬럼명=컬럼의 값
+</code>
+예제
+<code class="xmp">
+UPDATE `student` SET address='서울';
+UPDATE `student` SET name='이진경' WHERE id=1;
+UPDATE `student` SET name='이고잉', birthday='2001-4-1' WHERE id=3;
+</code>
+<strong>ALTER</strong> : 테이블 스키마를 변경
+참고 : <a href="http://sunkyu.tistory.com/71541" target="_blank">[MySQL] alter table 명령어</a>
+<!-- /box1 --></div>
+삭제
+<div class="box1"><!-- box1 -->
+<strong>DELETE</strong> : 행단위로 데이터를 삭제
+문법
+<code class="xmp">
+DELETE FROM 테이블명 [WHERE 삭제하려는 칼럼 명=값]
+</code>
+예제
+<code class="xmp">
+DELETE FROM student WHERE id = 2;
+</code>
+<strong>TRUNCATE</strong> : 테이블의 전체 데이터를 삭제.
+테이블에 외부키(foreign key)가 없다면 DELETE보다 훨씬 빠르게 삭제됨
+문법
+<code class="xmp">
+TRUNCATE 테이블명
+</code>
+예제
+<code class="xmp">
+TRUNCATE student;
+</code>
+<strong>DROP TABLE</strong> : 테이블을 삭제한다.
+문법
+<code class="xmp">
+DROP TABLE 테이블명;
+</code>
+예제
+<code class="xmp">
+DROP TABLE student;
+</code>
+<!-- /box1 --></div>
+조회
+<div class="box1"><!-- box1 -->
+<strong>SELECT</strong> : 테이블에서 데이터를 조회
+문법
+<code class="xmp">
+SELECT 칼럼명1, 칼럼명2 
+    [FROM 테이블명 ] 
+    [GROUP BY 칼럼명] 
+    [ORDER BY 칼럼명 [ASC | DESC]] 
+    [LIMIT offset, 조회 할 행의 수]
+</code>
+예제
+<code class="xmp">
+SELECT * FROM student;
+SELECT name, birthday FROM student;
+SELECT * FROM student WHERE id=3;
+SELECT * FROM student WHERE sex='남자' AND address='서울';
+SELECT * FROM student WHERE sex='여자' OR address='서울';
+SELECT * FROM student LIMIT 1;
+SELECT * FROM student LIMIT 1,1;
+SELECT * FROM student LIMIT 2,1;
+SELECT * FROM student LIMIT 3,1;
+SELECT * FROM student WHERE sex='남자' LIMIT 2;
+</code>
+<!-- /box1 --></div>
+그룹핑 (group by)
+<div class="box1"><!-- box1 -->
+<strong>GROUP BY</strong> : 특정 칼럼을 기준으로 데이터를 그룹핑함
+문법
+<code class="xmp">
+SELECT * FROM 테이블명 <b>GROUP BY</b> 그룹핑 할 기준 칼럼명
+</code>
+예제
+<code class="xmp">
+SELECT sex FROM student <b>GROUP BY</b> sex;
+SELECT sex,sum(distance), avg(distance) FROM student <b>GROUP BY</b> sex;
+</code>
+<!-- /box1 --></div>
+정렬 (order)
+<div class="box1"><!-- box1 -->
+<strong>ORDER</strong> : 지정된 칼럼을 기준으로 행을 정렬
+문법
+<code class="xmp">
+SELECT * FROM 테이블명 <b>ORDER BY</b> 정렬의 기준으로 사용할 열 [DESC | ASC]
+</code>
+예제
+<code class="xmp">
+SELECT * FROM student <b>ORDER BY</b> distance <b>DESC</b>;
+SELECT * FROM student <b>ORDER BY</b> distance <b>DESC</b>, address <b>ASC</b>;
+</code>
+<!-- /box1 --></div>
+index
+<div class="box1"><!-- box1 -->
+<strong>index</strong> : 색인, 조회할 때 원하는 행을 빠르게 찾을 수 있게 준비해둔 데이터
+<strong>인덱스의 종류</strong>
+primary: 중복되지 않는 유일한 키
+normal : 중복을 허용하는 인덱스
+unique : 중복을 허용하지 않는 유일한 키
+foreign : 다른 테이블과의 관계성을 부여하는 키
+full text : 자연어 검색, myisam에서만 지원
+<strong>예제</strong>
+<code class="xmp">
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `name` char(4) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `department` enum('국문과','영문과','컴퓨터공학과','전자공학과','물리학과') NOT NULL,
+  `introduction` text NOT NULL,
+  `number` char(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_number` (`number`) USING BTREE,
+  KEY `idx_department` (`department`),
+  KEY `idx_department_name` (`department`,`address`),
+  FULLTEXT KEY `idx_introduction` (`introduction`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+ 
+INSERT INTO `student` VALUES (1, '이숙경', '청주', '컴퓨터공학과', '저는 컴퓨터 공학과에 다닙니다. computer', '0212031');
+INSERT INTO `student` VALUES (2, '박재숙', '서울', '영문과', '저는 영문과에 다닙니다.', '0512321');
+INSERT INTO `student` VALUES (3, '백태호', '경주', '컴퓨터공학과', '저는 컴퓨터 공학과에 다니고 경주에서 왔습니다.', '0913134');
+INSERT INTO `student` VALUES (4, '김경훈', '제천', '국문과', '제천이 고향이고 국문과에 다닙니다.', '9813413');
+INSERT INTO `student` VALUES (6, '김경진', '제주', '국문과', '이번에 국문과에 입학한 김경진이라고 합니다. 제주에서 왔어요.', '0534543');
+INSERT INTO `student` VALUES (7, '박경호', '제주', '국문과', '박경호입니다. 잘 부탁드립니다.', '0134511');
+INSERT INTO `student` VALUES (8, '김정인', '대전', '영문과', '김정인입니다. 대전에서 왔고, 영문과에 다닙니다.', '0034543');
+</code>
+<b>primary key</b>
+테이블 전체를 통틀어서 중복되지 않는 값을 지정해야 한다.
+where 문을 이용해서 데이터를 조회할 때 가장 고속으로 데이터를 가져올 수 있다.
+테이블마다 딱 하나의 primary key를 가질 수 있다.
+<code class="xmp">
+select * from student where id=3;
+</code>
+<b>unique key</b>
+테이블 전체를 통틀어서 중복되지 않는 값을 지정해야 한다. (== primary key)
+고속으로 데이터를 가져올 수 있다.
+여러개의 unique key를 지정할 수 있다.
+<code class="xmp">
+select * from student where number=0534543;
+</code>
+<b>normal key</b>
+중복을 허용한다.
+primary, unique 보다 속도가 느리다.
+여러개의 키를 지정할 수 있다.
+<code class="xmp">
+select * from student where department='국문과'
+</code>
+<b>Full Text</b>
+mysql의 기본설정(ft_min_word_len)이 4로 되어 있기 때문에 최소 4글자 이상을 입력하거나 이 값을 조정해야 한다.
+mysql은 전문 검색 엔진이 아니기 때문에 한글 검색이 잘 안된다.
+전문검색엔진으로 lucene, sphinx 참고
+스토리지 엔진 중 myisam에서만 사용가능
+<code class="xmp">
+SELECT introduction, MATCH(introduction) AGAINST('영문과에') FROM student WHERE MATCH (introduction) AGAINST('영문과에');
+</code>
+<b>중복키</b>
+하나의 키에 여러개의 칼럼을 포함
+<code class="xmp">
+select * from student where department='국문과' AND address='제주';
+</code>
+<strong>인덱스의 정의 방법</strong>
+자주 조회되는 칼럼에 적용
+조회 시 오랜시간을 소모하는 컬럼에 적용
+데이터가 긴 경우 인덱스를 사용하지 않는다.
+<!-- /box1 --></div>
+JOIN
+<div class="box1"><!-- box1 -->
+<strong>여러개의 테이블 사용하기</strong>
+데이터의 규모가 커지면서 하나의 테이블로 정보를 수용하기가 어려워지면 테이블을 분활하고 테이블 간의 관계성을 부여한다.
+<strong>예제</strong>
+<code class="xmp">
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(4) NOT NULL,
+  `sex` enum('남자','여자') NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `distance` INT NOT NULL,
+  `birthday` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+   
+INSERT INTO `student` VALUES (2, '박재숙', '남자', '서울',  10, '1985-10-26 00:00:00');
+INSERT INTO `student` VALUES (1, '이숙경', '여자', '청주', 200, '1982-11-16 00:00:00');
+INSERT INTO `student` VALUES (3, '백태호', '남자', '경주', 350, '1989-2-10 00:00:00');
+INSERT INTO `student` VALUES (4, '김경훈', '남자', '제천', 190, '1979-11-4 00:00:00');
+INSERT INTO `student` VALUES (8, '김정인', '남자', '제주', 400, '1990-10-1 00:00:00');
+INSERT INTO `student` VALUES (6, '김경진', '여자', '제주', 400, '1985-1-1 00:00:00');
+INSERT INTO `student` VALUES (7, '박경호', '남자', '영동', 310, '1981-2-3 00:00:00');
+</code>
+<b>위의 예제 중 address는 distnace와 관련되어 있기 때문에 location이라는 별도의 테이블로 분할 할 수 있다.</b>
+<code class="xmp">
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` tinyint(4) NOT NULL,
+  `name` char(4) NOT NULL,
+  `sex` enum('남자','여자') NOT NULL,
+  `location_id` tinyint(4) NOT NULL,
+  `birthday` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ 
+DROP TABLE IF EXISTS `location`;
+CREATE TABLE `location` (
+`id`  tinyint UNSIGNED NOT NULL AUTO_INCREMENT ,
+`name`  varchar(20) NOT NULL ,
+`distance`  tinyint UNSIGNED NOT NULL ,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;;
+</code>
+<code class="xmp">
+INSERT INTO `location` VALUES (1, '서울', 10);
+INSERT INTO `location` VALUES (2, '청주', 200);
+INSERT INTO `location` VALUES (3, '경주', 255);
+INSERT INTO `location` VALUES (4, '제천', 190);
+INSERT INTO `location` VALUES (5, '대전', 200);
+INSERT INTO `location` VALUES (6, '제주', 255);
+INSERT INTO `location` VALUES (7, '영동', 255);
+INSERT INTO `location` VALUES (8, '광주', 255);
+</code>
+<code class="xmp">
+INSERT INTO `student` VALUES (1, '이숙경', '여자', 1, '1982-11-16 00:00:00');
+INSERT INTO `student` VALUES (2, '박재숙', '남자', 2, '1985-10-26 00:00:00');
+INSERT INTO `student` VALUES (3, '백태호', '남자', 3, '1989-2-10 00:00:00');
+INSERT INTO `student` VALUES (4, '김경훈', '남자', 4, '1979-11-4 00:00:00');
+INSERT INTO `student` VALUES (6, '김경진', '여자', 5, '1985-1-1 00:00:00');
+INSERT INTO `student` VALUES (7, '박경호', '남자', 6, '1981-2-3 00:00:00');
+INSERT INTO `student` VALUES (8, '김정인', '남자', 5, '1990-10-1 00:00:00');
+</code>
+<strong>JOIN</strong>
+테이블간의 관계성에 따라서 복수의 테이블을 결합, 하나의 테이블인 것처럼 결과를 출력
+<strong>JOIN의 종류</strong>
+<b>OUTTER JOIN</b> : 매칭되는 행이 없어도 결과를 가져오고 매칭되는 행이 없는 경우 NULL로 표시한다.
+LEFT JOIN과 RIGHT JOIN이 있다.
+<b>INNER JOIN</b> : 조인하는 두개의 테이블 모두에 데이터가 존재하는 행에 대해서만 결과를 가져온다.
+<strong>예제</strong>
+<b>LEFT JOIN</b>
+가장 많이 사용되는 조인의 형태
+<code class="xmp">
+l.distance  FROM student AS s LEFT JOIN location AS l ON s.location_id = l.id;
+</code>
+<b>OUTTER JOIN과 INNER JOIN의 차이</b>
+Location에서 제주를 삭제 후 OUTTER JOIN(LEFT JOIN)과 INNER JOIN의 차이를 비교
+<code class="xmp">
+DELETE FROM location WHERE name='제주'; 
+SELECT s.name, s.location_id, l.name AS address, l.distance  FROM student AS s LEFT JOIN location AS l ON s.location_id = l.id; 
+SELECT s.name, s.location_id, l.name AS address, l.distance  FROM student AS s INNER JOIN location AS l ON s.location_id = l.id;
+</code>
+<a href="http://dsin.wordpress.com/2013/03/16/sql-join-cheat-sheet/">※ [이미지] : JOIN의 종류에 따른 결과를 보여준다.</a>
+<!-- /box1 --></div>
+사용자 관리
+<div class="box1"><!-- box1 -->
+<strong>권한이란?</strong>
+사용자에 따라서 접근할 수 있는 데이터와 사용할 수 있는 기능을 제한
+<strong>GRANT</strong> : 사용자를 생성하고, 권한을 부여함
+<b>문법</b>
+<code class="xmp">
+GRANT 권한 ON 데이터베이스.테이블 TO '아이디'@'호스트' IDENTIFIED BY '비밀번호'
+</code>
+<b>사용자의 제한</b>
+데이터베이스 서버에 접속하는 사용자를 제한한다.
+아이디@호스트 중에서 호스트는 접속자가 사용하는 머신의 IP를 의미한다. IP를 특정하지 않으려면 '%'를 사용
+egoing@123.100.100.100 : IP 123.100.100.100인 머신에서 접속한 ID egoing
+egoing@% : IP 관계없이 ID가 egoing인 사용자
+<b>대상의 제한</b>
+사용자가 제어할 대상이 되는 데이터베이스, 테이블을 지정
+*를 사용하면 모든 데이터베이스, 테이블을 제어 대상으로 함
+<b>권한(기능)의 제한</b>
+사용할 수 있는 권한을 제한 (권한은 아래 표 참조)
+<b>권한 템플릿</b>
+<table border="1" class="t3 wsn" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:15%;" /><col />
+<tbody>
+<tr>
+<th scope="row">개발자</th>
+<td>DELETE, INSERT, SELECT, UPDATE</td>
+</tr>
+<tr>
+<th scope="row">설계자</th>
+<td>ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, UPDATE, DELETE, INSERT, SELECT, UPDATE</td>
+</tr>
+<tr>
+<th scope="row">DBA</th>
+<td>ALL</td>
+</tr>
+</tbody>
+</table>
+<b>예제</b>
+ID가 dev, 비밀번호가 1234인 사용자가 class 데이터베이스만 접근하게 하려면 아래와 같이 한다.
+<code class="xmp">
+GRANT DELETE,INSERT,SELECT,UPDATE ON class.* TO `dev`@`%` IDENTIFIED BY '1234';
+</code>
+ID가 archi, 비밀번호가 1234이고 클라이언트의 IP가 100.100.100.100인 사용자가 모든 데이터베이스에 접근하면서 설계자의 권한 템플릿을 이용할 때
+<code class="xmp">
+GRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, UPDATE, DELETE, INSERT, 
+</code>
+<strong>SHOW GRANTS</strong> : 자신의 권한이나, 특정 사용자의 권한을 열람
+문법
+<code class="xmp">
+SHOW GRANTS [FOR 사용자]
+</code>
+예제
+<code class="xmp">
+SHOW GRANTS FOR dev;
+</code>
+<strong>REVOKE</strong> : 사용자의 권한을 제거
+문법
+<code class="xmp">
+REVOKE 권한 ON 데이터베이스.테이블 FROM 사용자
+</code>
+예제
+사용자 dev의 데이터베이스 class의 DELETE 권한을 제거
+<code class="xmp">
+revoke DELETE on class.* from dev;
+</code>
+<strong>DROP USER</strong> : 사용자를 삭제
+문법
+<code class="xmp">
+DROP USER user [, user] ...
+</code>
+예제
+<code class="xmp">
+DROP USER `dev`@`%`;
+</code>
+<strong>권한 테이블</strong>
+<table border="1" class="t3 wsn" summary="Permissible Privileges for GRANT and REVOKE"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<thead>
+<tr>
+<th>Privilege</th>
+<th>권한이 적용되는 대상(context)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_create"><code class="literal">CREATE</code></a></td>
+<td>databases, tables, or indexes</td>
+<td>데이터베이스, 테이블 생성</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_drop"><code class="literal">DROP</code></a></td>
+<td>databases, tables, or views</td>
+<td>데이터베이스,테이블 삭제</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_grant-option"><code class="literal">GRANT OPTION</code></a></td>
+<td>databases, tables, or stored routines</td>
+<td>사용자들의 권한을 부여하거나 제거</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_lock-tables"><code class="literal">LOCK TABLES</code></a></td>
+<td>databases</td>
+<td>테이블 잠그기</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_alter"><code class="literal">ALTER</code></a></td>
+<td>tables</td>
+<td>테이블의 구조를 변경</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_delete"><code class="literal">DELETE</code></a></td>
+<td>tables</td>
+<td>테이블의 행을 삭제</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_index"><code class="literal">INDEX</code></a></td>
+<td>tables</td>
+<td>인덱스를 생성하거나 삭제</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_insert"><code class="literal">INSERT</code></a></td>
+<td>tables or columns</td>
+<td>행 추가</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_select"><code class="literal">SELECT</code></a></td>
+<td>tables or columns</td>
+<td>행 조회</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_update"><code class="literal">UPDATE</code></a></td>
+<td>tables or columns</td>
+<td>행 변경</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_create-temporary-tables"><code class="literal">CREATE TEMPORARY TABLES</code></a></td>
+<td>tables</td>
+<td>임시 테이블의 생성</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_create-view"><code class="literal">CREATE VIEW</code></a></td>
+<td>views</td>
+<td>뷰의 생성</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_show-view"><code class="literal">SHOW VIEW</code></a></td>
+<td>views</td>
+<td>SHOW CREATE VIEW</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_alter-routine"><code class="literal">ALTER ROUTINE</code></a></td>
+<td>stored routines</td>
+<td>프로시저, 함수의 변경 삭제</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_create-routine"><code class="literal">CREATE ROUTINE</code></a></td>
+<td>stored routines</td>
+<td>프로시저, 함수의 생성</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_execute"><code class="literal">EXECUTE</code></a></td>
+<td>stored routines</td>
+<td>프로시저, 함수의 실행</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_file"><code class="literal">FILE</code></a></td>
+<td>file access on server host</td>
+<td><ul>
+<li>
+LOAD DATA INFILE</li>
+<li>
+SELECT..INTO OUTFILE</li>
+<li>
+LOAD_FILE()</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_create-user"><code class="literal">CREATE USER</code></a></td>
+<td>server administration</td>
+<td><ul>
+<li>
+CREATE USER</li>
+<li>
+DROP USER</li>
+<li>
+RENAME USER</li>
+<li>
+REVOKE ALL PRIVILEGES</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_process"><code class="literal">PROCESS</code></a></td>
+<td>server administration</td>
+<td>타인의 thread 실행 상태를 열람<br>
+<ul>
+<li>
+SHOW PROCESSLIST</li>
+<li>
+<em>mysqladmin processlist</em></li>
+</ul>
+<p>
+<em>자신의 thread는 언제든지 열람가능</em></p>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_reload"><code class="literal">RELOAD</code></a></td>
+<td>server administration</td>
+<td><ul>
+<li>
+flush-hosts</li>
+<li>
+flush-logs</li>
+<li>
+flush-privileges</li>
+<li>
+flush-status</li>
+<li>
+flush-tables</li>
+<li>
+flush-threads</li>
+<li>
+refresh</li>
+<li>
+reload</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_replication-client"><code class="literal">REPLICATION CLIENT</code></a></td>
+<td>server administration</td>
+<td><ul>
+<li>
+SHOW MASTER STATUS</li>
+<li>
+SHOW SLAVE STATUS</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_replication-slave"><code class="literal">REPLICATION SLAVE</code></a></td>
+<td>server administration</td>
+<td>리플리케이션에 참가하고 있는 슬레이브 서버들이 마스터 서버(권한을 부여하는 서버) 접속해서 마스터의 변경사항을 동기화</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_show-databases"><code class="literal">SHOW DATABASES</code></a></td>
+<td>server administration</td>
+<td><ul>
+<li>
+SHOW DATABASES</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_shutdown"><code class="literal">SHUTDOWN</code></a></td>
+<td>server administration</td>
+<td><ul>
+<li>
+mysqladmin shutdown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_super"><code class="literal">SUPER</code></a></td>
+<td>server administration</td>
+<td>다른 클라이언트를 종료하거나, 서버의 동작 변경
+<ul>
+<li>
+CHANGE MASTER TO</li>
+<li>
+KILL</li>
+<li>
+mysqladmin kill</li>
+<li>
+PURGE BINARY LOGS</li>
+<li>
+SET GLOBAL</li>
+<li>
+기타등등</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="http://dev.mysql.com/doc/refman/5.0/en/privileges-provided.html#priv_all"><code class="literal">ALL [PRIVILEGES]</code></a></td>
+<td>server administration</td>
+<td>모든 권한 허용</td>
+</tr>
+</tbody>
+</table>
+<!-- /box1 --></div>
+프로그래밍과 연동
+<div class="box1"><!-- box1 -->
+<strong>프로그래밍과 데이터베이스의 관계</strong>
+프로그래밍과 데이터베이스는 무관하다.
+데이터베이스는 독립적인 시스템으로 프로그래밍과 상관없이 사용될 수 있다.
+데이터베이스를 이해하고 있다면 여기에 프로그래밍을 결합해서 더 많은 일을 할 수 있다.
+<strong>API</strong>
+데이터베이스는 API를 제공한다.
+PHP와 같은 프로그래밍 언어들은 이 API를 이용해서 데이터베이스를 이용한다.
+<strong>PHP와 MYSQL</strong>
+가장 많이 사용되는 조합
+<strong>데이터베이스의 내용을 웹으로 출력하기</strong>
+<b>STEP1. 데이터입력</b>
+<code class="xmp">
+CREATE DATABASE `class` CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE class;
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `name` char(4) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `department` enum('국문과','영문과','컴퓨터공학과','전자공학과','물리학과') NOT NULL,
+  `introduction` text NOT NULL,
+  `number` char(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_number` (`number`) USING BTREE,
+  KEY `idx_department` (`department`),
+  KEY `idx_department_name` (`department`,`address`),
+  FULLTEXT KEY `idx_introduction` (`introduction`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  
+INSERT INTO `student` VALUES (1, '이숙경', '청주', '컴퓨터공학과', '저는 컴퓨터 공학과에 다닙니다. computer', '0212031');
+INSERT INTO `student` VALUES (2, '박재숙', '서울', '영문과', '저는 영문과에 다닙니다.', '0512321');
+INSERT INTO `student` VALUES (3, '백태호', '경주', '컴퓨터공학과', '저는 컴퓨터 공학과에 다니고 경주에서 왔습니다.', '0913134');
+INSERT INTO `student` VALUES (4, '김경훈', '제천', '국문과', '제천이 고향이고 국문과에 다닙니다.', '9813413');
+INSERT INTO `student` VALUES (6, '김경진', '제주', '국문과', '이번에 국문과에 입학한 김경진이라고 합니다. 제주에서 왔어요.', '0534543');
+INSERT INTO `student` VALUES (7, '박경호', '제주', '국문과', '박경호입니다. 잘 부탁드립니다.', '0134511');
+INSERT INTO `student` VALUES (8, '김정인', '대전', '영문과', '김정인입니다. 대전에서 왔고, 영문과에 다닙니다.', '0034543');
+</code>
+<b>STEP2. 웹페이지 만들기</b>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <style>
+        table{border:1px solid gray; border-collapse:collapse;}
+        td{border:1px solid gray;padding:5px;}
+    </style>
+</head>
+<body>
+<?php
+ 
+$conn = mysql_connect("localhost", "root", "1234");
+mysql_query('SET NAMES utf8');
+if (!$conn) {
+    echo "Unable to connect to DB: " . mysql_error();
+    exit;
+}
+ 
+if (!mysql_select_db("class")) {
+    echo "Unable to select mydbname: " . mysql_error();
+    exit;
+}
+ 
+$sql = "SELECT * 
+        FROM  student
+    LIMIT 10";
+ 
+$result = mysql_query($sql);
+ 
+if (!$result) {
+    echo "Could not successfully run query ($sql) from DB: " . mysql_error();
+    exit;
+}
+ 
+if (mysql_num_rows($result) == 0) {
+    echo "No rows found, nothing to print so am exiting";
+    exit;
+}
+ 
+// While a row of data exists, put that row in $row as an associative array
+// Note: If you're expecting just one row, no need to use a loop
+// Note: If you put extract($row); inside the following loop, you'll
+//       then create $userid, $fullname, and $userstatus
+echo "<table>";
+while ($row = mysql_fetch_assoc($result)) {
+    echo "<tr><td>{$row['id']}</td><td>{$row['name']}</td><td>{$row['department']}</td></tr>";
+}
+echo "</table>";
+mysql_free_result($result);
+ 
+?>
+</body>
+</html>
+</xmp>
+<!-- /box1 --></div>
+문제해결
+<div class="box1"><!-- box1 -->
+<strong>한글 깨짐 문제</strong>
+/etc/mysql/my.cnf 중 [client], [mysqld]에 default-character-set 값을 추가해줌
+예를들어 데이터베이스의 인코딩으로 UTF-8을 쓴다고 하면 my.cnf 파일을 아래와 같이 수정해 준다.
+<code class="xmp">
+[client]
+default-character-set=utf8
+ 
+[mysqld]
+default-character-set=utf8
+</code>
+<!-- /box1 --></div>
+</pre>
+
+<h2 id="Start">Start</h2>
+
+
+<h2 id="Basic">Basic</h2>
+
+
+<h2 id="misc">misc.</h2>
+
+<ol class="num">
+<li><strong>Q?</strong><br />
+<div class="cont">
+A
+</div>
+</li>
+</ol>
+
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:39%;margin:0 0 0 1%;"><!-- contentsBlock -->
+
+
+<h2 id="Link">Reference Link</h2>
+
+<ol class="bo num">
+<li><a href="http://opentutorials.org/course/142">생활코딩 - MySQL</a></a></li>
+<li><a href="http://opentutorials.org/course/195">생활코딩 - MySQL 수업</a></a>
+<blockquote cite=""><div>
+</div></blockquote>
+</li>
+<li><a href="http://opentutorials.org/course/196">생활코딩 - MySQL 고급</a></a></li>
+</ol>
+
+<h3>Reference</h3>
+
+
+<!-- /contentsBlock --></div>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130318. 가벼운 맘으로 시작.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

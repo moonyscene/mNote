@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Mobile Web - Tip | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Mobile Web Tip (모바일 웹 팁)</h1>
+
+<p>모바일 웹 표준, 호환, 접근성, 성능</p>
+
+<h2>Tip</h2>
+<ol class="bu">
+<li>모바일 사파리에서는 영문이 한글보다 1px 더 아래 표현됩니다. (해결) vertical-align:top</li>
+<li>iOS에서의 이미지 사이즈 제한 = width * height ≤ 3byte(24bit) * 1024 * 1024 = 최대 3Mbytes</li>
+<li>iOS Safari 입력상자스타일제거
+<xmp class="xmp">
+input.text,input.file,textarea{-webkit-border-radius:0;-webkit-appearance:none}
+</xmp>
+</li>
+</ol>
+
+
+<h3>국내 모바일기기 인터넷 방문 점유율 2011.01.26~2011.02.23</h3>
+<table border="1" class="t3" summary=""><caption></caption>
+<thead>
+<tr>
+<th scope="col">순위</th>
+<th scope="col">구분</th>
+<th scope="col">기간내평균</th>
+<th scope="col">기간시작(2011-01-26)</th>
+<th scope="col">기간끝(2011-02-23)</th>
+<th scope="col">기간내변화율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1</th>
+<td>&nbspSmartPhone/iPhone</td>
+<td>50.62 %</td>
+<td>51.79 %</td>
+<td>52.08 %</td>
+<td>0.29 %▲</td>
+</tr>
+<tr>
+<th scope="row">2</th>
+<td>&nbspSmartPhone/GALAXY S(SAMSUNG)</td>
+<td>17.47 %</td>
+<td>17.17 %</td>
+<td>16.23 %</td>
+<td>0.94 %▼</td>
+</tr>
+<tr>
+<th scope="row">3</th>
+<td>&nbspSmartPhone/Android</td>
+<td>4.85 %</td>
+<td>3.46 %</td>
+<td>5.89 %</td>
+<td>2.43 %▲</td>
+</tr>
+<tr>
+<th scope="row">4</th>
+<td>&nbspMobile/iPad</td>
+<td>4.58 %</td>
+<td>4.81 %</td>
+<td>4.92 %</td>
+<td>0.11 %▲</td>
+</tr>
+<tr>
+<th scope="row">5</th>
+<td>&nbspMobile/GALAXY Tab(SAMSUNG)</td>
+<td>2.48 %</td>
+<td>2.50 %</td>
+<td>2.35 %</td>
+<td>0.15 %▼</td>
+</tr>
+<tr>
+<th scope="row">6</th>
+<td>&nbspSmartPhone/OPTIMUS ONE(LG)</td>
+<td>2.24 %</td>
+<td>2.13 %</td>
+<td>2.09 %</td>
+<td>0.04 %▼</td>
+</tr>
+<tr>
+<th scope="row">7</th>
+<td>Mobile/Web-Viewers</td>
+<td>1.97 %</td>
+<td>2.40 %</td>
+<td>1.81 %</td>
+<td>0.59 %▼</td>
+</tr>
+<tr>
+<th scope="row">8</th>
+<td>SmartPhone/GALAXY U(SAMSUNG)</td>
+<td>1.64 %</td>
+<td>1.58 %</td>
+<td>1.66 %</td>
+<td>0.08 %▲</td>
+</tr>
+<tr>
+<th scope="row">9</th>
+<td>SmartPhone/VEGA(SKY)</td>
+<td>1.56 %</td>
+<td>1.55 %</td>
+<td>1.42 %</td>
+<td>0.13 %▼</td>
+</tr>
+<tr>
+<th scope="row">10</th>
+<td>Unknown</td>
+<td>1.08 %</td>
+<td>1.24 %</td>
+<td>0.98 %</td>
+<td>0.26 %▼</td>
+</tr>
+<tr>
+<th scope="row">11</th>
+<td>SmartPhone/DESIRE(HTC)</td>
+<td>1.02 %</td>
+<td>0.95 %</td>
+<td>0.98 %</td>
+<td>0.03 %▲</td>
+</tr>
+</tbody>
+</table>
+
+<h3>모바일 웹 브라우저</h3>
+
+<h4>Test : 국내 출시된 주요 모바일 기기 해상도</h4>
+
+<h5><a href="http://mvisit.geoje.go.kr/">2011거제방문의해</a></h5>
+<xmp class="xmp">
+<meta name="viewport" content="width=device-width,maximum-scale=2.4,minimum-scale=0.75,user-scalable=yes" />
+*{font-style:normal;font-family:"맑은고딕","나눔고딕","돋움",Dotum,sans-serif}
+#container{width:320px;margin:0 auto}
+</xmp>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: ;" /><col />
+<thead>
+<tr>
+<th scope="col">Test항목</th>
+<th scope="col">iPhone4</th>
+<th scope="col">iPod Touch 2세대</th>
+<th scope="col">GalaxyS</th>
+<th scope="col">Omnia2</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Resolution</th>
+<td>640*960  (320*480)</td>
+<td>320*480<br />
+가로모드 : 상태바 20 주소바 44 버튼바 44<br />
+세로모드 : 상태바 20 주소바 32 버튼바 32<br />
+<em>풀스크린 : 480-20-44=416px</em><br />
+</td>
+<td>480*800 (320*533)<br />
+가로모드 : 상태바 26 주소바 57? 버튼바 0<br />
+세로모드 : ?<br />
+<em>풀스크린 : 533-26-0=507px</em><br />
+</td>
+<td>480*800</td>
+<td>
+480*854 = 모토로이,<br />
+480*800 = HTC디자이어(넥서스원), 옵티머스Q, 갤럭시A, 시리우스, 베가<br />
+</td>
+</tr>
+<tr>
+<th scope="row">OS</th>
+<td>iOS4.2</td>
+<td>iOS4.2</td>
+<td>Android2.2(프로요)</td>
+<td>WindowMobile6.5</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">UA(엔진)</th>
+<td>Safari(webkit) 버전모름</td>
+<td>Safari(webkit) 버전모름</td>
+<td>인터넷(?) 버전모름</td>
+<td>웹뷰어(?), Opera mobile, IE mobile, Opera mini</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Font</th>
+<td>Apple Gothic (선명해짐)</td>
+<td>Apple Gothic (Mac유사-가로긴글꼴)</td>
+<td>맑은고딕?</td>
+<td>고딕?</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">viewport</th>
+<td>세로보기 최적화면, 가로보기 최적화면</td>
+<td>세로보기 최적화면, 가로보기 되던데.. 어떻게 하면 되는지? 내 기기가 고물이라서 그런가?</td>
+<td>세로보기 최적화면, 가로보기 w320</td>
+<td>브라우저마다 다르고 최적화면 안됨<br />
+Opera mini 가 최악? w320 그대로 보여 좌우공간?
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">File Upload</th>
+<td>App필요</td>
+<td>App필요</td>
+<td>App필요</td>
+<td>자체가능</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>종류</h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Mobile Web Broswer</th>
+<th scope="col">OS (엔진) / 단말기기</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">인프라웨어 Polaris </th>
+<td></td>
+<td>국내 출시 단말 약 70%</td>
+</tr>
+<tr>
+<th scope="row">Opera mobile</th>
+<td>(9.2 이하 presto 기반, 9.5 이상 Presto Core 2 기반 ) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">MS IE mobile</th>
+<td>Windows mobile </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Google Chrome</th>
+<td>Android (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Apple Safari</th>
+<td>MAC OS (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Access Netfront</th>
+<td>Multi Platform </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Nokia oss</th>
+<td>S60 (webkit기반) </td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Mozilla Fennec</th>
+<td>linux , Windows Mobile (gecko기반) </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">단말기기</th>
+<th scope="col">User Agent</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">IPod Touch</th>
+<td>Safari</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">옴니아폰</th>
+<td>웹뷰어, Opera mobile, IE mobile</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3><strong>모바일 웹 Meta 태그</strong></h3>
+<xmp class="xmp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densityDpi=device-dpi" />
+</xmp>
+<ul class="bu">
+<li>width : 화면 가로 사이트 (device-width로 기기 크기 지정)</li>
+<li>height : 화면 가로 사이트 (device-height로 기기 크기 지정)</li>
+<li>initial-scale : 초기 확대 비율 (0.25~10.0)</li>
+<li>maximum-scale : 최대 확대 비율</li>
+<li>minimum-scale : 최소 확대 비율</li>
+<li>user-scalable : 사용자가 Zoom기능 사용 제어 (YES | no일 경우 Zoom기능이 disable)</li>
+<li>target-densityDpi : DPI를 지정(device-dpi로 기기 DPI 설정, medium-dpi?) </li>
+</ul>
+
+<ol class="bu">
+<li><strong>[Safari on iOS4.2] li 태그 폰트 최소 크기 16px 로 제한</strong><br />
+(해결1) li { display: block; } 또는 li { display: inline; float: left; }<br />
+<br />
+</li>
+</ol>
+
+
+<h3>모바일 서비스 마크업 및 용량 비교</h3>
+
+<table border="1" class="t3" summary=""><caption>mobileWeb total weight 2010.12.17.</caption>
+<thead>
+<tr>
+<th scope="col">메인</th>
+<th scope="col">글목록</th>
+<th scope="col">썸네일목록</th>
+<th scope="col">글읽기</th>
+<th scope="col">글쓰기</th>
+<th scope="col">Browser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul class="bu">
+<li><a href="http://m.naver.com/">네이버</a> 170.9K bytes</li>
+<li><a href="http://m.daum.net/">다음</a> 125.0K bytes</li>
+<li><a href="http://m.nate.com/">네이트</a> 110.9K bytes</li>
+<li><a href="http://m.google.com/">google</a> PC!=mobile</li>
+<li><a href="http://m.myspace.com/">myspace</a> 13.9K bytes</li>
+<li><a href="http://m.seoul.go.kr/">모바일서울</a> 435.3K bytes</li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://iphone.allblog.net/#___5__">올블로그</a></li>
+<li><a href="http://iphone.facebook.com/">facebook</a></li>
+<li><a href="http://m.me2day.net/p/me2/mobile_menu">미투데이</a></li>
+<li><a href="http://m.media.daum.net/">미디어 다음</a></li>
+<li><a href="http://m.myspace.com/premium/messaging/messagelist.wap?bfd=offdeck&folderid=0">myspace</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.flickr.com/#/explore/interesting/">flickr</a> 532.4K bytes</li>
+<li><a href="http://m.youtube.com/">youtube</a> 23.6K bytes</li>
+<li><a href="http://books.google.com/googlebooks/mobile/#Browse">google booksearch</a> 32.5K bytes</li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.digg.com/">digg</a></li>
+<li><a href="http://m.flickr.com/#/photos/baldmonk/3381703853/in/explore-1237911884/">flickr</a></li>
+<li><a href="http://m.media.daum.net/sports/view.html?cateid=1004&newsid=20090326010307295&p=poctan">미디어 다음</a></li>
+<li><a href="http://www.opera.com/mini/features/">opera
+</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://iphone.facebook.com/#/message.php">facebook</a></li>
+<li><a href="http://hmail2.daum.net/hanmailex/mobile/basic/Compose.daum?folderName=%EB%B0%9B%EC%9D%80%ED%8E%B8%EC%A7%80%ED%95%A8">한메일</a></li>
+<li><a href="http://m.myspace.com/blog/createblog.wap?friendid=128768984&bfd=offdeck">myspace</a></li>
+</ul>
+</td>
+<td>
+<ul class="bu">
+<li><a href="http://m.opera.com/">opera</a> PC!=mobile</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+<h3>Todo</h3>
+<ol class="bu">
+<li>가로 전환</li>
+<li>320*480 아이폰, 갤럭시S, 옴니아2, 옵티머스원, 아이패드, 갤럭시탭</li>
+</ol>
+
+
+<hr />
+<h2>Reference</h2>
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+2010.11.25
+</p>
+<hr />
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

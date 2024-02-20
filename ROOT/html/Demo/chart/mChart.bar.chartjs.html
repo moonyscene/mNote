@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211015 | @m | 최초작성
+ * 20211015 | @m | 최초완성
+ * 20211018 | @m | 
+ * 20211019 | @m | 
+ * 20211020 | @m | 
+ * 20211021 | @m | 
+ * 20211022 | @m | 
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chart Bar [Chart.js] by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	Chart Bar
+	<small class="dpib">[Chart.js]</small>
+</h1>
+
+
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" /> -->
+<!-- 
+<script src="../../share/vendor/jquery-3.6.0.min.js"></script>
+<script src="../../share/vendor/jquery.easing.1.3.js"></script>
+<script src="../../share/vendor/chart.js/Chart.min.js"></script>
+ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+
+<script>/*<![CDATA[*/
+	// 차트 기본값 전체 (이후 코드 적용). 20211019. @m.
+		Chart.defaults.global.defaultFontColor = '#888';
+		Chart.defaults.global.defaultFontStyle = 'normal';
+		Chart.defaults.global.defaultFontSize = 12;
+		Chart.defaults.global.defaultFontFamily = "'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif";
+		// 범례 차트 간격
+		Chart.Legend.prototype.afterFit = function() {
+			this.height = this.height + 16;
+		};
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">vertical</h2>
+
+
+<div class="w1myChart1" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<canvas id="myChart1" width="400" height="300"></canvas>
+</div>
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ 차트 :: 막대.멀티.세로. 20211015. @m.
+		 * chart.js 2.9.4
+		 */
+		(function(){
+
+			var ctx = document.getElementById('myChart1').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['100', '200', '300', '400', '500'],
+					datasets: [{
+						label: 'A점수',
+						yAxisID: 'y-axis-1',
+						data: [77, 88, 70, 80, 66],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						//backgroundColor: 'rgba(255,144,111, .8)',
+						backgroundColor: ['rgba(255,144,111, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)'],
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'B점수',
+						yAxisID: 'y-axis-1',
+						data: [55, 66, 77, 88, 99],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						backgroundColor: '#48e',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'C점수',
+						yAxisID: 'y-axis-1',
+						data: [44, 55, 66, 77, 88],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						backgroundColor: '#e57',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						fontColor: '#888',
+						fontSize: 12,
+						text: '막대.멀티.세로'
+					},
+					legend: {
+						display: true, // 범례 가시
+						labels: {
+							boxWidth: 6,
+							fontColor: '#888',
+							fontSize: 12,
+							padding: 16,
+							usePointStyle: true
+						}
+					},
+					scales: {
+						xAxes: [{
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#666'
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "LEVEL"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: false,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}],
+						yAxes: [{
+							id: 'y-axis-1',
+							display: true,
+							position: 'left',
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#959595',
+								suggestedMin: 0,
+								suggestedMax: 100,
+								maxTicksLimit: 6 // 20210827
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "SCORE"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: true,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}]
+					}
+				}
+			});
+
+		})();
+
+
+	});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">horizontal</h2>
+
+
+<div class="w1myChart2" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<canvas id="myChart2" width="400" height="400"></canvas>
+</div>
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ 차트 :: 막대.멀티.가로. 20211015. @m.
+		 * chart.js 2.9.4
+		 */
+		(function(){
+
+			var ctx = document.getElementById('myChart2').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: ['100', '200', '300', '400', '500'],
+					datasets: [{
+						label: 'A점수',
+						xAxisID: 'x-axis-1',
+						data: [77, 88, 70, 80, 66],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						//backgroundColor: 'rgba(255,144,111, .8)',
+						backgroundColor: ['rgba(255,144,111, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)'],
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'B점수',
+						xAxisID: 'x-axis-1',
+						data: [55, 66, 77, 88, 99],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						backgroundColor: '#48e',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'C점수',
+						xAxisID: 'x-axis-1',
+						data: [44, 55, 66, 77, 88],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						backgroundColor: '#e57',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						fontColor: '#888',
+						fontSize: 12,
+						text: '막대.멀티.가로'
+					},
+					legend: {
+						display: true, // 범례 가시
+						labels: {
+							boxWidth: 6,
+							fontColor: '#888',
+							fontSize: 12,
+							padding: 16,
+							usePointStyle: true
+						}
+					},
+					scales: {
+						xAxes: [{
+							id: 'x-axis-1',
+							display: true,
+							position: 'bottom',
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#959595',
+								suggestedMin: 0,
+								suggestedMax: 100,
+								maxTicksLimit: 6 // 20210827
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "SCORE"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: true,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}],
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#666'
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "LEVEL"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: false,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}]
+					}
+				}
+			});
+
+		})();
+
+
+	});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">vertical</h2>
+
+<h3 class="hb1 h3">
+	자동 색상 구성표 적용 chartjs-plugin-colorschemes.min.js<br />
+</h3>
+
+
+<div class="w1myChart3" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<canvas id="myChart3" width="400" height="300"></canvas>
+</div>
+
+
+<!-- 자동 색상 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-colorschemes/0.4.0/chartjs-plugin-colorschemes.min.js"></script>
+
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ 차트 :: 막대.멀티.세로. 20211019. @m.
+		 * chart.js 2.9.4
+		 */
+		(function(){
+
+			var ctx = document.getElementById('myChart3').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['100', '200', '300', '400', '500'],
+					datasets: [{
+						label: 'A점수',
+						yAxisID: 'y-axis-1',
+						data: [77, 88, 70, 80, 66],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						//backgroundColor: 'rgba(255,144,111, .8)',
+						//backgroundColor: ['rgba(255,144,111, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)','rgba(149,149,149, .8)'],
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'B점수',
+						yAxisID: 'y-axis-1',
+						data: [55, 66, 77, 88, 99],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						//backgroundColor: '#48e',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					},{
+						label: 'C점수',
+						yAxisID: 'y-axis-1',
+						data: [44, 55, 66, 77, 88],
+						barPercentage: .4, // 막대폭
+						//barThickness: 6,
+						//maxBarThickness: 8,
+						//minBarLength: 2,
+						//backgroundColor: '#e57',
+						//borderColor: 'rgba(255,144,111, 1)',
+						//borderWidth: 2,
+						//pointRadius: 4,
+						//pointBackgroundColor: '#fff',
+						//tension: 0 // .4
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						fontColor: '#888',
+						fontSize: 12,
+						text: '막대.멀티.세로.색상자동'
+					},
+					legend: {
+						display: true, // 범례 가시
+						labels: {
+							boxWidth: 6,
+							fontColor: '#888',
+							fontSize: 12,
+							padding: 16,
+							usePointStyle: true
+						}
+					},
+					scales: {
+						xAxes: [{
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#666'
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "LEVEL"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: false,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}],
+						yAxes: [{
+							id: 'y-axis-1',
+							display: true,
+							position: 'left',
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#959595',
+								suggestedMin: 0,
+								suggestedMax: 100,
+								maxTicksLimit: 6 // 20211019
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "SCORE"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: true,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}]
+					},
+					plugins: {
+						colorschemes: { // chartjs-plugin-colorschemes.min.js
+							scheme: 'tableau.Tableau20' // 'brewer.Paired12'
+						}
+					}
+				}
+			});
+
+
+			// Updating Charts
+
+			// 추가
+			function addData(chart, label, data) {
+				chart.data.labels.push(label);
+				chart.data.datasets.forEach((dataset) => {
+					dataset.data.push(data);
+				});
+				chart.update();
+			}
+
+			// 제거
+			function removeData(chart) {
+				chart.data.labels.pop();
+				chart.data.datasets.forEach((dataset) => {
+					dataset.data.pop();
+				});
+				chart.update();
+			}
+
+			// 추가 클릭
+			$('.button.add').on('click', function(){
+				//addData(myChart, 'Score', '60');
+				addData(myChart, 'Score', [44, 55, 66]);
+			});
+
+			// 제거 클릭
+			$('.button.del').on('click', function(){
+				removeData(myChart);
+			});
+
+
+		})();
+
+
+	});
+/*]]>*/</script>
+
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Pattern</h2>
+
+<h3 class="hb1 h3">
+	패턴 patternomaly.js<br />
+</h3>
+
+
+<div class="w1myChart4" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<canvas id="myChart4" width="400" height="300"></canvas>
+</div>
+
+
+<!-- 패턴 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/patternomaly/1.3.2/patternomaly.min.js"></script>
+
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ 차트 :: 막대.패턴. 20211021. @m.
+		 * chart.js 2.9.4
+		 */
+		(function(){
+
+			var ctx = document.getElementById('myChart4').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['100', '200', '300', '400', '500'],
+					datasets: [{
+						label: 'A점수',
+						yAxisID: 'y-axis-1',
+						data: [77, 88, 70, 80, 66],
+						barPercentage: .7, // 막대폭
+						backgroundColor: [
+							// patternomaly.min.js
+							pattern.draw('square', '#1f77b4'),
+							pattern.draw('circle', '#ff7f0e'),
+							pattern.draw('diamond', '#2ca02c'),
+							pattern.draw('zigzag-horizontal', '#17becf'),
+							pattern.draw('triangle', 'rgb(255, 99, 132, 0.4)')
+						]
+					}]
+				},
+				options: {
+					title: { // 제목
+						display: true,
+						fontColor: '#888',
+						fontSize: 12,
+						text: '막대.패턴'
+					},
+					legend: { // 범례
+						display: false,
+						labels: {
+							boxWidth: 6,
+							fontColor: '#888',
+							fontSize: 12,
+							padding: 16,
+							usePointStyle: true
+						}
+					},
+					scales: { // 눈금
+						xAxes: [{
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#666'
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "LEVEL"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: false,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}],
+						yAxes: [{
+							id: 'y-axis-1',
+							display: true,
+							position: 'left',
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#959595',
+								suggestedMin: 0,
+								suggestedMax: 100,
+								maxTicksLimit: 6 // 20211019
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "SCORE"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: true,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}]
+					}
+				}
+			});
+
+		})();
+
+
+	});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Update</h2>
+
+<h3 class="hb1 h3">
+	자동 색상 구성표 적용 chartjs-plugin-colorschemes.min.js<br />
+	차트 업데이트<br />
+</h3>
+
+
+<div class="w1myChart5" style="max-width:500px;margin:auto;letter-spacing:0;">
+	<canvas id="myChart5" width="400" height="300"></canvas>
+	<div style="text-align:center;">
+		<button type="button" class="button add">Add</button>
+		<button type="button" class="button del">Remove</button>
+		<button type="button" class="button all-update">ALL Update</button>
+	</div>
+</div>
+
+
+<!-- 자동 색상 구성표 적용 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-colorschemes/0.4.0/chartjs-plugin-colorschemes.min.js"></script>
+
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ 차트 :: 막대.멀티.세로. 20211019. @m.
+		 * chart.js 2.9.4
+		 */
+		(function(){
+
+			var ctx = document.getElementById('myChart5').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['L1', 'L2', 'L3', 'L4', 'L5'],
+					datasets: [{
+						label: 'A점수',
+						yAxisID: 'y-axis-1',
+						data: [77, 88, 70, 80, 66],
+						barPercentage: .4, // 막대폭
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						fontColor: '#888',
+						fontSize: 12,
+						text: '막대'
+					},
+					legend: {
+						display: true, // 범례 가시
+						labels: {
+							boxWidth: 6,
+							fontColor: '#888',
+							fontSize: 12,
+							padding: 16,
+							usePointStyle: true
+						}
+					},
+					scales: {
+						xAxes: [{
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#666'
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "LEVEL"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: false,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}],
+						yAxes: [{
+							id: 'y-axis-1',
+							display: true,
+							position: 'left',
+							ticks: {
+								beginAtZero: true,
+								padding: 16,
+								fontColor: '#959595',
+								suggestedMin: 0,
+								suggestedMax: 100,
+								maxTicksLimit: 6 // 20211019
+							},
+							scaleLabel: {
+								display: true,
+								fontColor: '#888',
+								fontSize: 12,
+								labelString: "SCORE"
+							},
+							gridLines: {
+								color: 'rgba(0,0,0, .1)',
+								drawOnChartArea: true,
+								drawBorder: false,
+								drawTicks: false,
+								zeroLineColor: 'rgba(0,0,0, .1)'
+							}
+						}]
+					},
+					plugins: {
+						colorschemes: { // chartjs-plugin-colorschemes.min.js
+							scheme: 'tableau.Tableau20' // 'brewer.Paired12'
+						}
+					}
+				}
+			});
+
+
+			// Updating Charts // 20211021
+
+			// 추가
+			function addData(chart, label, data) {
+				chart.data.labels.push(label);
+				chart.data.datasets.forEach((dataset) => {
+					dataset.data.push(data);
+				});
+				chart.update();
+			}
+
+			// 제거
+			function removeData(chart) {
+				chart.data.labels.pop();
+				chart.data.datasets.forEach((dataset) => {
+					dataset.data.pop();
+				});
+				chart.update();
+			}
+
+			// 추가 클릭
+			$('.button.add').on('click', function(){
+				var new_label = 'L' + (myChart.data.labels.length + 1);
+				console.log(new_label);
+				addData(myChart, new_label, parseInt(Math.round(Math.random()*100)));
+			});
+
+			// 제거 클릭
+			$('.button.del').on('click', function(){
+				removeData(myChart);
+			});
+
+			// 모두 갱신 클릭 (랜덤)
+			$('.button.all-update').on('click', function(){
+				console.log(myChart.data.labels);
+				console.log(myChart.data.datasets[0].data);
+
+				myChart.data.labels = ['NL1', 'NL2', 'NL3', 'NL4', 'NL5', 'NL6'];
+				myChart.data.datasets[0].data = []; // 기존 내용 모두 제거
+				//myChart.data.datasets[0].data = [90, 80, 70, 60, 50];
+
+				// 랜덤값(0~100) 배열 저장
+				for (var i = myChart.data.labels.length; i--; ){
+					myChart.data.datasets[0].data.push( parseInt(Math.round(Math.random()*100)) );
+				}
+
+				myChart.update();
+			});
+
+		})();
+
+
+	});
+/*]]>*/</script>
+
+
+<br /><br /><br /><br /><br /><br />
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

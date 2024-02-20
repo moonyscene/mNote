@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'iframe | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>iframe, frame : 접근성을 고려한 프레임 콘텐츠</h1>
+
+<p>
+v2010.02.25
+v2009.05.08
+v2008.08.26
+</p>
+
+
+<!-- 업글노트 -->
+<div class="box4">
+
+<h4>보강 완료</h4>
+<ul class="bu">
+<li>IE, 표준 브라우저에서 모두 가능하게 수정함.</li>
+</ul>
+<h4>미결 과제</h4>
+<ul class="bu">
+<li><a href="http://www.zeroboard.com/16762361">다른 도메인간 iframe 크기 자동조절(cross domain iframe auto resize)</a> 과 다른 방법은 없을까?</li>
+<li>onload 이벤트로 동작하므로 "뒤로가기" 하면 되지 않는 문제 발생.</li>
+</ul>
+
+</div>
+<!-- //업글노트 -->
+
+
+<h2>iframe : IE, 표준 브라우저에서 모두 iframe 사이즈 자동 조절 코드</h2>
+
+<xmp class="xmp">
+<iframe title="부메뉴" name="iframe_side" src="../share/inc/side.html" frameborder="0" scrolling="no"
+style="width: 100%; height: 100%; overflow: auto;" onload="this.style.height=(window.frames[this.name].document.documentElement.scrollHeight+21)+'px';">
+<a href="../share/inc/side.html">부메뉴</a>
+</iframe>
+</xmp>
+<dfn>
+같은 도메인에 있는 iframe 문서만 가능합니다.<br />
+title="프레임 제목" 을 반드시 명기하세요.<br />
+iframe 요소 안에 인라인 프레임 비대응 환경에서의 대체 내용 또는 a 요소로 해당 페이지 링크를 적는다.<br />
+frameborder="0" scrolling="no" 속성은 style 로 대체할 수 없다.<br />
+allowtransparency="true" (비표준 속성)으로 iframe 배경을 투명하게 할 수 있다.<br />
++21 이유?  FF3 에서 스크롤이 보여서 높이를 조금더 크게 하여 없앰.<br />
+<em>Sf4.03에서 세로 길어졌다가, (다른 짧은 웹문서 로드시) 다시 안줄어드는 문제점있다.</em><br />
+</dfn>
+
+
+
+<h3>브라우저별 테스트</h3>
+
+<table class="t3" summary="DOM Method">
+<thead>
+<tr>
+<th scope="col">JavaScript Code</th>
+<th scope="col">IE6</th>
+<th scope="col">IE7</th>
+<th scope="col">FF3</th>
+<th scope="col">Op9.5</th>
+<th scope="col">Sf3.1.2</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">iframeName.document.body.scrollHeight+'px'</th>
+<td title="IE6">O</td>
+<td title="IE7">O</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">O</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">iframeName.document.body.offsetHeight+'px'</th>
+<td title="IE6">O</td>
+<td title="IE7">O</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">O</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">iframeName.document.body.innerHeight+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">X</td>
+<td></td>
+</tr>
+<tr class="em">
+<th scope="row">window.frames['iframeName'].document.documentElement.scrollHeight+'px'</th>
+<td title="IE6">O</td>
+<td title="IE7">O</td>
+<td title="FF3">O</td>
+<td title="Op9.5">O</td>
+<td title="Sf3.1.2">O</td>
+<td>모두 가능. 값은 다름<br />
+2010.02.25 Test OK<br />IE8, FF3.6, Sf4.0.4, GC3.0.195.38, Op10.10 
+</td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').contentWindow.document.body.scrollHeight+'px'</th>
+<td title="IE6">O</td>
+<td title="IE7">O</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">O</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').document.documentElement.scrollHeight+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">X</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').contentDocument.height+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">O</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').document.body.scrollHeight+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">X</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').document.body.offsetHeight+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">X</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">document.getElementById('iframeName').document.body.innerHeight+'px'</th>
+<td title="IE6">X</td>
+<td title="IE7">X</td>
+<td title="FF3">X</td>
+<td title="Op9.5">X</td>
+<td title="Sf3.1.2">X</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="standardcode">frame 웹접근성 표준 코드 샘플</h2>
+
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>사이트명</title>
+<meta name="author" content="(주)정보행동">
+<meta name="keywords" content="(주)정보행동, 정보행동, 웹에이전시, 기업 부설 연구소">
+<meta name="description" content="웹에이전시 (주)정보행동 입니다.">
+</head>
+<frameset title="사이트명" rows="*" border="0"><!-- border는문법에어긋나지만브라우저들은이게없으면보더를표시함 -->
+<frame title="사이트명" src="/main/" name="all" id="all" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="auto" />
+<noframes title="사이트명">
+<body>
+<h1>사이트명</h1>
+<p>이 사이트는 프레임 대응환경을 대상으로 디자인되어 있습니다.</p>
+<p>비대응환경의 사용자는 아래 링크를 통해서 보시기 바랍니다.</p>
+<ul>
+<li><a href="/main/">메인 페이지로 가기</a></li>
+</ul>
+</body>
+</noframes>
+</frameset>
+</html>
+</xmp>
+
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>사이트명 - 문서제목</title>
+<meta name="author" content="저작자">
+<meta name="keywords" content="문서제목, 키워드, 키워드, 저작자">
+<meta name="description" content="문서설명을 서술한다. 또는 제목">
+<link rel="stylesheet" type="text/css" href="/share/css/print.css">
+</head>
+<frameset title="사이트명" rows="80,*" border="0"><!-- border는비표준이지만브라우저들은이게없으면경계선표시함 -->
+<frame title="사이트명 상단 주메뉴" src="/share/head.asp" name="sitename_head" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="no">
+<frame title="사이트명 콘텐츠" src="/main/" name="sitename_main" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="auto">
+<noframes title="사이트명">
+<body>
+<h1>사이트명</h1>
+<p>이 사이트는 프레임 대응환경을 대상으로 디자인되어 있습니다.</p>
+<p>비대응환경의 사용자는 아래 링크를 통해서 보시기 바랍니다.</p>
+<ul>
+<li><a href="/main/">메인 페이지로 가기</a></li>
+</ul>
+</body>
+</noframes>
+</frameset>
+</html>
+</xmp>
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

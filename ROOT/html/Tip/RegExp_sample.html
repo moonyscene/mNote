@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'RegExp_sample | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Regular expression for EditPlus</h1>
+
+<p>EditPlus v3.xx 에서 바꾸기[ctrl+H] 기능을 사용할 때 유용한 정규식들을 모았습니다.</p>
+
+<div class="box2">
+<strong>※ 유의사항 : 바꾸기(매크로) 적용전 준비작업.</strong>
+<ol class="bo num">
+<li>[편집]-[모양]-[줄 앞 공백 제거],[줄 끝 공백 제거] 실행.</li>
+<li>&lt;table&gt; 안에서 공백줄이 없어야 하며, &lt;th&gt;&lt;/th&gt;, &lt;td&gt;&lt;/td&gt; 태그의 시작과 끝은 1라인으로 구성합니다.</li>
+<li>모두 바꿈을 실행할 때는 [파일 끝에서 되돌리기] 를 체크합니다.(커서 위치에 관계없이 전체 바꾸기 가능)</li>
+<li><em>바꾸기 1번 실행</em>은 [다음 찾기 F3] - [모두 바꾸기 범위 - 선택부분(S)] - [모두 바꿈] 실행.</li>
+</ol>
+</div>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#sample">Various Regexp Samples</a></li>
+<li><a href="#table">Table (tableMini+tableType)</a></li>
+<li><a href="#rule">Regular expression Rule</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<h2 id="sample">Various Regexp Samples</h2>
+<!-- dl : style="list-style:decimal-leading-zero;" 하려면 DL 하면 안되요 -->
+<dl class="bu">
+
+<dt>태그 바로 뒤가 줄바꿈아니면 줄바꾸기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <xmp class="xmp">([^\n])
+(바꿀말) <xmp class="xmp">\n\1
+</xmp>
+</dd>
+
+<dt>날짜형식 바꾸기 2015-06-05 ))) 2015.06.05</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([0-9]{4})-([0-9]{2})-([0-9]{2})
+(바꿀말) \1.\2.\3
+</xmp>
+</dd>
+
+<dt>http:// URI 를 a 외부링크로 만들기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) (http://[^ |"|<]+)
+(바꿀말) <a href="\1" target="_blank">\1</a>
+</xmp>
+</dd>
+
+<dt>XHTML1.0 빈태그 공백/>로 교체</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <(meta|link|col|area|frame|base|img|input|param) ([^>]+)"[ ]?[/]?>
+(바꿀말) <\1 \2" />
+</xmp>
+<xmp class="xmp">
+(찾을말) <(br|hr)[ ]*>
+(바꿀말) <\1 />
+</xmp>
+<em>※ <a href="../Standard/standard.html#n8">웹 표준 misc. inValid, Valid</a></em>
+</dd>
+
+<dt>태그 교체</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([^>]*>)([^<]*)(<.+)
+(바꿀말) <th scope="col"><small>\2</small></th>
+</xmp>
+</dd>
+
+<dt>하위 menu 폴더로 경로 수정 ( /sub/01_01.* 를 /sub/01/01.* )</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) /sub/([0-9][0-9])[_]?
+(바꿀말) /sub/\1/
+</xmp>
+</dd>
+
+<dt>IA 탭으로 depth 구분한 텍스트에서 1,2,3,4,5차 메뉴  제거 또는 n차 메뉴 추출</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) (^[^\t]+)|(^\t[^\t]+)|(^\t\t[^\t]+)|(^\t\t\t[^\t]+)|(^\t\t\t\t[^\t]+)
+(바꿀말) 
+</xmp>
+바꿀말 없으면 모두 제거, \1, \2, \3, \4, \5 각각 추출 가능
+</dd>
+<dd>
+<ul class="bu">
+<li><strong>1차 메뉴 추출</strong>
+<xmp class="xmp">
+(찾을말) (^[^\t]+)|(^\t[^\t]+)|(^\t\t[^\t]+)|(^\t\t\t[^\t]+)|(^\t\t\t\t[^\t]+)
+(바꿀말) \1
+</xmp>
+</li>
+<li><strong>2차 메뉴 추출</strong>
+<xmp class="xmp">
+(찾을말) (^[^\t]+)
+(바꿀말) ----
+(찾을말) (----)|(^\t[^\t]+)|(^\t\t[^\t]+)|(^\t\t\t[^\t]+)|(^\t\t\t\t[^\t]+)
+(바꿀말) \1\2
+</xmp>
+이후 빈줄제거
+</li>
+<li><strong>3차 메뉴 추출</strong>
+<xmp class="xmp">
+(찾을말) (^[^\t]+)|(^\t[^\t]+)
+(바꿀말) ----
+(찾을말) (----)|(^\t[^\t]+)|(^\t\t[^\t]+)|(^\t\t\t[^\t]+)|(^\t\t\t\t[^\t]+)
+(바꿀말) \1\2\3
+이후 빈줄제거 후.. 아래처럼 ---- 가 2줄이상 연속되는것을 1줄로 변경
+(찾을말) ----\n----
+(바꿀말) ----
+</xmp>
+</li>
+</ul>
+</dd>
+
+
+<dt>IA 스프레드시트 파일에서 복사한 메뉴명에서 콘텐츠 넘버( 1-1-1-1-1 ) 제거</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [0-9]?[-]?[0-9]?[-]?[0-9]?[-]?[0-9]?[-]?[0-9]?\.[ ]
+(바꿀말) 
+</xmp>
+</dd>
+
+<dt>IA 스프레드시트 파일에서 복사한 메뉴명 텍스트 파일의 탭 정리. 20120601~복잡해서사용안함(자동툴완성).</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([\t]*)([^\n|\t]+)\t
+(바꿀말) \1\2\n\1\t
+</xmp>
+주의! 
+<em>[편집]-[모양]-[줄 끝 공백 제거] 만 실행. ([줄 앞 공백 제거] 는 하지 않는다.)</em><br />
+매크로 만들 때 모두 바꿈하면 3차 메뉴 이상의 탭 개수가 안맞으므로..<br />
+매크로에는.. [찾기 바꾸기 1번 실행] 후 [Home] 버튼 클릭한 것을 저장해야 한다.<br />
+</dd>
+
+<dt><strong class="em5 fsXL">개발언어 문법 변경</strong></dt>
+<dd>
+<i><strong class="em4 fsM">(JSP,PHP배열 → ASP)</strong></i>
+<xmp class="xmp">
+(찾을말) \[([^\]]+)\]\[([^\]]+)\]\[([^\]]+)\]\[([^\]]+)\]
+(바꿀말) (\1,\2,\3,\4)
+</xmp>
+<i>(ASP인클루드 → JSP)</i>
+<xmp class="xmp">
+(찾을말) <!-- #include virtual="([^\.]+)\.asp" -->
+(바꿀말) <%@include file="\1.jsp"%>
+</xmp>
+<i>(ASP,JSP변수 → PHP)</i>
+<xmp class="xmp">
+(찾을말) <%=([^%]+)%>
+(바꿀말) <?=$\1?>
+</xmp>
+<i>(ASP배열 → JSP,PHP)</i>
+<xmp class="xmp">
+(찾을말) \(([0-9]+),([0-9]+),([0-9]+),([0-9]+)\)
+(바꿀말) [\1][\2][\3][\4]
+</xmp>
+<i>(ASP배열 → JSP)</i> : <em>바꾸기 적용 순서 중요!</em> (1) menu_all.* 메뉴배열 mAll[].. (2) mMenu (3) mAnchor (4) mTitle
+<xmp class="xmp">
+(찾을말) mAll\(([0-9]+),([0-9]+),([0-9]+),([0-9]+)\) = array\("
+(바꿀말) mAll[\1][\2][\3][\4] = "
+</xmp>
+<xmp class="xmp">
+(찾을말) <a href='<%=mAll\(([0-9]+),([0-9]+),([0-9]+),([0-9]+)\)\(1\)%>'<%=mAll\([0-9]+,[0-9]+,[0-9]+,[0-9]+\)\(2\)%>><%=mAll\([0-9]+,[0-9]+,[0-9]+,[0-9]+\)\(0\)%></a>
+(바꿀말) <%=mMenu[\1][\2][\3][\4]%>
+</xmp>
+<xmp class="xmp">
+(찾을말) href='<%=mAll\(([0-9]+),([0-9]+),([0-9]+),([0-9]+)\)\(1\)%>'<%=mAll\([0-9]+,[0-9]+,[0-9]+,[0-9]+\)\(2\)%>
+(바꿀말) <%=mAnchor[\1][\2][\3][\4]%>
+</xmp>
+<xmp class="xmp">
+(찾을말) <%=mAll\(([0-9]+),([0-9]+),([0-9]+),([0-9]+)\)\(0\)%>
+(바꿀말) <%=mTitle[\1][\2][\3][\4]%>
+</xmp>
+</dd>
+
+<dt>side 메뉴 id 와 배열 값 맞추기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <li id="side3m([0-9]+)m([0-9]+)"><%=mMenu\[1\]\[1\]
+(바꿀말) <li id="side3m\1m\2"><%=mMenu[1][\1]
+</xmp>
+</dd>
+
+
+
+<dt>[숫자][숫자][숫자][숫자] 형태 배열 최대값 찾기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) \[[0-9]\]\[[0-9]\]\[17\]\[[0-9]\]
+(바꿀말) 검색용
+</xmp>
+</dd>
+
+<dt>; 또는 h 로 끝나지 않는 줄 찾기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [^;|^h]$
+(바꿀말) 없음. menu depth 탭 주기 검색용으로 쓰세요~
+</xmp>
+</dd>
+
+<dt>따옴표 넣기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) =([^ |>|"|']+)
+(바꿀말) ="\1"
+</xmp>
+</dd>
+
+<dt>날짜형식변경 YYYY.MM.DD 를 YYYYMMDD로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([0-9][0-9][0-9][0-9])\.([0-9][0-9])\.([0-9][0-9])\.
+(바꿀말) \1\2\3
+</xmp>
+</dd>
+
+<dt>CSS/Javascrpt Comment Delete</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) /\* [^\*]+ \*/
+(바꿀말) 
+</xmp>
+</dd>
+
+<dt>CSS Code Minify</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [ ]?([{|:|;|}])[ ]?
+(바꿀말) \1
+</xmp>
+</dd>
+
+<dt>Javascrpt Code Minify</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [ ]?([=|\(|\)|\?|:|;|{|}|<|>|/|%|\*|-|\+|\&|\|])[ ]?
+(바꿀말) \1
+</xmp>
+</dd>
+
+<dt>테이블 : tr을 1행으로 만들기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) (<tr>|</td>|</th>)\n
+(바꿀말) \1
+</xmp>
+</dd>
+
+<dt>한글 앞뒤 공백 제거 (속성명은 영문이므로 속성앞 공백은 제외)</dt>
+<dd>
+여러번 실행한다.
+<xmp class="xmp">
+(찾을말) [ ]* ([가-힣]+)[ ]*
+(바꿀말) \1
+</xmp>
+</dd>
+
+<dt>메뉴명 제거 (영문→일문,중문으로바꿀때유용)</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) mAll\(([^\)]+)\) = array\(("[^"]+)"
+(바꿀말) mAll(\1) = array(""
+</xmp>
+</dd>
+<dt>태그 제거</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <[^>]+>
+(바꿀말) 
+</xmp>
+</dd>
+<dt>URL(http://로시작해야함)을 앵커로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) http://[^ |^\)|^,]+
+(바꿀말) <a href="\0">\0</a>
+</xmp>
+</dd>
+<dt>태그를 특수문자로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <([^>]+)>
+(바꿀말) \&lt;\1\&gt;
+</xmp>
+</dd>
+<dt>태그 전후의 불필요한 공백 제거, 2개 이상 연속된 공백을 1개로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [ ]*([<|>| ])[ ]*
+(바꿀말) \1
+</xmp>
+</dd>
+<dt>첫번째 td 를 행제목으로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <tr>\n<td([^>]*)>([^\n]+)</td>
+(바꿀말) <tr>\n<th scope="row"\1>\2</th>
+</xmp>
+</dd>
+<dt>드림위버 팝업을 웹표준으로</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <a href="#" onClick="MM_openBrWindow\('([^']+)'
+(바꿀말) <a href="\1" onclick="window.open(this.href
+</xmp>
+</dd>
+<dt>스타일시트 숫자속성에 단위붙이기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([0-9]+);
+(바꿀말) \1px;
+</xmp>
+</dd>
+<dt>태그 속성 걷어내기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [ ]+[a-z]+[=]+["]?[(a-z)|(0-9)]*[(.)|(/)|(_)|(-)]?[(a-z)|(0-9)]*[%]?["]?
+(바꿀말) 
+</xmp>
+</dd>
+<dt>스타일 없애기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) style=".*"
+(바꿀말) 
+</xmp>
+</dd>
+<dt>테이블속성제거 - colspan, rowspan 도 날아가버린다</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) (( border=".+")|( cellspacing=".+")|( cellpadding=".+")|( width=".+")|( height=".+")|( bgcolor=".+")|( align=".+")|( valign=".+"))
+(바꿀말) 
+</xmp>
+</dd>
+<dt>테이블속성제거 - 다른 속성까지 지우는거 해결</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) (( border="[^ ]*")|( cellspacing="[^ ]*")|( cellpadding="[^ ]*")|( width="[^ ]*")|( height="[^ ]*")|( bgcolor="[^ ]*")|( align="[^ ]*")|( valign="[^ ]*"))
+(바꿀말) 
+</xmp>
+</dd>
+<dt>닫는태그로 끝나지 않는거는 개행을 없애고 1줄 공백을 둔다. - 바꿀말 끝에 공백 넣는거 주의</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) ([^>])\n
+(바꿀말) \1 
+</xmp>
+</dd>
+<dt>font 태그 span 태그로 교체</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <font color="(.*)">(.*)</font>
+(바꿀말) <span style="color: \1;">\2</span>
+</xmp>
+</dd>
+<dt>"" 없는 모든 태그속성 제거</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <([ |>]+)[ ][>]*>
+(바꿀말) <\1>
+</xmp>
+</dd>
+<dt>외국어번역문서 :  "숫자)제목" 을  "줄바꿈 제목 줄바꿈" 로 바꿈</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) [0-9]+\)(.+)
+(바꿀말) 
+</xmp>
+</dd>
+</dl>
+<!-- //dl -->
+
+
+
+<hr />
+<!-- <dt>태그안 소문자로 만들기</dt>
+<dd>
+<xmp class="xmp">
+(찾을말) <[^>]+>
+키보드 [Ctrl]+[L]
+</xmp>
+위 동작을 매크로([Alt]+[0]) 만들어서 반복 재생<br />
+원하는 동작이 안나옴.
+</dd> -->
+
+<h2 id="table">Table</h2>
+
+<h3><strong>테이블 정리 통합본 (tableMini.v0.6.mac)</strong></h3>
+
+<ul class="bu">
+<li>여러번의 정규식 모두 바꾸기 실행으로 구성되어 있다. (순서대로 실행 필요)</li>
+<li>아래아한글2005 - 인터넷 문서로 저장한 파일 코드 정리 가능.</li>
+</ul>
+
+<table class="t3 w100" summary=""><caption>tableMini.v0.6.mac</caption>
+<col style="width:15%;" /><col />
+<thead>
+<th>동작</th>
+<th class="tal">(찾을말)<br />(바꿀말)</th>
+</thead>
+<tbody>
+<tr>
+<th>매크로 적용전 준비</th>
+<td><xmp class="xmp">
+[편집]-[지우기]-[빈 줄 지우기] 
+[편집]-[모양]-[줄 앞 공백 제거]
+[편집]-[모양]-[줄 끝 공백 제거] 
+</xmp></td>
+</tr>
+<tr>
+<th>속성=["|']?, 태그 제거</th>
+<td><xmp class="xmp wspw">
+[ ]*border=["|']?[^ |^>]*["|']?|[ ]*cellspacing=["|']?[^ |^>]*["|']?|[ ]*cellpadding=["|']?[^ |^>]*["|']?|[ ]*width=["|']?[^ |^>]*["|']?|[ ]*height=["|']?[^ |^>]*["|']?|[ ]*bgcolor=["|']?[^ |^>]*["|']?|[ ]*align=["|']?[^ |^>]*["|']?|[ ]*valign=["|']?[^ |^>]*["|']?|[ ]*bordercolor=["|']?[^ |^>]*["|']?|[ ]*color=["|']?[^ |^>]*["|']?|[ ]*style=["|']?[^>]*["|']?|[ ]*class=["|']?[^>]*["|']?|<p[^>]*>|</p>|<span[^>]*>|</span>|<font[^>]*>|</font>
+</xmp>
+<xmp class="xmp">
+null
+</xmp>
+</td>
+</tr>
+<tr>
+<th>뒤줄바꿈 제거</th>
+<td><xmp class="xmp">
+(\n|<td[^>]*>)\n
+\1
+</xmp></td>
+</tr>
+<tr>
+<th>앞줄바꿈 제거</th>
+<td><xmp class="xmp">
+\n(</td>|>)
+\1
+</xmp></td>
+</tr>
+<tr>
+<th>태그외줄바꿈 → 공백</th>
+<td><xmp class="xmp">
+([^>])\n
+\1공백
+</xmp></td>
+</tr>
+<tr>
+<th>태그 전,후,안 공백 제거<br />2개이상 공백 → 공백</th>
+<td><xmp class="xmp">
+[ ]*([<|>| ])[ ]*
+\1
+</xmp>
+</td>
+</tr>
+<tr>
+<th>표준태그로</th>
+<td><xmp class="xmp">
+<br>
+<br />
+</xmp>
+<xmp class="xmp">
+<b>([^<]+)</b>
+<strong>\1</strong>
+</xmp>
+</td>
+</tr>
+<tr>
+<th>테이블 태그 소문자로</th>
+<td><xmp class="xmp">
+<td([^>]*><[^<]*</[^>]*>|[^<]*)</td>
+<td\1</td>
+</xmp>
+<xmp class="xmp">
+(</?)tr>
+\1tr>
+</xmp>
+<xmp class="xmp">
+(</?)table>
+\1table>
+</xmp>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3><strong>데이터 테이블 타입 적용 통합본 (tableType.v0.3.mac)</strong></h3>
+
+<table border="1" class="t3 w100" summary=""><caption>tableType.v0.3.mac</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<th>동작</th>
+<th class="tal">(찾을말)<br />(바꿀말)</th>
+</thead>
+<tbody>
+<tr>
+<th>테이블 앞부분</th>
+<td>
+<xmp class="xmp">
+<table>\n(<[^>]+>\n|)<tr>
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>\n<col style="width:20%;" /><col />\n<thead>\n<tr>
+</xmp></td>
+</tr>
+<tr>
+<th>테이블 뒷부분</th>
+<td>
+<xmp class="xmp">
+</tr>\n(<[^>]+>\n|)</table>
+</tr>\n</tbody>\n</table>
+</xmp></td>
+</tr>
+<tr>
+<th>열제목<br />20번반복</th>
+<td><xmp class="xmp">
+(<thead>\n<tr>\n|<th scope="col".+</th>\n)<td(.+)</td>
+\1<th scope="col"\2</th>
+</xmp>
+</td>
+</tr>
+<tr>
+<th>thead, tbody</th>
+<td><xmp class="xmp">
+</th>\n</tr>\n<tr>
+</th>\n</tr>\n</thead>\n<tbody>\n<tr>
+</xmp>
+</td>
+</tr>
+<tr>
+<th>행제목<br />3번반복</th>
+<td><xmp class="xmp">
+(<tr>\n|<th scope="row" rowspan="[0-9]+">.+</th>\n)<td(.+)</td>
+\1<th scope="row"\2</th>
+</xmp>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4>최종결과</h4>
+
+<xmp class="xmp">
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col"></th>
+<th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</xmp>
+<hr />
+<div class="brclear"></div>
+
+
+<h2 id="rule">Regular expression Rule</h2>
+
+<h3>패턴 표현에 사용되는 특수 문자 [ EditPlus 지원 | php 지원 ]</h3>
+<table border="1" class="t3" summary="★표요약"><caption>EditPlus 정규식 패턴 특수 문자 - 찾을 말</caption>
+<thead>
+<tr>
+<th scope="col">설명</th>
+<th scope="col">EditPlus 찾을 말</th>
+<th scope="col">노트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>탭 문자</td>
+<td>\t</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>줄 바꿈</td>
+<td>\n</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>모든문자</td>
+<td>.</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>범위에 속하는 문자</td>
+<td>[]</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>범위에 속하지 않은 문자</td>
+<td>[^]</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>줄의 시작</td>
+<td>^</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>줄의 꿑</td>
+<td>$</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>태그로 표시된 식</td>
+<td>()</td>
+<td>문자열 그룹화</td></tr>
+<tr>
+<td>또는</td>
+<td>|</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>0번 이상 일치</td>
+<td>*</td>
+<td>바로 앞의 문자</td></tr>
+<tr>
+<td>1번 이상 일치</td>
+<td>+</td>
+<td>바로 앞의 문자</td></tr>
+<tr>
+<td>0번 또는 1번 일치</td>
+<td>?</td>
+<td>바로 앞의 문자</td></tr>
+<tr></tr>
+</tbody>
+</table>
+
+<p>
+※ * , + , ? 를 사용하지 않으면 1번 일치하는 문자를 검색한다
+</p>
+
+<table border="1" class="t3" summary="★표요약"><caption>EditPlus 정규식 패턴 특수 문자 - 바꿀 말</caption>
+<thead>
+<tr>
+<th scope="col">설명</th>
+<th scope="col">EditPlus 바꿀 말</th>
+<th scope="col">Javascript</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>찾는 텍스트</td>
+<td>\0</td>
+<td>변수에 저장해서 사용</td>
+<td></td>
+</tr>
+<tr>
+<td>태그로 표시된 식</td>
+<td>\1~\9</td>
+<td>$1~$9</td>
+<td><em>\10 이상은 안된다!</em></td>
+</tr>
+<tr></tr>
+</tbody>
+</table>
+
+<h3>문자 클래스 [ EditPlus 지원X | php 지원 ] </h3>
+
+
+<table border="1" class="t3" summary="★표요약"><caption>정규식 문자 클래스</caption>
+<thead>
+<tr>
+<td>문자 클래스</td>
+<td>동일한 표현</td>
+<td>설명</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[:alpha:]]</td>
+<td>[a-zA-Z] 또는 [a-Z]</td>
+<td>알파벳 문자 중 하나</td></tr>
+<tr>
+<td>[[:alpha:]]</td>
+<td>[a-zA-Z] 또는 [a-Z]</td>
+<td>알파벳 문자 중 하나</td></tr>
+<tr>
+<td>[[:digit:]]</td>
+<td>[0-9]</td>
+<td>숫자 한 자</td></tr>
+<tr>
+<td>[[:alnum:]]</td>
+<td>[]</td>
+<td>알파벳 문자나 숫자 중 하나</td></tr>
+<tr>
+<td>[[:space:]]</td>
+<td>&nbsp;</td>
+<td>공백 문자</td></tr>
+<tr></tr></tbody></table>
+
+<h3>정규표현식에서 특수 문자의 표현 [ EditPlus 지원 | php 지원 ]</h3>
+<p>
+. [] [^] ^ $ () | * + ? 를 나타내려면 특수 문자 앞에 \ 를 붙여서 사용한다
+</p>
+
+
+
+<br />
+<hr class="show" />
+<p>
+<small><strong>History</strong>
+20090417~
+20161213. 개발언어 문법 변경 추가
+20161111.
+20150605.
+20131121. 20130321. 20130320. 20130118.
+20121227.
+20101123. 20100819. 20100223. 20100222.
+20091106. 20090417.
+</small>
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

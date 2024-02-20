@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Guide - Template Coding CheckList | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Template Coding CheckList before Starting</h1>
+
+[ 템플릿 코딩前 체크리스트 ] 를 보내드리오니.. 각 담당자는 답변 부탁드립니다.
+
+<h2>Website Template Coding Pre-Checklist</h2>
+<!-- box3 -->
+<div class="box3">
+<h3>템플릿(기본 레이아웃) 코딩前 체크리스트</h3>
+
+<ul class="bu">
+<li>본 체크리스트는 템플릿 코딩을 효율적이고 원활하게 수행하기 위하여 필요한 점검 사항입니다.  (항목 의미 파악이 안되면 물어보세요!)</li>
+<li>담당자별로 모든 점검 항목에 <strong>충실히 답변·조치해주시기 바랍니다.</strong> (확인·조치 없는 <em>거짓 답변은 나빠요~</em>)</li>
+<li>즉시 답변할 수 없는 경우에는 <em>답변 가능(체크리스트 작성 및 조치 완료) 시점</em>을 먼저 알려주세요. (보류하고 다른 작업할지?)</li>
+<li><em>보완 조치가 완료되면 별도의 체크리스트 답변 파일은 필요하지 않습니다.</em> (검토할 파일 수가 많아지는 것은 원하지 않습니다.)<br />
+<strong>PMS</strong> 와 <strong>IA, Design, Storyboard </strong>파일에 반영되어 코딩이 끊김 없이 진행 가능하도록 해주시면 됩니다.</li>
+<li>설계 내용을 텍스트로 표현하기 힘든 경우.. 간략히 설명을 적고 오디오로 상세 설명을 해주세요.</li>
+<li><i>콘텐츠가 단순 정보인지 링크인지 알 수 있도록 표시주세요.</i></li>
+<li><strong>Reference / Benchmark Site 요청하자!</strong> _기획, 디자인 넘겨주실 때.. 항상.. 벤치마킹 사이트 있으면 알려주세요!!</li>
+</ul>
+
+<h4 title="To Planner">PM/기획PL</h4>
+
+<!-- box2 -->
+<div class="box2">
+<dl>
+<dt><strong>##○○프로젝트 CheckList 01~05</strong></dt>
+<dd><em>프로젝트관리시스템</em>(iPMS) - "프로젝트 기본정보"에 남겨주세요.
+※ <a href="../Guide/planner.html#n1">프로젝트명 기본정보 작성 예시</a>
+</dd>
+<dt><strong>#○○웹사이트 CheckList 01~10</strong></dt>
+<dd>IA(<em>콘텐츠 구조</em> .xls), Design(<em>디자인</em> .psd), Storyboard(<em>화면 설계서</em> .ppt) <em>최종 확정본</em> 파일의 <a href="\\192.168.0.121\design-data2\정보행동_project2\2012_Project\">다운로드 경로</a>를 적어주세요.<br />
+
+</dd>
+</dl>
+</div>
+<!-- /box2 -->
+
+<h5>#○○웹사이트</h5>
+
+<table border="1" class="t3" summary="웹사이트 전체에 대한 체크"><caption></caption>
+<col style="width:1%;white-space:nowrap;" /><col style="width:40%;"  /><col style="width:50%;" />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">점검 항목</th>
+<th scope="col">비고 ▶ 참고 후 작성해주세요</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01.</th>
+<td><em>개발서버</em>, 운영도메인(URI)은 준비되었나요?<br />
+ex) <em>FTP정보</em>[IP,ID,PW,DIR/PATH,SFTP?,PassiveMode?],<br />
+웹사이트명: 개발도메인(URI), 운영도메인(URI).<br />
+<em>개발언어</em>[JSP|ASP|PHP],
+<em>문자인코딩</em>[UTF-8|EUC-KR],<br />
+
+</td>
+<td>▶[X]라면 세팅을 요청하시고, 서버 정보를 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 기입해주세요.<br />
+(Tip) 과업 <em>전체 웹사이트의 운영도메인(URI)</em>은 구축 단계 전에 확정 필요.<br />
+(Tip) 서버 정보는 과업 투입 인력 모두에게 전달되도록 해주세요.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">02.<br />★☆~05통합?
+</th>
+<td><em>콘텐츠 구조</em>(*.xls) 와 <em>디자인</em>(*.psd)은 최종본인가요?<br />
+(ex) 내부 콘텐츠, 하위 콘텐츠 누락<br />
+(ex) 외부 콘텐츠 링크 주소 누락<br />
+(ex) 사이트맵, 로그인 등 콘텐츠 구조화?<br />
+(ex) 서브메인 인덱스?<br />
+(ex) 오타? 맞춤법? 띄어쓰기?<br />
+(ex) 홈 > 기타 페이지 (메뉴 구조 포함안된 독립메뉴)
+</td>
+<td>▶[X]라면 <strong>콘텐츠 구조(*.xls)와 디자인(*.psd)</strong>을 수정해주세요.<br />
+(Tip) <em>시안이 확정되면 코딩 시 필요한 자료 및 디자인 보완 필요!</em><br />
+(Tip) <strong>콘텐츠 구조 엑셀 파일</strong><br />
+- 모든 콘텐츠 메뉴 표기. 1행은 웹페이지 1개. (가능하면 1줄로 정리)<br />
+- 서브메인 인덱스도 웹페이지다. 하위 메뉴는 다음 행부터 기입.<br />
+- 멀티게시판은 파생되는 페이지(목록,내용,글쓰기,..)가 있어도 1메뉴로 표기.<br />
+- 특이한 경우 비고란에 하위메뉴명 모두 기입.<br />
+- 기타, 로그인 등을 메뉴 구조의 하위로 포함시켜 독립메뉴 수를 최소화.<br />
+이용안내 - 사이트맵, 개인정보보호방침, 뷰어다운로드, ..<br />
+회원 - 로그인, 회원가입, 정보수정<br />
+</td>
+</tr>
+<tr>
+<th scope="row">03.</th>
+<td><em>Design 최종본</em> 은 콘텐츠 구조와 화면 설계서를 전부 반영한건가요?<br />
+(ex) 주 메뉴명, 서브 메뉴명, 콘텐츠명이 다르다.<br />
+(ex) 기본, 선택 상황별, 이벤트별 활성/비활성 콘텐츠가 누락되었다.<br />
+</td>
+<td>▶[X]라면 <strong>Design</strong> 수정·보완·추가 요청해주세요.<br />
+(Tip) Design 완료 후 요구사항이 모두 반영되었는지 확인해주세요.<br />
+(Tip) 상황별, 이벤트별 콘텐츠가 다르면 모두 디자인 되어 있어야 한다.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">04.</th>
+<td><em>Design 에만 존재</em>하고, 콘텐츠 구조에 없는 콘텐츠가 있나요?<br />
+(ex) 공통UI language 메뉴 - english 링크? http://eng.domain.co.kr/<br />
+(ex) 공통UI 통합검색 - select 목록 내용?<br />
+(ex) 공통UI 사이트 맵, 개인정보처리방침, 저작권보호, 뷰어다운로드, ..<br />
+(ex) 공통UI 로그인, 로그아웃, 회원가입, 개인정보수정, 아이디찾기, 비밀번호찾기, ..<br />
+(ex) 메인UI 바로가기 여닫기 - 목록 내용 링크 주소?<br />
+(ex) 서브공통UI 스크랩 - 기능설명?<br />
+</td>
+<td>▶[O]라면 <strong>콘텐츠 구조</strong>에 콘텐츠명과 설명/링크를 적어주세요.<br />
+<!-- (Tip) 글로벌 혹은 로컬 내비게이션에 링크가 있거나 구축 사이트 내에 웹페이지가 존재하는 것은 모두 콘텐츠 구조에 포함한다.<br /> -->
+(Tip) <strong>내부 링크</strong>는 모두 콘텐츠 구조에 포함시킨다.<br />
+(Tip) <strong>외부 링크</strong>는 모두 URI 를 제공한다.<br />
+(Tip) 콘텐츠 구조에 없거나 조금(철자, 띄어쓰기)이라도 이름이 다른 콘텐츠는..<br />
+&nbsp;　&nbsp;　메뉴 구조 시트 아래쪽에 영역별로 나열하거나 다른 시트에 별도로 정리<br />
+▶ <a href="#IAxls">아래 [엑셀 표기 샘플] 참고</a>
+</td>
+</tr>
+<tr>
+<th scope="row">05.</th>
+<td><em>콘텐츠 구조와 이름이 다르게 Design</em>된 콘텐츠가 있나요?<br />
+(ex) 주 메뉴명, 서브 메뉴명, 콘텐츠명이 다르다.<br />
+(ex) 콘텐츠 구조에는 "개인정보보호방침", Design 에는 "개인정보취급방침"<br />
+(ex) 콘텐츠 구조에는 "질문/대답", Design 에는 "질문과 답변"<br />
+(ex) 콘텐츠 구조에는 "포토갤러리", Design 에는 "포토게시판"<br />
+</td>
+<td>▶[O]라면 <strong>화면 설계서</strong>에 그 이유를 적어주세요.<br />
+(Tip) 특별한 이유가 없으면 동일하게 해주세요.<br />
+(Tip) 이름을 다르게 디자인하기로 정한 모든 콘텐츠는.. 위 표처럼 콘텐츠넘버(6.3.4) 기입<br />
+</td>
+</tr>
+<tr>
+<th scope="row">06.</th>
+<td><em>Design 필수 요소가 누락</em>되었나요?<br />
+(ex) 만족도 조사, 만족도 통계, ..<br />
+(ex) 콘텐츠 자동 재생하면 <em>정지 버튼</em>, 순환하면 <em>이전, 다음 버튼 필수!</em><br />
+(ex) 동영상 자막, 색에 무관한 콘텐츠 인식, 색상대비 ..<br />
+</td>
+<td>▶[O]라면 <strong>Design</strong> 추가 요청해주세요.<br />
+(Tip) <!-- 콘텐츠 구조, 설명에 상관없이  --><em>평가(검수) 조건</em>을 준수한 디자인인지 확인바람.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">07.</th>
+<td><em>콘텐츠 (화면설계서)</em> 에는 상황별 추가/변동이 있나요?<br />
+(ex) 메인: 탭 활성/비활성 상태의 모든 콘텐츠 내용<br />
+(ex) 메인: 바로보기 클릭시 레이어로 나타날 목록 콘텐츠<br />
+(ex) 서브: 비쥬얼+카피. (주메뉴에 포함안된 "이용안내", "회원" 페이지 포함)<br />
+</td>
+<td>▶[O]라면 <strong>콘텐츠 자료 수집 및 화면 설계</strong>해주시고, <strong>Design</strong> 추가 요청해주세요.<br />
+(Tip) 키보드/마우스 이벤트, 로그인, 가로모드, 시간대별 다른 콘텐츠 등  
+</td>
+</tr>
+<tr>
+<th scope="row">08.</th>
+<td><em>자바스크립트 기능</em>이 필요한 콘텐츠가 있나요?<br />
+(ex) language, mobile 메뉴 여닫기, 바로가기 링크 여닫기,<br />
+(ex) 통합검색 기능선택, 탭메뉴 동작,<br />
+(ex) 비쥬얼, 이미지홍보(팝업존,알림판), 배너 (자동?수동?)순환,<br />
+</td>
+<td>▶[O]라면 <strong>화면 설계서</strong>에 해당 콘텐츠명과 요구사항을 모두 적어주세요.<br />
+(Tip) <em>기능, 동작이 요구되는 것은 개발한 적이 있든 없든 누락없이 적는다.</em><br />
+(Tip) 과거에 구축한 콘텐츠 중 유사한 부분이..<br />
+* 있으면.. URI, 동일한 부분 명시하고, 유사한 기능 요구사항 작성 필요!<br />
+* 없으면.. 모든 기능 상세 명세 작성 + <em>벤치마킹 웹페이지 URI</em> 필요!!<br />
+</td>
+</tr>
+<tr>
+<th scope="row">09.</th>
+<td><em>플래시</em>로 구현할 콘텐츠가 있나요?<br />
+(ex) 비쥬얼 전체? 텍스트만?  메인만?<br />
+(ex) 본문 콘텐츠? 특화 콘텐츠?<br />
+</td>
+<td>▶[O]라면 <strong>화면 설계서</strong>에 해당 콘텐츠명과 요구사항, 영역을 모두 표시해주세요.<br />
+(Tip) <em>기능, 동작이 요구되는 것은 누락없이 상세히 적는다.</em><br />
+(Tip) 존재 이유가 없는 플래시는 이미지로 대체.<br />
+(Tip) 갑 요청 없는 플래시는 넣지 말고, 요청이 있더라도, 더 나은 방법으로 유도하여 설계 필요!<br />
+(Tip) 플래셔 일정 확인 및 업무분장 해두세요.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">10.</th>
+<td>코더에게 추가 요청건이 있나요?</td>
+<td>▶[O]라면 <strong>콘텐츠 구조</strong> 또는 <strong>화면 설계서</strong>에 적어주세요.</td>
+</tr>
+</tbody>
+</table>
+
+
+<h5>##○○프로젝트</h5>
+
+<table border="1" class="t3" summary="아래는 과업 전체에 대한 체크"><caption></caption>
+<col style="width:1%;white-space:nowrap;" /><col style="width:40%;"  /><col style="width:50%;" />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">점검 항목</th>
+<th scope="col">비고 ▶ 참고 후 작성해주세요</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01.</th>
+<td>갑과 협의하여 <em>과업지시서 내용과 다르게 추가/삭제/변경된 사항</em>이 있나요?<br />
+(ex) 열린시장실 웹사이트 리뉴얼 추가됨<br />
+(ex) 모바일OK Validator 통과는.. 평가툴 자체 오류 있어 안하기로 합의함.<br />
+</td>
+<td>▶[O]라면 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 모두 적어주세요.<br />
+(Tip) 착수, 킥오프 미팅 필요!
+</td>
+</tr>
+<tr>
+<th scope="row">02.</th>
+<td>웹 접근성, 웹 표준, 호환성, 평가 관련 <em>검수 조건</em>이 있나요?<br />
+(ex) 모든 사이트 K-WAH 준수율100%. 산출물 제출요.<br />
+(ex) 웹 접근성 품질마크 인증 : 대표포털만 필수.<br />
+(ex) 웹 표준 W3C Validator : Markup 통과 필수, CSS2.1 최대한 준수, HTML5? CSS3?<br />
+(ex) 웹 호환성 [IE7,8,9,FF,SF,CR,OP], (※<a href="http://campaign.naver.com/goodbye-ie6">[IE6] 2012년 주요사이트 지원 중단</a>)<br />
+(ex) 스마트폰 기기 3종 [iPhone, GALAXY S2, ?],<br />
+(ex) 스마트폰 브라우저3종 [iOS Safari, Android WebBrowser, ?], iPad호환?<br />
+(ex) <a href="http://v.mobileok.kr/">모바일OK Validator</a> 통과! AAA, AA, A. (※2009년기준이고, 평가툴 접속불가)<br />
+(ex) 1024*768 화면 최적, 반응형 웹, 가로·세로 모드?<br />
+(ex) 보안<br />
+</td>
+<td>▶[O]라면 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 검수 조건과 인증 계획을 적어주세요.<br />
+(Tip) <em>부적합한 설계, 디자인, 코딩, 개발은 진행하지 않기!</em><br />
+(Tip) 개발 후 다시 수정, 보완하는 일은 없도록 한다.<br />
+(Tip) 현실이 이상에 부합하지 않을 때에는 미리 갑에게 알려서 선택하도록 한다.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">03.</th>
+<td>계약부터 현재까지 <em>이슈/요구사항/일정계획</em>이 있나요?<br />
+ex) 이슈 : 과업 범위 변동, 고객 성향, 사업비, ..<br />
+ex) 요구 : 핵심 기능 요청 내용<br />
+ex) 일정 : 자료 수집, 시안 확정, 템플릿 코딩, 구축 완료(內/外), 오픈(론칭), 인수인계<br />
+</td>
+<td>▶[OX] 숙지해야 할 내용을 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 적어주세요.<br />
+(Tip) 일정계획 확정 없어도 <em>주요 일정 예상</em>을 적어주세요.<br />
+(Tip) 난해한 갑에 끌려가는 과업도 일정 계획은 있어야 한다.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">04.</th>
+<td>2개 이상 사이트를 <em>유사한 레이아웃 또는 콘텐츠</em>로 구축하는 것이 있나요?<br />
+(ex) 외국어(영,일,중), 계층별(여성, 청소년), 부서, 읍명동, 의원, 모바일 웹사이트 등<br />
+(ex) 대표포털, 문화관광, 시정홍보, 주민참여 글로벌 메뉴.<br />
+(ex) 대표 사이트 콘텐츠의 PC(Desktop) 버전과 Mobile 버전 공유.<br />
+</td>
+<td>▶[O]라면 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 전체 과업에 대해 적고, <em>각 사이트 <strong>화면설계서</strong>에 설명 필요.</em><br />
+<!-- (Tip) <em>상세 내용은 화면설계서에 기입하고 구두 설명 필요.</em><br /> -->
+(Tip) <em>공통(고정)/개별(가변)</em> 부분을 <em>구조, 표현(디자인), 동작, 내용</em>별로 알려주세요.<br />
+(Tip) 대표포털과 계층별은 head 영역의 구조, 디자인, 동작은 같고 메뉴명은 사이트별로 다름. (각 화면설계서 참조)<br />
+(Tip) 노선검색 콘텐츠가 대표포털과 모바일에서 비슷하나, 검색 방식에 2가지 차이가 있음. 1).. 2)..<br />
+</td>
+</tr>
+<tr>
+<th scope="row">05.</th>
+<td>코더에게 추가 요청건이 있나요?</td>
+<td>▶[O]라면 <a href="http://intranet.정보행동.co.kr/program/business/project/project_lst.jsp">PMS</a>에 적어주세요.</td>
+</tr>
+</tbody>
+</table>
+
+
+<h5>※ IA / Design Check Core</h5>
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="clear:both;width:100%;overflow:hidden;">
+
+<div style="float:left;width:49%;margin:.5%;">
+<div style="padding:1em;border:2px solid #eee;">
+<h6>IA (콘텐츠구조엑셀파일)</h6>
+<ol class="num">
+<li>IA 는 최종본인가?</li>
+<li>IA 는 내부페이지가 모두 포함되었는가?</li>
+<li>Design 은 IA 최종본을 반영하였는가?</li>
+<li>Design 에는 있는데.. IA 에는 없다.
+	<ol class="num">
+	<li>외부링크? ▶ IA 시트 아래 또는 화면설계서에 링크주소 표기</li>
+	<li>내부링크
+		<ol class="num">
+		<li>누락? ▶ IA 추가</li>
+		<li>오타? ▶ Design 수정</li>
+		<li>이유 있는 디자인?  ▶ IA 시트 아래 또는 화면설계서에 링크할 콘텐츠넘버 표기</li>
+		</ul>
+	</li>
+	</ol>
+</li>
+<li>Design 과 IA 동일 ▶정리(콘텐츠넘버 표기) 불필요</li>
+<li>맞춤법, 띄어쓰기 문제여부? ▶ IA 와 Design 수정</li>
+<li>IA 언급 없으나, 필수 디자인 누락여부? ▶ Design 수정</li>
+</ol>
+</div>
+</div>
+
+<div style="float:left;width:49%;margin:.5%;">
+<table id="IAxls" border="1" class="t3" summary=""><caption>[엑셀 표기 샘플] 디자인의 콘텐츠명과 콘텐츠 구조의 이름이 다른 경우.. </caption>
+<thead>
+<tr>
+<th scope="col">UI영역</th>
+<th scope="col">디자인된 콘텐츠명</th>
+<th scope="col">링크주소</th>
+<th scope="col"></th>
+<th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">공통<br />상단</th>
+<td>English</td><td>eng.domain.go.kr</td><td>콘텐츠 구조에 없는 외부 링크 주소<br />
+</td><td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">공통<br />하단</th>
+<td>개인정보취급방침</td><td>c7.2</td><td>내부링크 "개인정보.." 의 콘텐츠 넘버</td><td></td>
+</tr>
+<tr>
+<td>저작권보호</td><td>c7.3</td> <td>콘텐츠 넘버</td><td></td>
+</tr>
+<tr>
+<td>뷰어프로그램</td><td>c6.3.4</td><td>콘텐츠 구조에 있는 외부 링크 주소<br />
+외부링크 "뷰어다운로드"와 이름이 다름.<br />
+콘텐츠 구조 c6.3.4 에 실제 링크 있음.<br />
+</td><td></td>
+</tr>
+<tr>
+<th scope="row">서브<br />공통</th>
+<td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">메인</th>
+<td>질문과 답변</td><td>c6.2.5</td><td>내부링크 "질문/대답" 의 콘텐츠 넘버</td><td></td>
+</tr>
+<tr>
+<td>포토게시판</td><td>c6.3.2</td><td>내부링크 "포토갤러리" 의 콘텐츠 넘버</td><td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- /contentsBlock -->
+
+
+<br />
+<h4 title="To Template Designer">디자인PL (시안. Main/Sub Template, Creative Designer, ..)</h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width:1%;white-space:nowrap;" /><col style="width:40%;"  /><col style="width:50%;" />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">점검 항목</th>
+<th scope="col">비고 ▶ 참고 후 작성해주세요</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01.</th>
+<td><strong>포토샵 - 레이어 그룹화</strong> : 기본, 선택 상황별 <em>Layer Set ([+on]/[+off])</em>을 만드셨나요?<br />
+(ex) 내비게이션, 탭, 로그인, ..
+</td>
+<td>▶[X]라면 만들어주세요.<br />
+(Tip) <a href="../img/ex)TabOnOff_myshin.png">ex)TabOnOff_myshin.png</a> [<a href="../img/ex)TabOnOff_myshin.psd">psd소스</a>]
+</td>
+</tr>
+<tr>
+<th scope="row">02.</th>
+<td><strong>포토샵 - 레이어 팔레트 - 눈표시</strong><!-- (Indicates layer visibility) -->로 확인해야하는 <em>Layer (Set)</em>들은 알기쉽게 표시했나요?<br />
+(ex) 기본, 선택 상황별, 이벤트별 활성/비활성 콘텐츠, ..<br />
+(ex) 전체메뉴, 바로가기 여닫기, 섹션별 비쥬얼 콘텐츠, ..<br />
+</td>
+<td>▶[X]라면 Layer (Set) Properties - Color 를 지정해주세요.<br />
+(Tip) 콘텐츠 단위로 이미지 커팅하므로 Layer Set 숨김, 보임을 자주 사용.<br />
+(Tip) 미사용 레이어는 삭제.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">03.</th>
+<td><em>자동 재생 또는 순환</em> 되는 콘텐츠가 있나요?<br />
+(ex) 팝업존, 롤링배너, 플래시, ..
+</td>
+<td>▶[O]라면 제어 버튼을 넣어주세요.<br />
+(Tip) 콘텐츠 자동 재생하면 <em>정지 버튼</em>, 순환하면 <em>이전, 다음 버튼 필수!</em> 재생 버튼은 선택사항.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">04.</th>
+<td>색상 이외에도 <em>명암이나 패턴</em> 등으로 콘텐츠 구분이 가능한가요?<br />
+(ex) 이미지홍보 순번, 주메뉴, 부메뉴, 현재 위치, 탭, 페이지링크, 일정표, ..<br />
+</td>
+<td>▶[X]라면 색상을 배제하여도 제공하고자 하는 정보를 이해할 수 있게 해주세요.<br />
+(Tip) 흑백으로 변경했을 때 구분할 수 있는지?<br />
+(Tip) 포토샵 [Image]-[Adjustments]-[Desaturate] 활용 권장<br />
+</td>
+</tr>
+<tr>
+<th scope="row">05.</th>
+<td>텍스트 콘텐츠와 배경 간의 <em>명도 대비</em>는 KWCAG 2.0 기준에 맞나요?<br />
+(ex) <b style="color:#777;">더 보기, 글 작성일, 하단메뉴, 카피라이트</b>, ..<br />
+(나쁜예) 아래 명도 대비로는 부족하다~<br />
+<span style="float:left;width:25%;height:25%;background:#777;color:#fff;">Gray #777</span>
+<span style="float:left;width:25%;height:25%;background:#f00;color:#fff;">Red #f00</span>
+<span style="float:left;width:25%;height:25%;background:#b60;color:#fff;">Orange #b60</span>
+<span style="float:left;width:25%;height:25%;background:#480;color:#fff;">Y Green #480</span>
+</td>
+<td>▶[X]라면 그 이유를 적어주세요.<br />
+(Tip) 배경 #fff 이면 텍스트 콘텐츠는 #767676 보다 어두운 색을 선택<br />
+※ <a href="http://www.wah.or.kr/Example2.0/cognition1_3_3.asp">KWCAG 2.0 1.3.3 텍스트 콘텐츠의 명도 대비</a><br />
+※ 색상값 추출 + 명도대비 점검 <a href="http://www.visionaustralia.org.au/info.aspx?page=628">Colour Contrast Analyser</a><br />
+</td>
+</tr>
+<tr>
+<th scope="row">06.</th>
+<td><em>비쥬얼</em> 디자인은 페이지별로 다른가요?<br />
+(ex) 서브 비쥬얼이 1차 메뉴에 따라 다른 경우<br />
+</td>
+<td>▶[O]라면 <em>고정/가변 영역을 구분</em>하여 표시해주세요.<br />
+(Tip) px 단위 영역 정확하게 표시 필요.<br />
+(Tip) 포토샵 - 레이어 팔레트의 Layer Mask 기능 활용 권장.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">07.</th>
+<td><em>플래시</em>로 구현할 콘텐츠가 있나요?<br />
+(ex) 비쥬얼 전체? 텍스트만? 메인만? 특정 이미지만?
+</td>
+<td>▶[O]라면 해당 콘텐츠 영역을 모두 표시해주세요.<br />
+(Tip) 쓸데없는 플래시는 이미지로 대체.<br />
+(Tip) px 단위 영역 정확하게 표시 필요.<br />
+(Tip) 포토샵 - 레이어 팔레트의 Layer Mask 기능 활용 권장.<br />
+(Tip) 다른 콘텐츠와 겹치지 않도록 디자인 바람.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">08.</th>
+<td>코더에게 추가 요청건이 있나요?</td>
+<td>▶[O]라면 적어주세요.</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<h4 title="To Content Designer">디자인PL (콘텐츠. Sub Contents Designer, Coding, ..)</h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width:1%;white-space:nowrap;" /><col style="width:40%;"  /><col style="width:50%;" />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">점검 항목</th>
+<th scope="col">비고 ▶ 참고 후 작성해주세요</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01.</th>
+<td>서브 콘텐츠 내용 <em>코딩 작업 예정일</em>은 언제인가요?</td>
+<td>▶언제부터?</td>
+</tr>
+<tr>
+<th scope="row">02.</th>
+<td>코더에게 추가 요청건이 있나요?</td>
+<td>▶[O]라면 적어주세요.</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<h4 title="To Programmer">개발PL (Developer, Server Administrator, ..)</h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width:1%;white-space:nowrap;" /><col style="width:40%;"  /><col style="width:50%;" />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">점검 항목</th>
+<th scope="col">비고 ▶ 참고 후 작성해주세요</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01.</th>
+<td>과업 범위 사이트별 <em>개발언어, 문자인코딩, 개발서버 FTP</em>정보, 웹주소를 적어주세요.<br />
+ex) <em>개발언어</em>[JSP|ASP|PHP],
+<em>문자인코딩</em>[UTF-8|EUC-KR],<br />
+<em>FTP정보</em>[IP,ID,PW,DIR/PATH,SFTP?,PassiveMode?],<br />
+웹사이트명: 개발도메인(URI), 운영도메인(URI).<br />
+</td>
+<td>▶ 개발서버 세팅 후 과업 투입 인력 모두에게 전달해주세요.</td>
+</tr>
+<tr>
+<th scope="row">02.</th>
+<td>서브측 개발 담당자의 <em>디자인 마크업 적용 예정일</em>은 언제인가요?</td>
+<td>▶ 과업 담당자 모두에게 전달해주시면, 일정에 맞추도록 노력하겠습니다.</td>
+</tr>
+<tr>
+<th scope="row">03.</th>
+<td>코더에게 추가 요청건이 있나요?</td>
+<td>▶[O]라면 적어주세요.</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<!-- //box3 -->
+<br />
+<hr />
+
+<!-- <h2>답변 작성 예시</h2>
+<p>클라우드 스프레드시트 표로 만든다.</p> -->
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140321. 벤치마킹 요청 추가.
+20131213. 링크 표시
+20130402. 내용 순화
+20120806. 흐름에 맞게 순서 조정 및 내용 보강. 20120720. 20120704. 정리일단완료. 20120622. 탐색 버튼 및 (ex) (Tip) 추가.
+20110802. 20110513. 20110408. 20110331. 20110323.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

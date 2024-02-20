@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'PHP | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>PHP</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Tutorial">Tutorial</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Basic">Basic</a></li>
+<li><a href="#misc">misc</a></li>
+<li><a href="#Link">Reference Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+<br />
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:59%;margin:0 1% 0 0;"><!-- contentsBlock -->
+
+<h2 id="Tutorial">PHP Tutorial</h2>
+
+<h3><cite><a href="http://opentutorials.org/course/62">생활코딩 - PHP 기본 수업</a></cite></h3>
+<p>1.LightYellow) 텍스트 정리! 2.Yellow) 실습! 3.Green) 동영상 보자! </p>
+<div class="box3"><!-- box3 -->
+<span class="markingpen1"><!-- markingpen1 -->
+<span class="fade1">
+커버 페이지
+|| PHP란 무엇인가?
+|| 설치
+| 윈도우에 PHP 설치하기
+| 맥에 PHP 설치하기
+| 웹호스팅
+| 리눅스에 PHP 설치하기
+| Nginx-PHPFPM
+|| 설정
+| 리눅스 설정
+| 윈도우 (Bitnami) 설정
+<br />
+|| 첫번째 PHP 에플리케이션
+| 서버측 언어를 사용하는 이유
+| 숫자와 문자
+| 변수
+| 비교
+| 입출력 그리고 폼과 HTTP
+| 조건문
+| 반복문
+| 함수
+| 배열
+| include와 namespace
+<br />
+|| 라이브러리와 확장기능
+<span class="dpib bgf">| Composer<!-- .bgf --></span>
+|| 파일
+| 파일의 제어
+| 디렉토리 제어
+| 파일 업로드
+| 이미지 다루기
+<br />
+|| 문자열 처리
+|| 정규 표현식
+|| 데이터베이스
+<span class="dpib bgf">
+| PDO
+| MySQL 확장
+<!-- .bgf --></span>
+|| 쿠키와 세션
+|| 디버깅
+| log
+<span class="dpib bgf">| xdebug<!-- .bgf --></span>
+<br />
+|| PHP 문서 보는 법
+|| PHP 웹 에플리케이션 설치하기
+|| 객체 지향 프로그래밍
+<!-- .fade1 --></span>
+<!-- .markingpen1 --></span>
+<!-- /box3 --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<pre>
+커버 페이지
+<div class="box1"><!-- box1 -->
+특히 서버에 직접 설치해서 운영할 수 있는 설치형 웹에플리케이션(제로보드,텍스트큐브,워드프래스,PHPBB등)의 과반이 PHP로 만들어졌습니다. 따라서 PHP를 배워두시면 이러한 솔루션들에 대한 운영, 문제해결 능력이 향상됩니다. 무엇보다 쉽습니다.
+<!-- /box1 --></div>
+PHP란 무엇인가?
+<div class="box1"><!-- box1 -->
+<strong>PHP?</strong>
+주로 HTML 코드를 프로그래밍적으로 생성
+서버쪽에서 실행 되는 프로그래밍 언어
+Personal Home Page Tools 의 약자에서 PHP:Hypertext Preprocessor 로 의미가 변경 되었다.
+<strong>PHP의 장점</strong>
+웹에 최적화된 언어
+웹개발에 필요한 수많은 로직들이 함수의 형태로 미리 제공됨
+크로스플랫폼
+거의 모든 데이터베이스를 지원
+가장 많은 공개소프트웨어가 PHP로 만들어짐
+<strong>PHP 정보를 얻을 수 있는 곳</strong>
+<a href="http://php.net/" target="_blank">php.net</a>  - php의 공식 홈페이지
+<a href="http://phpschool.com/" target="_blank">phpschool.com</a>  - 국내 최대의 PHP 커뮤니티
+<strong>PHP로 만들어진 솔루션들</strong>
+<a href="http://www.phpbb.com/" target="_blank">phpbb</a>
+<a href="http://www.phpmyadmin.net/" target="_blank">phpmyadmin</a>
+<a href="http://wordpress.com/" target="_blank">wordpress</a>
+<a href="http://www.xpressengine.com/" target="_blank">제로보드</a>
+<a href="http://www.textcube.org/" target="_blank">텍스트큐브</a>
+<!-- /box1 --></div>
+설치
+윈도우에 PHP 설치하기
+<div class="box1"><!-- box1 -->
+<strong>수업소개</strong>
+이번 시간은 Bitnami를 이용해서 Apache, PHP, MySQL을 설치하는 것이 목표다. 일반적으로 윈도우에 PHP를 설치하는 것은 실제 서비스를 위한 것 보다 개발환경이나 실습을 위한 목적일 것이다. 실제로 PHP로 동작하는 웹에플리케이션을 서비스 하기 위해서는 외부에서 PHP가 설치된 컴퓨터에 인터넷을 통해서 접속이 가능하도록 환경을 구성해야 한다. 그런데 이것은 여러가지 이유로 꽤나 많은 지식을 필요로하고 문제점을 가지고 있다. 따라서 <em>실제로 서비스를 한다면 웹호스팅이나 클라우드 컴퓨팅과 같은 환경의 이용을 고려하는 것을 권장</em>한다. 물론 실습환경으로는 충분하다.
+<strong>참고</strong>
+<a href="http://bitnami.com/stack/wamp" target="_blank">Bitnami 홈페이지</a>
+<!-- /box1 --></div>
+맥에 PHP 설치하기 -- [m] 생략
+웹호스팅
+<div class="box1"><!-- box1 -->
+<strong>web hosting</strong>
+웹서비스를 운영할 수 있도록 서버를 임대해주고, 시스템 운영을 대행해주는 형태의 서비스
+제한된 권한
+<strong>파란 웹호스팅</strong>
+<a href="http://hosting.paran.com/" target="_blank">http://hosting.paran.com/</a> --[m] <a href="http://bizfree.kr/" target="_blank">http://bizfree.kr/</a> 로 포워딩.
+설치비 5천원, 유지비 무료
+6개월 단위로 재신청을 해야 갱신됨
+<strong>클라우드 컴퓨팅</strong>
+아마존 웹서비스.
+가상 머신에서 직접 서비스를 운영해 볼 수 있음.
+<a href="http://opentutorials.org/course/608/3002" target="_blank">http://opentutorials.org/course/608/3002</a>
+<strong>참고</strong>
+<a href="http://opentutorials.org/course/128/881" target="_blank">fileZilla(FTP)</a>
+<a href="http://opentutorials.org/course/128/882" target="_blank">putty(SSH)</a>
+<!-- /box1 --></div>
+리눅스에 PHP 설치하기 -- [m] 생략
+Nginx-PHPFPM
+<div class="box1"><!-- box1 -->
+<strong>Nginx</strong>
+nginx는 경량화된 웹서버로 Apache에 비해서 더 빠르다는 특징을 가지고 있다. 최근에 급부상하고 있는 웹서버다.
+<strong>PHPFPM</strong>
+PHPFPM는  PHP를 FastCGI 방식으로 동작하도록 하는 솔루션인데, 주로 Nginx와 함께 사용된다.
+<!-- /box1 --></div>
+설정
+<div class="box1"><!-- box1 -->
+<strong>설정이란</strong>
+Configuration. PHP가 동작하는 기본적인 작동방법을 변경하는 것으로, <b>php.ini</b> 파일를 통해서 변경 사항을 반영할 수 있다. <em>설정을 변경 한 후에는 웹서버를 리로드(reload) 혹은 재시작(restart) 해야 한다.</em>
+<strong>에러설정</strong>
+에러는 개발이나 오류를 파악하는데 중요한 수단이지만, 에러가 실서버 환경에서 그대로 노출되는 것은 바람직하지 못하다. 아래는 실서비스와 개발환경에서의 권장 설정 방법이다.
+C:\BitNami\wampstack-5.4.20-0\php\php.ini
+<b>운영</b>
+<var class="xmp">
+display_errors = Off
+display_startup_errors = Off
+<em>error_reporting</em> = E_ALL
+log_errors = On
+</var>
+<b>개발</b>
+<var class="xmp">
+display_errors = On
+display_startup_errors = On
+error_reporting = -1
+log_errors = On
+</var>
+<!-- /box1 --></div>
+리눅스 설정
+윈도우 (Bitnami) 설정
+첫번째 PHP 에플리케이션
+<div class="box1"><!-- box1 -->
+<xmp class="xmp">
+<?php
+echo "Hello world";
+?>
+</xmp>
+<xmp class="xmp">
+<html>
+<body>
+echo "Hello world";
+<?php
+echo "Hello world";
+?>
+</body>
+</html>
+</xmp>
+<!-- /box1 --></div>
+서버측 언어를 사용하는 이유
+숫자와 문자
+<div class="box1"><!-- box1 -->
+<xmp class="xmp">
+<?php
+var_dump(6.1);
+?>
+</xmp>
+<xmp class="xmp">
+<?php
+echo "그는 \"안녕하세요 라고 말했다\"";
+?>
+</xmp>
+<!-- /box1 --></div>
+변수
+<div class="box1"><!-- box1 -->
+<b>변수(變數, Variable)</b>는 문자나 숫자 같은 값을 담는 컨테이너다. 여기에 담겨진 값은 다른 값으로 바꿀 수 있다. 변수는 마치 (사람이 쓰는 언어인) 자연어에서 대명사와 비슷한 역할을 한다.
+<strong>변수의 선언</strong>
+다음 예제는 변수에 값을 대입하는 방법을 보여주는 예제다.
+<xmp class="xmp">
+<?php
+$a=1;
+echo $a+1; #2
+echo "<br />";
+$a=2;
+print $a+1; #3
+?>
+</xmp>
+<xmp class="xmp">
+$first = "coding";
+echo $first." everybody";
+</xmp>
+<b>주석(comment)</b>
+# 뒤에 따라오는 내용은 해석되지 않는다.
+// 를 # 대신에 사용할 수도 있다.
+/* */ 는 긴 구간을 주석으로 처리할 때 사용한다.
+<strong>상수</strong>
+<b>상수(常數, constant)</b>는 변하지 않는 값이다. 필요에 따라서 사용자가 직접 상수를 정의 할 수도 있다. 아래 예제를 보자.
+상수를 정의 할 때는 <b>define</b>를 사용한다. define의 첫번째 인자로 상수의 이름이 사용되고, 두번째 인자로 상수의 값이 사용된다.
+<xmp class="xmp">
+<?php
+define('TITLE', 'PHP Tutorial'); // PHP Tutorial
+echo TITLE;
+define('TITLE', 'JAVA Tutorial'); // 오류 Notice: Constant TITLE already defined in C:\BitNami\wampstack-5.4.20-0\apache2\htdocs\variable\variable8.php on line 6
+?>
+</xmp>
+
+<strong>변수에 담긴 데이터 형을 검사하고 변경하기</strong>
+PHP에서 변수에 담긴 데이터 형을 검사할 때는 <b>gettype</b>과 <b>settype</b>을 사용한다. 아래는 이 명령들의 사용법이다.
+<xmp class="xmp">
+<?php
+$a = 100;
+echo gettype($a);
+settype($a, 'double');
+echo '<br />';
+echo gettype($a);
+?>
+</xmp>
+위의 코드를 실행해보면 integer(정수)와 double(실수)가 출력된다. $a에 어떤 데이터형이 담겨있는지 알아보기 위해서 gettype을 사용했다. gettype은 인자로 전달된 값의 데이터 형을 출력한다. var_dump와 비슷 하지만 <b>var_dump</b>는 데이터형에 대한 검사와 함께 출력까지 강제로 하기 때문에 활용도가 떨어진다. settype은 첫번째 인자로 주어진 값을 두번째 인자에 해당하는 데이터 형으로 변경해준다.
+이와 비슷한 역할을 하는 API로는 아래와 같은 것이 있다.
+<b class="wsn">
+is_array()
+is_bool()
+is_callable()
+is_double()
+is_float()
+is_int()
+is_integer()
+is_long()
+is_null()
+is_numeric()
+is_object()
+is_real()
+is_resource()
+is_scalar()
+is_string()
+</b>
+
+<strong>변수의 데이터 타입</strong>
+PHP는 다른 언어들과는 다르게 변수에 담길 값의 데이터 형식을 미리 지정할 필요가 없다. 아래의 예제를 보자.
+<xmp class="xmp">
+<?php
+$a = 100;
+$a = "test";
+$a = array(1,2,3);
+?>
+</xmp>
+위의 코드는 PHP에서는 아무런 문제가 없다. 이것은 PHP의 장점이면서 단점으로 이야기 되기도 한다. 즉 변수 $a를 선언할 때 변수에 어떤 값이 들어가야 하는지 미리 지정 할 필요가 없다. 필요에 따라서 다른 형식의 데이터를 넣으면 변수의 데이터 형식이 자동으로 변경된다. 이것은 매우 편리 하지만, 변수에 어떠한 형식의 데이터가 담겨있는지를 예측할 수 없기 때문에 오류가 발생할 가능성이 높아지기도 한다.
+
+<strong>가변변수</strong>
+<xmp class="xmp">
+<?php
+$title = 'subject';
+$$title = 'PHP tutorial';
+echo $subject;
+?>
+</xmp>
+위의 코드를 보면 변수 $title의 값이 subject이다. 그런데 5행에 나타나는 '$$title'에는 '$'가 두번 표시되어 있다. 이것은 문자열 'PHP tutorial'이 변수 $title의 값이 아니라 변수 $subject의 값이라는 의미다. 변수의 이름을 동적으로 만들 수 있다는 점은 PHP가 가진 유연함을 보여준다.
+<!-- /box1 --></div>
+비교
+<div class="box1"><!-- box1 -->
+<!-- /box1 --></div>
+입출력 그리고 폼과 HTTP
+<div class="box1"><!-- box1 -->
+<strong>에플리케이션의 입력값과 폼</strong>
+<xmp class="xmp">
+<?php
+echo $_GET['id'].','.$_GET['password'];
+?>
+</xmp>
+브라우저 주소 입력 : localhost/IO_form/2.php?id=k8805&password=111111
+<strong>HTML Form</strong>
+<xmp class="xmp">
+<form method="get" action="2.php">
+id :  <input type="text" name="id" />
+password :  <input type="text" name="password" />
+<input type="submit" />
+</form>
+</xmp>
+<strong>GET VS POST 방식</strong>
+GET 방식으로 데이터를 전송할 때 URL에 데이터를 포함시키는 것이 비해서 POST 방식으로 데이터를 전송할 때는 전송하는 데이터를 URL에 포함시키지 않고 전송 할 수 있다. 이러한 차이로 인해서 GET 방식은 정보에 대한 링크로 많이 사용되고, POST 방식은 사용자의 아이디나 비밀번호와 같은 데이터를 전송하는 방식으로 주로 사용한다.
+<strong>전송된 데이터의 처리</strong>
+<!-- /box1 --></div>
+조건문
+<div class="box1"><!-- box1 -->
+<strong>Boolean</strong>
+<strong>조건문</strong>
+<strong>조건문의 문법</strong>
+<code class="xmp">
+<b>if</b> (false){
+    echo 1;
+} <b>else if</b> (true){
+    echo 2;
+} <b>else if</b> (true){
+    echo 3;
+} <b>else</b> {
+    echo 4;
+}
+</code>
+<strong>변수와 비교연산자 그리고 조건문</strong>
+<strong>조건문의 중첩</strong>
+<strong>논리 연산자</strong>
+<b>and</b>는 좌항과 우항이 모두 참(true)일 때 참이된다. <b>&&</b>를 사용해도 된다.
+<b>or</b>는 좌우항 중에 하나라도 true라면 true가 되는 논리 연산자다.
+<b>!</b>(not)는 부정의 의미로, Boolean의 값을 역전시킨다. true를 false로 false를 true로 만든다.
+<strong>boolean의 대체제</strong>
+관습적인 이유로 0는 false 0이 아닌 숫자는 true를 대체할 수 있다.
+0외에 값이 없는 배열, 빈문자열, NULL, 문자 0 등도 0으로 간주된다.
+<!-- /box1 --></div>
+반복문
+<div class="box1"><!-- box1 -->
+<strong>반복문</strong>
+<strong>반복문의 문법</strong>
+반복문의 문법은 몇가지가 있다. 각각의 구문은 서로 대체 가능하기 때문에 상황과 취향에 따라서 선택해서 사용하면 된다.
+<code class="xmp">
+<b>while</b>(조건){
+    코드
+    코드
+}
+</code>
+<code class="xmp">
+<b>for</b>(초기화; 반복 지속 여부; 반복 실행){
+    코드;
+}
+</code>
+<strong>반복문이 없다면</strong>
+<strong>반복문의 제어</strong>
+<b>break</b>; // 반복작업을 중간에 중단
+<b>continue</b>; // 실행을 즉시 중단 하면서 반복은 지속
+<strong>반복문의 중첩</strong>
+<!-- /box1 --></div>
+함수
+<div class="box1"><!-- box1 -->
+<strong>함수</strong>
+함수(function)란 하나의 로직을 재실행 할 수 있도록 하는 것으로 코드의 재사용성을 높여준다. 사실 함수 이전에 우리가 배웠던 것들로도 프로그램을 만들 수 있다. 그런 점에서 함수 이전의 내용들은 프로그래밍의 실체라고 할 수 있다. 그 이후부터 등장하는 함수나 객체지향과 같은 개념들은 그것 자체가 프로그래밍의 연산이나 논리에 직접적으로 관여하는 것이라기 보다는 방대한 양의 코드를 줄여주고, 유지보수를 쉽게하고, 버그가 발생할 여지를 줄여주는 것들이라고 할 수 있다. 이것들 없이 거대한 소프트웨어를 만든다는 것이 불가능하지는 않지만, 현실적으로 어렵다.
+<strong>함수의 형식</strong>
+<code class="xmp">
+function 함수명( [인자...[,인자]] ){
+   코드
+   return 반환값;
+}
+</code>
+<strong>함수의 정의와 호출</strong>
+<code class="xmp">
+function numbering(){
+    $i = 0;
+    while ($i < 10) {
+        echo $i;
+        $i += 1;
+    }
+}
+numbering();
+</code>
+<strong>함수가 없다면</strong>
+<strong>입력과 출력</strong>
+<strong>return (출력)</strong>
+함수 내에서 사용한 return은 return 뒤에 따라오는 값을 함수의 결과로 반환한다. 동시에 함수를 종료시킨다. 아래 내용을 보자. 결과는 egoing,k8805다.
+<code class="xmp">
+function get_member(){
+    return 'egoing';
+    return 'k8805';
+    return 'sorialgi';
+}
+</code>
+k8805와 sorialgi는 출력하지 않았다. 왜 그럴까? 그것은 return 'egoing'을 실행한 후에 함수가 종료되었기 때문이다. 함수에서 <em>return이 등장한 이후에는 함수 내의 어떠한 코드도 실행되지 않는다.</em>
+<strong>인자</strong>
+<b>인자(argument)</b>는 함수로 유입되는 입력 값을 의미하는데, 어떤 값을 인자로 전달하느냐에 따라서 함수가 반환하는 값이나 메소드의 동작방법을 다르게 할 수 있다. 다음 예를보자. 결과는 1,2이다.
+<b>복수의 인자</b>
+<strong>인자의 기본값</strong>
+<code class="xmp">
+function get_arguments($arg1=100){
+    return $arg1;
+}
+echo get_arguments(1); // 1
+echo ',';
+echo get_arguments(); // 100
+</code>
+<!-- /box1 --></div>
+배열
+<div class="box1"><!-- box1 -->
+<strong>배열</strong>
+배열이란 다른 언어에서는 리스트라고도 하는 형태의 데이터 타입이다.  배열은 연관된 데이터를 모아서 관리하기 위해서 사용하는 데이터 타입이다. 변수가 하나의 데이터를 임시로 저장하기 위한 것이라면 배열은 여러 개의 데이터를 저장하기 위한 것이라고 할 수 있다.
+<strong>배열의 생성</strong>
+하나의 변수에 3개의 데이터를 담았다 꺼내기. 각각의 데이터를 요소(element)라고 부른다.
+<code class="xmp">
+$member = ['egoing', 'k8805', 'sorialgi'];
+echo $member[0].'<br />';
+echo $member[1].'<br />';
+echo $member[2].'<br />';
+</code>
+<b>PHP 버전 5.4 이전</b>에서는 아래와 같은 문법을 사용해야 한다. 따라서 하위 호환성을 위해서는 아래의 형식을 사용하는 것이 권장된다.
+<code class="xmp">
+$member = array('egoing', 'k8805', 'sorialgi');
+</code>
+<strong>배열이 없다면</strong>
+<b>맴버를 담고 있는 배열을 반환</b>
+<code class="xmp">
+function get_members(){
+    return ['egoing', 'k8805', 'sorialgi'];
+}
+var_dump(get_members());
+</code>
+<b>함수의 리턴값이 배열일 때 특정한 요소 가져오기</b>
+<code class="xmp">
+function get_members(){
+    return ['egoing', 'k8805', 'sorialgi'];
+}
+$tmp =  get_members();
+echo $tmp[1];
+</code>
+P<b>PHP 버전 5.4 이상</b>이라면 아래와 같은 방법으로도 가져올 수 있다. 좀 더 간단하다.
+<code class="xmp">
+function get_members(){
+    return ['egoing', 'k8805', 'sorialgi'];
+}
+echo get_members()[1];
+</code>
+<strong>배열의 사용</strong>
+<code class="xmp">
+function get_members(){
+    return ['egoing', 'k8805', 'sorialgi'];
+}
+
+$members = get_members();
+
+for($i = 0; $i < <b>count</b>($members); $i++){
+    echo ucfirst($members[$i]).'<br />';
+}
+</code>
+반복문을 이용해서 배열 $members의 내용을 하나씩 꺼낸 후에 <b>ucfirst</b>() 실행(이름의 첫글자를 대문자로 변경한) 후에 출력하고 있다.
+<strong>배열의 제어</strong>
+<b>배열 크기</b>
+<code class="xmp">
+$l = [1, 2, 3, 4, 5];
+echo <b>count</b>($l);
+</code>
+<b>배열의 조작</b>
+<i class="ic">추가</i>
+<code class="xmp">
+$arr = ['a', 'b', 'c', 'd', 'e'];
+<b>array_push</b>($arr, 'f'); // 배열의 끝에 아이템을 추가
+var_dump($arr);
+</code>
+<code class="xmp">
+$li = ['a', 'b', 'c', 'd', 'e'];
+$li = <b>array_merge</b>($li, ['f','g']); // 배열의 끝에 복수의 아이템을 추가
+var_dump($li);
+</code>
+<code class="xmp">
+$li = ['a', 'b', 'c', 'd', 'e'];
+<b>array_unshift</b>($li,'z'); // 배열의 시작점에 아이템을 추가
+var_dump($li); // z, a, b, c, d, e
+</code>
+<code class="xmp">
+$li = ['a', 'b', 'c', 'd', 'e', 'z'];
+<b>array_splice</b>($li, 2, 0, 'B'); // 두번째 인덱스 뒤에 대문자 B를 넣는다.
+var_dump($li);
+</code>
+<i class="ic">제거</i>
+<code class="xmp">
+$li = ['a', 'b', 'c', 'd', 'e', 'z'];
+<b>array_shift</b>($li); // 배열의 첫번째 요소를 제거
+var_dump($li);
+</code>
+<code class="xmp">
+$li = ['a', 'b', 'c', 'd', 'e', 'z'];
+array_pop($li); // 배열의 마지막 요소를 제거
+var_dump($li);
+</code>
+<i class="ic">정렬</i>
+<code class="xmp">
+$li = ['c','e','a','b','d'];
+sort($li); // 정렬
+var_dump($li); // 결과는 a, b, c, d, e 다.
+</code>
+<code class="xmp">
+$li = ['c','e','a','b','d'];
+rsort($li); // 역순 정렬
+var_dump($li);
+</code>
+<strong>연관배열</strong>
+일반적으로 다른 언어에서는 숫자를 인덱스로 사용하는 것을 일반적으로 배열, 혹은 indexed array라고 하고, 문자를 인덱스로 사용하는 것을 <b>연관배열(associative array, hash, dictionary)</b>라고 부르지만 <em>PHP에서는 이를 특별히 구분하지 않고 있기 때문에 하나의 배열의 키 값으로 숫자와 문자 모두를 사용할 수 있다.</em>
+<b>연관배열의 생성</b>
+<code class="xmp">
+$grades = array('egoing'=>10, 'k8805'=>6, 'sorialgi'=>80);
+</code>
+위 예제에서 egoing은 key가 되고, 10은 value가 된다.
+<b>연관배열을 만드는 다른 방법</b>
+<code class="xmp">
+$grades = [];
+$grades['egoing'] = 10;
+$grades['k8805'] = 6;
+$grades['sorialgi'] = 80;
+var_dump($grades);
+echo $grades['sorialgi']; // 특정한 key 값 가져오기. 결과는 80이다.
+</code>
+<b>배열의 데이터를 기준으로 반복작업</b>
+<code class="xmp">
+$grades = array('egoing'=>10, 'k8805'=>6, 'sorialgi'=>80);
+<b>foreach</b>($grades <b>as</b> $key <b>=></b> $value){
+    echo "key: {$key}	value:{$value}&lt;br /&gt;";
+}
+</code>
+결과는 아래와 같다.
+<samp class="xmp">
+key : sorialgi	value : 80
+key : k8805	value : 6
+key : egoing	value : 10
+</samp>
+<b>foreach</b> 문은 $grades 위치의 배열에 담긴 요소의 숫자만큼 반복문을 실행한다. 반복문이 실행될 때마다 요소의 키값을 $key 자리의 변수에 요소의 값을 $value 자리의 변수에 할당해서 반복문 안에서 접근 할 수 있도록 한다. 위의 방법을 통해서 배열 안에 담긴 모든 값을 가져 올 수 있다.
+<strong>참고</strong>
+<a href="http://www.php.net/manual/en/language.types.array.php" target="_blank">PHP 공식 Array 사용법</a>
+<!-- /box1 --></div>
+include와 namespace
+<div class="box1"><!-- box1 -->
+프로그램은 작고 단순한 것에서 크고 복잡한 것으로 진화한다.
+그 과정에서 코드의 재활용성을 높이고, 유지보수를 쉽게 할 수 있는 다양한 기법들이 사용된다.
+그 중의 하나가 코드를 여러개의 파일로 분리하는 것이다. 이를 통해서 얻을 수 있는 효과는 아래와 같다.
+<blockquote cite=""><div style="margin-bottom:-2em;">1) 자주 사용되는 코드를 별도의 파일로 만들어서 필요할 때마다 재활용할 수 있다.
+2) 코드를 개선하면 이를 사용하고 있는 모든 애플리케이션의 동작이 개선된다.
+3) 코드 수정 시에 필요한 로직을 빠르게 찾을 수 있다.
+4) 필요한 로직만을 로드해서 메모리의 낭비를 줄일 수 있다.
+</div></blockquote>
+<strong>인클루드 include</strong>
+<b>include가 없다면</b>
+<b>include의 사용</b>
+<code class="xmp">
+include 'greeting.php';
+</code>
+PHP는 외부의 php 파일을 로드하는 방법으로 4가지 형식을 제공한다.
+<div class="box1"><!-- box1 -->
+<b>include</b> // 존재하지 않는 파일의 로드를 시도했을 때 warning를 일으킨다
+<b>include_once</b> //
+<b>require</b> // 존재하지 않는 파일의 로드를 시도했을 때 fatal error를 일으킨다. include 보다 엄격한 로드 방법
+<b>require_once</b> //
+<!-- /box1 --></div>
+<b>_once</b>라는 접미사가 붙은 것은 파일을 로드 할 때 단 한번만 로드하면 된다는 의미다.
+<strong>네임스페이스 namespace</strong>
+네임스페이스가 무엇인가를 정의하기에 앞서서 파일을 생각해보자. 파일은 데이터를 보관하고 있는 일종의 컨테이너다. 그리고 이 컨텐이너는 파일명으로 식별이 된다. 파일의 수가 많아지면서 파일을 관리하는 것이 점점 어려워진다. 그래서 고안된 것이 바로 디렉토리다. 디렉토리를 이용하면 같은 이름의 파일이 하나의 컴퓨터에 존재할 수 있다. 파일명의 충돌을 회피 할 수 있게 된 것이다. <em>네임스페이스란 간단하게 디렉토리와 같은 것이라고 생각하자.</em> 하나의 에플리케이션에는 다양한 모듈을 사용하게 된다. 그런데 모듈이 서로 다른 개발자에 의해서 만들어지기 때문에 같은 이름을 쓰는 경우가 생길 수 있다. 이런 경우 먼저 로드된 모듈은 나중에 로드된 모듈에 의해서 덮어쓰기 되기 때문에 이에 대한 대책이 필요하다. 네임스페이스가 필요해지게 되는 것이다.
+
+<b>greeting_en_ns.php</b>
+<code class="xmp">
+&lt;?php
+<b>namespace</b> <i class="ic">language\en</i>;
+function welcome(){
+    return 'Hello world';
+}
+</code>
+<small>위의 코드에는 PHP 구문의 종료를 의미하는 닫히는 기호가 없다. 닫히는 기호는 생략이 가능하다.</small>
+<b>greeting_ko_ns.php</b>
+<code class="xmp">
+&lt;?php
+<b>namespace</b> <i class="ic">language\ko</i>;
+function welcome(){
+    return '안녕하세요';
+}
+</code>
+<b>6.php</b>
+<code class="xmp">
+&lt;?php
+require_once 'greeting_ko_ns.php';
+require_once 'greeting_en_ns.php';
+echo <i class="ic">language\ko\</i>welcome();
+echo <i class="ic">language\en\</i>welcome();
+?&gt;
+</code>
+하나의 파일에는 복수의 네임스페이스가 존재 할 수도 있다.
+<code class="xmp">
+&lt;?php
+<b>namespace</b> <i class="ic">language\en</i>;
+function welcome(){
+    return 'Hello world';
+}
+<b>namespace</b> <i class="ic">language\ko</i>;
+function welcome(){
+    return '안녕세계';
+}
+</code>
+<code class="xmp">
+&lt;?php
+require_once 'greeting_lang.php';
+echo <i class="ic">language\ko\</i>welcome();
+echo <i class="ic">language\en\</i>welcome();
+?&gt;
+</code>
+네임스페이스는 함수 뿐만 아니라 클래스와 상수에 대해서도 사용할 수 있다. 네임스페이스에 대한 자세한 내용은 아래의 자료들을 참고하자.
+<a href="http://www.php.net/manual/kr/language.namespaces.php" target="_blank">PHP.NET : 네임스페이스</a>
+<a href="http://www.phpk.org/archives/321" target="_blank">[PHP5.3.0] Namespaces(네임스페이스)</a> (한글)
+<!-- /box1 --></div>
+라이브러리와 확장기능
+<div class="box1"><!-- box1 -->
+<strong>UI와 API</strong>
+<b>UI (User Interface)</b>
+<b>API (Application Programming Interface)</b>
+phpinfo()를 호출하면 되는데 이 함수와 같은 것을 API라고 한다.
+phpinfo()와 같은 함수를 언어에 기본적으로 내장되어 있다고 <b>내장함수</b>라고도 부른다.
+개발자에게 응용 프로그램의 플랫폼(여기서는 PHP엔진)이 제공하는 API를 폭넓고 깊게 이해하는 것은 매우 중요하다.
+<strong>라이브러리</strong>
+재활용 가능하도록 만든 로직을 라이브러리(library)라고 한다.
+라이브러리를 사용하면 필요한 로직을 직접 구현할 필요가 없이 라이브러리에서 제공하는 API를 호출하는 것을 통해서 원하는 기능을 사용할 수 있게 된다.
+<strong>PHP의 표준 라이브러리 문서</strong>
+PHP는 웹개발에 필요할만한 수 많은 내장함수를 제공한다.
+이 내장함수들은 빠르게 웹에플리케이션을 구축하는데 도움을 주고, 직접 구현하는 것보다 <em>실행속도가 빠르기 때문에</em>
+어떤 기능을 <em>구현하기에 앞서서 API가 있는지 찾아보는 것이 바람직</em>하다.
+<a href="http://php.net/manual/" target="_blank">PHP Manual</a>
+<!-- /box1 --></div>
+Composer
+<div class="box1"><!-- box1 -->
+<strong>확장기능 관리자 Composer</strong>
+컴포저는 PHP의 의존성 관리도구이다. 필요한 확장 기능을 쉽게 설치해주는 기능도 제공하지만, 프로젝트에서 필요한 확장 기능을 통합해서 관리해주는 도구다.
+-- [m] 고급 내용에 속합니다. 후속 토픽을 보신 후에 나중에 보셔도 됩니다.
+<!-- /box1 --></div>
+파일
+파일의 제어
+<div class="box1"><!-- box1 -->
+<strong>파일 다루기</strong>
+<b>파일복사</b>
+<code class="xmp">
+$file = 'readme.txt';
+$newfile = 'example.txt.bak';
+
+if (!copy($file, $newfile)) {
+    echo "failed to copy $file...\n";
+}
+</code>
+<b>파일삭제</b>
+<code class="xmp">
+unlink('deleteme.txt');
+</code>
+<strong>읽고 쓰기</strong>
+<b><a href="http://docs.php.net/manual/kr/function.file-get-contents.php" target="_blank">file_get_contents</a></b>
+텍스트로 이루어진 파일을 읽어서 문자열을 리턴한다.
+※ <a href="http://docs.php.net/manual/kr/function.fread.php" target="_blank">fread</a>
+php 파일과 같은 디렉토리에 readme.txt 파일이 존재해야 한다.
+<code class="xmp">
+$file = './readme.txt';
+echo <b>file_get_contents</b>($file);
+</code>
+<b><a href="http://docs.php.net/manual/kr/function.file-put-contents.php" target="_blank">file_put_contents</a></b>
+문자열을 파일에 저장한다.
+※ <a href="http://docs.php.net/manual/kr/function.fwrite.php" target="_blank">fwrite</a>
+<code class="xmp">
+$file = './writeme.txt';
+<b>file_put_contents</b>($file, 'coding everybody');
+</code>
+좀 더 고급스러운 파일 제어를 원한다면 fopen을 참조하자.
+<b>네트웍크를 통해서 데이터 읽어오기</b>
+<code class="xmp">
+$homepage = <b>file_get_contents</b>('http://php.net/manual/en/function.file-get-contents.php');
+echo $homepage;
+</code>
+<strong>파일을 다루는 과정에서 발생할 수 있는 문제들</strong>
+파일을 읽고 쓸 때 권한의 문제로 오류가 발생할 수 있다.
+아래 코드는 특정 파일이 읽을 수 있는 상태인지를 확인한다.
+<code class="xmp">
+$filename = 'readme.txt';
+if (<b>is_readable</b>($filename)) {
+    echo 'The file is readable';
+} else {
+    echo 'The file is not readable';
+}
+</code>
+다음 코드는 특정 파일이 쓰기가 가능한지 확인한다.
+<code class="xmp">
+$filename = 'writeme.txt';
+if (<b>is_writable</b>($filename)) {
+    echo 'The file is writable';
+} else {
+    echo 'The file is not writable';
+}
+</code>
+아래는 파일의 존재 여부를 확인한다.
+<code class="xmp">
+$filename = 'readme.txt';
+if (<b>file_exists</b>($filename)) {
+    echo "The file $filename exists";
+} else {
+    echo "The file $filename is not exists";
+}</code>
+<strong>참고</strong>
+file_get_contents, file_put_content를 사용할 수 없는 경우라면 fread, fwrite 함수를 사용해야 한다. 자세한 내용은 다음 링크를 참고한다.
+※ <a href="http://docs.php.net/manual/kr/function.fread.php" target="_blank">fread</a>
+※ <a href="http://docs.php.net/manual/kr/function.fwrite.php" target="_blank">fwrite</a>
+<!-- /box1 --></div>
+디렉토리 제어
+<div class="box1"><!-- box1 -->
+<strong>현재 디렉토리와 디렉토리의 변경</strong>
+<code class="xmp">
+echo <b>getcwd</b>().'&lt;br /&gt;'; // 현재 디렉토리
+<b>chdir</b>('../'); // 디렉토리를 변경
+echo getcwd().'&lt;br /&gt;';
+</code>
+<strong>디렉토리의 탐색</strong>
+<code class="xmp">
+$dir    = './';
+$files1 = <b>scandir</b>($dir); // 디렉토리를 탐색
+$files2 = <b>scandir</b>($dir, 1); // (탐색할 디렉토리의 경로, 정렬 방법)
+
+print_r($files1);
+print_r($files2);
+</code>
+<strong>디렉토리의 생성</strong>
+<code class="xmp">
+<b>mkdir</b>("1/2/3/4", 0700, true); // (디렉토리명, 디렉토리 권한 지정, true 면 다수 디렉토리 한번에 생성)
+</code>
+<!-- /box1 --></div>
+파일 업로드
+<div class="box1"><!-- box1 -->
+<code class="xmp">
+&lt;form enctype="multipart/form-data" action="1.php" method="POST"&gt;
+   &lt;input type="hidden" name="MAX_FILE_SIZE" value="30000" /&gt;
+   &lt;input name="userfile" type="file" /&gt;
+   &lt;input type="submit" value="upload" /&gt;
+&lt;/form&gt;
+</code>
+<b>1.php</b>
+<code class="xmp">
+&lt;?php
+ini_set("display_errors", "1");
+$uploaddir = 'C:\BitNami\wampstack-5.4.20-0\apache2\htdocs\upload\file\\';
+$uploadfile = $uploaddir . <b>basename</b>($_FILES['userfile']['name']);
+echo '&lt;pre&gt;';
+if (<b>move_uploaded_file</b>($_FILES['userfile']['tmp_name'], $uploadfile)) {
+    echo "파일이 유효하고, 성공적으로 업로드 되었습니다.\n";
+} else {
+    print "파일 업로드 공격의 가능성이 있습니다!\n";
+}
+echo '자세한 디버깅 정보입니다:';
+print_r($_FILES);
+print "&lt;/pre&gt;";
+?&gt;
+</code>
+<!-- /box1 --></div>
+이미지 다루기
+<div class="box1"><!-- box1 -->
+PHP를 이용해서 이미지를 프로그래밍적으로 생성하고 변경할 수 있다.
+이미지처리 작업은 PHP의 기본적인 기능에는 포함되어 있지 않다. 대신 라이브러리나 외부 프로그램과 연동을 해야 하는데 GD라이브러리가 가장 많이 사용된다.
+<strong>GD의 설치</strong>
+GD는 기본적으로 사용할 수 있도록 활성화 되어 있는 경우도 있고, 그렇지 않은 경우도 있다. 시스템의 현재 상황을 파악할 수 있는 방법은 phpinfo()를 실행해 보는 것이다. 아래 코드를 실행해보자.
+<xmp class="xmp">
+<?php
+phpinfo();
+?>
+</xmp>
+출력 내용 중에서 특히 중요한 부분은 아래와 같다.
+<table border="1" cellpadding="3" style="margin:.5em 0;border:0;border:1px solid #666;" summary="★표요약"><caption><strong class="cd">gd</strong></caption>
+<tbody><tr><td class="e"><b>GD Support</b> </td><td class="v">enabled </td></tr>
+<tr><td class="e">GD Version </td><td class="v">bundled (2.0.34 compatible) </td></tr>
+<tr><td class="e">FreeType Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">FreeType Linkage </td><td class="v">with freetype </td></tr>
+<tr><td class="e">FreeType Version </td><td class="v">2.2.1 </td></tr>
+<tr><td class="e">GIF Read Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">GIF Create Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">JPG Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">PNG Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">WBMP Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">XBM Support </td><td class="v">enabled </td></tr>
+</tbody></table>
+만약 gd가 보이지 않는다면 이를 활성화하거나 설치해야 한다.
+php.ini 파일을 열어보고 아래와 같은 부분이 있는지 확인해보자. 만약 아래와 같다면 주석 ;를 제거해준다.
+<code class="xmp">
+;extension=php_gd2.dll
+</code>
+<b>윈도우 버전 Bitnami 사용자</b>
+윈도우 버전 bitnami를 사용하고 있다면 php.ini 파일에서 extension_dir 지시자의 값을 아래와 같이 변경해준다. 아래의 설정은 필자의 설정이기 때문에 자신에게 맞는 설정은 직접해주어야 한다.
+<kbd class="xmp">
+extension_dir = "D:\BitNami\wampstack-5.4.21-0\php\ext"
+</kbd>
+<b>리눅스</b>
+<kbd class="xmp">
+sudo apt-get install php5-gd;
+</kbd>
+<strong>예제1. 이미지에 글쓰기</strong>
+아래의 예제를 실행하기 위해서는 button.php과 같은 디렉토리에 button.png 파일이 존재해야 한다. 편의를 위해서 다음 이미지를 사용하자.
+[이미지]
+아래와 같이 접근하면 coding이라는 텍스트가 버튼에 표시될 것이다.
+[이미지]
+<kbd class="xmp">
+http://localhost/image/button.php?text=coding
+</kbd>
+코드는 아래와 같다.
+<code class="xmp">
+header("Content-type: image/png");
+$string	= $_GET['text'];
+$im		= imagecreatefrompng("button.png");
+$orange	= imagecolorallocate($im, 60, 87, 156);
+$px		= (imagesx($im) - 7.5 * strlen($string)) / 2;
+imagestring($im, 4, $px, 9, $string, $orange);
+imagepng($im);
+imagedestroy($im);
+</code>
+아래의 예제는 위의 예제를 이용해서 버튼을 실시간으로 생성해주는 예제다.
+<xmp class="xmp">
+<img src="button.php?text=intro" />
+<img src="button.php?text=member" />
+<img src="button.php?text=history" />
+<img src="button.php?text=mission" />
+</xmp>
+실행결과는 아래와 같다.
+[이미지]
+<strong>예제2. 워터마크 만들기</strong>
+이미지에 워터마크를 찍어보자. 아래에 3장의 이미지가 있다.
+[이미지] text.png
+[이미지] original.png
+[이미지] result.png
+text.png를 original.png에 그려서 result.png를 만드는 것이 이번 예제의 목표다. 이를 위해서 text.png와 original.png를 /image 디렉토리에 복사해서 위치시키자.
+<code class="xmp">
+// Load the stamp and the photo to apply the watermark to
+$stamp = imagecreatefrompng('text.png');
+$im = imagecreatefrompng('original.png');
+ 
+// Set the margins for the stamp and get the height/width of the stamp image
+$marge_right = 10;
+$marge_bottom = 10;
+$sx = imagesx($stamp);
+$sy = imagesy($stamp);
+ 
+// Copy the stamp image onto our photo using the margin offsets and the photo 
+// width to calculate positioning of the stamp. 
+imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+ 
+// Output and free memory
+header('Content-type: image/png');
+imagepng($im);
+imagedestroy($im);
+</code>
+<!-- /box1 --></div>
+문자열 처리
+<div class="box1"><!-- box1 -->
+<strong>문자열(string)</strong>
+<b>'</b>(단따옴표), <b>"</b>(쌍따옴표) 을 사용해서 표기한다.
+'(단따옴표)나 "(쌍따옴표)를 표기할 때는 <b>\</b>(백슬래쉬)를 사용한다.
+줄바꿈 할 때는 쌍따옴표 안에서 <b>\n</b>, <b>\r</b>을 사용한다.
+문자열 안에서 변수를 사용하려면 쌍따옴표 안에서 <b>{ }</b>(중괄호)를 사용한다.
+문자와 문자를 더 할 때는 <b>.</b>(마침표)를 사용한다.
+<code class="xmp">
+echo 'hello world';
+echo "hello world";
+echo 'hello \'world\'';
+echo "hello \"world\"";
+echo "hello world\n";
+echo 'hello world\n';
+$a = array('hello', 'world');
+echo "생활코딩의 공식인사는 {$a[0]} {$a[1]}입니다";
+echo '생활코딩의 공식인사는 '.$a[0].' '.$a[1].'입니다';
+$a = "생활";
+$b = "코딩";
+echo $a.$b;
+</code>
+<strong>문자와 관련된 주요 함수</strong>
+<div class="wsn"><!-- wsn -->
+<ul>
+<li><a href="http://docs.php.net/manual/kr/function.strpos.php" target="_blank">strpos</a></li>
+<li><a href="http://docs.php.net/manual/kr/function.implode.php" target="_blank">implode</a>, <a href="http://docs.php.net/manual/kr/function.explode.php" target="_blank">explode</a></li>
+<li><a href="http://docs.php.net/manual/kr/function.htmlspecialchars.php" target="_blank">htmlspecialchars</a></li>
+</ul>
+<!-- /wsn --></div>
+<!-- /box1 --></div>
+정규 표현식
+<div class="box1"><!-- box1 -->
+<strong>정규 표현식</strong>
+정규 표현식(正規表現式,Regular Expression)은 문자열을 처리하는 방법 중의 하나로 특정한 조건의 문자를 '검색'하거나 '치환'하는 과정을 매우 간편하게 처리 할 수 있도록 하는 수단이다.
+<strong>선행지식</strong>
+정규 표현식은 이것 자체로도 한권의 책이 필요할 정도로 방대하다. (물론 간단한 정규 표현식을 배우는데는 큰 노력이 들지 않는다.) 정규 표현식에 대해서 잘 모른다면 '<a href="http://opentutorials.org/module/622/5143" target="_blank">정규 표현식 패턴들</a>' 수업을 먼저 보고 이후의 내용을 학습하는 것을 권장한다.
+<strong>표현식</strong>
+<a href="http://ult-tex.net/info/perl/" target="_blank">http://ult-tex.net/info/perl/</a>
+<strong>PHP와 정규표현식</strong>
+PHP의 정규표현식은 <b>구분자(delimiters)</b>로 시작해서 구분자로 끝을 내야한다. 구분자는 보통 슬래쉬(/)를 사용하지만 꼭 그래야 하는 것은 아니고 해쉬(#)와 같이 알파벳과 백슬래쉬 그리고 공백이 아닌 문자를 사용하면 된다. 아래의 그림에서 강조표시한 부분은 모두 구분자가 될 수 있는 문자들이다. (<a href="http://www.php.net/manual/en/regexp.reference.delimiters.php" target="_blank">참고</a>)
+닫히는 구분자 뒤에는 <b>옵션(Internal Option)</b>이 위치할 수 있는데 옵션에 따라서 정규표현식이 다르게 동작한다. 아래는 대소문자를 구분하지 않는 'i'와 줄바꿈 문자에 따라서 텍스트의 행을 구분하도록 하는 'm'을 적용한 예다. (<a href="http://www.php.net/manual/en/reference.pcre.pattern.modifiers.php" target="_blank">참고</a>)
+PHP는 UNIX 스타일의 정규표현식인 ereg와 <em>Perl 스타일의 정규표현식인 preg를 지원한다.</em> 이 중에서 ereg는 폐지 예정(Deprecated)이기 때문에 사용해서는 안된다. (<a href="http://www.php.net/manual/en/reference.pcre.pattern.modifiers.php" target="_blank">참고</a>)
+<strong><b>preg_match</b></strong>
+검색을 수행하고 일치하는 내용을 반환한다.
+i는 패턴 매칭을 할 때 대소문자를 구분하지 않도록 한다.
+<code class="xmp">
+if (preg_match("/php/i", "PHP is the web scripting language of choice.")) {
+    echo "A match was found.";
+} else {
+    echo "A match was not found.";
+}
+</code>
+\b는 단어의 경계를 의미한다. 그렇기 때문에 \b로 감싸진 web은 web이라는 독립된 단어를 의미한다. website는 web과 site가 결합된 단어이기 때문에 이 조건에 해당하지 않는다.
+<code class="xmp">
+if (preg_match("/\bweb\b/i", "PHP is the web scripting language of choice.")) {
+    echo "A match was found.";
+} else {
+    echo "A match was not found.";
+}
+ 
+if (preg_match("/\bweb\b/i", "PHP is the website scripting language of choice.")) {
+    echo "A match was found.";
+} else {
+    echo "A match was not found.";
+}
+</code>
+<code class="xmp">
+$subject = 'coding everybody http://opentutorials.org egoing@egoing.com 010-0000-0000';
+preg_match('~(http://\w+\.\w+)\s(\w+@\w+\.\w+)~', $subject, $match);
+var_dump($match);
+echo "homepage:".$match[1];
+echo "<br />";
+echo "email:".$match[2];
+</code>
+<code class="xmp">
+// get host name from URL
+preg_match('@^(?:http://)?([^/]+)@i',
+    "http://www.php.net/index.html", $matches);
+$host = $matches[1];
+ 
+// get last two segments of host name
+preg_match('/[^.]+\.[^.]+$/', $host, $matches);
+echo "domain name is: {$matches[0]}\n";
+</code>
+<code class="xmp">
+$str = 'foobar: 2008';
+ 
+preg_match('/(?P<name>\w+): (?P<digit>\d+)/', $str, $matches);
+ 
+/* This also works in PHP 5.2.2 (PCRE 7.0) and later, however 
+ * the above form is recommended for backwards compatibility */
+// preg_match('/(?<name>\w+): (?<digit>\d+)/', $str, $matches);
+ 
+print_r($matches);
+</code>
+<strong><b>preg_replace</b></strong>
+검색한 다음 치환명령을 수행한다. (<a href="http://www.php.net/manual/en/function.preg-replace.php" target="_blank">참고</a>)
+<code class="xmp">
+$string = 'April 15, 2003';
+$pattern = '/(\w+) (\d+), (\d+)/i';
+$replacement = '${1}1,$3';
+echo preg_replace($pattern, $replacement, $string);
+</code>
+<code class="xmp">
+$string = 'The quick brown fox jumped over the lazy dog.';
+$patterns = array();
+$patterns[0] = '/quick/';
+$patterns[1] = '/brown/';
+$patterns[2] = '/fox/';
+$replacements = array();
+$replacements[2] = 'bear';
+$replacements[1] = 'black';
+$replacements[0] = 'slow';
+echo preg_replace($patterns, $replacements, $string);
+</code>
+수업에서는 언급하지 못했지만 예상한 것과 다른 결과가 출력 될 것이다. 그것은 $replacements의 값을 정의한 순서 때문이다. $replacements의 인덱스 값을 2,1,0 순으로 정의했는데 php는 인덱스 값의 순서에 따라서 치환을 하는 것이 아니고, 배열의 값이 생성된 순서대로 치환을 하기 때문에 $patterns[0]의 카운터 파트너는 $replacements[0]이 아니라 $replacements[2]가 된다. 필자도 나중에 알게 된 사실이다. 
+<code class="xmp">
+$patterns = array ('/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/',
+                   '/^\s*{(\w+)}\s*=/');
+$replace = array ('\3/\4/\1\2', '$\1 =');
+// $startDate = 5/27/1999
+echo preg_replace($patterns, $replace, '{startDate} = 1999-5-27');
+</code>
+<!-- /box1 --></div>
+데이터베이스
+<div class="box1"><!-- box1 -->
+<strong>데이터베이스란?</strong>
+데이터의 저장, 조회, 수정을 편리하고 안전하게 할 수 있도록 고안된 소프트웨어다.
+<strong>MySQL이란?</strong>
+데이터베이스라는 분류의 제품군에 속한 구체적인 상품으로 ORACLE에 의해서 개발되고 있다. 오픈소스이고, 가장 많은 사용자를 가지고 있는 데이터베이스 시스템에 속한다. MySQL과 같은 분류에 속한 데이터베이스로는 ORACLE, MSSQL 등이 있다.
+<strong>데이터베이스와 PHP</strong>
+일반적으로 데이터를 저장해야 하는 에플리케이션을 구축하는 경우 데이터는 데이터베이스 서버에 저장한다. PHP 에플리케이션의 코드에는 데이터베이스 서버에 접속해서 데이터를 조회/수정/삭제하는 코드를 작성한다. PHP 에플리케이션이 호출되면 PHP 엔진은 PHP 에플리케이션의 코드에 따라서 데이터베이스의 클라이언트가 되어서 데이터베이스에 접속해서 여러가지 작업을 처리한다.
+<strong>선행지식</strong>
+본 수업은 데이터베이스에 대한 수업이 아니라 PHP를 이용해서 데이터베이스를 제어하는 방법에 대한 수업이다. 따라서 데이터베이스 자체에 대한 설명은 수업의 범위에 포함되지 않기 때문에 <a href="http://opentutorials.org/course/195" target="_blank">MySQL 수업</a>을 참고한다.
+<strong>선행작업</strong>
+MySQL 클라이언트를 이용해서 MySQL 서버에 접속한다. 접속 방법은 아래 동영상을 참고한다.
+윈도우에서 MySQL 서버에 접속하는 법
+Mac에서 MySQL 서버에 접속하는 법
+리눅스에서 MySQL 서버에 접속하는 법
+Database, Table 제어
+SQL문을 이용해서 테이블을 제어하는 방법
+<strong>PDO</strong>
+<b>PDO(PHP Data Objects)</b>란 여러가지 데이터베이스를 제어하는 방법을 표준화시킨 것이다. 데이터베이스는 다양한 종류가 있다. 그리고 종류에 따라서 서로 다른 드라이버를 사용해 왔는데 드라이버의 종류에 따라서 데이터베이스를 제어하기 위한 API가 달랐다. PDO를 사용하면 동일한 방법으로 데이터베이스를 제어할 수 있다.
+
+PHP의 (mysql_connect와 같은 함수를 사용할 수 있게 해주는)MySQL 확장은 PHP 5.5 버전부터 지원되지 않을 예정이다. 따라서 새로운 에플리케이션의 개발하는 경우 MySQL 확장을 사용해서는 안된다. 하지만 사용하는 환경이 PDO나 mysqli를 지원하지 않거나 기존의 코드가 MySQL 확장이라면 이것의 사용법을 알아야 한다.
+
+또한 PHP에 대한 올바른 사용법을 전파하고 있는 PHP Right Way에서는 POD를 사용할 것을 권하고 있다. 이에 대한 내용은 <a href="http://wafe.github.io/php-the-right-way/#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4" target="_blank">PHP Right Way</a>의 데이터베이스 편을 참고한다.
+
+PDO를 이용한 데이터베이스의 제어는 PDO 수업에서 설명하겠다.
+
+<a href="http://opentutorials.org/module/6/5155">PDO 수업</a>
+
+<strong>MySQL 확장</strong>
+MySQL 확장은 더 이상 지원되지 않을 기능이다. 하지만 기존의 에플리케이션에서 광범위하고 MySQL 확장을 사용하고 있기 때문에 이것에 대한 사용법을 다루는 것도 의미가 있을 것이다. 이에 대한 사용법을 배우고 싶다면 MySQL 확장 수업을 보자.
+<a href="http://opentutorials.org/module/6/5174">MySQL 확장</a>
+<!-- /box1 --></div>
+
+PDO준비중
+MySQL 확장
+쿠키와 세션
+<div class="box1"><!-- box1 -->
+<b>cookie</b>
+클라이언트(브라우저)에 데이터를 저장
+<code class="xmp">
+<b>setCookie</b>('cookie1', '생활코딩');
+setCookie('cookie2', time(), time()+60);
+echo <b>$_COOKIE</b>['cookie1']."&lt;br /&gt;";
+echo time()-$_COOKIE['cookie2'];
+</code>
+<strong>세션이란?</strong>
+<b>session</b>
+SID(session ID)를 식별자로 서버에 데이터를 저장
+SID로는 쿠키나 도메인 파라미터를 사용
+session_start(); 로 시작, 스크립트의 최상단에 위치해야 함
+$_SESSION
+데이터는 서버 내에 파일이나 DB에 저장 함
+주로 사용자 인증시에 사용함
+<b>세션에 대한 간단한 예제</b>
+<code class="xmp">
+session_save_path('./session');
+session_start();
+$_SESSION['title'] = '생활코딩';
+</code>
+<code class="xmp">
+ini_set("display_errors", "1");
+session_save_path('./session');
+session_start();
+echo $_SESSION['title'];
+echo file_get_contents('/ex.u/cep/cep/html/egoing/session/session/sess_'.session_id());
+</code>
+<b>로그인</b>
+<xmp class="xmp">
+<form action="login_process.php" method="POST">
+<p><label>아이디</label><input type="text" name="id" /></p>
+<p><label>비밀번호</label><input type="text" name="pwd" /></p>
+<input type="submit" />
+</form>
+</xmp>
+<b>인증</b>
+<code class="xmp">
+session_start();
+$id = 'egoing';
+$pwd = 'codingeverybody';
+if(!empty($_POST['id']) && !empty($_POST['pwd'])){
+    if($_POST['id'] == $id && $_POST['pwd'] == $pwd){
+        $_SESSION['is_login'] = true;
+        $_SESSION['nickname'] = '이고잉';
+        header('Location: ./session.php');
+        exit;
+    }
+}
+echo '로그인 하지 못했습니다.';
+</code>
+<b>일반 웹페이지</b>
+<xmp class="xmp">
+<?php
+session_start();
+if(!isset($_SESSION['is_login'])){
+    header('Location: ./login.html');
+}
+?>
+<html>
+    <body>
+        <?php echo $_SESSION['nickname'];?>님 환영합니다<br />
+        <a href="./logout.php">로그아웃</a>    
+    </body>
+</html>
+</xmp>
+<b>로그아웃</b>
+<code class="xmp">
+ini_set("display_errors", "1");
+session_start();
+session_destroy();
+header('Location: ./login.html');
+</code>
+<!-- /box1 --></div>
+
+디버깅
+<div class="box1"><!-- box1 -->
+<strong>버그란?</strong> <b>bug</b>. 의도하지 않은 프로그램의 오동작
+<strong>디버깅</strong> <b>debugging</b>. 버그의 원인을 찾아서 해결하는 활동
+<strong>디버거</strong> <b>debugger</b>. 디버깅을 도와주는 프로그램
+<!-- /box1 --></div>
+log
+<div class="box1"><!-- box1 -->
+<strong>var_dump</strong>
+인자로 전달된 값을 화면에 출력해주는 함수
+<a href="http://php.net/manual/en/function.var-dump.php" target="_blank">http://php.net/manual/en/function.var-dump.php</a>
+<strong>로그(log)</strong>
+<div class="wsn"><!-- wsn -->
+<ul>
+<li>tail : 파일의 끝부분부터 거꾸로 읽어서 출력하는 명령어,<br />
+&nbsp;&nbsp; -f 옵션을 사용하면 실시간으로 파일의 변경사항을 열람할 수 있다.</li>
+<li>access log : (html, css, js, image와 같은) 리소스가 웹서버를 통해서 로드 됐을 때 기록되는 정보
+<ul>
+<li>bitnami : /opt/bitnami/apache2/logs/access_log</li>
+<li>ubuntu : /var/log/apache2/access_log</li>
+<li><tt class="filename">/var/log/httpd/</tt>access_log</li>
+</ul>
+</li>
+<li>
+error log : 오류가 발생했을 때 기록되는 정보
+<ul>
+<li>bitnami : /opt/bitnami/apache2/logs/error_log</li>
+<li>ubuntu : /var/log/apache2/error_log</li>
+<li><tt class="filename">/var/log/httpd/error_log</tt></li>
+</ul>
+</li>
+<li>tail -f /opt/bitnami/apache2/logs/access_log</li>
+<li>error_log : 로그로 메시지를 보낸다.</li>
+<li>error_log(var_export(값, 1)); : 로그로 메시지를 보내는데 값이 객체라면 읽을 수 있는 형식으로 전환한다.</li>
+</ul>
+<!-- /wsn --></div>
+<strong>쉘접속</strong>
+<a href="http://opentutorials.org/course/128/882" target="_blank">putty 수업</a>
+<!-- /box1 --></div>
+xdebug
+<div class="box1"><!-- box1 -->
+<strong>xdebug란?</strong>
+PHP 디버깅을 도와주는 디버거
+<a href="http://xdebug.org/" target="_blank">http://xdebug.org/</a>
+<strong>설치 (bitnami 기준)</strong>
+<strong>리모트 디버깅을 위한 설정</strong>
+<!-- /box1 --></div>
+PHP 문서 보는 법
+<div class="box1"><!-- box1 -->
+<strong>PHP 공식문서</strong>
+<ul>
+<li><a href="http://php.net" target="_blank">php.net</a> &gt; <a href="http://www.php.net/manual/en/" target="_blank">document</a> (영문)</li>
+<li><a href="http://php.net/manual/kr/">http://php.net/manual/kr/</a> (한국어)</li>
+</ul>
+<strong>기본사용법</strong>
+<ul>
+<li><a href="http://www.php.net/manual/kr/getting-started.php" target="_blank">http://www.php.net/manual/kr/getting-started.php</a></li>
+</ul>
+<!-- /box1 --></div>
+PHP 웹 에플리케이션 설치하기
+<div class="box1"><!-- box1 -->
+<strong>FTP</strong>
+파일을 서버로 전송하는 프로토콜
+<a href="http://opentutorials.org/course/128/881" target="_blank">fileZilla 사용법</a>
+<strong>SSH</strong>
+원격의 서버에 안전하게 접속할 수 있는 프로토콜
+<a href="http://opentutorials.org/course/128/882" target="_blank">putty사용법</a> (윈도우)
+맥에서는 터미널 접속 후 ssh 아이디@host (ssh cep@learnphp.opentutorials.org)
+<strong>압축해제</strong>
+tar xvfzp xxx.tar.gz;
+unzip ***.zip
+<strong>파일권한 설정</strong>
+chmod 권한 파일명/디렉토리명
+chmod 777 foo -> foo의 권한을 누구나 읽고/쓰고/실행할 수 있게 변경
+<strong>블로그</strong>
+<strong><b>textcube</b></strong>
+한국형 설치형 블로그
+오픈소스/무료
+티스토리의 모체
+<a href="http://www.textcube.org/" target="_blank">http://www.textcube.org/</a>
+<strong><b>wordpress</b></strong>
+전세계적으로 가장 많이 사용되는 설치형 블로그
+오픈소스/무료
+방대한 스킨/플러그인
+<a href="http://wordpress.org/" target="_blank">http://wordpress.org/</a>
+<strong>게시판</strong>
+<strong><b>XE(제로보드)</b></strong>
+제로보드가 모태
+무료/오픈소스
+게시판을 중심으로 하는 사이트 빌더로 강력한 확장성을 가지고 있음
+<a href="http://www.xpressengine.com/" target="_blank">http://www.xpressengine.com/</a>
+<strong><b>phpBB</b></strong>
+포럼형 게시판
+무료/오픈소스
+<a href="http://www.phpbb.com/" target="_blank">http://www.phpbb.com/</a>
+<strong>웹로그 분석기</strong>
+<strong><b>piwik</b></strong>
+사이트의 트래픽을 측정하는 솔루션
+무료/오픈소스
+<a href="http://piwik.org/" target="_blank">http://piwik.org</a>
+<a href="http://www.google.com/analytics/" target="_blank">구글 웹로그 분석기</a>를 겨냥한 웹로그 분석기
+<strong>시스템</strong>
+<strong><b>phpMyAdmin</b></strong>
+웹상에서 mysql을 제어하는 데이터베이스 클라이언트
+무료/오픈소스
+<a href="http://www.phpmyadmin.net/" target="_blank">http://www.phpmyadmin.net/</a>
+<!-- /box1 --></div>
+객체 지향 프로그래밍
+<div class="box1"><!-- box1 -->
+-- [m] 객체 지향 개념은 JAVA 에서의 설명과 동일하니.. 거기 보시오!
+<strong>객체 지향 프로그래밍</strong>
+<strong>부품화</strong>
+<strong>은닉화, 캡슐화</strong>
+<strong>인터페이스</strong>
+<!-- /box1 --></div>
+</pre>
+
+
+<h2 id="Start">Start</h2>
+
+
+<h2 id="Basic">Basic</h2>
+
+
+<h2 id="misc">misc.</h2>
+
+<ol class="num">
+<li><strong>Q?</strong><br />
+<div class="cont">
+A
+</div>
+</li>
+</ol>
+
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:39%;margin:0 0 0 1%;"><!-- contentsBlock -->
+
+
+<h2 id="Link">Reference Link</h2>
+
+<ol class="bo num">
+<li><a href="http://opentutorials.org/course/478">생활코딩 - PHP</a></a></li>
+<li><a href="http://opentutorials.org/course/62">생활코딩 - PHP 기본 수업</a></a>
+<blockquote cite=""><div>
+<a href="http://php.net/" target="_blank">php.net</a><br />
+<a href="http://www.php.net/manual/en/" target="_blank">PHP 공식문서</a> (영문)
+| <a href="http://php.net/manual/kr/">(한국어)</a><br />
+<a href="http://www.php.net/manual/kr/getting-started.php" target="_blank">PHP 기본사용법</a> (한국어)<br />
+<a href="http://phpschool.com/" target="_blank">phpschool.com</a>  - 국내 최대의 PHP 커뮤니티<br />
+</div></blockquote>
+</li>
+<li><a href="http://opentutorials.org/course/697">생활코딩 - CodeIgniter</a></a></li>
+<li><a href="http://opentutorials.org/course/692">생활코딩 - PHP 고급 수업</a></a></li>
+<li><a href="http://opentutorials.org/course/546">생활코딩 - PHP 소셜 프로그래밍</a></a></li>
+</ol>
+
+<h3>Reference</h3>
+
+
+<!-- /contentsBlock --></div>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140320.
+20140319.
+20140318. 가벼운 맘으로 시작.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

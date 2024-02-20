@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Guide - Hope to Coding | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>코딩(Coding : Markup, CSS, JavaScript Coder)에게 바란다</h1>
+
+<h2>웹 접근성, 표준, 호환성, 성능</h2>
+
+<ol class="bo num">
+<li>HTML5 : html5 전용 속성은 표준, 호환성 통과되면 사용한다.</li>
+<li>CSS3 : CSS 속성은 표준, 호환성 통과되면 사용한다.</li>
+<li>Desktop : [IE8,7,FF,SF,CR,OP] OK : [IE6] 디자인 무시. 콘텐츠는 고려함. [IE9~]은 별도 요구시 확인한다.</li>
+<li>Mobile : [IE8,7,FF,SF,CR,OP] OK : [IE6] 디자인 무시. 콘텐츠는 고려함. [IE9~]은 별도 요구시 확인한다.</li>
+<li>JavaScript + jQuery : </li>
+<li>HTTP Request, Image Sprite</li>
+</ol>
+
+<h2>WebSite Folder Architect <span style="font-size:.6em;"><a href="../Guide/template.html">/Guide/template.html</a></span></h2>
+
+<h2>코딩 기술 조건  개발정책 / 참고자료</h2>
+
+<div class="box1">
+<p class="mg0">Web Publishing 기술 조건 내용이며, 행안부 주관 행정기관 웹사이트 진단 항목 중 기술 평가에 대비할 수 있습니다.<br />
+서비스, 정보 제공, 이용 활성화, 정보 보호 관련 내용은 담고 있지 않습니다.</p>
+</div>
+
+<br />
+
+<!-- indent -->
+<div class="indent">
+<h3>웹 접근성</h3>
+<!-- indent -->
+<div class="indent">
+<ul class="bu">
+<li><a href="http://www.wah.or.kr/Guide/valuation.asp">웹접근성 향상을 위한 국가표준 기술 가이드라인</a> (행정안전부, 2009.3~2012) - 웹 접근성 품질마크 심사 기준</li>
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?page=1&brd_sn=4&brd_idx=625"><ins>한국형 웹 콘텐츠 접근성 지침 2.0 국가표준(2010년 12월 31일)</ins></a>
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?brd_sn=5&amp;brd_idx=581">웹 접근성 점검 매뉴얼 (한국정보화진흥원, 2009.9-2010.6갱신)</a></li>
+<li><a href="http://www.wah.or.kr/Achive/Kadowah.asp">K-WAH</a> - 도움말 - 자동평가 준수율 100%</li>
+</ul>
+</div>
+<!-- //indent -->
+
+<h3>웹 표준</h3>
+
+
+<h4><a href="http://www.mopas.go.kr/gpms/ns/mogaha/user/userlayout/bulletin/userBtView.action?userBtBean.bbsSeq=1039845&userBtBean.ctxCd=1037&userBtBean.ctxType=21010005&userBtBean.categoryCd=">전자정부서비스 호환성 준수지침</a> (행정안전부, 2009.8~2012.10)</h4>
+<ol class="bo num">
+<li>문자인코딩 : <a href="?">UTF-8</a> 을 사용하는 것을 원칙으로 한다. 기술 제약, 서비스 특성으로 인해 다른 방식을 사용한다면 UTF-8 에 준하는 수준으로 한글을 처리할 수 있도록 조치하여야 한다.</li>
+<li>HTML : <a href="http://validator.w3.org/">W3C Markup Validator</a> 통과</li>
+<li>CSS : <a href="?">W3C CSS 2.1</a> 또는 <a href="?">CSS 3</a> 로 구현. <a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validator</a> 통과</li>
+<li>JavaScript : <a href="?">W3C DOM Level 2</a> 또는 <a href="?">Level 3</a> 또는 <a href="?">ECMA-262 3rd</a></li>
+<li>신기술 : 웹사이트 호환성 확보가 가능한 수준에서 <a href="?">HTML5</a> 등의 신기술을 사용할 수 있다.</li>
+<li>모바일 : <a href="?">모바일 웹</a> 방식으로 제공. 단, 기술 제약, 비용 문제 있으면 다른 방식으로 제공할 수 있다.</li>
+</ol>
+</li>
+</ul>
+
+<h4>웹 표준 구축 방식</h4>
+
+<ul class="bu">
+<li>구조(HTML, XHTML), 표현(CSS), 동작(JavaScript, DOM) 분리</li>
+<li>&lt;div&gt;와 CSS 접목된 레이아웃</li>
+<li>Semantic(의미에 맞는) Markup</li>
+</ul>
+
+
+<h3>호환성 (OS/Browser 지원)</h3>
+<!-- indent -->
+<div class="indent">
+<ul class="bu">
+<li><a href="http://www.microsoft.com/downloads/details.aspx?displaylang=ko&amp;FamilyID=1E1550CB-5E5D-48F5-B02B-20B602228DE6">IE6</a>, <a href="http://www.microsoft.com/korea/windows/internet-explorer/ie7.aspx">IE7</a>, <a href="http://www.microsoft.com/korea/windows/downloads/ie/getitnow.mspx">IE8</a>, <a href="http://www.mozilla.or.kr/">FireFox</a>, <a href="http://www.apple.com/safari/download/">Safari</a> | (<a href="http://www.opera.com/">Opera</a>, <a href="http://www.google.com/chrome/?hl=ko">Chrome</a>) on Windows 2K 이상<br />
+※ IE 버전별 확인용 : <a href="http://www.my-debugbar.com/wiki/IETester/">IETester</a>
+</li>
+<li>다른 OS 및 User Agent 는 호환 필수 과업만 고려한다. 예) Mac, Linux, Mobile(Smart Phone)</li>
+</ul>
+</div>
+<!-- //indent -->
+
+<h3>성능 최적화 (로딩속도 최소화)</h3>
+<!-- indent -->
+<div class="indent">
+<ul class="bu">
+<li>초기 페이지 응답 시간 품질 : &lt;3초 ~ 5초<br />
+※ <a href="http://www.iwebtool.com/speed_test/">Website Speed Test</a></li>
+<li>HTML, CSS, JS, Image, Flash, .. 파일 용량 및 개수 최소 사용</li>
+</ul>
+</div>
+<!-- //indent -->
+</div>
+<!-- //indent -->
+
+
+<br />
+<hr class="dash" />
+<h2 id="ref">참고자료</h2>
+<ul>
+<li><a href="http://www.wah.or.kr/Certification/testimony.asp">웹 접근성 연구소 - 품질마크 인증 심사 기준</a></li>
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?page=1&amp;brd_sn=2&amp;brd_idx=557">2010년도 웹 접근성 품질마크 접수 안내(연간접수일정)</a></li>
+<li><a class="cd" href="http://192.168.0.60:7080/Report/2009년%20행정기관%20웹사이트%20진단%20및%20컨설팅%20추진계획.html">2009년 행정기관 웹사이트 진단 및 컨설팅 추진계획</a> - 2010년 자료 나오면 링크 예정</li>
+<li><a href="http://www.mopas.go.kr/gpms/ns/mogaha/user/userlayout/bulletin/userBtView.action?userBtBean.bbsSeq=1038277&userBtBean.ctxCd=1037&userBtBean.ctxType=21010005&currentPage=31"><ins>정보시스템의 구축·운영 기술 지침(개정 2010. 5. 6  행정안전부고시 제2010-31호)</ins></a></li>
+</ul>
+
+
+
+<br /><hr class="show" />
+<strong>History</strong>
+20130212. 웹 개발 가이드 템플릿 코딩 내용 가져와 최신 정보로 수정.
+</ul>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

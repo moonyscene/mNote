@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - jQuery Animation | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">Animation with JS</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="https://daneden.github.io/animate.css/" target="_blank" title="새 창">Animate.css</a></li>
+<li><a href="http://velocityjs.org" target="_blank" title="새 창">Velocity.js</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">jQuery Animation 비동기 애니메이션 구현</h2>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="https://daneden.github.io/animate.css/" target="_blank" title="새 창">Animate.css</a></li>
+<li><a href="http://velocityjs.org" target="_blank" title="새 창">Velocity.js</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+<strong class="h1">(( d2.naver.com</strong>
+<ul class="ul1 bu">
+<li><a href="http://d2.naver.com/helloworld/0265052">jQuery 애니메이션은 어떻게 작동하는가? - 기본 편</a> ))) 아래 코드 샘플 가져옴.</li>
+<li><a href="http://d2.naver.com/helloworld/4424601">jQuery 애니메이션은 어떻게 작동하는가? - 심화 편</a> 동작원리 ))) 복잡하여 정리 보류~</li>
+<li><a href="http://d2.naver.com/helloworld/9323973">jQuery 애니메이션은 어떻게 작동하는가? - 응용 편</a> pause() resume() ))) 복잡하여 정리 보류~</li>
+</ul>
+</div>
+<!-- /panel1 -->
+
+
+<p>
+	jQuery.fn.animate() 함수를 제공한다.
+	이 함수는 slideDown(), slideUp(), slideToggle(), fadeTo(), fadeIn(), fadeOut(), fadeToggle() 등 애니메이션 관련 함수의 실제 구현체이며,
+	애니메이션을 구현할 때 사용할 수 있는 저수준(low level) API다.
+</p>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">하나의 요소를 순서대로 움직이기</h3>
+
+<pre class="mg0">
+<code class="xmp">
+$(".box").animate({ left : "150px" },1000)
+  .animate({ top : "150px" },1000)
+  .animate({ left : "50px" },1000)
+  .animate({ top : "0px" },1000);
+</code>
+</pre>
+
+<h3 class="hb1 h3">여러 개의 요소를 순서대로 움직이기</h3>
+
+<h4 class="hb1 h4">콜백 함수를 사용하는 방법</h4>
+
+<pre class="mg0">
+<code class="xmp">
+$(".box1").animate({ left : "200px" },1000, function() {
+  $(".box2").animate({ left : "50px" },1000, function() {
+	$(".box1").animate({ top : "150px" },1000, function() {
+	  $(".box2").animate({ top : "0px" },1000, function() {
+		alert("완료!");
+	  });
+	});
+  });
+});
+</code>
+</pre>
+
+<h4 class="hb1 h4">Promise 객체를 사용하는 방법</h4>
+
+<pre class="mg0">
+<code class="xmp">
+$(".box1").animate({ left : "200px" },1000).promise().then(function() {
+  return $(".box2").animate({ left : "50px" },1000).promise();
+}).then(function() {
+  return $(".box1").animate({ top : "150px" },1000).promise();
+}).then(function() {
+  return $(".box2").animate({ top : "0px" },1000).promise();
+}).then(function() {
+  alert("완료!");
+});
+</code>
+</pre>
+
+<h3 class="hb1 h3">여러 개의 요소를 동시에 움직이기</h3>
+
+<pre class="mg0">
+<code class="xmp">
+var $box1 = $(".box1");
+var $box2 = $(".box2");
+$box1.animate({ left : "200px" },1000);
+$box2.animate({ top : "0px" }, 1000);
+
+$.when($box1, $box2).then(function() {
+	alert("완료!");
+});
+</code>
+</pre>
+
+<h3 class="hb1 h3">애니메이션을 반복하기</h3>
+
+<pre class="mg0">
+<code class="xmp">
+function loopBoat() {  
+  $boat.animate({ 'bottom' : '15px'}, 500)
+	.animate({ 'bottom' : '25px'}, 500, loopBoat);
+}
+</code>
+</pre>
+
+
+
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20161017 ~
+20161017. 
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

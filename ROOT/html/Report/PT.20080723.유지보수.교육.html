@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '2008년 프로젝트 코딩시 고려할 점 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+<h1 style="color: #f06;">2008년 프로젝트 코딩시 고려할 점</h1>
+<p>
+ver 2008.07.23
+</p>
+
+
+<!-- 긴급공지 -->
+<div class="box4">
+<ul class="bu"><li>대체텍스트 : alt, longdesc</li>
+<li>레이아웃 : div , table</li>
+<li>자바스크립트 : 예전 비표준 코드 → 표준 스크립트 사용.</li>
+<li>팝업 : 제한적 사용, 레이어 팝업.</li>
+<li>CSS : float, position</li>
+<li>웹접근성, 웹표준 자료. 여러번 읽고 숙지.</li>
+</ul>
+</div>
+<!-- //긴급공지 -->
+
+<xmp class="xmp">
+<table summary="중간고사와 기말고사 성적을 개인별로 보여주는 표">
+<caption>개인별 시험 성적표</caption>
+<thead>
+<tr>
+<th>구분</th>
+<th scope="col">중간고사</th>
+<th scope="col">기말고사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">김철수</th>
+<td>50</td>
+<td>60</td>
+</tr>
+<tr>
+<th scope="row">박영희</th>
+<td>70</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+
+<table summary="네비게이션 요소">
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>
+</xmp>
+
+
+<h2><a href="http://정보행동.co.kr/">(주)정보행동 홈페이지 개편 (2008.04.08)</a></h2>
+<p>
+[테스트 환경]<br />
+* 한국형 웹 콘텐츠 지침(KWCAG) 1.0<br />
+* 브라우저 호환 (for Windows XP) : IE6, IE7, FF최신버전, Op최신버전, Sa최신버전<br />
+* 스크린리더 (on IE6 for Windows XP) : 센스리더PE2.2, 드림보이스6.21 (on IE6)<br />
+* 스타일시트, 자바스크립트, 플러그인, 이미지 표시 기능 제거(Disable)후 접근성 고려<br />
+</p>
+
+<!-- 콘텐츠영역 -->
+<div class="콘텐츠영역">
+<h3>01. 공공기관 홈페이지 평가</h3>
+<ul class="bu">
+<li><a href="../Report/2007년%20행정기관%20웹사이트%20진단%20및%20컨설팅%20결과%20분석.html">행정기관 웹사이트 진단 및 컨설팅[행자부]- 기술평가</a></li>
+<li>웹접근성실태조사[정통부]</li>
+<li><a href="../Accessibility/accessibility_wamark.html">웹접근성품질마크[한국정보문화진흥원-웹접근성연구소]</a></li>
+<li><a href="http://www.mopas.go.kr/gpms/ns/mogaha/user/userlayout/bulletin/userBtView.action?userBtBean.ctxCd=1007&userBtBean.ctxType=21010005&userBtBean.bbsSeq=1034999">전자정부 웹 표준 준수지침 제정 고시</a></li>
+</ul>
+<h3>02. HTML 문서 기본 구조</h3>
+
+<xmp class="xmp">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '(주)정보행동</title>
+<meta name="author" content="(주)정보행동">
+<meta name="keywords" content=", (주)정보행동, 정보행동, 웹에이전시, 기업 부설 연구소">
+<meta name="description" content="웹에이전시 (주)정보행동 입니다.">
+<link rel="stylesheet" type="text/css" href="/share/css/print.css?2008040816124">
+<script src="/share/js/all.js?2008040816124"></script>
+<script src="/share/js/main.js?2008040816124"></script>
+</head>
+<body class="d1n0 d2n0 main">
+
+
+
+</body>
+</html>
+</xmp>
+
+<ul class="bu">
+<li><a href="http://정보행동.co.kr/share/js/all.js">/share/js/all.js : 참조파일 캐시 안불러오기, css, js 파일 포함 방법, js 그룹별 파일 분리.</a></li>
+</ul>
+
+<h3>03. JavaScript 제거시 고려</h3>
+
+<ul class="bu">
+<li><a href="../Markup/flash.html">Disable CSS, JS, Plugin, Images</a></li>
+<li><a href="http://정보행동.co.kr/main/">의미에 맞는 적절한 HTML태그를 사용 : 탭목록</a></li>
+</ul>
+
+<h3>04. (X)HTML 요소별 코딩 방법</h3>
+
+<ul class="bu">
+<li><a href="../Accessibility/accessibility_validation.html#checklist50">링크 : a, area 태그, tabindex="0", href="#", onkeypress=""</a></li>
+<li><a href="../Markup/flash.html">플래시 object 태그</a></li>
+<li><a href="../Accessibility/accessibility_validation.html#checklist29">데이터 테이블 : summary</a></li>
+<li><a href="../Accessibility/accessibility_validation.html#checklist50">noscript</a></li>
+</ul>
+
+<h3>05. 유용한 JavaScript 함수 : /share/js/myshin.js</h3>
+
+<ul class="bu">
+<li><a href="http://정보행동.co.kr/sub/company_history.asp">initImgMenuOn();</a>//여러 페이지에 메뉴를 인클루드해서 사용할 때, 현재 페이지 메뉴만 활성이미지로 표시</li>
+<li><a href="http://정보행동.co.kr/sub/solution.asp">initImgMenuOnly();</a>//이미지메뉴활성&하나만보이기</li>
+<li>
+목록클릭이벤트할당<br />
+<a href="http://정보행동.co.kr/program/portfolio/work_project.asp">initClickOn("메뉴그룹id");</a>//한페이지, 메뉴그룹안에 콘텐츠그룹 포함시<br />
+<a href="http://정보행동.co.kr/program/portfolio/work_project.asp">initClickOn("메뉴그룹id","활성메뉴id");</a>//여러페이지<br />
+<a href="http://정보행동.co.kr/share/board/board.asp">initClickOn("메뉴그룹id","활성메뉴id","콘텐츠그룹id");</a>//한페이지, 메뉴그룹과 콘텐츠그룹 별도시.<br />
+</li>
+<li><a href="http://정보행동.co.kr/share/lib/lib.asp">코드 라이브러리</a></li>
+</ul>
+
+</div>
+<!-- //콘텐츠영역 -->
+
+
+
+<!-- <hr> -->
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

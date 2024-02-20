@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CSS Grid Laout</title>
+<style>/*<![CDATA[*/
+body{
+	width:87.5%;
+	margin:auto;
+}
+.grid{
+	display:-ms-grid;
+	display:grid;
+	min-height:400px;
+	margin:auto;
+	background:#eee;
+	grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+	grid-auto-rows:20px;
+	grid-gap:5px;
+}
+.item{
+	position:relative;
+	width:100%;
+	margin:0;padding:0;
+	overflow:hidden;
+}
+.item img{
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:100%;
+	transform:translate(-50%, -50%);
+}
+.item figcaption{
+	position:absolute;
+	left:20px;right:20px;
+	top:50%;
+	background:rgba(0,0,0, .42);
+	color:#fff;
+	font-size:12px;
+	transform:translate(0, -50%);
+}
+
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+
+	function SetGridItemHeight() {
+		let grid = document.getElementsByClassName('grid')[0];
+		let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+		let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+
+		let item = grid.getElementsByClassName('item');
+		for (let i = 0; i < item.length; ++i) {
+			item[i].style.gridRowEnd = `span ${Math.floor((item[i].children[0].offsetHeight) / 25)}`;
+		}
+	}
+	window.addEventListener("load", SetGridItemHeight);
+	window.addEventListener("resize", SetGridItemHeight);
+
+/*]]>*/</script>
+</head>
+<body>
+
+
+
+<h2 class="hb1 h2">CSS Grid Marsonry ((( https://pang2h.tistory.com/227</h2>
+
+
+<!-- panel1 -->
+<div class="panel1">
+	<p>
+		[~IE11](X)
+	</p>
+</div>
+<!-- /panel1 -->
+
+
+<!-- grid -->
+<div class="grid">
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1001.jpg" alt="★대체텍스트필수" />
+		<figcaption>[01]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1002.jpg" alt="★대체텍스트필수" />
+		<figcaption>[02]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1003.jpg" alt="★대체텍스트필수" />
+		<figcaption>[03]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1004.jpg" alt="★대체텍스트필수" />
+		<figcaption>[04]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1005.jpg" alt="★대체텍스트필수" />
+		<figcaption>[05]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1006.jpg" alt="★대체텍스트필수" />
+		<figcaption>[06]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1007.jpg" alt="★대체텍스트필수" />
+		<figcaption>[07]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1008.jpg" alt="★대체텍스트필수" />
+		<figcaption>[08]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1009.jpg" alt="★대체텍스트필수" />
+		<figcaption>[09]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1010.jpg" alt="★대체텍스트필수" />
+		<figcaption>[10]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1011.jpg" alt="★대체텍스트필수" />
+		<figcaption>[11]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1012.jpg" alt="★대체텍스트필수" />
+		<figcaption>[12]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1101.jpg" alt="★대체텍스트필수" />
+		<figcaption>[13]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1102.jpg" alt="★대체텍스트필수" />
+		<figcaption>[14]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1103.jpg" alt="★대체텍스트필수" />
+		<figcaption>[15]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1104.jpg" alt="★대체텍스트필수" />
+		<figcaption>[16]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1105.jpg" alt="★대체텍스트필수" />
+		<figcaption>[17]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1106.jpg" alt="★대체텍스트필수" />
+		<figcaption>[18]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1107.jpg" alt="★대체텍스트필수" />
+		<figcaption>[19]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1108.jpg" alt="★대체텍스트필수" />
+		<figcaption>[20]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1109.jpg" alt="★대체텍스트필수" />
+		<figcaption>[21]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1110.jpg" alt="★대체텍스트필수" />
+		<figcaption>[22]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1111.jpg" alt="★대체텍스트필수" />
+		<figcaption>[23]</figcaption>
+	</figure>
+	<figure class="item">
+		<img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1112.jpg" alt="★대체텍스트필수" />
+		<figcaption>[24]</figcaption>
+	</figure>
+</div>
+<!-- /grid -->
+
+
+
+
+
+</body>
+</html>

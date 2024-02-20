@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var _$ = {
+	nowPage: {
+		id: [0,1,0,0,0],
+		title: 'MongoDB', // Home | mNote
+		pageType: 'sub',
+		layoutType: 'sub'
+	}
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">MongoDB</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li>
+	<a href="#h2-01">MongoDB (( PoiemaWeb</a>
+	<ul>
+	<li><a href="#h3-01">1 MongoDB의 기본 개념과 설치</a></li>
+	<li><a href="#h3-02">2 MongoDB Shell method를 사용한 CRUD의 기본</a></li>
+	<li><a href="#h3-03">3 Node.js(express)와 MongoDB 연동 RESTful API - Mongoose</a></li>
+	</ul>
+</li>
+<li><a href="#Link">Reference Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="h2-01">MongoDB (( <a href="https://poiemaweb.com/mongdb-basics" target="_blank" rel="noopener" title="새 창" class="a1">PoiemaWeb</a></h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-01">1 MongoDB의 기본 개념과 설치</h3>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">1. Introduction</h4>
+
+
+<p>
+	<a href="https://www.mongodb.com/" target="_blank" rel="noopener" title="새 창" class="a1">MongoDB</a>는
+	Document-Oriented(문서 지향적) <a href="https://ko.wikipedia.org/wiki/NoSQL" target="_blank" rel="noopener" title="새 창" class="a1">NoSQL</a> 데이터베이스이다.
+	오픈 소스이며 엔진은 C++로 작성되었다.
+</p>
+<p>
+	NoSQL이란 Not Only SQL의 약자로서 기존의 RDBMS(관계형 데이터베이스)의 한계를 극복하기 위한 새로운 형태의 데이터베이스이다.
+</p>
+
+<h5 class="hb1 h5">Document</h5>
+
+<p>
+	Document는 RDMS의 record와 유사한 개념으로 JSON objects 형태의 key-value의 쌍으로 이루어진 데이터 구조로 구성된다.
+</p>
+<p>
+	value에는 다른 document, array, document array가 포함될 수 있다.
+</p>
+<p>
+	Document의 형태를 살펴보자.
+</p>
+
+
+<pre class="mg0">
+<code class="xmp">
+{
+  _id: ObjectId("5099803df3f4948bd2f98391"),
+  name: { first: "Alan", last: "Turing" },
+  birth: new Date('Jun 23, 1912'),
+  death: new Date('Jun 07, 1954'),
+  contribs: [ "Turing machine", "Turing test", "Turingery" ],
+  views : NumberLong(1250000)
+}
+</code>
+</pre>
+
+<p>
+	각 Document는 _id라는 고유한 값을 갖는다. 이 고유한 값은 시간/머신ID/프로세스ID/순차번호로 구성되며 값의 고유성을 보장한다.
+</p>
+
+<h5 class="hb1 h5">Collection</h5>
+
+<p>
+	Collection은 RDMS의 table과 유사한 개념으로 Document들의 집합으로 구성된다.
+</p>
+
+<h5 class="hb1 h5">Database</h5>
+
+<p>
+	Database는 Collection들의 물리적인 컨테이너이다.
+</p>
+<p>
+	Database는 0개 이상의 Collection들의 집합으로 구성되며 Collection은 0개 이상의 Document로 구성되고 Document는 1개 이상의 field로 구성된다.
+</p>
+
+
+<figure class="block-center tac" style="max-width:450px;">
+	<img src="https://poiemaweb.com/img/mongodb-structure.png" alt="MongoDB Structure" />
+	<figcaption>MongoDB Structure</figcaption>
+</figure>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">2. RDMS와 MongoDB의 비교</h4>
+
+
+<h5 class="hb1 h5">Terms</h5>
+
+<table class="t3">
+  <tbody><tr>
+    <th style="width:220px;">RDB(MySQL)</th>
+    <th style="width:220px;">MongoDB</th>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td><em class="em1">Database</em></td>
+  </tr>
+  <tr>
+    <td>Table</td>
+    <td><em class="em1">Collection</em></td>
+  </tr>
+  <tr>
+    <td>Tuple / Row</td>
+    <td><em class="em1">Document</em> or BSON document</td>
+  </tr>
+  <tr>
+    <td>Column</td>
+    <td>Field</td>
+  </tr>
+  <tr>
+    <td>Table Join</td>
+    <td>Embedded Documents &amp; Linking</td>
+  </tr>
+  <tr>
+    <td>Primary Key</td>
+    <td>Primary Key (_id)</td>
+  </tr>
+</tbody></table>
+
+<h5 class="hb1 h5">Database Server</h5>
+
+<table class="t3">
+  <tbody><tr>
+    <th style="width:220px;">RDB(MySQL)</th>
+    <th style="width:220px;">MongoDB</th>
+  </tr>
+  <tr>
+    <td>mysqld</td>
+    <td>mongod</td>
+  </tr>
+</tbody></table>
+
+<h5 class="hb1 h5">Database Client</h5>
+
+<table class="t3">
+  <tbody><tr>
+    <th style="width:220px;">RDB(MySQL)</th>
+    <th style="width:220px;">MongoDB</th>
+  </tr>
+  <tr>
+    <td>mysql</td>
+    <td>mongo</td>
+  </tr>
+</tbody></table>
+
+<h5 class="hb1 h5">SQL</h5>
+
+<table class="t3">
+  <tbody><tr>
+    <th style="width:220px;">RDB(MySQL)</th>
+    <th style="width:220px;">MongoDB</th>
+  </tr>
+  <tr>
+    <th colspan="2">Insert</th>
+  </tr>
+  <tr>
+    <td><em class="em3">insert</em> into users ("name", "city") values("lee", "seoul")</td>
+    <td>db.users.<em class="em1">insert</em>({ name: "lee", city: "seoul" })</td>
+  </tr>
+  <tr>
+    <th colspan="2">Select</th>
+  </tr>
+  <tr>
+    <td><em class="em3">select</em> * from users where name="lee"</td>
+    <td>db.users.<em class="em1">find</em>({ name: "lee" })</td>
+  </tr>
+  <tr>
+    <th colspan="2">Update</th>
+  </tr>
+  <tr>
+    <td><em class="em3">update</em> users set city="busan" where name="lee"</td>
+    <td>db.users.<em class="em1">update</em>({ name: "lee" }, { $set: { city: "busan" }})</td>
+  </tr>
+  <tr>
+    <th colspan="2">Delete</th>
+  </tr>
+  <tr>
+    <td><em class="em3">delete</em> from users where name="lee"</td>
+    <td>db.users.<em class="em1">remove</em>({ name: "lee" })</td>
+  </tr>
+</tbody></table>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">3. 특징</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">4. Install</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">4.1 Windows</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">4.2 Mac</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">4.3 mLab Hosting service</h5>
+
+<p>
+	MongoDB를 직접 설치하지 않고 mLab Hosting service를 이용할 수도 있다.
+</p>
+<p>
+	<b class="em0"><a href="https://mlab.com/" target="_blank" rel="noopener" title="새 창" class="a1">mLab</a></b>에 접속한 후, 회원가입을 하고 로그인한다.
+</p>
+
+
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">4.4 RoboMongo</h5>
+
+
+<p>
+	터미널에서 mongo 명령어를 사용하여 데이터베이스에 접속하고 조회할 수 있으나 불편할 수 있으므로<br />
+	GUI MongoDB 클라이언트인 <b class="em0"><a href="https://robomongo.org/download" target="_blank" rel="noopener" title="새 창" class="a1">Robomongo</a></b> 설치하여 보자.
+</p>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Reference</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-02">2 MongoDB Shell method를 사용한 CRUD의 기본</h3>
+
+
+<p>
+	<b class="em0">MongoDB Shell</b>을 사용하여 
+	<a href="https://ko.wikipedia.org/wiki/CRUD" target="_blank" rel="noopener" title="새 창" class="a1">CRUD</a>
+	의 기본을 알아본다.
+</p>
+<p>
+	MongoDB Shell은 JavaScript 실행 환경을 가지고 있어 JavaScript의 실행이 가능하다.
+</p>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">1. Create</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">2. Read</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">3. Update</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">4. Delete</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Reference</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-03">3 Node.js(express)와 MongoDB 연동 RESTful API - Mongoose</h3>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">1. Introduction</h4>
+
+
+<p>
+	<b class="em0"><a href="http://mongoosejs.com/" target="_blank" rel="noopener" title="새 창" class="a1">Mongoose</a></b>는
+	<b class="em0">Node.js</b>와 <b class="em0">MongoDB</b>를 위한 <b class="em0">ODM(Object Data Mapping) library</b>이다.<br />
+	Java 기반의 Hibernate. iBatis 등의 ORM(Object Relational Mapping)과 유사한 개념이다.
+</p>
+<p>
+	<b class="em0">ODM</b>의 사용은 코드 구성이나 개발 편의성 측면에서 장점이 많다.<br />
+	호환성이 없는 프로그래밍언어(JavaScript) Object와 MongoDB의 데이터를 Mapping하여 간편한 <b class="em0">CRUD</b>를 가능하게 한다.
+</p>
+<p>
+	필요에 따라 확장 및 변경이 가능한 자체 검증(Validation)과 타입 변환(Casting)이 가능하며
+	<b class="em0">Express</b>와 함께 사용하면 <b class="em0">MVC Concept</b> 구현이 용이하다.
+</p>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">2. RESTful API</h4>
+
+
+<p>
+	<b class="em0">REST</b>는 <em class="em4">Representational state transfer</em>의 약자로 World Wide Web과 같은 분산 하이퍼미디어 시스템에서 운영되는 소프트웨어 아키텍처 스타일이다.
+</p>
+<p>
+	HTTP 프로토콜을 의도에 맞게 정확히 활용하여 디자인하도록 유도하고 있기 때문에 디자인 기준이 명확해지며, 의미적인 범용성을 지니므로 중간 계층의 컴포넌트들이 서비스를 최적화하는 데 도움이 된다. REST의 기본 원칙을 충실히 지킨 서비스 디자인을 “RESTful” 이라고 표현한다.
+</p>
+<p>
+	REST에서 가장 중요하며 기본적인 규칙은 아래 두 가지이다.
+</p>
+
+<ul class="bu">
+<li>URI는 정보의 자원을 표현해야 한다.</li>
+<li>자원에 대한 행위는 HTTP Method로 표현한다.</li>
+</ul>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">3. Setting</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">3.1. Install</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">3.2. 디렉터리 구조</h5>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">4. Connection</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">5. Schema & Model</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">5.1. Schema</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">5.2. Model</h5>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">7. Statics model methods & Document instance methods</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">7.1. Statics model methods(Statics)</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">7.2. Document instance methods(Methods)</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">7.3. Custom Statics & Methods</h5>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">8. CRUD</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">8.1. Create</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">8.2. Read</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">8.3. Update</h5>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">8.4. Delete</h5>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">9. app.js의 완성</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Reference</h4>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Reference Link</h2>
+
+
+
+
+
+<div class="brclear"></div>
+<hr class="line1 dott" />
+<p>
+<strong>History</strong>
+: 20200207.~
+20200207. 
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

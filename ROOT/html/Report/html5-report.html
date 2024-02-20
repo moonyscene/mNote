@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'HTML5 오픈 콘퍼런스 - 리포트',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">
+body { margin: 0; padding: 0; font-size: 75%; line-height: 1.5; font-family: 돋움,sans-serif; }
+#container { width: 800px; margin: 0 auto; padding: 0 0 50px; }
+h1 { font-size: 1.67em; margin: 1em 0 0; padding: 30px; color: #fff; font-weight: normal; background: #0065B8; }
+h1 span { display: block; font-size: .47em; font-family: Arial,sans-serif; letter-spacing: 4px; }
+h2 { font-size: 1.17em; margin: 2em 0 .5em; color: #0065B8; text-decoration: underline; }
+
+em { font-style: normal; color: red; }
+</style>
+</head>
+
+<body>
+
+<!-- #container -->
+<div id="container">
+
+
+
+
+
+
+<h1>HTML5 오픈 콘퍼런스 - 리포트 <span>HTML5 OPEN CONFERENCE</span></h1>
+<div style="text-align:right">by 이영석</div>
+
+<h2>콘퍼런스 정보 및 책자</h2>
+<strong>행사소개 페이지</strong> : <a href="http://webappscon.com/html5/" target="_blank">http://webappscon.com/html5/</a><br>
+<strong>발행책자pdf</strong>(<em>제본된 책은 코딩팀자리 1개 비치됨</em>) : <a href="http://html5.creation.net/html5-guide.pdf" target="_blank">http://html5.creation.net/html5-guide.pdf</a> 
+
+
+<h2>간략 소감</h2>
+<ul>
+<li>질문의 분위기상 자바스크립 API관련 개발자들의 참석과 관심이 컸음</li>
+<li>백터이미지 활용 Canvas 요소는 새로운 전문가분야의 탄생을 예고하기도</li>
+<li>HTML5 자바스크립트 API는 데스크탑 보단 모바일 서비스 환경에 대비하는 방향으로 준비가 필요하지 않을까 - 모바일에서 효용성 극대화</li>
+<li>구조적 동작처리가 아닌 자바스크립트 API 개발은 누구 품에?</li>
+<li>HTML5를 지원할 데스크탑 ie9는 비스타/윈도7 부터 - 우리의 os 대응은?</li>
+</ul>
+
+
+<hr>
+
+
+<h2>HTML5 소개 및 현황</h2>
+<ul>
+<li>2004 개발자참여워킹그룹(WHATWG)으로 시작 - 2007 W3C/MS 참여 - 2008 초안 발표 - 2010 확정화 단계</li>
+<li>도큐멘트타입 간소화(<strong>&lt;!DOCTYPE html&gt;</strong>) - for html &amp; xhtml</li>
+<li>ie9지원(vista, 7이상), 2010말 기타 브라우저 지원</li>
+<li>모바일 : 모바일용브라우저의 지원률 지금도 높다, 앱스토어가 미래가 아니다!!, 모바일장치제어 자바스크립 준비중(카메라, 주소록..)</li>
+</ul>
+<ol>
+<li>개발자 삽질 줄이기
+	<ol>
+	<li>가장 많이 쓴는 클래스네임 Top20 - 마크업 엘리먼트로 추가(footer, header..)하여 구조성 확보</li>
+	<li>흔하게 쓰이는 비표준 속성들을 수용하여 호환성 향상(embed..)</li>
+	<li>추가된 Input Type(datetime-달력이용입력, number-수 증가/감소 버튼, email-바른이메일양식체크..)</li>
+	</ol>
+</li>
+<li>API
+	<ol>
+	<li>플러그인 없는 - Video, Audio</li>
+	<li>백터그래픽요소 - Canvas</li>
+	<li>브라우저와 분리된 쓰레드 연산처리 - Web Workers</li>
+	<li>3D - webGL</li>
+	</ol>
+</li>
+<li>오프라인 서포트 : 구조,표현,동작까지 지원 - Local Storage, App Cache..</li>
+</ol>
+
+
+
+
+
+<h2>HTML5 마크업</h2>
+<ul>
+<li>6.24일자 마크업 명세 - 확정상태라 봐도 무방</li>
+<li>하위호환성 유지, 간소화 정의(독타입, 스크립트/스타일 타입 생략..)</li>
+<li><em>현 데스크탑 브라우저에서 폼 등 상호작용요소의 지원률이 낮고, 최신버전 모두의 지원 후에도 하위 브라우저의 호환성을 유지해야 할텐데, 호환성을 위한 작업 가이드라인 필요</em></li>
+</ul>
+<ol>
+<li>새로운 구조요소
+	<ol>
+	<li>section, nav, article(본문), aside(본문과 무관한 내용), header, footer.. </li>
+	<li>ie에서 header의 선언만 유의하면 최신브라우저에서 사용가능</li>
+	<li>default가 inline으로 간주</li>
+	<li>section - article 간 종속성향 없음, 쌍방포함 가능</li>
+	<li>단지 스타일, 스크립트동작을 위한 래핑은 구조로서 의미없는 div사용</li>
+	</ol>
+</li>
+<li>새로운 의미요소
+	<ol>
+	<li>time(날짜와시간), b(중요성은 없지만 다르게 표현되어야 하는), i(어조가 다른.. 기술용어, 학명등)..</li>
+	</ol>
+</li>
+<li>새로운 상호작용요소 : <em>현 브라우저 지원률 낮음</em>
+	<ol>
+	<li>input 추가 속성 : autofocus, placeholder(포커스 전 안내멘트, '소중한 의견을 입력해 주세요'등), required(필수입력사항, 서브밋 하면 자동 포커스 이동과 안내멘트 제공)..</li>
+	<li><em>input type 추가 : 생략, 대략 훌륭함!</em></li>
+	<li>progress(value/max 속성을 사용하는 진행상황), meter(min/max/value 속성을 사용하는 막대그래프), datalist(label처럼 id로 input과 짝, 자추찾는검색어 등의 참조보기&amp;선택 리스트)..</li>
+	<li>멀티미디어 : embed부활, video(&lt;source src="" type=""&gt; 중복사용으로 불특정다수 브라우저에 맞게 다양한 지원포맷을 삽입할 수 있다), canvas(백터이미지)</li>
+	</ol>
+</li>
+</ol>
+발표자료 : <a href="http://dl.dropbox.com/u/444339/blog/HTML5Markup.pdf" target="_blank">http://dl.dropbox.com/u/444339/blog/HTML5Markup.pdf</a>
+
+
+
+
+
+<h2>CSS 3</h2>
+<ul>
+<li>사파리 - 모바일 점유률은 10%, 접속률은 전체 중 50%! → 더 좋은 도구는 사용률을 늘인다, 점유률에 얽메이지 말자 → 더 좋은 경험을 제공!</li>
+<li>유효성?? 공식표준은 존중하되.. 라고 발표자는 말하지만..</li>
+<li><em>모바일을 위한 방향에서는 기획/시안디자인 부터 학습, 응용선행이 필요</em></li>
+<li>ie - 다수 filter로 제한적 사용 가능</li>
+<li>시험지원은 접두사를 선택자에 붙힘 : -o-(오페라), -moz-(파폭), -webkit-(크롬,사파리)</li>
+<li><em>transition, animation 속성은 무분별한 플래시사용의 효율적 대체수단이 될 수 있을것</em></li>
+<li>발표자료참고 - 크롬 or 사파리로 보세요</li>
+</ul>
+발표자료 : <a href="http://naradesign.net/ouif/css3/presentation.html" target="_blank">http://naradesign.net/ouif/css3/presentation.html</a>
+
+
+
+
+
+<h2>HTML5 API</h2>
+<ul>
+<li>미디어 컨트롤, 데스크탑 수준의 경험, 오프라인 지원, 리얼타임 푸시</li>
+<li>새로운 선택자 : getElementsByClassName, querySelectorAll</li>
+</ul>
+<ol>
+<li>Audio와 Video
+	<ol>
+	<li>속성 controls지정으로 브라우저 기본 컨트롤러 사용할 수 있음</li>
+	<li>play(), pasue() 등 스크립트 제어와 미디어재생상황 이벤트 제공</li>
+	</ol>
+</li>
+<li>Canvas, SVG : 차트, 다이어그램 등 응용</li>
+<li>데스크탑 수준의 경험
+	<ol>
+	<li>Web Workers : 브라우저에 부담없는 연산 수행, 복수 동시 다발 사용<br>
+	var workerName = new Worker('**.js'); woekerName.onmessage 로 결과 받음</li>
+	<li>Drag And Drop + File API : 외부창 파일 끌어오기 가능</li>
+	<li>File API : 서버 송신 전 파일정보 분석/유효성 검사 등</li>
+	<li>Geolocation : 사용자 위치 정보 파악/이용</li>
+	<li>WebGL : 3D, 생략</li>
+	</ol>
+</li>
+<li>오프라인 서포트
+	<ol>
+	<li>Application Cache : 페이지내 핵심 js, css, image 캐시<br>
+	&lt;html manifest=""&gt; 로 캐시목록파일 지정</li>
+	<li>Web Storage : 로컬 데이터 베이스, 쓰던 글 저장 등, 브라우저 종료후 유지 가능, 효율적 쿠키 대체 수단</li>
+	<li>Web SQL Database</li>
+	</ol>
+</li>
+</ol>
+
+발표자 초청으로 현 진행중 프로젝트 감상 - Canvas, Web Workers등을 사용한 MRI단층 촬영 보기, 단층을 이동하며 빠르게 렌더링, Level을 제어하며 단층 표현 내용을 조정
+
+
+
+
+
+<h2>HTML5 기반 모바일 앱</h2>
+<ol>
+<li>현재로서의 HTML5가 가지는 모바일적 의미
+	<ol>
+	<li>Offline 지원 : LocalStorage , Web Database , App Cache</li>
+	<li>미디어 처리 : Video , Audio , Canvas</li>
+	<li>입력 지원 : Advanced Forms</li>
+	<li>위치 정보 : GeoLocation </li>
+	</ol>
+</li>
+<li>응용 Web App : 생략</li>
+</ol>
+발표자료 : <a href="http://xguru.net/593" target="_blank">http://xguru.net/593</a>
+
+
+
+
+
+<h2>한국형 웹 콘텐츠 접근성 지침 2.0</h2>
+생략
+
+
+
+
+
+
+</div>
+<!-- //#container -->
+
+</body>
+</html>

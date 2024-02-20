@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]모던 웹을 위한 JavaScript + jQuery 입문 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+
+
+<h1>[book]모던 웹을 위한 JavaScript + jQuery 입문</h1>
+| <a href="http://www.yes24.com/24/goods/5968823?scode=032&OzSrank=1">View</a>
+| <a href="http://www.hanb.co.kr/demo/1874/">Demo</a>,
+| <a href="http://www.hanb.co.kr/exam/1874/">Exam</a>
+
+
+<h2 id="Exam">Exam Code</h2>
+<pre>
+----
+PART 1 JavaScript
+
+<h3>1장 들어가며</h3>
+1.1 자바스크립트에 대해
+1.2 Visual Web Developer 2010 Express 설치
+1.3 Visual Web Developer 2010 Express 인증받기
+1.4 HTML 파일 만들기
+1.5 자바스크립트의 활용
+1.6 자바스크립트의 종류
+1.7 표현식과 문장
+1.8 키워드
+1.9 식별자
+1.10 주석
+
+<h3>2장 자바스크립트 기본</h3>
+2.1 출력
+2.2 문자열
+2.3 숫자
+2.4 불리언
+2.5 변수
+2.6 자료형 검사
+
+<xmp class="xmp">
+<script>
+// 문자열
+alert(typeof ('String'));
+// 숫자
+alert(typeof (273));
+// 불리언
+alert(typeof (true));
+// 함수
+alert(typeof (function () { }));
+// 객체
+alert(typeof ({}));
+// Undefined
+alert(typeof (alpha));
+</script>
+</xmp>
+
+2.7 입력
+2.8 배열
+2.9 undefined 자료형
+2.10 숫자와 문자열 자료형 변환
+2.11 불리언 자료형 변환
+2.12 일치 연산자
+
+<h3>3장 조건문</h3>
+3.1 if 조건문
+3.2 if else 조건문
+3.3 중첩 조건문과 if else if 조건문
+3.4 switch 조건문
+3.5 삼항 연산자
+3.6 짧은 조건문
+
+<h3>4장 반복문</h3>
+4.1 while 반복문
+4.2 do while 반복문
+4.3 for 반복문
+4.4 for in 반복문
+4.5 중첩 반복문
+4.6 break 키워드
+4.7 continue 키워드
+
+<h3>5장 함수</h3>
+5.1 함수 개요
+5.2 선언적 함수
+
+익명 함수 - 변수 선언전 함수(); 호출해서 오류발생
+<xmp class="xmp">
+<script>
+함수();
+var 함수 = function () { alert('함수 A'); }
+var 함수 = function () { alert('함수 B'); }
+</script>
+</xmp>
+선언적 함수 - script 내부의 내용을 읽기 전에 선언적 함수를 읽기에 함수(); 호출함.
+<xmp class="xmp">
+<script>
+함수();
+function 함수() { alert('함수 A'); }
+function 함수() { alert('함수 B'); }
+</script>
+</xmp>
+
+5.3 매개 변수와 리턴값
+5.4 매개 변수
+5.5 가변인자 함수
+5.6 리턴값
+
+return 함수가 실행되는 도중에 함수를 호출한 곳으로 돌아가라.
+
+5.7 내부 함수
+5.8 함수를 매개 변수로 받는 함수
+5.9 함수를 리턴하는 함수와 <strong>클로저</strong>
+
+<xmp class="xmp">
+<script>
+// 함수를 선언합니다.
+function outerFunction(name) {
+	var output = 'Hello ' + name + '.. !';
+	return function () {
+		return output;
+	};
+}
+// 변수를 선언합니다.
+var first = outerFunction('JavaScript');
+var second = outerFunction('jQuery');
+// 출력합니다.
+alert(first()); // Hello JavaScript..!
+alert(second()); // Hello jQuery..!
+</script>
+</xmp>
+
+5.10 자바스크립트 내장 함수 (1)
+
+<xmp class="xmp">
+<script>
+// 인코딩할 URL을 만듭니다.
+var URI = 'http://hanb.co.kr?test=한글입니다.';
+// 출력할 문자열을 만듭니다.
+varoutput = '';
+output += '★escape( )\n'
+output += escape(URI) + '\n\n';
+output += '★encodeURI( )\n'
+output += encodeURI(URI) + '\n\n';
+output += '★encodeURIComponent( )\n'
+output += encodeURIComponent(URI) + '\n\n';
+// 출력합니다.
+alert(output);
+</script>
+</xmp>
+
+5.11 자바스크립트 내장 함수 (2)
+
+<xmp class="xmp">
+<script>
+// eval( ) 함수에 사용할 문자열을 만듭니다.
+var willEval = '';
+willEval += 'var number = 10;';
+willEval += 'alert(number);';
+// eval( ) 함수를 사용합니다.
+eval(willEval);
+alert(number);
+</script>
+</xmp>
+<xmp class="xmp">
+<script>
+var number1 = 10 / 0;
+var number2 = 10 / 'A';
+alert(isFinite(number1) + ' : ' + isNaN(number2));
+</script>
+</xmp>
+<xmp class="xmp">
+<script>
+var won = '1000원';
+var dollar = '1.5$';
+alert(parseInt(won) + ' : ' + parseInt(dollar));
+alert(parseFloat(won) + ' : ' + parseFloat(dollar));
+</script>
+</xmp>
+
+<h3>6장 객체지향 프로그래밍</h3>
+
+<b>6.1 객체 개요</b>
+
+배열 인덱스 요소
+객체 키 요소(속성,메서드)
+
+<b>6.2 객체의 속성과 메서드</b>
+
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var person = {
+	name: '윤인성',
+	eat: function (food) {
+		alert(this.name + '이 ' + food + '을/를 먹습니다.');
+	}
+};
+// 메서드를 호출합니다.
+person.eat('밥');
+</script>
+</xmp>
+
+<b>6.3 객체와 반복문</b>
+
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var product = {
+	name: 'Microsoft Visual Studio 2010 Ultimate',
+	price: '15,000,000원',
+	language: '한국어',
+	supportOS: 'Win 32/64',
+	subscription: true
+};
+// 출력합니다.
+var output = '';
+for (var key in product) {
+	output += '●' + key + ': ' + product[key] + '\n';
+}
+alert(output);
+</script>
+</xmp>
+
+<b>6.4 객체와 관련된 키워드</b>
+
+<strong>in 키워드</strong>
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var output = '';
+var student = {
+	이름: '연하진',
+	국어: 92, 수학: 98,
+	영어: 96, 과학: 98
+};
+// in 키워드를 사용합니다.
+output += "'이름' in student: " + ('이름' in student) + '\n';
+output += "'성별' in student: " + ('성별' in student);
+// 출력합니다.
+alert(output);
+</script>
+</xmp>
+<strong>with 키워드</strong>
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var student = {
+이름: '연하진',
+국어: 92, 수학: 98,
+영어: 96, 과학: 98
+};
+// 출력합니다.
+var output = '';
+with (student) {
+	output += '이름: ' + 이름 + '\n';
+	output += '국어: ' + 국어 + '\n';
+	output += '수학: ' + 수학 + '\n';
+	output += '영어: ' + 영어 + '\n';
+	output += '과학: ' + 과학 + '\n';
+	output += '총점: ' + (국어 + 수학 + 영어 + 과학);
+}
+alert(output);
+</script>
+</xmp>
+
+<b>6.5 객체의 속성 추가와 제거</b>
+
+<pre class="xmp">
+<code>var obj={};
+obj.name='value';
+delete(obj.name);
+</code></pre>
+
+<b>6.6 객체와 배열을 사용한 데이터 관리</b>
+
+<pre class="xmp">
+<code>var arry=[];
+arry.push({name:'Charlie',lang:'100';});
+</code></pre>
+
+<b>6.7 함수를 사용한 객체 생성</b>
+
+
+<b>6.8 <strong>생성자 함수</strong></b>
+
+<xmp class="xmp">
+<script>
+function Student(name, korean, math, english, science) {
+	// 속성
+	this.이름 = name;
+	this.국어 = korean;
+	this.수학 = math;
+	this.영어 = english;
+	this.과학 = science;
+	// 메서드
+	this.getSum = function () {
+		return this.국어 + this.수학 + this.영어 + this.과학;
+	};
+	this.getAverage = function () {
+		return this.getSum() / 4;
+	};
+	this.toString = function () {
+		return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+	};
+}
+// 학생 정보 배열을 만듭니다.
+var students = [];
+students.push(new Student('윤인성', 87, 98, 88, 95));
+students.push(new Student('연하진', 92, 98, 96, 98));
+students.push(new Student('구지연', 76, 96, 94, 90));
+students.push(new Student('나선주', 98, 92, 96, 92));
+students.push(new Student('윤아린', 95, 98, 98, 98));
+students.push(new Student('윤명월', 64, 88, 92, 92));
+students.push(new Student('김미화', 82, 86, 98, 88));
+students.push(new Student('김연화', 88, 74, 78, 92));
+students.push(new Student('박아현', 97, 92, 88, 95));
+students.push(new Student('서준서', 45, 52, 72, 78));
+
+// 출력합니다.
+var output = '이름\t총점\t평균\n';
+for (var i in students) {
+	output += students[i].toString() + '\n';
+}
+alert(output);
+</script>
+</xmp>
+
+<b>6.9 <strong>프로토타입</strong></b>
+
+<xmp class="xmp">
+<script>
+function Student(name, korean, math, english, science) {
+	this.이름 = name;
+	this.국어 = korean;
+	this.수학 = math;
+	this.영어 = english;
+	this.과학 = science;
+}
+Student.prototype.getSum = function () { };
+Student.prototype.getAverage = function () { };
+Student.prototype.toString = function () { };
+</script>
+</xmp>
+
+6.10 <strong>instanceof 키워드</strong>
+
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Student(name) { this.name = name; }
+// 변수를 선언합니다.
+var student = new Student('윤인성');
+// 출력합니다.
+alert(student instanceof Student); //true
+</script>
+</xmp>
+
+<b>6.11 new 키워드</b>
+
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Constructor(value) {
+	this.value = value;
+}
+// 변수를 선언합니다.
+var constructor = new Constructor('Hello'); // new 키워드 사용하면.. this.value 가 객체의 속성 constructor.value 가 된다.
+// 출력합니다.
+alert(constructor.value); // Hello
+</script>
+</xmp>
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Constructor(value) {
+	this.value = value;
+}
+// 변수를 선언합니다.
+var constructor = Constructor('Hello'); // new 키워드 사용 안하면.. this.value 가 window.value 가 된다. (일반 변수 value 가 된다.)
+// 출력합니다.
+alert(value); // Hello
+</script>
+</xmp>
+
+<b>6.12 <strong>캡슐화</strong></b>
+
+잘못 사용될 수 있는 객체의 특정 부분을 사용자가 직접 사용할 수 없게 막는 기술
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Rectangle(w, h) {
+	var width = w;
+	var height = h;
+
+	this.getWidth = function () { return width; };
+	this.getHeight = function () { return height; };
+	this.setWidth = function (value) {
+		if (value < 0) {
+			throw '길이는 음수일 수 없습니다.';
+		} else {
+			width = value;
+		}
+	};
+	this.setHeight = function (value) {
+		if (value < 0) {
+			throw '길이는 음수일 수 없습니다.';
+		} else {
+			height = value;
+		}
+	};
+}
+
+Rectangle.prototype.getArea = function () {
+	return this.getWidth() * this.getHeight();
+};
+
+// 변수를 선언합니다.
+var rectangle = new Rectangle(5, 7);
+rectangle.setWidth(-2);
+
+// 출력합니다.
+alert('AREA: ' + rectangle.getArea());
+</script>
+</xmp>
+method.get○○() // Getter
+method.set○○() // Setter
+
+6.13 상속
+
+상속의 활용
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Rectangle(w, h) {
+	var width = w;
+	var height = h;
+
+	this.getWidth = function () { return width; };
+	this.getHeight = function () { return height; };
+	this.setWidth = function (value) {
+		if (value < 0) {
+			throw '길이는 음수일 수 없습니다.';
+		} else {
+			width = value;
+		}
+	};
+	this.setHeight = function (value) {
+		if (value < 0) {
+			throw '길이는 음수일 수 없습니다.';
+		} else {
+			height = value;
+		}
+	};
+}
+
+Rectangle.prototype.getArea = function () {
+	return this.getWidth() * this.getHeight();
+};
+</script>
+
+<script>
+// 생성자 함수를 선언합니다.
+function Square(length) {
+	this.base = Rectangle;
+	this.base(length, length);
+}
+Square.prototype = Rectangle.prototype;
+
+// 변수를 선언합니다.
+var rectangle = new Rectangle(5, 7);
+var square = new Square(5);
+
+// 출력합니다.
+alert(rectangle.getArea() + ' : ' + square.getArea());
+</script>
+</xmp>
+
+<em>constructor() 메서드</em>
+
+<strong>call()</strong> 메서드를 사용한 상속
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Square(length) {
+	Rectangle.call(this, length, length);
+}
+Square.prototype = new Rectangle();
+Square.prototype.constructor = Square;
+
+// 변수를 선언합니다.
+var square = new Square(5);
+
+// 출력합니다.
+alert(square.getArea());
+</script>
+</xmp>
+
+6.14 ECMAScript 5 객체 속성 추가
+
+HTML5 와 함께 출연한 자바스크립트 표준안을 ECMAScript 5 라고 한다.
+IE8 이하는 지원하지 않으므로.. 다음에 정리..
+
+6.15 ECMAScript 5 객체 생성
+6.16 ECMAScript 5 동적 속성 추가 제한
+6.17 ECMAScript 5 동적 속성 삭제 제한
+6.18 ECMAScript 5 객체 보조 메서드
+
+<h3>7장 기본 내장 객체</h3>
+
+<a href="http://www.w3schools.com/jsref/default.asp">w3schools.com HTML DOM Objects</a>
+
+7.1 기본 자료형과 객체의 차이
+
+기본 자료형은 숫자, 문자열, 불리언 세 가지 자료형을 의미
+
+var primitiveNumber = 273; // 기본 자료형
+var objectNumber = new Number(273); // 객체
+
+기본 자료형은 속성과 메서드 추가 안됨. 추가하려면..
+Number 생성자 함수의 프로토타입에 메서드를 추가한다/
+Number.prototype.method = function () {
+	return 'Method on Prototype';
+};
+
+7.2 <strong>Object</strong> 객체 생성
+7.3 Object 객체의 메서드
+7.4 Object 객체를 사용한 자료형 구분
+
+typeof 연산자 : 생성자 함수로 만든 Number 객체의 자료형도 object
+constructor() 메서드 : Number 객체 구분 가능
+
+7.5 <strong>Number</strong> 객체
+7.6 Number 생성자 함수의 속성
+7.7 <strong>String</strong> 객체
+7.8 String 객체의 기본 메서드
+7.9 String 객체의 HTML 관련 메서드
+7.10 <strong>메서드 체이닝</strong>
+
+----
+
+7.11 <strong>Array</strong> 객체의 생성
+7.12 Array 객체의 속성과 메서드
+7.13 Array 객체의 <strong>정렬</strong>
+
+<xmp class="xmp">
+<script>
+// 생성자 함수를 선언합니다.
+function Student(name, korean, math, english, science) {
+	// 속성
+	this.이름 = name;
+	this.국어 = korean;
+	this.수학 = math;
+	this.영어 = english;
+	this.과학 = science;
+	// 메서드
+	this.getSum = function () {
+		return this.국어 + this.수학 + this.영어 + this.과학;
+	};
+	this.getAverage = function () {
+		return this.getSum() / 4;
+	};
+	this.toString = function () {
+		return this.이름 + '\t' + this.getSum() + '\t' + this.getAverage();
+	};
+}
+// 학생 정보 배열을 만듭니다.
+var students = [];
+students.push(new Student('윤인성', 87, 98, 88, 95));
+students.push(new Student('연하진', 92, 98, 96, 98));
+students.push(new Student('구지연', 76, 96, 94, 90));
+students.push(new Student('나선주', 98, 92, 96, 92));
+students.push(new Student('윤아린', 95, 98, 98, 98));
+students.push(new Student('윤명월', 64, 88, 92, 92));
+students.push(new Student('김미화', 82, 86, 98, 88));
+students.push(new Student('김연화', 88, 74, 78, 92));
+students.push(new Student('박아현', 97, 92, 88, 95));
+students.push(new Student('서준서', 45, 52, 72, 78));
+
+// 정렬하고 1등부터 3등까지만 배열에 남겨둡니다.
+students.sort(function (left, right) {
+	return right.getSum() - left.getSum();
+});
+students = students.slice(0, 3);
+// 출력합니다.
+var output = '이름\t총점\t평균\n';
+for (var i in students) {
+	output += students[i].toString() + '\n';
+}
+alert(output);
+</script>
+</xmp>
+
+7.14 Array 객체의 요소 제거
+
+배열의 요소가 제거되면서 인덱스가 앞당겨지므로 역 for 문 이용해야 한다.
+<xmp class="xmp">
+<script>
+// Array 생성자 함수의 프로토타입에 remove() 메서드를 추가합니다.
+Array.prototype.remove = function (index) { this.splice(index, 1); }
+// 변수를 선언합니다.
+var array = [52, 273, 103, 32, 274, 129];
+// 반복문과 조건문을 사용해 100보다 큰 요소를 제거합니다.
+for (var i = array.length; i >= 0; i--) {
+	if (array[i] > 100) {
+		array.remove(i);
+	}
+}
+// 출력합니다.
+alert(array);
+</script>
+</xmp>
+
+7.15 Date 객체의 생성
+
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var date = new Date();
+// 현재 시간 출력합니다.
+alert(date); // Fri Apr 27 11:47:23 UTC+0900 2012
+</script>
+</xmp>
+
+GMT+0900 - UTC+0900 = 1초 미만
+
+<xmp class="xmp">
+<script>
+var date = new Date('December 9');
+var date = new Date('December 9, 1991');
+var date = new Date('December 9, 1991 02:24:23');
+var date = new Date(1991, 12, 9);
+var date = new Date(1991, 12, 9, 2, 24, 23);
+var date = new Date(1991, 12, 9, 2, 24, 23, 1);
+var date = new Date(2732741033257);
+</script>
+</xmp>
+
+7.16 <strong>Date</strong> 객체의 메서드
+
+get○○(); getFullYear();
+set○○();
+to○○String();
+
+7.17 Date 객체를 사용한 시간 간격 구하기
+
+<xmp class="xmp">
+<script>
+// Date생성자 함수의 프로토타입에 메서드를 추가합니다.
+Date.prototype.getInterval = function (otherDate) {
+	// 변수를 선언합니다.
+	var interval;
+	// 양수로 날짜 간격을 구하려고 조건문을 사용합니다.
+	if (this > otherDate) {
+		interval = this.getTime() - otherDate.getTime();
+	} else {
+		interval = otherDate.getTime() - this.getTime();
+	}
+	// 리턴합니다.
+	return Math.floor(interval / (1000 * 60 * 60 * 24));
+};
+
+// 변수를 선언합니다.
+var now = new Date();
+var before = new Date('December 9, 1991');
+
+// 출력합니다.
+alert('Interval: ' + now.getInterval(before) + '일');
+</script>
+</xmp>
+
+7.18 <strong>Math</strong> 객체
+
+생성자 함수를 사용하지 않음
+Math 객체의 메서드로 넘겨진 모든 매개 변수는 종류에 관계없이 모두 숫자로 변환
+
+7.19 ECMAScript 5 Array 생성자 함수의 메서드
+7.20 ECMAScript 5 Array 객체 (1)
+7.21 ECMAScript 5 Array 객체 (2)
+7.22 ECMAScript 5의 JSON 객체와 Date 객체
+7.23 ECMAScript 5의 String 객체
+7.24 HTML5 Audio 객체
+
+[IE9]이상 지원
+<xmp class="xmp">
+<script>
+// 변수를 선언합니다.
+var audio = new Audio('Kalimba.mp3');
+</script>
+<button onclick="audio.play()">PLAY</button>
+<button onclick="audio.pause()">PAUSE</button>
+<input type="number" onchange="audio.currentTime=this.value"/>
+<input type="number" onchange="audio.volume=this.value"/>
+</xmp>
+
+<h3>8장 브라우저 객체 모델</h3>
+8.1 window 객체
+8.2 새로운 window 객체 생성
+8.3 window 객체의 타이머 메서드
+8.4 window 객체의 기본 메서드
+8.5 screen 객체
+8.6 location 객체
+8.7 navigator 객체
+8.8 window 객체의 onload 이벤트 속성
+
+<h3>9장 DOM</h3>
+9.1 DOM 관련 용어
+9.2 문서 객체 만들기 (1)
+9.3 문서 객체 만들기 (2)
+9.4 문서 객체 만들기 (3)
+
+표준 브라우저는 모든 문서 객체의 <em>innerHTML</em> 속성을 바꿀 수 있지만.
+IE는 col, colgroup, frameset, head, html, style, table, tbody, tfoot, thead, title, tr 태그의 innerHTML 속성을 바꿀 수 없습니다.
+
+9.5 문서 객체 가져오기 (1)
+9.6 문서 객체 가져오기 (2)
+
+getElementsByName(name)
+getElementsByTagName(tagName)
+
+단순 for 반복문 사용바람.
+for in 반복문 사용 안됨. 문서 객체 이외의 속성에도 접근하기 때문에..
+
+9.7 문서 객체의 스타일 조작
+9.8 문서 객체 제거
+
+일반적인 문서 객체 제거
+element.parent().removeChild(element);
+
+9.9 문서 객체를 사용한 시계
+
+<xmp class="xmp">
+<script>
+window.onload = function () {
+	// 변수를 선언합니다.
+	var clock = document.getElementById('clock');
+	// 매 1초마다 함수를 실행합니다.
+	setInterval(function () {
+		var now = new Date();
+		clock.innerHTML = now.toString();
+	}, 1000);
+};
+</script>
+</xmp>
+
+9.10 문서 객체를 사용한 움직임 구현
+
+9-31.htm
+
+9.11 문서 객체와 객체지향을 이용한 움직임 구현
+
+9-38.htm
+
+<h3>10장 이벤트</h3>
+10.1 이벤트 관련 용어
+
+<xmp class="xmp">
+<script>
+window.onload = function () { };
+</script>
+</xmp>
+
+load : Event Name = Event Type 
+onload : Event Property
+function () { }; Event Handler(이벤트 속성에 할당한 함수)
+window.onload = function () { }; 이벤트 연결
+
+10.2 고전 이벤트 모델
+10.3 이벤트 발생 객체와 이벤트 객체
+
+<xmp class="xmp">
+<script>
+window.onload = function () {
+	document.body.onclick = function (e) {
+		// 이벤트 객체를 설정합니다.
+		var event = e || window.event;
+		document.body.innerHTML = '';
+		for (var key in event) {
+			document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+		}
+	};
+};
+</script>
+</xmp>
+
+10.4 이벤트 강제 발생
+10.5 인라인 이벤트 모델
+
+<xmp class="xmp">
+<script>
+function whenClick(e) {
+	var event = e || window.event;
+	document.body.innerHTML = '';
+	for (var key in event) {
+		document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+	}
+}
+</script>
+<h1 onclick="whenClick(event)">Click</h1>
+</xmp>
+
+10.6 기본 이벤트 제거
+
+<xmp class="xmp">
+<script>
+function whenSubmit() {
+	// 변수를 선언합니다.
+	var pass = document.getElementById('pass').value;
+	var pass_check = document.getElementById('pass_check').value;
+	// 비밀번호가 같은지 확인합니다.
+	if (pass == pass_check) {
+		alert('성공');
+	} else {
+		alert('다시 입력해주세요.');
+		return false;
+	}
+}
+</script>
+<form id="my_form" onsubmit="return whenSubmit()">
+<label for="name">이름</label><br/>
+<input type="text" name="name" id="name"/><br/>
+<label for="pass">비밀번호</label><br/>
+<input type="password" name="pass" id="pass"/><br/>
+<label for="pass_check">비밀번호 확인</label><br/>
+<input type="password" id="pass_check"/><br/>
+<input type="submit" value="제출"/>
+</form>
+</xmp>
+
+10.7 이벤트 전달
+
+이벤트 버블링 사용. 캡쳐링은 절대 사용하지 않습니다.
+
+<xmp class="xmp">
+<script>
+window.onload = function () {
+	// 이벤트를 연결합니다.
+	document.getElementById('header').onclick = function () {
+		alert('header');
+	};
+	document.getElementById('paragraph').onclick = function (e) {
+		// 이벤트 객체를 처리합니다.
+		var event = e || window.event;
+		// 이벤트 발생을 알립니다.
+		alert('paragraph');
+		// 이벤트 전달을 제거합니다.
+		event.cancelBubble = true;
+		if (event.stopPropagation) {
+			event.stopPropagation();
+		}
+	};
+};
+</script>
+<h1 id="header">
+<p id="paragraph">Pagagraph</p>
+</h1>
+</xmp>
+
+10.8 인터넷 익스플로러 이벤트 모델
+10.9 표준 이벤트 모델
+
+<xmp class="xmp">
+<script>
+window.onload = function () {
+	var header = document.getElementById('myHeader');
+	if (header.attachEvent) {
+		// 인터넷 익스플로러의 경우 실행합니다.
+		var handler = function () {
+			window.event.srcElement.style.color = 'red';
+			window.event.srcElement.detachEvent('onclick', handler);
+		};
+		header.attachEvent('onclick', handler);
+	} else {
+		// 그 이외의 브라우저에서 실행합니다.
+		var handler = function () {
+			this.style.color = 'red';
+			this.removeEventListener('click', handler);
+		};
+		header.addEventListener('click', handler);
+		header.addEventListener('click', handler);
+	}
+};
+</script>
+
+<h1 id="myHeader">Click</h1>
+</xmp>
+
+<h3>11장 예외 처리</h3>
+
+Exception
+Error
+
+11.1 기본 예외 처리
+11.2 고급 예외 처리
+
+<xmp class="xmp">
+<script>
+function registerEventListener(node, event, listener) {
+	try {
+		// 파이어폭스, 크롬, 사파리, 오페라
+		node.addEventListener(event, listener, false);
+	} catch (exception) {
+		// 인터넷 익스플로러
+		node.attachEvent('on' + event, listener);
+	}
+}
+window.onload = function () {
+	var header = document.getElementById('header');
+	registerEventListener(header, 'click', function () {
+		alert('Click');
+	});
+};
+</script>
+<h1 id="header">Click</h1>
+</xmp>
+
+11.3 예외 객체
+
+<xmp class="xmp">
+<script>
+try {
+	var array = new Array(999999999999);
+} catch (exception) {
+	var output = '';
+	for (var i in exception) {
+		output += i + ': ' + exception[i] + '\n';
+	}
+	alert(output);
+}
+</script>
+</xmp>
+
+11.4 에러와 예외
+11.5 예외 강제 발생
+
+<xmp class="xmp">
+<script>
+try {
+	throw 'DivideByZeroException';
+} catch (exception) {
+	if (exception == 'DivideByZeroException') {
+		alert('ㅇㅁㅇ');
+	}
+}
+</script>
+</xmp>
+
+<xmp class="xmp">
+<script>
+// 함수를선언합니다.
+function divide(alpha, beta) {
+	if (beta == 0) {
+		throw 'DivideByZeroException';
+	} else {
+		return alpha / beta;
+	}
+}
+// 출력합니다.
+try {
+	divide(10, 0);
+} catch (exception) {
+	alert('CATCH');
+}
+</script>
+</xmp>
+
+<h3>12장 추가적인 내용</h3>
+12.1 외부 자바스크립트 사용
+12.2 <strong>SNS</strong>
+
+<xmp class="xmp">
+<script>
+var SNS = {
+	facebook: function (link, description) {
+		link = encodeURIComponent(link);
+		description = encodeURIComponent(description);
+
+		var url = 'http://www.facebook.com/sharer.php?u=' + link + '&t=' + description;
+		window.open(url, '', '');
+	},
+	tweeter: function (link, description) {
+		link = encodeURIComponent(link);
+		description = encodeURIComponent(description);
+
+		var url = 'http://twitter.com/share?text=' + description + ' ' + link;
+		window.open(url, '', '');
+	},
+	me2day: function (link, description, tag) {
+		link = encodeURIComponent(link);
+		description = encodeURIComponent(description);
+		tag = encodeURIComponent(tag);
+
+		var url = 'http://me2day.net/posts/new?new_post[body]="' + description + '" ' + link + '&new_post[tags]=' + tag;
+		window.open(url, '', '');
+	},
+	yozm: function (link, description, parameter) {
+		link = encodeURIComponent(link);
+		description = encodeURIComponent(description);
+		parameter = encodeURIComponent(parameter);
+
+		var url = 'http://yozm.daum.net/api/popup/prePost?sourceid=54&link=' + link + '&prefix=' + description + '&parameter=' + parameter;
+		window.open(url, '', '');
+	}
+};
+</script>
+<img onclick="SNS.facebook('http://hanb.co.kr', '한빛미디어')" src="facebook_btn.jpg"/>
+<img onclick="SNS.tweeter('http://hanb.co.kr', '한빛미디어')" src="twit_btn.jpg"/>
+<img onclick="SNS.me2day('http://hanb.co.kr', '한빛미디어', '한빛')" src="me2day_btn.jpg"/>
+<img onclick="SNS.yozm('http://hanb.co.kr', '한빛미디어', '한빛')" src="yozm_btn.jpg"/>
+</xmp>
+
+12.3 네이버 개발자 센터 등록
+12.4 네이버 지도 API - Static Map
+12.5 네이버 지도 API - JavaScript Map
+
+//----
+
+<h3>PART 2 jQuery</h3>
+
+13장 jQuery 기본
+13.1 jQuery에 대해
+13.2 jQuery(document).ready()
+13.3 jQuery 기본 선택자
+13.4 jQuery 자식 선택자와 후손 선택자
+13.5 jQuery 속성 선택자
+13.6 jQuery 입력 양식 필터 선택자
+13.7 jQuery 필터 선택자
+13.8 jQuery를 사용한 배열 관리 (1)
+13.9 jQuery를 사용한 배열 관리 (2)
+13.10 jQuery를 사용한 객체 확장
+13.11 jQuery 프레임워크 충돌 방지
+
+14장 문서 객체 탐색
+14.1 기본 필터링 메서드
+14.2 문서 객체 탐색 종료
+14.3 특정 위치의 문서 객체 선택
+14.4 문서 객체 추가 선택
+14.5 문서 객체의 특징 판별
+14.6 특정 태그 선택
+
+15장 문서 객체 모델 조작
+15.1 문서 객체의 클래스 속성 추가
+15.2 문서 객체의 클래스 속성 제거
+15.3 문서 객체의 속성 검사
+15.4 문서 객체의 속성 추가
+15.5 문서 객체의 속성 제거
+15.6 문서 객체의 스타일 검사
+15.7 문서 객체의 스타일 추가
+15.8 문서 객체의 내부 검사
+15.9 문서 객체의 내부 추가
+15.10 문서 객체의 제거
+15.11 문서 객체의 생성 (1)
+15.12 문서 객체의 생성 (2)
+15.13 문서 객체의 삽입 (1)
+15.14 문서 객체의 삽입 (2)
+15.15 문서 객체의 이동
+15.16 문서 객체의 복제
+
+16장 이벤트
+16.1 이벤트 연결
+16.2 간단한 이벤트 연결
+16.3 이벤트 연결 제거
+16.4 매개 변수 context
+16.5 이벤트 객체
+16.6 이벤트 강제 발생
+16.7 기본 이벤트와 이벤트 전달
+16.8 이벤트 연결의 종류
+16.9 마우스 이벤트
+16.10 키보드 이벤트
+16.11 윈도우 이벤트
+16.12 입력 양식 이벤트
+
+17장 효과
+17.1 저수준의 시각적 효과
+17.2 innerFade 플러그인
+17.3 사용자 지정 효과
+17.4 상대적 애니메이션
+17.5 애니메이션 큐
+17.6 애니메이션 정지
+17.7 애니메이션 지연
+17.8 jQuery Approach 플러그인
+17.9 jQuery UI Effect 플러그인 다운로드
+17.10 jQuery UI Effect 플러그인 (1) - 색상 변환 애니메이션
+17.11 jQuery UI Effect 플러그인 (2) - easing 플러그인
+
+18장 이미지 슬라이더
+18.1 jQuery 애니메이션을 위한 준비
+18.2 이미지 슬라이더 (1) - HTML 구성
+18.3 이미지 슬라이더 (2) - CSS 구성
+18.4 이미지 슬라이더 (3) -자바스크립트 구성
+
+
+<h3>PART 3 Ajax</h3>
+
+19장 ASP.NET MVC
+19.1 Ajax 개요
+19.2 JSON 형식
+19.3 창 레이아웃 다시 설정
+19.4 프로젝트 생성
+19.5 컨트롤러와 뷰 추가
+19.6 프로젝트 실행과 종료
+19.7 간단한 ASP.NET MVC 설명
+19.8 간단한 C# 설명
+19.9 웹 서비스 만들기
+19.10 JSON 웹 서비스 만들기
+19.11 XML 웹 서비스 만들기
+19.12 요청 매개 변수 처리
+
+20장 XMLHttpRequest
+20.1 프로젝트 정리
+20.2 XMLHttpRequest 객체를 사용한 Ajax 요청
+20.3 XMLHttpRequest 객체 생성
+20.4 동기 방식과 비동기 방식
+20.5 JSON 다루기
+20.6 XML 문서 다루기
+
+21장 jQuery Ajax
+21.1 기본적인 jQuery Ajax
+21.2 추가적인 jQuery Ajax 메서드
+21.3 XML 다루기
+21.4 jQuery Ajax 보조 메서드
+21.5 jQuery Ajax 이벤트 핸들링
+
+22장 데이터베이스
+22.1 데이터베이스 만들기
+22.2 테이블 만들기
+22.3 LINQ To SQL
+22.4 데이터베이스에서 데이터 가져오기
+22.5 데이터베이스에 데이터 추가
+22.6 데이터베이스에 데이터 삭제
+22.7 데이터베이스에 데이터 수정하기
+22.8 Ajax를 사용한 데이터 추가와 삭제
+
+23장 Ajax 연습 1 - 데이터베이스
+23.1 샘플 데이터베이스 다운로드
+23.2 프로젝트 구성
+23.3 데이터베이스 서비스 만들기
+23.4 Ajax 사용
+23.5 페이징
+
+24장 Ajax 연습 2 - 크로스 도메인
+24.1 크로스 도메인 개요
+24.2 JSONP 방식
+24.3 RSS 웹 서비스 만들기
+24.4 Ajax 사용
+
+25장 Ajax 연습 3 - Reverse Ajax
+25.1 Reverse Ajax 개요
+25.2 데이터베이스 만들기
+25.3 웹 서비스 만들기
+25.4 Ajax 사용
+
+<h3>PART 4 jQuery 플러그인과 활용</h3>
+
+26장 jQuery UI 플러그인
+26.1 jQuery UI 플러그인
+26.2 실제로 jQuery를 사용하는 웹 사이트
+26.3 jQuery UI 기본 설정
+26.4 jQuery UI 플러그인의 기본 사용 방법
+26.5 jQuery UI 플러그인의 옵션
+26.6 jQuery UI 플러그인의 메서드
+26.7 jQuery UI 플러그인의 이벤트
+26.8 jQuery UI 위젯플러그인
+26.9 jQuery UI 테마 클래스 (1)
+26.10 jQuery UI 테마 클래스 (2)
+26.11 jQuery UI 테마 클래스 (3)
+26.12 jQuery UI 플러그인의 아이콘
+26.13 jQuery UI 상호작용 플러그인
+26.14 jQuery UI 테마와 상호작용 연습
+
+27장 jqGrid 플러그인
+27.1 Dynamic LINQ To SQL 다운로드
+27.2 jqGrid 플러그인 다운로드
+27.3 데이터베이스 생성
+27.4 jqGrid 플러그인를 위한 웹 서비스 구성
+27.5 데이터 제공 웹 서비스 구성
+27.6 기본 그리드 만들기
+27.7 그리드 검색 구현
+27.8 데이터 추가, 삭제, 수정 웹 서비스
+27.9 그리드에 추가, 수정, 삭제 기능 추가
+27.10 추가적인 내용
+
+28장 라이트박스 플러그인
+28.1 LightBox 플러그인의 사용
+28.2 LightBox 플러그인의 옵션
+28.3 FancyBox 플러그인의 사용
+28.4 FancyBox 플러그인을 사용한 기능
+28.5 FancyBox 플러그인의 옵션
+28.6 FancyBox 플러그인의 전역 메서드
+28.7 플리커 이미지 앨범
+
+29장 레이아웃 플러그인
+29.1 jQuery UI.Layout 플러그인
+29.2 jQuery Columnizer 플러그인
+29.3 jQuery Masonry 플러그인
+
+30장 입력 양식 플러그인
+30.1 jQuery Validation 플러그인
+30.2 jQuery Password Validation 플러그인
+30.3 jQuery Uplodify 플러그인
+
+31장 모바일 웹
+31.1 에뮬레이터
+31.2 모바일 장치 구분
+31.3 viewport meta 태그
+31.4 화면 방향 전환 이벤트
+31.5 터치 이벤트
+31.6 jQuery Mobile
+31.7 jQuery Mobile 페이지
+31.8 jQuery Mobile 리스트
+31.9 jQuery Mobile 아이콘
+31.10 jQuery Mobile 입력 양식
+31.11 jQuery Mobile 아코디언
+31.12 jQuery Mobile 레이아웃
+31.13 jQuery Mobile 툴바
+31.14 jQuery Mobile 내비게이션 바
+31.15 jQuery Mobile 테마
+31.16 jQuery Mobile의 페이지 이동
+31.17 jQuery Mobile의 초기화 이벤트와 페이지 관련 이벤트
+31.18 jQuery Mobile의 페이지 이동 메서드
+31.19 jQuery Mobile create 이벤트
+31.20 jQuery Mobile refresh(?) 메서드
+
+32장 jQuery 플러그인 만들기
+32.1 선택자를 사용하지 않는 jQuery 플러그인 생성
+32.2 선택자를 사용하는 jQuery 플러그인 생성
+32.3 피벗 슬라이드 플러그인 만들기 (1)
+32.4 피벗 슬라이드 플러그인 만들기 (2)
+32.5 피벗 슬라이드 플러그인 만들기 (3)
+
+----
+
+<h3>부록 A 요소 검사</h3>
+A.1 요소 검사의 기능
+A.2 요소 검사를 사용한 자바스크립트 디버깅
+A.3 변수 검사
+A.4 HTTP 헤더 확인
+
+<h3>부록 B 정규 표현식</h3>
+B.1 정규 표현식 객체
+B.2 대체 문자
+B.3 플래그 문자
+B.4 앵커 문자
+B.5 메타 문자
+B.6 수량 문자
+B.7 선택 문자
+B.8 정규 표현식 사용 예제
+
+<h3>부록 C 쿠키와 저장소</h3>
+C.1 쿠키 개요
+C.2 쿠키 읽기
+C.3 쿠키 함수
+C.4 jQuery Cookie 플러그인
+C.5 저장소
+
+<h3>부록 D 지오로케이션</h3>
+D.1 지오로케이션 객체
+D.2 네이버 지도에 표시
+
+//----
+</pre>
+
+
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130207.
+20130205.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'ECharts | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+<!-- container -->
+<div class="container">
+
+
+
+
+
+<h1 class="hb1 h1">ECharts</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+	<menu>
+	<li><a href="http://echarts.baidu.com/echarts2/index-en.html">ECharts2</a> [IE6+]
+		<ol class="bo">
+		<li><a href="http://echarts.baidu.com/echarts2/doc/doc-en.html#Option" target="_blank" title="새 창">API &amp; Doc #Option</a></li>
+		</ol>	
+	</li>
+	<li><a href="http://echarts.baidu.com/">ECharts3</a> [IE9+]
+		<ol class="bo">
+		<li><a href="http://echarts.baidu.com/" target="_blank" title="새 창">Homepage</a></li>
+		<li><a href="https://github.com/ecomfe/echarts" target="_blank" title="새 창">Github Repository</a></li>
+		<li><a href="https://ecomfe.github.io/echarts-doc/public/en/tutorial.html#Get%20Started%20with%20ECharts%20in%205%20minutes" target="_blank" title="새 창">Demo</a></li>
+		<li><a href="https://ecomfe.github.io/echarts-examples/public/index.html#chart-type-bar" target="_blank" title="새 창">Get Started</a></li>
+		</ol>
+	</li>
+	</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Outline">Outline</h2>
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+<strong class="h1">((( <a href="http://blog.studioego.info/3930" target="_blank" title="새 창">중국 바이두(baidu, 百度)에서 만든 자바스크립트 차트 라이브러리 Echarts</a></strong>
+<blockquote cite=""><div>
+	IE6이상 버전 및 Firefox, Opera, Safari에서 동작함.<br />
+	보통 돈을 내고 Javascript 차트 상용라이브러리인 highchart(<a href="http://www.highcharts.com/" target="_blank" title="새 창">http://www.highcharts.com/</a>)를 사용함.<br />
+	Echart은 highchart와 다르게 오픈소스에다 highchart보다 기능이 더 많고 highchart보다 더 나은 기능을 제공. 거기에 IE8이하 IE6까지 지원되는 호환성에 감탄함.<br />
+	추가로 Echart의 표기방식이 Highchart와 비슷하여 금방 적응됨. ( 한국어로도 적용 쉽게 될듯함.)<br />
+	ps. 중국 개발 기술력이 무서움을 느낌.<br />
+</div></blockquote>
+</div>
+<!-- /panel1 -->
+
+
+<!-- box1 -->
+<div class="box1">
+
+<ol class="bo">
+<li>스크린리더에서 인식하는가?</li>
+<li>반응형 대응</li>
+<li>디자인 꾸미기, 라인, 파이 데모 추가</li>
+</ol>
+
+</div>
+<!-- /box1 -->
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Outline">Getting started (( <a href="http://echarts.baidu.com/echarts2/index-en.html" target="_blank" title="새 창">ECharts2</a></h2>
+
+
+(( <a href="http://echarts.baidu.com/echarts2/doc/start-en.html" target="_blank" title="새 창">http://echarts.baidu.com/echarts2/doc/start-en.html</a>
+(( <a href="http://gnsports.gimhae.iacts.co.kr/html/sub/04_01.jsp" target="_blank" title="새 창">http://gnsports.gimhae.iacts.co.kr/html/sub/04_01.jsp</a>
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">plain single file import ))) @m.Training</h3>
+
+
+<!-- <script src="../../share/js/echarts.simple.min.js"></script> -->
+<!-- <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script> -->
+<script src="../../share/js/echarts-all.js"></script>
+
+<div id="chart3" style="height:400px;border:1px solid #ddd;"></div>
+
+<script>/*<![CDATA[*/
+
+	var xData = new Array();
+	var yData = new Array();
+
+	xData[0]='일일';
+	xData[1]='이이';
+	xData[2]='삼삼';
+	xData[3]='사사';
+	xData[4]='오오';
+	xData[5]='육육';
+	xData[6]='칠칠';
+	xData[7]='팔팔';
+	xData[8]='구구';
+	xData[9]='십십';
+
+	yData[0] = {value:'4', rank: 7};
+	yData[1] = {value:'3', rank: 8};
+	yData[2] = {value:'5', rank: 6};
+	yData[3] = {value:'8', rank: 5};
+	yData[4] = {value:'10', rank: 4};
+	yData[5] = {value:'13', rank: 2};
+	yData[6] = {value:'13', rank: 2};
+	yData[7] = {value:'16', rank: 1};
+	yData[8] = {value:'1', rank: 10};
+	yData[9] = {value:'2', rank: 9};
+
+	// Initialize after dom ready
+	var myChart = echarts.init(document.getElementById('chart3'));
+
+	var option = {
+		title: {
+			text: 'ECharts entry example'
+		},
+		tooltip: {
+			show: true
+		},
+		legend: {
+			data:['순위']
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : xData
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name: '순위',
+				type: 'bar',
+				itemStyle: {
+					normal: {
+						color: function(params) {
+							var colorList = [
+							   '#f55','#b80','#690','#09a','#39e',
+							   '#48e','#77f','#a7f','#d5e','#f59'
+							];
+							return colorList[params.dataIndex]
+						},
+						label: {
+							show: true,
+							position: 'top',
+							formatter: function (params) {
+								return params.name + '\n' +params.data.rank;
+							}
+						}
+					}
+				},
+				data: yData
+			}
+		],
+		grid: {
+			//y: 10,
+			//y2: 10,
+			//x : 10,
+			//x2 : 10,
+			//borderWidth: 0
+		}
+	};
+
+	myChart.setOption(option);
+
+ 
+	// 20170321. 반응형 해보려구 아래처럼 해보니 안되더라.
+	$(window).on('load resize', function(e){
+		myChart.setOption(option);
+	});
+
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Best Practice</h2>
+
+
+<!-- panel1 -->
+<div class="panel1">
+	<p>반응형 차트 만드려면 객체내부 비운 후 재생성해야 한다.</p>
+</div>
+<!-- /panel1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Bar (Column)</h3>
+
+
+<div id="chart3bar1" style="height:400px;border:1px solid #ddd;"></div>
+
+
+<script>/*<![CDATA[*/
+
+/** ◇◆ 만들기함수메소드. 20170425. MoonYoungshin.
+ * Use1) makeChart3bar1();
+ * Task) To Advance.
+ */
+function makeChart3bar1(selector){
+	var xData = new Array();
+	var yData = new Array();
+
+	xData[0]='일일';
+	xData[1]='이이';
+	xData[2]='삼삼';
+	xData[3]='사사';
+	xData[4]='오오';
+	xData[5]='육육';
+	xData[6]='칠칠';
+	xData[7]='팔팔';
+	xData[8]='구구';
+	xData[9]='십십';
+
+	yData[0] = {value:'4', rank: 7};
+	yData[1] = {value:'3', rank: 8};
+	yData[2] = {value:'5', rank: 6};
+	yData[3] = {value:'8', rank: 5};
+	yData[4] = {value:'10', rank: 4};
+	yData[5] = {value:'13', rank: 2};
+	yData[6] = {value:'13', rank: 2};
+	yData[7] = {value:'16', rank: 1};
+	yData[8] = {value:'1', rank: 10};
+	yData[9] = {value:'2', rank: 9};
+
+	// Initialize after dom ready
+	var myChart = echarts.init(document.getElementById('chart3bar1'));
+
+	var option = {
+		xAxis : [
+			{
+				type : 'category',
+				data : xData,
+				axisLine : { // 축선
+					show: true,
+					lineStyle: {
+						color: '#333',
+						type: 'solid',
+						width: 1
+					}
+				},
+				axisTick : { // 축눈금
+					show: false,
+					length: 4,
+					lineStyle: {
+						color: '#ccc',
+						type: 'solid',
+						width: 1
+					}
+				},
+				splitLine : { // 모눈
+					show: true,
+					lineStyle: {
+						color: '#eee',
+						type: 'solid',
+						width: 1
+					}
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				axisLine : { // 축선
+					show: true,
+					lineStyle: {
+						color: '#999',
+						type: 'solid',
+						width: 1
+					}
+				},
+				axisTick : { // 축눈금
+					show: false,
+					length: 4,
+					lineStyle: {
+						color: '#ccc',
+						type: 'solid',
+						width: 1
+					}
+				},
+				splitLine : { // 모눈
+					show: true,
+					lineStyle: {
+						color: '#eee',
+						type: 'solid',
+						width: 1
+					}
+				}
+			}
+		],
+		grid: {
+			borderWidth: 0
+		},
+		series : [
+			{
+				name: '점수',
+				type: 'bar',
+				barWidth: 10,
+				itemStyle: {
+					normal: {
+						color: function(params) {
+							var colorList = [
+							   '#f55','#b80','#690','#09a','#39e',
+							   '#48e','#77f','#a7f','#d5e','#f59'
+							];
+							return colorList[params.dataIndex]
+						},
+						label: {
+							show: true,
+							position: 'top',
+							formatter: function (params) {
+								return params.name + '\n' + params.data.rank + '위';
+							},
+							textStyle: {
+								color: '#000',
+								fontSize: 12
+							}
+						},
+						barBorderRadius: [6,6,0,0]
+					}
+				},
+				data: yData
+			}
+		]
+	};
+
+	myChart.setOption(option);
+
+}
+
+// 반응형. 객체내부 비운 후 재생성! 20170425.
+$(window).on('load resize', function(e){
+	$('#chart3bar1').empty();
+	makeChart3bar1();
+});
+
+// 20170425. [~IE8] 스타일 바꾸려고 아래처럼 해보니 안변함.
+$('#chart3bar1 *').css({ 
+	fontFamily: '나눔고딕 !important'
+});
+
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Line</h3>
+
+
+<div id="chart3line1" style="height:400px;border:0 solid #ddd;"></div>
+
+
+<script>/*<![CDATA[*/
+
+/** ◇◆ 만들기함수메소드. 20170425. MoonYoungshin.
+ * Use1) makeChart3line1();
+ * Task) To Advance.
+ */
+function makeChart3line1(selector){
+	var xData = new Array();
+	var yData = new Array();
+
+	xData[0]='일일';
+	xData[1]='이이';
+	xData[2]='삼삼';
+	xData[3]='사사';
+	xData[4]='오오';
+	xData[5]='육육';
+	xData[6]='칠칠';
+	xData[7]='팔팔';
+	xData[8]='구구';
+	xData[9]='십십';
+
+	yData[0] = {value:'4', rank: 7};
+	yData[1] = {value:'3', rank: 8};
+	yData[2] = {value:'5', rank: 6};
+	yData[3] = {value:'8', rank: 5};
+	yData[4] = {value:'10', rank: 4};
+	yData[5] = {value:'13', rank: 2};
+	yData[6] = {value:'13', rank: 2};
+	yData[7] = {value:'16', rank: 1};
+	yData[8] = {value:'1', rank: 10};
+	yData[9] = {value:'2', rank: 9};
+
+	// Initialize after dom ready
+	var myChart = echarts.init(document.getElementById('chart3line1'));
+
+	var option = {
+		xAxis : [
+			{
+				type : 'category',
+				data : xData,
+				axisLine : { // 축선
+					show: true,
+					lineStyle: {
+						color: '#333',
+						type: 'solid',
+						width: 1
+					}
+				},
+				axisTick : { // 축눈금
+					show: false,
+					length: 4,
+					lineStyle: {
+						color: '#ccc',
+						type: 'solid',
+						width: 1
+					}
+				},
+				splitLine : { // 모눈
+					show: true,
+					lineStyle: {
+						color: '#e7e7e7',
+						type: 'solid',
+						width: 1
+					}
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				axisLine : { // 축선
+					show: true,
+					lineStyle: {
+						color: '#999',
+						type: 'solid',
+						width: 1
+					}
+				},
+				axisTick : { // 축눈금
+					show: false,
+					length: 4,
+					lineStyle: {
+						color: '#ccc',
+						type: 'solid',
+						width: 1
+					}
+				},
+				splitLine : { // 모눈
+					show: true,
+					lineStyle: {
+						color: '#e7e7e7',
+						type: 'solid',
+						width: 1
+					}
+				}
+			}
+		],
+		grid: {
+			x : 40,
+			x2 : 20,
+			y: 20,
+			y2: 40,
+			borderWidth: 1,
+			borderColor: '#e7e7e7', // 외곽선
+			backgroundColor: '#fff'
+		},
+		//animation: false,
+		animationDuration: 1000,
+		series : [
+			{
+				name: '순위',
+				type: 'line',
+				symbol: 'emptyCircle',
+				symbolSize: 6,
+				smooth: true,
+				itemStyle: {
+					normal: {
+						color: function(params) {
+							var colorList = [
+							   '#f55','#b80','#690','#09a','#39e',
+							   '#48e','#77f','#a7f','#d5e','#f59'
+							];
+							return colorList[params.dataIndex]
+						},
+						lineStyle: {
+							color: '#579',
+							width: 2,
+							type: 'solid'
+						},
+						areaStyle: {
+							color: 'rgba(227,231,235, .333)'
+						},
+						label: {
+							show: true,
+							position: 'top',
+							formatter: function (params) {
+								return params.name + '\n' +params.data.rank;
+							},
+							textStyle: {
+								color: '#000',
+								fontSize: 12
+							}
+
+						}
+					}
+				},
+				data: yData
+			}
+		]
+	};
+
+	myChart.setOption(option);
+
+}
+
+ // 반응형. 객체내부 비운 후 재생성! 20170425.
+$(window).on('load resize', function(e){
+	$('#chart3line1').empty();
+	makeChart3line1();
+});
+
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Pie</h3>
+
+<p class="pd1em-rv bg-alert">
+	ToDo (( ▶
+	<!-- <a href="http://echarts.baidu.com/echarts2/doc/example/pie1.html#roma" target="_blank" title="새 창">여기처럼 구역색과 다르게 텍스트색 만드는 법?</a> -->
+</p>
+
+
+<div id="chart3pie1" style="height:400px;border:1px solid #ddd;"></div>
+
+
+<script>/*<![CDATA[*/
+
+/** ◇◆ 만들기함수메소드. 20170425. MoonYoungshin.
+ * Use1) makeChart3Pie1();
+ * Task) To Advance.
+ */
+function makeChart3Pie1(selector){
+	var xData = new Array();
+	var yData = new Array();
+
+	xData[0]='일일';
+	xData[1]='이이';
+	xData[2]='삼삼';
+	xData[3]='사사';
+	xData[4]='오오';
+	xData[5]='육육';
+	xData[6]='칠칠';
+	xData[7]='팔팔';
+	xData[8]='구구';
+	xData[9]='십십';
+
+	yData[0] = {name: xData[0], value:'4', rank: 7};
+	yData[1] = {name: xData[1], value:'3', rank: 8};
+	yData[2] = {name: xData[2], value:'5', rank: 6};
+	yData[3] = {name: xData[3], value:'8', rank: 5};
+	yData[4] = {name: xData[4], value:'10', rank: 4};
+	yData[5] = {name: xData[5], value:'13', rank: 2};
+	yData[6] = {name: xData[6], value:'13', rank: 2};
+	yData[7] = {name: xData[7], value:'16', rank: 1};
+	yData[8] = {name: xData[8], value:'1', rank: 10};
+	yData[9] = {name: xData[9], value:'2', rank: 9};
+
+	// Initialize after dom ready
+	var myChart = echarts.init(document.getElementById('chart3pie1'));
+
+	var option = {
+		title: {
+			text: 'ECharts 파이차트 입력 예',
+			subtext: 'Pie Chart',
+			padding: [20,10,10,10],
+			itemGap: 12,
+			x:'center',
+			textStyle: {
+				color: '#333',
+				fontWeight: '500',
+				fontSize: 24,
+				fontFamily: '"Open Sans", "나눔고딕"'
+			},
+			subtextStyle: {
+				color: '#888',
+				fontWeight: '400',
+				fontSize: 14,
+				fontFamily: '"Open Sans", "나눔고딕"'
+			}
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: "{b} <br/>{a} : {c} ({d}%)"
+				//function (params) {
+				//	return params.name + '<br/>' + params.data.value + '점 ' + params.data.rank + '위';
+				//},
+		},
+		legend: {
+			orient : 'vertical',
+			x : 'left',
+			padding: 20,
+			borderWidth: 0,
+			borderColor: '#eee',
+			itemGap: 5,
+			data: xData
+		},
+		toolbox: {
+			// 생략
+		},
+		//calculable : true, // specifies whether the drag-recalculate feature will be enabled, defaults to false.
+		animation: false,
+		series : [
+			{
+				name: '점수',
+				type: 'pie',
+				radius : '55%',
+				center: ['50%', '60%'],
+				clickable: false,
+				itemStyle: {
+					normal: {
+						color: function(params) {
+							var colorList = [
+							   '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+							   '#0098D9','#2B821D','#005EAA','#001852','#C6B38E'
+							];
+							return colorList[params.dataIndex]
+						},
+						label: {
+							show: true,
+							position: 'outer',
+							formatter: function (params) {
+								return params.name + '\n' + params.data.rank;
+							},
+							textStyle: {
+								color: '#000',
+								fontSize: 12
+							}
+						}
+					}
+				},
+				data: yData
+			}
+		]
+	};
+
+	myChart.setOption(option);
+
+}
+
+ // 반응형. 객체내부 비운 후 재생성! 20170425.
+$(window).on('load resize', function(e){
+	$('#chart3pie1').empty();
+	makeChart3Pie1();
+});
+
+/*]]>*/</script>
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20170321~
+20170425.
+20170426.
+20170331.
+20170322.
+</small></p>
+
+
+
+</div>
+<!-- /container -->
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

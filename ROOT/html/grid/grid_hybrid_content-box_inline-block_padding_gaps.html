@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Grid Hybrid content-box inline-block padding Gaps | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/lib.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/_css/_grid_hybrid_content-box_inline-block_padding_gaps.css" /><!-- ☆(Added) -->
+
+<style type="text/css">/*<![CDATA[*/
+/* ◇◆ _Demo Page_ ◇◆◇◆◇ */
+body{background:#eee;}
+#container{max-width:1200px;margin:0 auto;padding:0 2.5%;background:#fff;}
+.column .wrap1{display:block;
+	padding:.166em;
+	border:1px solid #000;
+	background:#def;
+	text-align:center;
+	min-height:0; /* [IE7]fix */
+}
+/* polyfill [~IE8] selectivizr.js 로 미디어쿼리 안에서 nth-child(2n-1) 동작하려면.. 외부파일.css 이어야 한다.  */
+.column:nth-child(5n-3) .wrap1{background:#dec;}
+.column:nth-child(5n-2) .wrap1{background:#fde;}
+.column:nth-child(5n-1) .wrap1{background:#fed;}
+.column:nth-child(5n) .wrap1{background:#edf;}
+/*]]>*/</style>
+
+<script src="../../share/js/iscroll-min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../../share/js/jquery-1.11.1.min.js"></script>
+<script src="../../share/js/jquery.easing.1.3.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="../../share/js/selectivizr.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<script src="../../share/js/jquery.backgroundSize.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">12 Grid <em class="em1">Hybrid</em> content-box <em class="em2">inline-block</em> padding <em class="em3">Gaps</em> RWD</h1>
+
+<!-- contentsBlock -->
+<div class="contentsBlock fsS">
+
+
+<p><em class="em">[~IE8] 반응형은 온라인에서 확인하세요!!</em></p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+<ol class="ol1 bo1">
+<li><a href="#DemoEvenGrid">Demo Even Grid</a>
+	<ol class="ol1 bo1">
+	<li><a href="#DemoEvenGrid_Basic">Basic</a>
+		<ol class="ol1 bo1">
+		<li><a href="#row_small-up-2">row_small-up-2</a></li>
+		</ol>
+	</li>
+	</ol>
+</li>
+<li><a href="#DemoEachGrid">Demo Each Grid</a></li>
+</ol>
+</div>
+<!-- /mtab1 -->
+
+<!-- <h2 id="Prepare">Prepare</h2> -->
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">Note</strong>
+	<ol class="bo1 num00">
+	<li>Compatible (O) [CR][FF][OP][IE11][IE7+][Android5.0.2]<br /></li>
+	</ol>
+	<strong class="h1">Reference</strong>
+	<ol class="bo1 num00">
+	<li><a href="http://selectivizr.com/">selectivizr-min.js</a>
+		)) <a href="http://html5please.com/#selector">When you sunset IE6~8 support, you can use:</a>
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+</div>
+<!-- /contentsBlock -->
+
+
+<!-- <h3 class="hb1 h3">Source Code</h3>
+<br /> -->
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="DemoEvenGrid">Demo Even Grid</h2>
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="DemoEvenGrid_Basic">Basic</h3>
+
+
+<!-- <h4 class="hb1 h4">class="row small-up-1"</h4>
+<div class="row small-up-1">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div> -->
+
+
+<h4 class="hb1 h4" id="row_small-up-2">class="row small-up-2"</h4>
+<!-- row -->
+<div class="row small-up-2">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-3"</h4>
+<!-- row -->
+<div class="row small-up-3">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-4"</h4>
+<!-- row -->
+<div class="row small-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-6"</h4>
+<!-- row -->
+<div class="row small-up-6">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-12"</h4>
+<!-- row -->
+<div class="row small-up-12">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Advanced</h3>
+
+
+<h4 class="hb1 h4"><b class="em0">Collapse/Uncollapse Rows</b></h4>
+
+<p>
+<em class="em">small-</em>uncollapse <em class="em">medium-</em>collapse <em class="em">large-</em>uncollapse <em class="em">xlarge-</em>collapse 클래스가 있다면,<br />
+대응하는 클래스 <em class="em">small-</em>up-1 <em class="em">medium-</em>up-2 <em class="em">large-</em>up-3 <em class="em">xlarge-</em>up-4 가 있어야 바르게 동작합니다.<br />
+</p>
+
+<!-- row -->
+<div class="row small-uncollapse medium-collapse large-uncollapse xlarge-collapse small-up-1 medium-up-2 large-up-3 xlarge-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-2"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-2">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-3"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-3">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-3"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-3">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-4"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-4"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-2 large-up-3"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-2 large-up-3">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-2 large-up-4"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-2 large-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-3 large-up-4"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-3 large-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-4 large-up-6"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-4 large-up-6">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-2 large-up-3 xlarge-up-4"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-2 large-up-3 xlarge-up-4">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-1 medium-up-3 large-up-5"</h4>
+<!-- row -->
+<div class="row small-up-1 medium-up-3 large-up-5">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-3 large-up-4 xlarge-up-5"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-3 large-up-4 xlarge-up-5">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+<h4 class="hb1 h4">class="row small-up-2 medium-up-4 large-up-6 xlarge-up-8"</h4>
+<!-- row -->
+<div class="row small-up-2 medium-up-4 large-up-6 xlarge-up-8">
+	<div class="column"><div class="wrap1">01</div></div>
+	<div class="column"><div class="wrap1">02</div></div>
+	<div class="column"><div class="wrap1">03</div></div>
+	<div class="column"><div class="wrap1">04</div></div>
+	<div class="column"><div class="wrap1">05</div></div>
+	<div class="column"><div class="wrap1">06</div></div>
+	<div class="column"><div class="wrap1">07</div></div>
+	<div class="column"><div class="wrap1">08</div></div>
+	<div class="column"><div class="wrap1">09</div></div>
+	<div class="column"><div class="wrap1">10</div></div>
+	<div class="column"><div class="wrap1">11</div></div>
+	<div class="column"><div class="wrap1">12</div></div>
+</div>
+<!-- /row -->
+
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="DemoEachGrid">Demo Each Grid</h2>
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Basic</h3>
+
+
+<div class="row">
+	<div class="small-2 large-4 column"><span class="wrap1 show-all hide-large">2</span><span class="wrap1 hide-all show-large">4</span></div>
+	<div class="small-4 large-4 column"><span class="wrap1">4</span></div>
+	<div class="small-6 large-4 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">4</span></div>
+
+</div>
+<div class="row">
+	<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+	<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+</div>
+<div class="row">
+	<div class="small-6 large-2 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">2</span></div>
+	<div class="small-6 large-8 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">8</span></div>
+	<div class="small-12 large-2 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">2</span></div>
+</div>
+<div class="row">
+	<div class="small-3 column"><span class="wrap1">3</span></div>
+	<div class="small-9 column"><span class="wrap1">9</span></div>
+</div>
+<div class="row">
+	<div class="large-4 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">4</span></div>
+	<div class="large-8 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">8</span></div>
+</div>
+<div class="row">
+	<div class="small-6 large-5 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">5</span></div>
+	<div class="small-6 large-7 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">7</span></div>
+</div>
+<div class="row">
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+</div>
+
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Small Grid</h4>
+
+<div class="row">
+	<div class="small-2 column"><span class="wrap1">2 colum</span></div>
+	<div class="small-10 column"><span class="wrap1">10 column</span></div>
+</div>
+<div class="row">
+	<div class="small-3 column"><span class="wrap1">3 column</span></div>
+	<div class="small-9 column"><span class="wrap1">9 column</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Medium Grid</h4>
+
+<div class="row">
+	<div class="medium-2 column"><span class="wrap1">2 column</span></div>
+	<div class="medium-10 column"><span class="wrap1">10 column</span></div>
+</div>
+<div class="row">
+	<div class="medium-3 column"><span class="wrap1">3 column</span></div>
+	<div class="medium-9 column"><span class="wrap1">9 column</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Large Grid</h4>
+
+<div class="row">
+	<div class="large-2 column"><span class="wrap1">2 column</span></div>
+	<div class="large-10 column"><span class="wrap1">10 column</span></div>
+</div>
+<div class="row">
+	<div class="large-3 column"><span class="wrap1">3 column</span></div>
+	<div class="large-9 column"><span class="wrap1">9 column</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4"><em class="em">Xlarge Grid</em></h4>
+
+<div class="row">
+	<div class="xlarge-2 column"><span class="wrap1">2 column</span></div>
+	<div class="xlarge-10 column"><span class="wrap1">10 column</span></div>
+</div>
+<div class="row">
+	<div class="xlarge-3 column"><span class="wrap1">3 column</span></div>
+	<div class="xlarge-9 column"><span class="wrap1">9 column</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Advanced</h3>
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4"><b class="em0">class="small-12 medium-6 large-4 xlarge-3 column"</b></h4>
+
+<div class="row">
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[01]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[02]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[03]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[04]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[05]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[06]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[07]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[08]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[09]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[10]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[11]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+	<div class="small-12 medium-6 large-4 xlarge-3 column">
+		<div class="wrap1">
+			<span class="show-all">[12]</span>
+			<span class="show-all hide-medium">12</span>
+			<span class="hide-all show-medium hide-large">6</span>
+			<span class="hide-all show-large hide-xlarge">4</span>
+			<span class="hide-all show-xlarge">3</span>
+		</div>
+	</div>
+</div>
+
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Nested</h4>
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h5 class="hb1 h5"><em class="em">.row > .column &nbsp; .row > .column</em></h5>
+
+<p>내포 깊이에 따라 갭(padding 값)은 부모의 width 에 상대적이므로 값이 달라진다.<br />
+내포 컬럼에서도 항상 같은 값을 유지하려면.. border-box 값을 사용하여야 하며, [IE8+] 호환되므로 차세대에 갱신할 때 고려한다.<br />
+사실 이런 이슈로 괴롭히는 콘텐츠는 거의 없었다.<br />
+</p>
+
+<div class="row" style="outline:1px solid #bbb;">
+	<div class="small-8 column"><span class="wrap1">8</span>
+		<div class="row">
+			<div class="small-8 column"><span class="wrap1">8 Nested</span>
+				<div class="row">
+					<div class="small-8 column"><span class="wrap1">8 Nested Again</span></div>
+					<div class="small-4 column"><span class="wrap1">4</span></div>
+				</div>
+			</div>
+			<div class="small-4 column"><span class="wrap1">4</span></div>
+		</div>
+	</div>
+	<div class="small-4 column"><span class="wrap1">4</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h5 class="hb1 h5">내포 비교</h5>
+
+
+<!-- ◇◆ -->
+<h6 class="hb1 h6">행열행열 내포 .row > .column > .row > .column</h6>
+
+<p><em class="em">.row > .column > .row > .column</em> 구조가 되면 자식 .row 와 .column 의 상하 간격은 모든 브라우저에서 0 이 된다.<br />
+단, 부모 .column 은 정의된 상하 padding 값을 가진다.<br />
+</p>
+
+<!-- row -->
+<div class="row" style="outline:1px solid #bbb;">
+	<div class="column">
+		<div class="row">
+			<div class="small-2 large-4 column"><span class="wrap1 show-all hide-large">2</span><span class="wrap1 hide-all show-large">4</span></div>
+			<div class="small-4 large-4 column"><span class="wrap1">4</span></div>
+			<div class="small-6 large-4 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">4</span></div>
+		</div>
+		<div class="row">
+			<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+			<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+		</div>
+		<div class="row">
+			<div class="small-6 large-2 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">2</span></div>
+			<div class="small-6 large-8 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">8</span></div>
+			<div class="small-12 large-2 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">2</span></div>
+		</div>
+		<div class="row">
+			<div class="small-3 column"><span class="wrap1">3</span></div>
+			<div class="small-9 column"><span class="wrap1">9</span></div>
+		</div>
+		<div class="row">
+			<div class="large-4 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">4</span></div>
+			<div class="large-8 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">8</span></div>
+		</div>
+		<div class="row">
+			<div class="small-6 large-5 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">5</span></div>
+			<div class="small-6 large-7 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">7</span></div>
+		</div>
+		<div class="row">
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+		</div>
+	</div>
+</div>
+<!-- /row -->
+
+
+<!-- ◇◆ -->
+<h6 class="hb1 h6">행행열 내포 .row > .row > .column</h6>
+
+<p>
+<em class="em">))) 부트스트랩은 행 내포(.row .row) 로 맨앞 left 와 맨뒤 right 의 gap 을 0 으로 만들지만,</em><br />
+우리는 행(.row)을 내포하지 않아도 좌우 갭이 0 이고, 내포하면 자손 .row  상하 간격을 최소한으로 줄여준다.<br />
+행 열 행(.row .column .row) 형태가 아니므로, 부모 .column 의 padding 상하 값은 당연히 없다.<br />
+20160809)<br />
+[CR][OP] .row 와 .row 간격 1px<br />
+[FF][IE7~11][Android5.0.2] .row 와 .row 간격 0<br />
+</p>
+
+<!-- row -->
+<div class="row" style="outline:1px solid #bbb;">
+	<div class="row">
+		<div class="small-2 large-4 column"><span class="wrap1 show-all hide-large">2</span><span class="wrap1 hide-all show-large">4</span></div>
+		<div class="small-4 large-4 column"><span class="wrap1">4</span></div>
+		<div class="small-6 large-4 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">4</span></div>
+	</div>
+	<div class="row">
+		<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+		<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+		<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+	</div>
+	<div class="row">
+		<div class="small-6 large-2 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">2</span></div>
+		<div class="small-6 large-8 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">8</span></div>
+		<div class="small-12 large-2 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">2</span></div>
+	</div>
+	<div class="row">
+		<div class="small-3 column"><span class="wrap1">3</span></div>
+		<div class="small-9 column"><span class="wrap1">9</span></div>
+	</div>
+	<div class="row">
+		<div class="large-4 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">4</span></div>
+		<div class="large-8 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">8</span></div>
+	</div>
+	<div class="row">
+		<div class="small-6 large-5 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">5</span></div>
+		<div class="small-6 large-7 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">7</span></div>
+	</div>
+	<div class="row">
+		<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+		<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+	</div>
+</div>
+<!-- /row -->
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4"> .row 상하 간격 조정하기</h4>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h5 class="hb1 h5">내포할 때 부모 행과 열 간격 0으로  class="row vgap-minus"</h5>
+
+<!-- contentsBlock -->
+<div class="contentsBlock clearfix" style="border-top:1px solid #bbb;border-bottom:1px solid #bbb;">
+<!-- row -->
+<div class="row vgap-minus">
+	<div class="column">
+		<div class="row">
+			<div class="small-2 large-4 column"><span class="wrap1 show-all hide-large">2</span><span class="wrap1 hide-all show-large">4</span></div>
+			<div class="small-4 large-4 column"><span class="wrap1">4</span></div>
+			<div class="small-6 large-4 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">4</span></div>
+		</div>
+		<div class="row">
+			<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+			<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+		</div>
+		<div class="row">
+			<div class="small-6 large-2 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">2</span></div>
+			<div class="small-6 large-8 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">8</span></div>
+			<div class="small-12 large-2 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">2</span></div>
+		</div>
+		<div class="row">
+			<div class="small-3 column"><span class="wrap1">3</span></div>
+			<div class="small-9 column"><span class="wrap1">9</span></div>
+		</div>
+		<div class="row">
+			<div class="large-4 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">4</span></div>
+			<div class="large-8 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">8</span></div>
+		</div>
+		<div class="row">
+			<div class="small-6 large-5 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">5</span></div>
+			<div class="small-6 large-7 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">7</span></div>
+		</div>
+		<div class="row">
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+			<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+		</div>
+	</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /contentsBlock -->
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h5 class="hb1 h5">내포 안할 때 부모 행과 열 간격을 열과 열 간격으로 class="row vgap-plus"</h5>
+
+<!-- contentsBlock -->
+<div class="contentsBlock clearfix" style="border-top:1px solid #bbb;border-bottom:1px solid #bbb;">
+<!-- row -->
+<div class="row vgap-plus">
+	<div class="small-2 large-4 column"><span class="wrap1 show-all hide-large">2</span><span class="wrap1 hide-all show-large">4</span></div>
+	<div class="small-4 large-4 column"><span class="wrap1">4</span></div>
+	<div class="small-6 large-4 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">4</span></div>
+	<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+	<div class="large-3 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">3</span></div>
+	<div class="small-6 large-2 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">2</span></div>
+	<div class="small-6 large-8 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">8</span></div>
+	<div class="small-12 large-2 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">2</span></div>
+	<div class="small-3 column"><span class="wrap1">3</span></div>
+	<div class="small-9 column"><span class="wrap1">9</span></div>
+	<div class="large-4 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">4</span></div>
+	<div class="large-8 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">8</span></div>
+	<div class="small-6 large-5 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">5</span></div>
+	<div class="small-6 large-7 column"><span class="wrap1 show-all hide-large">6</span><span class="wrap1 hide-all show-large">7</span></div>
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+	<div class="large-6 column"><span class="wrap1 show-all hide-large">full</span><span class="wrap1 hide-all show-large">6</span></div>
+</div>
+<!-- /row -->
+</div>
+<!-- /contentsBlock -->
+
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h3 class="hb1 h4">Offsets</h3>
+
+<p>margin 값이 이용된다.</p>
+
+<div class="row">
+	<div class="large-1 column"><span class="wrap1">1</span></div>
+	<div class="large-11 column"><span class="wrap1">11</span></div>
+</div>
+<div class="row">
+	<div class="large-1 column"><span class="wrap1">1</span></div>
+	<div class="large-10 large-offset-1 column"><span class="wrap1">10, offset 1</span></div>
+</div>
+<div class="row">
+	<div class="large-1 column"><span class="wrap1">1</span></div>
+	<div class="large-9 large-offset-2 column"><span class="wrap1">9, offset 2</span></div>
+</div>
+<div class="row">
+	<div class="large-1 column"><span class="wrap1">1</span></div>
+	<div class="large-8 large-offset-3 column"><span class="wrap1">8, offset 3</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h3 class="hb1 h4">Incomplete Rows</h3>
+
+<p>
+저브 파운데이션은 :last-child { float: right; } 스타일을 사용하므로 1행에 12그리드가 안되면
+맨뒤 열과 맨뒤바로 앞 열 사이에 모자란 그리드 만큼 간격이 벌어져서..
+.end 스타일로.. :last-child { float: left; } 해주지만,
+여기서는 float: right; 는 사용하지 않으므로, .end 스타일은 필요없다.
+</p>
+
+<div class="row">
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+</div>
+
+<!-- <div class="row">
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 column end"><span class="wrap1">3 end</span></div>
+</div> -->
+
+<p>맨뒤 열을 우측에 붙이려면.. 맨뒤 열에 medium-offset-3 을 추가하면 된다.</p>
+
+<div class="row">
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 column"><span class="wrap1">3</span></div>
+	<div class="medium-3 medium-offset-3 column"><span class="wrap1">3, medium-offset-3</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h3 class="hb1 h4">Collapse/Uncollapse Rows</h3>
+
+<!-- <p><b class="em fsL">이거까지 하려면.. 스타일이 복잡해지므로.. 보류!</b></p> -->
+
+<p>
+.row 요소에 <em class="em">medium-</em>uncollapse <em class="em">large-</em>collapse 클래스가 있다면,<br />
+.column 요소에 대응하는 클래스 <em class="em">medium-</em>6 <em class="em">large-</em>6 이 있어야 바르게 동작합니다.<br />
+</p>
+
+<div class="row medium-collapse large-uncollapse">
+	<div class="small-6 medium-6 large-6 column">
+		<div class="wrap1">
+			<div class="hide-all show-medium hide-large">On a medium screen, I have no gutters!</div>
+			<div class="hide-all show-large">On a large screen, I have gutters!</div>
+		</div>
+	</div>
+	<div class="small-6 medium-6 large-6 column">
+		<div class="wrap1">
+			<div class="hide-all show-medium hide-large">On a medium screen, I have no gutters!</div>
+			<div class="hide-all show-large">On a large screen, I have gutters!</div>
+		</div>
+	</div>
+	<div class="small-6 medium-6 large-6 column">
+		<div class="wrap1">
+			<div class="hide-all show-medium hide-large">On a medium screen, I have no gutters!</div>
+			<div class="hide-all show-large">On a large screen, I have gutters!</div>
+		</div>
+	</div>
+	<div class="small-6 medium-6 large-6 column">
+		<div class="wrap1">
+			<div class="hide-all show-medium hide-large">On a medium screen, I have no gutters!</div>
+			<div class="hide-all show-large">On a large screen, I have gutters!</div>
+		</div>
+	</div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h3 class="hb1 h4">Centered column</h3>
+
+<p>저브 파운데이션은 .column 이 display:block; 이므로 .column 에 margin-left:auto;margin-right:auto; 스타일을 줘서 중앙 정렬시킨다.
+여기서의 .column 은 display:inline-block; 이므로 행에 text-align:center; 속성을 부여한다.
+</p>
+
+<div class="row small-centered">
+	<div class="small-3 column"><span class="wrap1">3 centered</span></div>
+</div>
+<div class="row large-centered">
+	<div class="small-6 column"><span class="wrap1">6 centered, large</span></div>
+</div>
+<div class="row small-centered large-uncentered">
+	<div class="small-9 column"><span class="wrap1">9 centered small</span></div>
+</div>
+<div class="row small-centered">
+	<div class="small-11 column"><span class="wrap1">11 centered</span></div>
+</div>
+
+
+<hr /><!-- ◇◆◇◆◇◆ -->
+<h3 class="hb1 h4">Source Ordering</h3>
+
+<p>left 값이 이용된다.</p>
+
+<div class="row">
+	<div class="small-10 small-push-2 column"><span class="wrap1">10</span></div>
+	<div class="small-2 small-pull-10 column"><span class="wrap1">2, last</span></div>
+</div>
+<div class="row">
+	<div class="large-9 large-push-3 column"><span class="wrap1">9</span></div>
+	<div class="large-3 large-pull-9 column"><span class="wrap1">3, last</span></div>
+</div>
+<div class="row">
+	<div class="large-8 large-push-4 column"><span class="wrap1">8</span></div>
+	<div class="large-4 large-pull-8 column"><span class="wrap1">4, last</span></div>
+</div>
+<div class="row">
+	<div class="small-5 small-push-7 medium-7 medium-push-5 column"><span class="wrap1">7</span></div>
+	<div class="small-7 small-pull-5 medium-5 medium-pull-7 column"><span class="wrap1">5, last</span></div>
+</div>
+<div class="row">
+	<div class="medium-6 medium-push-6 column"><span class="wrap1">6</span></div>
+	<div class="medium-6 medium-pull-6 column"><span class="wrap1">6, last</span></div>
+</div>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+<br />
+<hr class="show" />
+<p><small class="fwn"><strong>History</strong>
+: 20160802~
+20160809.
+20160808.
+20160802.
+</small></p>
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

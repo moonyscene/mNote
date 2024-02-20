@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - jQuery Plugin | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>(jQuery) Plugin</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#TestToDo">Test ToDo</a></li>
+<li><a href="#Adopted">Plugin Adopted</a></li>
+<li><a href="#TestFinished">Test Finished. 20140513~</a></li>
+<li><a href="#Plugin2">~20130130 검색</a></li>
+<li><a href="../JavaScript/jqueryCheatSheet.html"><i>jQuery Cheat Sheet</i></a></li>
+<li><a href="../JavaScript/jquery.html"><i class="em">jQuery Plugin</i></a></li>
+<li><a href="http://plugins.jquery.com/" target="_blank" title="새 창"><b>plugins.jquery.com</b></a></li>
+<li><a href="https://jqueryui.com/browser-support/" target="_blank" title="새 창"><b class="em">jQuery UI 1.11.x [IE8+]</b></a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<p>Target) Try to search simple, web accessibility OK.</p>
+
+
+
+
+<!-- even-grid -->
+<div class="even-grid float-left gap4pct">
+<div class="small-12 medium-6 column">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="TestToDo">Done</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">애니메이션</h3>
+
+
+<ol class="bo">
+<li>
+	<strong class="fsM em2">TweenMax.min.js</strong>
+	))) <a href="TweenMax.js.html" target="_blank" rel="noopener" title="새 창">[m]</a><br />
+	<br />
+	<a href="https://greensock.com/tweenmax/" target="_blank" rel="noopener" title="새 창">
+		TweenMax 3.x ~
+	</a>
+	<a href="https://greensock.com/docs/v2/TweenMax" target="_blank" rel="noopener" title="새 창">
+		TweenMax 2.x
+	</a>
+	<a href="http://302chanwoo.com/lab/tween/" target="_blank" rel="noopener" title="새 창">
+		GSAP(GreenSock Animation Platform) 라이브러리란?
+	</a>
+</li>
+<li><a href="https://css-tricks.com/myth-busting-css-animations-vs-javascript/" target="_blank" rel="noopener" title="새 창" class="a1">
+	Myth Busting: CSS Animations vs. JavaScript
+</a></li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">슬라이드 슬라이더 회전목마</h3>
+
+
+<ol class="bo">
+<li><a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank" rel="noopener" title="새 창">
+		<strong class="fsM em2">Owl Carousel 2</strong>
+	</a>
+	))) <a href="jQuery_plugin_owl.carousel.js.html" target="_blank" rel="noopener" title="새 창">[m]</a><br />
+	<!-- panel1 -->
+	<div class="panel1 mgt05em">
+		<em class="em4">[IE7+]</em><br />
+		<em class="em5">다양한 50여 옵션 만족</em><br />
+		<em class="em1">연속 클릭 (O)</em><br />
+		회전목마<br />
+		<em class="em1">쪽순번</em><br />
+		아이템순번은 { center: true } 옵션에서만 자동으로 된다.<br />
+		[Do it! 프런트엔드 웹 디자인 입문]<br />
+		키보드 운용 보장 못함 ))) @m. JS 추가하여 해결함!
+	</div>
+	<!-- /panel1 -->
+</li>
+<li><a href="https://bxslider.com/" target="_blank" rel="noopener" title="새 창"><strong class="fsM em2">bxSlider</strong></a>
+	Browser support: .. IE7+
+	)))) Test: <em class="em4">[IE8+]OK!</em><br />
+	<em class="em5">옵션72</em>
+	))) 사용법: <a href="https://github.com/demun/FrontEndStudy/blob/master/document/Jquery/docs/01_01_jquery_plugin_bxslider.md" target="_blank" rel="noopener" title="새 창">bxSlider - GitHub</a>
+
+	<blockquote cite=""><div>
+		슬라이드 뷰 수 지정 가능<br />
+		수직 방향 슬라이드 가능<br />
+	</div></blockquote>
+	연속 클릭 (X)<br />
+	DOM 복제<br />
+	회전목마<br />
+	마우스 오버 시 멈추지 않음<br />
+	키보드 운용 보장 못함<br />
+	[Do it! 프런트엔드 웹 디자인 입문]
+</li>
+<li><a href="http://slidesjs.com/" target="_blank" rel="noopener" title="새 창"><strong class="em0">slidesJS</strong></a>
+	<em class="em4">[IE8+]</em><br />
+	연속 클릭 (X)<br />
+	DOM 복제 아님<br />
+	회전목마<br />
+	마우스 오버 시 멈춤<br />
+	키보드 운용 보장 못함<br />
+	SlidesJS is no longer maintained
+		)) <a href="http://kenwheeler.github.io/slick/" target="_blank" rel="noopener" title="새 창"><strong class="em0">Slick</strong></a>
+</li>
+<li><a href="http://kenwheeler.github.io/slick/" target="_blank" rel="noopener" title="새 창"><strong class="em0">Slick</strong></a>
+	<em class="em4">[IE8+]</em><br />
+	<em class="em5">다양한 옵션 만족</em><br />
+	연속 클릭 (X)<br />
+	DOM 복제<br />
+	회전목마<br />
+	마우스 오버 시 멈춤<br />
+</li>
+<li><a href="http://idangero.us/swiper/demos/" target="_blank" rel="noopener" title="새 창"><strong class="em0">Swiper</strong></a>
+	<!-- panel1 -->
+	<div class="panel1 mgt05em">
+		<em class="em4">[IE10+]</em><br />
+		<em class="em5">다양한 옵션 만족</em><br />
+		<em class="em1">연속 클릭 (O)</em><br />
+		끝 다음은 역방향으로 되돌림. 옵션으로 회전목마도 가능<br />
+	</div>
+	<!-- /panel1 -->
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="TestToDo">Test ToDo</h2>
+
+
+<ol class="bo num">
+<li><a href="http://cafe.naver.com/hacosa.cafe?iframe_url=%2FMyCafeIntro.nhn%3Fclubid%3D12566436" target="_blank" title="새 창">데이트피커</a> 날짜선택시 (KBO) [IE9~]</li>
+<li>스크롤바 디자인 동작 : <a href="http://designwebkit.com/web-and-trends/15-free-and-premium-jquery-scrolling-effect-plugins/">15+ Free and Premium jQuery Scrolling Effect Plugins</a></li>
+<li>페이드 간단 동작 : <a href="http://sandbox.scriptiny.com/tinyfader/" target="_blank">TinyFader javascript slideshow</a>
+적용예) <a href="http://busan.gugak.go.kr/" target="_blank">국립국악원</a>
+</li>
+<li><a href="http://stephband.info/jparallax/" target="_blank" title="새 창"><strong class="h1">jquery.parallax</strong></a></li>
+<li><a href="http://ashleydw.github.io/lightbox/" target="_blank" title="새 창">Lightbox for Bootstrap 3</a></li>
+<li><a >자동완성</a> - ProJSTech p283</li>
+<li><a >드래그 앤 드롭 정렬 - ProJSTech p193</a> - script.aculo.us</li>
+<li><a >슬라이더 입력 - ProJSTech p194</a> - script.aculo.us</li>
+</ol>
+
+
+
+</div>
+<div class="small-12 medium-6 column">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Adopted">Plugin Adopted</h2>
+
+<ol class="bo dfn">
+<li>
+	<b class="em2 fsm">가속완화</b>
+	<i>Easing</i><br />
+	| <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery.easing</a>
+	| Options: <a href="http://api.jqueryui.com/easings/">jQuery UI Easings 그래프</a>
+</li>
+<li>
+	<b class="em2 fsm">터치 제스처 스와이프</b>
+	<i>Touch Gesture | tap / double tap / pan(drag) &gt; swipe(scroll) &gt; flick |</i><br />
+	<!-- | <a href="../../__lab.get/touchy-master/index.html">touchy-master</a><br />
+	| <a href="../../__lab.get/jQuery-Touch-Events-master/src/@m.html" target="_blank" title="새 창">jQuery-Touch-Events-master</a><br />
+	위 둘다 [Android5.0.2] 바른 동작 안됨.
+	[iOS10.x] 는 이상무.
+	))) 직접 만들어야 하나?
+	))) -->
+	<div class="fsL">
+		| <a href="http://hammerjs.github.io/" target="_blank" title="새 창"><b class="em0">hammer.js</b></a>
+		/ <a href="https://github.com/hammerjs/hammer.js" target="_blank" title="새 창">git</a>
+		))) <a href="../../__lab.get/Hammer.JS/@m.html" target="_blank" title="새 창">@m</a>
+		))) <a href="../../__lab.make/Task/touch1XYDistanceDirectionTime.html" target="_blank" title="새 창">touch1XYDistanceDirectionTime.html</a>
+	</div>
+</li>
+<li>
+	<b class="em2 fsm">스크롤 기반 애니메이션</b>
+	<i>Scroll Animation</i> parallax<br />
+		| <a href="https://github.com/Prinzhorn/skrollr" target="_blank" title="새 창">skrollr 라이브러리</a>
+		)))	<a href="../../__lab.get/skrollr-master/examples/pausing_@m.html" target="_blank" title="새 창">pausing_@m.html</a><br />
+		| <a href="http://imakewebthings.com/waypoints/" target="_blank" title="새 창">Waypoints 플러그인</a>
+		))) <a href="../../__lab.get/waypoint_sample/index_@m.html" target="_blank" title="새 창">index_@m.html</a><br />
+	from [모던 웹을 위한 JavaScript+jQuery 입문]<br />
+</li>
+<li>
+	<b class="em2 fsm">벽돌 배치</b>
+	<i>Masonry Layout</i><br />
+	<a href="http://masonry.desandro.com/">masonry.pkgd</a> [IE8+] v3.1.2<br />
+	<a href="http://desandro.github.io/masonry/index.html">masonry</a> [IE7] v2.1.08<br />
+</li>
+<li>
+	<b class="em2 fsm">이미지 로딩</b>
+	<i>imagesLoaded</i><br />
+	<a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a><br />
+	| [~IE7] 불가. [IE8+표준] 된다.
+</li>
+<li>
+	<b class="em2 fsm">슬라이드 쇼</b>
+	<i>jquery.cycle.all.2.74.js</i><br />
+	| <a href="http://malsup.com/jquery/cycle/">View</a>
+	| <a href="http://malsup.com/jquery/cycle/lite/">/cycle/lite/</a>
+	| <a href="http://jquery.malsup.com/cycle/options.html">Options</a>
+	| <a href="http://jquery.malsup.com/cycle/more.html">Demos</a><br />
+	| <a href="../Lib/+jQuery/Plugin/jQuery.Plugin.Cycle.test.by.m.html"><b class="em5-6">Test~</b></a>
+	효과(O) WA(X) ..so.. <br />
+	직접 개발! <b class="em5-6">@m. $.fn.jQmPR1</b><br />
+</li>
+<li>
+	<b class="em2 fsm">스크롤 바로가기</b>
+	<i>scrollTo</i><br />
+	| <a href="http://flesler.blogspot.kr/" target="_blank" title="새 창">//flesler.blogspot.kr/</a>
+</li>
+<li>
+	<b class="em2 fsm">표</b>
+	<i>table</i> <em>스크롤터치</em><br />
+	| <a href="../__lab.make/07.a.jQscrollTouch/index.html">iScroll 연동 실험</a>
+</li>
+<li>
+	<b class="em2 fsm">스크롤.터치</b> <i>iScroll</i>. 키보드 운용 keyBindings: {}<br />
+	| <a href="http://iscrolljs.com/">iscrolljs.com</a>
+	| <a href="http://cubiq.org/iscroll-5">cubiq.org</a>
+	| <a href="https://github.com/cubiq/iscroll/">github</a><br />
+	|| <a href="../Lab/+take/iscroll-master/demos/">Demo</a>
+	: <a href="http://lab.cubiq.org/iscroll5/demos/barebone/">barebone</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/event-passthrough/">event passthrough</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/2d-scroll/">2D scroll</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/horizontal/">horizontal</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/scrollbars/">scrollbar</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/styled-scrollbars/">styled scrollbars</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/minimap/">minimap</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/parallax/">parallax</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/scroll-to-element/">scroll to element</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/zoom/">zoom</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/infinite/">infinite</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/bounce-easing/">bounce easing</a>
+	| <a href="http://lab.cubiq.org/iscroll5/demos/probe/">probe</a>
+</li>
+<li>
+	<b class="em2 fsm">스크롤바</b>
+	<i>scrollbar</i><br />
+	<a href="http://blog.naver.com/PostView.nhn?blogId=epjang&logNo=220564033083" target="_blank" rel="noopener" title="새 창">jquery 사용자 정의 스크롤바 - mCustomScrollbar</a>
+	<br />| <em class="em">[IE8]◇[IE9+]O</em>
+	<br />| 20190319. 대전광역시 사용중~
+</li>
+<li>
+	<b class="em2 fsm">선택상자</b>
+	<i>Select2</i><br />
+	| <a href="http://ivaynberg.github.io/select2/">//ivaynberg.github.io/select2/</a>
+</li>
+<li>
+	<b class="em2 fsm">캔버스</b>
+	<i>excanvas</i><br />
+	| <a href="http://code.google.com/p/explorercanvas/">excanvas</a>
+</li>
+<li>
+	<b class="em2 fsm">이미지 사이즈</b>
+	<i>Image Size</i><br />
+	| <a href="?">찾아보고 없으면 만들어야지</a>
+</li>
+</ol>
+
+
+</div>
+</div>
+<!-- /even-grid -->
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="TestFinished">Test Finished. 20140513~</h2>
+
+<ol class="bo1 num00">
+<li><b>스크롤</b> 적용해보장. 반응형 테이블에 적용 가능할지?
+<a href="http://manos.malihu.gr/jquery-custom-content-scroller/" target="_blank">jQuery custom content scroller</a>
+키보드로 스크롤 동작 안되니.. 쓸 수 없다.
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Plugin2">Plugin <small class="">~20130130 검색 후 정리한거</small></h2>
+
+<p>데모를 확인하고 WA(O) 만 링크한다. [IE8] 동작 불가는 제외한다.</p>
+
+<table border="1" class="t3 w100" summary="★표요약,구조,탐색방법.caption과같은용도로사용하지않아야함."><caption>[Review] <a href="http://plugins.jquery.com/">plugins.jquery.com</a> 20130130~
+Watchers&gt;100, Forks&gt;10
+<span class="fr">Ex) KeyBoard, ControlFunction, ..(O)(X)(D)</span>
+| table | grid | image size | easing | ..
+</caption>
+<col style="width:10%;" /><col style="width:auto;" /><col style="width:8%;" /><col />
+<thead>
+<tr>
+<th scope="col">Search keyword</th>
+<th scope="col">Website | Demo | GitHub</th>
+<th scope="col">WA</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="3">facebook</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://plugins.in1.com/socialist">jQuery Socialist</a></th>
+<td>KB(D)</td>
+<td>페이스 북, 트위터, 유투브 및 기타 소셜 네트워크에서 소셜 피드를 결합</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">image size<br />crop</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://dl.dropbox.com/u/6983010/wserv/imgLiquid/examples/imgLiquid.html">imgLiquid</a></th>
+<td>WA(N)</td>
+<td>용기에 맞게 이미지 크기를 조정.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://odyniec.net/projects/imgareaselect/">ImgAreaSelect – image selection/cropping plugin</a></th>
+<td>WA(?)</td>
+<td>이미지 영역 크롭.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">grid</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.trirand.com/blog/?page_id=5">jQuery jqGrid</a></th>
+<td>KB(X)</td>
+<td>Ajax를 이용하여 테이블 형식의 데이터를 표현하고 조작.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://mcpants.github.com/jquery.shapeshift/">jQuery Shapeshift</a></th>
+<td>KB(X) IE(X)</td>
+<td>드래그 앤 드롭 그리드 정렬.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">table</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="https://github.com/Mottie/tablesorter/wiki">tablesorter</a> | <a href="http://jsfiddle.net/Mottie/abkNM/325/">Demo</a></th>
+<td>KB(X)</td>
+<td>표정렬. thead th 에 a 요소 넣으면 키보드 될까?</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.jtable.org/">jTable</a></th>
+<td>KB(X)</td>
+<td>표정렬. 페이지 재정렬되네.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://themergency.com/footable/">FooTable</a></th>
+<td>KB(X)</td>
+<td>반응형 표. simple html sorting filtering sorting+filtering</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://plugins.theodin.co.uk/jquery/tweetable/tweetable.1.7/demo/index.html">jQuery twitter feed plugin</a></th>
+<td>WA(O)</td>
+<td>트위터 피드. 목록 만들어줌.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.appelsiini.net/projects/jeditable/default.html">Jeditable</a></th>
+<td>KB(X)</td>
+<td>편집가능. ㅋ 표가 아니다. 키보드 운용 되면 좋을텐데..</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://ludo.cubicphuse.nl/jquery-plugins/treeTable/doc/#examples">jQuery treeTable</a></th>
+<td>KB(D)</td>
+<td>표를 트리로 만듦. 키보드 초점 안 보이는 경우 있으니 개선 필요.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jqueryui.com/menu/">jQuery UI Menu</a></th>
+<td>KB(X)</td>
+<td>Creates nestable menus. 인기가 무색하게 접근성 안되는군.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jqueryui.com/selectable/">jQuery UI Selectable</a></th>
+<td>KB(X)</td>
+<td>마우스로 요소의 그룹을 선택.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jqueryui.com/sortable/">jQuery UI Sortable</a></th>
+<td>WA()</td>
+<td>목록 아이템 마우스로 정렬.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="t3 w100" summary="★표요약,구조,탐색방법.caption과같은용도로사용하지않아야함."><caption>[Review] <a href="http://plugins.jquery.com/">plugins.jquery.com</a> 20130129~ recently 10 of over 350. <span class="fr">Ex) KeyBoard, ControlFunction, ..(O)(X)(D)</span>
+| UI / jquery | animation / effect | form / input / select | slider / slideshow / image |
+</caption>
+<col style="width:10%;" /><col style="width:auto;" /><col style="width:8%;" /><col />
+<thead>
+<tr>
+<th scope="col">Popular Tags</th>
+<th scope="col">Website | Demo | GitHub</th>
+<th scope="col">WA</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="11">ui (107)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jsfiddle.net/bgrins/ctkY3/">Spectrum Colorpicker</a></th>
+<td>KB(X)</td>
+<td>스펙트럼 컬러피커. 키보드 진입불가</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.jacklmoore.com/colorbox/example1/">ColorBox</a></th>
+<td>WA(O)</td>
+<td>lightbox형 갤러리.  Esc키 닫기, 화살표키 이전 다음</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://imaginaestudios.com/singlestepcarousel/">Single Step Carousel (One Step Carousel)</a></th>
+<td>WA(D)</td>
+<td>회전목마. 순번따로문제</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://opensource.teamdf.com/list/examples/demo-basic.html">jQuery Fixed/Floating List Header</a></th>
+<td>WA(?)</td>
+<td>헤더 고정. 스크롤 영역 상단에 헤더들이 고정. a 접근성?</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://noraesae.github.com/perfect-scrollbar/">perfect-scrollbar</a></th>
+<td>KB(X)</td>
+<td>키보드 스크롤 탐색 불가</td>
+</tr>
+<tr>
+<th scope="row"><a href="https://github.com/duncannz/keycut">jQuery Keycut</a></th>
+<td>WA(O)</td>
+<td>단축키. Demo 없음. Usage 보세요.
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://projects.sebastianhelzle.net/jquery.rondell/">jQuery Rondell</a></th>
+<td>WA(D)</td>
+<td>원형 표시 갤러리. 이전, 다음만 가능. a 접근성?</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.directlyrics.com/code/lockfixed/">jQuery Lock Fixed</a></th>
+<td>WA(O)</td>
+<td>고정 위치.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://kkamkou.github.com/jqFenster/">jQuery Fenster</a></th>
+<td>KB(X)</td>
+<td>가벼운 모달 창.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.richardscarrott.co.uk/assets/javascript/jquery/ui-carousel/demo/">jQuery RS Carousel</a></th>
+<td>KB(X)</td>
+<td>회전목마. 100% 뷰마스크. item 너비 딱 안맞아도 페이지 수 자동 계산. a 초점표시하면 접근성 될거 같다. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">animation (36)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://dropthebit.com/demos/stickyfloat/stickyfloat.html">stickyfloat</a></th>
+<td>WA(O)</td>
+<td>달라붙는 부유. 동작 선택 가능.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://dropthebit.com/demos/photobox/">jQuery Photobox</a></th>
+<td>WA(D)</td>
+<td>이미지 갤러리 + 모달 뷰. Esc키 닫기, 화살표키 이전 다음 a 초점표시 필요! </td>
+</tr>
+<tr>
+<th scope="row"><a href="https://github.com/PieroWbmstr/jQuery-AccessKey/blob/master/demo/index.html">jQuery AccessKey</a></th>
+<td>WA(O)</td>
+<td>단축키.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://fingaholic.github.com/jquery.ui.spriteanimation/">jquery ui spriteanimation</a></th>
+<td>WA(N)</td>
+<td>요정 애니메이션. 액체 흐름.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jsfiddle.net/paLBA/">jQuery Image Side Slide</a></th>
+<td>WA(D)</td>
+<td>좌에서 우로 흐르는 글자. 흐르는 도중 멈출 수 없음.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.nethnic.com/pages/projects/tesselate/">jQuery Tesselate Grid-based FX</a></th>
+<td>CF(X)</td>
+<td>바둑판 그리드 특수효과. 갤러리 데모에서 이전 다음 볼 수 없음.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://wowslider.com/html-slideshow-silence-blur-demo.html">jQuery WOW Slider – Awesome image slider</a></th>
+<td>KB(X) CF(X)</td>
+<td>멋진 이미지 슬라이더. 그러나, 접근성 불량.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">form (34)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://dropthebit.com/demos/validator/validator.html">validator</a></th>
+<td>WA(D)</td>
+<td>유효성 확인. 키보드로 도움말 보기 불가!</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://carlosroberto.name/jquery-selectskin/">jQuery SelectSkin</a></th>
+<td>WA(O)</td>
+<td>선택 양식 디자인. <b class="em">[m]Lab!</b> select 마크업은 살리고 디자인 가능. option 은 그대로 나옴. [IE6] 은 전부 원래 모양대로..</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.rapidexp.com/h5form/">jQuery.h5form – HTML5 Forms Plugin</a></th>
+<td>WA(D)</td>
+<td>HTML5 양식. 달력 테스트해보니.. IE에서 키보드 입력은 되지만, 접근 안되는 달력이 나와서 불만.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://mavrin.github.com/maskInput/">jQuery Number Mask</a></th>
+<td>WA(N)</td>
+<td>입력값 패턴.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.appelsiini.net/projects/chained/demo.html">Chained select</a></th>
+<td>WA(O)</td>
+<td>연쇄 선택. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://liveline.github.com/jquery-checkallbox/">jQuery.checkallbox</a></th>
+<td>WA(O)</td>
+<td>체크박스 전체선택.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://phery-php-ajax.net/demo.php">Phery PHP Ajax</a></th>
+<td>WA()</td>
+<td>어찌 사용하는거지?</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.binkje.nl/mfs/">jQuery Mighty Form Styler</a></th>
+<td>KB(X)</td>
+<td>선택 양식 디자인. select 를 ul 로 마크업 변경. 양식값 처리는 어찌할지? 옵션 선택 후 포커스 사라지는 문제.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.thoughtdelimited.org/dirtyFields/examples.cfm">jQuery dirtyFields</a></th>
+<td>KB(X)</td>
+<td>입력된 양식 표시? 키보드 운용 불가 쓰레기.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">effect (30)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.dynamicdrive.com/dynamicindex17/featuredcontentglider.htm">Featured Content Glider</a></th>
+<td>KB(X) CF(X)</td>
+<td>콘텐츠 글라이더(미끄러지는..). </td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">input (26)</th>
+<th scope="row"></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="https://github.com/timdown/rangyinputs">Rangy Inputs</a></th>
+<td>WA(?)</td>
+<td>텍스트 입력 범위.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://amsul.github.com/pickadate.js/themes.htm">pickadate.js</a></th>
+<td>WA(O)</td>
+<td>날짜 선택기.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://sproutsocial.github.com/inputosaurus-text/">Inputosaurus Text</a></th>
+<td>WA(O)</td>
+<td>여러 구분 값, 파싱 후크, 자동 완성, 단축키</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.tooltipplus.com/">Html Input control – plus tooltips</a></th>
+<td>KB(X)</td>
+<td>마우스 입력은 편하나, 키보드 운용 불통.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">jquery (24)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?">adjustVideo jQuery plugin</a></th>
+<td>KB(X)</td>
+<td>비디오 플레이어 아님. 사이즈만 조정. <a href="http://ko.wikipedia.org/wiki/MIT_%ED%97%88%EA%B0%80%EC%84%9C">MIT License</a>. 탭 전진 이용되나 제어 버튼 순서 엉망이고, 후진은 안된다.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://vebersol.net/demos/jquery-custom-forms/">Jquery Custom Forms</a></th>
+<td>WA(O)</td>
+<td>양식 디자인. select, radio, checkbox. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://nivogallery.dev7studios.com/">Webby Scots Version of the Nivo Gallery</a></th>
+<td>KB(X) CF(X)</td>
+<td>자동 순환 갤러리. 접근성 제어 없다.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jstayton.github.com/jquery-manifest/">Manifest</a></th>
+<td>WA(O)</td>
+<td>매너페스트. 적하 목록. 텍스트 입력 상자에 쉼표로 여러 값을 넣을 수 있는거?</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">slider (22)<br />slideshow (20)<br />image (19)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://css-tricks.github.com/AnythingSlider/index.html#&amp;panel1-1&amp;panel2-1">AnythingSlider</a></th>
+<td>WA(O)</td>
+<td>뭐든 슬라이더. 비디오도 된다. 제어 버튼 있음. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://i-like-robots.github.com/jQuery-Slideshow/">jQuery Slideshow</a></th>
+<td>KB(D)</td>
+<td>슬라이드쇼. 순번-콘텐츠-순번-콘텐츠 아니라서.. 사용 곤란.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://appleboy.github.com/jquery/example_2/">jQuery lightweight SlideShow</a></th>
+<td>KB(D) CF(X)</td>
+<td>슬라이드쇼. 끝이면 반대편 끝까지 가는.. 이전 다음만으로 접근되나, 콘텐츠 포커스 문제 발생. 마우스오버 멈춤. 포커스 안멈춤.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://css-tricks.github.com/MovingBoxes/">MovingBoxes</a></th>
+<td>WA(O)</td>
+<td>무빙 박스. 슬라이드. 이전 다음 콘텐츠 일부 보임. 키보드 링크 운용 가능. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.agilecarousel.com/">Agile Carousel</a></th>
+<td>WA(D)</td>
+<td>민첩한 회전목마. 순번, 이전 다음, 멀티 뷰만 예제만 자동순환 안하고 키보드 접근성 양호. <b class="em">[m]Lab!</b></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://videolightbox.com/">Video jQuery Lightbox – Fancy Video LightBox!</a></th>
+<td>KB(X)</td>
+<td>비디오 라이트박스.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://plugins.jquery.com/shrinkimage/">Qoopido Shrinkimage</a></th>
+<td>WA(N)</td>
+<td>로드 후 투명 PNG 이미지 압축(60~80%) 버전을 처리합니다. .htaccess 지시어 및 일부 PHP를 약간 변경 필요.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">select (19)</th>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://odyniec.net/projects/imgareaselect/">ImgAreaSelect – image selection/cropping plugin</a></th>
+<td>WA(?)</td>
+<td>이미지 영역 크롭.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.kalnitsky.org/projects/listbox.js/en/">Listbox.js</a></th>
+<td>KB(X)</td>
+<td>목록상자. 여러줄 표시. [IE8]CSS 디자인 문제 있음. 목록 아이템 div 안에 a 요소 추가하면 키보드 운용될 수도 있겠지..</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://dwieeb.github.com/jquery-textrange/">jQuery TextRange</a></th>
+<td>WA(O)</td>
+<td>입력 텍스트 선택 교체.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://jstayton.github.com/jquery-marcopolo/example1.html">Marco Polo</a></th>
+<td>WA(?)</td>
+<td>자동완성.</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://sean.edisonjordan.com/code/select2list/">select2list</a></th>
+<td>WA(O)</td>
+<td>선택 양식을 목록으로 변환.</td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="?"></a></th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="t3 w100" summary="★표요약,구조,탐색방법.caption과같은용도로사용하지않아야함."><caption>[Review] <a href="?">모던 웹을 위한 JavaScript + jQuery 입문</a><span class="fr">Ex) KeyBoard, ControlFunction, ..</span></caption>
+<col style="width:10%;" /><col style="width:15%;" /><col style="width:5%;" /><col />
+<thead>
+<tr>
+<th scope="col">No.Group</th>
+<th scope="col">Website | Demo | GitHub</th>
+<th scope="col">WA</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">종합</th>
+<td><a href="http://jqueryui.com/">jQuery UI</a></td>
+<td>KB(D)</td>
+<td>
+* 인터랙션 : 드래그, 드롭, 리사이즈, 선택, 정렬(드래그드롭)<br />
+* 위젯 : 아코디언, 자동완성, 버튼, 데이트피커(날짜선택), 다이얼로그창(레이어창), 메뉴(세로형3단), 프로그레스바(진행바, 로딩중),  
+슬라이더(스크롤바), 스피너(값증감),<br />
+탭 [m]WA비권장<br />
+* 효과 : addClass, removeClass, switchClass, toggleClass, show, hide, toggle, 
+Color Animation, Effect, Easing(가속)<br />
+* 유틸 : position, 이미지 순환, widget<br />
+</td>
+</tr>
+<tr>
+<th scope="row">그리드</th>
+<td><a href="http://jqgrid.com/">jqGrid</a></td>
+<td>KB(X)</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">라이트박스</th>
+<td><a href="http://lokeshdhakar.com/projects/lightbox2/">LightBox</a></td>
+<td>KB(D)</td>
+<td>키보드 운용 : Esc 로 탈출 가능하나, 이전 다음 닫기 기능은 안됨<br />
+<a href="http://www.fancybox.net/">FancyBox</a> [KB(X)]<br />
+<a href="http://thickbox.net/">ThickBox</a> [KB(X)]<br />
+<em>찾지 못하면 만들어야 하겠지..</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row">레이아웃</th>
+<td><a href="http://layout.jquery-dev.net/demos.cfm">jQuery UI.Layout</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">레이아웃</th>
+<td><a href="http://archive.plugins.jquery.com/project/Columnizer">jQuery Columnizer</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">레이아웃</th>
+<td><a href="http://masonry.desandro.com/">jQuery <strong>Masonry</strong></a></td>
+<td></td>
+<td>① 돌 공사 ② 석조 건축</td>
+</tr>
+<tr>
+<th scope="row">입력 양식</th>
+<td><a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/">jQuery Validation</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">입력 양식</th>
+<td><a href="http://bassistance.de/jquery-plugins/jquery-plugin-password-validation/">jQuery Password Validation</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">입력 양식</th>
+<td><a href="http://www.uploadify.com/">jQuery Uplodify</a></td>
+<td>KB(O)</td>
+<td>플래시를 함께 사용하므로 모바일에서는 안됨.</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td><a href="?"></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="1" class="t3 w100" summary="★표요약,구조,탐색방법.caption과같은용도로사용하지않아야함."><caption>[Review] <a href="http://cafe.naver.com/ArticleList.nhn?search.clubid=12566436&amp;search.menuid=184&amp;search.boardtype=L">HACOSA jQuery Plugin</a>. ~20130128.~<span class="fr">Ex) KeyBoard, ControlFunction, ..</span></caption>
+<col style="width:10%;" /><col /><col /><col /><col />
+<thead>
+<tr>
+<th scope="col">No.Group</th>
+<th scope="col">HACOSA</th>
+<th scope="col">Website | Demo | GitHub</th>
+<th scope="col">WA</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">스크롤바</th>
+<td><a href="http://cafe.naver.com/hacosa/65684">스크롤바</a></td>
+<td><a href="http://manos.malihu.gr/jquery-custom-content-scroller/">jQuery custom content scroller</a>
+| <a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/complete_examples.html">Demo</a>
+| <a href="https://github.com/malihu/malihu-custom-scrollbar-plugin">GitHub</a>
+</td>
+<td>KB(X)</td>
+<td>
+[m] 모바일에도 스크롤바 보이고 동작한다.<br />
+== Task ==<br />
+viewport 모바일 형식에도 되는가?<br />
+데모에는 가로 스크롤만할 때 세로 터치 안된다.<br />
+기본 동작하여 페이지 스크롤할 수는 없나?<br />
+키보드 운용 방법 없나?<br />
+</td>
+</tr>
+<tr>
+<th scope="row">자동순환</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=63676&amp;referrerAllArticles=false">롤링전환</a></td>
+<td><a href="http://malsup.com/jquery/cycle/">jQuery Cycle Plugin</a></td>
+<td>[m]멈춤?</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">자동순환</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=60317&amp;referrerAllArticles=false">다양한 기능의 롤링 플러그인</a></td>
+<td><a href="http://jquery.malsup.com/cycle2/">Cycle2</a>
+| <a href="https://github.com/malsup/cycle2">GitHub</a>
+</td>
+<td>[m]멈춤?</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">종합</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=59350&amp;referrerAllArticles=false">jQuery TOOLS</a></td>
+<td><a href="http://jquerytools.org/"><b>jQuery Tools</b></a>
+</td>
+<td>?</td>
+<td>
+Ui Tools : 탭, 툴팁, 오브레이, 스크롤<br />
+Form Tools : 유효성, 범위입력, 날짜입력<br />
+Toolbox : 노출, 플래시포함, 조합<br />
+</td>
+</tr>
+<tr>
+<th scope="row">이미지 리사이즈</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=59225&amp;referrerAllArticles=false">imgLiquid - jQuery 이미지 리사이즈 플러그인</a></td>
+<td><a href="http://dl.dropbox.com/u/6983010/wserv/imgLiquid/examples/imgLiquid.html">imgLiquid</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">RWD</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=54938&amp;referrerAllArticles=false">freetile.js, jQuery 반응형 웹 플러그인</a></td>
+<td><a href="http://yconst.com/web/freetile/">freetile.js</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">이미지 효과</th>
+<td><a href="http://cafe.naver.com/hacosa/65684">tiltShift.js, CSS3 이미지 효과 플러그인</a></td>
+<td><a href="http://www.noeltock.com/tilt-shift-css3-jquery-plugin/">tiltShift.js</a></td>
+<td></td>
+<td>블러</td>
+</tr>
+<tr>
+<th scope="row">툴팁</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=54805&amp;referrerAllArticles=false">[툴팁] jquery powertip</a></td>
+<td><a href="http://stevenbenner.github.com/jquery-powertip/">PowerTip</a></td>
+<td>KB(O)</td>
+<td>동서남북, 마우스 추종</td>
+</tr>
+<tr>
+<th scope="row">토글 버튼</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=1&amp;menuid=184&amp;boardtype=L&amp;articleid=53782&amp;referrerAllArticles=false"> jquery toggles. 토글러버튼 플러그인</a></td>
+<td><a href="http://simontabor.com/toggles/">jQuery Toggles</a></td>
+<td></td>
+<td>iOS UI 형태</td>
+</tr>
+<tr>
+<th scope="row">컬러 픽커</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=50380&amp;referrerAllArticles=false">jquery color picker - colorjoe</a></td>
+<td><a href="http://bebraw.github.com/colorjoe/">colorjoe</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">엑셀 편집</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=49862&amp;referrerAllArticles=false">웹에서 엑셀처럼 사용</a></td>
+<td><a href="http://warpech.github.com/jquery-handsontable/index.html">jquery.handsontable.js</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">URL 디코더</th>
+<td><a href="http://cafe.naver.com/hacosa/65684">jQuery URL Decoder Plugin</a></td>
+<td><a href="http://urldecoderonline.com/javascript-url-decode-jquery-plugin.htm">jQuery URL Decoder Plugin</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">동적 배치</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=48108&amp;referrerAllArticles=false">jQuery Masonry ( 동적 레이아웃 배치 )</a></td>
+<td><a href="http://masonry.desandro.com/demos/tumblelog.html">jQuery Masonry</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">아코디언</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=48106&amp;referrerAllArticles=false">아코디언 형식의 단 구조입니다.</a></td>
+<td><a href="http://luxurydessin.x-y.net/test/horizone_acd.html">Demo</a></td>
+<td></td>
+<td>플러그인 아님</td>
+</tr>
+<tr>
+<th scope="row">트리메뉴</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=48053&amp;referrerAllArticles=false">드래그 앤 드롭 트리메뉴</a></td>
+<td><a href="http://mbraak.github.com/jqTree/">jqTree</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">종합 달력</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=47976&amp;referrerAllArticles=false">월간, 주간, 일자 별 달력.. 드래그 앤 드롭</a></td>
+<td><a href="http://arshaw.com/fullcalendar/docs/usage/">FullCalendar</a></td>
+<td>KB(X)</td>
+<td>좋은데.. 아쉽다.</td>
+</tr>
+<tr>
+<th scope="row">슬라이더</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=47936&amp;referrerAllArticles=false">[슬라이더] jquery.sliderkit.1.9.2</a></td>
+<td><a href="http://www.kyrielles.net/sliderkit/sliderkit_en.html#Demonstrations">Slider Kit</a></td>
+<td>KB(O)</td>
+<td>순번과 콘텐츠가 분리되어 있어 아쉽다.</td>
+</tr>
+<tr>
+<th scope="row">슬라이더</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=2&amp;menuid=184&amp;boardtype=L&amp;articleid=47934&amp;referrerAllArticles=false">[슬라이더] jquery.nivo.slider.js</a></td>
+<td><a href="http://nivo.dev7studios.com/demos/">Nivo Slider</a></td>
+<td>KB(X) CF(X)</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">애니메이션</th>
+<td><a href="?">구글 스프라이트를 이용한 애니메이션</a></td>
+<td><a href="http://guny.kr/jquery-sprite-plugin/">jQuery Sprite 플러그인 jquery.sprite.js</a>
+| <a href="http://yangkun.github.com/jquery-sprite/#demo">DEMO</a>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">마우스 이동 감지</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=3&amp;menuid=184&amp;boardtype=L&amp;articleid=47931&amp;referrerAllArticles=false">real-shadow.js 마우스 움직임에 따라 그림자 효과</a></td>
+<td><a href="http://indamix.github.com/real-shadow/">Real Shadow</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">위지윅 에디터</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=3&amp;menuid=184&amp;boardtype=L&amp;articleid=47895&amp;referrerAllArticles=false">위지윅 웹 에디터</a></td>
+<td><a href="http://redactorjs.com/"></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">움직임</th>
+<td><a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&amp;page=3&amp;menuid=184&amp;boardtype=L&amp;articleid=41993&amp;referrerAllArticles=false">jQuery easing v1.3 움직임 테스트</a></td>
+<td><a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery.easing.1.3.js</a></td>
+<td></td>
+<td>
+linear, swing, jswing,<br />
+easeInQuad, easeInCubic, easeInQuart, easeInQuint, easeInSine, easeInExpo, easeInCirc, easeInElastic, easeInBack, easeInBounce,<br />
+easeOutQuad, easeOutCubic, easeOutQuart, easeOutQuint, easeOutSine, easeOutExpo, easeOutCirc, easeOutElastic, easeOutBack, easeOutBounce,<br />
+easeInOutQuad, easeInOutCubic, easeInOutQuart, easeInOutQuint, easeInOutSine, easeInOutExpo, easeInOutCirc, easeInOutElastic, easeInOutBack, easeInOutBounce,<br />
+</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td><a href="?"></a></td>
+<td><a href="?"></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20130128 ~
+20190402.
+20190322.
+20190319.
+20190314.
+20190307.
+20190107.
+20180312.
+20170207.
+20151001.
+20140513. 20140508. 20140204. 20140129.
+20130129. 
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

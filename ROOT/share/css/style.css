@@ -1,0 +1,49 @@
+@charset "utf-8";
+/**
+ * @File Name : style.css
+ * @Description : Layout, CSS Adjust
+ * @Modification Information
+ * <pre>
+ * 수정일 | 수정자 | 수정내용
+ * 2020.11.10 | 문영신 | 최초 등록
+ * 2020.11.13 | 문영신 | 요구반영. 결함개선. 고도화.
+ * </pre>
+ * @author 웹표준화실 문영신
+ * @since 2020.11.10
+ *
+ * @Copyright (C) IACTS.CO.KR All rights reserved.
+ */
+
+/* Table of contents ))
+ | 공통 스타일과 다른 개별 스타일 겹쳐 쓰다!
+ | RWD ◇◆
+ */
+
+/* ◇◆ all.css, sub.css, lib*.css  )) Overwrite. 20180514. ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* #tnb1 div.d1>ul>li:nth-child(5)>a>.t1{width:3em;} */
+
+
+/* ◇◆ StyleName. YYYYMMDD. @Who	 ◇◆ */
+
+
+/* RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */
+@media all and (min-width:768px){/* medium ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* h1#logo{margin:8px 60px 8px 0;}
+h1#logo>a>img{height:64px;} */
+
+
+} /* /(min-width:768px) */
+@media all and (min-width:1000px){/* large ◇◆◇◆◇◆◇◆◇◆ */
+} /* /(min-width:1000px) */
+@media all and (min-width:1260px){/* xlarge (1200+20*2+16+2*2) ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* #tnb1 div.d1>ul>li.m6 ~ li{display:none;} */ /* ☆ */
+
+
+} /* /(min-width:1260px) */
+/* /RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: ' Template | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Template</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="layout.html">Layout Area Selectors(id/class)</a></li>
+<li><a href="#folder">Folder</a></li>
+<li><a href="#markup">Markup Files</a></li>
+<li><a href="#css">CSS Files</a></li>
+<li><a href="#js">JS Files</a></li>
+<li><a href="#image">Image Files</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<div class="box1"><!-- contentsBlock -->
+<strong class="h1"></strong>
+<pre class="mg0tb">board1list board1view board1write --? 유지보수를 고려한다면.. 이전 이름을 사용할까도 생각중..
+bbs1list bbs1view bbs1write --? iActs.renewal 에서 벌써 적용중
+/img/board1/
+/img/bbs1/
+/img/bbs2/
+/img/bbs3/
+</pre>
+<!-- /contentsBlock --></div>
+
+
+<h2 id="folder">Folder</h2>
+
+<table class="t3 w100" summary="기본 /폴더/파일 설명"><caption class="tal"><strong class="fl">기본 /폴더/파일 설명</strong><span class="fr">20130328.</span></caption>
+<col style="width: 13%;" /><col style="width: 10%;" /><col />
+<thead>
+<tr>
+<th>Category</th>
+<th>Folder</th>
+<th>Files. Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Root</td>
+<th>/</th>
+<td>/ 웹 사이트 루트. 메인페이지(홈페이지). 
+기본문서(index.html, index.jsp, default.asp, index.php)만 둔다.<br />
+<del class="">1) 메인페이지(/main/)로 Redirect</del><br />
+2) <em>메인페이지를 전체를 인클루드 한다!</em><br />
+</td>
+</tr>
+<tr class="dpn">
+<td>Library</td>
+<th>/_lab.lib_/</th>
+<td>
+비공개 Template 라이브러리 샘플 파일.<br />
+</td>
+</tr>
+<tr class="alt">
+<td>Library</td>
+<th>/_lib/</th>
+<td>
+Template 라이브러리 샘플 파일. 론칭 후 삭제해도 된다.<br />
+/_lib/board/ 게시판 콘텐츠<br />
+/_lib/sub/ 서브 본문 콘텐츠<br />
+<i>/_lib/layout/</i> 웹페이지 레이아웃 : 기본 배치와 다른 웹페이지(template.html), 팝업(popup.html)<br />
+/_lib/tp.main.html 템플릿 코딩 메인 백업본<br />
+/_lib/tp.sub.html 템플릿 코딩 서브 백업본<br />
+/_lib/index.html 추가 콘텐츠 있으면 인덱스 페이지 만듦.<br />
+/_lib/tp01.*, .. 템플릿 코딩 콘텐츠 샘플<br />
+</td>
+</tr>
+<tr>
+<td>File Data</td>
+<th>/data/</th>
+<td>다운로드, 첨부, 멀티미디어 파일 : hwp, doc, pdf, ppt, xls, wmv, ..<br />
+필요시 하위폴더 생성. - 자료 종류별 또는 메뉴 분류별<br />
+<i>/data/flash/</i> 플래시 무비 *.swf, 원본 *.fla, 퍼블리시한 html 파일<br />
+</td>
+</tr>
+<tr>
+<td>Image</td>
+<th>/img/</th>
+<td>모든 이미지 파일. 하위폴더를 만들어 분류한다.<br />
+<em>※ 여기에 첨부 파일을 절대로 넣지마세요!!</em><br />
+/img/all/ 공용 이미지 모음. 필요시 추가. 불릿, 아이콘, ..<br />
+/img/banner/ 배너. 메인과 서브에서 공통으로 사용되고 계속 추가되므로 별도 폴더로 둔다.<br />
+/img/board/ 게시판 및 서식용 이미지<br />
+/img/inc/ 인클루드 공통(로고, 주메뉴, 비쥬얼, ..) + 서브 본문 공용(제목, 목록, 버튼, 탭, 콤보, ..)<br />
+/img/inc/h/ (필요시 생성) 본문 제목 이미지<br />
+<i>/img/inc/s/</i> (필요시 생성) 사이드 메뉴 이미지<br />
+/img/main/ 메인 콘텐츠용 이미지<br />
+<i>/img/main/pr1/</i> (필요시 생성) 메인 이미지홍보(팝업존)용 이미지<br />
+/img/sub/ 1차(섹션) 폴더 없을 때 모든 서브 본문 개별 이미지<br />
+<i>/img/sub/01/ ..</i> (필요시 생성) 1차(섹션) 폴더 있을 때 섹션 메인 및 서브 본문 개별 이미지<br />
+<i>/img/etc/</i> (필요시 생성) 기타, 독립페이지의 개별 이미지<br />
+</td>
+</tr>
+<tr>
+<td>Markup</td>
+<th>/main/</th>
+<td>메인페이지 + 메인 콘텐츠 인클루드 파일.<br />
+메인페이지는 기본문서를 사용한다. (/main/ 접근가능)<br />
+인클루드 파일 네이밍 예) inc_pr1.html<br />
+</td>
+</tr>
+<tr>
+<td>Markup<br />StyleSheet<br />JavaScript</td>
+<th>/share/</th>
+<td>공유 폴더. 하위폴더를 만들어 분류한다.<br />
+/share/css/ *.css 모든 StyleSheet 파일<br />
+/share/inc/ 전체+서브 공통 Include 파일. <em>※ 본문용 인클루드는 해당 폴더에 생성!</em><br />
+/share/js/ *.js 모든 JavaScript 파일<br />
+/share/ui/ 기능(UI)用 파일 : 마크업이지만 단독으로 보여지는 페이지가 아니라서..!<br />
+… 예) 인쇄미리보기(printpage), 바로가기(gouri), 메일링크생성기(mailto), ..<br />
+</td>
+</tr>
+<tr>
+<td>Markup</td>
+<th>/sub/</th>
+<td>모든 서브페이지, 기타페이지(주메뉴에 없는 웹페이지)<br />
+/sub/01/ .. (필요시 생성) 1차(섹션) 폴더. 섹션 메인페이지와 하위 서브페이지<br />
+※ 대표, 관광 등 IA 4depth 이상, 100page 이상일 때 하위 폴더 생성 권장.<br />
+</td>
+</tr>
+<tr class="alt">
+<td>Markup</td>
+<th>/html/</th>
+<td>마크업 (HTML, JSP, ASP, PHP, ..)<br />
+1) Mobile WebPage Markup<br />
+2) /html/ 로 마크업 폴더 구조 통일?<br />
+<del>/html/inc/</del><br />
+/html/main/<br />
+/html/sub/ OR /html/01/, /html/02/, .. OR /html/about/, /html/biz/, ..<br />
+<del>/html/sub/01/ ..</del><br />
+/html/etc/<br />
+<del>/html/ui/</del><br />
+</td>
+</tr>
+</tbody>
+</table>
+
+<hr style="page-break-before:always" />
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<h2 id="markup">Markup Files</h2>
+
+<table class="t3 w100" summary="Include File  for Layout"><caption class="tal"><strong class="fl">Include File  for Layout</strong><span class="fr">20130328.</span></caption>
+<col style="width: 10%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>Category</th>
+<th>Folder/Files</th>
+<th>Sample</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="4">공통</th>
+<th scope="row">/share/inc/html_head.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/html_head.jsp">[File]</a></td>
+<td><em>menu_all.jsp 인클루드</em><br />
+&lt;head&gt;&lt;/head&gt; 태그 안 마크업 : meta, title, link, script, ..<br />
+<xmp class="xmp">
+meta, title, link, script
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">/share/inc/menu_all.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/menu_all.jsp">[File]</a></td>
+<td>메뉴(1~4Depth) 배열(이름,링크,속성) 정의,<br />
+siteName, viewType, sitePath, title, keywords, description, locationLink, titleImgAlt, titleImg, bodyClass<br />
+<xmp class="xmp">
+/* 20130207. Designed by MoonYoungshin. YYYYMMDD. Last Modifier. */
+본문 제목과 현재위치 3depth 까지만 적용, <body class="d1 d1_2 d1_2_1">
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">/share/inc/head.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/head.jsp">[File]</a></td>
+<td>
+<i>container 영역 시작</i><br />
+head 영역 : skipnavigation, logo, gn1, topmenu, allmenu, ..<br />
+visual 영역 : 비쥬얼대체텍스트 포함<br />
+<xmp class="xmp">
+<%if(d1n!=0){%><li><a href="#sidemenu">부 메뉴 바로가기</a></li><%}%>
+<div id="visual"><img src="/img/inc/visual<%=visual_num%>.jpg" .. alt="<%=visualAlt[d1n]%>" title="" /></div>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">/share/inc/foot.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/foot.jsp">[File]</a></td>
+<td>foot 영역 : fn1(siteguide), visitor, authorinfo(address, copyright), ..<br />
+<em>wing.jsp 인클루드</em><br />
+<i>/container 영역 종료</i><br />
+<xmp class="xmp">
+<li class="m1"><%=mMenu[0][2][1][0]%></li>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">공통 or 서브</th>
+<th scope="row">/share/inc/wing.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/wing.jsp">[File]</a></td>
+<td>wing 영역 : wn1(quickmenu), gotop, ..<br />
+<xmp class="xmp">
+<%if(d1n!=0){/* 메인제외 */%>
+<%}/* /메인제외 */%>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">서브</th>
+<th scope="row">/share/inc/sidebar.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/sidebar.jsp">[File]</a></td>
+<td>side 영역 : side_title, sidemenu, ..<br />
+<xmp class="xmp">
+<%if(d2n!=0){/* 서브메인제외 */%>
+<%}/* /서브메인제외 */%>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">/share/inc/body_head.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/body_head.jsp">[File]</a></td>
+<td>
+<i>forPrint 영역 시작</i><br />
+body_head 영역 : location, body_title, ..
+<xmp class="xmp">
+<div id="body_title"><h1><%=titleImgAlt%></h1></div>
+<script>replaceH1("body_title","<%=sitePath%>/img/inc/h/h","gif",<%=d1n%>,<%=d2n%>,<%=d3n%>);</script>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">/share/inc/body_foot.jsp</th>
+<td><a href="../P2013_Client.Project/web/[_mLib.desktop]/share/inc/body_foot.jsp">[File]</a></td>
+<td>
+<i>/forPrint 영역 종료</i><br />
+body_foot 영역 : charge(manager, update), bn1(bodyutil), satisfaction, ..
+<xmp class="xmp">
+<a href="/share/ui/printpage.html" onclick="window.print();return false;" title="본문인쇄">..</a>
+<a href="?" onclick="history.go(-1);" title="이전 페이지로 이동">..</a>
+<a href="#container" title="현재 페이지 상단으로 이동">..</a>
+</xmp>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Code Sample</h3>
+
+<h4>서브페이지 : /sub/01_01.jsp</h4>
+
+<xmp class="xmp">
+<%@page language="java" contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head><%int d1n=1,d2n=1,d3n=0,d4n=0,d5n=0;String pageTitle="";%><%@include file="/share/inc/html_head.jsp"%></head>
+<body class="<%=bodyClass%>">
+<%@include file="/share/inc/head.jsp"%>
+<!-- #wrap -->
+<div id="wrap">
+<%@include file="/share/inc/sidebar.jsp"%>
+<!-- #body -->
+<div id="body">
+<%@include file="/share/inc/body_head.jsp"%>
+<!-- #body_content -->
+<div id="body_content">
+
+</div>
+<!-- /#body_content -->
+<%@include file="/share/inc/body_foot.jsp"%>
+</div>
+<!-- /#body -->
+</div>
+<!-- /#wrap -->
+<%@include file="/share/inc/foot.jsp"%>
+</body>
+</html>
+</xmp>
+
+<h4>메인페이지 : /main/index.jsp</h4>
+
+<xmp class="xmp">
+<%@page language="java" contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head><%int d1n=0,d2n=0,d3n=0,d4n=0,d5n=0;String pageTitle="";%><%@include file="/share/inc/html_head.jsp"%></head>
+<body class="<%=bodyClass%>">
+<%@include file="/share/inc/head.jsp"%>
+<div id="visual"><img src="<%=sitePath%>/img/main/visual.jpg" width="640" height="200" alt="★대체텍스트" title="" /></div>
+<!-- #wrap -->
+<div id="wrap">
+<!-- #body -->
+<div id="body" class="mainbody">
+
+</div>
+<!-- /#body -->
+</div>
+<!-- /#wrap -->
+<%@include file="/share/inc/foot.jsp"%>
+</body>
+</html>
+</xmp>
+
+
+
+<hr style="page-break-before:always" />
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<h2 id="css">CSS Files</h2>
+&lt;link /&gt; 가 @import 보다 속도가 빠르고 안정적입니다.
+<xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="" />
+</xmp>
+
+<table class="t3 w100" summary="CSS Files Usage1)"><caption class="tal"><strong class="fl">CSS Files Usage1)</strong><span class="fr">20130328.</span></caption>
+<col style="width:15%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th>Category</th>
+<th>Folder/Files</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="2">공통</th>
+<th scope="row">/share/css/all.css</th>
+<td>
+/* Base */ 전체공통기본 (Tag 리셋, 필수 Class),<br />
+/* Layout */ 전체공통배치,<br />
+/* initialize */ 본문 이외 초기화,<br />
+#head, #foot, #wing 자손 스타일.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">/share/css/print.css</th>
+<td>
+@media print{/* 본문인쇄용 */}<br />
+<del>평가 대비 외부 css 파일로 분리하여 모든 웹문서에서 참조.</del><br />
+※ /share/css/print_preview.css 는 /share/ui/printpage.html 에서만 사용된다.
+<br />
+</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">서브</th>
+<th scope="row">/share/css/sub.css</th>
+<td>
+서브공통배치. #sidebar, #body_head, #body_foot 자손 스타일.<br />
+본문 템플릿 스타일 ( /* #body_content */ 자손 : 제목(h1~h6), 문단(p), 목록(ul, ol, dl), 표(table), 본문메뉴, ..).<br />
+개별조합속성<br />
+</td>
+</tr>
+<tr>
+<th scope="row">/share/css/board.css</th>
+<td>
+서식 Tag 기본 리셋 /* form Base */<br />
+정적, 동적 콘텐츠 공용 스타일 (버튼(.button), 페이지 내비게이션(.pagenav), 달력(.calendar), ..).<br />
+게시판 스타일 /* Board Base */ …<br />
+동적(서식·게시판) 콘텐츠는 팝업이라도 포함 (우편번호, ..)<br />
+</td>
+</tr>
+<tr>
+<th scope="row">/share/css/content.css</th>
+<td>
+본문 개별 페이지별 콘텐츠 스타일<br />
+&lt;link /&gt; 순서 : all.css, <i>sub.css, board.css, content.css</i>, print.css<br />
+</td>
+</tr>
+<tr>
+<th scope="row">메인</th>
+<th scope="row">/share/css/main.css</th>
+<td>메인에서만 사용하는 콘텐츠 CSS 선언.<br />
+&lt;link /&gt; 순서 : all.css, <i>main.css</i>, print.css<br />
+</td>
+</tr>
+<tr>
+<th scope="row">팝업</th>
+<th scope="row">/share/css/popup.css</th>
+<td>팝업에서만 사용하는 콘텐츠 CSS 선언.(새 창 포함)<br />
+&lt;link /&gt; 순서 : all.css, sub.css, board.css, content.css, <i>popup.css</i><br />
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- box1 -->
+<div class="box1">
+<strong>Usage1)</strong> 특징 :
+메인페이지에서 CSS 파일 3개 서브에서 5개 참조한다.<br />
+이제 print.css 를 별도 파일로 만들 필요는 없다. (마지막에 두면 스타일을 덮어 쓰는 효과는 있다.)<br /> 
+팝업페이지에서 불필요한 CSS 를 과도하게 참조한다.<br />
+</div><!-- /box1 -->
+
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<table class="t3 w100" summary="CSS Files Usage2)"><caption class="tal"><strong class="fl">CSS Files Usage2) <span class="cd">적용 검토중..?
+CSS 파일 용도별로 모두 분리한 방법. (최대 CSS 파일 6개 참조)
+</span></strong>
+<span class="fr">20130328.</span></caption>
+<col style="width:15%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th>Category</th>
+<th>Folder/Files</th>
+<th>Code</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="4">공용</th>
+<th scope="row">/share/css/base.css<br />
+태그 리셋, 기본 스타일
+</th>
+<td>
+<pre class="xmp">
+<code>/* Reset (Tag Reset, Basic Class) */
+/* initialize */
+/* Property Solo */
+/* Print */ @media print{}
+</code></pre>
+</td>
+<td></td>
+</tr>
+<th scope="row">/share/css/layout.css<br />
+공통 배치 (팝업 제외)<br />
+</th>
+<td>
+<pre class="xmp">
+<code><em>/* Layout */</em>
+/* #head */
+/* #foot */
+/* #wing */
+</code></pre>
+</td>
+<td>
+<em class="fd">공통 배치 필요 없으면 삭제</em>
+</td>
+</tr>
+<th scope="row">/share/css/template.css<br />
+본문 템플릿<br />
+</th>
+<td>
+<pre class="xmp">
+<code>/* #body_content */
+h1,h2,h3,h4,h5,h6{}
+p.bu{} ul.bu{} ol.bu{} dl.bu{}
+table.t3{}
+/* Content Menu */
+…
+</code></pre>
+</td>
+<td>
+<span class="fd">body_content.css 라고 할까?</span><br />
+</td>
+</tr>
+<tr>
+<th scope="row">/share/css/board.css<br />
+서식 템플릿<br />
+</th>
+<td>
+<pre class="xmp">
+<code>/* form Base */
+/* 버튼 */ /* 페이지내비게이션 */ /* 달력 */
+/* Board Base */
+…
+/* 우편번호[새 창] */
+</code></pre>
+</td>
+<td>
+<em class="fd">template.css 와 통합 가능</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">서브 6 css<br />
+<span class="fd">
+&lt;link /&gt; 순서!<br />
+<i>base.css</i><br />
+layout.css<br />
+sub.css<br />
+template.css<br />
+board.css<br />
+content.css<br /></span>
+</th>
+<th scope="row">/share/css/sub.css<br />
+전용 배치
+</th>
+<td>
+<pre class="xmp">
+<code><em>/* Layout */</em>
+/* #sidebar */
+/* #body_head */
+/* #body_foot */
+</code></pre>
+</td>
+<td>
+default.css 하면 혼란스러움.
+메인페이지인가
+</td>
+</tr>
+<tr>
+<th scope="row">/share/css/content.css<br />
+전용 콘텐츠<br />
+</th>
+<td>
+<pre class="xmp">
+<code>/* #body_content */
+/* body.d1 */
+/* body.d2 */
+/* body.d3 */
+/* body.d4 */
+/* body.d5 */
+/* body.d6 */
+</code></pre>
+</td>
+<td>
+<em class="fd">sub.css 와 통합 가능</em><br />
+content.css 를 분리한 것은<br />
+여러 작업자가 공통과 개별 소스를<br />
+동시 작업하기 위함이다. 
+</td>
+</tr>
+<tr>
+<th scope="row">메인 3 css<br />
+<span class="fd">
+&lt;link /&gt; 순서!<br />
+<i>base.css</i><br />
+layout.css<br />
+main.css<br /></span>
+</th>
+<th scope="row">/share/css/main.css<br />
+전용 배치와 콘텐츠
+</th>
+<td>
+<pre class="xmp">
+<code><em>/* Layout */</em>
+/* #head */
+/* #foot */
+/* #wing */
+/* #body */
+</code></pre>
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">팝업 4 css<br />
+<span class="fd">
+&lt;link /&gt; 순서!<br />
+<i>base.css</i><br />
+template.css<br />
+board.css<br />
+popup.css<br />
+</span>
+</th>
+<th scope="row">/share/css/popup.css<br />
+전용 배치와 콘텐츠
+</th>
+<td>
+<pre class="xmp">
+<code><em>/* Layout */</em>
+/* #popup */
+.close{}
+</code></pre>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Code Sample</h3>
+
+<h4>all.css</h4>
+
+<xmp class="xmp">@charset "utf-8";
+/* 20130326. Template by MoonYoungshin. YYYYMMDD. Last Writer. */
+
+/* Base */
+*{font-style:normal;font-family:'돋움',Dotum,sans-serif;}
+html{overflow-y:scroll;}
+body{margin:0;background:#fff;font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+hr{display:none;}
+.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;/* opacity:0;filter:alpha(opacity=0); */}
+*+html .blind{height:0;}
+/* * html .png24{tmp:expression(setPng24(this));} */
+
+/* Layout */
+…
+
+/* initialize */
+#head *, #visual *, #sidebar *, #foot *, #wing *, .mainbody *, *.init
+{list-style:none;margin:0;padding:0;border:0;background:transparent;font-size:1em;line-height:1.252;text-decoration:none;}
+#body_content>*:first-child{margin-top:0;}
+
+/* #head */
+…
+</xmp>
+
+
+
+<hr style="page-break-before:always" />
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<h2 id="js">JavaScript Files</h2>
+
+<table class="t3 w100" summary="JavaScript Files"><caption class="tal"><strong class="fl">JavaScript Files</span></strong><span class="fr">20130328.</span></caption>
+<col style="width: 10%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>Category</th>
+<th>Folder/Files</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">공통</th>
+<th scope="row">/share/js/all.js</th>
+<td>공통+서브+메인 콘텐츠용 자바스크립트<br />
+sub.js, main.js, .. 등으로 분리하지 않는다. (HTTP 요청을 줄여서 성능 향상)<br />
+여기 안에 모든 자바스크립트 소스를 추가한다.<br />
+<pre class="xmp">
+<code>/* 주메뉴 */
+function top2menuView(a){//2차메뉴보기}
+function top2menuHide(a){//2차메뉴감추기}
+function top2menuHideAll()//2차메뉴모두감추기}
+function initTopMenu(d1,d2,imgPath){//1,2차메뉴초기화,이벤트할당}
+/* /주메뉴 */
+</code></pre>
+<xmp class="xmp">
+<!-- topmenu --> 
+<div id="topmenu">
+</div>
+<script>initTopMenu(1,2,"/img/inc/top1m");</script>
+<!-- /topmenu -->
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">공통</th>
+<th scope="row">/share/js/jq.js</th>
+<td>jQuery 로 만든 자바스크립트<br />
+<xmp class="xmp">
+<script src="/share/js/jquery-1.9.1.min.js"></script>
+</xmp>
+<pre class="xmp">
+<code>//jQuery.noConflict();
+jQuery(document).ready(function($){
+//Function ==========
+	jQpr22(selector,speed,effect,mnum){}
+	$.fn.jQpr11 = function(options){}
+//jQ적용 ==========
+	jQpr22('#pr1',6000);
+	$('#pr1').jQpr11({control:'numbutton'});
+});//jQuery end
+</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>all.js Function Library</h3>
+
+<ol class="bo num">
+<li><strong class="dt">getIEVer()</strong> <span class="dd">// [IE]버전 탐지</span></li>
+<li><strong class="dt">randomRange(n1,n2)</strong> <span class="dd">// n1 ~ n2 사이의 정수 랜덤 리턴</span></li>
+<li><strong class="dt">(function(){ })();</strong> <span class="dd">// IE6 Flicker Bug Fix 자동 실행</span></li>
+<li><strong class="dt">setPng24()</strong> <span class="dd">// 투명 PNG24 // <i>필요) [CSS에서 실행] .png24{tmp:expression(setPng24(this));} [HTML] &lt;img class="png24" /&gt;</i></span></li>
+<li><strong class="dt">addLoadEvent(func)</strong> <span class="dd">// window.onload 에 func 함수 추가 실행</span></li>
+<li><strong class="dt">imgOver(imgEl)</strong> <span class="dd">// src="이미지.확장자" ▷ "이미지on.확장자" ex) imgEl.onmouseover=imgOver(this); aEl.onfocus=imgOver(이미지요소);</span></li>
+<li><strong class="dt">imgOut(imgEl)</strong> <span class="dd">// src="이미지on.확장자" ▷ "이미지.확장자" ex) imgEl.onmouseout=imgOut(this); aEl.onblur=imgOut(이미지요소);</span></li>
+<li><strong class="dt">menuOver()</strong> <span class="dd">// src="이미지.확장자" ▷ "이미지on.확장자" ex) imgEl.onmouseover=menuOver; aEl.onfocus=menuOver;</span></li>
+<li><strong class="dt">menuOut()</strong> <span class="dd">// src="이미지on.확장자" ▷ "이미지.확장자" ex) imgEl.onmouseout=menuOver; aEl.onblur=menuOut;</span></li>
+<li><strong class="dt">displayOn()</strong> <span class="dd">// 보이기 ex) displayOn('id1','id2');</span></li>
+<li><strong class="dt">displayOff()</strong> <span class="dd">// 감추기 ex) displayOff('id1','id2');</span></li>
+<li><strong class="dt">displayOnly(coId,num,curr,value)</strong> <span class="dd">// 하나만 보이기 // <i>필요)getIEVer();</i>
+// ex) displayOnly('id문자열공통부분',전체수,활성순번,속성값); displayOnly('view',20,1,'table-row');</span></li>
+<li><strong class="dt">displayToggle(id,myObj)</strong> <span class="dd">// 보이기감추기 토글. id 는 display 토글하고 myObj 는 class="on" 토글. ex) displayToggle('id'); displayToggle('id',this);</span></li>
+<li><strong class="dt">activeOnly(coId,num,curr)</strong> <span class="dd">// 활성상태표시 ex) activeOnly('id문자열공통부분',전체수,활성순번); //class="on" 추가</span></li>
+<li><strong class="dt">initParentClass(containerId)</strong> <span class="dd">// a 롤오버(포커싱)하면 조부모(ul 또는 dl)에 a의 class값을 할당한다. ex) initParentClass("containerId");</span></li>
+<li><strong class="dt">goSelect(form,target)</strong> <span class="dd">// 선택상자 바로가기 &lt;select&gt; &lt;input type="submit" value="이동" class="button" onclick="goSelect(this.form,'_blank'); return false;" title="새 창" /&gt;</span></li>
+<li><strong class="dt">initmSelect(selectId,optionId)</strong> <span class="dd">// 링크 목록을 선택상자처럼 동작. ex) initmSelect("selectId","optionId");</span></li>
+<li><strong class="dt">tabOn(containerId,a)</strong> <span class="dd">// 탭메뉴콘텐츠 ex) tabOn("탭그룹id","활성탭id");tabOn("tab1",1); //활성은 &lt;a class="on"&gt; 하고 img 요소 있으면 src="이미지on.확장자"</span></li>
+<li><strong class="dt">initmTicker(mtickerContainer,mtickerContent,delay)</strong><span class="dd">// 무브티커(순환,롤링)<br />
+ex) initmTicker(document.getElementById("banner1scroll"),document.getElementById("banner1content"),3000);<br />
+ex) prevmTicker(document.getElementById("banner1scroll")); nextmTicker(document.getElementById("banner1scroll"));<br />
+ex) stopmTicker(document.getElementById("banner1scroll")); playmTicker(document.getElementById("banner1scroll"));<br />
+</span>
+</li>
+<li><strong class="dt">initTopMenu(d1,d2,imgPath)</strong> <span class="dd">// 주메뉴 ex) initTopMenu(1,2,"/img/inc/top1m");</span></li>
+<li><strong class="dt">onLocation(contentId)</strong> <span class="dd">// 현재위치(끝 a 요소)에 class="on" 속성 추가.  ex) onLocation("location");</span></li>
+<li><strong class="dt">initClickOn(menuGroupId,onMenuId,contentGroupId)</strong> <span class="dd">// 메뉴클릭활성
+// <i>필요)getUriRef();getUriPage();getElementsByClassName();</i>
+// <em>Upgrade 중단!</em></span></li>
+<li><strong class="dt">initSideMenu(a,b,d1n,imgPath,depth)</strong> <span class="dd">// 부메뉴 // <i>필요)menuOver();menuOut();</i> //<br />
+ex) initSideMenu(<%=d2n%>,<%=d3n%>);//텍스트-텍스트<br />
+ex) initSideMenu(<%=d2n%>,<%=d3n%>,<%=d1n%>,"/img/inc/n/s");//이미지-텍스트<br />
+ex) initSideMenu(<%=d2n%>,<%=d3n%>,<%=d1n%>,"/img/inc/s/s",3);//이미지-이미지<br />
+</span></li>
+</ol>
+
+<h3>Code Sample</h3>
+
+<h4>tabOn(){}</h4>
+
+<h5>JavaScript</h5>
+<xmp class="xmp">
+/* 20130328. Template by MoonYoungshin. YYYYMMDD. Last Developer. */
+
+/* 탭메뉴콘텐츠 #20110415. MoonYoungshin.
+활성은 <a class="on"></a>
+이미지 소스 경로/이름 무관. 텍스트탭 가능.
+탭그룹id="tab1" 라면 탭메뉴는 tab1m1, tab1m2, .. 탭콘텐츠는 tab1c1, tab1c2, .. 으로 한다.
+ex)tabOn("탭그룹id","활성탭id");tabOn("tab1",1);
+*/
+function tabOn(containerId,a){
+	var tabContainer=document.getElementById(containerId);
+	var tabid=(tabContainer)?tabContainer.id:"tab"+containerId;//이전코드호환
+	var tabTagAll=document.getElementById(tabid).getElementsByTagName("*");
+	var tabSum=0;//탭수
+	for(var i=0;i<tabTagAll.length;i++){var where=tabTagAll[i].id.indexOf(containerId+"m");if(where!=-1)tabSum++;}
+	for(var i=1;i<=tabSum;i++){//탭수만큼루프
+		if(i<10){inn="0"+i;}else{inn=""+i;}
+		tabMenu=document.getElementById(tabid+"m"+i);
+		tabContent=document.getElementById(tabid+"c"+i);
+		if(tabMenu){
+			if(tabMenu.tagName=="IMG"){
+				_imgtype=tabMenu.src.substr(tabMenu.src.length-3,tabMenu.src.length-1);
+				tabMenu.src=tabMenu.src.replace("on."+_imgtype, "."+_imgtype);
+				tabMenu.parentNode.className="";
+			}
+			if(tabMenu.tagName=="A"){tabMenu.className="";}
+		}
+		if(tabContent){tabContent.style.display="none";}
+	}
+	if(a<10){ann="0"+a;}else{ann=""+a;}
+	tabMenu=document.getElementById(tabid+"m"+a);
+	tabContent=document.getElementById(tabid+"c"+a);
+	if(tabMenu){
+		if(tabMenu.tagName=="IMG"){
+			_imgtype=tabMenu.src.substr(tabMenu.src.length-3,tabMenu.src.length-1);
+			tabMenu.src=tabMenu.src.replace("."+_imgtype, "on."+_imgtype);
+			tabMenu.parentNode.className="on";
+		}
+		if(tabMenu.tagName=="A"){tabMenu.className="on";}
+	}
+	if(tabContent){tabContent.style.display="block";}
+	tabMore=document.getElementById(tabid+"more");
+}
+</xmp>
+
+<h5>HTML</h5>
+<xmp class="xmp">
+<!-- tab1 -->
+<div id="tab1">
+<h3 class="blind">최근 게시물</h3>
+<h4><a href="#tab1c1" onclick="tabOn('tab1',1);return false;"><img src="/img/main/tab1m01.gif" width="60" height="25" alt="공지사항" id="tab1m1" /></a></h4>
+<!-- tab1c1 -->
+<div id="tab1c1" class="cont">
+</div>
+<!-- /tab1c1 -->
+<h4><a href="#tab1c2" onclick="tabOn('tab1',2);return false;"><img src="/img/main/tab1m02.gif" width="60" height="25" alt="각종소식" id="tab1m2" /></a></h4>
+<!-- tab1c2 -->
+<div id="tab1c2" class="cont">
+</div>
+<!-- /tab1c2 -->
+</div>
+<script>tabOn('tab1',1);</script>
+<!-- //tab1 -->
+</xmp>
+
+
+<hr style="page-break-before:always" />
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<h2 id="Image">Image Files</h2>
+
+<h3>Image File Naming - Template</h3>
+
+
+<!-- <div class="box2">
+일반 : 이미지구분명<em>2자리순번</em>_<em>2자리순번</em><br />
+활성 : 이미지구분명<em>2자리순번</em>_<em>2자리순번</em><strong>on</strong><br />
+</div> -->
+
+<table class="t3" summary="Image File Sample"><caption>Image Files Sample</caption>
+<col style="width: 10%;" /><col style="width: 20%;" /><col style="width: 20%;" /><col />
+<thead>
+<th scope="col">이미지 구분</th>
+<th scope="col">경로/파일명</th>
+<th scope="col">크기=가로*세로</th>
+<th scope="col">이미지 샘플</th>
+</thead>
+<tbody>
+<tr>
+<th scope="row">탑 메뉴</th>
+<td>
+/img/inc/top1m<em>01</em>.gif<br />
+/img/inc/top1m<em>01</em>on.gif<br />
+</td>
+<td>100*34px<br />
+(장식 포함 세로 고정!)</td>
+<td style="background:#ddd;">
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/top1m01.gif" />
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/top1m01on.gif" />
+</td>
+</tr>
+<tr>
+<th scope="row">사이드 제목</th>
+<td>
+/img/inc/side1h<em>01</em>.gif<br />
+/img/inc/side1h<em>02</em>.gif<br />
+</td>
+<td>180*120px<br />
+(장식 포함 크기 고정!)<br />
+(or 가로*글자세로+1px여유)</td>
+<td style="background:#ddd;">
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/side1h01.gif" id="a1" onmouseover="imgOver('a1');" />
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/side1h02.gif" />
+</td>
+</tr>
+<tr>
+<th scope="row">본문 제목</th>
+<td>
+/img/inc/h/h<em>01</em>_<em>01</em>_<em>01</em>.gif<br />
+/img/inc/h/h<em>01</em>_<em>01</em>.gif<br />
+/img/inc/h/h<em>01</em>.gif
+</td>
+<td>300*19px<br />
+(장식 제외 크기 고정!)<br />
+(or 가로*글자세로+1px여유)</td>
+<td style="background:#ddd;">
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/h/h01_01.gif" />
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/h/h01_01_02.gif" />
+</td>
+</tr>
+<tr>
+<th scope="row">사이드 메뉴</th>
+<td>
+/img/inc/s/s<em>01</em>_<em>01</em>.gif<br />
+/img/inc/s/s<em>01</em>_<em>01</em>on.gif<br />
+</td>
+<td>140*14px<br />
+(장식 제외 가로 고정!)<br />
+(or 가로*글자세로+1px여유)<br />
+(불릿 등 장식과 여백은 CSS 로 처리!)<br />
+</td>
+<td style="background:#ddd;">
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/s/s01_01.gif" />
+<img src="../P2013_Client.Project/web/[_mLib.desktop]/img/inc/s/s01_01on.gif" />
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Image Cutting</h4>
+<ul class="bu">
+<li>이미지는 표현하고자 하는 영역 외에 불필요한 여백이 없게 자르는 것을 기본으로 합니다.</li>
+<li>화면 배치를 위한 여백과 링크의 마우스 접근 영역을 확장하려는 경우에는 CSS를 이용합니다.</li>
+<li>예외적으로 본문 제목 등 같은 형태를 가지는 일련의 이미지들은 가장 큰 것을 기준으로 동일한 크기로 자릅니다.</li>
+<li>텍스트 이미지는 글자별 크기 오차가 있으므로 1px 여유있게 자르면 글자 변경시 잘리는 것을 예방할 수 있습니다.</li>
+</ul>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p class="fl">
+<strong>History</strong>
+20131127. /html/ 폴더 재정리!
+20130329.
+20130328. 20130327. 20130321.
+20100610. 설명순화.
+20100525. 1st Finished.
+20100525. Started.
+</p>
+<p class="fr">
+<strong>by</strong>
+MoonYoungshin
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

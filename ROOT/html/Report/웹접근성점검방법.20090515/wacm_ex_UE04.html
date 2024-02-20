@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹 접근성 점검 방법 - 점검 방법 및 준수/위반 사례',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+
+<h1>점검 방법 및 준수/위반 사례</h1>
+<ul class="navi">
+<li><a href="#" onclick="history.go(-1); return false;">이전</a></li>
+<li><a href="wacm.html">목차</a></li>
+<li><a href="#" onclick="history.go(+1); return false;">다음</a></li>
+</ul>
+<!-- box -->
+<div class="box">
+<h2>익스플로러 (브라우저) 화면 확인</h2>
+<h3>2-4. 키보드로만 운용 가능</h3>
+
+<!-- toolBox -->
+<div class="toolBox">
+<h4>점검 가능 지표</h4>
+<ul class="fwb">
+<li>키보드만으로 모든 콘텐츠를 제어할 수 있어야 한다.</li>
+</ul>
+<h4>점검 방법 설명</h4>
+<ul class="fwb">
+<li>탭 키로 처음부터 끝까지 이동이 되는지, 사용에 무리가 없는지 검사 </li>
+<li>&lt;select&gt; 요소에 이동 버튼 (submit 기능) 제공 </li>
+</li>
+</ul>
+</div>
+<!-- //toolBox -->
+<!-- exBad -->
+<div class="exBad">
+<h4>X 나쁜 예</h4>
+<div class="note">탭키 누르면 1-2-3 으로 이동하여 순서가 잘못되어 있다<br />
+1-3-2 순서가 맞음.</div>
+<img src="i/브라우저화면_키보드_나쁜예.png" width="333" height="150" alt="" />
+</div>
+<!-- //exBad -->
+<!-- exGood -->
+<div class="exGood">
+<h4>O 좋은 예</h4>
+<div class="note">탭키 누르면 메뉴1번째- 메뉴1번째 하위메뉴 - 메뉴2번째 순서로 이동하여 하위 메뉴 선택이 가능하다</div>
+<img src="i/브라우저화면_키보드_좋은예.png" width="603" height="150" alt="" />
+</div>
+<!-- //exGood -->
+
+<span class="clb"></span>
+
+<!-- exGood -->
+<div class="exGood">
+<h4>O 좋은 예</h4>
+<div class="note">선택상자에서 선택시 페이지 이동하지 않고 [이동] 버튼 클릭시 동작하게 구성되어야 한다</div>
+<img src="i/브라우저화면_키보드2_좋은예.png" width="225" height="65" alt="" />
+</div>
+<!-- //exGood -->
+
+</div>
+<!-- //box -->
+
+</body>
+</html>

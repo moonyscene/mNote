@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Plugin - TweenMax.js | mNote',
+	page'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+
+
+/* 상위10개강조 */
+.emtop10{list-style-position:inside;margin:0;padding:0 0 0 1em;overflow:hidden;}
+.emtop10 li{z-index:1;position:relative;margin:0;padding:.5em 0;}
+.emtop10 li:after{content:'';display:block;z-index:-1;position:absolute;left:-100%;top:0;bottom:0;width:200%;border-bottom:1px solid #eee9dd;}
+.emtop10 li:not(:nth-child(n+11)){font-size:12.5px;} /* ☆ */
+.emtop10 li:not(:nth-child(n+11)):after{border-bottom:1px solid #eee9dd;background:#fcf9ee;}
+.emtop10 li:not(:nth-child(n+11))>a{color:#069;font-weight:600;}
+.emtop10 li:nth-child(1):after{border-top:1px solid #eee9dd;}
+
+
+/*]]>*/</style>
+<script src="../../share/vendor/gsap.min.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1"><a href="https://greensock.com/docs/v2/TweenMax" target="_blank" rel="noopener" title="새 창">TweenMax.min.js</a></h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Usage">Usage</a></li>
+<li><a href="#Ex">Ex</a></li>
+<li><a href="#Constructor">Constructor</a></li>
+<li><a href="#Properties">Properties</a>
+	<!-- <ul>
+	<li><a href="#data">data</a></li>
+	<li><a href="#selector">selector</a></li>
+	<li><a href="#target">target</a></li>
+	<li><a href="#ticker">ticker</a></li>
+	<li><a href="#timeline">timeline</a></li>
+	<li><a href="#vars">vars</a></li>
+	</ul> -->
+</li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="https://greensock.com/standard-license/" target="_blank" rel="noopener" title="새 창" class="a1">Standard-License</a></li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+<script>/*<![CDATA[*/
+	//gsap.to(".mtab1", {duration: 1, x: 100});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Usage">Usage</h2>
+
+
+<pre class="mg0">
+<code class="xmp">
+var photo = document.getElementById("photo");
+TweenMax.to(photo, 2, {width:"200px", height:"150px"});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to("#myID", 2, {backgroundColor:"#ff0000", width:"50%", top:"100px", ease:Power2.easeInOut});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to(".myClass", 2, {boxShadow:"0px 0px 20px red", color:"#FC0"});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to([obj1, obj2, obj3], 1, {opacity:0.5, rotation:45});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+var tween = new TweenMax(myObject, 2, {width:200, height:150});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+var tween = TweenMax.to(myObject, 2, {width:200, height:150});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to(element, 1, {opacity:0, onComplete:completeHandler, ease:Back.easeOut, useFrames:true});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to(element, 1, {css:{top:"100px", left:"50px", backgroundColor:"#ff0000", fontSize:"12px"}, delay:0.5});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to(".box", 1, {
+  x: function() {
+    return Math.random() * 300;
+  }
+});
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+TweenMax.to(".box", 1, {
+  x: function(index, target) {
+    console.log(index, target);
+    return (index + 1) * 100 // 100, 200, 300
+  }
+})
+</code>
+</pre>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Ex">Ex</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">API</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Constructor">
+	Constructor
+</h3>
+
+
+<div class="panel1 fw6 fsL">
+.TweenMax( target:Object, duration:Number, vars:Object );
+</div>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Properties">
+	Properties
+</h3>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: </span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Properties</th>
+<th scope="col">Type:</th>
+<th scope="col">Default:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b class="em">data</b></th>
+<td>*</td>
+<td></td>
+<td>
+	원하는 데이터를 저장할 장소 (처음에는 vars.data로 채워짐)
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">defaultEase</b></th>
+<td>Ease</td>
+<td></td>
+<td>
+	[정적] 기본 여유 수식을 쉽게 변경할 수 있습니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">defaultOverwrite</b></th>
+<td>String</td>
+<td>"auto"</td>
+<td>
+	[정적] 기본 덮어 쓰기 모드를 쉽게 변경할 수 있습니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onOverwrite</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	[정적] 다른 트윈이 트윈을 덮어 쓸 때 호출되어야하는 함수입니다 (디버깅에 적합).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">selector</b></th>
+<td>* = document.getElementById()</td>
+<td></td>
+<td>
+	[정적] 트윈이 "#myID"와 같이 문자열을 대상으로받을 때 사용하는 선택기 엔진 (jQuery와 같지만 기본값은 document.querySelectorAll ())입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">target</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	[읽기 전용] 트윈이 속성에 영향을주는 대상 객체 (또는 객체 배열)입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">ticker</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	[정적] 엔진이 업데이트 될 때마다 "틱"이벤트를 전달하는 객체로, 각 업데이트 후에 사용자 지정 로직을 실행하기 위해 자신의 리스너를 쉽게 추가 할 수 있습니다 (게임 개발자에게 적합).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">timeline</b></th>
+<td>SimpleTimeline</td>
+<td></td>
+<td>
+	[읽기 전용] 부모 타임 라인.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">vars</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onComplete, onUpdate 등과 같은 구성 변수를 저장하는 생성자에 전달 된 vars 객체
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">★★</b></th>
+<td>★★</td>
+<td></td>
+<td>
+	★★
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">vars</h4>
+
+<p>
+	onComplete, onUpdate 등과 같은 구성 변수를 저장하는 생성자에 전달 된 vars 객체
+</p>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: </span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">vars</th>
+<th scope="col">Type:</th>
+<th scope="col">Default:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b class="em">autoRemoveChildren</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	autoRemoveChildren이 true로 설정되면 하위 트윈 / 타임 라인이 완료되는 즉시 자동으로 종료 / 제거됩니다. 시간이 거꾸로 돌아가는 것을 방지하기 때문에 일반적으로 바람직하지 않습니다 (reverse () 시키거나 진행률을 낮추는 등). 그러나 속도와 메모리 관리를 향상시킬 수 있습니다. 루트 타임 라인은 autoRemoveChildren : true를 사용합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">callbackScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	모든 콜백 (onStart, onUpdate, onComplete 등)에 사용되는 범위입니다. 범위는 콜백 내부에서 "this"가 참조하는 것입니다. 이전 콜백 관련 범위 속성 (onStartScope, onUpdateScope, onCompleteScope, onReverseComplete 등)은 더 이상 사용되지 않지만 여전히 작동합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">delay</b></th>
+<td>Number</td>
+<td></td>
+<td>
+	애니메이션이 시작되기 전의 지연 시간 (초)입니다 (또는 프레임 기반 트윈의 프레임).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onComplete</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	애니메이션이 완료 될 때 호출되어야하는 함수입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onCompleteParams</b></th>
+<td>Array</td>
+<td></td>
+<td>
+	onComplete 함수를 전달할 매개 변수의 배열입니다. 예를 들어, new TimelineMax ({onComplete : myFunction, onCompleteParams : [ "param1", "param2"]}); 매개 변수 중 하나에서 타임 라인 인스턴스 자체를 자체 참조하려면 다음과 같이 "{self}"를 사용하십시오. onCompleteParams : [ "{self}", "param2"]
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onCompleteScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onComplete 함수의 범위를 정의합니다 ( "this"가 해당 함수 내에서 참조).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onRepeat</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	애니메이션이 반복 될 때마다 호출되어야하는 함수입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onRepeatParams</b></th>
+<td>Array</td>
+<td></td>
+<td>
+	onRepeat 함수를 전달할 매개 변수의 배열입니다. 예를 들어, new TimelineMax ({onRepeat : myFunction, onRepeatParams : [ "param1", "param2"]}); 매개 변수 중 하나에서 타임 라인 인스턴스 자체를 자체 참조하려면 다음과 같이 "{self}"를 사용하십시오. onRepeatParams : [ "{self}", "param2"]
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onRepeatScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onRepeat 함수의 범위를 정의합니다 ( "this"가 해당 함수 내에서 참조).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onReverseComplete</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	애니메이션이 역방향에서 다시 시작에 도달 할 때 호출되어야하는 함수입니다. 예를 들어 reverse ()를 호출하면 트윈이 시작 방향으로 되돌아 가고 시간이 0에 도달하면 onReverseComplete가 호출됩니다. 애니메이션이 TimelineLite 또는 TimelineMax 인스턴스에 배치되어 역으로 시작하여 애니메이션을 거꾸로 시작 (또는 과거)으로 재생하는 경우에도 발생할 수 있습니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onReverseCompleteParams</b></th>
+<td>Array</td>
+<td></td>
+<td>
+	onReverseComplete 함수를 전달할 매개 변수의 배열입니다. 예를 들어, new TimelineMax ({onReverseComplete : myFunction, onReverseCompleteParams : [ "param1", "param2"]}); 매개 변수 중 하나에서 타임 라인 인스턴스 자체를 자체 참조하려면 다음과 같이 "{self}"를 사용하십시오. onReverseCompleteParams : [ "{self}", "param2"]
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onReverseCompleteScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onReverseComplete 함수의 범위를 정의합니다 ( "this"가 해당 함수 내에서 참조).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onStart</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	애니메이션이 시작될 때 호출되어야하는 함수입니다 (시간이 0에서 다른 값으로 변경 될 때 트윈이 여러 번 다시 시작되면 두 번 이상 발생할 수 있음).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onStartParams</b></th>
+<td>Array</td>
+<td></td>
+<td>
+	onStart 함수를 전달할 매개 변수의 배열입니다. 예를 들어, new TimelineMax ({onStart : myFunction, onStartParams : [ "param1", "param2"]}); 매개 변수 중 하나에서 타임 라인 인스턴스 자체를 자체 참조하려면 다음과 같이 "{self}"를 사용하십시오. onStartParams : [ "{self}", "param2"]
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onStartScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onStart 함수의 범위를 정의합니다 ( "this"가 해당 함수 내에서 참조).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onUpdate</b></th>
+<td>Function</td>
+<td></td>
+<td>
+	애니메이션이 업데이트 될 때마다 (애니메이션이 활성화 된 동안 모든 프레임에서) 호출되어야하는 함수입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onUpdateParams</b></th>
+<td>Array</td>
+<td></td>
+<td>
+	onUpdate 함수를 전달할 매개 변수의 배열입니다. 예를 들어, new TimelineMax ({onUpdate : myFunction, onUpdateParams : [ "param1", "param2"]}); 매개 변수 중 하나에서 타임 라인 인스턴스 자체를 자체 참조하려면 다음과 같이 "{self}"를 사용하십시오. onUpdateParams : [ "{self}", "param2"]
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">onUpdateScope</b></th>
+<td>Object</td>
+<td></td>
+<td>
+	onUpdate 함수의 범위를 정의합니다 ( "this"가 해당 함수 내에서 참조).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">paused</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	true이면 애니메이션이 만들어지면 즉시 일시 중지됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">repeat</b></th>
+<td>Number</td>
+<td></td>
+<td>
+	애니메이션이 첫 번째 반복 후에 반복되어야하는 횟수입니다. 예를 들어, 반복이 1이면 애니메이션이 총 두 번 재생됩니다 (초기 재생에 1 회 반복). 무기한 반복하려면 -1을 사용하십시오. 반복은 항상 정수 여야합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">repeatDelay</b></th>
+<td>Number</td>
+<td></td>
+<td>
+	반복 간격 (초) (또는 프레임 기반 트윈의 프레임)입니다. 예를 들어, repeat이 2이고 repeatDelay가 1이면 애니메이션이 처음에 재생 된 후 1 초 동안 기다렸다가 다시 재생 한 다음 다시 1 초간 기다렸다가 마지막 반복을 수행합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">smoothChildTiming</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	속성이 즉시 변경 될 때 부드러운 재생을 유지하기 위해 자식 트윈 / 타임 라인이 자동으로 재배치되는지 (시작 시간 변경) 여부를 제어합니다. 예를 들어 타임 라인의 재생 헤드가 75 % 완료된 자식 트윈에 있고 요소의 왼쪽을 0에서 100으로 이동 한 다음 트윈의 reverse () 메서드가 호출된다고 가정합니다. smoothChildTiming이 false 인 경우 (루트 타임 라인을 제외한 기본값) 트윈의 시작 시간이 일관되게 유지됩니다. 따라서 타임 라인의 재생 헤드는 이제 트윈의 25 % 완료 지점에 75 %가 아닙니다. 타임 라인의 재생 헤드 위치 및 방향은 자식 트윈 / 타임 라인 변경에 영향을받지 않습니다. element의 왼쪽은 75에서 25로 점프하지만 타임 라인에서 트윈의 위치는 일정하게 유지됩니다. 그러나 smoothChildTiming이 true이면 해당 자식 트윈의 startTime이 타임 라인의 재생 헤드가 reverse ()가 호출되기 직전의 트윈에서 동일한 지점 (75 % 완료)과 교차하도록 조정되어 재생이 완벽하게 매끄럽게 나타납니다. 요소의 왼쪽은 여전히 ​​75이고 재생 헤드가 이동함에 따라 계속 거기에서 계속되지만 트윈이 반전되면 요소의 왼쪽은 100이 아닌 0으로 다시 이동합니다. 궁극적으로 부드러운 온더 플라이 재생 우선 순위 결정 ( true) 또는 자식 트윈 / 타임 라인의 일관된 위치 (false). smoothChildTiming이 true 일 때 startTime이 변경 될 수있는 자식 트윈 / 타임 라인에 대한 즉각적인 변경 예는 다음과 같습니다. reverse, timeScale, progress, totalProgress, time, totalTime, delay, pause, resume, duration 및 totalDuration.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">useFrames</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	useFrames가 true 인 경우 트윈의 타이밍은 루트 프레임 기반 타임 라인에 초기에 추가되므로 초 대신 프레임을 기준으로합니다. 이로 인해 지속 시간과 지연이 프레임을 기반으로합니다. 애니메이션의 타이밍 모드는 항상 부모 타임 라인에 의해 결정됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">yoyo</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	true 인 경우 트윈이 앞뒤로 (앞뒤로) 나타나도록 다른 모든 반복주기가 반대 방향으로 실행됩니다. 그러나 "반전 된"속성에는 영향을 미치지 않습니다. 따라서 반복이 2이고 요요가 거짓이면 시작-1-2-3-1-2-3-1-2-3-끝과 같습니다. 그러나 yoyo가 true이면 시작-1-2-3-3-2-1-1-2-3-끝입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">★★</b></th>
+<td>★★</td>
+<td></td>
+<td>
+	★★
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Methods">
+	Methods
+</h3>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: </span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Methods</th>
+<th scope="col">Type:</th>
+<th scope="col">Default:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b class="em">delay</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	애니메이션이 시작되기 전의 시간 (초) (또는 프레임 기반 트윈의 프레임) 인 애니메이션의 초기 지연을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">delayedCall</b></th>
+<td>( delay:Number, callback:Function, params:Array, scope:*, useFrames:Boolean ) : TweenMax</td>
+<td></td>
+<td>
+	[정적] 일정 시간 (또는 프레임) 후에 함수를 호출하는 간단한 방법을 제공합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">duration</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	반복 또는 repeatDelays (TweenMax 및 TimelineMax에서만 사용 가능)를 포함하지 않고 애니메이션 지속 시간을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">endTime</b></th>
+<td>( includeRepeats:Boolean ) : Number</td>
+<td></td>
+<td>
+	부모 타임 라인의 현지 시간에 따라 애니메이션이 끝나는 시간을 반환합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">eventCallback</b></th>
+<td>( type:String, callback:Function, params:Array, scope:* ) : *</td>
+<td></td>
+<td>
+	해당 콜백에 전달되어야하는 매개 변수와 함께 "onComplete", "onUpdate", "onStart", "onReverseComplete"또는 "onRepeat"(onRepeat는 TweenMax 또는 TimelineMax 인스턴스에만 적용)와 같은 이벤트 콜백을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">from</b></th>
+<td>( target:Object, duration:Number, vars:Object ) : TweenMax</td>
+<td></td>
+<td>
+	[정적] 뒤로 트윈하는 TweenMax 인스턴스를 생성하는 정적 방법-BEGINNING 값을 정의하면 현재 값이 대상 값으로 사용되며, 객체를 화면에 애니메이션으로 만드는 것과 같은 작업을 수행하는 데 좋습니다. 트윈의 끝을보고 다른 곳에서 애니메이션하기를 원합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">fromTo</b></th>
+<td>( target:Object, duration:Number, fromVars:Object, toVars:Object ) : TweenMax</td>
+<td></td>
+<td>
+	[정적] 시작 값과 끝 값을 모두 정의 할 수있는 TweenMax 인스턴스를 만들기위한 정적 메서드입니다 (한 쪽 또는 다른 쪽의 대상의 현재 값을 기반으로하는 to () 및 from () 트윈과 반대).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">getAllTweens</b></th>
+<td>( includeTimelines:Boolean ) : Array</td>
+<td></td>
+<td>
+	[정적] 모든 트윈 (및 루트 타임 라인을 제외한 타임 라인도 선택적으로 포함)을 포함하는 배열을 반환합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">getTweensOf</b></th>
+<td>(target : Object, onlyActive : Boolean) :</td>
+<td></td>
+<td>
+	[정적] 가비지 수집을 위해 릴리스되지 않았지만 일반적으로 트윈이 완료된 후 몇 초 내에 발생하는 특정 대상 (또는 대상 그룹)의 모든 트윈을 포함하는 배열을 반환합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">globalTimeScale</b></th>
+<td>(value : Number) :</td>
+<td></td>
+<td>
+	[정적] 모든 애니메이션에 동일하게 영향을주는 승수 인 전역 timeScale을 가져 오거나 설정합니다. 이것은 모든 애니메이션을 한 번에 전체적으로 속도를 높이거나 늦출 수있는 좋은 방법입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">invalidate()</b></th>
+<td>*</td>
+<td></td>
+<td>
+	[재정의] 내부에 기록 된 시작 / 종료 값을 플러시합니다. 이는 이전에 기록 된 시작 값으로 되 돌리지 않고 애니메이션을 다시 시작하려는 경우에 유용합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">isActive()</b></th>
+<td>Boolean</td>
+<td></td>
+<td>
+	애니메이션이 현재 활성화되어 있는지 여부를 나타냅니다 (가상 재생 헤드가이 인스턴스의 시간 범위에서 활발하게 움직이고 일시 중지되지 않았거나 조상 타임 라인이 없음을 나타냄).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">isTweening</b></th>
+<td>( target:Object ) : Boolean</td>
+<td></td>
+<td>
+	[정적] 특정 객체가 활성 트위닝 중인지 여부를보고합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">kill</b></th>
+<td>(vars : Object, target : Object) : *</td>
+<td></td>
+<td>
+	매개 변수에 따라 애니메이션을 완전히 또는 부분적으로 종료합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">killAll</b></th>
+<td>( complete:Boolean, tweens:Boolean, delayedCalls:Boolean, timelines:Boolean ) :</td>
+<td></td>
+<td>
+	[정적] 모든 트윈 및 / 또는 지연된 콜 / 콜백 및 / 또는 타임 라인을 종료하고 선택적으로 먼저 완료하도록합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">killChildTweensOf</b></th>
+<td>( parent:Object, complete:Boolean ) :</td>
+<td></td>
+<td>
+	[정적] 특정 DOM 요소 자식의 모든 트윈을 강제 종료하고 선택적으로 해당 요소를 먼저 완료하도록합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">killDelayedCallsTo</b></th>
+<td>( function:Function ) :</td>
+<td></td>
+<td>
+	[정적] 모든 delayedCall을 특정 함수로 즉시 종료합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">killTweensOf</b></th>
+<td>( target:Object, vars:Object ) :</td>
+<td></td>
+<td>
+	[정적] 특정 객체의 모든 트윈 (또는 특정 트윈 속성)을 지연 시키거나 delayedCall을 특정 함수로 죽입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">lagSmoothing</b></th>
+<td>( threshold:Number, adjustedLag:Number ) :</td>
+<td></td>
+<td>
+	엔진의 두 틱 (업데이트) 사이에 너무 많은 시간이 경과 할 때 발생하는 상황을 제어하고 "점프"를 보상하고 피하도록 코어 타이밍 메커니즘을 조정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">pause</b></th>
+<td>( tweens:Boolean, delayedCalls:Boolean, timelines:Boolean ) :</td>
+<td></td>
+<td>
+	선택적으로 특정 시간으로 점프하여 인스턴스를 일시 중지합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">pauseAll</b></th>
+<td>( tweens:Boolean, delayedCalls:Boolean, timelines:Boolean ) :</td>
+<td></td>
+<td>
+	[정적] [더 이상 사용되지 않음] 모든 트윈 및 / 또는 지연된 호출 / 콜백 및 / 또는 타임 라인을 일시 중지합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">paused</b></th>
+<td>( value:Boolean ) : *</td>
+<td></td>
+<td>
+	애니메이션이 현재 일시 중지되었는지 여부를 나타내는 애니메이션의 일시 중지 상태를 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">play</b></th>
+<td>( from:*, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	선택적으로 특정 시간부터 재생을 시작합니다 (기본적으로 재생 헤드는 현재 재생 헤드가있는 곳에서 시작됩니다).
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">progress</b></th>
+<td>( value:Number, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	[재정의] 트윈의 진행률을 가져 오거나 설정합니다. 0과 1 사이의 값으로 가상 재생 헤드의 위치를 ​​나타냅니다 (반복 제외). 0은 시작 부분에 있고 0.5는 중간 지점이며 1은 완료입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">render()</b></th>
+<td></td>
+<td></td>
+<td>
+	예를 들어 from () 트윈 묶음을 설정 한 다음 일이 발생하기 전에 짧은 지연을 피하기 위해 즉각적인 렌더링 ( "게으른"트윈)을 강제 실행해야하는 경우에 유용한 모든 활성 트윈의 렌더링을 강제 실행합니다. 바로 다음 진드기에 렌더링합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">repeat</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	트윈이 첫 번째 반복 후에 반복되어야하는 횟수를 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">repeatDelay</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	반복 간격 (초) (또는 프레임 기반 트윈의 프레임)을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">restart</b></th>
+<td>( includeDelay:Boolean, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	다시 시작하고 처음부터 앞으로 재생을 시작합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">resume</b></th>
+<td>( from:*, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	방향을 바꾸지 않고 (앞으로 또는 뒤로) 재생을 다시 시작하고, 선택적으로 특정 시간으로 먼저 점프합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">resumeAll</b></th>
+<td>( tweens:Boolean, delayedCalls:Boolean, timelines:Boolean ) :</td>
+<td></td>
+<td>
+	[정적] [더 이상 사용되지 않음] 일시 중지 된 모든 트윈 및 / 또는 지연된 통화 / 콜백 및 / 또는 타임 라인을 다시 시작합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">reverse</b></th>
+<td>( from:*, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	예를 들어 트윈의 편의성을 포함하여 애니메이션의 모든 측면이 뒤로 향하도록 재생을 반전시킵니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">reversed</b></th>
+<td>( value:Boolean ) : *</td>
+<td></td>
+<td>
+	( value:Boolean ) : *
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">seek</b></th>
+<td>( time:*, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	인스턴스가 일시 중지 또는 반전되는지 여부에 영향을주지 않고 특정 시간으로 이동합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">set</b></th>
+<td>( target:Object, vars:Object ) : TweenMax</td>
+<td></td>
+<td>
+	[정적] 대상의 속성을 즉시 적절하게 설정합니다. 기본적으로보다 직관적 인 이름을 가진 제로 듀레이션 to () 트윈입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">staggerFrom</b></th>
+<td>( targets:Array, duration:Number, vars:Object, stagger:Number | Object | Function, onCompleteAll:Function, onCompleteAllParams:Array, onCompleteAllScope:* ) : Array</td>
+<td></td>
+<td>
+	[정적] 일반적인 대상 값 집합에서 대상 배열을 트위닝 (현재 값을 대상으로 사용)하지만 시작 시간을 지정된 시간만큼 엇갈리게하여 놀랍도록 적은 양의 코드로 균일 한 간격의 시퀀스를 만듭니다. .
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">staggerFromTo</b></th>
+<td>( targets:Array, duration:Number, fromVars:Object, toVars:Object, stagger:Number | Object | Function, onCompleteAll:Function, onCompleteAllParams:Array, onCompleteAllScope:* ) : Array</td>
+<td></td>
+<td>
+	[정적] 대상 배열을 대상 값 집합에서 대상 값 집합 집합으로 트위닝하지만 시작 시간을 지정된 시간만큼 엇갈리게하여 놀랍도록 적은 양의 코드로 균일 한 간격의 시퀀스를 만듭니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">staggerTo</b></th>
+<td>( targets:Array, duration:Number, vars:Object, stagger:Number | Object | Function, onCompleteAll:Function, onCompleteAllParams:Array, onCompleteAllScope:* ) : Array</td>
+<td></td>
+<td>
+	[정적] 대상 배열을 대상 값 집합으로 트위닝하지만 시작 시간을 지정된 시간만큼 엇갈리게하여 놀랍도록 적은 양의 코드로 균일 한 간격의 시퀀스를 만듭니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">startTime</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	부모 타임 라인에서 애니메이션이 시작되는 시간 (정의 된 지연 후)을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">time</b></th>
+<td>( value:Number, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	[재정의] 반복 또는 repeatDelays를 포함하지 않고 재생 헤드의 로컬 위치 (기본적으로 현재 시간)를 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">timeScale</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	1 = 표준 속도 (기본값), 0.5 = 절반 속도, 2 = 배속 등의 애니메이션에서 시간을 조정하는 데 사용되는 요소입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">to</b></th>
+<td>( target:Object, duration:Number, vars:Object ) : TweenMax</td>
+<td></td>
+<td>
+	[정적] 지정된 대상 값 (현재 값에서)에 애니메이션을 적용하는 TweenMax 인스턴스를 만들기위한 정적 메서드입니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">totalDuration</b></th>
+<td>( value:Number ) : *</td>
+<td></td>
+<td>
+	[재정의] 반복 또는 repeatDelays를 포함하여 트윈의 총 지속 시간 (초) (또는 프레임 기반 트윈의 프레임)을 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">totalProgress</b></th>
+<td>( value:Number, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	totalProgress()
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">totalTime</b></th>
+<td>( time:Number, suppressEvents:Boolean ) : *</td>
+<td></td>
+<td>
+	repeatD 및 repeatDelays (TweenMax 및 TimelineMax에서만 사용 가능)를 포함하는 totalDuration에 따라 재생 헤드의 위치를 가져 오거나 설정합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">updateTo</b></th>
+<td>( vars:object, resetDuration:Boolean ) : *</td>
+<td></td>
+<td>
+	트윈이 진행중인 경우에도 과정을 완벽하게 변경하도록 트위닝 값을 즉시 업데이트합니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">yoyo</b></th>
+<td>( value:Boolean ) : *</td>
+<td></td>
+<td>
+	트윈의 요요 상태를 가져 오거나 설정합니다. true로 설정하면 트윈이 앞뒤로 번갈아 가면서 반복됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">★★</b></th>
+<td>★★</td>
+<td></td>
+<td>
+	★★
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20191226~
+20191226.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

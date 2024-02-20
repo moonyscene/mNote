@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'IE Test | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>IE Test</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#IIE8vs">IE8 비교</a></li>
+<li><a href="#IIE7vs">IE7 비교</a></li>
+<li><a href="#IE11">IE11</a></li>
+<li><a href="#IE10">IE10</a></li>
+<li><a href="#IE8">IE8</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<h2 id="IE7vs">[IE7] 비교 : [IETester]v0.5.2[IE7] .vs. Windows7[IE11]에뮬레이터[IE7] .vs. XP[IE8]호환성보기[IE7]</h2>
+
+<table class="t3" summary=""><caption>[IE7] 비교. 20150120~</caption>
+<thead>
+<tr>
+<th>Key.</th>
+<th>[IETester]v0.5.2[IE7]</th>
+<th>Windows7[IE11]에뮬레이터[IE7]</th>
+<th>XP[IE8]호환성보기</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>select </th>
+<td>height 된다. padding 값 모르겠다.</td>
+<td>height, padding 값 무시한다.</td>
+<td>Not Test</td>
+<td></td>
+</tr>
+<tr>
+<th>select, input type="text" {width:값%}</th>
+<td>표준보다 크다</td>
+<td>표준보다 더 크다</td>
+<td>Not Test</td>
+<td></td>
+</tr>
+<tr>
+<th>input type="file"</th>
+<td>버튼 쪼그라들고 안보니다.</td>
+<td>괜찮다.</td>
+<td>괜찮다.</td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<h2 id="IE11">IE11</h2>
+
+<ol class="bo num">
+<li><strong class="h1">배경 문제!!</strong><br />
+증상1) 버튼에 사용한 배경 불릿이 흐릿하게 보이는 버그 발생<br />
+증상2) button 요소에 마우스오버하면.. 그 부분 부모의 png24 배경이 위치가 어긋나면서 흐릿해지는 현상<br />
+증상2해결1) button 요소 를 a 요소로 변경하는 이상없더라. ㅋ~<br />
+유사현상1) 위 와는 다르지만.. 하여간 다양한 버그가 있나보다.
+※ <a href="http://cafe.naver.com/ArticleRead.nhn?clubid=12566436&page=1&inCafeSearch=true&searchBy=0&query=ie11&includeAll=&exclude=&include=&exact=&searchdate=all&media=0&sortBy=date&articleid=104315&referrerAllArticles=true" target="_blank">IE11 마우스오버시 이미지 흐리게 나오는 현상</a><br />
+[mc] <em>언젠가 고쳐지겠지요~ 기다리자.. 그전에.. 고객이 수정 요하면.. 그때 해결책 강구하자!</em><br />
+</li>
+</ol>
+
+<pre class="box1">텍스트 상단 잘리는지 확인해보니..
+[IE8] 개발자모드 - 문서모드 [IE7] : 잘리지는 않는다. 순정 브라우저와 같은지 모르겠음.
+[IE11] 개발자모드 - 문서모드 [IE7] : 1px 위로 올라가서 잘린다.
+개발자모드 - 문서모드의 렌더링은 다르다.
+IE 정말 짜증난다. 새버전 출시할 때마다 다르다.
+<em>글꼴 세로정렬 맞추기는 더이상 안할란다.
+고객 요구 이슈 발생시에만 해결하자!
+IE Tester 로 확인하자!</em>
+<!-- /box1 --></pre>
+
+<h3>* [IE11] 자동 업그레이드 이후.. . 호환성 보기는?</h3>
+[F12] 개발자 도구 - [Ctrl+8] <b>에뮬레이션</b> - <b>문서모드</b> 선택, <b>사용자 에이전트 문자열</b> 선택.
+글꼴 상하 간격 동일하게 렌더링한다. 문서모드 IE7~IE10 Edge(기본값) 상관없이 동작한다.
+<!-- [IE10] 에서는 이전에  --><!-- ★ 이후 글 어디갔지? 뭐지? -->
+
+<h3>* line-height:normal; 점검확인!</h3>
+* 점검 환경 : HTML5 utf-8 (euc-kr 도 동일한 결과) <em>-- ☆결론. 맞출 수 없었다.</em>
+
+<xmp class="xmp">
+<div style="font-size:12px; line-height:normal;">
+111111 한글과English 나눔고딕과돋움과맑은고딕 utf-8과euc-kr
+</div>
+</xmp>
+<pre>
+[IE11] 나눔고딕 13.8 | 돋움 14 | 맑은고딕 15.96
+[CR] 나눔고딕 14 | 돋움 14 | 맑은고딕 15
+[FF] 나눔고딕 15 | 돋움 15 | 맑은고딕 <em>17</em>
+[OP] 나눔고딕 14 | 돋움 <em>12</em> | 맑은고딕 15
+[SF] 나눔고딕 14 | 돋움 14 | 맑은고딕 15
+</pre>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<h2 id="IE10">IE10 개발자도구 - <em>브라우저모드: IE8, 문서모드: IE8</em></h2>
+
+<ol class="bo num">
+<li>{border-right:1px hidden #fff;} 로 정의하면 #000 색으로 보인다. 순정[IE8][IETester IE8] 이상무!</li>
+</ol>
+
+
+<h2>IE10 / IE9</h2>
+
+<ol class="bo num">
+<li>line-height: 세로 정렬 더 다양하게 다르다.</li>
+<li>굴림 13px 에서 letter-spacing:0; 이  letter-spacing:-1; 처럼 보인다.</li>
+</ol>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<h2 id="IE8">IE8호환성보기, IETester v0.3.4 v0.5.2 렌더링 차이</h2>
+
+<table class="t3" summary=""><caption></caption>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>렌더링 차이</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>IE8 호환성 보기</th>
+<td>
+
+<ul class="bu">
+<li>IE7과 달리 <em>숨은 제목 제공 기법시 아래마진 1px 발생</em><br />
+#sidemenu h3 { .. height: 1px; background: #fff; font-size: 0; line-height: 0; text-indent: -9999px; overflow: hidden; }
+</li>
+</ul>
+
+</td>
+<td></td>
+</tr>
+<tr>
+<th>IETester IE7</th>
+<td>
+
+<ul class="bu">
+<li>[IE7] 과 달리.. input type="file" 버튼이 안보인다.</li>
+<li>[IE7] 과 달리.. 지도 서비스 UX 토글온 동작하면 전체 레이아웃이 우로 20px 로 밀릴 때가 있다. (20141125)</li>
+</ul>
+
+</td>
+<td></td>
+</tr>
+<tr>
+<th>IETester IE6</th>
+<td>
+
+<ul class="bu">
+<li>[IE6] <em>width: auto; height: auto;</em> 오류와 달리 표준으로 렌더링</li>
+<li>[IE6] <em>IE Flicker Bug 해결</em> 자바스크립트 적용해도 a요소에 마우스오버시 배경이 깜박임</li>
+</ul>
+
+</td>
+<td></td>
+</tr>
+<tr>
+<th>IE7.0.5730.13</th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>IE6.0.2900</th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<h2>IE8</h2>
+
+<h3>[IE8 한글판 정식버전 버전 8.0.6001.18702 (date 2009-03-19)] 렌더링 테스트</h3>
+<p>
+윈도7의  IE8.0.7600.16385 과 윈도XP의 IE8.0.6001.18702 테스트 결과.. colgroup, line-height 에서의 버전 차이는 없음.
+</p>
+<!-- box4 -->
+<div class="box4">
+<h4>IE7과 차이</h4>
+<ul class="bu">
+<li>문법을 무시한 &lt;table&gt; 과 &lt;tr&gt; 사이의 &lt;form&gt;, &lt;/form&gt; 태그가 있으면, 배치가 엉망이 됨.<br />
+20091202. <a href="http://gaesil.정보행동.co.kr/marketplace/shopping_basket.php">고령군 개실마을 작업중</a> 확인 해보니 그렇지 않음. 다른 이유에서인가?
+</li>
+<li><em>colgroup, col 의 style 적용 제한</em> - FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가, 태그 속성 align="" 해봐도 적용불가)<br /></li>
+<li><em>line-height 上下 공백값 상이</em><br /></li>
+</ul>
+
+
+<style type="text/css">/*<![CDATA[*/
+table.tar1 tr td:nth-child(1) { text-align: center; background: #ff0; }
+table.tar2 tr td:nth-child(2) { text-align: center; background: #ff0; }
+table.tar3 tr td:nth-child(3) { text-align: center; background: #ff0; }
+/*]]>*/</style>
+
+
+<table class="t3 tar1 tar2" summary="브라우저별 line-height 에 따른 상하 공백값"><caption>브라우저별 line-height 에 따른 상하 공백값 등</caption>
+<colgroup style="white-space: nowrap;"><col style="width: 200px; height: 100px; font: bold 1.2em tahoma;" /><col span="3" style="text-align: center;" /></colgroup>
+<col style="" />
+<thead>
+<tr>
+<th>css</th>
+<th>IE8</th>
+<th>IE7,IE6</th>
+<th>FF,Op,Sf,GC,Fl</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>font-size/line-height<br /><span style="display: block; background: #ff0; opacity: 0.5; -ms-filter: 'alpha(opacity=50)'; filter: alpha(opacity=50);">12px/1.25</span></td>
+<td>0+11+4px</td>
+<td>1+11+3px</td>
+<td>1+11+3px</td>
+<td>다음 세부버전업글을 기대해본다!</td>
+</tr>
+<tr>
+<td style="background: #0ff; opacity: 0.8; filter: alpha(opacity=80);">colgroup, col 적용 가능 CSS</span></td>
+<td>font: text-align: white-space: 불가<br />
+나머지는 IE7과 동일
+</td>
+<td><em>width: background: 가능</em><br />
+font: text-align: white-space: 가능<br />
+height: margin: padding: 불가
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+※ 위 표를 IE8에서 확인해보세요! 가운데 정렬인가? 상하공백이 다른지? 투명필터가적용 되었는지?<br />
+
+<h4>IE7과 동일</h4>
+<ul class="bu">
+<li>filter: 속성 적용 가능.<br />
+<xmp class="xmp">
+background: #0ff; opacity: 0.5; filter: alpha(opacity=50);
+</xmp>
+</li>
+</ul>
+
+<h4>Bug</h4>
+<ul class="bu">
+<li>display: none; display: block; 동작시 가끔 늘어나고 줄어드는 공간이 틀어져 겹쳐지는 문제 발생.</li>
+<li>display: inline-block; 오류.. 간헐적으로 발생하여 정확한 증상은 파악하기 힘듦.</li>
+<li>iframe src 와 부모 프레임의 인코딩이 utf-8 과 utf-8 로 서로 다를 때 a 요소에 마우스 올려 포커싱하면 화면 전체의 텍스트가 1px 움직인다.</li>
+<li>overflow: auto; 또는 textarea 의 스크롤 동작 오류. 내부 영역을 선택하거나 입력하거나 하는 동작시 스크롤이 다른 위치로 이동되어 버린다.
+overflow: auto; 의 경우 display 스타일시트 속성으로 보였다 감추는 동작을 가지는 콘텐츠(예:js로구현한콤보상자)에서 발생하였는데.. visibility 로 하니 버그 현상은 사라졌다.
+</li>
+</dd>
+
+</ul>
+</div>
+<!-- //box4 -->
+
+
+<h3>호환 문제 해결</h3>
+<dl class="bu">
+<dt>컬럼단위 text-align: white-space: 스타일 적용은?</dt>
+<dd>CSS3 :nth-child() IE8 지원되지 않아서 보류..현 시점에서는 jQuery 를 쓸 수 밖에..</dd>
+</dl>
+
+
+
+<h4>더봐야할거</h4>
+<ul class="bu">
+<li><a href="http://naradesign.net/wp/2009/03/12/670/">웹 표준 개발자의 IE8 고려사항</a></li>
+<li><a href="http://html.nhndesign.com/2323">IE8 fieldset/legend bug</a></li>
+<li><a href="http://download.microsoft.com/download/1/2/5/1254442E-26F7-4C64-B014-A3D5EFB2FA12/IE8CSS2_1_v1_0_K.pdf">CSS2.1 IE8 대응 가이드</a></li>
+</ul>
+
+
+
+
+
+<br /><br />
+<hr class="line" />
+<h3>[IE8 한글판 Release Candidate 1 버전 8.0.6001.18372 (date 2009-01-23)] 렌더링 테스트</h3>
+
+IE8 한글판 Beta 2의 버그(display적용지연 등)들이 대부분 잡혔다.
+<dfn>
+<h6>Bug</h6>
+* colgroup, col 의 style 적용도 FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가)<br />
+* line-height 에 따른 <em>상하 공백값</em>이 예전과 달라졌다.<br />
+<h6>Hack</h6>
+<xmp class="xmp">
+background: #0ff; opacity: 0.5; -ms-filter: "alpha(opacity=50)"; filter: alpha(opacity=50);
+</xmp>
+</dfn>
+
+
+<h3>[IE8 한글판 Beta 2 버전 8.0.6001.18241 ] 렌더링 테스트</h3>
+
+<em>아래 IE8 영문판 Beta 렌더링 오류는 모두 수정되었다.</em>
+옛날 IE는 잊어라~ 이제 표준 준수 브라우저라 불러도 되겠다!
+<dfn>
+** 핵 테스트 - 아래 IE 용 핵들 전부 IE8에는 적용안됨.<br />
+<xmp class="xmp">
+* html {  } /*IE6이하*/
+*:first-child+html {  } /*IE7만*/
+*property: value; /* IE7, IE6  */
+_property: value; /* IE6 */
+</xmp>
+<h6>Bug</h6>
+* 탭콘텐츠에서 탭 클릭 후 display 적용이 엄청 오래 걸림.. 10초이상?<br />
+* colgroup, col 의 style 적용도 FF등 다른 표준 브라우저와 동일하게 동작 (text-align, wrap 속성 등 적용 불가)<br />
+* line-height 에 따른 <em>상하 공백값</em>이 예전과 달라졌다.<br />
+<h6>Hack</h6>
+* <em>opacity: 0.5; filter: alpha(opacity=50); 둘다 안되므로 IE8용 속성 -ms-filter: "alpha(opacity=50)"; 를 추가해야함.</em>
+<xmp class="xmp">background: #0ff; opacity: 0.5; -ms-filter: "alpha(opacity=50)"; filter: alpha(opacity=50);</xmp>
+filter: 뒤에 -ms-filter: 가 오면 IE8호환모드에서 필터효과가 적용안되므로 위 순서대로 코딩하자!
+</dfn>
+
+
+<h3>[IE8 영문판 Beta] 렌더링 오류</h3>
+
+<dfn>
+** 사천시 작업 [http://project.정보행동.co.kr:9100/_lib/sub/]
+<xmp class="xmp">
+<a name="sidemenu"></a> 원치않는 공간
+<noscript></noscript> 원치않는 공간
+이미지 플로터 감싸는 박스 폭 1px 크게 잡아야 안밀림.
+텍스트 플로터 li 를 inline 으로 두니 원치않는 상단 공간 발생하므로 아래처럼 수정 필요..
+ul li { display: inline; float: left; }
+ul li a { display: inline; float: left; .. }
+letter-spacing 속성 값이 적용안됨.
+</xmp>
+** 횡성군 본청 메인 [hsg.go.kr]
+<xmp class="xmp">
+overflow: hidden;
+position
+</xmp>
+</dfn>
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140603.
+20140306. 20140225.
+20130903.
+20100915. 20100325. 20091202. 20090828. 20090805. 20090723. 20090611. 20090320. 20090210.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

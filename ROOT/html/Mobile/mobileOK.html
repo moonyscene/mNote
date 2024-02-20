@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'MobileOK | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>MobileOK(모바일OK)</h1>
+
+<ul class="bu">
+<li><a href="?">Site Link</a></li>
+<li><a href="#mOKGuide">모바일OK 개발자 가이드 북</a>
+	<ul>
+	<li>Chapter1~5. 모바일 산업 동향 | 모바일OK 정의 | 모바일OK 하드웨어 표준 | 모바일 문서 제작 규칙 | 모바일OK 검사 기준</li>
+	<li><a href="#Chapter6">Chapter6. 모바일OK 인증과 UI 디자인</a> - <a href="#mobileOKValid">모바일 OK 기본 테스트 항목</a> | 모바일 콘텐츠 제작하는 방법
+	</li>
+	<li><a href="#Promotion">2009년 모바일OK 추진 사업</a></li>
+	</ul>
+</li>
+<li><a href="#ReferenceLink">Reference : 모바일OK 표준 목록</a></li>
+</ul>
+
+<h2 id="">Site Link</h2>
+<ul class="bu">
+<li><a href="http://developer.apple.com/library/safari/navigation/">사파리 개발자 라이브러리 (영문)</a></li>
+</ul>
+
+<!-- box2 -->
+<div class="box2">
+※ 관련기관 / 참고 Site
+<ul class="bu">
+<li><a href="http://www.mobileok.kr/">모바일웹2.0포럼</a> | <a href="http://v.mobileok.kr/">한국형 모바일 웹사이트 유효성 검사 : <i>모바일OK 시험/인증서비스</i> <strong>v.mobileok.kr</strong></a><br />
+2009년 이후 활동 보이지 않다가.. 2012년부터 활동 재개하였고, 2011년 이후~ 모바일OK Validator 는 작동하지 않았고..<br />
+<em>20121129 현재. 팝업으로 중단 알림. "모바일OK Validator 서비스는 중단되었습나다. 향후 서비스를 개선하여 다시 찾아뵙겠습니다."</em><br />
+</li>
+<li><a href="http://www.tta.or.kr/">한국정보통신기술협회(TTA)</a></li>
+<li><a href="http://www.w3.org/Mobile/">W3C Mobile Web Initiative</a></li>
+<li><a href="http://www.moiba.or.kr/">MOIBA (사)한국무선인터넷산업연합회</a></li>
+</ul>
+</div>
+<!-- //box2 -->
+
+
+<h2 id="mOKGuide"><big>모바일OK 개발자 가이드</big>(Mobile OK Developer Guide) - <a href="http://www.mobileok.kr/">모바일웹2.0포럼</a> - 144p 초판.2009.10.30</h2>
+
+<p>아래 내용은 [Book] 차세대 모바일 웹 표준화 <big>모바일OK 개발자 가이드</big>(Mobile OK Developer Guide) - <a href="http://www.mobileok.kr/">모바일웹2.0포럼</a> - 144p
+초판.2009.10.30 의 Contents 를 중심으로 필요한 부분을 정리하였다.</p>
+
+<h3 id="Chapter1">Chapter1. 모바일 산업 동향</h3>
+
+모바일 웹1.0 과 2.0<br />
+
+<h3>Chapter2. 모바일OK 정의</h3>
+
+<p><strong>모바일OK란?</strong> 웹사이트 또는 웹 응용에 대하여 유무선 단말의 종류에 구애 받지 않고 자유롭게 이용할 수 있도록 하는 국제 웹 표준 기술의 총칭을 의미합니다.</p>
+<p><a href="http://terms.naver.com/item.nhn?dirId=202&docId=26148">네이버 정의</a></p>
+
+<h3>Chapter3. 모바일OK 하드웨어 표준</h3>
+
+단말정보 저장소<br />
+모바일OK 확장 브라우저 및 시뮬레이터<br />
+
+<h3>Chapter4. 모바일 문서 제작 규칙</h3>
+
+<h4>모바일 웹 콘텐츠 저작 가이드</h4>
+
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&pk_num=TTAK.KO-10.0307">(MWCAG 1.0: Mobile Web Content Authoring Guide).20081219</a>
+
+<h5>MWCAG 1.0 - W3C Mobile Web 규격 리스트</h5>
+<ul class="bu">
+<li>HTML4.01</li>
+<li>xHTML1.0</li>
+<li>CSS2.1</li>
+<li>ECMA Script 1.0 (ECMA-262)</li>
+<li>DOM1-Core, HTML</li>
+<li>DOM1-Core, HTML, Style, Event, Traversal, Range</li>
+</ul>
+
+<h5>MWCAG 1.0 - HTML4.01 - 유의사항</h5>
+<ul class="bu">
+<li>복잡한 정렬은 table 태그 사용</li>
+<li>button 태그를 사용하지 말자</li>
+<li>table 태그<br />
+	<ul class="bu">
+	<li>테이블 크기는 개발자가 의도한 화면 비율로 출력되어야 하며, 테이블 항목은 스타일과 상관없이 이해하는데 어려움이 없어야 한다.</li>
+	<li>테이블 전체에 기본 여백을 지정할 때는 HTML을 이용하고 각각의 셀에 여백을 줄 때는 CSS를 이용한다.</li>
+	<li>테이블의 키기는 LCD 화면 크기에 상대적인 비율로 지정하도록 한다.</li>
+	<li>만일 콘텐츠 헤더와 값 구분이 쉬운 경우에는 thead, tfoot, tbody 를 사용하지 않아도 된다.</li>
+	</ul>
+</li>
+</ul>
+
+<h5>MWBP(Mobile Web Best Practice) 1.0 - CSS - 유의사항</h5>
+<ul class="bu">
+<li>selector 는 * tag id class 자손</li>
+<li>positon: absolute;</li>
+<li>width, height 는 px 단위</li>
+<li>16진수 색상 표기법</li>
+<li>background-position: %단위</li>
+<li>-wap-input-format</li>
+<li>-wap-accesskey</li>
+<li>-wap-input-required</li>
+</ul>
+
+<h5>ECMA Script 규격 분석 기준 中 유의사항</h5>
+
+<h6>MWCAG 1.0 - ECMAScript 필수 규격</h6>
+
+<pre>
+var (변수를 선언하지 않고 호출하면 오류가 발생?)
+with
+function
+return
+for
+for in
+while
+break
+continue
+if else
+switch
+</pre>
+
+<h3>Chapter5. 모바일OK 검사 기준</h3>
+<h4>장치 표준화를 정의하는 DDC</h4>
+<pre>
+W3C의 MWBP 1.0 DDC (Default Delivery Context) 2005년 - 현실과는 차이
+W3C의 MWBP 2.0 ADC (Advanced Delivery Context)
+한국형 DDC 1.0 는 W3C의 MWBP 1.0 DDC 규격과 동일
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.OT-10.0131">한국형 DDC 1.5 (KDDC 1.5)</a>
+</pre>
+<h4>웹 모범사례 이해하기</h4>
+<p><a href="http://committee.tta.or.kr/include/Download.jsp?filename=choan%2F2010-1399+%C7%D1%B1%B9%C7%FC+%B8%F0%B9%D9%C0%CF+%C0%A5+%B8%F0%B9%FC%BB%E7%B7%CA+1.5.doc">KMWBP1.5 (Korea Mobile Web Best Pratice)</a>란 모바일 환경에서 상호 호환성과 웹 표준 기술 적용 그리고 접근성 높은 웹 콘텐트를 개발하기 위해 작성된 규격서를 말한다.</p>
+
+<h5>MWBP의 총괄적인 기능 검사 기준</h5>
+<h5>내비게이션과 링크 검사 기준</h5>
+<h5>레이아웃과 구성 검사 기준</h5>
+OSR기능?
+<h5>문서 요소 검사 기준</h5>
+<h5>사용자 입력 검사 기준</h5>
+
+
+<h3 id="Chapter6">Chapter6. 모바일OK 인증과 UI 디자인</h3>
+
+<h4>모바일OK 인증 설정하기</h4>
+
+인증기준 : [한국형 모바일 웹 모범사례],[한국형 모바일OK 기본 테스트]
+
+<h5>모바일OK 인증 검사하기</h5>
+
+[<a href="http://v.mobileok.kr/">한국형 모바일 웹사이트 유효성 검사</a>] 검사기준 <a href="http://committee.tta.or.kr/include/Download.jsp?filename=choan%2F2010-1399+%C7%D1%B1%B9%C7%FC+%B8%F0%B9%D9%C0%CF+%C0%A5+%B8%F0%B9%FC%BB%E7%B7%CA+1.5.doc">KMWBP1.5</a> (모바일 웹 접근성 보장, 빠른 페이지 로딩 속도를 위한 기준)<br />
+인증에 성공하면 모바일OK 인증 마크를 문서에 표시할 수 있다.<br />
+<ul class="bu">
+<li>SUCCESS 조건: 시험 항목 중 오류가 검출되지 않은 경우(경고는 포함할 수 있음)</li>
+<li>FAIL 조건: 시험 항목 중 1개 이상의 오류가 검출된 경우.</li>
+</ul>
+
+<h6>다른 검사 사이트 : 각 사이트마다 검사 기준이 다릅니다.</h6>
+<ul class="bu">
+<li><a href="http://ready.mobi/">.mobi 사이트로 검사</a></li>
+<li><a href="http://validator.w3.org/mobile/">w3c 사이트로 검사</a></li>
+</ul>
+
+<h5>모바일OK 인증 기준</h5>
+
+<h6>DDC 규약</h6>
+<ul class="bu">
+<li>올바른 문자 인코딩 방법 : utf-8, utf-8</li>
+<li>페이지 크기 : 50KB 이내</li>
+<li>픽셀 크기 : 240px</li>
+<li>이미지 포맷 : jpeg, gif, png</li>
+<li>컬러 : 256색</li>
+<li>스타일 : css2.1, css3 지원</li>
+<li>javascript, ajax, dom 지원</li>
+</ul>
+
+<h6>웹 페이지 제작</h6>
+<ul class="bu">
+<li>ActiveX 등 비 표준 기능 사용하지 않기</li>
+<li>올바른 HTTP 프로토콜과 올바른 CSS 사용하기</li>
+<li>공백 이미지 또는 이미지 맵 사용하지 않기</li>
+<li>프레임 사용하지 않기</li>
+<li>테이블 중첩해서 사용하기 않기</li>
+<li>팝업 사용하지 않기</li>
+</ul>
+
+
+<!-- box -->
+<div class="box4" style="margin:1em 0;">
+<h4 id="mobileOKValid" style="margin:.3em 0;">모바일 OK 기본 테스트 항목</h4>
+</div>
+<!-- /box -->
+
+<p>
+[PDF파일] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0359.pdf">한국형 모바일OK 기본 테스트(K-mokBT</a>) 는
+<a href="http://dev.w3.org/2007/mobileok-ref/mobileOK-Basic-RI-1.0-DevManual.pdf">W3C mobileOK Basic Tests 1.0(mokBT 1.0)</a>을 바탕으로 정의되었다.<br />
+[DOC파일] <a href="http://committee.tta.or.kr/include/Download.jsp?filename=choan%2F2007-547+%C7%D1%B1%B9%C7%FC+%B8%F0%B9%D9%C0%CFOK+%B1%E2%BA%BB+%C5%D7%BD%BA%C6%AE+1.0-r2.doc">2007-547 한국형 모바일OK 기본 테스트 1.0-r2.doc</a>
+</p>
+<p>
+<em>▶ <a href="http://v.mobileok.kr/">http://v.mobileok.kr/</a> 검사결과 오류항목에 대한 대책을 추가 정리중~</em>
+<br />
+<em>png24 파일 사용하니.. v.mobileok.kr 검사에서 error 항목이 5개 발생!</em>
+</p>
+
+<h5 class="box"><strong>[A]</strong> 01. AUTO_REFRESH & REDIRECTION <em>자동갱신과 이동</em></h5>
+<div>
+<pre>
+만일 meta 요소가 "refresh" 값을 가진 http-equiv 속성과 함께 있으면,
+content 속성에 의해 명시된 URI가 현재 리소스의 URI가 아니면 불합격(FAIL),
+그렇지 않으면 주의(warn).
+
+만일 Refresh HTTP 헤더가 있다면,
+헤더 value 안에 명시된 URI 가 현재 resource의 URI가 아니면 불합격(FAIL),
+그렇지 않으면 주의(warn).
+</pre>
+
+<xmp class="xmp"><meta http-equiv="refresh" content="0;url=/" /></xmp>
+
+</div>
+<h5 class="box"><strong>[A]</strong> 02. CACHING <em>캐싱</em></h5>
+<div>
+<pre>
+<em>HTTP response가 Expires, Cache-Control헤더 둘 다 포함하지 않고
+meta http-equiv 요소가 없으며, 이 헤더들을 참조하면, 불합격(FAIL)</em>
+다른 적절한 헤더에 명시되었을 것으로 가정되는 meta content 속성의 값을 이용하
+여 테스트를 계속 수행하며, 주의(warn)
+
+<em>만일 Cache-Control HTTP 헤더가 있고 "no-cache" 나 "max-age=0" 값을 가지면 주의(warn)</em>
+
+<em>만일 Pragma HTTP 헤더가 있고 "no-cache" 값을 가지면 주의(warn)</em>
+
+만일 Expires와 Date HTTP 헤더가 있고 Expires 헤더가 Date 헤더가 나타내는 날짜보다 더 늦지 않은 날짜를 나타낼 경우 주의(warn)
+
+만일 어떤 cache관련 헤더든 유효하지 않은 값을 가지면 주의(warn)
+
+만일 HTTP 응답이 Last-Modified 헤더를 가지면
+Last-Modified 헤더의 값과 일치하는 값을 가진 If-Modified-Since헤더를 더하여, 똑같은 URI을 다시 요청하고
+HTTP 응답이 Last-Modified 헤더를 가지고 그 값이 똑같고,
+HTTP 응답 상태 코드가 304가 아니면 주의(warn)
+
+HTTP 응답이 ETag 헤더를 가지면
+ETag 헤더의 값과 일치하는 값을 가진 If-None-Match헤더를 더하여, 똑 같은 URI 을 다시 요청하고
+HTTP 응답이 ETag헤더를 가지고 그 값이 똑같고,
+HTTP 응답 상태 코드가 304가 아니면 주의(warn)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 03. CHARACTER_ENCODING_SUPPORT & CHARACTER_ENCODING_USE <em>문자인코딩 지원과 사용</em></h5>
+<div>
+<pre>
+utf-8 사용
+euc-kr 허용
+<em>▶웹서버 content-type  을  text/html;charset=euc-kr 등으로 설정해야 한다.</em><br />
+<a href="http://web-sniffer.net/">HTTP Header 확인 : http://web-sniffer.net/</a>
+</pre>
+</div>
+<h5 class="box"><strong>[AA]</strong> 04. CONTENT_FORMAT_SUPPORT & VALID_MARKUP <em>콘텐츠 포맷 지원과 유효한 마크업</em></h5>
+<div>
+<pre>
+text/html, text/css, image/jpeg, image/gif, image/png
+DOCTYPE
+<em>▶포함된 이미지 또는 object가 image/gif 또는 image/jpeg 또는 image/png 형식이 아닙니다.(text/html) ★웹서버 MIME 설정 후 점검 필요!</em>
+<em>▶external CSS 스타일시트는 CSS문법에 유효하지 않습니다. ▶v.mobileok.kr 자체오류! CSS3 권장하면서.. CSS2.1 문법 안맞으면 오류.</em>
+<em>▶&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"&gt; lang 속성 삭제필요! ▶v.mobileok.kr 자체오류! <a href="http://www.w3.org">www.w3.org</a> 도 사용중인 속성을 오류.
+<a href="http://validator.w3.org/i18n-checker/">http://validator.w3.org/i18n-checker/</a> 와도 상반된 결과!</em>
+<em>▶&lt;form name="frm" id="frm" method="post" action="/program/incprogram/lstSmartNet.asp"&gt; name 속성 삭제필요! ▶v.mobileok.kr 자체오류! 유효성 통과하고 하위호환성을 위한 속성을 오류.</em>
+<em>▶background-image:url(); 는 오류! background:url() no-repeat; 로 수정필요! ▶v.mobileok.kr 자체오류!</em>
+<em>
+▶이 문서는 XHTML Basic 1.1 DTD 이나 MP 1.2에 대해 유효하지 않습니다. 요소 "thead"는(은) 허용되지 않습니다.
+▶이 문서는 XHTML Basic 1.1 DTD 이나 MP 1.2에 대해 유효하지 않습니다. 속성 "border"는(은) 요소 타입 "table" 에서 허용되지 않습니다.
+▶이 문서는 XHTML Basic 1.1 DTD 이나 MP 1.2에 대해 유효하지 않습니다. The content of element type "table" must match "(caption?,tr+)".
+▶이 문서는 XHTML Basic 1.1 DTD 이나 MP 1.2에 대해 유효하지 않습니다. 요소 "tbody"는(은) 허용되지 않습니다.
+</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 05. DEFAULT_INPUT_MODE <em>기본 인풋 타입</em></h5>
+<div>
+<pre>
+type="text" 또는 "password"
+inputmode="" -- 추가 정리 필요! --
+</pre>
+</div>
+<h5 class="box"><strong>[AAA]</strong> 06. EXTERNAL_RESOURCES <em>외부 리소스</em></h5>
+<div>
+<pre>
+HTTP 요청수 총합이 10을 초과하면 주의(warn)
+<em>HTTP 요청수 총합이 50을 초과하면 불합격(FAIL)</em>
+<em>▶background-image:url(); 는 오류! background:url() no-repeat; 로 수정필요! ▶v.mobileok.kr자체오류!</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 07. GRAPHICS_FOR_SPACING <em>공백 이미지</em></h5>
+<div>
+<pre>
+모든 픽셀이 투명하고, 이미지 가로세로가 모두 2픽셀보다 작거나 같으면 주의(warn)
+가로세로중 하나라도 2픽셀을 초과하면, 불합격(FAIL)
+<em>▶background-image:url(); 는 오류! background:url() no-repeat; 로 수정필요! ▶v.mobileok.kr 자체오류!</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 08. IMAGE_MAPS <em>이미지맵</em></h5>
+<div>
+<pre>
+<em>type 속성을 “image”로 설정한 input 요소가 있으면 불합격(FAIL)</em>
+usemap 속성이 있으면, 불합격(FAIL)
+ismap 속성이 있으면, 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[AA]</strong> 09. IMAGES_RESIZING & IMAGES_SPECIFY_SIZE <em>이미지 리사이즈와 사이즈 기입</em></h5>
+<div>
+HTML의 height와 width 속성은 숫자를 이용하여 픽셀 수를 지정한다. 단위는 명시하지 않는다.
+<pre>
+img, object 요소에 대해:
+<em>height 또는 width 속성이 빠졌으면, 불합격(FAIL)</em>
+height 또는 width 속성이 픽셀 크기를 명시하지 않으면, 불합격(FAIL)
+height 또는 width 속성이 대응되는 이미지의 크기보다 크면, 주의(warn)
+<em>height 또는 width 속성이 대응되는 이미지의 크기보다 작으면, 불합격(FAIL)</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 10. LINK_TARGET_FORMAT <em>링크 주소</em></h5>
+<div>
+참고: 이 테스트를 수행하는 동안 404, 5xx HTTP 상태 코드는 불합격(FAIL)의 결과를 낳지 않는다.
+<pre>
+각 문서의 내부 참조에 대해 (자기 문서 자체 링크에 대한 시험)
+만일 참조의 대상이 없거나 또는 부적절한 경우 (예: ‘#’), 주의(warn)
+<em>▶간혹 외부사이트 링크에 대해 오류라고 할 때 있으나, 잘못된 검사이며, 재검사를 해보면 오류가 사라진다.</em>
+</pre>
+</div>
+<h5 class="box"><strong>[AA]</strong> 11. MEASURES <em>단위</em></h5>
+<div>
+참고: 이미지 고유 크기는 CSS 프로퍼티가 아니라 img 요소의 속성으로 명시되어야만 한다. (3.9 IMAGES_RESIZING 와 IMAGES_SPECIFY_SIZE 참조)<br />
+참고: 이 테스트에서는 오직 CSS 레벨 1 프로퍼티만 고려함<br />
+<pre>
+속성값으로 단위와 함께 표현된 숫자를 가지는 CSS Style (2.4.6 CSS Style 참조)내의 각각의 CSS 레벨 1 프로퍼티에 대해:
+만일 값이 0이 아니고 단위가 em 또는 ex가 아니고, property가 margin이나 border, 또는 padding box 가 아니면 불합격(FAIL)
+<em>▶px단위 사용금지 font-size: line-height: text-indent: letter-spacing: width: height:</em>
+<em>▶px단위 사용허용 margin: padding: border:</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 12. MINIMIZE <em>최소화</em></h5>
+<div>
+주의 : 스크립트와 CSS 내의 관계 없는 공백 문자는 이 테스트에서 고려하지 않는다. 그러한 확장에 대해서는 이 규격의 다음 개정 시에 고려할 수 있을 것이다.
+<pre>
+pre, style, script 요소 또는 XML코멘트 밖에 있는 하나 이상의 공백의 문자열에서
+공백 문자(2.4.10 공백 문자 참조)의 수를 계산(맨 처음은 세지 말고)
+이 수에 XML 코멘트를 이루는 문자들의 수를 더한다. 이 총계는 이 문서내의 관계없
+는 문자들의 수이다.
+문서 내의 총 문자 수를 계산
+관계없는 문자들의 수가 문서의 총 문자의 개수의 10%를 초과하면 주의(warn)
+관계없는 문자들의 수가 문서의 총 문자의 개수의 25%를 초과하면 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[AAA]</strong> 13. NO_FRAMES <em>프레임 금지</em></h5>
+<div>
+<pre>
+문서가 frame, frameset, iframe 요소를 포함하면 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 14. NON-TEXT_ALTERNATIVES <em>비어있는 대체텍스트</em></h5>
+<div>
+이 테스트는 alternative text가 의미 있는 것인지 아닌지를 결정하지 않는다.<br />
+주의 : 비어있는 alt 속성은 순수하게 꾸미기를 위한 이미지의 예에서처럼 의미 없는 텍스트 대체 문장을 의미하는 것으로 받아들여지고 있다.<br />
+<pre>
+각각의 img 요소에 대해
+alt 속성이 없거나 공백만으로 이루어져 있으면 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[AAA]</strong> 15. OBJECTS_OR_SCRIPT <em>오브젝트 및 스크립트</em></h5>
+<div>
+이 테스트는 문서에 objects나 scripts가 없어도 여전히 사용가능한지를 결정하지 않는다
+<pre>
+script 요소가 있으면, 주의(warn)
+어느 요소든 “내장 이벤트” 속성(현재 onload, onunload, onclick, ondblclick,
+onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onfocus,
+onblur, onkeypress, onkeydown, onkeyup, onsubmit, onreset, onselect, onchange )
+을 가지면 주의(warn)
+각각의 a와 link 요소에 대해
+href 속성값이 “javascript”로 시작하면 주의(warn)
+applet 요소가 있으면, 불합격(FAIL)
+root element에 cotext를 정하고 Object Element Processing Rule을 적용
+</pre>
+<strong>3.15.1 Object Element Processing Rule</strong>
+...
+</div>
+<h5 class="box"><strong>[AAA]</strong> 16. PAGE_SIZE_LIMIT <em>페이지 사이즈 제한</em></h5>
+<div>
+<pre>
+<em>총 크기가 50KB를 초과하면 불합격(FAIL)</em>
+<em>▶background-image:url(); 는 오류! background:url() no-repeat; 로 수정필요! ▶v.mobileok.kr자체오류!</em>
+<em>▶외부참조 파일은 포함되지 않음. css, js 파일 크기와 css 의 background:url(); 이미지는 포함안함.</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 17. PAGE_TITLE <em>문서 제목</em></h5>
+<div>
+이 테스트는 타이틀이 의미 있는 것인지 아닌지를 판별하지 않는다.
+<pre>
+Title 요소가 head 요소 안에 없거나 비어있거나 공백(2.4.10 White Space 참조)으로만 이루어져 있으면 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 18. POP_UPS <em>팝업</em></h5>
+<div>
+<pre>
+각각의 a, link, form, 그리고 base 요소에 대해
+만일 target 속성이 있고
+그 값이 "_self", "_parent", "_top" 중의 하나가 아니면 불합격(FAIL)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 19. PROVIDE_DEFAULTS <em>기본값 제공</em></h5>
+<div>
+<pre>
+form 요소내에 각각의 radio 버튼 그룹에 대해 (같은 name 속성값을 공유하는 “radio” type의 input 요소)
+이 그룹내에 각각의 input 요소들이 checked 속성값으로 “checked”를 갖는지 확인
+하고, 그렇지 않으면 주의(warn)
+각각의 select 요소에 대해
+Selected 속성이 “selected”로 설정되는 중첩된 option 요소가 없다면, 주의(warn)
+Selected 속성이 “selected”로 설정되고, multiple 속성이 “multiple”로 설정되지
+않은 하나 이상의 option 요소가 있으면 주의(warn)
+</pre>
+</div>
+<h5 class="box"><strong>[AA]</strong> 20. STYLE_SHEETS_SUPPORT <em>스타일시트 지원</em></h5>
+<div>
+<pre>
+CSS Style(2.4.6 CSS Style 참조) 이 position, display, float 특성들을 참조하는 규칙을 가지면 주의(warn)
+</pre>
+</div>
+<h5 class="box"><strong>[AA]</strong> 21. STYLE_SHEETS_USE <em>스타일시트 사용</em></h5>
+<div>
+이 테스트는 어느 CSS Style이 사용되었는지를 필요로 하지 않는다. 어떤 경우에는 presentation 정보가 전혀 필요하지 않기 때문이다. (예를 들어 단순한 텍스트 페이지)<br />
+외부 스타일 시트와 미디어 속성을 가지지 않은 style 요소는 “all”로 가정한다.<br />
+<pre>
+만일 문서가 basefont, bdo, center, del, dir, font, ins, menu, s, strike, 또는 u 요소를 가지면, 불합격(FAIL)
+만일 문서가 b, big, i, small, sub, sup, 또는 tt 요소를 가지면 주의(warn)
+만일 어떤 요소든 style 속성을 가지면 주의(warn)
+모든 스타일이 @media at-rules에 의해 "handheld" 또는 "all"이외의 다른 미디어 타입으로 제한되면 주의(warn)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 22. TABLES_ALTERNATIVES <em>테이블 대안</em></h5>
+<div>
+<pre>
+table 요소가 있으면, 주의(warn)
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 23. TABLES_LAYOUT <em>테이블 배치</em></h5>
+<div>
+이 테스트는 레이아웃의 목적으로 사용되는 table이 있는 모든 경우를 확인하지 않는다.
+<pre>
+각각의 Table 요소에 대해
+하나 이하의 tr 요소를 가지면, 불합격(FAIL)
+하나 이상의 td 요소를 포함하는 tr 요소가 없다면, 불합격(FAIL)
+각각의 중첩된 td 요소에 대해
+실제크기 2x2이하인 이미지만을(또는 동등한 object) 포함하고 있으면 불합격(FAIL)
+<em>▶테이블의 td요소가 2개 이하면 불합격 ▶v.mobileok.kr 자체오류!</em>
+</pre>
+</div>
+<h5 class="box"><strong>[A]</strong> 24. TABLES_NESTED <em>중첩 테이블</em></h5>
+<div>
+<pre>
+각각의 table 요소에 대해
+table 요소가 포함되어 있으면, 불합격(FAIL)
+</pre>
+</div>
+
+<h5 class="box"><strong>[A]</strong> 25. MAIN_DOCUMENT <em>http://v.mobileok.kr/ 추가 점검</em></h5>
+<div>
+<pre>
+리소스가 실제로 존재하고 접근가능한지 확인합니다. 이 확인이 실패하면 검사가 중단되며 mobileOK 시험 항목이 검사되지 않습니다.
+모바일 단말기는 URL Resource에 대한 HTTP 요청에 대해 적합한 응답(200, 3XX)을 받을 수 있어야 합니다.
+매칭된 HTTP 응답 헤더에 meta http-equiv=pragma이 존재하지 않습니다.(warn)
+매칭된 HTTP 응답 헤더에 meta http-equiv=cache-control이 존재하지 않습니다.(warn)
+매칭된 HTTP 응답 해더(content-type)은 존재하지만 그것의 값이 콘텐츠 속성 값과 다릅니다.(warn)
+</pre>
+</div>
+
+
+<h4>모바일 콘텐츠 제작하는 방법</h4>
+
+<h5>홈페이지를 어떻게 작성할 것인가</h5>
+<dl class="bu">
+<dt>유선과 무선 환경에 맞게 다른 페이지로 구성</dt>
+<dd>모바일OK를 One Web 을 지향하지만..</dd>
+<dt>비표준은 표준화 방식으로 개편</dt>
+<dd>액티브X, 플래시를 Javascript, CSS 를 이용하여 개편..</dd>
+<dt>작업 효율성을 고려</dt>
+<dd>기존 사이트를 이용하여 구성할 경우 최대한 손실이 없도록 수정하고 스타일시트 등을 모듈화..</dd>
+<dt>데이터 크기를 최소화</dt>
+<dd>50Kbye 로 제한.. 이미지 개수 및 용량을 최소화.. 불필요한 태그 및 주석을 삭제..</dd>
+<dt>해상도는 시험인증 기준이 아니다</dt>
+<dd>그러나 UI, UX 측면에서 One 모바일 웹사이트를 구축하여 다양한 해상도 단말에 최적의 서비스를 제공..</dd>
+</dl>
+
+<h5>효과적인 모바일OK 사이트 구현</h5>
+<p>스마트폰, Touch UI 등의 향상된 Native UX 제공으로 높아진 사용자 UX 요구에 부응할 수 있는 전략이 필요하다.</p>
+<ul class="bu">
+<li>DDR 조회를 통해 단말에 최적화된 콘텐츠를 제공하도록 한다.</li>
+<li>Pivot (세로 또는 가로 보기) 등의 부가적인 정보 활용하여 최적화된 사이트를 구성한다.</li>
+</ul>
+
+<h5>최적의 레이아웃 전략</h5>
+
+<p>가독성이 향상되어 이용자가 보다 쉽고 빠르게 내용을 파악하고 이해할 수 있다.</p>
+
+<h6>콘텐츠 성격에 따른 레이아웃</h6>
+<ul class="bu">
+<li>아이콘, 글로벌 내비게이션 메뉴바, 게시판 목록 형태 등.. </li>
+</ul>
+<h6>단말 성능에 따른 레이아웃</h6>
+<ul class="bu">
+<li>액정크기 해상도 고려</li>
+</ul>
+<h6>사용자 조작성에 따른 레이아웃</h6>
+<ul class="bu">
+<li>터치 입력 방식에 적절한 레이아웃</li>
+<li>링크는 사이의 간격을 적당히 띄어 주어.. 의도하지 않은 이동을 방지하도록 한다.</li>
+<li>font-size 를 단말의 해상도와 브라우저의 종류에 따라서 적절히 조절</li>
+<li>글로벌 및 로컬 내비게이션을 제공하여 사용자의 링크에 대한 신속한 접근 및 그 페이지의 현재 위치를 쉽게 파악할 수 있도록 한다.</li>
+</ul>
+
+<h5>모바일 웹 디자인할 때 주의사항</h5>
+<ul class="bu">
+<li>목록을 간략하게 구성하자</li>
+<li>여백을 충분히 확보하자</li>
+<li>이미지는 최소화하자</li>
+<li>별도의 도메인 대시 서브 도메인을 사용하자.<br />.mobi 도메인 보다는 http://.site.com http://mobile.site.com http://site.com/mobile 형식을 많이 사용한다.</li>
+<li>우선 순위 - 방문자의 시선을 중심으로 구성</li>
+</ul>
+<h5>|TIP| 모바일 디자인을 위한 고려 사항</h5>
+<ul class="bu">
+<li>XHTML로 페이지 내용을 구조화시키고 CSS를 이용하여 디자인을 체계화하자.</li>
+<li>꾸밈보다는 콘텐츠 전달을 우선으로 생각하자.</li>
+<li>img 태그의 alt 속성에 이미지 설명글을 표시하자.</li>
+<li>가능한 콘텐츠가 화면을 넘치지 않게 구성하자.</li>
+<li>여백을 너무 많이 설정하지 않도록 하자.</li>
+<li>모바일 액정 차이로 인한 색상 차이를 염두에 두자.</li>
+</ul>
+
+
+<hr class="dash" />
+<h2 id="Promotion">2009년 모바일OK 추진 사업</h2>
+
+<h3>모바일OK 기반환경 개선 및 서비스 고도화</h3>
+<ul class="bu">
+<li>모바일OK 단말정보 서비스 고도화 상용화 추진</li>
+<li>모아빌OK 지원 브라우저의 멀티플랫폼 탑재 및 시뮬레이터 확장 개발</li>
+<li>모바일OK 포털 서비스 </li>
+<li>모바일OK 시험 인증도구 보완 및 고도화
+	<ul class="bu">
+	<li>사이트 단위의 모바일OK 표준 검사 지원</li>
+	<li>모바일OK 표준 준수 사이트 검색 시스템 구축</li>
+	<li>검사도구 웹서비스 시스템 구축</li>
+	</ul>
+</li>
+</ul>
+
+<h3>모바일OK 표준 기반의 응용 서비스 개발</h3>
+<ul class="bu">
+<li>모바일OK 표준 기반의 콘텐츠 저작 도구 개발 - Rich Mobile Web</li>
+<li>모바일OK 표준 기반의 결제 모듈 개발</li>
+<li>모바일OK 표준 기반의 <a href="http://ko.wikipedia.org/wiki/WINC">WINC</a> 접속용 응용 개발<br />
+현재 스마트폰의 경우 WINC 접속 기능이 제공되지 않고 있다. WINC 접속 프로그램을 개발 및 배포하여.. 목표로 하고 있다.
+</li>
+</ul>
+
+
+
+
+
+<hr class="dash" />
+<h2 id="ReferenceLink">Reference : 모바일OK 표준 목록</h2>
+
+<cite><a href="http://mobile2.tistory.com/127">[펌]</a></cite>
+2007년부터 2009년까지 3년 동안 모바일 웹 2.0 포럼과 TTA를 통해 추진되었던 국내 모바일OK 표준화를 통해 만들어진 표준 규격들입니다. 아직 많은 분들께 잘 알려지지 않은 것 같아 소개해드립니다.<br />
+좀더 많은 분들이 참고하면서 의견을 주시고/수정 보완을 한다면 앞으로의 모바일 웹 환경에 기틀을 마련해줄 수 있는 그런 표준이 되리라 생각합니다.<br />
+모바일 웹 2.0 포럼과 모바일OK 관련 정보는 <a href="http://mobileok.kr">http://mobileok.kr</a> 로 접속하시면 보실 수 있습니다.<br />
+
+<h3>모바일OK 1.0 표준 세트 가이드 </h3>
+표준 번호 : TTAK.KO-10.0362 <br />
+표준제목 : 한국형 모바일OK 1.0 표준 지침 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0362">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0362</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0362">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0362</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0362.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0362.pdf</a><br />
+제개정일: 2009-12-22</p>
+
+<h3>모바일OK 1.0 요구사항 </h3>
+표준 번호 : TTAS.KO-10.0239 <br />
+표준제목 : 한국형 모바일OK 요구사항 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.KO-10.0239">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.KO-10.0239</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.KO-10.0239">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.KO-10.0239</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0239.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0239.pdf</a><br />
+제개정일: 2007-12-26</p>
+
+<h3>한국형 DDC 1.0 &amp; 1.5</h3>
+표준 번호 : TTAS.OT-10.0131 <br />
+표준제목 : 한국형 DDC 1.5 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.OT-10.0131">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.OT-10.0131</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.OT-10.0131">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.OT-10.0131</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0131.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0131.pdf</a><br />
+제개정일: 2007-12-26</p>
+
+<h3>한국형 모바일 웹 모범사례 1.0, 1.5</h3>
+표준 번호 : TTAK.OT-10.0191 <br />
+표준제목 : 한국형 모바일 웹 모범사례 (ver 1.0)<br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0191">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0191</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0191">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0191</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0191.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0191.pdf</a><br />
+제개정일: 2008-12-19</p>
+<p>표준 번호 : TTAK.OT-10.0252 <br />
+표준제목 : 한국형 모바일 웹 모범사례 (ver 1.5)<br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0252">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0252</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0252">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0252</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0252.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0252.pdf</a><br />
+제개정일: 2008-12-19</p>
+<p>표준 번호 : TTAK.KO-10.0365 <br />
+표준제목 : <em>한국형 모바일 웹 모범사례(Ver 1.5) 확장 지침</em><br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0365">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0365</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0365">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0365</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0365.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0365.pdf</a><br />
+제개정일: 2009-12-22</p>
+
+<h3>모바일OK 기본 테스트 1.0</h3>
+표준 번호 : TTAK.KO-10.0359 <br />
+표준제목 : <em>한국형 모바일OK 기본 테스트 1.0</em> <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0359">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0359</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0359">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0359</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0359.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0359.pdf</a><br />
+제개정일: 2009-12-22</p>
+
+<h3>모바일OK 시험/인증 표준</h3>
+표준 번호 : TTAS.OT-10.0127 <br />
+표준제목 : 모바일 OK 인증 체계 (Ver 1.0) <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.OT-10.0127">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.OT-10.0127</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.OT-10.0127">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.OT-10.0127</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.OT-10.0127.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.OT-10.0127.pdf</a><br />
+제개정일: 2007-12-26</p>
+<p>표준 번호 : TTAS.KO-10.0242 <br />
+표준제목 : 모바일 OK 시험·인증 요구사항(Ver. 1.0) <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.KO-10.0242">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAS.KO-10.0242</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.KO-10.0242">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAS.KO-10.0242</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0242.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAS.KO-10.0242.pdf</a><br />
+제개정일: 2007-12-26 </p>
+<p>표준 번호 : TTAK.OT-10.0190 <br />
+표준제목 : KMOK(Korean Mobile OK) 검사도구 요구사항 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0190">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0190</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0190">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0190</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0190.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0190.pdf</a><br />
+제개정일: 2008-12-19</p>
+<p>표준 번호 : TTAK.KO-10.0308 <br />
+표준제목 : 모바일OK 인증마크 기술언어 요구사항 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0308">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0308</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0308">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0308</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0308.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0308.pdf</a><br />
+제개정일: 2008-12-19</p>
+
+<h3>모바일OK 인증마크 표준</h3>
+표준 번호 : TTAK.KO-10.0366 <br />
+표준제목 : 모바일OK 인증마크 - 파트 2: 마이크로포맷 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0366">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0366</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0366">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0366</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0366.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0366.pdf</a><br />
+제개정일: 2009-12-22</p>
+<p>표준 번호 : TTAK.KO-10.0363 <br />
+표준제목 : 모바일OK 인증마크 - 파트 3: 사용 기준 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0363">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0363</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0363">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0363</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0363.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0363.pdf</a><br />
+제개정일: 2009-12-22</p>
+
+<h3>모바일 웹 콘텐츠 저작 가이드</h3>
+표준 번호 : TTAK.KO-10.0307 <br />
+표준제목 : 모바일 웹 콘텐츠 저작 가이드 1.0 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0307">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0307</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0307">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0307</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0307.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0307.pdf</a><br />
+제개정일: 2008-12-19</p>
+
+<h3>모바일 웹 2.0 어플리케이션</h3>
+표준 번호 : TTAK.KO-10.0309 <br />
+표준제목 : 모바일 웹 2.0 응용 요구사항 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0309">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-10.0309</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0309">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-10.0309</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0309.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-10.0309.pdf</a><br />
+제개정일: 2008-12-19</p>
+
+<h3>단말정보 저장소(DDR) 표준</h3>
+표준 번호 : TTAK.OT-10.0242 <br />
+표준제목 : 단말정보 저장소 요구사항 <br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0242">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0242</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0242">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0242</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0242.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0242.pdf</a><br />
+제개정일: 2008-12-19 </p>
+<p>표준 번호 : TTAK.OT-10.0241<br />
+표준제목 : 단말정보저장소 API<br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0241">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-10.0241</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0241">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-10.0241</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0241.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-10.0241.pdf</a><br />
+제개정일: 2008-12-19&nbsp;<br />
+
+<h3>단말 정보 언어(DDL) 규격</h3>
+표준 번호 : TTAK.KO-05.0045 <br />
+표준제목 : 단말 정보 언어 요구사항<br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-05.0045">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.KO-05.0045</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-05.0045">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.KO-05.0045</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-05.0045.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.KO-05.0045.pdf</a><br />
+제개정일: 2009-12-22</p>
+<p>표준 번호 : TTAK.OT-05.0002<br />
+표준제목 : 단말 정보 언어 명세<br />
+<a href="http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-05.0002">http://www.tta.or.kr/data/ttas_view.jsp?pk_num=TTAK.OT-05.0002</a><br />
+<a href="http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-05.0002">http://www.tta.or.kr/data/ttasVote.jsp?kind=ttastd&amp;pk_num=TTAK.OT-05.0002</a><br />
+[PDF mirror] <a href="http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-05.0002.pdf">http://www.w3c.or.kr/~hollobit/mobileOK/TTAK.OT-05.0002.pdf</a><br />
+제개정일: 2009-12-22</p>
+<p>
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130701.
+20121129.
+20110902. 20110817.
+20101119. 20101117.
+</p>
+<hr />
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

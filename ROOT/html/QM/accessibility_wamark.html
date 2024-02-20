@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹 접근성 품질마크 작업 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>웹 접근성 품질마크 작업</h1>
+
+
+- Update : 
+v2008.01.18
+<a href="accessibility_wamark.20080522.html">v2008.05.22</a>
+v2008.05.28
+<strong>v2008.05.29</strong>
+
+
+<ul class="bu">
+<li>수신 : 
+	<ul class="bu">
+	<li>황지영, 정유진, 김기리, 이영석, 이미숙, 이옥희, 방문준</li>
+	<li>박태공, 구자민, 이녕길, 김봉규, 정대석, 김수진, 남태형, 송영수, 배선옥</li>
+	</ul>
+</li>
+<li>참조 : 홍성열, 김호정, 박미진, 황수인 고수빈, 양현미, 권종술</li>
+</ul>
+
+<em>★★★ 아래 내용 읽어보신 후 수신자들은 알림이로 답변 보내주세요. ★★★<br />
+* 작업 숙지 후 : "품질마크 작업숙지" 라고 간략하게 보내시면 됩니다.<br />
+* 작업 완료 후 : 2008.05.30 PM19:00까지 쪽지로 완료 여부 알려주시고 미결 사항 있으면 텍스트로 보내주시기 바랍니다.
+</em>
+
+<h2>제3회 "웹 접근성 품질마크" 획득을 위한 보완 작업</h2>
+
+
+<!-- box4 -->
+<div class="box4">
+<h4>** 작업일정</h4>
+<p>
+<em>~2008년 05월 30일까지</em> 각 작업자 별로 편한 시간에 작업하시면 됩니다. (작업소요예상시간: 1일 내외)<br />
+※ 주의 : 접근성 보완 작업과 유지보수 작업이 겹치지 않도록 작업자간 협의바람.<br />
+</p>
+
+<h4>** 작업대상 범위</h4>
+
+<ul class="bu">
+<li><strong>사이트</strong> : <a href="#table1">[표1]</a> 2007년 구축한 웹접근성 프로젝트(12개.. <ins>양산은 보류</ins>)</li>
+<li><strong>작업자</strong> : <a href="#table1">[표1]</a>의 디자인코더, 프로그래머<del>(?는 개발실에서 정해주세요.)</del></li>
+<li><strong>페이지</strong> : "정통부 2007년도 웹 접근성 실태조사 결과 보고서" 에서..
+	<ul class="bu">
+	<li><em>2. 조사결과.. (다) 전문가 평가 결과.. 평가 페이지(5개) - 본청 메인 페이지 반드시 포함</em></li>
+	<li><em>1), 2), 3), 4) 항목별 □ 평가결과 요약에서 지적한 부분.</em></li>
+	<li>단, 2007년 프로젝트의 과업범위를 벗어나는 것은 보완 작업에서 제외. (예: 영천시 문화관광)</li>
+	</ul>
+</li>
+</ul>
+
+<strong>☞ 시군별 "웹 접근성 실태조사 결과 보고서" 는 아래와 같이 확인 할 수 있다.</strong><br />
+ㅇ 진주, 함양, 함안, 김해, 칠곡은 <a href="#table1">[표1]</a> "2007 실태조사" 열의 PDF 링크에서 바로 확인 가능.<br />
+ㅇ 정보문화 진흥원 '2007 웹 접근성 실태조사' 연구보고서 다운로드하여 확인 : 기초지자체(<a href="https://www.kado.or.kr/index.aspx?PortalID=ko&MenuID=051227151252816379&control=/Client/KADO/IABF/ReportView.ascx&seq=2693">경남</a>,<a href="https://www.kado.or.kr/index.aspx?PortalID=ko&MenuID=051227151252816379&control=/Client/KADO/IABF/ReportView.ascx&seq=2694">경북</a>), 광역지방자치단체(<a href="https://www.kado.or.kr/index.aspx?PortalID=ko&MenuID=051227151252816379&control=/Client/KADO/IABF/ReportView.ascx&seq=2701">부산</a>)<br />
+ㅇ 부산을 제외하고는 제(문영신) 자리에 있는 "2007 웹 접근성 실태조사 (IV)" 책자에서도 동일한 내용 확인 가능.<br />
+
+
+<p>
+
+</p>
+<h4>** 작업요강</h4>
+<h5>목표 : [표2] 정통부 2007년도 웹 접근성 실태조사 결과의 13개 항목 모두 준수율 90% 초과하도록 보강.</h5>
+<p>
+※ 접근성 준수율 낮은 항목들 집중 보완 : 02 (1-2.영상매체의 인식), 12 (3-3.온라인 서식 구성), 13 (4-1.신기술의 사용)
+</p>
+
+<strong>ㅁ 프로그래머</strong> : 
+<dfn>
+<ul class="bu">
+<li>12 (3-3.온라인 서식 구성)<br />
+3-3-1. 각 서식 제어 요소를 설명하는 <em>레이블</em>을 사용하여야 한다.<br />
+3-3-2. <em>키보드만으로도</em> 온라인 서식 입력 및 서식 간 이동이 가능하여야 한다.<br />
+</li>
+<li>13 (4-1.신기술의 사용)<br />
+4-1-2. 부가 애플리케이션이 작동하지 않을 경우에도 동일한 내용을 전달할 수 있는 대체 콘텐츠를 제공하여야 한다.<br />
+<em>→ javascript 없이도 서식 이용이 가능하도록 수정한다.</em><br />
+	<ul class="bu">
+	<li>ActiveX 가 있을 경우 IE이외의 브라우저는 ActiveX 없이도 해당 과제를 수행할 수 있도록 수정한다.(불가능할 경우만 보류).</li>
+	<li>서식 이용 단계별 페이지 (ActiveX 설치 안내 등..) 에서도 대체텍스트 등 접근성 보강한다.</li>
+	<li>통합검색(select 와 javascript 로 구현된)의 수정 작업은 일단 보류한다.(2008년 프로젝트부터는 접근성 고려하여 코딩한다.)</li>
+	<li><em>부산</em> : 날씨 플래시에 대체텍스트(http://www.630.co.kr/popup/iconlist_1_1.htm 참고) 삽입(작업 방법은 이미 전달했음).<br />
+	</ul>
+</li>
+<li>10 (3-1.데이터 테이블의 구성)<br />
+멀티게시판에서 코드의 table 요소에서 <em>summary 속성을 보완</em>한다.<br />
+(예) summary="목록" 처럼 부실한 요약 설명을 아래 예들을 참고하여 수정한다.<br />
+summary="공지사항 목록"<br />
+summary="공지사항 게시물 목록을 볼 수 있고 제목 링크를 통해서 게시물 상세 내용으로 이동합니다."<br />
+summary="각 게시물의 번호, 제목, 파일, 작성자, 작성일, 조회를 볼 수 있고 제목 링크를 통해서 게시물 상세 내용으로 이동합니다."<br />
+</li>
+</li>
+</ul>
+</dfn>
+<br />
+<strong>ㅁ 디자인코더</strong> :
+<dfn>
+<ul class="bu">
+<li><em>본청 메인</em> 페이지<br />
+모든 접근성 항목(13개)에 대해 보완한다. (유지보수로 변경된 콘텐츠.. 이미지홍보(팝업존), 팝업 창 등 점검)</li>
+<li>13 (4-1.신기술의 사용)<br />
+4-1-2. 부가 애플리케이션이 작동하지 않을 경우에도 동일한 내용을 전달할 수 있는 대체 콘텐츠를 제공하여야 한다.<br />
+→ <a href="../Markup/flash.html">플래시, 동영상 등 <em>object 요소를 페이지에 직접 코딩</em>(javascript에 의존하지 않도록)하고 대체콘텐츠를 보완한다.</a>
+</li>
+<li>02 (1-2.영상매체의 인식)<br />
+동영상 원고 자료가 없어서 자막(원고)을 제공하지 못하더라도, 비동기 자막(원고)을 제공할 공간은 마련해둔다.</li>
+</ul>
+<p>
+
+</p>
+</dfn>
+<br />
+<strong>ㅁ UI코더(문영신, 황지영)</strong> : (참고)<a href="http://www.chilgok.go.kr/main/">칠곡</a><br />
+ <dfn>
+<ul class="bu">
+<li>본청 메인 페이지에서 13 (4-1.신기술의 사용) 항목에서 아래 지표만 보완<br />
+4-1-2. 부가 애플리케이션이 작동하지 않을 경우에도 동일한 내용을 전달할 수 있는 대체 콘텐츠를 제공하여야 한다.<br />
+→ <em>javascript제거시 고려</em> :본청 메인, 서브의 html_head.* 에서 all.css, main.css 를  javascript로 호출하도록 수정한다. (아울러 print.css 도 추가).<br />
+</li>
+<li>iezn_embed_patch.0.43.js (<em>ActiveX 이올라스 특허 문제 해결 스크립트</em>) 추가한다.</li>
+</ul>
+<p>
+
+</p></dfn>
+
+</div>
+<!-- //box4 -->
+
+
+
+<table id="table1" class="t3" summary="작업대상 사이트별 디자인코딩, 프로그램 담당자와 비고를 보여주는 테이블" ><caption><h3>[표1] 2007년 구축한 웹접근성 프로젝트</h3></caption>
+<colgroup style="white-space: nowrap;"><col span="4"><col style="background: #ffe;"><col style="background: #efe;"><col style="background: #eff;"><col><col><col style="white-space: normal;"></colgroup>
+<thead>
+<th scope="col">No.</th>
+<th scope="col">본청</th>
+<th scope="col">2007<br />실태조사</th>
+<th scope="col">제3회<br />품질마크</th>
+<th scope="col">7월4째주<br />지적</th>
+<th scope="col">디자인코더</th>
+<th scope="col">프로그래머</th>
+<th scope="col">확인</th>
+<th scope="col">UI코더<br />JS제거고려</th>
+<th scope="col">비고(v2008.01.18~2008.02 작업후 내용)</th>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01</th>
+<td><a href="http://jinju.go.kr/">진주</a><br />php</td>
+<td>95.1<br /><a href="../wa/★웹접근성실태조사[정통부]/2007년 웹 접근성 실태조사 결과/318_경상남도 진주시_2007년도 웹 접근성 실태조사 송부자료.pdf">PDF</a></td>
+<td><em>우수기관</em></td>
+<td>처리완료<br />js(css)</td>
+<td>황지영 OK</td>
+<td><del>김태영 OK</del><br />박태공</td>
+<td>OK</td>
+<td>OK</td>
+<td><!-- xls 미결부분만 체크함<br /> -->
+* 미결 : 보안모듈, 로그아웃, 민원사무편람, 토론, 동영상 일부, 관련사이트 바로가기, 통합검색<br />
+* 과업X : 검색
+</td>
+</tr>
+<tr>
+<th scope="row">02</th>
+<td><a href="http://www.hygn.go.kr/">함양</a><br />asp</td>
+<td>98.2<br /><a href="../wa/★웹접근성실태조사[정통부]/2007년 웹 접근성 실태조사 결과/325_경상남도 함양군_2007년도 웹 접근성 실태조사 송부자료.pdf">PDF</a></td>
+<td><em>우수기관</em></td>
+<td>처리완료<br />js(css)</td>
+<td>정유진 OK</td>
+<td><del>남태형 OK</del><br />구자민</td>
+<td></td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">03</th>
+<td><a href="http://www.haman.go.kr/">함안</a><br />asp</td>
+<td>97.0<br /><a href="../wa/★웹접근성실태조사[정통부]/2007년 웹 접근성 실태조사 결과/324_경상남도 함안군_2007년도 웹 접근성 실태조사 송부자료.pdf">PDF</a></td>
+<td>신청중~<br /><em>우수기관</em></td>
+<td>처리완료</td>
+<td><del>방문준 OK</del><br />문영신</td>
+<td>이녕길 OK</td>
+<td>ing..</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">04</th>
+<td><a href="http://gimhae.go.kr/">김해</a><br />jsp</td>
+<td>94.7<br /><a href="../wa/★웹접근성실태조사[정통부]/2007년 웹 접근성 실태조사 결과/310_경상남도_김해시_2007년도_웹_접근성_실태조사_송부자료.pdf">PDF</a></td>
+<td>신청중~</td>
+<td></td>
+<td>문영신 OK</td>
+<td><del>김수진 OK</del><br />김봉규</td>
+<td>OK</td>
+<td>OK</td>
+<td>
+* 미결 : 보안모듈, 주정차 금지구역, 통합검색, 메일 보안<br />
+* 과업X : 검색, 차량과태료 조회
+</td>
+</tr>
+<tr>
+<th scope="row">05</th>
+<td><a href="http://www.chilgok.go.kr/">칠곡</a><br />php</td>
+<td>96.1<br /><a href="../wa/★웹접근성실태조사[정통부]/2007년 웹 접근성 실태조사 결과/305_경상북도_칠곡군_2007년도_웹_접근성_실태조사_송부자료.pdf">PDF</a></td>
+<td>신청중~<br /><em>우수기관</em></td>
+<td>처리완료<br />js(css)</td>
+<td>김기리 OK</td>
+<td>정대석 OK</td>
+<td>OK</td>
+<td>OK</td>
+<td><!-- ~2/22 완료 예정 --></td>
+</tr>
+<tr>
+<th scope="row">06</th>
+<td><a href="http://www.geoje.go.kr/">거제</a><br />jsp</td>
+<td>94.7</td>
+<td><em>우수기관</em></td>
+<td>처리완료</td>
+<td>황지영 OK</td>
+<td>김수진 OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>
+* 미결 : 로그인, 민원사무편람, 알림마당, 사용자참여프로그램, 구인구직, 인구와세대,  통합검색<br />
+* 과업X : 검색, 민원상담(eminwon.), 실명인증(name.siren24.com)
+</td>
+</tr>
+<tr>
+<th scope="row">07</th>
+<td><a href="http://www.tongyeong.go.kr/">통영</a><br />asp</td>
+<td>97.3</td>
+<td></td>
+<td></td>
+<td>이영석 OK</td>
+<td>남태형 OK</td>
+<td></td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">08</th>
+<td><a href="http://www.yc.go.kr/">영천</a><br />asp</td>
+<td>95.2</td>
+<td>신청안함</td>
+<td></td>
+<td>문영신 OK</td>
+<td><!-- 구자민<br /> --><del>김태영 OK</del><br />남태형</td>
+<td>OK</td>
+<td>OK</td>
+<td>
+* 불가 : 실명인증, 통합게시판 일부<br />
+* 과업X : 검색
+</td>
+</tr>
+<tr>
+<th scope="row">09</th>
+<td style="background: #eee;"><a href="http://www.masan.go.kr/">마산</a><br />jsp</td>
+<td>-</td>
+<td>신청중~</td>
+<td></td>
+<td>이미숙</td>
+<td>송영수</td>
+<td></td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">10</th>
+<td><a href="http://www.hadong.go.kr/">하동</a><br />asp</td>
+<td>-</td>
+<td>신청중~<br /><em>우수기관</em></td>
+<td>처리완료</td>
+<td>이옥희 OK</td>
+<td><del>남태형 OK</del><br />구자민</td>
+<td></td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">11</th>
+<td><a href="http://www.busan.go.kr/">부산</a><br />jsp</td>
+<td>-</td>
+<td>신청중~<br /><em>우수기관</em></td>
+<td></td>
+<td><!-- <del>박진호 OK</del><br /> -->방문준</td>
+<td><del>박태공</del><br />배선옥</td>
+<td></td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">12</th>
+<td style="background: #eee;"><a href="http://www.yangsan.go.kr/">양산</a><br />php</td>
+<td>-</td>
+<td></td>
+<td></td>
+<td>김기리</td>
+<td><del>김수진</del></td>
+<td></td>
+<td></td>
+<td><em>작업보류</em></td>
+</tr>
+<tr style="background: #f7f7f7;">
+<th scope="row" style="background: #f7f7f7;">비고</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>
+※ 작업자 이름 옆의 OK 는 2008년 1사분기(v2008.01.18~)에 진행한 품질마크 보강작업에서 엑셀 보고서 제출여부를 표시한 것임.
+</p>
+<p>
+<a href="../qm/+웹접근성품질마크[KADO]/+2007웹접근성프로젝트보완작업/">☞ 참고 : 2007웹접근성프로젝트보완작업(2008.01 ~ 2008.02) 결과 처리 상태 엑셀 파일들</a>
+</p>
+
+
+<table class="t3" summary="정통부 2007년도 웹 접근성 실태조사 결과"><caption><h3>[표2] 정통부 2007년도 웹 접근성 실태조사 결과</h3> <span class="unit">시군별 준수율(%)</span></caption>
+<colgroup><col class="tal" /><col span="99" class="tac" /></colgroup>
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">배점</th>
+<!-- <th scope="col">점수</th> -->
+<!-- <th scope="col">준수율(%)</th> -->
+<th scope="col">진주</th>
+<th scope="col">함양</th>
+<th scope="col">함안</th>
+<th scope="col">김해</th>
+<th scope="col">칠곡</th>
+<th scope="col">거제</th>
+<th scope="col">통영</th>
+<th scope="col">영천</th>
+<th scope="col">마산</th>
+<th scope="col">하동</th>
+<th scope="col">부산</th>
+<th scope="col">양산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>01 (1-1.텍스트 아닌 콘텐츠의 인식)</th>
+<td title="배점">21점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안"><em>97.14</em></td>
+<td title="김해"><em>95.71</em></td>
+<td title="칠곡"><em>95.71</em></td>
+<td title="거제">100.00</td>
+<td title="통영"><em>98.57</em></td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th><strong>02 (1-2.영상매체의 인식)</strong></th>
+<td title="배점">10점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주"><em>80.00</em></td>
+<td title="함양"><em>90.00</em></td>
+<td title="함안"><em>90.00</em></td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제"><em>90.00</em></td>
+<td title="통영"><em>90.00</em></td>
+<td title="영천"><em>80.00</em></td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>03 (1-3.색상에 무관한 인식)</th>
+<td title="배점">12점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해"><em>96.67</em></td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천"><em>92.50</em></td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>04 (2-1.이미지 맵 기법 사용 제한)</th>
+<td title="배점">1점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>05 (2-2.프레임의 사용 제한)</th>
+<td title="배점">5점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>06 (2-3.깜박거리는 객체 사용 제한)</th>
+<td title="배점">3점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>07 (2-4.키보드로만 운용 가능)</th>
+<td title="배점">9점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>08 (2-5.반복 내비게이션 링크)</th>
+<td title="배점">3점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해"><em>90.00</em></td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천"><em>90.00</em></td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>09 (2-6.반응시간의 조절기능)</th>
+<td title="배점">4점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>10 (3-1.데이터 테이블의 구성)</th>
+<td title="배점">6점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제"><em>95.00</em></td>
+<td title="통영">100.00</td>
+<td title="영천"><em>90.00</em></td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th>11 (3-2.페이지의 논리적 구성)</th>
+<td title="배점">9점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">100.00</td>
+<td title="함양">100.00</td>
+<td title="함안">100.00</td>
+<td title="김해">100.00</td>
+<td title="칠곡">100.00</td>
+<td title="거제">100.00</td>
+<td title="통영">100.00</td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th><strong>12 (3-3.온라인 서식 구성)</strong></th>
+<td title="배점">7점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주"><em>72.86</em></td>
+<td title="함양">100.00<sup><em>*1)</em></sup></td>
+<td title="함안"><em>91.43</em></td>
+<td title="김해"><em>65.71</em></td>
+<td title="칠곡"><em>71.43</em></td>
+<td title="거제"><em>61.43</em></td>
+<td title="통영"><em>95.71</em></td>
+<td title="영천">100.00</td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr>
+<th><strong>13 (4-1.신기술의 사용)</strong></th>
+<td title="배점">10점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주"><em>90.00</em></td>
+<td title="함양"><em>92.00</em></td>
+<td title="함안"><em>92.00</em></td>
+<td title="김해"><em>87.00</em></td>
+<td title="칠곡"><em>90.00</em></td>
+<td title="거제"><em>87.00</em></td>
+<td title="통영"><em>89.00</em></td>
+<td title="영천"><em>90.00</em></td>
+<td title="마산">-</td>
+<td title="하동">-</td>
+<td title="부산">-</td>
+<td title="양산">-</td>
+</tr>
+<tr class="alt">
+<th>총점</th>
+<td title="배점">100점</td>
+<!-- <td title="점수"></td> -->
+<!-- <td title="준수율"></td> -->
+<td title="진주">95.1점</td>
+<td title="함양">98.2점</td>
+<td title="함안">97.0점</td>
+<td title="김해">94.7점</td>
+<td title="칠곡">96.1점</td>
+<td title="거제">94.7점</td>
+<td title="통영">97.3점</td>
+<td title="영천">95.2점</td>
+<td title="마산">80.5점</td>
+<td title="하동">77.1점</td>
+<td title="부산">95.9점</td>
+<td title="양산">85.3점</td>
+</tr>
+</tbody>
+</table>
+<p>
+<em>*1)</em> 로그인에 레이블을 제공하지 않아 지적되었지만 점수가 100%로 잘못 산정되었으므로 작업 필요함
+</p>
+
+
+<hr />
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

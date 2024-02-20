@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'RWD | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1 class="hb1 h1">RWD (Responsive Web Design)</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Basic">Basic</a>
+	<ul>
+	<li><a href="#MediaQuery">Media Query</a></li>
+	<li><a href="#CrossBrowsing">Cross Browsing</a></li>
+	<li><a href="#RWD_HTML5">RWD + HTML5</a></li>
+	</ul>
+</li>
+<li><a href="#Advanced">Applications. Practice. Intermediate. Advanced.</a>
+	<ul>
+	<li><a href="#Grid">Grid<em>*</em></a></li>
+	<li><a href="#Table">Table<em>*</em></a></li>
+	<li><a href="../Note/Top 5 Tips for Making Fast RWD Sites.html">Top 5 Tips for Making Fast RWD Sites<em>*</em></a></li>
+	</ul>
+</li>
+<li><a href="#Appendix">Appendix</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<p class="big">기기별 <em class="em">성능차이</em>로 인한 부분을 고려하여야 한다. 또한 항상 <em class="em">표준기술</em> 중심으로 사고하는 습관을 가져야 한다.</p>
+
+
+<div class="brclear"></div>
+<hr class="line1" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock clearfix" style="float:right;width:22%;margin:0 0 0 3%;">
+
+<h3 class="hb1 h3">반응형 웹 (개요) - Darum. 다음 웹표준</h3>
+
+<ol class="ol1">
+<li><a href="http://daumui.tistory.com/40" target="_blank" title="새 창">반응형 웹 1/4</a>
+| 반응형 웹이란?
+| 반응형웹 특징
+| 반응형웹 목적
+| 반응형웹 기획시 고려사항
+| 반응형 웹 적용방법
+</li>
+<li><a href="http://daumui.tistory.com/41" target="_blank" title="새 창">반응형 웹 2/4</a>
+| 반응형웹 레이아웃 (루크 로블르스키(Luke Wroblewski)의 5가지 패턴)
+</li>
+<li><a href="http://daumui.tistory.com/42" target="_blank" title="새 창">반응형 웹 3/4</a>
+| 반응형웹 이슈
+| PC 호환
+| Mobile 반응형웹 대응 해상도
+| orientation 속성 Android 이슈 (Android 모든버전 해당)
+</li>
+<li><a href="http://daumui.tistory.com/43" target="_blank" title="새 창">반응형 웹 4/4</a>
+| CSS @media queries (미디어 쿼리)를 이용한 반응형웹 적용
+</li>
+</ol>
+
+</div>
+<!-- /contentsBlock -->
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<!-- <div class="contentsBlock clearfix"> -->
+<div class="contentsBlock clearfix" style="float:right;width:75%;">
+
+
+<h2 class="hb1 h2" id="Outline">Outline</h2>
+
+
+<!-- box4 -->
+<div class="box4">
+
+<ol class="ol1 bo1">
+<li>반응형 웹디자인은 CSS3 <a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries" target="_blank" title="새 창">미디어쿼리</a> 등을 이용해서 사용자 단말기의 크기에 최적화된 레이아웃을 만드는 기법을 말합니다.</li>
+<li>반응형 웹은 디자인, 프로그래밍, 싸다?, 어렵다?, 트렌드? ))) 2016.현재추이.<br />
+	<ol>
+	<li>통합구축. RWD(Mobile~Desktop) ))) 유지 관리 편리성!</li>
+	<li>별도구축. RWD(Mobile~Tablet) + Desktop. 포털업체나 서비스 사이트 ))) 개별 서비스 강화 전략! 타겟이 명확하기 때문에 상당히 디테일 한 부분까지 제어.</li>
+	</ol>
+</li>
+<li><a href="https://www.google.co.kr/webhp?hl=ko#newwindow=1&hl=ko&q=%EC%A0%81%EC%9D%91%ED%98%95+%EC%9B%B9" target="_blank" title="새 창">반응형(Responsive) 웹과 적응형(Adaptive) 웹</a>
+	| <a href="?" target="_blank" title="새 창">차이점</a>
+	| <a href="http://nalrarydesigner.tistory.com/137" target="_blank" title="새 창">레이아웃 살펴보기</a>
+	| <a href="http://www.comworld.co.kr/news/articleView.html?idxno=48251" target="_blank" title="새 창">적응형 웹 디자인</a>
+</li>
+<li>뷰포트
+<xmp class="xmp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</xmp>
+</li>
+<li>상대크기 단위 % 와 em
+</li>
+<li>CSS3 미디어쿼리 (media query)
+	| <a href="http://naradesign.net/wp/2012/05/30/1823/" target="_blank" title="새 창">NaraDesign</a>
+	| <a href="http://www.w3schools.com/cssref/css3_pr_mediaquery.asp" target="_blank" title="새 창">w3schools</a>
+	| <a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries" target="_blank" title="새 창">MDN</a>
+	| <a href="http://blog.madewithdrew.com/post/working-with-dppx/" target="_blank" title="새 창">dppx</a><br />
+
+<div class="panel1">
+1dppx = 96dpi
+</div>
+<pre class="mg0">
+<code class="xmp">
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+	only screen and (min-resolution: 125dpi){ /* (min-resolution: 1.3dppx) ◇◆◇◆◇◆◇◆◇◆ */
+		/* for mobile */
+}/* /(min-resolution: 1.3dppx) */
+@media only screen and (-webkit-max-device-pixel-ratio: 1.3),
+	only screen and (max-resolution: 125dpi){ /* (max-resolution: 1.3dppx) ◇◆◇◆◇◆◇◆◇◆ */
+		/* for not mobile [IE9+] */
+} /* /(max-resolution: 1.3dppx) */
+</code>
+</pre>
+
+
+
+</li>
+<li>유연한 이미지 (flexible images) 기법</li>
+<li>유동형 그리드 레이아웃 (fluid grid) 기법</li>
+<li>모바일 우선 (Mobile First)</li>
+<li>콘텐츠 우선과 미래 친화적 <a href="http://study.gnuboard.org/wiki/read/studygroup/rwd/resources/translation/FutureFriendly">Content First 와 Future-Friendly</a></li>
+<li>하나의 소스 멀티 사용 (OSMU:One Source Multi Use) ))) 하나의 소스 긴 사용 (One Source Long Use)
+	<ol>
+	<li>유동형 테이블(Fluid Table) : 레이블과 값 두 개의 열로 재구성</li>
+	<li>크로스탭 그리드(Crosstab Grid) : 행과 열을 반대로 표현하여 한번에 보면 좋은 각 열의 데이터를 가로로 배치</li>
+	<li>점진적 컬럼 숨김 그리드(Progressive Hide Grid) : 화면해상도에 따라 중요성이 떨어지는 컬럼을 숨기는 기능을 제공</li>
+	<li>반응형 스크롤 그리드(Responsive Scroll Grid) : 중요 컬럼은 틀 고정되고 나머지 컬럼에 가로 스크롤</li>
+	<li>아코디언 탭(Accordion Tab) : 데스크톱에서는 기존 탭 방식을 사용하며 터치 방식의 모바일 기기에서는 아코디언 탭 방식으로 전환</li>
+	</ol>
+</li>
+<li>우아한 낮춤 vs. 점진적 향상 (Graceful degradation versus progressive enhancement) <a href="http://blog.javarouka.me/2011/11/unobtrusive-javascript.html" target="_blank" title="새 창">※</a></li>
+<li>RWD 프레임워크: <a href="http://bootstrapk.com/BS3/">Bootstrap</a> | <a href="http://foundation.zurb.com/">Foundation</a></li>
+<li><a href="https://hyeonseok.com/soojung/mobile/2011/10/11/677.html" target="_blank" title="새 창">RESS: 반응형 디자인과 서버측 컴포넌트 ( Responsive Design + Server Side Components )</a> :: when October 11, 2011 09:02 PM<br />
+	| URL 파편화
+	| 전송량 제어
+	| 콘텐츠 컴포넌트
+	| 콘텐츠 전략.. 디자인 전략 
+	| UAS 판별 방법
+	| 결론
+	| <br />
+	RESS는 서버 사이드 스크립트를 이용해 접속 기기에 따라 디자인을 선택적으로 전송하는 기법입니다.
+	…중략…
+	반응형 웹디자인이 주목을 받은 이유가 사이트가 사용자를 판단하지 않고 디자인 전략이 사용자의 환경에 반응한다는 개념때문이었는데 아이러니하게도 RESS에는 이렇게 사용자를 판단하는 것을 다시 반응형 웹디자인에 결합시키려고 하고 있습니다.
+</li>
+</ol>
+
+</div>
+<!-- /box4 -->
+
+<h3 class="hb1 h3">Task</h3>
+
+<!-- box2 -->
+<div class="box2">
+
+<ol class="ol1 bo1">
+<li>분기점 (break point) : 기기 다양성 고민 말고 디자인 화면에 따라 분기하면 된다.<br />
+))) 111<b>~ 320 ~ 640 ~ 768 ~ 1000 ~ 1024 ~ 1200 ~ 1256 ~ 1280</b><br />
+</li>
+<li>레이아웃 패턴 -- 이해하자! 시도해보자!<br />
+))) 
+</li>
+<li>내비게이션/메뉴</li>
+<li>이미지/미디어 ))) 반응형 틀 종횡비 유지 
+<pre class="mg0">
+<code class="xmp">
+.card1 .f1{display:block;position:relative;width:100%;height:auto;margin:0 auto;padding:0 0 56.25%;background:#fff;text-align:center;}
+.card1 .f1 .f1p1{display:block;position:absolute;left:0;right:0;top:0;bottom:0;height:100%;overflow:hidden;}
+.card1 .f1 img{display:block;position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;margin:0 auto;}
+/* position:absolute; // [Android 4.1.2]fix) min-height:100%; 가 더 길어지는 결함 해결! */
+/* left:0;top:0; // [IE7]fix) position:absolute; text-align:center; 이면 중앙에 오는 결함 해결! */
+</code>
+</pre>
+
+</li>
+<li>테이블</li>
+<li>멀티라인 말줄임</li>
+<li>확대/원래대로</li>
+<li>가변 콘텐츠 가로 중앙 정렬</li>
+<li>가변 콘텐츠 세로 중앙 정렬</li>
+<li>반응형 글꼴 크기</li>
+</ol>
+
+</div>
+<!-- /box2 -->
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h2 class="hb1 h2" id="Basic">Basic</h2>
+
+<h3 class="hb1 h3" id="MediaQuery">Media Query</h3>
+
+<ul class="bu">
+<li>작은 화면 기본 CSS 를 먼저 작성하고 미디어 쿼리로 큰 화면 CSS 를 높은 우선 순위가 되게 작성한다.</li>
+<li>미디어 쿼리 코드는 기본 CSS 파일의 맨 아래에 작성한다.</li>
+<li>기본 CSS 파일과 별도 미디어 쿼리 CSS 파일 사이에 JavaScript 등 다른 외부 파일을 불러오지 않는다.</li>
+<li><em>only</em> 키워드는 미디어 쿼리 지원 UA 에서 구문을 해석하라는 명령이며 생략 가능하다.</li>
+<li>유일 조건 또는 only, all과 같은 선행 키워드가 생략되면 <em>and</em> 키워드는 사용하지 않는다.</li>
+<li><b>[m]</b> sceen, print 미디어 종류만 유일한 조건이면 <em>only</em> 는 사용하지 않는다.<br />
+only 를 사용하면.. [~IE8] 미디어 쿼리 지원 js 가 필요한 UA에서 js 로딩 후 css 가 실행되어 완전하지 않는 화면을 잠시 보게 될것이다.</li>
+</ul>
+
+<h4 class="hb1 h4">Media Query 코드 샘플</h4>
+<xmp class="xmp">
+/* Media Query  */
+@media only screen and (orientation:portrait){/* 세로 mode */
+	/* ..여기에.. css 정의 두면 된다 */
+	#container{width:480px;}
+}
+@media only screen and (orientation:landscape){/* 가로 mode */
+}
+@media only screen and (max-width:320px){/* 320px 이하 */
+}
+@media only screen and (min-width:321px){/* 321px 이상 */
+}
+</xmp>
+
+<h4 class="hb1 h4">Media Query 파일 분리</h4>
+<xmp class="xmp">
+<link rel="Stylesheet" media="screen and (min-width:768px)" type="text/css" href="css/default768.css" />
+<link rel="Stylesheet" media="screen and (min-width:1024px)" type="text/css" href="css/default1024.css" />
+</xmp>
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h3 class="hb1 h3" id="CrossBrowsing">Cross Browsing</h3>
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+<ul class="ul1 bu">
+<li><a href="https://github.com/scottjehl/Respond" target="_blank" title="새 창"><b class="em0">respond.js</b></a> : [~IE8] 미디어쿼리 활성화</li>
+<li><a href="https://github.com/aFarkas/html5shiv" target="_blank" title="새 창"><b class="em0">HTML5Shiv.js</b></a> : [~IE8] HTML5 활성화</li>
+<li><a href="http://code.google.com/p/ie7-js/" target="_blank" title="새 창"><b class="em0">IE9.js</b></a> : [~IE9]의 CSS/HTML/PNG 등을 표준처럼 표현하고 CSS3 사용할 수 한다.<br />
+	| <em class="em1">[m]적용기) 속도 최악. 호환 불량 (예: [IE7] float 동작 결함 해결 누락..)</em><br />
+</li>
+</ul>
+</div>
+<!-- /panel1 -->
+
+
+<h4 class="hb1 h4"><a href="https://github.com/scottjehl/Respond">respond.js</a> - <a href="https://github.com/scottjehl/Respond/zipball/master" class="download">respond.min.js</a></h4>
+
+
+<xmp class="xmp">
+<head>
+	/* .. <link rel="stylesheet" /> .. */
+	<!--[if lt IE 9]>
+	<script src="/share/js/respond.min.js"></script>
+	<![endif]-->
+	/* .. <script /> .. */
+</head>
+</xmp>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1">respond.min.js 와 css3-mediaqueries.js 특징 비교 <strong>[m]</strong> TeskOK!</strong>
+</caption>
+<col style="width:50%;" /><col />
+<thead>
+<tr>
+<th scope="col"><b>respond.min.js (4KB)</b></th>
+<th scope="col"><b>css3-mediaqueries.js (15.6KB)</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ol class="num">
+<li>파일 크기가 작고, 반응 성능이 좋다.</li>
+<li>미디어 쿼리는 &lt;link rel="stylesheet" /&gt; 만 가능하고, <em class="em">&lt;style&gt;&lt;/style&gt;, @import 형태는 안된다.</em></li>
+<li>script src 위치는 &lt;link rel="stylesheet" /&gt; 뒤에 &lt;script /&gt; 중에서 가장 먼저 작성해야 한다.<br />
+그렇지 않으면, 웹 페이지 로딩시 미디어 쿼리 적용 전 화면이 보였다가 적용 후 화면으로 변한다.<br />
+</li>
+<li>google CDN 없다.</li>
+<li>@media <em class="em1">all and</em> (){} 처럼 all  and 가 들어가야 한다더라.</li>
+<li><em class="em">로컬 웹페이지에서는 안되고 온라인에서만 동작한다!</em></li>
+</ol>
+</td>
+<td>
+<ol class="num">
+<li>반응 속도가 느리지만, 더 많은 미디어 쿼리를 지원한다.</li>
+<li>미디어 쿼리는 <del cite="" datetime="">&lt;link rel="stylesheet" /&gt;, &lt;style&gt;&lt;/style&gt;, @import 형태 모두 가능하다.</del>
+<ins cite="@m" datetime="20150511">&lt;link rel="stylesheet" /&gt; 만 가능하고, <em class="em">&lt;style&gt;&lt;/style&gt;, @import 형태는 안된다.</em></ins>
+</li>
+<li>script src 위치는 &lt;link rel="stylesheet" /&gt; 앞, 뒤 어디에 작성하든지 상관없다.</li>
+<li>전체메뉴 레이어창 width 100% 펼친 후 창 조절하면 줄어드는 오류 발생</li>
+<li>google CDN 있다.</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+
+<cite>※ <a href="http://naradesign.net/wp/2012/01/18/1742/">Mobile first strategy for CSS designer.</a>  - respond.min.js 개발자가 .., 안되는 경우 ..</cite><br />
+
+<p class="bu s">[m]))) <em>[IE7,8] 에서 아래와 같이 선택자{} 전체를 주석처리하면.. 이후의 미디어쿼리문 안의 스타일은 무시한다.</em><br />
+/* #pr1 .control1{margin-left:0;margin-right:0;} */<br />
+꼭 주석처리 해야 한다면.. 다음과 같이 하면 된다.<br />
+#pr1 .control1{/* margin-left:0;margin-right:0; */}<br />
+<b class="em7 fsM">20151015. 결론! ))) /* {} */ 처럼 주석 안에 중괄호를 넣지말자!</b>
+</p>
+
+<h4 class="hb1 h4"><a href="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js">css3-mediaqueries.js</a></h4>
+
+<xmp class="xmp">
+<head>
+/* .. <link rel="stylesheet" /> .. */
+/* ..중략.. */
+<!--[if lt IE 9]>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+/* .. <script /> .. */
+</head>
+</xmp>
+
+<h4 class="hb1 h4"><strong>[m]</strong> <span class="">Test.20120629~20120702.</span> </h4>
+
+<!-- box3 -->
+<div class="box3">
+* 테스트 환경 : XHTML 1.0  charset=euc-kr<br />
+<br />
+* <strong>[IE8] - 개발자 도구 실행 前</strong> : 주소 옆 [호환성 보기] 아이콘 선택 유무 무관<br />
+<del>&lt;script src="/share/js/respond.min.js"&gt;&lt;/script&gt; 는 동작안함.</del><br />
+&lt;script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"&gt;&lt;/script&gt; 는 동작하나 느린감은 있음.<br />
+<del>단, <em>HTML 문서의 &lt;style&gt;&lt;/style&gt; 안에 작성</em>한 경우에서만 동작함.</del><br />
+<ins>HTML 문서의 &lt;style&gt;&lt;/style&gt; 안에 작성하면 동작하고, 외부참조 &lt;link rel="stylesheet" /&gt; 는 동작 안하였는데..
+euc-kr 한글 문제 해결하니 동작하였다.</ins><br />
+script src 위치는 css 전·후 어디에 있으나 상관없음.<br />
+<br />
+* <strong>[IE8] - 개발자 도구 실행 後</strong> : [개발자 도구] - [브라우저 모드][문서 모드] 를 선택하여 주소 옆 [호환성 보기] 아이콘 사라진 후 RWD 동작 안함.<br />
+[개발자 도구] 닫고 새로고침하면, [호환성 보기] 아이콘은 보이지 않으나 RWD 은 동작함.<br />
+<br />
+* <strong>[IE6]</strong><br />
+동작함. 현저하게 느리게 반응하여 css 가 적용안되거나 1~2초 지난 후 적용되는 경우 있음.<br />
+</div>
+<!-- /box3 -->
+
+<h4 class="hb1 h4">utf-8 .vs. euc-kr 한글 문제 해결</h4>
+
+<p><a href="http://naradesign.net/wp/2012/01/18/1742/">NARADESIGN:BLOG</a> 은 언제나 잘 동작하던데.. 차이가 뭔가?</p>
+
+<!-- box2 -->
+<div class="box2">
+html5 로 바꾸어도 소용없다.<br />
+서버에서 브라우저 호환 설정했나? 워드프레스 자체 js 인가? 마크업 CSS 를 다른 방법을 사용했나?<br />
+차이는 utf-8 이 아니고 euc-kr 이라는 점~<br />
+<br />
+메인은 그럭저럭 동작하다가 서브페이지에서 IE 가 완전히 뻗어버리는 오류발생!<br />
+해결1) sub.css 에서 '돋움' 을 '돋움',dutum 으로 수정
+해결2) board.css 에서  주석 /*  */ 안의 한글을 모두 제거. 나머지 css 파일도 제거함.<br />
+</div>
+<!-- /box2 -->
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h3 class="hb1 h3" id="RWD_HTML5">RWD + HTML5</h3>
+
+<p><strong>html5.js</strong> 용량 작다.
+<strong>modernizr.custom.js</strong> 용량 크다.<br />
+20140106. 다른 차이점은 모르겠다. 화면에서의 문제점은 없어보인다.<br />
+[[m]] [~IE8] 인쇄할 때 <em>@media print{} 로 HTML5 구조 태그에 적용한 CSS 는 동작하지 않는 문제</em>가 있었다.<br />
+(선택자는 클래스는 아이디로 하더라도..)<br />
+메이저 타사이트도 마찬가지 문제를 안고 서비스 중이었다.<br />
+HTML5 구조 태그들을 div 로 바꾸니 문제가 해결되었다.</p><br />
+
+<xmp class="xmp">
+<!--[if lt IE 9]>
+<script src="/share/js/respond.min.js"></script>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</xmp>
+
+<p><strong>[m.Choice]</strong> Test.20131219. 현재 위 방법이 가장 빠르게 느껴졌다. 파일 크기도 제일 작고, respond.min.js 만 내 서버로 가져와서 실행하였다.<br />
+아래 방법 포함하여 다양하게 혼용하여도 모두 동작하였다. 호환 스크립트는 Media Query 이 먼저 오든 HTML5가 먼저 오든 상관 없었다.</p>
+단, css3-mediaqueries.js 는 전체메뉴 레이어창 width 100% 펼친 후 창 조절하면 줄어드는 오류 발생하였다.
+
+<h4 class="hb1 h4">Google Code CDN 이용</h4>
+<xmp class="xmp">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+</xmp>
+
+<h4 class="hb1 h4">내 서버로 가져와서 이용</h4>
+<xmp class="xmp">
+<!--[if lt IE 9]>
+<script src="/share/js/respond.min.js"></script>
+<script src="/share/js/modernizr.custom.js"></script>
+<![endif]-->
+</xmp>
+
+<h4 class="hb1 h4">CSS Reset</h4>
+<p>하위 브라우저들이 추가된 요소들을 inline 으로 인식하기 때문에 block 요소로 정의해줘야 합니다.</p>
+<xmp class="xmp">
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption { display: block }
+</xmp>
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h2 class="hb1 h2" id="Applications">Applications</h2>
+<h3 class="hb1 h3" id="Grid">Grid</h3>
+<h3 class="hb1 h3" id="Table">Table</h3>
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h2 class="hb1 h2" id="Appendix">Appendix</h2>
+
+
+<h3 class="hb1 h3" id="Know-How">Know-How</h3>
+
+<ol class="bo1 num00">
+<li>반응형 웹사이트는 대부분 HTML5 로 하였다.</li>
+<li>반응형 클릭은 용이하게 공간은 낭비말고..</li>
+<li>반응형 인쇄 폭 - 현재대로.. 요구사항 발생하면 생각하자!</li>
+<li>반응형 공수 : [1st]2p/1D ))) [2nd]4p/1D ))) [3rd]6p/1D<br />
+(20141105현재. 1D=8H)</li>
+</ol>
+
+<hr />
+<h3 class="hb1 h3" id="ReferenceLink">Reference Link</h3>
+
+<ol class="bo1 num00">
+<li class="n01">20131017. <a href="?" target="_blank" title="새 창">반응형 웹의 완성도를 높여주는 유용한 사이트</a></li>
+<li class="n02">20141105. <a href="http://www.kimdirector.co.kr/bbs/view.php?id=webaccessibility&no=104" target="_blank" title="새 창">스마트폰에 최적화된 반응형 웹사이트 템플릿 무료 소스 모음</a></li>
+</ol>
+
+<hr class="line1 dotted" />
+
+<ol class="bo1 num00">
+<li><a href="http://troy.labs.daum.net/" target="_blank" title="새 창">http://troy.labs.daum.net/</a> - 다음 -</li>
+<li><a href="http://www.webactually.co.kr/archives/12875" target="_blank">반응형 웹 디자인의 현재</a> - 20140814 - 웹액츄얼리</li>
+<li><a href="http://www.nextree.co.kr/p8622/" target="_blank">CSS : 반응형 웹(Responsive Web)</a> - 20140331 -  | 넥스트리 | NEXTREE</li>
+<li><a href="http://hyeonseok.com/soojung/contents/upload/BizDeli%20Responsive%20Web%20Design.pdf">반응형 웹디자인 관점에서의 웹표준 이슈</a> - 20130404 비즈델리 웹표준월드 - 신현석<li><a href="http://yeoni.kr/2013/04/%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EC%A0%9C%EC%9E%91-%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4/" target="_blank">반응형 웹 제작 방식에 대한 이해</a> - 20130402</li>
+</li>
+<li><a href="http://sir.co.kr/bbs/board.php?bo_table=pb_lecture&wr_id=167" target="_blank">CSS3 미디어쿼리와 스크린 경계</a> - 20121103 - 그누보드</li>
+<li><a href="http://naradesign.net/rwd/pr/"><em>DEVIEW 2012 반응형 웹 구축기</em></a> - 20120920 - 나라디자인<br />
+| <a href="http://naradesign.net/wp/2012/01/18/1742/">Mobile first strategy for CSS designer</a><br />
+| <a href="http://naradesign.net/wp/2011/05/27/1483/">HTML5 & Responsive Web Design(반응형 웹 디자인)</a><br />
+| <a href="http://naradesign.net/wp/2012/05/30/1823/">CSS3 미디어쿼리 이해</a><br />
+</li>
+<li><a href="http://blog.gnuboard.org/2012/04/mobile-first-vs-desktop-first/" target="_blank">모바일 퍼스트 vs 데스크탑 퍼스트</a> - 20120425 - 그누보드</li>
+</ol>
+
+<section class="content">
+<h4 class="hb1 h4">Ref <small>- Book</small></h4>
+<ol class="bo1 num00">
+<li><a href="http://bootstrapk.com/"><strong>부트스트랩</strong></a></li>
+<li><a href="http://gokgo.tistory.com/96">최고의 반응형 CSS 프레임워크 18선 - 2013년 7월기준</a></li>
+<li>퍼블리싱 강좌 : <a href="http://sir.co.kr/bbs/board.php?bo_table=pb_lecture&wr_id=119&sca=%EB%B0%98%EC%9D%91%ED%98%95%EC%9B%B9"><strong>★반응형 웹 강좌</strong>를 시작하며</a> - 웹 개발자 커뮤니티 -</li>
+<li><b>&lt;meta name="viewport" content="" /&gt;</b><br />
+| <a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html">Apple-specific meta tags are described here.</a></li>
+<li><a href="http://study.gnuboard.org/wiki/read/StudyGroup/RWD/Resources"><i>반응형 웹 관련 자료 *</i></a></li>
+<li><a href="http://blog.daum.net/dosman1/674">반응형 웹 디자인 고려사항(하위 IE에서 HTML5사용)</a></li>
+<li>W3C Media Queries -&nbsp;<a href="http://www.w3.org/TR/css3-mediaqueries/">http://www.w3.org/TR/css3-mediaqueries/</a></li>
+<li>CSS3 Media Queries Vol.1 -&nbsp;<a href="http://mydeute.com/txp/article/631">http://mydeute.com/txp/article/631</a></li>
+<li><a href="http://www.metabrain.com/responsive-web-designrwd/">Responsive Web Design(RWD) | Metabrain</a></li>
+<li><a href="?">http://cubiq.org/</a> - UX Effect 갤러리, 다운로드</li>
+<li><a href="http://mediaqueri.es/">http://mediaqueri.es/</a> - 반응형 웹디자인 갤러리</li>
+<li><a href="http://www.youtube.com/user/Songtaemin/videos">http://www.youtube.com/user/Songtaemin/videos</a> - 반응형 웹디자인 : 어비가 들려주는 생생한 반응형 웹디자인 노하우 - 부록 1-1,1-2,1-3,2</li>
+</ol>
+</section>
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+<div class="brclear"></div>
+<hr class="line1 dott" /><!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock clearfix">
+
+
+<h3 class="hb1 h3" id="Benchmark">Benchmark</h3>
+
+<section class="content">
+<h4 class="hb1 h4">Benchmark <cite><small>- myself</small></cite></h4>
+<ol class="bo num">
+<li><a href="http://www.samsungsem.co.kr/">삼성전기</a></li>
+<li><a href="http://www.samsungsvc.co.kr/">삼성전자서비스</a> -- <em>블럭메뉴 높이 가변</em></li>
+<li><a href="http://www.e-dream.co.kr/">드림메디컬 그룹</a> -- 3단변신.. 큰 화면에서 로테이션 콘텐츠 확대축소</li>
+<li><a href="http://troy.labs.daum.net/">다음 반응형 웹 TROY</a> -- 화면 크기별 반응 검사 - [CR] 에서 확인 바람. [IE10]안됨.</li>
+</ol>
+</section>
+
+<section class="content">
+<h4 class="hb1 h4">국내 반응형 웹 구현 사례 <cite><small>- Book</small></cite></h4>
+<ol class="small">
+<li><a href="http://dic.daum.net/">다음 어학사전</a> <span class="micro">: <em>@media</em></span> [IE7]X -- 단일 화면으로 구성</li>
+<li><a href="http://deview.kr/2012/">DEVIEW 2012</a> <span class="micro">: jquery.js, html5.js, <em>respond.js</em>, <em>@media</em></span> [IE7]X -- 단일 화면으로 구성</li>
+<li><a href="http://coforward.com/">coForward</a> <span class="micro">: jquery.js, html5.js, <em>@media</em></span> [IE7]X</li>
+<li><a href="http://reflexion.co.kr/">Reflexion</a> <span class="micro">: jquery.js, html5.js, <ins>jquery.mediaqueries.js,</ins> <em>@media</em></span> [IE7]O</li>
+<li><a href="http://popperweb.kr/">popper web</a> <span class="micro">: jquery.js, html5.js, <em>bootstrap.css</em>, <em>@media</em></span> [IE7]X</li>
+<li><a href="http://webactually.co.kr/">webactually</a> <span class="micro">: jquery.js, html5.js, <em>respond.js</em>, <em>@media</em></span> [IE7]X</li>
+<li><a href="http://amwayon.co.kr/">암웨이 온</a> <span class="micro">: jquery.js, html5.js, <em>@media</em></span> [IE7]X</li>
+</ol>
+<h4 class="hb1 h4"><strong>@media</strong> 규칙을 이용하지 않은것이 특징.</h4>
+<ol class="small">
+<li><a href="http://seoul.go.kr/">서울특별시</a> <span class="micro">: jquery.js</span> -- 20131022.현재. RWD아님.</li>
+<li><a href="http://pr.hyundai.com/">현대자동차 PR</a> <span class="micro">: jquery.js, html5.js</span> [IE7]O -- <a href="http://pr.hyundai.com/pages/common/NoticeIE6.aspx">/pages/common/NoticeIE6.aspx</a></li>
+<li><a href="http://asiance.com/">Asiance</a>(글로벌 에이전시) <span class="micro">: jquery.js, html5.js</span> [IE7]X -- 다른 화면으로 구성</li>
+<li><a href="http://www.hwaseunggroup.com/">화승그룹</a> <span class="micro">: jquery.js, html5.js</span> -- 20131022.현재. RWD아님.</li>
+</ol>
+</section>
+
+<section class="content">
+<h4 class="hb1 h4">국내 반응형 웹사이트 <cite><small>- 20140711. Designer Collection</small></cite></h4>
+<pre>
+<h4 class="hb1 h4" class="hb1 h4">관공서 반응형</h4>
+
+<table class="t3"><caption><strong class="blind">★표제목</strong></caption>
+<col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Site</th>
+<th scope="col">[IE7][IE8]</th>
+<th scope="col">JS</th>
+<th scope="col"></th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><a href="http://www.gg.go.kr/" target="_blank">경기도청</a></th>
+<td>[X][X]</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://english.seoul.go.kr/" target="_blank">서울시 외국어</a></th>
+<td>[X][X]</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.kspo.or.kr/" target="_blank">한국체육진흥공단</a></th>
+<td>[X][△]</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.komsco.com" target="_blank">한국조폐공사</a></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://museum.bok.or.kr" target="_blank">한국은행 화폐박물관</a></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.waterworks.daejeon.kr/" target="_blank">대전광역시 상수도 사업본부</a></th>
+<td>[△][△]</td>
+<td></td>
+<td></td>
+<td>바로가기 버그
+<a href="http://www.waterworks.daejeon.kr/kor/resource/css/front_normalize.css" target="_blank">front_normalize.css</a>
+<a href="http://www.waterworks.daejeon.kr/kor/page.do?menuIdx=138" target="_blank">IE8이하 사용 불가</a>
+</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+
+</tbody>
+</table>
+※ <a href="http://www.icpa.or.kr" target="_blank">인천항</a><br /> (기획은 반응형이었던것같은데 반응형아니라는 ㅜ_ㅜ)
+
+<h4 class="hb1 h4" class="hb1 h4">반응형 홈페이지</h4>
+삼성물산 : <a href="http://www.samsungcnt.com" target="_blank">http://www.samsungcnt.com</a>
+파리바게뜨 : <a href="http://www.paris.co.kr/main/" target="_blank">http://www.paris.co.kr/main/</a>
+XEN : <a href="http://xten.opensns.co.kr/" target="_blank">http://xten.opensns.co.kr/</a>
+현대케피코 : <a href="http://www.hyundai-kefico.com" target="_blank">http://www.hyundai-kefico.com</a>
+디자인하우스 : <a href="http://designhouse.co.kr/" target="_blank">http://designhouse.co.kr/</a>
+Brown Education : <a href="http://www.ibrown.co.kr" target="_blank">http://www.ibrown.co.kr</a>
+에스유디자인 : <a href="http://www.s-you.co.kr" target="_blank">http://www.s-you.co.kr</a>
+카페베네 : <a href="http://www.caffebene.co.kr/" target="_blank">http://www.caffebene.co.kr/</a>
+청담i성형외과 : <a href="http://cdips.co.kr/" target="_blank">http://cdips.co.kr/</a>
+현대자동차 기업문화홍보 : <a href="http://pr.hyundai.com" target="_blank">http://pr.hyundai.com</a>
+월드비전 : <a href="http://my.worldvision.or.kr" target="_blank">http://my.worldvision.or.kr</a>
+디엔샵 : <a href="http://www.dnshop.com" target="_blank">http://www.dnshop.com</a>
+토다이 : <a href="http://www.todaikorea.com" target="_blank">http://www.todaikorea.com</a>
+SKT LTE : <a href="http://www.todaikorea.com" target="_blank">http://www.todaikorea.com</a>
+KT Skylife : <a href="http://www.ktskylife.co.kr" target="_blank">http://www.ktskylife.co.kr</a>
+농심 : <a href="http://www.nongshim.com" target="_blank">http://www.nongshim.com</a>
+현대엔지비 : <a href="http://www.hyundai-ngv.com" target="_blank">http://www.hyundai-ngv.com</a>
+동원그룹 : <a href="http://www.dongwon.com" target="_blank">http://www.dongwon.com</a>
+SK텔레콤 : <a href="http://www.sktelecom.com" target="_blank">http://www.sktelecom.com</a>
+삼성엔지니어링 : <a href="http://www.samsungengineering.com" target="_blank">http://www.samsungengineering.com</a>
+한율 : <a href="http://www.hanyul.co.kr/" target="_blank">http://www.hanyul.co.kr/</a>
+i&I family : <a href="http://www.inifamily.co.kr" target="_blank">http://www.inifamily.co.kr</a>
+디테라스 :     <a href="http://deterrace.com" target="_blank">http://deterrace.com</a>
+비즈스프링 :     <a href="http://bizspring.co.kr" target="_blank">http://bizspring.co.kr</a>
+온앤온 :     <a href="http://www.on-on.co.kr/" target="_blank">http://www.on-on.co.kr/</a>
+서울시 외국어홈페이지 :     <a href="http://english.seoul.go.kr/" target="_blank">http://english.seoul.go.kr/</a>
+<h4 class="hb1 h4" class="hb1 h4">반응형 에이전시</h4>
+digitalDigm :   <a href="http://www.d2.co.kr/" target="_blank">http://www.d2.co.kr/</a>
+맑음 :  <a href="http://www.malgum.com" target="_blank">http://www.malgum.com</a>
+Frameout :  <a href="http://www.frameout.co.kr/" target="_blank">http://www.frameout.co.kr/</a>
+이패스씨앤아이 :  <a href="http://www.epasscni.com" target="_blank">http://www.epasscni.com</a>
+이지미디어 :  <a href="http://www.easymedia.co.kr" target="_blank">http://www.easymedia.co.kr</a>
+LH :  <a href="http://lh.co.kr/" target="_blank">http://lh.co.kr/</a>
+ACG :  <a href="http://www.acg.co.kr/" target="_blank">http://www.acg.co.kr/</a>
+XENOID :  <a href="http://www.xenoid.co.kr" target="_blank">http://www.xenoid.co.kr</a>
+IDENVI :  <a href="http://www.idenvi.co.kr" target="_blank">http://www.idenvi.co.kr</a>
+이숨 :  <a href="http://www.e-soom.co.kr/" target="_blank">http://www.e-soom.co.kr/</a>
+비주얼스토리 :  <a href="http://www.visualstory.co.kr" target="_blank">http://www.visualstory.co.kr</a>
+iRUSH :  <a href="http://irush.co.kr" target="_blank">http://irush.co.kr</a>
+SplusSoft :  <a href="http://www.splussoft.co.kr" target="_blank">http://www.splussoft.co.kr</a>
+edot :  <a href="http://www.2dot.co.kr" target="_blank">http://www.2dot.co.kr</a>
+KJ :  <a href="http://www.kjsnm.com" target="_blank">http://www.kjsnm.com</a>
+JT :  <a href="http://studio-jt.co.kr/" target="_blank">http://studio-jt.co.kr/</a>
+Eda :  <a href="http://www.edacom.co.kr/" target="_blank">http://www.edacom.co.kr/</a>
+D.FY :  <a href="http://www.dfy.co.kr/" target="_blank">http://www.dfy.co.kr/</a>
+LAMBERT :  <a href="http://lambert.co.kr/" target="_blank">http://lambert.co.kr/</a>
+DX 유니온스틸 :  <a href="http://www.unionsteel.co.kr/ko/info/history.do" target="_blank">http://www.unionsteel.co.kr/ko/info/history.do</a>
+서울시 :  <a href="http://www.seoul.go.kr/main/index.html" target="_blank">http://www.seoul.go.kr/main/index.html</a>
+<h4 class="hb1 h4" class="hb1 h4">PC에서 다양한 기기 적용 웹화면 확인하기</h4>
+1) <a href="http://troy.labs.daum.net/" target="_blank">http://troy.labs.daum.net/</a>
+2) <a href="http://www.responsinator.com/" target="_blank">http://www.responsinator.com/</a>
+3) <a href="http://responsive.is/typecast.com" target="_blank">http://responsive.is/typecast.com</a>
+4) <a href="http://mattkersley.com/responsive" target="_blank">http://mattkersley.com/responsive</a>
+<h4 class="hb1 h4" class="hb1 h4">기술적 정보 사이트</h4>
+1) 반응형웹 모음 외국사이트 : <a href="http://mediaqueri.es" target="_blank">http://mediaqueri.es</a>
+2) 그리드 사이즈 참고 :
+<a href="http://goldengridsystem.com/" target="_blank">http://goldengridsystem.com/</a>
+<a href="http://elliotjaystocks.com/blog/a-better-photoshop-grid-for-responsive-web-design/" target="_blank">http://elliotjaystocks.com/blog/a-better-photoshop-grid-for-responsive-web-design/</a>
+<a href="http://gridpak.com/" target="_blank">http://gridpak.com/</a>
+<a href="http://gridcalculator.dk/" target="_blank">http://gridcalculator.dk/</a>
+</pre>
+</section>
+
+
+</div>
+<!-- /contentsBlock ◇◆ -->
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20120413 ~
+20161010. 반응형 웹 Darum.정리..
+20160429. 보완.
+20151015. 미디어쿼리 주석 {} 넣지말자!
+20150511. css3-mediaqueries.js 특징 비교.
+20150429. 20150420. 20150417. 20150126.
+20140905. 20140902. 20140711. 20140324. 20140110.
+20131219. 20130716. 20130530. 20130522. 20130509.
+20120702. 20120629. 
+</p>
+<hr />
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

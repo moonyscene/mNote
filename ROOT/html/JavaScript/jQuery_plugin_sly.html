@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery Plugin - sly | mNote',
+	page: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+
+<link rel="stylesheet" href="https://darsa.in/sly/css/font-awesome.css">
+<!-- ((( <link rel="stylesheet" href="https://darsa.in/sly/examples/css/horizontal.css"> -->
+<style type="text/css">/*<![CDATA[*/
+
+/* Example wrapper */
+.wrap {
+	position: relative;
+	margin: 3em 0;
+}
+
+/* Frame */
+.frame {
+	height: 186px;
+	overflow: hidden;
+}
+.frame ul {
+	list-style:none;margin:0;padding:0;
+	height:100%;
+}
+.frame ul li {
+	float: left;
+	width: 280px;
+	height: 100%;
+	margin: 0 1px 0 0;
+	padding: 0;
+	background: #333;
+	text-align: center;
+	cursor: pointer;
+}
+.frame ul li.active {
+	background:#a33;
+}
+.frame .a1 {
+	display:block;
+	position:relative;
+	width:100%;height:100%;
+	overflow:hidden;
+}
+.frame .a1 img{
+	width:100%;
+	height:auto;
+	min-height:100%;
+}
+html.object-fit .frame .a1 img{
+	object-fit:cover;
+	height:100%;
+}
+/* Scrollbar */
+.scrollbar {
+	height: 6px;
+	margin: 0 0 1em;
+	background: rgba(0,0,0, .066);
+	line-height: 0;
+}
+.scrollbar .handle {
+	width: 100px;
+	height: 100%;
+	background: rgba(0,0,0, .133);
+	background: rgba(0,0,0, .42);
+	cursor: pointer;
+}
+.scrollbar .handle .mousearea {
+	position: absolute;
+	top: -7px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	/* background: #ee0; */
+}
+
+/* Pages */
+.pages {
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+	text-align: center;
+}
+.pages li {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 0 4px;
+	text-indent: -9999px;
+	border-radius: 10px;
+	cursor: pointer;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+}
+.pages li:hover {
+	background: #aaa;
+}
+.pages li.active {
+	background: #666;
+}
+
+/* Controls */
+.controls { margin: 25px 0; text-align: center; }
+
+/* One Item Per Frame example*/
+.oneperframe { height: 300px; line-height: 300px; }
+.oneperframe ul li { width: 1140px; }
+.oneperframe ul li.active { background: #333; }
+
+/* Crazy example */
+.crazy ul li:nth-child(2n) { width: 100px; margin: 0 4px 0 20px; }
+.crazy ul li:nth-child(3n) { width: 300px; margin: 0 10px 0 5px; }
+.crazy ul li:nth-child(4n) { width: 400px; margin: 0 30px 0 2px; }
+
+/*]]>*/</style>
+
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1"><a href="https://darsa.in/sly/" target="_blank" rel="noopener" title="새 창">SLY</a></h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#GetStarting">Get Starting</a>
+	<ul>
+	<li>Download</li>
+	<li>Introduction</li>
+	<li>Performance</li>
+	<li>Forum</li>
+	<li>License</li>
+	</ul>
+</li>
+<li><a href="#Demo">Demo</a>
+	<ul>
+	<li>Horizontal</li>
+	<li>Vertical</li>
+	<li>Full page</li>
+	<li>Infinite scrolling</li>
+	<li>Parallax mode</li>
+	</ul>
+</li>
+<li><a href="#Documentation">Documentation</a>
+	<ul>
+	<li>Markup HTML & CSS</li>
+	<li>Calling</li>
+	<li>Options</li>
+	<li>Properties</li>
+	<li>Methods</li>
+	<li>Events</li>
+	<li>Parallax</li>
+	</ul>
+</li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="GetStarting">Get Starting</h2>
+
+Download
+Introduction
+Performance
+Forum
+License
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Demo">Demo</h2>
+
+<ol class="bo">
+<li><a href="https://darsa.in/sly/examples/horizontal.html" target="_blank" rel="noopener" title="새 창" class="a1">Horizontal</a></li>
+<li><a href="https://darsa.in/sly/examples/vertical.html" target="_blank" rel="noopener" title="새 창" class="a1">Vertical</a></li>
+<li><a href="https://darsa.in/sly/examples/fullpage.html" target="_blank" rel="noopener" title="새 창" class="a1">Full page</a></li>
+<li><a href="https://darsa.in/sly/examples/infinite.html" target="_blank" rel="noopener" title="새 창" class="a1">Infinite scrolling</a></li>
+<li><a href="https://darsa.in/sly/examples/parallax.html" target="_blank" rel="noopener" title="새 창" class="a1">Parallax mode</a></li>
+</ol>
+
+
+<!-- contentsBlock -->
+<div class="contentsBlock">
+	<h2>Basic <small>- with all the navigation options enabled</small></h2>
+
+	<div class="scrollbar">
+		<div class="handle">
+			<div class="mousearea"></div>
+		</div>
+	</div>
+
+	<div class="frame" id="basic">
+		<ul class="clearfix">
+			<!-- <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
+			<li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li>
+			<li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li>
+			<li>28</li><li>29</li> -->
+			<li><a href="?#★1" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1001.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★2" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1002.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★3" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1003.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★4" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1004.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★5" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1005.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★6" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1006.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★7" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1007.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★8" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1008.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★9" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1009.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★10" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1010.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★11" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1011.jpg" alt="★대체텍스트필수" /></a></li>
+			<li><a href="?#★12" class="a1"><img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1012.jpg" alt="★대체텍스트필수" /></a></li>
+		</ul>
+	</div>
+
+	<ul class="pages"></ul>
+
+	<div class="controls center">
+		<button class="btn prevPage"><i class="icon-chevron-left"></i><i class="icon-chevron-left"></i> prev page</button>
+		<button class="btn prev"><i class="icon-chevron-left"></i> prev item</button>
+		<button class="btn backward"><i class="icon-chevron-left"></i> move backward</button>
+
+		<div class="btn-group">
+			<button class="btn toStart">toStart</button>
+			<button class="btn toCenter">toCenter</button>
+			<button class="btn toEnd">toEnd</button>
+		</div>
+
+		<div class="btn-group">
+			<button class="btn toStart" data-item="10"><strong>10</strong> toStart</button>
+			<button class="btn toCenter" data-item="10"><strong>10</strong> toCenter</button>
+			<button class="btn toEnd" data-item="10"><strong>10</strong> toEnd</button>
+		</div>
+
+		<div class="btn-group">
+			<button class="btn add"><i class="icon-plus-sign"></i> add</button>
+			<button class="btn remove"><i class="icon-minus-sign"></i> remove</button>
+		</div>
+
+		<button class="btn forward">move forward <i class="icon-chevron-right"></i></button>
+		<button class="btn next">next item <i class="icon-chevron-right"></i></button>
+		<button class="btn nextPage">next page <i class="icon-chevron-right"></i><i class="icon-chevron-right"></i></button>
+	</div>
+</div>
+<!-- /contentsBlock -->
+
+<!-- ((( <script src="https://darsa.in/sly/js/sly.min.js"></script> -->
+<script src="../../share/vendor/sly.min.js"></script>
+<!-- ((( <script src="https://darsa.in/sly/examples/js/horizontal.js"></script> -->
+<script>/*<![CDATA[*/
+
+	jQuery(function($){
+		'use strict';
+
+		// -------------------------------------------------------------
+		//   Basic Navigation
+		// -------------------------------------------------------------
+		(function () {
+			var $frame = $('#basic');
+			var $slidee = $frame.children('ul').eq(0);
+			var $wrap = $frame.parent();
+
+			// Call Sly on frame
+			$frame.sly({
+				horizontal: 1,
+				itemNav: 'basic',
+				smart: 1,
+				activateOn: 'focusin', // 키보드 접근성 class="active" 활용 (( click
+				mouseDragging: 1,
+				touchDragging: 1,
+				releaseSwing: 1,
+				startAt: 3, // 최초활성 index
+				scrollBar: $wrap.find('.scrollbar'),
+				scrollBy: 1,
+				pagesBar: $wrap.find('.pages'),
+				activatePageOn: 'click', // mouseover
+				speed: 300,
+				elasticBounds: 1,
+				easing: 'swing',
+				dragHandle: 1,
+				dynamicHandle: 1,
+				clickBar: 1,
+
+				// Buttons
+				forward: $wrap.find('.forward'),
+				backward: $wrap.find('.backward'),
+				prev: $wrap.find('.prev'),
+				next: $wrap.find('.next'),
+				prevPage: $wrap.find('.prevPage'),
+				nextPage: $wrap.find('.nextPage')
+			});
+
+			// To Start button
+			$wrap.find('.toStart').on('click', function () {
+				var item = $(this).data('item');
+				// Animate a particular item to the start of the frame.
+				// If no item is provided, the whole content will be animated.
+				$frame.sly('toStart', item);
+			});
+
+			// To Center button
+			$wrap.find('.toCenter').on('click', function () {
+				var item = $(this).data('item');
+				// Animate a particular item to the center of the frame.
+				// If no item is provided, the whole content will be animated.
+				$frame.sly('toCenter', item);
+			});
+
+			// To End button
+			$wrap.find('.toEnd').on('click', function () {
+				var item = $(this).data('item');
+				// Animate a particular item to the end of the frame.
+				// If no item is provided, the whole content will be animated.
+				$frame.sly('toEnd', item);
+			});
+
+			// Add item
+			$wrap.find('.add').on('click', function () {
+				$frame.sly('add', '<li>' + $slidee.children().length + '</li>');
+			});
+
+			// Remove item
+			$wrap.find('.remove').on('click', function () {
+				$frame.sly('remove', -1);
+			});
+
+			// @m)))
+			// 반응형 20201105
+			$(window).resize(function(e) {
+				$frame.sly('reload');
+			});
+
+		}());
+
+	});
+
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Documentation">Documentation</h2>
+
+
+Markup HTML & CSS
+Calling
+Options
+Properties
+Methods
+Events
+Parallax
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20201105~
+20201105.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

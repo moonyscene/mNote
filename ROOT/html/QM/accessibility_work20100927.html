@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹접근성 실태조사 + 품질마크 대비 보완 작업 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>제11회 품질마크 대비 작업 09.27(월)~10.08(금) <strong>[대외비]</strong></h1>
+<p>
+<strong>- Update History</strong>
+2010.12.30.
+2010.12.24.
+2010.10.19.
+2010.10.07.
+2010.10.05.
+2010.09.20.
+2010.09.07.
+</p>
+
+<ul class="bu">
+<li><a href="#c1">개요</a></li>
+<li><a href="#c2">2010년 제11회 품질마크 대비 업무 분장</a></li>
+<li><a href="#c3">담당 분야별 업무 분장</a></li>
+<li><a href="#c5" style="font-size: 1.25em;">2010년 웹 접근성 실태조사</a></li>
+<li><a href="#c4">참고자료</a></li>
+</ul>
+
+<!-- box4 -->
+<div class="box4">
+12/30 <a href="http://www.wah.or.kr/Certification/condition.asp">제11회 최종 결과</a>
+<pre>
+* 합격 5 #남해군, #경상대, 갱신성공 - #김해시 #창녕군 #통영시
+* 실패 0 
+* 인증/신청 사이트 통계 : 2010년 78/312=25% ==> 10회발표적용후 150/434=34.56%
+ ==> 12/30 11회발표즉시확인 168/434=38.71% (<!-- 11회결과적용전인것 같은데..  -->10회발표후보다는 인증사이트가 늘어났다. 왜?)
+ ==> 168/583=28.82% ==> 293/616=47.56% (발표 공지 후 계속 업데이트됨)<br />
+<!-- * 11회 합격률 = 72/122=59% 이지만, 신청사이트에 갱신 포함 여부 모름. -->
+</pre>
+</div>
+<!-- //box4 -->
+
+<p style="font-size: 2em;"><strong><em>
+<!-- 작성중~ 웹 접근성 품질마크 대비 족집게 작업이 통하던 시대는 끝났다! 모든 페이지에 정성을 다해야 한다!! -->
+기획자, 디자이너, 프로그래머는 담당 사이트의 평가에 대해 각자 알아서 신경써주시기 바랍니다.
+</em></strong></p>
+
+
+<h2 id="c1">개요</h2>
+
+<!-- box4 -->
+<div class="box4">
+<ul class="bu">
+<li><strong>수신</strong> : 웹사이트 작업자 전체(경영지원만 제외)</li>
+<li><strong>제목</strong> : <a href="http://www.wah.or.kr/Board/brd_view.asp?brd_sn=2&brd_idx=601">2010년 제11회 '웹 접근성 품질마크'</a> 인증 대비 업무분장<br />
+	<ol>
+	<li>신청서 접수 : 제11회 : 10월 11일(월) 오전 10:00 ~ 10월 15일(금) 17:00, 접수기관수(200개)<br />
+	<a href="http://www.wah.or.kr/Board/brd_view.asp?brd_sn=2&brd_idx=620">제11회 웹 접근성 품질마크 심사 일정 지연 안내(전화문의 자제요청)</a>
+	</li>
+	</ol>
+</li>
+<li><strong>작업자</strong> : 품질마크 신청 대상 웹사이트 구축 당시 참여자 전체 (PM.기획,디자이너,프로그래머,코더)</li>
+<li><strong>작업일정</strong>
+	<ul class="bu">
+	<li><em><big>1차 제11회 품질마크 대비 작업 : 2010.09.27(월)~2010.10.01(금)</big></em> 사전/전문가/사용자 심사 대비 보강 작업<br />
+		<table border="1" class="t3" summary=""><caption>웹 접근성 품질마크 신청 사이트 필수 제출 산출물</caption>
+		<col style="width: 20%;" /><col />
+		<thead>
+		<tr>
+		<th scope="col">09/27(월)</th>
+		<th scope="col">09/28(화)</th>
+		<th scope="col">09/29(수)</th>
+		<th scope="col">09/30(목)</th>
+		<th scope="col">10/01(금)</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<th scope="row">@기획자 <a href="../data/(Client)Sitename_UnitTEST.Writer.20100708.xls"><big>(갑)사이트명_단위TEST.작성자.2010708.xls</big></a> 작성해서 배포</th>
+		<td>@디자이너, @프로그래머 보강 및 단위TEST 결과 작성</td>
+		<td>@디자이너, @프로그래머 보강 및 단위TEST 결과 제출</td>
+		<td>@기획자 단위TEST 결과 취합<br />
+		@코더 단위TEST 미결 부분 점검 및 작업 조언<br />
+		</td>
+		<td>
+		@디자이너, 프로그래머 재보강 작업 및 단위TEST 결과 제출<br />
+		@기획자 단위TEST 결과 최종본 정리
+		</td>
+		</tr>
+		</tbody>
+		</table>
+	</li>
+	</ul>
+</li>
+</ul>
+
+
+<h3>사전설문지 - 품질마크 범위 - <em>제외 서비스</em> 기입시 아래 내용 반드시 포함시키세요.</h3>
+<p><strong>신청 사이트를 제외한 모든 부가 사이트(하부 도메인 사이트, 동일 도메인이지만 새 창으로 제공되는 부가 사이트) 및 링크 페이지, 그리고 iframe 으로 제공되는 타 사이트 정보는 심사범위에서 제외하여 주시기 바랍니다.</strong></p>
+
+
+</div>
+<!-- //box4 -->
+
+<h2 id="c2">2010년 제11회 품질마크 대비 업무 분장</h2>
+<p>
+<em>※ 주의 : 접근성 보완 작업과 유지보수 작업이 겹치지 않도록 작업자는 서로 협의바랍니다..</em>
+</p>
+
+<!-- box4 -->
+<div class="box4">
+
+<h4 id="sitecharge">인증 신청 사이트 및 작업 담당자</h4>
+<p>
+※ 사이트 구축 당시 PL(Part Leader)이 없을 경우(→?) 실별 작업 담당자를 배정해주시기 바랍니다.<br />
+</p>
+
+<br />
+<h5 id="t1">[표] 신규 or 재신청 예상</h5>
+
+<p><strong><em>보강 작업 한다!</em></strong> 신청비는 갑이 지불하고 만약 실패하면 을이 다음 신청시 부담할 예정.(@이사님言)</p>
+
+<table class="t3 w100" summary="">
+<thead>
+<tr>
+<th scope="col">갑/사이트</th>
+<th scope="col">신청/진행/결과</th>
+<th scope="col"><span class="nowrap">K-WAH3.0</span></th>
+<th scope="col">단위TEST</th>
+<th scope="col">을 담당자</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong><a href="http://www.gnu.ac.kr/">경상대학교</a></strong></th>
+<td>론칭일.2010.02<br />
+<!-- <em>신청!</em><br /> -->
+11/18 사전심사 통과.. 스킵내비게이션 수정 요청 - 부적합 아님 (갑 실수)<br />
+12/30 <strong>제11회<em>합격</em></strong>
+</td>
+<td>
+10/5 149page 99%이상
+</td>
+<td></td>
+<td>정창신,이영석(→문영신),양미정,김봉규→박태공,<br />
+*플래시(홍성열→?)
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="http://www.namhae.go.kr/">남해군</a></strong></th>
+<td>론칭일.2010.10.12.<br />
+<!-- <em>신청!</em><br /> -->
+11/26 사전심사 통과예정 <a href="http://정보행동.co.kr/repair/repair_document.asp?idx=94384&page=1">~사전심사 수정사항.남해군.eml</a> 완료?<br />
+11/29 사전심사 통과<br />
+12/24 전문가 심사 통과하고 사용자 심사 중~26일. 결과는 28일<br />
+12/30 <strong>제11회<em>합격</em></strong>
+</td>
+<td>
+10/5 293page 99%이상
+</td>
+<td></td>
+<td>심윤정(→이정훈),이영석(→방문준),윤채영,박태공,<br />
+*플래시(홍성열→?)
+</td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<h5>[표] 갱신신청 예상</h5>
+
+<p><strong><em>보강 작업 안한다!</em></strong> 품질마크 예산 잡은곳(진주,통영,의령)만 <em>발주하면 작업</em>. (@이사님言)</p>
+
+<table class="t3 w100" summary="">
+<col style="width: 10%;" /><col /><col />
+<thead>
+<tr>
+<th scope="col">갑</th>
+<th scope="col">인증기간</th>
+<th scope="col">신청/진행/결과</th>
+<th scope="col">을 담당자</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong><a href="?">김해시</a></strong></th>
+<td>2009.12.30~2010.12.29<br />
+12/30 <strong>제11회<em>합격</em></strong>
+</td>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=95671&page=1">12/23 전문가 심사 지적 수정 요청</a> 완료</td>
+<td>강광일(→?),문영신,주인선(→?),김수진(→?)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">남해군</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>심윤정(→이정훈),방문준,이미숙(→김성일)[본청],양미정[문화관광],김수진(→박태공)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">마산시</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>최석문(→?),문영신,이미숙(→?),송영수(→?)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">창녕군</a></strong></th>
+<td>2009.12.30~2010.12.29<br />
+12/30 <strong>제11회<em>합격</em></strong>
+</td>
+<td>
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92372&page=1&searchString=접근성">10/20 갱신신청서검토요청</a>
+</td>
+<td>강광일(→?),황지영(→문영신),김호정,남태형(→?)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">통영시</a></strong></th>
+<td>2009.12.30~2010.12.29<br />
+12/30 <strong>제11회<em>합격</em></strong>
+</td>
+<td>
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91324&page=1&searchString=">10/1 협조요청</a> 작업안하기로<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91844&page=1&searchString=접근성">10/11 사전설문지검토요청</a><br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=95891&page=1&searchString=">12/28 전문가심사 지적 수정 요청</a> 완료
+</td>
+<td>김대성(→손정은),문영신,이영석(→?),남태형(→?)
+</td>
+<td>예산X 예산 잡는 듯 했으나 딴 곳에 사용.</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">함양군</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>옥규화(→강광일→?),문영신(→방문준),정유진(→박미진→?),남태형(→?)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">횡성군</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>정창신,문영신,김기리(→?),남태형(→?)
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">삼척시 평생학습</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>최석문(→?),방문준,주인선(→?),이녕길
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">마산시 보건소</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>최석문(→?),문영신,이종석(→?),김봉규
+</td>
+<td>예산X</td>
+</tr>
+<tr>
+<th scope="row"><strong><a href="?">마산시 청소년지원센터</a></strong></th>
+<td>2009.12.30~2010.12.29</td>
+<td></td>
+<td>최석문(→?),문영신,이종석(→?),김봉규
+</td>
+<td>예산X</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="http://www.wah.or.kr/Board/brd_view.asp?brd_sn=2&brd_idx=594">※ 갱신심사 접수는 인증만료 시점 직전의 품질마크 심사 회차 접수 시에 신청</a></p>
+
+
+
+<h5><a href="accessibility_work20100708.html#wamarkupdate">[표] 지난 회 갱신신청 예상</a></h5>
+<ul class="bu">
+<li>신청하였음 : 진주시, 부산시</li>
+<li>신청했을걸 : 함안군</li>
+<li>신청안했음(이번회신청예정) : 사천시, 산청군</li>
+<li>신청 여부 모름 : 진해시, 칠곡군, 하동군</li>
+</ul>
+<br />
+
+</div>
+<!-- //box4 -->
+
+
+<br /><br />
+<h3 id="c3">담당 분야별 업무 분장</h3>
+
+<p><em>평가 대비 보완 작업은 <big>사이트 구축 당시 해당 콘텐츠 작업자가 다시 보완 작업</big>하는 것을 원칙으로 합니다.</em></p>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">담당자</th>
+<th scope="col">업무분야</th>
+<th scope="col">웹 접근성 업무분장</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong>@기획자</strong></th>
+<td>요구사항분석,<br /> 정보구조설계,<br /> 콘텐츠 자료수집,<br /> 보고관리</td>
+<td>
+전체 작업 진척 관리 (<em>품질마크 신청 전에 작업 완료 반드시 체크</em>)<br />
+대체텍스트 자료수집.(약도, 오시는길, 동영상 대본, 관리자 작성 게시물, ..)<br />
+<em>주요 콘텐츠 점검 (1일 <span title="이익을 얻기 위하여 어떤 일이나 사업에 자본을 대거나 시간이나 정성을 쏟음.">투자</span>)</em> 후 디자이너, 개발자에게 전달<br />
+솔루션(통합검색, 바로보기, E-book,..) 점검<br />
+기존, 외부 콘텐츠 그대로 가져오는 페이지 점검<br />
+사전설문지 작성 지원<br />
+단위TEST.xls 메뉴구조 작성 후 배포. 전체 점검 결과를 취합<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><strong>@코더</strong></th>
+<td>공통,서브,메인 템플릿 코딩</td>
+<td>본인 작업 부분 점검 보완<br />
+<em>주요 콘텐츠 점검 (1일 <span title="이익을 얻기 위하여 어떤 일이나 사업에 자본을 대거나 시간이나 정성을 쏟음.">투자</span>)</em> 후 디자이너, 개발자에게 전달<br />
+솔루션 보완 지원<br />
+단위TEST.xls 템플릿 부분 작성
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><strong>@디자이너</strong></th>
+<td>정적(HTML) 페이지 디자인, 코딩</td>
+<td><em>본인 작업 부분 전체 페이지 점검 보완</em><br />
+사전설문지 작성 지원<br />
+단위TEST.xls 정적페이지 부분 작성
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><strong>@플래셔</strong></th>
+<td>플래시 무비 제작</td>
+<td>본인 작업 부분 점검 보완<br />
+<em>플래시 자체 접근성 준수 여부 점검 : 키보드만으로의 이용가능 + 색상에 무관한 인식 + 동영상에 대한 자막 제공 + 온라인 서식 + 깜빡임 사용 제한 등
+(키보드를 이용하여, 처음부터 끝까지 순차적으로 이동하는지 점검)</em>
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><strong>@개발자</strong></th>
+<td>동적(Program) 페이지 개발</td>
+<td><em>본인 작업 부분 전체 페이지 점검 보완</em><br />
+솔루션 점검 보완<br />
+단위TEST.xls 동적페이지 부분 작성<br />
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<ul class="bu">
+<li>동적+정적페이지(기본 스타일외 디자인이 가미된 동적 page)는 디자이너와 개발자가 각각 중복 점검한다.</li>
+<li>플래시 무비 자체(swf)는 플래셔가 점검하여 작업하고, 플래시가 포함된 페이지 전체의 접근성 점검은 디자이너가 한다.</li>
+</ul>
+
+<br />
+<hr class="show" />
+
+<h2 id="c5">2010년 웹 접근성 실태조사</h2>
+<ul class="bu">
+<li>조사기간: 2010.10~12. (횡성은 2010.10.1~15.)</li>
+<li>보강작업: <del>별도 관리 안함.</del> <ins>관리한다.(@문영신,방문준)</ins><br />
+10/5 이사님과 의논 결과.. <a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91467&page=1">실태조사 사전 점검</a> 관련 작업에 관해.. 구축 및 운영시 누락한 작업도 있으므로, 요청하면 작업해주기로함.<br />
+<ins>
+10/7 사장님과 의논 결과..<br />
+진주, 거창, 영천 - 전문가평가를 위한 점검까지 ==> 이미 완료했으나 신경쓰자.<br />
+작업 요청 오는 곳 - K-WAH3 18개 항목 모두. 일정하고 상관없이.. 프로젝트 지연안되게 ==> but 10월4주 개선결과 제출전까지 완료 필요하다.<br />
+나머지는 - 작업안한다. ==> 형평성 위해 K-WAH3 사전점검 4개 항목만.. 낮은 점수 위주로 보완 작업하자.<br />
+</ins>
+</li>
+</ul>
+<h3>대상기관 727개중 26-3 Site</h3>
+
+<table border="1" class="t3" summary="">
+<caption>링크된 곳은 유지보수 게시판에 관련 의뢰 내역 남긴 곳 
+<span class="fr">[답변여부](K-WAH3결과.2010.09.27)</span>
+</caption>
+<thead>
+<tr>
+<th scope="col">대상 26개</th>
+<th scope="col">Note</th>
+<th scope="col">사전점검<br />9/24</th>
+<th scope="col">조치결과<br />
+10/6~10/15<br />
+<span title="alt + frame title + keyboard event + docType">(항목1+6+8+15)</span>/4<br />
+<em>조치後</em>
+</th>
+<th scope="col">K-WAH3<br />10/6~<br />
+18개中<br />최소값
+</th>
+<th scope="col">을 담당자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">부산광역시</th>
+<td>갑이 요청해서 을 상주2명이 계속 수정할것임.</td>
+<td></td>
+<td>99+99+95+99<br />=98%</td>
+<td>95%이상</td>
+<td>정창신,문영신→<strong>방문준</strong>,김주희,장영규</td>
+</tr>
+<tr>
+<th scope="row">영도구</th>
+<td>수정완료</td>
+<td></td>
+<td>100+100+100+100<br />=100%<br /></td>
+<td>100%</td>
+<td>조창완(→심윤정→?),<strong>방문준</strong>,조미숙,남태형(→?)</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.bsgangseo.go.kr/">강서구</a></th>
+<td>
+11/26 K-Wah3.0 10/07결과분석 <em>▶작업보류(for결과분석)</em><br />
+2009년 마지막 제7회 품질마크 갱신심사 불합격~<br />
+* alt 없음  - 외부소스 작업불가 <a href="http://www.bsgangseo.go.kr/GPIN/GPinRequest.asp">/G-PIN/GPinRequest.asp</a><br />
+* title 태그, !doctype 없음 - 동적처리<br />
+* href="#" - 대부분 페이지의 페이지 이동 없이 기능만 있는것<br />
+* input 태그 submit(전송버튼) 제공여부<br />
+- error? 검색 버튼<br />
+- warning? 동적페이지 값 전달, 보안관련 html 외부에 코드 존재.<br />
+(인증실패상태이므로 공식요청전보류)
+</td>
+<td></td>
+<td>99+100+100+98<br />=99.25%<br /></td>
+<td>96%이상</td>
+<td>손정은,문영신,박미진(→?),이녕길</td>
+</tr>
+<tr>
+<th scope="row">삼척시</th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=90395&page=1&searchString=접근성">[답변완료]</a>(99%이상),<br />
+<em>==><a href="http://www.hygn.go.kr/G-PIN/GPinRequest.asp">/G-PIN/GPinRequest.asp</a> 외부소스작업불가</em><br />
+</td>
+<td></td>
+<td>99+100+100+97<br />
+=<em>99%</em><br /></td>
+<td>97%이상</td>
+<td>조창완(→정창신),이영석(→<strong>방문준</strong>),김호정,권용현(→배선옥→송종민)</td>
+</tr>
+<tr>
+<th scope="row"><a href="https://www.hsg.go.kr/">횡성군</a></th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=90852&page=1&searchString=">[<em>답변필요</em>]</a>(89%이상→95%이상),<br />
+18개항목 보완완료 (추가보완 후 첨부파일 검출되어 % 낮아짐TT)<br />
+★보류작업 <a href="http://www.hsg.go.kr/program/publicsil/default.asp">/program/publicsil/default.asp</a> 프로그램 변수<br />
+<!-- 관리자 게시글(읍면동 인사말, 이미지홍보)<br /> -->
+<em>==>잘못된진단: 첨부파일 *.jpg, *.txt</em><br />
+(2011개편예정 - 추가보완보류)<br />
+</td>
+<td>
+</td>
+<td>99+100+100+98<br />
+=<em>99.25%</em><br />
+100+100+100+96<br />
+=<em>99.00%</em><br />
+</td>
+<td>95%이상<br />
+92%이상
+</td>
+<td>정창신,문영신,김기리(→?),남태형(→배대훈) </td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.yc.go.kr/">영천시</a></th>
+<td>18개항목 보완완료<br />
+<em>==>잘못된진단: *.jpg 등 외 이상무</em><br />
+==> /03economy/01_04_01_04_desc.html 등 <br />
+- 오류 아닌데 오류로 검출.. 진주시 등 다른곳도.. K-WAH3 왜그래?<br />
+10/22 K-WAH3 평가 마법사 실행 후 외부망 차단됨.TT<br />
+웹방화벽차단안내페이지 접근성 오류<br />
+</td>
+<td></td>
+<td>99+100+100+99
+<em>=99.5%</em><br /></td>
+<td>97%이상</td>
+<td>손정은,문영신,김호정,남태형(→?)</td>
+</tr>
+<tr>
+<th scope="row">청송군</th>
+<td>www.cs.go.kr의 주소를 가진 사이트가 존재하지 않습니다.</td>
+<td></td>
+<td></td>
+<td></td>
+<td>강광일(→?),<strong>방문준</strong>,양미정,김수진(→?)</td>
+</tr>
+<tr>
+<th scope="row">고령군</th>
+<td>관리자만 접근가능한프로그램에 자바스크립트만 사용함<br />
+수정요망 - 페이지 기본틀을 만들고 자바스크립트 삽입</td>
+<td></td>
+<td>99+100+100+99<br />=99.5%</td>
+<td>99%이상</td>
+<td>심윤정(김용수)(→?),이영석(→<strong>방문준</strong>),주인선(→이영실),이녕길</td>
+</tr>
+<tr>
+<th scope="row">칠곡군</th>
+<td>www.chilgok.go.kr의 주소를 가진 사이트가 존재하지 않습니다.</td>
+<td></td>
+<td></td>
+<td></td>
+<td>최석문(→?),문영신,김기리(→?),정대석</td>
+</tr>
+<tr style="background: #eee;">
+<th scope="row">마산시X→통합창원</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>최석문(→?),문영신,이미숙(→?),송영수(→?)</td>
+</tr>
+<tr>
+<th scope="row">진주시</th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=89899&page=1&searchString=실태조사">[답변완료]</a>(76%이상→88%이상),<br />
+<em>*.PDF 파일 외(http://www.jinju.go.kr/data/ 폴더 제외) 99%이상</em><br />
+==>10/20 100% 완료확인
+</td>
+<td>92%</td>
+<td>
+<del>99+100+100+94<br />=<em>98.25%</em></del><br />
+<ins>100+100+100+100<br />=<em>100%</em></ins><br />
+</td>
+<td><del>88%이상</del><br />
+<ins>100%</ins>
+</td>
+<td>최석문(→심윤정→정창신),<strong>방문준</strong>,박경오(→?),정대석 </td>
+</tr>
+<tr style="background: #eee;">
+<th scope="row">진해시X→통합창원</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>강광일(→?),방문준,배대훈</td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.tongyeong.go.kr/">통영시</a></th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=89902&page=1&searchString=실태조사">[답변필요?]</a>(94%이상→96%이상),<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91455&page=1">10/5 사전점검 작업요청 (10/15(금)까지)</a><br />
+<!-- ★남은작업.<br />
+http://www.tongyeong.go.kr/05life/01_07.asp 개발자 작업필요!▶▶확인완료<br /> -->
+▶▶과업범위아님<br />
+http://www.tongyeong.go.kr/jinju  - 파일 위치도 모르겠음<br />
+http://www.tongyeong.go.kr/news/pdf.asp<br />
+http://www.tongyeong.go.kr/ty/mc<br />
+http://www.tongyeong.go.kr/ty/agri<br />
+http://www.tongyeong.go.kr/ty/health_center<br />
+http://www.tongyeong.go.kr/ty/literature<br />
+http://www.tongyeong.go.kr/ty/tongyong_citizen<br />
+http://www.tongyeong.go.kr/ty/history/<br />
+<br />
+▶IFRAME title = "음성서비스지원" tabindex=1000 ..<br />
+- 올바른 tabindex 사용여부<br />
+==> 키보드 순서가 올바르다면 오류라고 단정지을 수 없다.<br />
+<strong>12/01</strong> @갑.손정은. 과업범위 아닌거 하부도메인사이트로 옮긴 후 K-WAH3.0 오류 수정 요청
+▶
+
+
+</td>
+<td>97.75%</td>
+<td>100+98+99+99<br />
+=<em>99%</em><br />
+<!-- <strong>▶디자인코딩 조치완료</strong><br /> -->
+<strong>▶조치완료</strong><br />▶▶처리내역남김 
+</td>
+<td>98%이상</td>
+<td>김대성(→손정은),문영신,이영석(→?),남태형(→정미진)</td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.sacheon.go.kr/">사천시</a></th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=90343&page=1&searchString=실태조사">[답변필요?]</a>(10%이상→94%이상),<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91468&page=1&searchString=접근성">10/5 사전점검 작업요청 (10월18일까지)</a><br />
+</td>
+<td>76.50%</td>
+<td>100+100+100+100<br />
+=<em>100%</em>
+<strong>▶조치완료</strong><br />
+처리내역전달필요!<br />▶▶처리내역남김 
+</td>
+<td>100%</td>
+<td>심윤정(→손정은),문영신,이미숙(→?),이녕길</td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.gimhae.go.kr/">김해시</a></th>
+<td>
+18개항목 보완완료<br />
+보류작업 /servlet/ 이하<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92285&page=1">10/18 @허성원 주사 전화로 사전점검 작업요청</a><br />
+==> /servlet/ 포함 오류 없음<br />
+11/03 <a href="http://정보행동.co.kr/repair/repair_document.asp?idx=93189&page=1">포탈 웹접근성 및 웹호환성(수정).xls </a><br />
+11/05 <strong>▶웹 접근성 조치완료</strong> <a href="http://정보행동.co.kr/repair/repair_document.asp?idx=93332&page=1&searchString=">▶▶처리내역남김</a><br />
+</td>
+<td>98.25%</td>
+<td>100+100+100+100<br />
+=<em>100%</em>
+<strong>▶조치완료</strong><br />
+▶▶처리내역남김 
+</td>
+<td>100%<br />
+(대표<br />시민참여<br />시장실)<br />
+</td>
+<td>강광일(→정창신),문영신,주인선(→?),김수진(→?)</td>
+</tr>
+<tr>
+<th scope="row">밀양시</th>
+<td>2006년 과업 조건 KADO-WAH2.0 100% 이므로 그냥 둠.<br />
+- 온라인 서식 레이블 제공만 0 이고 나머지는 88% 이상<br />
+</td>
+<td>98%</td>
+<td>99+100+94+99<br />
+=98%</td>
+<td>0%이상</td>
+<td>설지희(→정창신),문영신,정대석
+</td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.uiryeong.go.kr/">의령군</a></th>
+<td>
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91518&page=1&searchString=접근성">10/5 사전점검 작업요청 (20일까지 보고해줘야되는데요)</a><br />
+<em>==>웹문서가 아닌 첨부 파일(/data/ai/sim_basic.ps) 외 오류 없음</em><br />
+▶K-WAH3.0 툴 자체 오류 (잘못된 진단) 이의 제기 필요!<br />
+웹문서가 아닌 파일은 (항목14,15번) doctype 과 title 태그가 없다!<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=93398&page=1">11/08 갑요청</a><strong>▶조치완료</strong>. 처리내역전달완료! 
+</td>
+<td>99.5%</td>
+<td>
+100+100+100+99<br />
+=<em>99.75%</em>
+<strong>▶조치완료</strong><br />
+처리내역전달필요!<br />▶▶처리내역남김
+</td>
+<td>99%이상</td>
+<td>손정은,문영신,양미정,남태형(→정미진)
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.haman.go.kr/">함안군</a></th>
+<td>
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91467&page=1">10/5 사전점검 작업요청 (즉시)</a><br />
+<em>==>웹문서가 아닌 첨부 파일(*.jpg) 외 오류 없음</em><br />
+</td>
+<td>90.50%</td>
+<td>
+100+100+100+99<br />
+=<em>99.75%</em>
+<strong>▶조치완료</strong><br />
+처리내역전달완료!
+</td>
+<td>99%이상</td>
+<td>최석문(→이정훈),문영신,<strong>방문준</strong>,남태형(→정대석)
+</td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.cng.go.kr/">창녕군</a></th>
+<td>4개항목 보완 일단완료<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92108&page=1">10/14 사전점검 작업요청</a><br />
+</td>
+<td>99.50%</td>
+<td>
+100+100+100+100<br />
+<em>=100%</em>
+<strong>▶조치완료</strong><br />▶▶처리내역남김
+</td>
+<td>99%이상</td>
+<td>강광일(→정창신),황지영(→문영신),김호정,남태형(→?) </td>
+</tr>
+<tr>
+<th scope="row">남해군</th>
+<td>==>웹문서가 아닌 첨부 파일 외 오류 없음
+</td>
+<td>99.50%</td>
+<td>100+100+100+100<br />=100%</td>
+<td>100%</td>
+<td>심윤정(→이정훈),이영석(→<strong>방문준</strong>),윤채영,박태공
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.hadong.go.kr/">하동군</a></th>
+<td>
+4개항목 보완 일단완료<br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=91598&page=1">10/14 전화 (10/6 사전점검 작업요청)</a><br />
+18개항목 보완완료<br />
+K-WAH3 검출 <a href="http://www.hadong.go.kr/program/incprogram/outSilBoard.asp?hdnPage=1&Bod01Code=1&Bod02Code=-5459">관리자 게시글</a> 오류 보완까지 모두 완료<br />
+★또 관리자가 글을 올리면 작업해야할수도 있음
+</td>
+<td>82.75%</td>
+<td>100+100+100+100<br />
+=<em>100%</em>
+<strong>▶조치완료</strong>
+</td>
+<td>100%</td>
+<td>최석문(→정창신),이옥희(→<strong>방문준</strong>),남태형(→?)</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.sancheong.ne.kr/">산청군</a></th>
+<td>
+18개항목 보완완료<br />
+<em>==>웹문서가 아닌 첨부 파일(*.jpg,*.hwp) 외 오류 없음</em><br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92631&page=1&searchString=접근성">10/26 사전점검 작업요청</a><br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92653&page=1">이춘자 계장과 통화하고 유지보수게시판에 처리 내역 남김.</a>
+
+
+</td>
+<td>99.25%</td>
+<td>100+100+100+97<br />
+=<em>99.25%</em>
+<strong>▶조치완료</strong><br />
+처리내역전달완료!
+</td>
+<td>95%이상</td>
+<td>최석문(→이정훈),문영신,김호정,남태형(→?) </td>
+</tr>
+<tr style="background: #ffe;">
+<th scope="row"><a href="http://www.hygn.go.kr/">함양군</a></th>
+<td>
+4개항목 보완 일단완료<br />
+18개항목 보완완료<br />
+<em>==><a href="http://www.hygn.go.kr/G-PIN/GPinRequest.asp">/G-PIN/GPinRequest.asp</a> 외부소스작업불가외 오류없음</em><br />
+보류작업 <a href="http://www.hygn.go.kr/program/publicboard/inIDNumber.asp">/program/publicboard/inIDNumber.asp</a><br />
+<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=92311&page=1&searchString=">10/19 사전점검 작업요청</a><br />
+==> 보류작업 완료
+</td>
+<td>83.25%</td>
+<td>99+100+100+100<br />
+=<em>99.75%</em>
+<strong>▶조치완료</strong><br />
+처리내역전달→@정창신<br />
+</td>
+<td>99%이상</td>
+<td>옥규화(→강광일→이정훈),문영신(→<strong>방문준</strong>),정유진(→박미진→?),남태형(→?)</td>
+</tr>
+<tr>
+<th scope="row">거창군<br /></th>
+<td>완료(특이사항 없음)</td>
+<td>100%</td>
+<td>100+100+100+100<br />
+=<em>100%</em></td>
+<td>100%</td>
+<td>강광일(→최석문→손정은),이영석(→<strong>방문준</strong>),양미정,김수진(→김봉규→송종민)
+</td>
+</tr>
+<tr style="background: #eee;">
+<th scope="row">한국거래소X<br /></th>
+<td>관리안함</td>
+<td></td>
+<td></td>
+<td></td>
+<td>정창신,문영신,방문준,이종석,이옥희</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://society-welfare.jinju.go.kr/">진주시종합사회복지관</a></th>
+<td><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=89899&page=1&searchString=실태조사">[답변완료]</a>(98%이상),</td>
+<td>100% 수정완료</td>
+<td>100+100+100+100<br />
+=<em>100%</em></td>
+<td>100%</td>
+<td>최석문(→심윤정→정창신),<strong>방문준</strong>,박경오(→?),정대석</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="c4">참고자료</h4>
+
+<p>아래 자료는 모든 담당자가 반드시 숙지해야할 내용입니다.</p>
+
+<ul class="bu">
+<li><a href="http://정보행동.co.kr/upfile/[붙임]%20실태조사%20기본계획_시군통보2.hwp">2010년 장애인 웹 접근성 실태조사 기본계획</a></li>
+<li><a href="http://www.wah.or.kr/Guide/valuation.asp">웹접근성 기술 가이드라인</a></li>
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?brd_sn=5&brd_idx=581">웹 접근성 점검 매뉴얼</a></li>
+<li>웹코딩 가이드 - 접근성 <a href="http://192.168.0.60:7060/sub/01_01_02.jsp">내부링크</a>, <a href="http://59.19.217.60:7060/sub/01_01_02.jsp">외부링크</a></li>
+</ul>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211025 | @m | 최초작성
+ * 20211025 | @m | 최초완성
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chart Progress [svg+css+js] by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			/* 'Lato', */'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* 차트.원 20211025 */
+	.w1cp1chart1circle1{
+		display:flex; /* ☆ */
+		justify-content:space-between;
+	}
+	.cp1chart1circle1{
+		display:inline-block;
+		z-index:0;
+		position:relative;
+		width:110px;
+		height:110px;
+		margin:auto;
+		font-weight:600;
+		font-size:2vw;
+		line-height:1.375;
+	}
+	.cp1chart1circle1.s2{}
+	.cp1chart1circle1.s3{}
+	/* 값 */
+	.cp1chart1circle1 .t1{
+		z-index:10;
+		position:absolute;left:50%;top:50%;
+		transform:translate(-50%, calc(-50% - .0625em));
+	}
+	/* 원 */
+	.cp1chart1circle1 svg.chart{
+		position:relative;
+		width:100%;
+		height:100%;
+		background:inherit;
+		transform:rotate(-90deg);
+		transform-origin:50% 50%;
+	}
+	.cp1chart1circle1 circle{
+		fill:transparent;
+		stroke-width:20;
+		stroke-dasharray:628;
+		stroke-dashoffset:628;
+		stroke-linecap:round;
+	}
+	.cp1chart1circle1 circle.fg{
+		/* [IE]bug) svg 내부 요소에는 transform 안됨 */
+		/* animation:kf1draw1 2s forwards; */
+	}
+	.cp1chart1circle1 circle.bg{
+		stroke:#eee;
+		stroke-dashoffset:0;
+	}
+	.cp1chart1circle1.s1 circle.fg{stroke:#4193ee;	}
+	.cp1chart1circle1.s2 circle.fg{stroke:#299fa2;}
+	.cp1chart1circle1.s3 circle.fg{stroke:#669d39;}
+	.cp1chart1circle1.s4 circle.fg{stroke:#a58d29;}
+	.cp1chart1circle1.s5 circle.fg{stroke:#e46c40;}
+	.cp1chart1circle1.s6 circle.fg{stroke:#ee6069;}
+	.cp1chart1circle1.s7 circle.fg{stroke:#aa79eb;}
+	.cp1chart1circle1.s8 circle.fg{stroke:#8385f6;}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+		.cp1chart1circle1{
+			font-size:1.25rem;
+		}
+	}
+
+
+	/* 차트.원 20211025 */
+	.w1cp1chart1circle2{
+		display:flex; /* ☆ */
+		justify-content:space-between;
+	}
+	.cp1chart1circle2{
+		display:inline-block;
+		z-index:0;
+		position:relative;
+		width:13.75em;
+		height:13.75em;
+		margin:.5em;
+		line-height:1.375;
+		text-align:center;
+	}
+	/* 값 */
+	.cp1chart1circle2 .tg1{
+		z-index:10;
+		position:absolute;left:50%;top:50%;
+		transform:translate(-50%, -50%);
+	}
+	.cp1chart1circle2 .tt1{
+		display:block;
+		color:#333;
+		font-size:2.0vw;
+	}
+	.cp1chart1circle2 .t1{
+		display:block;
+		color:#333;
+		font-weight:700;
+		font-size:3.2vw;
+	}
+	/* 원 */
+	.cp1chart1circle2 svg.chart{
+		position:relative;
+		width:100%;
+		height:100%;
+		background:inherit;
+		transform:rotate(-90deg);
+		transform-origin:50% 50%;
+	}
+	.cp1chart1circle2 circle{
+		fill:transparent;
+		stroke-width:20;
+		stroke-dasharray:628;
+		stroke-dashoffset:628;
+		stroke-linecap:round;
+	}
+	.cp1chart1circle2 circle.fg{
+		stroke:#a0d85a;
+		/* [IE]bug) svg 내부 요소에는 transform 안됨 */
+		/* animation:kf1draw1 2s forwards; */
+	}
+	.cp1chart1circle2 circle.bg{
+		stroke:#eee;
+		stroke-dashoffset:0;
+	}
+	.cp1chart1circle2.s1 circle.fg{stroke:#4193ee;}
+	.cp1chart1circle2.s2 circle.fg{stroke:#299fa2;}
+	.cp1chart1circle2.s3 circle.fg{stroke:#669d39;}
+	.cp1chart1circle2.s4 circle.fg{stroke:#a58d29;}
+	.cp1chart1circle2.s5 circle.fg{stroke:#e46c40;}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+		.cp1chart1circle2 .tt1{
+			font-size:1.25em;
+		}
+		.cp1chart1circle2 .t1{
+			font-size:2em;
+		}
+	}
+
+
+	/* 퀴즈타입리스트 20211025 */
+	.cp1quiz2{
+		display:block;
+		position:relative;
+		margin:.625em 0 0;
+	}
+	.cp1quiz2 .lst1{list-style:none;margin:0;padding:0;}
+	.cp1quiz2 .item{}
+	.cp1quiz2 .item>.w1{}
+	.cp1quiz2 .a1{
+		display:block;
+		padding:14px 0;
+		color:inherit;
+	}
+	.cp1quiz2 .tg1{
+		display:flex; /* ☆ */
+		justify-content:space-between;
+		align-items:center;
+		margin:0 0 .375em;
+	}
+	.cp1quiz2 .tg1 .tt1{
+		flex:auto;
+		font-weight:500;
+		font-size:1em;
+	}
+	.cp1quiz2 .tg1 .t1{
+		flex:none;
+		font-size:.75em;
+	}
+	.cp1quiz2 .tg1 .t1t1{
+		font-style:normal;
+		font-weight:700;
+		color:#4b84f7;
+	}
+	.cp1quiz2 .tg1 .sep{
+		color:#aaa;
+	}
+	.cp1quiz2 .tg1 .t1t2{
+		color:#959595;
+	}
+	/* 진행바 */
+	.cp1quiz2 .gg1{
+		width:100%;
+		margin:auto;
+	}
+	.cp1quiz2 .g1{
+		display:block;
+		width:100%;
+		height:8px;
+		border-radius:9999px;
+		background:#e4e4e4;
+	}
+	.cp1quiz2 .g1b1{
+		display:block;
+		width:0;
+		height:100%;
+		border-radius:9999px;
+		background:#4b84f7;
+	}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	Chart Progress
+	<small class="dpib">[svg+css+js]</small>
+</h1>
+
+
+<!-- 
+<script src="../../share/vendor/jquery-3.6.0.min.js"></script>
+<script src="../../share/vendor/jquery.easing.1.3.js"></script>
+ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">
+	Circle
+</h2>
+
+<h3 class="hb1 h3">
+	진행시간동일
+</h3>
+
+
+<!-- w1cp1chart1circle1 -->
+<div class="w1cp1chart1circle1">
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s1">
+		<span class="t1"><span class="t1t1" data-num="66">0</span><!-- <span class="t1t2">점</span> --></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s2">
+		<span class="t1"><span class="t1t1" data-num="33">0</span><!-- <span class="t1t2">점</span> --></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s3">
+		<span class="t1"><span class="t1t1" data-num="88">0</span><!-- <span class="t1t2">점</span> --></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s4">
+		<span class="t1"><span class="t1t1" data-num="55">0</span><!-- <span class="t1t2">점</span> --></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s5">
+		<span class="t1"><span class="t1t1" data-num="100">0</span><!-- <span class="t1t2">점</span> --></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s6">
+		<span class="t1"><span class="t1t1" data-num="66">0</span><span class="t1t2">점</span></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s7">
+		<span class="t1"><span class="t1t1" data-num="60">0</span><span class="t1t2">점</span></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+	<!-- cp1chart1circle1 -->
+	<div class="cp1chart1circle1 s8">
+		<span class="t1"><span class="t1t1" data-num="35">0</span><span class="t1t2">점</span></span>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle1 -->
+
+</div>
+<!-- /w1cp1chart1circle1 -->
+
+
+<script>/*<![CDATA[*/
+	$(function(){
+		/** ◇◆ SVG. 원 그래프 애니메이션. 20211025. @m.
+		 */
+		(function(){
+			var $my = $('.cp1chart1circle1');
+			var myOST = $my.offset().top - $(window).height() + $my.height();
+
+
+			// 바로 호출
+			animateChart();
+
+			// 스크롤하면 호출
+			$(window).scroll(function(){
+				var nowSCT = $(this).scrollTop();
+				if( nowSCT >= myOST ){
+					if (!$my.is('.active') ){
+						animateChart();
+						$my.addClass('active');
+					}
+				}
+			});
+
+			// 탭 클릭하면 호출
+			$('[href="#cp1tabs3pane3"]').on('click', function(e){
+				e.preventDefault();
+				animateChart();
+			});
+
+			// 애니메이션
+			function animateChart(){
+				$my.each(function(){
+					var $item = $(this);
+					var $title = $('.t1t1', $item);
+					var $circle = $('circle.fg', $item);
+					var targetNum = $title.attr('data-num');
+
+					$({rate: 0}).animate({rate: targetNum},{
+						duration: 1500,
+						progress: function(){
+							var now = this.rate;
+							var amount = 628 - ( 628 * now / 100 );
+							$title.text( Math.floor(now) ); // 값카운트
+							$circle.css({strokeDashoffset: amount}); // 선그리기
+						}
+					});
+				});
+			}
+		})();
+	});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">
+	Circle
+</h2>
+
+<h3 class="hb1 h3">
+	동일속도.진행시간상이
+</h3>
+
+
+<!-- w1cp1chart1circle2 -->
+<div class="w1cp1chart1circle2">
+
+	<!-- cp1chart1circle2 -->
+	<div class="cp1chart1circle2 s1">
+		<div class="tg1">
+			<span class="tt1">Voca</span>
+			<span class="t1">
+				<span class="t1t1" data-num="100">100</span><!-- <span class="t1t2">점</span> -->
+			</span>
+		</div>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle2 -->
+
+	<!-- cp1chart1circle2 -->
+	<div class="cp1chart1circle2 s2">
+		<div class="tg1">
+			<span class="tt1">Reading</span>
+			<span class="t1">
+				<span class="t1t1" data-num="90">90</span><!-- <span class="t1t2">점</span> -->
+			</span>
+		</div>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle2 -->
+
+	<!-- cp1chart1circle2 -->
+	<div class="cp1chart1circle2 s3">
+		<div class="tg1">
+			<span class="tt1">Listening</span>
+			<span class="t1">
+				<span class="t1t1" data-num="50">50</span><!-- <span class="t1t2">점</span> -->
+			</span>
+		</div>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle2 -->
+
+	<!-- cp1chart1circle2 -->
+	<div class="cp1chart1circle2 s4">
+		<div class="tg1">
+			<span class="tt1">Speaking</span>
+			<span class="t1">
+				<span class="t1t1" data-num="40">40</span><!-- <span class="t1t2">점</span> -->
+			</span>
+		</div>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle2 -->
+
+	<!-- cp1chart1circle2 -->
+	<div class="cp1chart1circle2 s5">
+		<div class="tg1">
+			<span class="tt1">Writing</span>
+			<span class="t1">
+				<span class="t1t1" data-num="70">70</span><!-- <span class="t1t2">점</span> -->
+			</span>
+		</div>
+		<svg class="chart" viewBox="0 0 220 220">
+			<circle class="bg" cx="110" cy="110" r="100"></circle>
+			<circle class="fg" cx="110" cy="110" r="100"></circle>
+		</svg>
+	</div>
+	<!-- /cp1chart1circle2 -->
+
+</div>
+<!-- /w1cp1chart1circle2 -->
+
+
+<script>/*<![CDATA[*/
+	$(function(){
+
+		/** ◇◆ SVG. 원 그래프 애니메이션. 20211025. @m.
+		 */
+		(function(){
+			var $my = $('.cp1chart1circle2');
+
+			// 바로 호출
+			animateChart();
+
+			// 애니메이션
+			function animateChart(){
+				$my.each(function(){
+					var $item = $(this);
+					var $title = $('.t1t1', $item);
+					var $circle = $('circle.fg', $item);
+					var targetNum = $title.attr('data-num');
+
+					$({rate: 0}).animate({rate: targetNum},{
+						duration: 1500 * (targetNum / 100), // 점수별로 동작시간 다름
+						progress: function(){
+							var now = this.rate;
+							var amount = 628 - ( 628 * now / 100 );
+							$title.text( Math.floor(now) ); // 값카운트
+							$circle.css({strokeDashoffset: amount}); // 선그리기
+						}
+					});
+				});
+			}
+		})();
+
+	});
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">
+	Bar [html+css]
+</h2>
+
+
+<!-- cp1quiz2 -->
+<div class="cp1quiz2">
+	<div class="lst1">
+		<div class="item m2">
+			<div class="w1">
+				<a href="?#★" class="a1">
+					<div class="tg1">
+						<span class="tt1">활용</span>
+						<div class="t1">
+							<em class="t1t1">1</em> <i class="sep">/</i> <span class="t1t2">3</span>
+						</div>
+					</div>
+					<div class="gg1">
+						<div class="g1">
+							<i class="g1b1" style="width:33.333%;"></i>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /cp1quiz2 -->
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

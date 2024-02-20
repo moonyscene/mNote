@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Framework by Table | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Framework by Table</h1>
+
+
+<h2>테이블 기본 샘플 코드</h2>
+
+<h3>데이터 테이블</h3>
+
+<xmp class="xmp">
+<table summary="중간고사와 기말고사 성적을 개인별로 보여주는 표">
+<caption>개인별 시험 성적표</caption>
+<thead>
+<tr>
+<th>구분</th>
+<th scope="col">중간고사</th>
+<th scope="col">기말고사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">김철수</th>
+<td>50</td>
+<td>60</td>
+</tr>
+<tr>
+<th scope="row">박영희</th>
+<td>70</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+</xmp>
+
+
+
+
+<h3>레이아웃 테이블</h3>
+
+<p><em>summary="내비게이션" 이런식으로 요약 정보 대신 용도를 적을 수도 있으나, 2009년 행안부 웹 접근성 실태조사에서 감점하므로 속성 사용하지 말자</em></p>
+
+<xmp class="xmp">
+<table>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>
+</xmp>
+
+
+<h2>테이블 코드 작성 규칙</h2>
+
+<dl class="bu">
+<dt>table 방식의 코딩일 경우 아래 그림과 같은 들여쓰기 방식을 적용한다 </dt>
+<dd>
+<dfn>
+들여쓰기는 table 단위를 기준으로 들여 쓴다.<br />
+들여 쓰는 넓이 길이는 Tab 크기를 기준으로 한다.(Tab Key사용)<br />
+해당 Table의 하위 tr, td 는 들여 쓰지 않는다.<br />
+</dfn>
+<xmp class="xmp">
+<table>
+<tr>
+<th>제목</th>
+<th>제목</th>
+</tr>
+<tr>
+<td>
+	<table>
+	<tr>
+	<th>제목</th>
+	<th>제목</th>
+	</tr>
+	<tr>
+	<td>내용</td>
+	<td>내용</td>
+	</tr>
+	</table>
+</td>
+<td>
+내용
+</td>
+</tr>
+</table>
+</xmp>
+</dd>
+
+
+<dt>Data 혹은 내용(contents)을 담는 경우처럼 레이아웃을 위한 table형식이 아닌경우는 Hearder 범위를 지정한다.</dt>
+<dd>
+table의 해더 태그인 th를 사용한다. thead, tbody 태그로 헤더행과 데이터행을 구분해준다.
+<xmp class="xmp">
+<table>
+<thead>
+<tr>
+<th>제목</th>
+<th>제목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>제목</th>
+<td>내용</td>
+</tr>
+</tbody>
+</table>
+</xmp>
+</dd>
+
+
+<dt>table간 중첩은 최소한으로 한다.</dt>
+<dd>
+table안에 table이 다수 포함되는 형태의 코딩방식은 지양한다. 일반적으로 2depth까지만 허용한다.
+</dd>
+
+
+<dt>table 방식의 코딩일 경우 각 td 셀안의 공통적인 text-align(vertical-align) 스타일을 설정하는 경우에는 간략화를 위해 td를 포함하는 윗 tr에서 한번만 적용해준다.</dt>
+<dd>
+<dfn>
+태그 속성을 사용하지 않고 스타일시트를 사용한다.
+</dfn>
+불필요한 태그가 중복된 경우 : td에 style="text-align: center;" 가 반복사용됨
+<xmp class="xmp">
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</xmp>
+tr 에 style="text-align: center;"를 한번 기입하여 각 td에 style="text-align: center;" 속성이 일괄적용됨
+<xmp class="xmp">
+<tr style="text-align: center;">
+<td></td>
+<td></td>
+</tr>
+</xmp>
+col 태그를 활용하여 열 단위로 width 와 text-align 스타일을 지정할 수 있다.( col 은 웹표준 코드이긴 하나 IE만 제대로 지원한다)
+<xmp class="xmp">
+<table>
+<colgroup>
+<col style="width: 50px; text-align: center;" />
+<col span="2" style="width: 100px; text-align: left;" />
+<col style="width: 200px; text-align: center;" />
+</colgroup>
+<thead>
+<tr>
+<th>head</th>
+<th>head</th>
+<th>head</th>
+<th>head</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>head</th>
+<td>data</td>
+<td>data</td>
+<td>data</td>
+</tbody>
+</tr>
+</table>
+</xmp>
+</dd>
+
+
+<dt>tr태그에는 border, padding 스타일을 사용할 수 없다.</dt>
+<dd>
+<dfn>
+border 는 전혀 지원이 안되고,<br />
+padding 은 IE외에 나머지 브라우져(firefox, opera, safari)에서는 표현되지 않는다.<br />
+</dfn>
+</dd>
+
+
+<dt>class 혹은 style을 설정할 경우는 주변 태그를 이용하여 코드사용에 대한 중복을 피한다.</dt>
+<dd>
+<xmp class="xmp">
+<td><span class="sub">myshin</span></td> → (X)
+<td class="sub">myshin</td> → (O)
+
+<td><a href=""><span class="sub">myshin</span></a></td> → (X)
+<td><a href="" class="sub">myshin</a></td> → (O)
+
+<td><b><span style="color: #000;">myshin</span></b></td> → (X)
+<td style="color: #000; font-weight: bold;">myshin</td> → (O)
+</xmp>
+</dd>
+
+<dt>col, colgroup 요소에는 border, background, width, visibility 4개의 CSS 속성만 적용됩니다. (CSS 2.1 명세서)</dt>
+<dd>col의 width 사이즈 계산 방식이 브라우저에 따라 틀립니다.</dd>
+
+</dl>
+
+
+<hr>
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

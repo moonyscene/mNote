@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - Compatibility | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Javascript - Compatibility (Cross Browing)</h1>
+<ul class="bu">
+<li><a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (2005)</a> p122~p161 <a href="http://www.gurubee.net/pages/viewpage.action?pageId=983075">실전 DOM/Script 가이드</a></li>
+<li><a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></li>
+<li><a href="#Javascript_CookBook">Javascript CookBook</a></li>
+<li><a href="../img/html_elements_coordinates.png">html_elements_coordinates.png</a></li>
+</ul>
+
+<h2>W3C, MS 호환 함수 필요!</h2>
+
+<ul class="bu">
+<li><a href="#mLib">01~10. mLib.js</a></li>
+</ul>
+
+
+<ol class="num">
+<li><a href="#getElementById">객체 접근 방법</a> getElementById(id)</li>
+<li><a href="#innerWidth">뷰포트(웹 페이지 영역(윈도우나 프레임의 내부)) 크기</a> windowHeight() windowWidth(), 웹 페이지 크기</li>
+<li><a href="#pageYOffset">스크롤바 위치</a> scrollX() scrollY() , 스크롤바 이동 scrollTo()</li>
+<li><a href="#getStyle">스타일 정보 가져오기</a> getStyle(elem, propertyName)</li>
+<li><a href="#event">이벤트 객체</a> e = e || window.event;</li>
+<li><a href="#clientXY">마우스 위치</a> getX(e) getY(e)</li>
+<li><a href="#addEventListener">이벤트 핸들러 등록 (이벤트 리스너 연결)</a> addEvent(element, type, handler) removeEvent(element, type, handler)</li>
+<li><a href="#childNodes">자식노드의 공백과 주석</a></li>
+<li><a href="#DOMParser">XHTML 문서내에 XML 임베딩</a></li>
+<li><a href="#XMLHttpRequest">XMLHttpRequest 객체 사용하기</a></li>
+</ol>
+
+<h3 id="mLib">01~10. mLib.js</h3>
+<xmp class="xmp">
+function windowHeight(){var de=document.documentElement; return self.innerHeight||(de&&de.clientHeight)||document.body.clientHeight;}
+function windowWidth(){var de=document.documentElement; return self.innerWidth||(de&&de.clientWidth)||document.body.clientWidth;}
+function pageHeight(){return document.body.scrollHeight;}
+function pageWidth(){return document.body.scrollWidth;}
+function getHeight(elem){return parseInt(getStyle(elem, "height"));}
+function getWidth(elem){return parseInt(getStyle(elem, "width"));}
+function scrollX(){var de=document.documentElement;return self.pageXOffset||(de&&de.scrollLeft)||document.body.scrollLeft;}
+function scrollY(){var de=document.documentElement;return self.pageYOffset||(de&&de.scrollTop)||document.body.scrollTop;}
+function setX(elem, pos){elem.style.left=pos+"px";}
+function setY(elem, pos){elem.style.top=pos+"px";}
+function getStyle( elem, name ) {
+	if (elem.style[name])
+		return elem.style[name];
+	else if (elem.currentStyle)
+		return elem.currentStyle[name];
+	else if (document.defaultView && document.defaultView.getComputedStyle) {
+		name = name.replace(/([A-Z])/g,"-$1");
+		name = name.toLowerCase();
+		var s = document.defaultView.getComputedStyle(elem,"");
+		return s && s.getPropertyValue(name);
+	} else
+		return null;
+}
+function setOpacity(elem, level){// level=0~100
+	if(elem.filters){elem.style.filter = 'alpha(opacity='+level+')';}
+	else{elem.style.opacity = level / 100;}
+}
+function hide( elem ) {
+	var curDisplay = getStyle( elem, "display" );
+	if ( curDisplay != "none" ){elem.$oldDisplay = curDisplay;}
+	elem.style.display = "none";
+}
+function show( elem ) {
+	elem.style.display = elem.$oldDisplay || "block";
+}
+function fadeIn( elem, to, speed ) {
+	setOpacity( elem, 0 );
+	show( elem );
+	for ( var i = 0; i <= 100; i += 5 ) {
+		(function(){
+			var opacity = i;
+			setTimeout(function(){
+				setOpacity( elem, ( opacity / 100 ) * to );
+			}, ( i + 1 ) * speed );
+		})();
+	}
+}
+function fadeOut( elem, to, speed ) {
+	for ( var i = 0; i < 100; i += 5 ) {
+		(function(){
+			var opacity = i;
+			setTimeout(function(){
+				setOpacity( elem, 100 - opacity );
+				if ( opacity == 95 ) hide( elem );
+			}, ( i + 1 ) * speed );
+		})();
+	}
+}
+function id( name ) {return document.getElementById( name );}
+function tag( name, root ) {return ( root || document ).getElementsByTagName( name );}
+function hasClass(name,type) { // byClass
+	var r = [];
+	var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
+	var e = document.getElementsByTagName(type || "*");
+	for ( var j = 0; j < e.length; j++ )
+		if ( re.test(e[j].className) ) r.push( e[j] );
+	return r;
+}
+function prev( elem ) {
+	do {
+		elem = elem.previousSibling;
+	} while ( elem && elem.nodeType != 1 );
+	return elem;
+}
+function next( elem ) {
+	do {
+		elem = elem.nextSibling;
+	} while ( elem && elem.nodeType != 1 );
+	return elem;
+}
+function first( elem ) {
+	elem = elem.firstChild;
+	return elem && elem.nodeType != 1 ? next ( elem ) : elem;
+}
+function last( elem ) {
+	elem = elem.lastChild;
+	return elem && elem.nodeType != 1 ? prev ( elem ) : elem;
+}
+function parent( elem, num ) {
+	num = num || 1;
+	for ( var i = 0; i < num; i++ ){
+		if ( elem != null ) elem = elem.parentNode;
+	}
+	return elem;
+}
+</xmp>
+
+
+<h3 id="getElementById">객체 접근 방법</h3>
+
+<ul class="bu">
+<li><em>getElementById</em></li>
+</ul>
+
+<xmp class="xmp">
+function $(id){
+	var d=document;
+	d.el=d.getElementById?d.getElementById(id):d.all?d.all[id]:d.layers[id];
+}
+</xmp>
+
+<h3 id="innerWidth">뷰포트(웹 페이지 영역(윈도우나 프레임의 내부)) 크기</h3>
+
+<ul class="bu">
+<li>[W3C] <em>innerWidth innerHeight</em> [MS] <em>clientWidth clientHeight</em></li>
+</ul>
+
+<xmp class="xmp">
+// Find the height of the viewport
+function windowHeight() {
+    // A shortcut, in case we’re using Internet Explorer 6 in Strict Mode
+    var de = document.documentElement;
+
+    // If the innerHeight of the browser is available, use that
+    return self.innerHeight ||
+
+	// Otherwise, try to get the height off of the root node
+	( de && de.clientHeight ) ||
+
+	// Finally, try to get the height off of the body element
+	document.body.clientHeight;
+}
+
+// Find the width of the viewport
+function windowWidth() {
+    // A shortcut, in case we’re using Internet Explorer 6 in Strict Mode
+    var de = document.documentElement;
+
+    // If the innerWidth of the browser is available, use that
+    return self.innerWidth ||
+
+	// Otherwise, try to get the width off of the root node
+	( de && de.clientWidth ) ||
+
+	// Finally, try to get the width off of the body element
+	document.body.clientWidth;
+}
+</xmp>
+
+<h4>웹 페이지 크기</h4>
+
+<ul class="bu">
+<li><em>window.scrollTo(0,0);</em></li>
+</ul>
+
+<xmp class="xmp">
+// Returns the height of the web page
+// (could change if new content is added to the page)
+function pageHeight() {
+    return document.body.scrollHeight;
+}
+
+// Returns the width of the web page
+function pageWidth() {
+    return document.body.scrollWidth;
+}
+</xmp>
+
+<h3 id="pageYOffset">스크롤바 위치</h3>
+
+<ul class="bu">
+<li>[W3C] <em>pageXOffset pageYOffset</em> [MS] <em>scrollLeft scrollTop</em></li>
+</ul>
+
+<xmp class="xmp">
+// A function for determining how far horizontally the browser is scrolled
+function scrollX() {
+    // A shortcut, in case we’re using Internet Explorer 6 in Strict Mode
+    var de = document.documentElement;
+
+    // If the pageXOffset of the browser is available, use that
+    return self.pageXOffset ||
+
+	// Otherwise, try to get the scroll left off of the root node
+	( de && de.scrollLeft ) ||
+
+	// Finally, try to get the scroll left off of the body element
+	document.body.scrollLeft;
+}
+
+// A function for determining how far vertically the browser is scrolled
+function scrollY() {
+    // A shortcut, in case we’re using Internet Explorer 6 in Strict Mode
+    var de = document.documentElement;
+
+    // If the pageYOffset of the browser is available, use that
+    return self.pageYOffset ||
+
+	// Otherwise, try to get the scroll top off of the root node
+	( de && de.scrollTop ) ||
+
+	// Finally, try to get the scroll top off of the body element
+	document.body.scrollTop;
+}
+</xmp>
+
+<h4>스크롤바 이동</h4>
+
+<ul class="bu">
+<li><em>window.scrollTo(0,0);</em></li>
+</ul>
+
+<xmp class="xmp">
+// If you wanted to scroll the browser up to the top of the browser, you could do:
+window.scrollTo(0,0);
+
+// If you wanted to scroll to the position of a specific element, you could do:
+window.scrollTo( 0, pageY( document.getElementById(“body”) ) );
+</xmp>
+
+
+<h3 id="getStyle">스타일 정보 가져오기 <span><cite>- Pro Javascript Techniques -</cite></span></h3>
+
+
+<ul class="bu">
+<li>[W3C] <em>document.defaultView.getComputedStyle(elem,"").getPropertyValue("min-height")</em> [MS] <em>elem.currentStyle["minHeight"]</em></li>
+<li>[MS] <em>"minHeight"</em> , [W3C] <em>"min-height"</em> 를 사용하므로, replace(정규표현식,) 추가하여 해결함</li>
+<li><em>100% 에 대한 브라우저별 결과값</em>.. [IE6~8] 100%, [FF,SF,CR] 계산된값px, [OP] auto 에서 보듯.. 각각 다르므로, 스타일 값 불러오지 말고, 요소 높이를 직접 구하자!</li>
+</ul>
+
+<blockquote><div>
+<cite>cite: <a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title></title>
+<style>p { min-height: 100%; }</style>
+<script>
+// Get a style property (name) of a specific element (elem)
+function getStyle( elem, name ) {
+    // If the property exists in style[], then it’s been set recently (and is current)
+    if (elem.style[name])
+	return elem.style[name];
+
+    // Otherwise, try to use IE’s method
+    else if (elem.currentStyle)
+	return elem.currentStyle[name];
+
+    // Or the W3C’s method, if it exists
+    else if (document.defaultView && document.defaultView.getComputedStyle) {
+	// It uses the traditional ‘text-align’ style of rule writing, instead of textAlign
+	name = name.replace(/([A-Z])/g,"-$1");
+	name = name.toLowerCase();
+
+	// Get the style object and get the value of the property (if it exists)
+	var s = document.defaultView.getComputedStyle(elem,"");
+	return s && s.getPropertyValue(name);
+
+    // Otherwise, we’re using some other browser
+    } else
+	return null;
+}
+window.onload = function(){
+	// Locate the paragraph to check the height of
+	var p = document.getElementsByTagName("p")[0];
+
+	// Check the height the traditional way
+	alert( p.style.minHeight + " should be null" );
+
+	// Check the computed value of the height
+	alert( getStyle( p, "minHeight" ) + " should be value" );
+
+};
+</script>
+</head>
+<body>
+<p>I should be 100 pixels tall.</p>
+</body>
+</html>
+</xmp>
+
+<h3 id="event">이벤트 객체</h3>
+
+<ul class="bu">
+<li>[W3C] function(e){<em>e</em>} [MS] <em>window.event</em></li>
+</ul>
+
+<blockquote><div>
+<cite>cite: <a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+// Find the first <textarea> on the page and bind a keypress listener
+document.getElementByTagName(“textarea”)[0].onkeypress = function(e){
+    // If no event object exists, then grab the global (IE-only) one
+    e = e || window.event;
+
+    // If the Enter key is pressed, return false (causing it to do nothing)
+    return e.keyCode != 40;
+};
+</xmp>
+
+<blockquote><div>
+<cite>cite: <a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (2005)</a></cite>
+</div></blockquote>
+
+
+<xmp class="xmp">
+<script>
+function handleEvent(aEvent){
+	var myEvent = aEvent ? aEvent : window.event; // aEvent 가 null 이면 IE 이기 때문에 window.event 를 반환한다.
+	alert(myEvent.type);
+}
+</script>
+<div onclick="handleEvent(event)">Click me!</div>
+</xmp>
+
+<h3 id="clientXY">마우스 위치</h3>
+
+<ul class="bu">
+<li>[W3C] <em>e.pageX</em> [MS] <em>window.event.clientX + document.body.scrollLeft</em></li>
+<li>[W3C] <em>e.pageY</em> [MS] <em>window.event.clientY + document.body.scrollTop</em></li>
+</ul>
+
+<xmp class="xmp">
+// Find the horizontal position of the cursor
+function getX(e) {
+    // Normalize the event object
+    e = e || window.event;
+
+    // Check for the non-IE position, then the IE position, and finally return 0
+    return e.pageX || e.clientX + document.body.scrollLeft || 0;
+}
+
+// Find the vertical position of the cursor
+function getY(e) {
+    // Normalize the event object
+    e = e || window.event;
+
+    // Check for the non-IE position, then the IE position, and finally return 0
+    return e.pageY || e.clientY + document.body.scrollTop || 0;
+}
+</xmp>
+
+<h4>현재 상호작용 중인 엘리먼트에 상대적인 마우스 위치</h4>
+
+<ul class="bu">
+<li>[W3C] <em>e.layerX</em> [MS] <em>window.event.offsetX</em></li>
+<li>[W3C] <em>e.layerY</em> [MS] <em>window.event.offsetY</em></li>
+</ul>
+
+<xmp class="xmp">
+// Get the X position of the mouse relative to the element target
+// used in event object ‘e’
+function getElementX( e ) {
+    // Find the appropriate element offset
+    return ( e && e.layerX ) || window.event.offsetX;
+}
+ 
+// Get the Y position of the mouse relative to the element target
+// used in event object ‘e’
+function getElementY( e ) {
+    // Find the appropriate element offset
+    return ( e && e.layerY ) || window.event.offsetY;
+}
+</xmp>
+
+<table border="1" class="t3" summary=""><caption>마우스 위치 속성</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">MS DOM Event</th>
+<th scope="col">W3C DOM Event</th>
+<th scope="col">사용 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><em>clientX/Y</em></th>
+<th scope="row">clientX/Y</th>
+<td>윈도우에서 이벤트가 일어난 상대적 x /y좌표 (Safari 는 document 기반으로 측정)<br />
+Test필요! 브라우저별 같은지 다른지?
+</td>
+</tr><tr>
+<th scope="row">screenX/Y</th>
+<th scope="row">screenX/Y</th>
+<td>전체 화면에서 이벤트가 일어나는 위치</td>
+</tr><tr>
+<th scope="row"><em>offsetX/Y</em></th>
+<th scope="row"><em>layerX/Y</em></th>
+<td>마우스 근방에 요소에서 상대적 위치</td>
+</tr><tr>
+<th scope="row">-</th>
+<th scope="row"><em>PageX/Y</em></th>
+<td>전체 문서에서 상대적 위치 (IE에서 작동 안함)</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="addEventListener">이벤트 핸들러 등록 (이벤트 리스너 연결)</h3>
+
+<ul class="bu">
+<li>[W3C] <em>addEventListener(eventType, eventHandler,false)</em> [MS] <em>attachEvent(eventType, eventHandler)</em></li>
+</ul>
+
+<h4>Pro JS Tech</h4>
+<xmp class="xmp">
+// addEvent/removeEvent written by Dean Edwards, 2005
+// with input from Tino Zijdel
+// http://dean.edwards.name/weblog/2005/10/add-event/
+
+function addEvent(element, type, handler) {
+	// assign each event handler a unique ID
+	if (!handler.$$guid) handler.$$guid = addEvent.guid++;
+	// create a hash table of event types for the element
+	if (!element.events) element.events = {};
+	// create a hash table of event handlers for each element/event pair
+	var handlers = element.events[type];
+	if (!handlers) {
+		handlers = element.events[type] = {};
+		// store the existing event handler (if there is one)
+		if (element["on" + type]) {
+			handlers[0] = element["on" + type];
+		}
+	}
+	// store the event handler in the hash table
+	handlers[handler.$$guid] = handler;
+	// assign a global event handler to do all the work
+	element["on" + type] = handleEvent;
+};
+// a counter used to create unique IDs
+addEvent.guid = 1;
+
+function removeEvent(element, type, handler) {
+	// delete the event handler from the hash table
+	if (element.events && element.events[type]) {
+		delete element.events[type][handler.$$guid];
+	}
+};
+
+function handleEvent(event) {
+	var returnValue = true;
+	// grab the event object (IE uses a global event object)
+	event = event || fixEvent(window.event);
+	// get a reference to the hash table of event handlers
+	var handlers = this.events[event.type];
+	// execute each event handler
+	for (var i in handlers) {
+		this.$$handleEvent = handlers[i];
+		if (this.$$handleEvent(event) === false) {
+			returnValue = false;
+		}
+	}
+	return returnValue;
+};
+
+function fixEvent(event) {
+	// add W3C standard event methods
+	event.preventDefault = fixEvent.preventDefault;
+	event.stopPropagation = fixEvent.stopPropagation;
+	return event;
+};
+fixEvent.preventDefault = function() {
+	this.returnValue = false;
+};
+fixEvent.stopPropagation = function() {
+	this.cancelBubble = true;
+};
+</xmp>
+
+<h4>JS CookBook</h4>
+
+<xmp class="xmp">
+function listenEvent(eventTarget, eventType, eventHandler) {
+   if (eventTarget.addEventListener) {
+      eventTarget.addEventListener(eventType, eventHandler,false);
+   } else if (eventTarget.attachEvent) {
+      eventType = "on" + eventType;
+      eventTarget.attachEvent(eventType, eventHandler);
+   } else {
+      eventTarget["on" + eventType] = eventHandler;
+   }
+}
+
+// cancel event
+function cancelEvent (event) {
+   if (event.preventDefault) {
+      event.preventDefault();
+   } else {
+      event.returnValue = false;
+   }
+}
+
+// cancel propagation
+function cancelPropagation (event) {
+   if (event.stopPropagation) {
+      event.stopPropagation();
+   } else {
+      event.cancelBubble = true;
+   }
+}
+</xmp>
+
+<h3 id="childNodes">자식노드의 공백과 주석</h3>
+
+<!-- box1 -->
+<div class="box1">
+<em>※ 주의 : IE vs IE외 차이</em><br />
+document.getElementsByTagName("*");//<em>[IE] 주석(COMMENT_NODE, nodeType=8) 포함.</em><br />
+obj.childNodes;//<em>[IE외] 줄바꿈(TEXT_NODE, nodeType=3), 주석(COMMENT_NODE, nodeType=8) 포함.</em><br />
+</div>
+<!-- /box1 -->
+
+<blockquote><div>
+<cite>cite: <a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (2005)</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+<?xml version="1.0"?>
+<myXMLdoc xmlns:myns="http://myfoo.com">
+<myns:foo>bar</myns:foo>
+</myXMLdoc>
+</xmp>
+<xmp class="xmp">
+var myXMLDoc = getXMLDocument().documentElement;
+var myChildren = myXMLDoc.childNodes;
+for (var run = 0; run < myChildren.length; run++){
+	if ( (myChildren[run].nodeType != 3) && (myChildren[run].nodeType != 8) ){ // 공백과 주석이 아닌 것
+		// not a text or comment node
+	}
+}
+</xmp>
+
+<blockquote><div>
+<cite>cite: <a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+function prev( elem ) {
+	do {
+		elem = elem.previousSibling;
+	} while ( elem && elem.nodeType != 1 );
+	return elem;
+}
+function next( elem ) {
+	do {
+		elem = elem.nextSibling;
+	} while ( elem && elem.nodeType != 1 );
+	return elem;
+}
+function first( elem ) {
+	elem = elem.firstChild;
+	return elem && elem.nodeType != 1 ? next ( elem ) : elem;
+}
+function last( elem ) {
+	elem = elem.lastChild;
+	return elem && elem.nodeType != 1 ? prev ( elem ) : elem;
+}
+function parent( elem, num ) {
+	num = num || 1;
+	for ( var i = 0; i < num; i++ ){
+		if ( elem != null ) elem = elem.parentNode;
+	}
+	return elem;
+}
+</xmp>
+
+
+<h3 id="DOMParser">XHTML 문서내에 XML 임베딩</h3>
+
+<ul class="bu">
+<li>[W3C] <em>DOMParser</em> [MS] <em>ActiveXObject("Microsoft.XMLDOM")</em></li>
+</ul>
+
+<blockquote><div>
+<cite>cite: <a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (2005)</a></cite>
+</div></blockquote>
+<xmp class="xmp">
+var xmlString = "<xml id=\"xmldataisland\"><foo>bar</foo></xml>";
+var myDocument;
+if (document.implementation.createDocument){ // [W3C] DOMParser 를 이용한다.
+	var parser = new DOMParser();
+	myDocument = parser.parseFromString(xmlString, "text/xml");
+} else if (window.ActiveXObject){ // [MS] XMLDOM 객체를 이용한다.
+	myDocument = new ActiveXObject("Microsoft.XMLDOM")
+	myDocument.async="false";
+	myDocument.loadXML(xmlString);
+}
+</xmp>
+
+<blockquote><div>
+<cite>cite: <a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+
+</xmp>
+
+<h3 id="XMLHttpRequest">XMLHttpRequest 객체 사용하기</h3>
+
+<ul class="bu">
+<li>[W3C] <em>XMLHttpRequest()</em> [MS] <em>ActiveXObject("Microsoft.XMLHTTP")</em></li>
+</ul>
+
+<blockquote><div>
+<cite>cite: <a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (2005)</a></cite>
+</div></blockquote>
+<xmp class="xmp">
+// 객체 판별
+var xmlhttp = false;
+if (window.XMLHttpRequest) {
+	myXMLHTTPRequest = new XMLHttpRequest();
+} else {
+	myXMLHTTPRequest = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+// 동기 통신 요청
+myXMLHTTPRequest.open("GET", "data.xml", false);
+myXMLHTTPRequest.send(null);
+var myXMLDocument = myXMLHTTPRequest.responseXML;
+
+//비동기 통신 요청
+function xmlLoaded() {
+	var myXMLDocument = myXMLHTTPRequest.responseXML;
+}
+function loadXML(){
+	myXMLHTTPRequest = new XMLHttpRequest();
+	myXMLHTTPRequest.open("GET", "data.xml", true);
+	myXMLHTTPRequest.onload = xmlLoaded;
+	myXMLHTTPRequest.send(null);
+}
+</xmp>
+
+<blockquote><div>
+<cite>cite: <a href="#Pro_Javascript_Techniques">Pro Javascript Techniques</a></cite>
+</div></blockquote>
+
+<xmp class="xmp">
+// If IE is used, create a wrapper for the XMLHttpRequest object
+if ( typeof XMLHttpRequest == "undefined" )
+	XMLHttpRequest = function(){
+		// Internet Explorer uses an ActiveXObject to create a new
+		// XMLHttpRequest object
+		return new ActiveXObject(
+			// IE 5 uses a different XMLHTTP object from IE 6
+			navigator.userAgent.indexOf("MSIE 5") >= 0 ?
+			"Microsoft.XMLHTTP" : "Msxml2.XMLHTTP"
+		);
+	};
+
+// Create the request object
+var xml = new XMLHttpRequest();
+
+// Open the socket
+xml.open("GET", "/some/url.cgi", true);
+
+// Establish the connection to the server and send any additional data
+xml.send();
+</xmp>
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130225.
+20120614. 20120514.
+</p>
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

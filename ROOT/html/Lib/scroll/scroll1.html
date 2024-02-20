@@ -1,0 +1,60 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>Select Menu Layer Select Menu Layer 셀렉트 메뉴 레이어, 선택 상자, 콤보 박스, Pull-Down Menus, 목록 상자, 여닫기 select1</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+#container{position:relative;width:1000px;height:2000px;margin:0 auto;padding:1px 0 0 0;background:#eee;}
+#wing{z-index:30;display:block;position:absolute;right:-50px;top:180px;width:100px;height:200px;background:#fce;}
+
+
+/*]]>*/</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>/*<![CDATA[*/
+jQuery(function($){
+	$(window).scroll(function(){
+		var a = $(document).scrollTop()+180;
+		var b = $(".scroll1").height();
+		$('.scroll1').animate({top:$(document).scrollTop()+90+'px'},{queue: false, duration: 400});  
+		/* if(a>b){
+			$('.scroll1').clearQueue();
+			$('.scroll1').stop();
+		} */
+	});	
+});
+/*]]>*/</script>
+</head>
+<body>
+
+
+
+<!-- container -->
+<div id="container">
+<h1>제목, 열기, 닫기, 목록, 닫기 scroll1</h1>
+<p><a href="http://ctl.bc.ac.kr/common.bcu?page=m2.m1" target="_blank">부천대학</a> 스크롤 따라가기</p>
+<br />
+<hr />
+<p>Revision. 20130806.</p>
+
+<div id="wing" class="scroll1">Top</div>
+</div><!-- /container -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹 접근성 TEST 기준 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+strong{font-size:1.167em;}
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>웹 접근성 TEST 기준</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#h2a2020">최근 이슈 2020</a></li>
+<li><a href="#h2a2019">최근 이슈 2019</a></li>
+<li><a href="#h2a2018">최근 이슈 2018</a></li>
+<li><a href="#h2a2017">최근 이슈 2017</a></li>
+<li><a href="#h2a2016">최근 이슈 2016</a></li>
+<li><a href="#h2a2015">최근 이슈 2015</a></li>
+<li><a href="#h2a2014">최근 이슈 2014, 2013</a></li>
+<li><a href="#h2a1">웹 접근성 품질마크 인증 가이드+</a></li>
+<li><a href="#h2a0">웹 접근성 점검 보완 프로세서</a></li>
+<li><a href="#h2a2">지난 가이드</a></li>
+<li><a href="http://www.wah.or.kr/Consulting/consultList.asp" target="_blank">웹 접근성의 전문가 상담(Q&amp;A)</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2020" class="hb1 h2">최근 이슈 <strong class="em">2020</strong></h2>
+
+
+<!-- panel1 -->
+<div class="panel1 pd20px-rv">
+	<ol class="bo mgtb0">
+	<li>
+		<code>&lt;button type="button" class="del" title="★제거할까요?"&gt;X&lt;/button&gt;</code>
+		))) 특수문자나 영어 “X“가 아닌 “닫기”로 제공되어야 함.
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">
+	함안군 유지보수 의뢰 (20200611)
+	<small class="fw4 fs1rem">- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</small>
+</h3>
+
+함안군. 웹접근성. 품질인증.. 질문!! ((@김영신<br />
+<a href="https://www.haman.go.kr/02385/02386/02390.web?gcode=32&idx=17143248&amode=view&cpage=1&sstring=%ED%95%A8%EC%95%88%EC%88%98%EB%B0%95&stype=title" target="_blank" rel="noopener" title="새 창" class="a1">
+	보도자료 | 함안군
+</a><br />
+)) 섬네일 클릭하면 alt 값이 넘어가는 형태..<br />
+이미지 alt 수정, 확대이미지랑 썸네일 구분해주기<br />
+JSP 로 값넣어도.. 섬네일 클릭하면.. 바뀐다.<br />
+<a href="https://intranet.iacts.co.kr/program/business/project/maintenance/staff/projectbbs_staff_viw.jsp?pjbbs_sno=222536&myjob=Y&stype=content&mmode=mlist&1=1&cpage=2&process_old=N&loginname=%B1%E8%BF%B5%BD%C5" target="_blank" rel="noopener" title="새 창" class="a1">
+	유지보수 의뢰
+</a><br />
+)))) 접근성 품질인증 보고서 전체 달라<br />
+)) 보고서 없이.. 그 부분만 수정하면.. 품질인증 통과 할거라 함.<br />
+)))) 자바스크립트 수정하세요..<br />
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">
+	창녕군청-심사결과서.pdf (20200508)
+	<small class="fw4 fs1rem">- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</small>
+</h3>
+
+<p>
+	<em class="em">아래 오류 외 강화된 기준의 초점 오류들 확인바람!</em>
+</p>
+
+<ol class="bo mgtb0">
+<li>(오류)
+	<b class="em0">날짜선택기</b><br />
+	)) (레이블 제공) 입력서식에 1:1 대응하는 <label>요소 또는 적절한 title 속성을 제공해야 함<br />
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">
+	수정요청-횡성군청.pdf (20200420)
+	<small class="fw4 fs1rem">- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</small>
+</h3>
+
+<p>
+	<em class="em">아래 오류 외 강화된 기준의 초점 오류들 확인바람!</em>
+</p>
+
+<ol class="bo mgtb0">
+<li>(오류)
+	<b class="em0">비주얼 아코디언 비활성 이미지 메뉴 &lt;a .. class="m m1"&gt;</b><br />
+	)) 화면에 보이지 않는 개체에는 초점이 적용되지 않도록 제공해야 함<br />
+</li>
+<li>(오류)
+	<b class="em0">[IE]bug) video 요소를 지원하는 경우에도  화면에 보이지 않는 대체콘텐츠로 초점이 적용(탭키가 이동)된다!</b><br />
+	)) 화면에 보이지 않거나 의미 없는 개체에 초점이 이동되는 경우<br />
+	)))) [CR] 에서는 video 요소가 보이면 대체콘테츠 무시하고 지나간다!<br />
+	)))) 대체콘텐츠 지운다.
+	<a href="http://localhost:9390/_res/socialm/_lib/demo/embed.jsp" target="_blank" rel="noopener" title="새 창" class="a1">))) 참고</a>
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">
+	함양군청-심사결과서.pdf (20200401)
+	<small class="fw4 fs1rem">- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</small>
+</h3>
+
+<ol class="bo mgtb0">
+<li>(수정권고)
+	<b class="em0">텍스트 내용과 중복 이미지의 대체텍스트</b><br />
+	)) 같은 구조의 이미지에 대해 동일한 대체텍스트를 제공할 것을 권고함.<br />
+	(제목으로 제공 또는 alt="" 모두 가능함)<br />
+</li>
+<li>(오류)
+	내용 전체 <b class="em0">통 이미지</b> 대체텍스트<br />
+	)) 이미지와 동등한 내용을 대체텍스트에 제공해야 함.<br />
+	-1안) alt 속성 내에 제목만 제목 후+대체콘텐츠로 추가 제공하되 화면낭독 프로그램에서 인식<br />
+	이 가능한 감춤 방법을 사용해야 함. (display:none;, visibility:hidden; 사용불가)<br />
+	-2안) 텍스트 기반의 첨부파일 제공<br />
+</li>
+<li>(오류)
+	<b class="em0">지도건너뛰기 링크</b> 목적지 없음<br />
+	)) ‘지도건너뛰기’ 링크를 키보드로 실행 후 초점이 지도 이후 영역으로 이동하도록 해야
+</li>
+<li>(오류)
+	<b class="em0">레이어 팝업</b><br />
+	)) 페이지 로딩 시, 제공되는 화면을 가리는 레이어 팝업 또는 모달창은 가장 먼저 초점이 접근되고 닫을 수 있도록 구현한 경우에 준수한 것으로 인정함.<br />
+</li>
+<li>(수정권고)
+	<b class="em0">본문 제목 h*</b><br />
+	)) 제목역할을 하는 제목에 대해 적절한 레벨의 헤딩태그&lt;h*&gt;를 제공할 것을 권고함.<br />
+		예) 메인로고는 &lt;h1&gt;, 본문 상단 제목은 &lt;h2&gt;<br />
+	()))	그렇다면.. 사이트 구조와 같이 아래처럼 해야하지 않는가?<br />
+		h1 함안군 h2 365민원 h3 민원신청/상담 h4 온라인민원신청<br />
+	()))	그렇다면.. h6 를 넘어가는 하위 제목은 어떻게 하는가?<br />
+	<em class="em">()))	섹션에서의 제목은 다시 h1 로 코딩해도 된다! section 마크업을 사용했다면 지적하지 않는가?</em>
+</li>
+<li>(오류)
+	<b class="em0">조직도 ul</b><br />
+	)) 연결된 마크업 내에서 상위와 하위간의 계층 종속관계를 명확히 알 수 있도록 제공해야 함.<br />
+	<em class="em">())) 수정권고 라야 이해된다.</em>
+	@m)))) 코딩에서 약간 미흡한 부분이 있어 보이는 부분이..
+		부군수 밑에 국, 직속기관, 사업소가 있다는 연결고리가 없고...
+		각각 ul 로 따로 묶여 있어서 오류라고 심사한거 같은데..
+		오류라고 할 정도는 아니라고 봅니다. 좀.. 과하게 심사한거 같네요..
+		제 생각은 -- 아래 -- 코드처럼을 요구하는거 같은데..
+		해당 심사자에게 해결방안을 명확하게 물어보고 작업하시기 바랍니다.
+</li>
+<li>(오류)
+	<b class="em0">표의 제목</b><br />
+	)) 테이블의 내용에 맞는 개별적인 caption(표의 제목)을 제공해야 함.<br />
+	<em class="em">())) 수정권고 라야 이해된다.</em><br />
+	())) 제목을 읽고 표를 읽으면 이해되지 않는가? (단, 요약정보도 제공했다고 가정했을 때)<br />
+		h* 종이의 재활용 caption="분리 배출 요령 "<br />
+		h* 플라스틱의 재활용 caption="분리 배출 요령"<br />
+		라고 하면 이해 되는 것을 아래처럼 꼭 제목을 중복해서 작성해야 하는가?<br />
+		h* 종이의 재활용 caption="종이의 재활용 분리 배출 요령"<br />
+</li>
+<li>(오류)
+	<b class="em0">select title="선택옵션1"</b><br />
+	)) 각 입력서식에 대해 구체적인 title값을 제공해야 함.<br />
+	))) <em class="em4">title="검색종류"</em><br />
+	))) <em class="em4">title="민원업무와 직원검색 중 선택"</em><br />
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">
+	합천군청-심사결과서.pdf (20200323)
+	<small class="fw4 fs1rem">- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</small>
+</h3>
+
+<ol class="bo mgtb0">
+<li>(오류)
+	<b class="em0">표안의 첨부파일 아이콘 대체텍스트</b><br />
+	)) 이미지와 동등한 내용을 대체텍스트에 제공해야 함. (각 과별 정보까지 첨부파일에 제공해야 함)<br />
+	<em class="em">@m) 반대의견! th 에서 과 이름 정보를 얻을 수 있다.</em><br />
+</li>
+<li>(오류)
+	<b class="em0">운용할 수 없는 요소에 초점 금지</b>
+	)) 텍스트 등 운용할 수 없는 요소에 초점이 적용되지 않도록 해야 함.<br />
+	<em class="em">@m) 반대의견! 접근할 수 없는 문제가 발생하는게 아니다.</em><br />
+</li>
+<li>(수정권고)
+	<b class="em0">caption 요소 안의 title 속성</b>
+	)) 테이블의 내용에 맞는 caption(표의 제목)을 제공할 것을 권고함. (<b class="em0">불필요한 title 삭제</b>)<br />
+	)) <em class="em4">title="summary(표요약)" 제거</em>
+</li>
+<li>(오류)
+	<b class="em0">select title="선택옵션1"</b><br />
+	)) 각 입력서식에 대해 구체적인 title값을 제공해야 함.<br />
+	))) <em class="em4">title="검색종류"</em><br />
+	))) <em class="em4">title="민원업무와 직원검색 중 선택"</em><br />
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2019" class="hb1 h2">최근 이슈 <strong class="em">2019</strong></h2>
+
+
+<!-- panel1 -->
+<div class="panel1 pd20px-rv">
+	<ol class="bo mgtb0">
+	<li><b class="em0">여닫기</b> ))) 열고 닫힘의 상태에 맞게 대체 텍스트 제공</li>
+	<li><b class="em0">지도 건너뛰기 링크</b>를 지도 다음 영역과 연결하여, 키보드로 실행 후 초점이 지도 다음 영역으로 이동하도록 해야 함.</li>
+	<li>입력서식에 1:1 대응하는 레이블을 연결하거나 입력서식의 용도를 title로 제공해야 함. (* 각각 ‘탐색 슬라이더’, ‘50% 볼륨’ 등과 같이 제공)</li>
+	<li><b class="em0">페이지 로딩 시 제공되는 화면을 가리는 레이어 팝업 또는 모달창</b>은 반복 영역 건너뛰기 보다 앞서서 가장 먼저 초점이 접근되고 닫을 수 있도록 구현해야 함</li>
+	<li><b class="em0">특수문자 또는 기호</b> 등으로 상승/하락, 상한/하한, 더보기 등의 정보를 제공한 경우 오류<br />
+		#김해시$<em class="em">페이징</em><br />
+		#거창군$오늘 본 콘텐츠. <em class="em">× 제거할까요?</em><br />
+		())) $닫기 ×, ...<br />
+<xmp class="xmp">
+(X) <a title="맨앞 페이지"><i class="ic">&laquo;</i></a>
+(O) <a title="처음 페이지"><i class="ic">처음</i></a>
+</xmp>
+	</li>
+	<li><b class="em0">키보드 사용 보장</b> (마우스 이벤트만 적용된 경우)<br />
+		#남해군$메인.12경. <em class="em">섬네일 회전목마</em> ))) 이의제기!
+	</li>
+	<li><b class="em0">초점이동</b> (논리적인 순서)<br />
+		#남해군$메인.<em class="em">우측빠른메뉴에 있는 TOP 링크</em> ))) 이의제기!
+	</li>
+	<li>의미 있는 이미지가 <b class="em0">배경이미지로 제공</b>되었으나 대체콘텐츠가 제공되지 않은 경우<br />
+		#남해군$<em class="em">사이드메뉴(이전코드) 펼치기 접기</em>!<br />
+			())) 이거까지 하란건가? 그러면, 현재 위치 표시는?<br />
+			())) 현재 대표포털은 다른 사이트처럼.. 링크 연결이라서.. 지적이 안되는건가?<br />
+	</li>
+	<li><b class="em0">초점 이동</b>
+		#거창군$메인. <em class="em">우측 빠른 메뉴</em> 선택 시 해당 콘텐츠로 초점이 이동해야 함.<br />
+		())) 사용성이 더 좋다고 볼 수 있는가?  ))) 이의제기!<br />
+	</li>
+	<li><b class="em0">콘텐츠의 선형 구조</b>
+		<em class="em">더 보기, 바로가기, 전체보기</em><br />
+		())) 바로가기, 전체보기 가 목록 이전에 제공하면 논리적이지 않다는 근거는?<br />
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2018" class="hb1 h2">최근 이슈 <strong class="em">2018</strong></h2>
+
+
+<!-- panel1 -->
+<div class="panel1 pd20px-rv">
+	<ol class="bo mgtb0">
+	<li>상태에 따라 변하는 이미지 대체텍스트 고도화</li>
+	<li>초점 이동순서는 물리적 위치와 다를 경우 논리적으로 한다.</li>
+	<li>일반인에게 보이지 않는 정보를 장애인에게 추가 제공하지 않는다.</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">하동군청-심사결과서.pdf (20180919)</h3>
+
+<p>- (사)한국장애인단체총연합회 - 한국웹접근성인증평가원 -</p>
+
+<ol class="bo mgtb0">
+<li>(수정권고)
+	명백하게 정보를 제공하지 않는 이미지에 대해 대체 텍스트를 빈문자열(alt="")로	제공해야 함<br />
+	(* 동등한 정보가 텍스트로 제공되어 있으므로 대체 텍스트는 빈문자열(alt="")로 제공)<br />
+	))) "구름많음" 날씨 이미지와 텍스트가 같이 제공될 때<br />
+	<em class="em">@m) 반대의견! 심사 기준에 일관성이 없다. 전달하고자 하는 의미를 파악할 수 있으면 된다고 본다.</em> <br />
+	))) 민원24 로고 이미지와 제목 텍스트가 같이 제공될 때..
+	)) (오류) 의미 있는 이미지에 대해 대체 텍스트를 이미지의 내용과 동등하게 제공해야 함
+</li>
+<li>(오류)
+	의미 있는 배경 이미지에 대해 이미지의 내용에 맞게 적절한 대체 콘텐츠를 제공해야 함<br />
+	))) 여닫기 이미지가 변경될 경우 열기 닫기로 구분
+</li>
+<li>(오류)
+	명백하게 정보를 제공하지 않는 이미지에 대해 대체 텍스트를 빈문자열(alt="")로 제공해야 함<br />
+	))) 범용 게시판의 섬네일 이미지가 정보의 일부만 보여줄 때는 빈문자열로 제공<br />
+	<em class="em">@m) 반대의견! 완전한 이미지가 아니더라도.. 이미지가 제공하는 정보에 대해 알려줄 필요가 있다고 본다.</em> 
+</li>
+<li>초점의 이동순서는 논리적으로 제공해야 함<br />
+	(* "share toggle" 실행 후 초점이 페이스북으로 이동해야 함)
+</li>
+<li>(수정권고)
+	&lt;label&gt;텍스트의 만족도 점수를 시각적으로 보이도록 제공요망<br />
+	))) 만족도 조사 라디오 버튼 label 텍스트의 일부를 blind 처리하지 말고 화면에 안보여줄거는 제거해야 한다.<br />
+	
+<xmp class="xmp">
+<label for="satisfy1point5"><span class="t1">매우 만족</span> <span class="t2 blind">(5점)</span></label>
+</xmp>
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2017" class="hb1 h2">최근 이슈 <strong class="em">2017</strong></h2>
+
+
+<!-- panel1 -->
+<div class="panel1 pd20px-rv">
+<ol class="bo mgtb0">
+<li>caption 에 summary 내용 추가</li>
+<li>qrcode 이미지 대체텍스트에 url 추가</li>
+<li>비쥬얼 이미지에 대체텍스트 추가? (함안과 영도가 상반됨)</li>
+<li>레이어 닫기 클릭하면 레이어 열기한 곳으로 초점 이동</li>
+<li>조각 링크</li>
+</ol>
+</div>
+<!-- /panel1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">12_01.영도구구청-웹접근성 자체진단 개선 안내서.pdf .. ((( 20171115.</h3>
+<p>
+	(( 2017년 자체진단 웹 접근성 개선 안내서 (부산광역시 웹 접근성 상담센터)<br />
+	(( 2017년 실태조사 웹 접근성 전문가 진단 결과 보고서 (부산광역시 웹 접근성 상담센터)<br />
+</p>
+
+<ol class="bo dfn">
+<li><b class="em0">조작 가능</b>
+	컨트롤의 크기 또는 padding값을 조절하여 대각선 길이를 6.0mm 이상의 충분한 크기로 수정해야 함.<br />
+	( 정사각형 기준으로 가로 17px(4.49mm) 세로 17px(4.49mm) 은 대각선 길이가 6.36mm 가 되어 준수할 수 있음. )<br />
+	<em class="em4">이의필요)) 이전 다음 콘트롤로 순번 탐색 기능을 대체할 수 있으면 오류라고 볼 수 없지 않는가?</em><br />
+</li>
+<li>적절한 링크 텍스트 <b class="em0">더보기</b>
+<xmp class="xmp">
+(X) <a href="#?" class="more" title="HAPPY PHOTO 바로 가기">더 보기</a>
+(O) <a href="#?" class="more" title="PHOTO NEWS">바로가기</a>
+</xmp>
+</li>
+<li><b class="em0">[IE11] Fragment link 초점 이동 결함.</b>
+	<ul class="bu">
+	<li>최신 E11브라우저에서 브라우저에서 건너뛰기 링크를 제공해 화면 스크롤은 되나 실제 키보드 초점은 이동 되지 않음.</li>
+	<li>화면뿐만 아니라 실제 키보드 초점이 건너뛰기 링크의 목적지 다음 영역의 첫 번째 항목으로 지정해야 한다.</li>
+	<li>정상적으로 반복영역  건너뛰기 링크를 이용할 수 있도록 수정하여야 함.</li>
+	</ul>
+	<b class="em0">( IE11브라우저를 브라우저를 기준으로 기준으로 점검하게 점검하게 되므로 수정 후 반드시 IE 브라우저로 브라우저로 브라우저로 확인 )</b><br />
+	<em class="em1">오류)) id="body", id="container", ..</em><br />
+	<em class="em4">해결)) tabindex="-1" 속성을 추가</em><br />
+</li>
+<li><b class="em0">caption summary</b>
+	HTML5 문서타입이므로 <code class="dpib">&lt;caption&gt;</code>태그 에 표의 제목 및 구조 정보를 제공해야 함.<br />
+<xmp class="xmp">
+<caption>영도구 문화행사를 행사, 일정, 회의, 교육, 문화, 보건, 복지 로 구분하여 나타내는 월별 달력 표</caption>
+<caption>영도구 평생학습관의 다울림 동아리(소속기관/단체, 설립일, 회원수, 대표자성명, 대표자연락 처, 홈페이지 , E-mail, 분야, 모임배경, 활동목적, 동아리활동내역, 기타사항)의 정보를 제공하는 표</caption>
+<caption>영유아 예방접종을 지원하는 위탁의료기관의 목록으로써 기관명 , 소재지 , 연락처를 제공하고 있는 표</caption>
+<caption>영도도서관의 휴관일과 행사일정을 나타내는 월별 달력 표</caption>
+<caption>영도도서관의 층별 테마실을 실명, 내용, 전화번호, 이용시간으로 구분하여 제공한 표</caption>
+<caption>영도구 문화예술회관의 공연/전시행사의 상세 내용을 나타내는 표로써 일정, 시간, 주최, 주관, 문의처, 입장료, 장소의 항목들이 각각 제공됨.</caption>
+</xmp>
+</li>
+<li><b class="em0">이미지 대체텍스트</b>
+<xmp class="xmp">
+(X) alt="봉래산0" alt="봉래산3"
+</xmp>
+</li>
+<li><b class="em0">제목 제공</b>
+	사이트 &gt; 페이지 내에서 어떤 페이지에 있는지 보다 명확하게 알 수 있도록 최상위부터 최하위 범주인 탭까지 페이지 제목에 추가로 분류해야 함.
+<xmp class="xmp">
+<title>금연 < 통합건강증진사업 < 보건사업 < 영도구 보건소</title>
+</xmp>
+</li>
+<li><b class="em0">색에 무관한 콘텐츠 인식</b>
+	색상 정보를 배제하더라도 선택된 선택된 컨트롤 요소를 구분할 수 있도록 별도에 밑줄 , 패턴 등을 활용하여 명확하게 구별할 수 있도록 수정해야 함.<br />
+	( <em class="em3">차트의 경우 동일한 데이터 기반의 데이터 표를 제공할 경우 대체 가능</em> )<br />
+</li>
+<li><b class="em0">텍스트 콘텐츠의 명도 대비</b>
+	텍스트 및 텍스트 역할을 하는 콘텐츠의 명도 대비를 3:1 이상으로 충분하게 제공하여야 한다.<br />
+	<em class="em1">오류)) 아이콘 이미지 정지 재생 이전 다음, ..</em><br />
+	<em class="em5">적합)) 날씨 아이콘 ))) 이건 왜 지적 안하는지?</em><br />
+</li>
+</ol>
+
+<h4 class="hb1 h4">불량 진단</h4>
+
+<ol class="bo">
+<li>탭-탭-콘텐츠-콘텐츠 순서이지만 제목을 바르게 코딩한 경우</li>
+<li>한글 (english) 형태로 영문을 장식 요소로 덧붙인 경우</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2016" class="hb1 h2">최근 이슈 <strong class="em">2016</strong></h2>
+
+
+<ol class="bo dfn">
+<li><a href="http://wah.or.kr/Participation/consultingView.asp?seq=9692&page=1&cType=&FindTxt=summary&flag=2&FindCol=1" target="_blank" title="새 창"><b class="em fsM">html5 table 속성 중 summary 질문 입니다.</b></a><br />
+- 웹접근성연구소 )) HTML5 문서에서 summary속성을 이용하지 않았다하여, 접근성 품질마크 취득에 문제는 없을 것 같습니다.
+</li>
+</ol>
+
+
+<h3 class="hb1 h3">사천시청-심사결과서.pdf ((( 20161107.</h3>
+<p>(( 한국웹접근성인증평가원</p>
+
+<h4 class="hb1 h4">전문가 심사</h4>
+
+<ol class="bo dfn">
+<li>전체메뉴 본문 이후 <b class="em0">닫기</b> 버튼이 맨 마지막에 접근하도록 제공해야 함</li>
+<li>[제목]-[내용]-[<b class="em0">더 보기</b>]와 같이 논리적인 순서로 제공해야 함</li>
+</ol>
+
+<h3 class="hb1 h3">심사결과서-거창군청.pdf ((( 20161027.</h3>
+<p>(( 한국웹접근성인증평가원</p>
+
+<h4 class="hb1 h4">심사환경</h4>
+
+<ol class="bo dfn">
+<li>웹 접근성 적용 지침 : KWCAG 2.1</li>
+<li>심사 적용 지침 : <strong class="em4">미래창조과학부 "웹 접근성 품질인증 표준 운영 &amp; 심사지침" (2015년 10월 30일자)</strong>
+	))) ★☆ 자료 어디에?
+</li>
+<li>심사 환경 : <b class="em">IE11</b></li>
+<li>전문가심사 : KWCAG 2.1 기준 24개 항목 수동진단</li>
+<li>사용자심사<br />
+	(전맹) : PC 화면 낭독프로그램 사용, 키보드만 사용. SenseReader v5.8.0.0, Jaws v15.0<br />
+	(저시력) : 확대 및 고대비 기능 사용, 마우스, 키보드 사용.<br />
+	(노병변) : 키보드만 사용.<br />
+</li>
+<li>모바일 심사환경 (모바일웹 심사)<br />
+	| Android 7.0 Nougat (넥서스 5X). <br />
+	| iOS 10.1 (아이폰 6).<br />
+</li>
+</ol>
+
+<h4 class="hb1 h4">전문가 심사</h4>
+
+<ol class="bo dfn">
+<li><b class="em0">ol</b> 을 숫자를 배경이미지로 꾸민거 )) 의미가 있는 배경 이미지의 경우 대체텍스트 정보를 제공해야 함. ))) 이의 제기! )) 실수 인정</li>
+<li>좌메뉴 <b class="em0">여닫기 [+][-] 아이콘</b>. 예) 메뉴 펼침, 닫기</li>
+<li><b class="em0">명도대비 4.5:1</b> 안되는거 마우스 오버 했을 때 만족하는거. )) 명도대비 오류 ))) 이의 제기! )) <em class="em">오버와 초점 시 둘다 만족</em>해야 한다.</li>
+<li><em class="em">본문 바로가기 후 상단영역(fixed위치)에 초점 콘텐츠가 가려지는거</em> )) 초점이동 오류 ))) 상단 fixed 안함.</li>
+<li>주메뉴 1차 )) <b class="em5">(수정권고)</b> 인접한 링크 요소들은 <em class="em2">링크사이에 1px 이상의 여백을 제공</em>하여 위치지정도구(예:마우스)를 사용하여 조작할 때 구분되어 반응하도록 제공해야 함.</li>
+<li><b class="em0">최신순. 인기순. Ajax</b>. )) 현재 어느 탭에 관한 제목인지 구분 가능하도록 제목-내용 과 같이 논리적인 순서로 제공하거나 내용 시작점에 해당태그를 이용하여 현재 탬에 관한 정보를 제공해야 함.</li>
+<li>iframe )) 개발자가 해당 관리처에 전화하여 조치하겠다 약속받음.</li>
+</ol>
+
+<h4 class="hb1 h4">사용자 심사</h4>
+
+<ol class="bo dfn">
+<li><b class="em0">고대비</b> 모드로 보면 이미지가 보이지 않음. ))) 정보가 있는 배경이미지를 전경이미지로 수정.<br />
+)) 고대비 문의 결과 ) 심사기준은 2.1 이고.. 고대비는 작년부터 심사했는데.. 쭉 할거다.<br />
+</li>
+</ol>
+
+
+<h3 class="hb1 h3">웹 접근성 전문가 평가 보고서. 항목 (조작 가능).PDF ((( 20160908. <b class="em0">고령군</b></h3>
+
+<ol class="bo dfn">
+<li></b><br />
+항목 10. (조작 가능) 사용자 입력 및 컨트롤은 조작 가능하도록 제공되어야 한다.<br />
+준수 기준 ) 웹 페이지에서 제공하는 모든 이웃한 컨트롤들은 개별적으로 선택하고 사용할 수 있도록 <b class="em6">대각선 길이가 6.0mm 이상</b>의 크기와 컨트롤의 <b class="em6">안쪽 여백이 1픽셀 이상</b>을 갖도록 제공한 경우 준수한 것으로 인정.<br />
+(정사각형 기준으로 <em class="em">가로 17px(4.49mm), 세로 17px(4.49mm)</em>의 사이즈를 제공할 경우 대각선 길이가 6.36mm가 되어 준수할 수 있음.)<br />
+((17*(6/4.49))*(17*(6/4.49)))/2 = 258.03443435300420136804876959936 =:= <em class="em">259px 이상이면 준수 기준 통과한다.</em><br />
+<em class="em">13*20 픽셀 이상이면 적합하다.</em><br />
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2015" class="hb1 h2">최근 이슈 <strong class="em">2015</strong></h2>
+
+
+<h3 class="hb1 h3">웹 접근성 품질인증 표준기술심사가이드_최종 2015. 7. 1</h3>
+
+<p>(m))
+그동안 애매한 부분을 명확하게 설명하고 있으나, 여전히 애매한 부분과 새롭게 문제되는 부분이 있다.<br />
+<em class="em">프로젝트 시작전에 투입인력과 함께 반드시 짚고 넘어가자!</em><br />
+</p>
+
+<ol class="bo dfn">
+<li>
+<strong class="h1">HTML5 summary</strong> https://validator.w3.org 테스트 결과 )))<br />
+Error: The summary attribute on the table element is obsolete. Consider describing the structure of the table in a caption element or in a figure element containing the table; or, simplify the structure of the table so that no description is needed.<br />
+테이블 요소에 summary 속성은 사용되지 않습니다. caption 요소 또는 테이블을 포함하는 figure 요소 안에 테이블 구조 설명을 고려; 또는, 더 설명이 필요하지 않도록하거나, 테이블의 구조를 단순화.
+</li>
+</ol>
+
+<h3 class="hb1 h3">모바일 웹 접근성 품질인증 표준기술심사 가이드_최종 2015. 7.</h3>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a2014" class="hb1 h2">최근 이슈 <strong class="em">2014, 2013</strong></h2>
+
+<ol class="bo1 num00">
+<li>
+1) 웹 접근성 심사 브라우저 [IE8] 계속 사용하는가?
+))) [IE9~] 이면 video 태그 대체텍스트 되는 것만으로도 넘어갈텐데..
+))) 아쉽게도.. 2015년도 [IE8] 이더라.
+</li>
+<li class="n01">표의 구성.
+<a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=6419&page=1&cType=&FindTxt=summary&flag=2&FindCol=1" target="_blank">html5 에서 summary</a>
+<blockquote cite=""><div>
+caption이 선언되어 있다면 summary는 선언하지 않아도 품질마크 감점 대상은 아닙니다만, HTML5에서 summary 속성이 폐기된 것은 단순히 summary 속성으로 제공하는 정보가 무의미하기 때문은 아니고 웹 제작자들에게 데이터 테이블을 사용한다면 페이지의 내용에 데이터 테이블에 대한 설명을 충분히 하는 방향으로 콘텐츠를 만들도록 가이드 한다는 배경이 있으니 참고하세요.
+</div></blockquote>
+HTML5 는 summary="" 속성 사용하면 문법 오류이므로.. data-* 속성을 사용하든지.. 속성 삭제하세요.
+</li>
+<li>반복 영역 건너뛰기
+<xmp class="xmp">
+<a href="#body">본문 바로가기</a>
+<div id="body">
+<a name="body"></a> ▶ <a id="body"></a>
+</xmp>
+</li>
+<li>
+<b>display:none;</b> 필수 요소인 caption 은 [수정권장] 판정하고, 필수가 아닌 경우(예: &lt;h3 class="dpn"&gt;주 메뉴&lt;/h3&gt;)는 지적 안함!
+<xmp class="xmp">
+<table class="t3 w100" data-summary="표요약 또는 열제목1, 열제목2, 열제목3">
+<caption><strong class="blind">표제목</strong></caption>
+<col style="width:4em;" /><col style="width:20em;" /><col />
+<thead>
+<tr>
+<th scope="col">열제목1</th>
+<th scope="col">열제목2</th>
+<th scope="col">열제목3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">행제목</th>
+<td>데이터</td>
+<td>데이터</td>
+</tr>
+</tbody>
+</table>
+</xmp>
+</li>
+<li>
+<b>팝업 외부 콘텐츠</b> : 심사에 포함안됨.<br />
+<a href="http://eminwon.haman.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do" target="_blank">고시공고 새 창</a>
+<a href="http://elis.go.kr/newlaib/laibLaws/h1126/09/list.jsp?kind=1" target="_blank">입법예고 새 창</a>
+</li>
+<li>
+<b>반응형 웹 선형화</b> 기준?
+모바일 최소 화면 기준으로 최대 화면에서도 이치에 맞게..<br />
+<a href="http://www.haman.go.kr/" target="_blank">함안군 메인</a> 좁은 화면에서 "SNS 이야기" 콘텐츠 순서 논리적이지 못한 것 : 지적안함.<br />
+<a href="http://www.gimhae.go.kr/" target="_blank">김해시 메인</a> 넓은 화면에서 콘텐츠 순서 지적함.<br />
+<a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=9467&page=1&cType=&FindTxt=%EB%B0%98%EC%9D%91%ED%98%95&flag=2&FindCol=1" target="_blank">※ 해상도는 일반적으로 전체 화면 기준으로 진행합니다. 브라우져는 현재 Internet Explorer 8로만 진행합니다. </a>
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a1" class="hb1 h2">웹 접근성 품질마크 인증 가이드+</h2>
+
+<table class="t3">
+<caption>20150212.단순정리. 2011.09~2013. WA 품질마크 심사 가이드+보고서 + 실태조사 평가 지표 + 점검 매뉴얼</caption>
+<col style="width:5%;" /><col style="width:15%;background:#f7f7f7;" /><col style="width:20%;" /><col style="width:60%;" />
+<thead>
+<tr>
+<th>번호</th>
+<th>세부평가항목 [22개]</th>
+<th>점검 보완</th>
+<th>WA마크 준수기준 | 오류유형 | 주의사항 | 비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>적절한 대체 텍스트 제공</td>
+<td><!-- * 대체텍스트 점검 <a href="http://www.nia-web.appspot.com/">http://www.nia-web.appspot.com/</a> (nia // 1234)<br /> -->
+<a href="http://accessibility.kr/nia/check.php">품질마크 자가진단 서비스</a><br />
+<a href="http://www.korea-nia.appspot.com/index">실태조사 자가진단 도구</a>(nia//1234)<br />
+▶조직도, 청사안내도, 오시는 길<br />
+▶eBook, VR<br />
+"이미지 텍스트 내용의 설명과 그림"<br />
+▶"바로보기" "변환중" (상황별 변환 이미지)<br />
+<em>▶로그 수집용 이미지</em> alt=""<br />
+<em>▶통합검색 불릿</em> alt=""<br />
+<em>▶이미지맵 img 요소</em><br />
+예) alt="조직도. 시장, 부시장, .."<br />
+</td>
+<td>
+01) <a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=5218&page=2&cType=&FindTxt=&flag=2&FindCol=0">img 요소의 alt 속성과 a 요소의 title 속성에 관한 Q&amp;A (미준수와 권고)?</a><br />
+<xmp class="xmp">
+<a title="이미지명 새 창"><img alt="이미지명" /></a>
+<a title="링크자체에 대한 설명"><img alt="이미지명 길 때" /></a>
+</xmp>
+02) 약도 이미지
+<em>사용자 심사 : 전맹1_죠스 실패.</em>  전맹2_센스리더, 저시력, 지체는 성공. -- 성공률75%로 적합 판정.
+<xmp class="xmp">
+<a href="지도API주소" target="_blank"><img alt="약도이미지제목" longdesc="대체텍스트구조파일.html" /></a>
+</xmp>
+위는 죠스에서 해당 이미지에 이미 링크가 제공되어 longdesc로 연결된 페이지가 아닌, href 주소로 이동됨.<br />
+아래처럼 longdesc가 함께 지정된 이미지의 링크를 별도의 링크로 따로 제공하는 것이 바람직함.<br />
+<xmp class="xmp">
+<img alt="약도설명나열" title="" /> <a href="지도API주소" target="_blank" title="새 창">지도 크게 보기</a>
+</xmp>
+예) <a href="http://www.hadong.go.kr/sub/05_09.asp" target="_blank">하동군 - 찾아오는 길</a><br />
+03) 약도 이미지는 특정 랜드마크 기준의 거리와 방향 정보등을 대체텍스트로 제공할 것을 권장함.<br />
+</td>
+</tr>
+<tr>
+<td>02</td>
+<td>자막 제공</td>
+<td>▶동영상, 플래시 애니메이션.<br />
+</td>
+<td>
+01) <em>대본 파일 다운로드로 제공 인정</em><br />
+02) 자막으로 인해 수화가 가리지 않도록 하고, 원고는 페이지를 벗어나지 않는 수준으로 제공해야 함(기본 화면에서 벗어나지 않도록 제공하는 것을 권장)<br />
+03) <ins> 음성이 없는 동영상에 대한 대체수단을 반드시 제공해야 함</ins><br />
+04) <em>사용자 심사 : 전맹1_죠스 실패.</em>  전맹2_센스리더, 저시력, 지체는 성공. -- 성공률75%로 적합 판정.
+<a href="http://www.hadong.go.kr/program/publicboard/lstBoardDoc.asp?CIdx=1096">하동군 - 동영상뉴스</a>
+▶JAWS.v11 의 경우 미디어플레이어 6.4 버전 &lt;object classid="clsid:22D6f312-B0F6-11D0-94AB-0080C74C7E95" .. 로 제공해야 제어 기능을 인식·이용 가능하다.<br />
+<a href="../Markup/movie.html"><strong>[m]</strong> 주의!</a> 6.4 버전은.. mp3, wma 재생 안되는 경우 발생함. 요청시에만 변경하자!<br />
+</td>
+</tr>
+<tr>
+<td><label for="fe03">03</label> <input type="checkbox" id="fe03" value="" class="checkbox" /></td>
+<td>색에 무관한 콘텐츠 인식</td>
+<td>색 무관 ▶이미지홍보, 주메뉴, 부메뉴, 현재 위치, 탭, 페이지링크, 일정달력, 행사안내, ..<br />
+</td>
+<td>
+01) 페이지 내비게이션, 메뉴, 현재 위치 등에 대해 명암, 패턴 등의 변화 없이 색상의 변환만으로 현재의 위치를 표시한 경우<br />
+02) <b>[미 준수 유형]</b><em>▶만족도조사 별점</em>. 명암 대비가 있었으나, 부족하다고 판단했음.<br />
+</td>
+</tr>
+<tr>
+<td>04</td>
+<td>명확한 지시사항 제공</td>
+<td></td>
+<td>
+01) 지시사항은 모양, 크기, 위치, 방향, 색, 소리 등에 관계없이 인식될 수 있어야 한다.<br />
+예) 오른쪽 위의 빨간색 빗살무늬 원모양, ..<br />
+02) 확대 기능 이용하면 지시하는 위치와 달라질 수 있으므로 가급적 위치 정보는 사용 안함.<br />
+</td>
+</tr>
+<tr>
+<td><label for="fe05">05</label> <input type="checkbox" id="fe05" value="" class="checkbox" /></td>
+<td>텍스트 콘텐츠의 명도 대비</td>
+<td>색상값 추출 + 명도대비 점검<br /> <a href="http://www.visionaustralia.org.au/info.aspx?page=628">Colour Contrast Analyser</a><br />
+▶<strong>@디자이너</strong><br />
+/css/ .on em, 활성, 현재페이지, ..<br />
+<span style="float:left;width:50%;background:#767676;color:#fff;">Gray #767676</span>
+<span style="float:left;width:50%;background:#e00;color:#fff;">Red #e00</span>
+<span style="float:left;width:50%;background:#d30;color:#fff;">Deep Red #d30</span>
+<span style="float:left;width:50%;background:#c40;color:#fff;">Deep Red #c40</span>
+<span style="float:left;width:50%;background:#b50;color:#fff;">Orange #b50</span>
+<span style="float:left;width:50%;background:#a60;color:#fff;">Orange #a60</span>
+<span style="float:left;width:50%;background:#770;color:#fff;">Yellow #770</span>
+<span style="float:left;width:50%;background:#380;color:#fff;">Y Green #380</span>
+<span style="float:left;width:50%;background:#080;color:#fff;">Green #080</span>
+<span style="float:left;width:50%;background:#085;color:#fff;">Green Blue #085</span>
+<span style="float:left;width:50%;background:#078;color:#fff;">Green Blue #078</span>
+<span style="float:left;width:50%;background:#37c;color:#fff;">Blue #37c</span>
+<span style="float:left;width:50%;background:#26a;color:#fff;">Liberty Blue #26a</span>
+<span style="float:left;width:50%;background:#06f;color:#fff;">Blue #06f</span>
+<span style="float:left;width:50%;background:#00f;color:#fff;">Blue #00f</span>
+<span style="float:left;width:50%;background:#24c;color:#fff;">Cobalt Blue #24c</span>
+<span style="float:left;width:50%;background:#009;color:#fff;">Navy #009</span>
+<span style="float:left;width:50%;background:#125;color:#fff;">True Navy #125</span>
+<span style="float:left;width:50%;background:#66d;color:#fff;">Violet #66d</span>
+<span style="float:left;width:50%;background:#85e;color:#fff;">Violet #85e</span>
+<span style="float:left;width:50%;background:#b0f;color:#fff;">Purple #b0f</span>
+<span style="float:left;width:50%;background:#c0d;color:#fff;">Purple #c0d</span>
+<span style="float:left;width:50%;background:#c2c;color:#fff;">Magenta #c2c</span>
+<span style="float:left;width:50%;background:#d0a;color:#fff;">Pink #d0a</span>
+<span style="float:left;width:50%;background:#d06;color:#fff;">Pink #d06</span>
+</td>
+<td>
+01) 이미지 텍스트의 경우 폰트 종류와 상관없이 14pt 크기에 해당하는 18.66px 미만인 경우 4.5:1 이상이거나 18.66px 이상인 경우 3:1 이상을 만족하지 않은 경우<br />
+02) "본문 콘텐츠" 만 평가하지만, 주관적 평가 범위이므로 <em>모든 콘텐츠에 적용하자!</em><br />
+03) 미준수 예) 서브 본문 탭, 조직도, 게시판 전문 강조색,  오시는 길<br />
+04) 본문은 #body_content 와 #body_head 콘텐츠 포함한다.<br />
+05) [2013.09.WA마크31회.<a href="http://www.hadong.go.kr/sub/04_01.asp" target="_blank">하동군</a>] 본문 하단(#body_foot)의 담당부서, 인쇄 등의 대비가 부족한데도 통과한거는 행운이었다? 무시하지 말자.<br />
+</td>
+</tr>
+<tr>
+<td>06</td>
+<td>배경음 사용 금지</td>
+<td></td>
+<td>
+01) 자동 재생되는 <em class="">3초 이상의 배경음(동영상, 음성, 음악 등)</em> 콘텐츠를 제공하면 부적합.<br />
+02) 3초 미만 배경음은 예외.<br />
+03) 자동 재생 배경음이 3초 이상이더라도 제어 수단이 페이지 제일 첫 부분에 제공되면 적합.<br />
+</td>
+</tr>
+<tr>
+<td><label for="fe07">07</label> <input type="checkbox" id="fe07" value="" class="checkbox" /></td>
+<td>키보드 사용 보장</td>
+<td>키보드 전·후진 하며 모든 기능 가능 점검<br />
+▶이벤트 동작 hover 와 focus 점검.<br />
+▶<strong>@디자이너</strong> 플래시 wmode 가 "window" 아니면 HTML버전 선택 제공 필요!<br />
+▶키보드 점검 동시에 검사할 것<br />
+08 초점 이동<br />
+09 응답시간 조절<br />
+10 정지 기능 제공<br />
+12  반복 영역 건너뛰기<br />
+17 콘텐츠의 선형화<br />
+20 오류 정정<br />
+▶eBook, VR<br />
+▶토론방. 달력레이어<br />
+
+</td>
+<td>
+01) <em>[IE8] 브라우저에서 확인</em><br />
+02) 키보드를 이용하여 탭 메뉴에서 탭1→탭2→탭3 으로 이동하면서 모든 탭 내용을 확인할 수 없는 경우 감점.<br />
+03) <em>"탭1-탭2-제목1-내용1-제목2-내용2" 준수?</em>
+<b>[WAH]</b> <a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=6779&page=1&cType=&FindTxt=%ED%83%AD&flag=2&FindCol=1">올바른 논리적 구조라고 답변</a><br />
+[2011.WA마크] <a href="http://www.yeongdo.go.kr/">영도구</a>, <a href="https://www.hygn.go.kr/">함양군</a> 준수 평가받아 합격. 2012 모니터링은 오류로 판정하는 불편한 진실!<br />
+04) <em>다중 select [이동] 버튼? <a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=5134&page=2&cType=&FindTxt=select&flag=2&FindCol=1">select가 페이지를 이동시키는 경우가 아니라면 버튼을 넣지 않아도 무방</a></em> 하지만,
+<a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=5368&page=2&cType=&FindTxt=select&flag=2&FindCol=1">선택만으로 내용이 바뀌는 것은 사용하지 않는것이 좀 더 바람직</a><br />
+05) <em>플래시 콘텐츠의 wmode</em> 값은 기본적으로 transparent 또는 opaque로 지정하게 되면 MSAA를 사용할 수 없어 화면낭독기로 인식이 불가함.<br />
+단, 링크와 같은 특정기능 없이 단순정보 전달이나 디자인용 등 키보드 포커스가 불필요한 플래시 콘텐츠의 경우, wmode를 window로 지정하면 키보드 포커스가 브라우저 메뉴영역에 갇혀 더 이상 운용이 어려운 상황이 초래됨 ([IE6,7,8,FF] 문제발생. [SF,CR,OP] 이상무.) <br />
+<em>이 경우 transparent 또는 opaque를 사용하되 정보가 있는 경우 대체 콘텐츠로 제공하는 등 키보드 사용이 가능하도록 제공</em>해야 함<br />
+06) <b>사용자 심사 - (전맹_죠스)</b> 죠스로 운용 시에는 해당 동영상 제어버튼이 인지, 운용되지 않아 동영상을 재생하지 못함.<br />
+<i>(해결방안)</i> object 태그에 classid와 param값을 적절히 제공함. (class id를 미디어플레이어 6.4 버전 이하로 지정함)<br />
+<b>[m]</b> ★죠스를 위해서 동영상 버전을 낮춰야 할까? (<em>6.4 버전에서 재생되지 않는 wmv 파일 있으니 주의!</em>)<br />
+▶잠정결론. 3/4명의 성공률로 적합판정을 받았으니, 7.0 이상 버전으로 사용하자!<br />
+
+07) <a href="http://www.hc.go.kr/sub/02/02_01.jsp?usrmode=_user_ins&open=now">토론방</a>.
+<em>달력레이어</em>의 자동포커스 이동 및 키보드 접근 문제. but 직접 입력 가능하여 적합.<br />
+08) <b>[미 준수 유형]</b><em>▶동영상 자막 스크롤 영역. tabindex="0" 지정 필요!</em><br />
+[m] div 에 tabindex="0" 추가하면 유효성 오류지만(없는 속성), 웹 접근성에서는 심사하지 않는다.<br />
+▶▷아래 동영상[WMV] 코드 참고하세요.<br />
+</td>
+</tr>
+<tr>
+<td><label for="fe08">08</label> <input type="checkbox" id="fe08" value="" class="checkbox" /></td>
+<td>초점 이동</td>
+<td>초점 표시 ▶버튼 CSS 등 탭키 점검<br />
+*:focus{outline:2px solid #c0f;}<br />
+*:hover{outline:0 dotted #000;}<br />
+a img{margin:-1px;padding:1px;}<br />
+input.image{margin:-1px;padding:1px;}<br />
+<em>▶만족도조사 input.text onblur=""</em><br />
+<em>▶통합검색 결과내 재검색</em><br />
+<em>▶게시판 페이징</em><br />
+<em>▶a>img{position:absolute}</em><br />
+</td>
+<td>
+01) <b>[수정권장]</b> 모바일웹 레이어가 통합검색 창 아래 위치하여 초점의 일부가 표시되지 않음.
+-- 문서모드 [IE8] 점검 이상 없었으나, 아래 코드로 인하여 [IE7] 로 동작하여 문제 발생. 아래 코드는 사용하지 않도록 전달!
+<xmp class="xmp">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+</xmp>
+02) 검색어 입력창에 초점 이동시 커서가 보이지 않아 초점 이동 유무를 파악할 수 없으므로,
+커서가 시각적으로 표시될 수 있도록 수정하는 것이 바람직함.
+-- outline: 으로 조치했으나, [IE7] 로 동작하여, 표시 안됨.
+<xmp class="xmp">
+<input type="text" name="satisfy1opinion1" id="satisfy1opinion1"
+value="여러분의 소중한 한마디를 부탁드립니다."
+onfocus="this.value=(this.value=='여러분의 소중한 한마디를 부탁드립니다.')?'':this.value; this.select();"
+onblur="this.value=(this.value=='')?'여러분의 소중한 한마디를 부탁드립니다.':this.value;"
+title="여러분의 소중한 한마디를 부탁드립니다." class="text" />
+</xmp>
+03) <b>[수정권장]</b> 결과내 재검색 항목을 선택한 후 검색어 입력 및 검색전송 기능을 실행하기 위해 역순으로(shift+tab)으로 내비
+게이션해야 합니다. [해결방안] <em>결과내 재검색</em> 등 검색 서식의 입력 요소들은 검색전송 버튼 이전에 제공되어야 합니다.
+</td>
+</tr>
+<tr>
+<td>09</td>
+<td>응답시간 조절</td>
+<td></td>
+<td>
+01) 경매, 실시간 게임, 듣기평가용 콘텐츠 등은 예외.<br />
+02) 검사대상은 자동전환 페이지, 제한시간 연장, 제한시간 만료 경고 등이 해당<br />
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td>정지 기능 제공</td>
+<td></td>
+<td>
+01) 자동으로 변화하는 콘텐츠에 정지 기능을 제공하거나 <em>해당 영역(이전, 다음 버튼 포함)에 키보드 포커스 및 마우스 오버시에 콘텐츠가 변화가 멈춰지도록 제공</em>되어야 함.<br />
+[m] <em>멈춤 버튼 필수 아니지만, 논란의 불씨를 없애기 위해 항상 넣는다.</em><br />
+02) 정지 버튼은 키보드 이용 시 제일 먼저 오도록 한다.<br />
+[m] 로테이션 콘텐츠의 제어 버튼은 [정지][재생][이전][다음] 순으로 통일해주세요.<br />
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>깜빡임과 번쩍임 사용 제한</td>
+<td>동영상 콘텐츠도 검사 대상</td>
+<td>
+01) 사전 경고 없이 초당 3~50회 깜빡이는 콘텐츠가 존재할 경우
+</td>
+</tr>
+<tr>
+<td><label for="fe12">12</label> <input type="checkbox" id="fe12" value="" class="checkbox" /></td>
+<td>반복 영역 건너뛰기</td>
+<td>스킵 링크 육안 확인 ▶all.css 수정.<br />
+▶화면설계단계부터고려필요!<br />
+▶서브메인. <em>부 메뉴 바로가기 제거하자!</em><br />
+</td>
+<td>
+01) 건너뛰기 링크를 화면에 보이도록 제공하지 않은 경우<br />
+02) 디자인의 특성상 건너뛰기 링크를 보이지 않도록 구현하더라도 키보드 내비게이션에 의하여 초점을 받을 수 있도록 해야 하며, <em>키보드 초점을 받으면 건너뛰기 링크가 표시되는 경우 준수한 것으로 인정</em><br />
+[m] 초점 받지 않아도 보여야 하나? 요청 시에만 항상 보이게 하자.<br />
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>제목 제공</td>
+<td>
+▶게시글, 멀티게시판(목록,내용,작성,수정,삭제)<br />
+▶iframe 요소 title="빈프레임"<br />
+▶<em>통합검색</em> title 요소! 예)"행정" 으로 검색할 때..<br />
+<!-- 검색어 : 행정 | 합천군 통합검색<br />
+행정 | 합천군 통합검색 목록<br />
+통합검색 : 행정 | 합천군 군정미디어<br /> -->
+'행정' 검색결과 | 합천군 통합검색<br />
+통합검색 '행정' 검색결과 | 합천군 군정미디어<br />
+</td>
+<td>
+01) 페이지 제목의 title <ins>태그를</ins> 제공..<br />
+02) 새 창 웹페이지 누락하지 않도록 한다.<br />
+&lt;title&gt;2011 시정백서&lt;/title&gt;<br />
+&lt;title&gt;기업도우미(Q&&amp;A) 실명인증&lt;/title&gt;<br />
+03) 게시판의 '목록, 읽기, 쓰기' 페이지의 제목을 읽기(해당 글의 제목), 쓰기 등으로 구분하여 제공하는 것을 <b>권장</b>합니다.<br />
+&lt;title&gt;새소식 목록&lt;/title&gt;<br />
+&lt;title&gt;새소식 상세보기(8월 1일부터 시내버스 3자리 노선번호로 전면 개편)&lt;/title&gt;<br />
+&lt;title&gt;기업도우미(Q&amp;A) 글쓰기&lt;/title&gt;<br />
+04) 페이지에 제공된 콘텐츠를 유추할 수 있도록 상위범주를 추가 기입할 것을 <b>권장</b>합니다.<br />
+&lt;title&gt;재정공시(2011년)&lt;/title&gt;<br />
+[m] <a href="https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=5699&page=1&cType=&FindTxt=%ED%8E%98%EC%9D%B4%EC%A7%80+%EC%A0%9C%EB%AA%A9&flag=2&FindCol=1">바람직한 방법은 가장 하위 메뉴만 제공하되.. 다른 페이지와 구분 안되면, 상위 범주까지 제공한다.</a>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td>적절한 링크 텍스트</td>
+<td>
+▶더 보기, 상세 보기, 바로 보기, 다운로드, 자료실, RSS 주소복사, ..<br />
+▶예산서 pdf 파일 링크<br />
+</td>
+<td>
+01) 링크의 목적을 <del>맥락과 무관하게</del> 이해할 수 있도록 제공해야 함 (단, 링크에 대한 title을 활용하여 목적이나 용도를 설명한 경우 준수한 것으로 인정)
+예) 여기 → 홈페이지로 이동, 더 보기 → 공지사항 더 보기<br />
+02) <ins>링크의 목적을 키보드의 순서나 문맥을 통해 이해할 수 있으면 인정</ins><br />
+03) 링크 텍스트를 단순히 URL경로로만 제공하지 않는 것을 권장<br />
+04) 표에서 th 요소가 있더라도 PDF 아이콘 이미지가 alt="<em>pdf파일</em>" 로 되어 있는 경우.<br />
+예) <a href="http://www.hc.go.kr/sub/04/02_02_2013.jsp">합천군 예산서</a>. 심사 총평 pdf 파일 링크텍스트 미흡.. but 적합 판정.<br />
+05) 레이어창의 열고 닫는 동작을 나타내는 링크 설명 제공 <b>권장</b>합니다.<br />
+[해법1] &lt;img ... alt="남해군청모바일웹 레이어창 열기"&gt; &lt;img ... alt="남해군청모바일웹 레이어창 닫기" /&gt;<br />
+[해법2] &lt;img ... alt="남해군청모바일웹 레이어창 여닫기"&gt;<br />
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td>기본 언어 표시</td>
+<td>▶새 창 웹페이지, longdesc, ..<br />
+▶동시에 검사할 것<br />
+21 마크업 오류 방지<br />
+</td>
+<td>
+01)
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
+</xmp>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td>사용자 요구에 따른 실행</td>
+<td><!-- <del>_blank 새 창 알림 ▶target="_blank" 검색 점검.</del> -->
+window.open 새 창 알림 ▶검색 점검
+</td>
+<td>
+01) <b>[주의사항]</b> &lt;a target="_blank"&gt; 로만 새 창을 알린 경우 <del>감점</del> <ins>준수한 것으로 인정</ins><br />
+<!-- ※ <strong>[실태조사 평가 지표(20)]</strong> 관련 내용 없음.<br />
+※ <strong>[점검 매뉴얼(ver2.0) 35페이지]</strong> 단, 링크의 속성 중 "target=_blank" 가 포함되어 있으면, 보조기기가 자동으로 새 창임을 인식함으로 준수로 간주하여, 따로 '새 창' 문구가 없어도 인정.<br /> -->
+<!-- <strong>[센스리더v2.0.0.1]</strong> <del>window.open 도 새 창이라고 읽어주던데..? target="_blank" 도 있어서 읽어줬던 것</del> -->
+02) [m] 새 창이 열리는 요소(a, button, ..)에 title="새 창" 넣자! 스크린리더가 읽든 말든..<br />
+03) <em>실명인증, 공공 아이핀 인증을 라디오 버튼으로 선택하는 부분 지적 없음</em><br />
+04) 체크상자의 선택, 텍스트 입력 서식의 값 변경만으로 <em>값이 제출되어</em> 콘텐츠가 바뀌는 경우<br />
+05) [m] <a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4098&page=2&cType=&FindTxt=select&flag=2&FindCol=1"><em>[select]선택시 [select]값 변경</em>은 페이지 이동 아니므로 문제 없음</a><br />
+</td>
+</tr>
+<tr>
+<td>17</td>
+<td>콘텐츠의 선형화</td>
+<td>▶탭, form 양식</td>
+<td>
+01) 탭1→탭2→탭3 으로 이동하여 모든 탭 내용을 확인할 수 있는 경우에도 보다 <em>논리적</em>으로 구성할 것.<br />
+</td>
+</tr>
+<tr>
+<td>18</td>
+<td>표의 구성</td>
+<td>▶table 검색 점검<br />
+※ <a href="http://www.wah.or.kr/Example/wcag_desc.asp?cate=53">웹 접근성 연구소 - 웹 콘텐츠 제작기법</a><br />
+<xmp class="xmp">
+<table summary="토론을 위한 자유게시판">
+<caption>정책토론방</caption>
+</xmp>
+</td>
+<td>
+01) <ins><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4942&page=1&cType=&FindTxt=caption&flag=2&FindCol=1">둘다 제공</a>하자!</ins></em><br />
+02) &lt;caption&gt;요소와 summary 속성 중 하나라도 적절히 제공한 경우 준수한 것으로 인정하나,<br />
+원칙적으로 두가지 모두 사용하는 것을 권장한다.<br />
+단, <em class="em1">HTML5 는 summary="" 속성 사용하면 문법 오류이므로.. data-* 속성을 사용하든지.. 속성 삭제하세요.</em><br />
+03) 간단하거나 쉽게 파악할 수 있는 표를 제외하고는
+&lt;caption&gt; 요소는 표의 제목을, summary 속성에는 표의 요약, 구조나 탐색 방법을 기술해주어야 함
+(summary 속성과 &lt;caption&gt; 요소를 같은 용도로 사용하지않도록 권장)<br />
+04) &lt;caption&gt; 요소, summary 속성을 제공하지 않거나 용도 또는 설명이 부적절한 경우<br />
+- &lt;caption&gt;요소에 표의 제목을 적절히 제공하더라도, display:none;을 적용하면 스크린리더가 인식할 수 없으므로 부적합.<br />
+- &lt;caption&gt;요소를 화면에서 숨기려면, {<em class="">text-indent:-9999px;</em>} 등의 대안을 강구하여 보조기술 등이 인식하도록 제공해야 한다.<br />
+05) [2013.09.WA마크31회.<a href="http://www.hadong.go.kr/sub/08_06_04_01.asp">하동군</a>] 병합된 셀은 scope속성을 colgroup, rowgroup 으로 지정하는 것이 바람직함.<br />
+[m] W3C 와는 틀리게 이해된 잘못된 심사였다. 우리가 만든 표는 scope="col" scope="row" 로만 지정한다. 센스리더 테스트OK!
+<b>※</b> <a href="http://html5.clearboth.org/tabular-data.html#attr-th-scope">W3C HTML5 : &lt;th scope="colgroup"&gt;&lt;/th&gt;&lt;th scope="rowgroup"&gt;&lt;/th&gt;</a><br />
+06) <b>[주의사항]</b> 배치용 테이블에는 &lt;th&gt;, &lt;caption&gt; 요소, summary 속성을 사용하지 않아야 함.<br />
+</td>
+</tr>
+<tr>
+<td><label for="fe19">19</label> <input type="checkbox" id="fe19" value="" class="checkbox" /></td>
+<td>레이블 제공</td>
+<td><a href="http://accessibility.kr/nia/check.php">품질마크 자가진단 서비스</a>(label or title 연결 존재확인가능)<br />
+▶title 값은 수동점검<br />
+<a href="http://www.korea-nia.appspot.com/index">실태조사 자가진단 도구</a>(nia//1234) title 값 확인가능<br />
+</td>
+<td><!-- title 속성 대체 허용<br /> -->
+01) &lt;input type="hidden|submit|button|reset"&gt;을 제외한 모든 &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소에 1:1 대응하는 <em>&lt;label&gt;요소 또는 title 속성</em>을 제공하지 않은 경우 오류 판정.<br />
+02) 레이블로 연결할 텍스트가 있는 경우 title 속성보다 &lt;label&gt; 요소를 제공하는 것을 권장.<br />
+03) &lt;label&gt; 요소로 입력서식을 매칭했으나, <em>레이블을 이미지로만 제공할 경우에는 title 속성을 이용</em>하여 서식 제목 제공 권장한다.<br />
+04) <em>legend 요소</em> 안에 <em>label 요소</em>를 사용하여 select 서식 연결하면,<br />
+센스리더Pro2.0.0.1 에서 "legend 텍스트" "첫번째 option 텍스트" "콤보상자" 이렇게 읽어주므로..<br />
+legend 안에서 label 을 넣지 않는다.<br />
+05) <b>[수정권장]</b> 서식이 제공된 의도와 다른 title을 제공하고 있습니다. title="검색 분류", "검색어 입력" 등으로 제공하도록 합니다.<br />
+06) 입력서식이 <em>읽기전용</em>이라고 하더라도 서식에 &lt;label&gt; 요소 연결 또는 title 속성을 제공하는 것이 바람직합니다.<br />
+</td>
+</tr>
+<tr>
+<td>20</td>
+<td>오류 정정</td>
+<td>▶<strong>@개발자</strong><br />
+▶글작성, 로그인, ..<br />
+오류 내용 설명 + 첫 오류 서식 필드로 초점 이동<br />
+</td>
+<td>
+01) <b>[오류유형]</b> 오류 발생 시, 정정할 수 있는 수단을 제공하지 않는 경우<br />
+</td>
+</tr>
+<tr>
+<td>21</td>
+<td>마크업 오류 방지</td>
+<td><a href="http://validator.w3.org/">http://validator.w3.org/</a><br />
+id값 중복도 오류다!<br />
+▶사이트맵, form 양식, ul, ..<br />
+font 열고 닫음.<br />
+</td>
+<td>
+01) 태그의 열고 닫음 오류<br />
+02) 태그의 중첩 오류<br />
+03) 중복 선언된 속성 오류<br />
+04) [지적 사례] "end tag for" 오류가 발생하지 않도록 개선해야 함.<br />
+<b>[m]</b> <a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=5497&page=1&cType=VL&FindTxt=&flag=2&FindCol=0">(질문) <code>&lt;meta /&gt;</code> HTML4.01 오류아니고 수정권장? (답변) 수정을 권장하는 내용이 아니었나 생각됩니다.</a><br />
+<b>[2013.10.WA마크33회.<a href="http://www.namhae.go.kr/06namhae/03_02_07.asp">남해군</a>]</b> <em>HTML4.01 빈태그 /> 평가안함</em></a><br />
+</td>
+</tr>
+<tr>
+<td>22</td>
+<td>웹 애플리케이션 접근성 준수</td>
+<td></td>
+<td>
+01) 자바스크립트 미지원 환경에서는 평가하지 않음.<br />
+<del><b>[주의사항]</b> 자바스크립트.. 동적.. 마크업.. <em>개발자 도구</em> 소스대로 평가</del>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+※부가 웹사이트, 웹페이지 기능 추가 점검 -- 회원로그인,통합검색,첨부파일바로보기,E-book,솔루션<br />
+※2011 웹 호환성 진단 방법 + -- 메인, 공지사항, 민원 등 대민접촉이 많은 페이지, 팝업창<br />
+</p>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="h2a0" class="hb1 h2">웹 접근성 점검 보완 프로세서</h2>
+
+<!-- box3 -->
+<pre class="box3">
+====================================================================================================
+#우리시.대표포털.%웹접근성점검보완. - by MoonYoungshin.20140425 ~
+====================================================================================================
+== ISSUE ==
+----------------------------------------------------------------------------------------------------
+* 보완작업 필요!!
+▶@PM(기획자) : 요구사항분석, 정보구조설계, 콘텐츠 <b>자료</b>수집, 보고<b>관리</b>
+▶@디자이너 : 정적(HTML)페이지, Design+HTML+CSS. 동적페이지 추가 포함.
+▶@개발자 : 동적(Program)페이지 Develop+JavaScript+HTML+CSS, 정적페이지 JavaScript 포함.
+★☆ 디자이너가 JavaScript 개발 필요하면 개발자에게 요청하고, 개발자가 HTML+CSS 지원 필요하면 디자이너에게 요청바람.
+
+----------------------------------------------------------------------------------------------------
+* 점검방법 :
+0+1) (갱)03_우리시_대표홈페이지_사용자 심사 보고서.pdf
+0+2) 25_우리시_대표홈페이지_전문가평가보고서.pdf
+0+3) @(동료가) 보내온 점검 요청
+----
+1) 자동점검 [WA마크 자가진단 (<a href="http://accessibility.kr/nia/check.php">http://accessibility.kr/nia/check.php</a>)] : 대체텍스트, 제목, 언어, 레이블
+2) 수동점검 [N-WAX (<a href="http://html.nhncorp.com/markup_tools/nwax">http://html.nhncorp.com/markup_tools/nwax</a>)] : 대체 텍스트. W3C Validation, 표, 주언어, 링크 텍스트, 사용자 요구에 따른 실행, 레이블
+3) 수동점검 [IE8] : 키보드, 초점, 응답시간, 정지 기능, 반복 영역 건너뛰기, 선형화.
+4) 자동점검 [K-WAH 4.4.0.2] (최종 점검 활용) -- IP차단우려 개인PC에서 자동점검안함. 서버에 설치해서는 가능하다.
+-) "텍스트 콘텐츠의 명도 대비" 점검 ▶@디자이너
+-) "오류 정정" 점검 ▶@개발자
+----------------------------------------------------------------------------------------------------
+* 점검대상 :
+1차) 메인+서브공통(사이트맵) OK
+2차) 서브페이지 주요 본문 20 페이지만 우선 점검 후 전달? ==>
+3차) K-WAH 4.x 자동점검 1000p 결과? ==> 생략
+4) 전체페이지 ==> 서브1차페이지, 2차페이지, 3차페이지, 순차적으로..
+====================================================================================================
+</pre><!-- /box3 -->
+
+<!-- box2 --><div class="box2">
+<strong>주요 점검 대상</strong>(~20p~) :
+<i>메인+공통</i>,
+<i>서브+공통</i>(Sitemap),
+<i>통합검색</i>,
+서브1차 첫페이지 내용 6p 내외<br />
++ 그래프, 표 등 정보 제공 페이지(조직도, 청사안내도, 오시는 길 등)<br />
++ 일정달력(행사안내, 날짜선택기)<br />
++ 멀티미디어(동영상 등) 제공 페이지<br />
++ 게시판 페이지(목록,내용,작성,수정,삭제,실명인증,비밀번호 확인)(첨부파일,이미지,특수문자))<br />
++ 온라인 서식 페이지(로그인, 회원가입 등)<br />
++ 부가 어플리케이션이 포함되어 있는 페이지(동영상, eBook, VR, ..)<br />
++ 기타 다양한 템플릿 페이지 선정<br />
++ <em>iframe 외부콘텐츠</em>,
+..
+</div><!-- /box2 -->
+
+<h2 class="hb1 h2">동영상[WMV]</h2>
+
+<xmp class="xmp">
+<!-- movie1box  -->
+<div class="movie1box">
+
+<!-- movie -->
+<div class="movie">
+<!--[if IE]>
+<object type="application/x-oleobject" classid="clsid:6bf52a52-394a-11d3-b153-00c04f79faa6" width="640" height="430" title="동영상[WMV]" class="ActiveXMediaPlayer">
+<param name="URL" value="http://www.wah.or.kr/images/Accessibility/pr/stream.wmv" />
+<param name="autoStart" value="0" />
+<param name="stretchToFit" value="1" />
+<![endif]-->
+	<object type="application/x-ms-wmp" data="http://www.wah.or.kr/images/Accessibility/pr/stream.wmv" width="640" height="430" class="MediaPlayer">
+	<!-- ☆height = (width*(9/16))+70 -->
+	<param name="URL" value="http://www.wah.or.kr/images/Accessibility/pr/stream.wmv" />
+	<param name="autoStart" value="0" />
+	<param name="stretchToFit" value="1" />
+		<div class="AlternativeContent">
+		<p>윈도우 미디어 플레이어를 사용하여야 합니다. <a href="https://www.microsoft.com/korea/windows/windowsmedia/">윈도우 미디어 플레이어</a>를 설치하세요</p>
+		<a href="/data/video/★동영상원본파일명.wmv">[★동영상원본제목] ★동영상원본파일명.wmv 다운로드(★동영상원본파일크기MB)</a>
+		</div>
+	</object>
+<!--[if IE]>
+</object>
+<![endif]-->
+</div>
+<!-- /movie -->
+
+<!-- caption -->
+<div class="caption" title="동영상 대본">
+<a tabindex="0" class="blind onshow">여기 초점을 받으면 키보드 화살표 상(↑)·하(↓) 키로 스크롤 할 수 있습니다.</a>
+
+<strong class="h1">★동영상원본제목 있으면 넣고 없으면 말고</strong>
+<br />
+<p>
+대본 길이가 영역을 넘어가 스크롤이 생기면.. 이 영역이 키보드 탭으로 탐색되어야 한다.
+</p>
+
+</div>
+<!-- caption -->
+
+</div>
+<!-- /movie1box -->
+</xmp>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20110914. ~
+20200511. 
+20200420. 수정요청-횡성군청.pdf
+20200402. 
+20200401. 최근 이슈 2020 추가
+20191224. 
+20191217. 최근 이슈 2019 추가. (2019년 행정·공공기관 웹 접근성 수준진단)
+20190703. 최근 이슈 2019 추가.
+20190118. 최근 이슈 2018 추가. (하동군)
+20171116. 최근 이슈 2017 추가. (영도구)
+20171101.
+20161107. 최근 이슈 추가.
+20161028. 심사결과서-거창군청.pdf 이슈 추가.
+20161027.
+20160411. 컬러값 실수 수정.
+20151209.
+20150305.
+20150226.
+20150224.
+20150223. 주요 점검 대상
+20150217.
+20150212. 유지보수 교육!
+<!-- <br />
+20141113. #07c >>> #37c
+20140620. 관심 동향.
+20140428. tabindex="0"
+20140425. 최근이슈
+20131108. 유지보수 교육!
+20131031. 최근 이슈 확인 반영.
+20131023. WA마크33회반영.
+20130916. WA마크31회반영.
+20130528. WA마크27회반영.
+20130311. 20130306. 20130304. 20130228. 20130227. 20130225.
+20130124. 제목 제공, select, ..
+20120329. 색상 대비 보강 등..
+20120321. 새 가이드 내용 보강.
+20120308. 색상 미준수 예 추가.
+20120209. 지난가이드 링크 추가. WA마크15회 결과 변동사항없음.
+20111122. WA마크14회 결과, 심사가이드 v1.1 반영
+20111104. wha 문의 게시판 반영.
+20111006.
+20110915.
+20110914. -->
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

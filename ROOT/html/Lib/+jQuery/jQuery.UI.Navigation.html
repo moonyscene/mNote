@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery UI Library',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</title>
+<script src="http://html.nhndesign.com/js/default.js"></script>
+</head>
+<body>
+<h1>jQuery UI Library</h1>
+
+
+<h1>Navigation</h1>
+
+<h3>수직 네비게이션 예제</h3>
+
+<div class="gnbVr">
+<ul>
+<li><a href="#">#1</a>
+<ul>
+<li><a href="#">#1-1</a></li>
+<li><a href="#">#1-2</a></li>
+</ul>
+</li>
+<li><a href="#">#2</a>
+<ul>
+<li><a href="#">#2-1</a></li>
+<li><a href="#">#2-2</a></li>
+</ul>
+</li>
+<li><a href="#">#3</a>
+<ul>
+<li><a href="#">#3-1</a></li>
+<li><a href="#">#3-2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<script>
+
+$(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	gnbVr.find('>ul>li>a[href=#]')
+		.click(function(){
+			if($(this).parent('li').hasClass('active'))return false;//20110728.2번실행안되게추가하여해결
+			gnbVr
+				.find('>ul>li>ul:visible')
+				.slideUp(200)
+				.parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('fontWeight','');
+			$(this)
+				.next('ul:hidden')
+				.slideDown(200)
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('fontWeight','bold');
+			return false;
+		})
+		.focus(function(){
+			$(this).click();
+		});
+});
+
+/* //20110728. 
+$(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	gnbVr.find('>ul>li>a[href=#]')
+		.click(function(){
+			gnbVr
+				.find('>ul>li>ul:visible')
+				.slideUp(0)//20110728.실행시간0로수정하여해결
+				.parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('fontWeight','');
+			$(this)
+				.next('ul:hidden')
+				.slideDown(0)//20110728.실행시간0로수정하여해결
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('fontWeight','bold');
+			return false;
+		})
+		.focus(function(){
+			$(this).click();
+		});
+});
+
+$(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	gnbVr.find('>ul>li>a[href=#]')
+		.click(function(){
+			gnbVr
+				.find('>ul>li>ul:visible')
+				.slideUp(200).parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('fontWeight','');
+			$(this)
+				.next('ul')//20110728. :hidden 를 없애면 닫혔다가 다시 열림. 닫히는거 해결안됨.
+				.slideDown(200)
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('fontWeight','bold');
+			return false;
+		})
+		.focus(function(){
+			$(this).click();
+		});
+}); */
+
+/* 출처: 나라디자인 - IE외 표준 브라우저  이상무. IE6,7,8,9 에서 click 과 focus 가 이중실행되어 활성 보였다가 닫히는 문제 발생 */
+
+/* $(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	gnbVr.find('>ul>li>a[href=#]')
+		.click(function(){
+			gnbVr
+				.find('>ul>li>ul:visible')
+				.slideUp(200).parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('fontWeight','');
+			$(this)
+				.next('ul:hidden')
+				.slideDown(200)
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('fontWeight','bold');
+			return false;
+		})
+		.focus(function(){
+			$(this).click();
+		});
+}); */
+
+/* 아래와 같이 수정해봤으나, 해결 못함 */
+
+
+/* $(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	gnbVr.find('>ul>li>a[href=#]')
+		.click(function(){
+			if($(this).parent('li').hasClass('active'))return false;
+			gnbVr
+				.find('>ul>li.active>ul')
+				.slideUp(200)
+				.parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('color','');
+			$(this)
+				.next('ul')
+				.slideDown(200)
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('color','#f00');
+			return false;
+		})
+		.focus(function(){
+			$(this).click();
+		});
+}); */
+
+/* $(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	var myFunc=function(){
+		gnbVr
+			.find('>ul>li>ul:visible')
+			.slideUp(200).parent('li')
+			.removeClass('active')
+			.find('>a')
+			.css('fontWeight','');
+		$(this)
+			.next('ul:hidden')
+			.slideDown(200)
+			.parent('li')
+			.addClass('active')
+			.find('>a')
+			.css('fontWeight','bold');
+		return false;
+	};
+	gnbVr.find('>ul>li>a[href=#]').click(myFunc).focus(myFunc); 
+}); */
+
+/* $(function(){
+	var gnbVr = $('.gnbVr');
+	gnbVr.find('>ul>li>ul').hide();
+	var myFunc=function(e){
+		gnbVr
+			.find('>ul>li>ul:visible')
+			.slideUp(200).parent('li')
+			.removeClass('active')
+			.find('>a')
+			.css('fontWeight','');
+		$(this)
+			.next('ul:hidden')
+			.slideDown(200)
+			.parent('li')
+			.addClass('active')
+			.find('>a')
+			.css('fontWeight','bold');
+		return false;
+	};
+	gnbVr.find('>ul>li>a[href=#]').bind('click focus',myFunc); 
+}); */
+
+</script>
+
+<h3>수평 네비게이션 예제</h3>
+<div class="gnbHr">
+<ul>
+<li><a href="#">#1</a>
+<ul>
+<li><a href="#">#1-1</a></li>
+<li><a href="#">#1-2</a></li>
+</ul>
+</li>
+<li><a href="#">#2</a>
+<ul>
+<li><a href="#">#2-1</a></li>
+<li><a href="#">#2-2</a></li>
+</ul>
+</li>
+<li><a href="#">#3</a>
+<ul>
+<li><a href="#">#3-1</a></li>
+<li><a href="#">#3-2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<script>
+$(function(){
+	var gnbHr = $('.gnbHr');
+	gnbHr.find('>ul>li>ul').hide();
+	gnbHr.find('>ul>li>a')
+		.mouseover(function(){
+			gnbHr
+				.find('>ul>li>ul:visible')
+				.slideUp(200)
+				.parent('li')
+				.removeClass('active')
+				.find('>a')
+				.css('fontWeight','');
+			$(this)
+				.next('ul:hidden')
+				.slideDown(200)
+				.parent('li')
+				.addClass('active')
+				.find('>a')
+				.css('fontWeight','bold');
+		})
+		.focus(function(){
+			$(this).mouseover();
+		})
+		.end()
+		.mouseleave(function(){
+			gnbHr
+				.find('>ul>li>ul')
+				.slideUp(200)
+				.prev('a')
+				.css('fontWeight','');
+		});
+});
+</script>
+
+</body>
+</html>

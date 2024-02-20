@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - Ajax | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Ajax (Asynchronous JavaScript and XML)</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#Ajax">Introduction to Ajax <br />Ajax 소개</a></li>
+<li><a href="#Blogs">Enhancing Blogs with Ajax <br />Ajax로 블로그 강화하기</a></li>
+<li><a href="#Autocomplete">Autocomplete Search <br />자동 완성 검색</a></li>
+<li><a href="#Wiki">An Ajax Wiki <br />Ajax 위키</a></li>
+<li><a href="Ajax_jQuery.html"><strong>jQuery Ajax</strong> <br />메서드, XML, 이벤트</a></li>
+<li><a href="../JavaScript/XML.html"><b>XML</b></a></li>
+<li><a href="../JavaScript/JSON.html"><b>JSON</b></a></li>
+<li><a href="#Link">Reference<br />Link</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="Link">Link</h2>
+<ul class="bu">
+<li><a href="http://www.hanb.co.kr/network/view.html?bi_id=1162">AJAX에서 즐겨찾기와 뒤로가기를 다루는 방법</a></li>
+<li><a href="http://goo.gl/pHcqj">Ajax 요청시 뒤로가기(백버튼) 문제 해결하기 (뒤로, 앞으로, 새로고침)</a></li>
+</ul>
+
+
+<h2 id="Ajax">Introduction to Ajax 소개</h2>
+
+<h3>HTTP 요청</h3>
+
+<h4>서버에 접속</h4>
+
+<h5>XMLHttpRequest 객체 사용하기</h5>
+<xmp class="xmp">
+if ( typeof XMLHttpRequest == "undefined" ) {
+	XMLHttpRequest = function(){
+		return new ActiveXObject(navigator.userAgent.indexOf("MSIE 5") >= 0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP");
+	};
+}
+</xmp>
+
+<h5>GET 요청</h5>
+<xmp class="xmp">
+var xml = new XMLHttpRequest();
+xml.open("GET", "/some/url.cgi", true);
+xml.send();
+</xmp>
+
+<h4>데이터 직렬화</h4>
+
+<xmp class="xmp">
+function serialize(a) {
+	var s = [];
+	if ( a.constructor == Array ) {
+		for ( var i = 0; i < a.length; i++ ) s.push( a[i].name + "=" + encodeURIComponent( a[i].value ) );
+	} else {
+		for ( var j in a ) s.push( j + "=" + encodeURIComponent( a[j] ) );
+	}
+	return s.join("&amp;");
+}
+</xmp>
+
+<h5>GET 요청</h5>
+
+<xmp class="xmp">
+var xml = new XMLHttpRequest();
+xml.open("GET", "/some/url.cgi?" + serialize( data ), true);
+xml.send();
+</xmp>
+
+<h4>POST 요청</h4>
+<h5>HTTP POST 요청을 서버에 전달 (결과 데이터는 읽어오지 않는다.)</h5>
+<xmp class="xmp">
+var xml = new XMLHttpRequest();
+xml.open("POST", "/some/url.cgi", true);
+xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+if ( xml.overrideMimeType ) xml.setRequestHeader("Connection", "close");
+xml.send( serialize( data ) );
+</xmp>
+<h5>서버에 XML 데이터를 POST 하는 예</h5>
+<xmp class="xmp">
+var xml = new XMLHttpRequest();
+xml.open("POST", "/some/url.cgi", true);
+xml.setRequestHeader( "Content-Type", "text/xml");
+if ( xml.overrideMimeType ) xml.setRequestHeader("Connection", "close");
+xml.send( "<items><item id='one'/><item id='two'/></items>" );
+</xmp>
+
+<h3>HTTP 응답. 완전한 Ajax 패키지</h3>
+
+<p>XMLHttpRequest 객체 사용하기 // 응답 데이터 읽기 // 에러 처리 // 타임아웃 검사 // 응답 데이터 처리</p>
+
+<xmp class="xmp">
+if ( typeof XMLHttpRequest == "undefined" ) {
+	XMLHttpRequest = function(){
+		return new ActiveXObject(navigator.userAgent.indexOf("MSIE 5") >= 0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP");
+	};
+}
+
+function ajax( options ) {
+	options = {
+		type: options.type || "POST", // HTTP 요청의 타입
+		url: options.url || "", // 요청을 전달할 URL
+		timeout: options.timeout || 5000, // 기본값 5초 내에 요청이 성공하지 못하면 타임아웃으로 처리
+		onComplete: options.onComplete || function(){}, // 요청이 완료(실패 혹은 성공) 시 호출할 함수
+		onError: options.onError || function(){}, // 요청이 실패 시 호출할 함수
+		onSuccess: options.onSuccess || function(){}, // 요청이 성공 시 호출할 함수
+		data: options.data || "" //  // 서버에서 반환할 데이터 타입 
+	};
+	var xml = new XMLHttpRequest();
+	xml.open(options.type, options.url, true);
+	var timeoutLength = 5000;
+	var requestDone = false;
+	setTimeout(function(){ // 타임아웃 검사
+		 requestDone = true;
+	}, timeoutLength);
+	xml.onreadystatechange = function(){ // 응답 데이터 읽기
+		if ( xml.readyState == 4 && !requestDone ) {
+			if ( httpSuccess( xml ) ) {
+				options.onSuccess( httpData( xml, options.data ) ); // options.data 데이터 타입
+			} else {
+				options.onError();
+			}
+			options.onComplete();
+			xml = null;
+		}
+	};
+	xml.send();
+	function httpSuccess(r) { // 에러 처리
+		try {
+			return !r.status && location.protocol == "file:" ||
+				( r.status >= 200 && r.status < 300 ) ||
+				r.status == 304 ||
+				navigator.userAgent.indexOf("Safari") >= 0 && typeof r.status == "undefined";
+		} catch(e){}
+		return false;
+	}
+	function httpData(r,type) { // 응답 데이터 처리
+		var ct = r.getResponseHeader("content-type");
+		var data = !type && ct && ct.indexOf("xml") >= 0;
+		data = type == "xml" || data ? r.responseXML : r.responseText;
+		if ( type == "script" )
+			eval.call( window, data );
+		return data;
+	}
+}
+</xmp>
+
+<h3>다른 데이터 사용 예</h3>
+
+<h4>An XML-Based RSS Feed</h4>
+
+<xmp class="xmp">
+<html>
+<head>
+<title>Dynamic RSS Feed Widget</title>
+<script src="ajax.js"></script>
+<script>
+window.onload = function(){
+	ajax({
+		url: "rss.xml",
+		data: "xml",
+		onSuccess: function( rss ) {
+			var feed = document.getElementById("feed");
+			var titles = rss.getElementsByTagName("title");
+			for ( var i = 0; i < titles.length; i++ ) {
+				var li = document.createElement("li");
+				li.innerHTML = titles[i].firstChild.nodeValue;
+				feed.appendChild( li );
+			}
+		}
+	});
+};
+</script>
+</head>
+<body>
+<h1>Dynamic RSS Feed Widget</h1>
+<p>Check out my RSS feed:</p>
+<ol id="feed"></ol>
+</body>
+</html>
+</xmp>
+
+<h4>An HTML Injector</h4>
+
+<xmp class="xmp">
+<html>
+<head>
+<title>HTML Sports Scores Loaded via AJAX</title>
+<script src="ajax.js"></script>
+<script>
+window.onload = function(){
+	ajax({
+		url: "scores.html",
+		data: "html",
+		onSuccess: function( html ) {
+			var scores = document.getElementById("scores");
+			scores.innerHTML = html;
+		}
+	});
+};
+</script>
+</head>
+<body>
+<h1> HTML Sports Scores Loaded via AJAX </h1>
+<div id="scores"></div>
+</body>
+</html>
+</xmp>
+
+<h4>JSON and JavaScript: Remote Execution</h4>
+
+<xmp class="xmp">
+<html>
+<head>
+<script src="ajax.js"></script>
+<script>
+ajax({
+	url: "myscript.js",
+	data: "script"
+});
+</script>
+</head>
+<body></body>
+</html>
+</xmp>
+
+
+<h2 id="Blogs">Enhancing Blogs with Ajax 블로그 강화하기</h2>
+
+<h4>블로그 템플릿</h4>
+<p><a href="http://wordpress.org/">WordPress blogging software</a> 기본 템플릿 Kubrik 테마의 HTML 코드를 간략하게 표현한 템플릿</p>
+<xmp class="xmp">
+<html>
+<head>
+    <title>Never-ending Wordpress</title>
+    <script>
+        <!-- Our Script Goes Here -->
+    </script>
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <!-- Header Contents -->
+        </div>
+        <div id="content">
+
+             <!-- The First Post -->
+            <div class="post">
+                <!-- The Post's header -->
+                <h2><a href=" /test/?p=1">Test Post</a></h2>
+                <small>October 24th, 2006</small>
+				
+                <div class="entry">
+                    <!-- The Post's Contents -->
+                </div>
+		
+                <p class="postmetadata"><a href="/test/?p=1#comments">Comments</a></p> 
+             </div>
+
+             <!-- More Posts… -->
+
+        </div>
+    </div>
+</body>
+</html>
+</xmp>
+
+<h4>데이터 소스</h4>
+<p>워드프레스가 변환한 XML RSS 피드</p>
+<xmp class="xmp">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+
+<channel>
+	<title>Test Wordpress Web log</title>
+	<link>http://someurl.com/test/</link>
+	<description>Test Web log.</description>
+	<pubDate>Fri, 08 Oct 2006 02:50:23 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.0</generator>
+	<language>en</language>
+
+	<item>
+		<title>Test Post</title>
+		<link>http://someurl.com/?p=9</link>
+		<pubDate>Thu, 07 Sep 2006 09:58:07 +0000</pubDate>
+		<dc:creator>John Resig</dc:creator>
+		<category>Uncategorized</category>
+		<description><![CDATA[ Post content goes here… ]]></description>
+	</item>
+
+	<!-- A lot more items -->
+</channel>
+</rss>
+</xmp>
+
+<h3>끝이 없는 블로그</h3>
+
+<p>호환 함수 windowHeight(), pageHeight(), scrollY() 가 필요하다.</p>
+<xmp class="xmp">
+function windowHeight(){var de=document.documentElement; return self.innerHeight||(de&&de.clientHeight)||document.body.clientHeight;}
+function pageHeight(){return document.body.scrollHeight;}
+function scrollY(){var de=document.documentElement;return self.pageYOffset||(de&&de.scrollTop)||document.body.scrollTop;}
+</xmp>
+
+<h4>result.js</h4>
+<xmp class="xmp">
+var curPage = 1;
+var loading = false;
+window.onscroll = function(){
+	if ( curPage >= 1 && !loading && pageHeight() - scrollY() - windowHeight() < windowHeight() ) {
+		loading = true;
+		ajax({
+			type: "GET",
+			data: "xml",
+			url: "./?feed=rss&paged=" + ( ++curPage ),
+			onSuccess: function( rss ){
+				var content = document.getElementById("content");
+				var items = rss.getElementsByTagName("item");
+				for ( var i = 0; i < items.length; i++ ) {
+					content.appendChild( makePost( items[i] ) );
+				}
+				if ( items.length == 0 ) {
+					curPage = 0;
+				}
+			},
+			onComplete: function(){
+				loading = false;
+			}
+		});
+	}
+};
+function makePost( elem ) {
+	var data = getData( elem );
+	var div = document.createElement("div");
+	div.className = "post";
+	var h2 = document.createElement("h2");
+	h2.innerHTML = "<a href='" + data.link + "'>" + data.title + "</a>";
+	div.appendChild( h2 );
+	var entry = document.createElement("div");
+	entry.className = "entry";
+	entry.innerHTML = data.desc;
+	div.appendChild( entry );
+	var meta = document.createElement("p");
+	meta.className = "postmetadata";
+	meta.innerHTML = "<a href='" + data.link + "#comments'>Comment</a>";
+	div.appendChild( meta );
+	return div;
+}
+function getData( elem ) {
+	return {
+		title: elem.getElementsByTagName("title")[0].firstChild.nodeValue,
+		desc: elem.getElementsByTagName("description")[0].firstChild.nodeValue,
+		link: elem.getElementsByTagName("link")[0].firstChild.nodeValue
+	};
+}
+</xmp>
+
+<!-- box1 -->
+<pre class="box1">
+//url: "./?feed=rss&paged=" + ( ++curPage ), // 원래 소스
+//url: "http://naradesign.net/wp/feed/", // 다른 서버. 엑세스가 거부되었습니다.
+url: "blog.xml", // 같은 서버. RSS 형식 XML 파일 잘 응답한다.
+</pre>
+<!-- /box1 -->
+
+<h3>라이브 블로깅</h3>
+
+<xmp class="xmp">
+setInterval(function(){
+	ajax({
+		type: "GET",
+		data: "xml",
+		url: "./?feed=rss&paged=1",
+		onSuccess: function( rss ){
+			var content = document.getElementById("content");
+			var recentURL = content.getElementsByTagName("h2")[0].firstChild.href;
+		   var items = rss.getElementsByTagName("item");
+			var newItems = [];
+			for ( var i = 0; i < items.length; i++ ) {
+				if ( getData( items[i] ).link == recentURL )
+					break;
+				newItems.push( items[i] );
+			}
+			for ( var i = newItems.length - 1; i >= 0; i-- ) {
+				content.insertBefore( makePost( newItems[i] ), content.firstChild );
+			}
+		}
+	});
+}, 60000 );
+</xmp>
+
+
+<h2 id="Autocomplete">Autocomplete Search 자동 완성 검색</h2>
+
+<ol class="num">
+<li>[Ex1] Google Suggest (<a href="http://www.google.com/webhp?complete=1">http://www.google.com/webhp?complete=1</a>).<br />
+검색 질의어를 입력하기 시작하면, 입력한 문자로 시작하면서 다른 사용자들이 자주 사용한 검색 질의어가 함께 표시된다.
+</li>
+<li>[Ex2] Instant Domain Search (<a href="http://instantdomainsearch.com/">http://instantdomainsearch.com/</a>).<br />
+입력 즉시 해당 도메인을 구입할 수 있는지 확인해준다.
+질의어 그 자체를 완성해주는 것이 아니라 검색을 자동으로 완성하여 결과를 돌려준다.
+</li>
+<li>[Ex3] del.icio.us (<a href="http://del.icio.us/">http://del.icio.us/</a>).<br />
+???
+</li>
+</ol>
+
+
+<h2 id="Wiki">An Ajax Wiki 위키</h2>
+
+
+
+<pre>
+<h2>ProJSTech</h2>
+10장 Ajax 소개 
+10.1 Ajax 사용하기
+10.2 응답 데이터 처리하기
+10.3 완전한 Ajax 패키지
+10.4 다른 데이터의 사용 예
+10.5 요약
+
+11장 Ajax로 블로그 강화하기
+11.1 끝이 없는 블로그
+11.2 라이브 블로깅
+11.3 요약
+
+12장 자동 완성 검색
+12.1 자동 완성 검색의 예
+12.2 페이지 만들기
+12.3 키 입력 감시하기
+12.4 결과 받아오기
+12.5 결과 목록 탐색하기
+12.6 최종 결과
+12.7 요약
+
+13장 Ajax 위키
+13.1 위키?
+13.2 데이터베이스와 대화하기 
+13.3 Ajax 요청
+13.4 서버 측 코드
+13.5 JSON 응답 처리하기
+13.6 또 다른 사례 연구 : 자바스크립트 블로그
+13.7 애플리케이션 코드
+13.8 요약
+
+PART 4 ▒▒ Ajax
+
+▒ CHAPTER 10 Introduction to Ajax. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215
+Using Ajax . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215
+HTTP Requests . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 216
+HTTP Response . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 221
+Handling Response Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 225
+The Complete Ajax Package . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 226
+Examples of Different Data Usage . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 229
+An XML-Based RSS Feed . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 229
+An HTML Injector . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 231
+JSON and JavaScript: Remote Execution . . . . . . . . . . . . . . . . . . . . . 232
+Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 232
+
+▒ CHAPTER 11 Enhancing Blogs with Ajax . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 233
+Never-Ending Blog . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 233
+The Blog Template. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 234
+The Data Source . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 236
+Event Detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 238
+The Request . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 238
+The Result . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 239
+Live Blogging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 243
+Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 245
+
+▒ CHAPTER 12 Autocomplete Search. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 247
+Examples of Autocomplete Search. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 247
+Building the Page . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 249
+Watching for Key Input . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 251
+Retrieving the Results. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 254
+Navigating the Result List . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 257
+Keyboard Navigation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 257
+Mouse Navigation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 258
+The Final Result . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 259
+Summary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 264
+
+▒ CHAPTER 13 An Ajax Wiki. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 265
+What Is a Wiki? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 265
+Talking With the Database. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 266
+The Ajax Request. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 267
+The Server-Side Code. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 268
+Handling a Request . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 268
+Executing and Formatting SQL . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 270
+Handling the JSON Response . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 272
+An Extra Case Study: A JavaScript Blog . . . . . . . . . . . . . . . . . . . . . . . . . . . 274
+Application Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 275
+Core JavaScript Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 276
+JavaScript SQL Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 279
+Ruby Server-Side Code. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 280
+Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 283
+</pre>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120618.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'HTML5API+CSS3+MobileApp.html',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>HTML5API+CSS3+MobileApp</h1>
+
+<!-- gallery1 --><div class="gallery1">
+<ol class="bo num">
+<li><a href="../Note/HTML5API+CSS3+MobileApp.html">실전 HTML5 가이드</a> (한국웹표준프로젝트, 한국정보화진흥원, 2010.07)<br />
+<!-- High Performance Web Sites<br /> -->
+| <a href="http://webstandards.or.kr/html5">View</a>
+<p><img src="http://channy.creation.net/blog/data/channy/2010/html5-book.jpg" height="100" /></p>
+</li>
+</ol>
+</div><!-- /gallery1 -->
+
+
+<ul class="tab">
+<li><a href="#html5">HTML5</a></li>
+<li><a href="#css3">CSS3</a></li>
+<li><a href="#html5api">HTML5 API</a></li>
+<li><a href="#html5mobile">HTML5와 모바일</a></li>
+<li><a href="#ref">Reference</a></li>
+</ul>
+
+<!-- box4 -->
+<pre class="box4">
+<a href="#video">video</a>, audio, canvas
+App Cache, <a href="#WebStorage">Web Storage</a>(LocalStorage, sessionStorage), Web SQL Database, Web Sockets, Web Workers, Server-Sent Event
+Selector API, Drag and Drop, <a href="#Geolocation">Geolocation</a>, Indexed DB, Notifications, File Reader, WebGL
+Advanced Forms
+</pre>
+<!-- /box4 -->
+
+<h2>Note made in</h2>
+<ul class="bu">
+<li><a href="HTML5.html">HTML5 Tag Reference</a></li>
+<li><del><a href="CSS3.html">CSS3 Properties</a></del>
+<ins><a href="../CSS/css3.html">CSS 3 Selectors, Properties</a></ins>
+</li>
+
+</ul>
+
+
+<!-- 
+1. HTML5 소개 .............................................................................................6
+1.1 HTML 5 의 배경.............................................................................7
+1.2 HTML5 개요...................................................................................12
+1.3 HTML5 표준 문서들 ......................................................................22
+1.4 HTML5와 웹개발 방법론의 변화 ...................................................26
+1.5 FAQ.................................................................................................29
+2. HTML5 마크업..........................................................................................32
+2.1. 구조와 문법 ...................................................................................33
+2.2. 요소와 속성 ...................................................................................36
+2.3 HTML5 예제...................................................................................54
+2.4 HTML 4.01과의 비교......................................................................58
+3. CSS3 소개 ..................................................................................................63
+3.1 CSS2와 차이점................................................................................64
+3.2 CSS3 브라우저 지원현황................................................................64
+3.3 CSS3 실전 적용 ..............................................................................69
+3.4 CSS3 명세 읽는 법 .........................................................................80
+3.5 FAQ.................................................................................................80
+4. HTML5 API...............................................................................................85
+4.1 HTML5 미디어 요소......................................................................86
+4.2 HTML5 API....................................................................................92
+4.3 리치 웹 API....................................................................................108
+4.4 FAQ.................................................................................................122
+5. HTML5와 모바일 ......................................................................................125
+5.1 모바일에서의 HTML5....................................................................126
+5.2 아이폰 기반 HTML5 앱 개발 ........................................................131
+5.3 실전예제..........................................................................................147
+부록. ................................................................................................................157
+실전 HTML5 가이드
+5
+[블로터포럼] HTML5가 개발자에게 ‘기회의 땅’인 이유 ................158
+[읽을꺼리] HTML5 동영상에 대한 전망 ..............................................165
+국내 웹 표준 커뮤니티 목록 .................................................................168
+ -->
+
+<h2 id="html5">HTML5</h2>
+
+<h3>기본문법</h3>
+<xmp class="xmp">
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>예제 문서</title>
+</head>
+<body>
+<p>예제 단락</p>
+</body>
+</html>
+</xmp>
+
+<p>※ 유연한 마크업 가능.. 아래 모두 W3C Markup 유효성 통과!!</p>
+<xmp class="xmp">
+<meta charset="UTF-8">
+<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
+<META CHARSET="UTF-8" />
+</xmp>
+
+<h3>1. 시맨틱 마크업</h3>
+<ul class="bu">
+<li>구조화 마크업 : header, footer, nav, section</li>
+<li>특정 의미 마크업 : time, mark, meter, datalist </li>
+<li>기존 마크업 이용 : b의 경우 b는 키워드, i는 학명에 사용</li>
+<li>CSS로 완전 대체 가능한 요소는 폐기 :  big, center, font, s, strike</li>
+<li>부정적인 요소들도 사용않음 frame과 applet, acronym</li>
+</ul>
+
+<h3>2. 편리한 웹 폼(WebForm) 기능</h3>
+<p>input 태그의 각종 type 속성이 추가되어 다양한 기능을 제공</p>
+<ul class="bu">
+<li>datetime 속성값을 사용하면 달력을 웹 브라우저에서 제공해 주며</li>
+<li>range 속성은 스크롤바를</li>
+<li>url은 웹 사이트 목록</li>
+<li>email은 메일 주소 유효성 확인을 해 주기도 합니다.</li>
+<li>color 속성은 색상표를 별도 개발 없이 사용할 </li>
+</ul>
+<p>Form 양식은 모두 유효성 확인 기능을 켜거나 끌 수 있어 클라이언트 데이터 검증에 매우 도움을 주게 됩니다. </p>
+
+<h3>3. 리치 웹 애플리케이션</h3>
+<p>HTML 5는 웹 어플리케이션 작성에 도움을 줄 다양한 API를 제공 합니다.</p>
+<ul class="bu">
+<li>2차원 그래픽 API에 사용할 수 있는 canvas 요소. </li>
+<li>내장 비디오 및 오디오 재생을 위한 video, audio 요소. </li>
+<li>내장 저장소. 키/값이나 SQL 기반 데이터베이스 지원을 위한 기능. </li>
+<li>오프라인 웹 애플리케이션 기반 API. </li>
+<li>웹 애플리케이션이 독립적으로 특정 프로토콜 및 미디어 형식을 등록할 수 있는 API. </li>
+<li>contenteditable 속성과 함께 지원 되는 편집 API 기능. </li>
+<li>draggable 속성과 함께 지원 되는 드래그앤 드롭 API 기능. </li>
+<li>페이지 앞/뒤 네비게이션을 지원할 방문 기록 표시용 API 기능. (보안 제한 모델이 있음) </li>
+<li>(원격) 다중 메시징 처리 기능. </li>
+</ul>
+
+<h3>HTML 5 표준 문서 소개</h3>
+
+
+
+<hr />
+<h2 id="css3">CSS3</h2>
+
+<ul class="bu">
+<li>CSS 3는 언제 지원 되는거야? CSS 3, 기다리기만 하실껀가요? 모든 브라우저들이 CSS 3를 완벽하게 지원하고 IE 6, 7, 8이 사라질때 까지? 오, 마이 갓! 그런 날은 오지 않아요. 롸잇나우!</li>
+<li>더 좋은 도구를 선택한 사용자에게는 더 향상된 경험을. 이것은 좋은 도구(브라우저)를 선택하지 않은 사용자를 차별하는 것이 아니며 그래서도 안된다. 중요한 것은 '경험의 질'을 높이는 것이지 어떤 사용자를 '포기'하자는 것이 아니다.</li>
+<li>브라우저가 지원하면 우리도 지원한다. 구슬이 서말이라도 꿰어야 보배.</li>
+<li>혹시, 한국어 잘 하세요? [국립국어연구원 표준국어대사전] 새로운 표준의 모든것을 알 필요는 없다.</li>
+<li>CSS 3는 CSS Validation 통과 하나요? 아니오. [결벽증 환자를 위한 컴퓨팅 환경.]</li>
+<li>당장 사용할 수 있는 CSS 3를 소개합니다. 아직 모든 브라우저들이 CSS 3를 완벽하게 잘 지원하는 것은 아니지만 좋은 도구를 선택한 사용자들은 여러분의 센스에 분명히 감탄할껍니다.</li>
+<li>브라우저가 '지원'하면...	우리는 '실행'한다. 그것이 바로 사용자 경험을 향상 시키는 일이고 사용자 경험이 곧 국가 경쟁력이다.</li>
+</ul>
+
+
+
+<!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+<h2 id="html5api">HTML5 API</h2>
+
+
+<p>4.1 HTML5 미디어 요소......................................................................86</p>
+
+
+<h3 id="video">video, audio</h3>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/video.html">http://html5.firejune.com/demo/video.html</a></li>
+<li><a href="https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox">Using audio and video in Firefox</a></li>
+</ul>
+<h3 id="canvas">canvas</h3>
+
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/canvas.html">http://html5.firejune.com/demo/canvas.html</a></li>
+<li><a href="https://developer.mozilla.org/en/Drawing_Graphics_with_Canvas">Drawing Graphics with Canvas</a></li>
+</ul>
+
+<h3 id="SVG">SVG(Scalable Vector Graphics)</h3>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/svg.html">http://html5.firejune.com/demo/svg.html</a></li>
+<li>데모: <a href="http://html5.firejune.com/demo/svg-script.svg">http://html5.firejune.com/demo/svg-script.svg</a></li>
+</ul>
+
+
+<p>4.2 HTML5 API....................................................................................92</p>
+
+
+<h3 id="AppCache">Offline Application Cache API (Storage, Database)</h3>
+
+<h4>캐시 파일 목록 참조하기</h4>
+<xmp class="xmp">
+<html manifest="http://foo.example.com/example.manifest">
+...
+</html>
+</xmp>
+
+<h4>manifest 파일의 구조</h4>
+<p>mime-type은 반드시 "text/cache-manifest"</p>
+<xmp class="xmp">
+CACHE MANIFEST
+index.html
+stylesheet.css
+images/logo.png
+scripts/main.js
+</xmp>
+<xmp class="xmp">
+CACHE MANIFEST
+# v2
+# 명시적으로 캐시된 항목
+CACHE:
+index.html
+stylesheet.css
+images/logo.png
+scripts/main.js
+# 사용자가 온라인 상태가 되었을 때 필요한 리소스들
+NETWORK:
+login.php
+/myapi
+http://api.twitter.com
+# static.html 파일은 main.py 파일에 접근할 수 없을 때 보여짐
+FALLBACK:
+/main.py /static.html
+</xmp>
+<xmp class="xmp">
+CACHE MANIFEST
+# v3
+# 명시적으로 캐시된 항목
+index.html
+css/style.css
+# offline.html 파일은 사용자가 오프라인이 되었을 때 보여짐
+FALLBACK:
+/ /offline.html
+# 사이트의 모든 리소스는 온라인을 필요로 함
+NETWORK:
+*
+# 추가적인 리소스 캐시
+CACHE:
+images/logo1.png
+images/logo2.png
+images/logo3.png
+</xmp>
+
+<h4>스크립트로 캐시 갱신하기</h4>
+<strong>window.applicationCache</strong><br />
+<strong>applicationCache.update()</strong><br />
+<xmp class="xmp">
+var appCache = window.applicationCache;
+switch (appCache.status) {
+case appCache.UNCACHED: // UNCACHED == 0
+실전 HTML5 가이드
+95
+return 'UNCACHED';
+break;
+case appCache.IDLE: // IDLE == 1
+return 'IDLE';
+break;
+case appCache.CHECKING: // CHECKING == 2
+return 'CHECKING';
+break;
+case appCache.DOWNLOADING: // DOWNLOADING == 3
+return 'DOWNLOADING';
+break;
+case appCache.UPDATEREADY: // UPDATEREADY == 5
+return 'UPDATEREADY';
+break;
+case appCache.OBSOLETE: // OBSOLETE == 5
+return 'OBSOLETE';
+break;
+default:
+return 'UKNOWN CACHE STATUS';
+break;
+};
+</xmp>
+<xmp class="xmp">
+var appCache = window.applicationCache;
+appCache.update(); // 사용자의 캐시를 갱신하도록 시도함
+...
+if (appCache.status == window.applicationCache.UPDATEREADY) {
+appCache.swapCache(); // 가져오기에 성공한 경우 새로운 캐시로 교체
+}
+</xmp>
+<xmp class="xmp">
+function handleCacheEvent(e) {
+//...
+}
+function handleCacheError(e) {
+alert('Error: 젠장! 캐시 갱신을 실패하였습니다.');
+};
+// 최초 manifest 의 캐시가 완료된 경우 이밴트 발생
+appCache.addEventListener('cached', handleCacheEvent, false);
+실전 HTML5 가이드
+96
+// 갱신 확인, 항상 이벤트가 순차적으로 발생
+appCache.addEventListener('checking', handleCacheEvent, false);
+// 갱신이 필요함. 브라우저가 리소스를 가져올 때 발생
+appCache.addEventListener('downloading', handleCacheEvent, false);
+// manifest 에서 404 또는 410 로 응답시 발생, 다운로드 실패
+// 또는 다운로드 진행중에 manifest 가 변경된 경우
+appCache.addEventListener('error', handleCacheError, false);
+// 최초 manifest 다운로드시 발생
+appCache.addEventListener('noupdate', handleCacheEvent, false);
+// manifest 파일에서 404 또는 410 으로 응답시 발생
+// 이러한 경우 애플리케이션 캐시에서 삭제된다.
+appCache.addEventListener('obsolete', handleCacheEvent, false);
+// manifest 로 부터 각각의 리소스를 가져올 때 발생
+appCache.addEventListener('progress', handleCacheEvent, false);
+// manifest 의 리소스가 새롭게 다시 다운로드 된 경우 발생
+appCache.addEventListener('updateready', handleCacheEvent, false);
+</xmp>
+
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/manifest.html">http://html5.firejune.com/demo/manifest.html</a></li>
+</ul>
+
+
+<h3 id="WebStorage">Web Storage</h3>
+<p>일종의 클라이언트-사이드 데이터베이스이다.<br />
+Web Storage는 localStorage와 sessionStorage로 구분된다.<br />
+이들의 차이점은 브라우저가 완전히 종료되고 난 후에도 데이터가 유지 되느냐 마느냐이다. 데이터의 용도에 따라서 적절한 방식을 선택하면 된다.<br />
+</p>
+<xmp class="xmp">
+localStorage.setItem("name", "Hello World!"); // key-value 형식으로 저장
+document.write(localStorage.getItem("name")); // 저장된 값 호출
+localStorage.removeItem("name"); // 스토리지로 부터 일치하는 아이템 삭제
+</xmp>
+<xmp class="xmp">
+try {
+	localStorage.setItem("name", "Hello World!"); // key-value 형식으로 저장
+} catch (e) {
+	if (e == QUOTA_EXCEEDED_ERR) {
+		alert('할당량 초과!'); // 할당량 초과로 인하여 데이터를 저장할 수 없음
+	}
+}
+</xmp>
+<xmp class="xmp">
+if (typeof(localStorage) == 'undefined' ) {
+	alert('당신의 브라우저는 HTML5 localStorage 를 지원하지 않습니다. 브라우저를 업그레이드하세요.');
+} else {
+	try {
+		localStorage.setItem("name", "Hello World!"); // key-value 형식으로 	저장
+	} catch (e) {
+		if (e == QUOTA_EXCEEDED_ERR) {
+			alert('할당량 초과!'); // 할당량 초과로 인하여 데이터를 저장할 수 없음
+		}
+	}
+	document.write(localStorage.getItem("name")); // 저장된 값 호출
+	localStorage.removeItem("name"); // 스토리지로 부터 일치하는 아이템 삭제
+}
+</xmp>
+
+<ul class="bu">
+<li>데모: <a href="http://html5demos.com/storage">http://html5demos.com/storage</a></li>
+</ul>
+
+<h4>쿠키 대신 Web Storage사용하기</h4>
+<xmp class="xmp">
+// 브라우저의 localStorage 지원여부를 판단
+if (('localStorage' in window) && window.localStorage !== null){
+	localStorage.wishlist = '["Unicorn","Narwhal","Deathbear"]';// 개체에 프로퍼티를 할당하는 쉬운 방법을 사용
+} else {// 브라우저에서 Web Storage 를 지원하지 않는다면 // document.cookie 를 이용한다.
+	var date = new Date();
+	date.setTime(date.getTime()+(365*24*60*60*1000));
+	var expires = date.toGMTString();
+	var cookiestr = 'wishlist=["Unicorn","Narwhal","Deathbear"];'+	' expires='+expires+'; path=/';
+	document.cookie = cookiestr;
+}
+</xmp>
+
+<h3 id="WebSQLDatabase">Web SQL Database</h3>
+
+<h4>변수 선언</h4>
+<xmp class="xmp">
+var html5rocks = {};
+html5rocks.webdb = {};
+</xmp>
+
+<h4>비동기와 트랜잭션의 이해</h4>
+<p>Web Database를 사용하는 대부분의 사례가 비동기 API를 사용한다. 비동기 API는 non-blocking 시스템이다. 그리고 리턴값을 통해서는 데이타를 얻지 못한다. 때문에 정의된 콜백 함수에 데이터를 전달하게 된다.</p>
+<p>Web Database는 HTML을 통한 트랜잭션이다. 이것은 외부에서 SQL문을 실행할 수 없다. 트랜잭션은 두 종류로 구분되는데, 읽고 쓰기위한 트랜잭션(transaction())과 읽기 전용 트랜잭션(readTransaction())이다. 그리고 주의해야 할 점은 데이터를 읽고 쓸 때 전체 데이터베이스가 잠겨버린다는 점이다.</p>
+
+<h4>데이터베이스 열기</h4>
+<p>데이터베이스에 접근하기 전에 먼저 해야할 일은 데이터베이스를 개설하는 것이다. 개설하기 위해서는 데이터베이스의 이름, 버전, 설명 그리고 크기를 정의 한다.</p>
+<xmp class="xmp">
+html5rocks.webdb.db = null;
+html5rocks.webdb.open = function() {
+	var dbSize = 5 * 1024 * 1024; // 5MB
+	html5rocks.webdb.db = openDatabase('Todo', '1.0', 'todo manager', dbSize);
+}
+html5rocks.webdb.onError = function(tx, e) {
+	alert('예기치 않은 오류가 발생하였습니다: ' + e.message );
+}
+html5rocks.webdb.onSuccess = function(tx, r) {
+	// 모든 데이터를 다시 그림
+	html5rocks.webdb.getAllTodoItems(tx, r);
+}
+</xmp>
+
+<h4>테이블 생성하기</h4>
+<p>"CREATE TABLE SQL" 쿼리문을 transaction 안에 실행하여 테이블을 만들 수 있다.<br />
+OnLoad 이벤트가 발생하는 지점에 테이블 생성함수를 정의했다. 테이블이 이미 존재하지 않는 경우에는 테이블이 생성된다. 이 테이블의 이름은 "todo"이고 아래와 같은 3개의 컬럼을 가진다.</p>
+<p>ID - 순차적으로 증가하는 ID 컬럼<br />
+todo - 아이템의 몸체가 되는 텍스트 컬럼<br />
+added_on - 아이템이 만들어진 시간 컬럼<br />
+</p>
+<xmp class="xmp">
+html5rocks.webdb.createTable = function() {
+	html5rocks.webdb.db.transaction(function(tx) {
+		tx.executeSql('CREATE TABLE IF NOT EXISTS ' +'todo(ID INTEGER PRIMARY KEY ASC, todo TEXT, added_on DATETIME)', []);
+	});
+}
+</xmp>
+
+<h4>테이블에 데이터 추가하기</h4>
+<p>할 일 목록을 관리하기 위한 테이블이 준비되었다. 이제 테이블에 아이템을 추가하는 중요한 작업을 진행해 보자. transaction 내부에서 todo 테이블에 INSERT 쿼리를 수행해야 한다. 이 때 executeSql은 다수의 파라미터를 가진다. 그리고 SQL은 이 파라미터의 값을 컬럼에 입력하는 쿼리를 수행한다.</p>
+<xmp class="xmp">
+html5rocks.webdb.addTodo = function(todoText) {
+	html5rocks.webdb.db.transaction(function(tx){
+		tx.executeSql('INSERT INTO todo(todo, added_on) VALUES (?,?)',	[todoText, addedOn], html5rocks.webdb.onSuccess, html5rocks.webdb.onError);
+	});
+}
+</xmp>
+
+<h4>테이블에서 테이터 선택하기</h4>
+<p>이제 데이터베이스에 데이터가 존재한다. 이 데이터를 다시 밖으로 꺼내보자. Web Database는 표준 SQLite SELECT 쿼리를 이용하면 된다.</p>
+<xmp class="xmp">
+html5rocks.webdb.getAllTodoItems = function(renderFunc) {
+	html5rocks.webdb.db.transaction(function(tx) {
+		tx.executeSql('SELECT * FROM todo', [], renderFunc,html5rocks.webdb.onError);
+	});
+}
+</xmp>
+<p>여기에 사용된 명령 예제는 모두 비동기이다. 이러한 경우 transaction 또는 executeSql 호출시 데이터가 반환되지 않는다. 데이터는 반드시 콜백을 통해 전달된다는 사실을 기억하자.</p>
+
+<h4>가져온 데이터 처리하기</h4>
+<p>데이터를 성공적으로 가져왔다면 loadTodoItems 함수가 호출되게 하자. onSuccess 콜백은 두개의 파라미터를 가진다. 첫 번째는 쿼리 트랜잭션이고 두 번째는 결과 묶음이다. 결과 묶음은 배열이며 데이터가 담겨있다.</p>
+<xmp class="xmp">
+function loadTodoItems(tx, rs) {
+	var rowOutput = "";
+	for (var i=0; i < rs.rows.length; i++) {
+		rowOutput += renderTodo(rs.rows.item(i));
+	}
+	var todoItems = document.getElementById('todoItems');
+	todoItems.innerHTML = rowOutput;
+}
+function renderTodo(row) {
+	return '<li>' + row.ID + '[<a onclick="html5rocks.webdb.deleteTodo(' + row.ID + ');"'>X</a>]</li>';
+}
+</xmp>
+<p>그리고 ID가 "todoItems"인 DOM 요소에 할 일 목록들이 그려지는 일을 수행한다.</p>
+
+<h4>테이블에서 데이터 제거하기</h4>
+<xmp class="xmp">
+html5rocks.webdb.deleteTodo = function(id) {
+	html5rocks.webdb.db.transaction(function(tx) {
+		tx.executeSql('DELETE FROM todo WHERE ID=?', [id],loadTodoItems, html5rocks.webdb.onError);
+	});
+}
+</xmp>
+
+<h4>초기화 및 HTML 구성하기</h4>
+<p>페이지 로드가 완료되면, 데이터베이스를 열고, 테이블을 생성하고(필요한 경우), 데이터를 가져와 할 일 항목이 그려지게 하자.</p>
+<xmp class="xmp">
+<script>
+....
+function init() {
+	html5rocks.webdb.open();
+	html5rocks.webdb.createTable();
+	html5rocks.webdb.getAllTodoItems(loadTodoItems);
+}
+</script>
+<body onload="init();">
+<form type="post" onsubmit="addTodo(); return false;">
+	<input type="text" id="todo" name="todo" placeholder="What do you need to do?" style="width: 200px;" />
+	<input type="submit" value="Add Todo Item"/>
+</form>
+</xmp>
+<p>&lt;input&gt; 요소로 부터 작성된 값을 가져와 전달하기 위한 함수가 필요하다. html5rocks.webdb.addTodo 메서드를 호출할 함수를 만들자.</p>
+<xmp class="xmp">
+function addTodo() {
+	var todo = document.getElementById('todo');
+	html5rocks.webdb.addTodo(todo.value);
+	todo.value = '';
+}
+</xmp>
+
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/webdb.html">http://html5.firejune.com/demo/webdb.html</a></li>
+</ul>
+
+
+<h3 id="WebSockets">Web Sockets</h3>
+<p>지원 브라우저 :
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+</p>
+<p>Web Socket은 꾸준한 성장과 인기를 얻고있는 Comet의 대안으로 고안되었다. 이 것은 웹 애플리케이션이 full-duplex 단일 소켓 연결을 가능케 한다. 이는 서버와 브라우저 사이에 진정한 양방향 통신 채널을 제공하는 것을 의미하며, 연결 관리를 단순화 한다. 하지만 서버에서 Web Sockets 프로토콜을 지원하는 환경에서만 작동하며, 추가적으로 서버에 모듈을 설치하거나 독립적으로 이를 지원하는 서버에서 정상적으로 작동한다.</p>
+
+<h4>XHR보다 적은 대역폭을 가진 빠른 송/수신</h4>
+<p>WebSocket은 매우 가볍게 구성되어 XHR보다 대역폭 소모가 적다. 일부 보고서에 따르면 전송 대역폭의 35%의 절감효과가 발생하는 것으로 조사되었다. 또한, 메시지 전달 비교 실험에서 XHR이 WebSocket보다 3500% 느린 것으로 측정되 상당 수준의 성능 차이가 있는 것으로 밝혀졌다. 끝으로, Ericcson 연구소에서 만든 WebSockets와 HTTP 비교 동영상은 WebSockets보다 HTTP가 ping당 3-5배나 느린것으로 밝혀져 실시간 상호작용이 빈번하게 발생하는 웹 애플리케이션 개발에 사용하기 적합한 것으로 결론 내렸다.</p>
+<p>지금부터 서버와 클라이언트간 메시지를 주고 받는 간단한 예제를 살펴보자.</p>
+
+<h4>클라이언트-사이드</h4>
+<p>클라이언트-사이드의 Web Socket은 매우 간단하게 사용할 수 있도록 고안되었다. 다음 코드가 하는 일은 서버의 9876 포트에 접속하고 수신한 데이터를 alert으로 출력한다.</p>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Web Socket Example</title>
+<meta charset="UTF-8">
+<script>
+window.onload = function() {
+	var s = new WebSocket("ws://localhost:9876/");
+	s.onopen = function(e) { alert("opened"); }
+	s.onclose = function(e) { alert("closed"); }
+	s.onmessage = function(e) { alert("got: " + e.data); }
+};
+</script>
+</head>
+<body>
+<div id="holder" style="width:600px; height:300px"></div>
+</body>
+</html>
+</xmp>
+
+<h4>서버-사이드</h4>
+<p>이제 서버 차례다. 그리고 서버단 언어는 파이선으로 작성되었다. 서버는 1초 간격으로 두개의 메시지를 보낸다. 단순성과 명확성을 위해 서버측 응답은 hard-coding된 것으로 한다. 이를 실제로 구현 한다면 유효성을 검사하고 동적인 응답이 이루어지도록 해야할 것이다.</p>
+
+<xmp class="xmp">
+#!/usr/bin/env python
+import socket, threading, time
+def handle(s):
+	print repr(s.recv(4096))
+	s.send('''
+	HTTP/1.1 101 Web Socket Protocol Handshake\r
+	Upgrade: WebSocket\r
+	Connection: Upgrade\r
+	WebSocket-Origin: http://localhost:8888\r
+	WebSocket-Location: ws://localhost:9876/\r
+	WebSocket-Protocol: sample
+	'''.strip() + '\r\n\r\n')
+	time.sleep(1)
+	s.send('\x00hello\xff')
+	time.sleep(1)
+	s.send('\x00world\xff')
+	s.close()
+s = socket.socket()
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+s.bind(('', 9876));
+s.listen(1);
+while 1:
+	t,_ = s.accept();
+	threading.Thread(target = handle, args = (t,)).start()
+	To run the above, start the Web Socket server (./server.py) and start
+	a web server on port 8888 serving index.html:
+./server.py &
+python -m SimpleHTTPServer 8888
+</xmp>
+<p>실행해 보면 "hello"와 "world"라는 메시지가 1초간격으로 수신되는 모습을 확인할 수 있다.</p>
+
+<h3 id="WebWorkers">Web Workers</h3>
+<p>지원 브라우저 :
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<img src="../img/br_op.png" height="25" alt="Opera" />
+</p>
+<p>Web Worker는 두가지 중요한 장점을 가지고 있다. 첫 번째는 빠르다는 것이고, 두 번째는 브라우저에 부담을 주지않고 백그라운드에서 스크립트 연산을 수행하는 것이다. 이것이 가능한 이유는 브라우저가 OS-래밸의 스레드를 생성하기 때문이며, 동시 다발적으로 사용하는 경우 더욱 흥미로운 결과를 기대할 수 있다.</p>
+<p>이제부터 Web Worker 기본적인 사용법에 대하여 알아보자.</p>
+
+<h4>Worker 생성하기</h4>
+<p>Worker를 생성하는 것은 간단하다. 백그라운드에서 작업할 스크립트를 별도의 파일에 작성하고 새로운 인스턴스에 URI를 기입하여 생성한다. 그리고 onmessage 속성에 함수를 대입하여 작업결과를 돌려 받을 수 있다.</p>
+<xmp class="xmp">
+var myWorker = new Worker('my_worker.js');
+myWorker.onmessage = function(event) {
+	alert("Worker 에 의해 실행된 콜백!\n");
+};
+</xmp>
+
+<h4>Worker 종료하기</h4>
+<p>실행중인 Worker를 즉시 종료하려면 terminate() 메서드를 호출하여 즉시 종료할 수 있다. 이러한 경우, Worker는 남은 작업을 마무리하거나 메모리에서 찌꺼기를 청소한 후 자발적으로 사라진다.</p>
+<xmp class="xmp">
+myWorker.terminate();
+</xmp>
+
+<h4>백그라운드에서 피보나치 수열 계산하기</h4>
+<p>다음 예제는 Worker를 이용하여 피보나치 수열을 계산하는데 사용된다.<br />이것은 사용자 인터페이스의 스레드를 차단하지 않고 프로세서 집약적인 계산을 수행 할 수 있도록 하는 것이다.</p>
+<p>다음은 "fibonacci.js"에 저장된 내용이다.</p>
+<xmp class="xmp">
+var results = [];
+function resultReceiver(event) {
+	results.push(parseInt(event.data));
+	if (results.length == 2) {
+		postMessage(results[0] + results[1]);
+	}
+}
+function errorReceiver(event) {
+	throw event.data;
+}
+onmessage = function(event) {
+	var n = parseInt(event.data);
+	if (n == 0 || n == 1) {
+		postMessage(n);
+		return;
+	}
+	for (var i = 1; i <= 2; i++) {
+		var worker = new Worker("fibonacci.js");
+		worker.onmessage = resultReceiver;
+		worker.onerror = errorReceiver;
+		worker.postMessage(n - i);
+	}
+};
+</xmp>
+<p>onmessage 함수는 postMessage()를 호출한다. 이렇게 하므로써 반복적인 계산의 새로운 복사본을 만들어 수행하게 된다.</p>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html lang="ko">
+<title>Test threads fibonacci</title>
+<body>
+<div id="result"></div>
+<script language="javascript">
+var worker = new Worker("fibonacci.js");
+worker.onmessage = function(event) {
+	document.getElementById("result").textContent = event.data;
+	console.log("Got: " + event.data + "\n");
+};
+worker.onerror = function(error) {
+	console.log("Worker error: " + error.message + "\n");
+	throw error;
+};
+worker.postMessage("5");
+</script>
+</body>
+</html>
+</xmp>
+<p>id가 "result"인 &lt;div&gt; 요소에 그 결과가 표시되며 worker.postMessage에 의해 Worker에 작업을 지시할 수 있다.</p>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/worker.html">http://html5.firejune.com/demo/worker.html</a></li>
+</ul>
+
+<h4>CPU 부하를 줄이기 위한 Web Worker를 적용할 상황들</h4>
+<p>스크립트를 이용하여 무거운 연산을 실행하면 브라우저는 먹통(응답 없음) 상태가 된다. 이러한 경우 이벤트 리스너가 제대로 작동하지 않아 오작동이 발생하거나 제때 콜백이 호출되지 않거나 짧은 시간동안 상호작용이 발생하는 프로그램 로직에 치명적인 오류를 안겨줄 수 있다.</p>
+<p>이러한 상황은 Web Worker를 이용하여 우회할 수 있다는 사실을 기억하자.</p>
+<ul class="bu">
+<li>긴 문서의 문자 서식 지정</li>
+<li>문법 강조 기능</li>
+<li>이미치 프로세싱</li>
+<li>이미지 합성</li>
+<li>덩치큰 배열 처리</li>
+</ul>
+
+<h3 id="Server-Sent">Server-Sent Event</h3>
+<p>지원 브라우저 :
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<img src="../img/br_op.png" height="25" alt="Opera" />
+</p>
+<p>Server-sent Event는 일종의 푸시 테크놀로지이다. 이것은 브라우저가 서버로부터 지속적으로 데이터를 스트림하는 상태가 되는 것을 말한다. 서버에서 클라이언트로 전달할 이벤트가 발생한 경우 즉시 전달하여 사용자에게 알릴 수 있게 된다.</p>
+<p>다음 예제는 서버로부터 이벤트를 스트림하는 방법을 다룬다. 현재 브라우저별로 사용법이 조금씩 다르기 때문에 웹킷 계열 브라우저를 중심으로 설명한다.</p>
+
+<h4>스크립트 작성하기</h4>
+<p>EventSource에 이벤트를 스트림 받을 URL을 입력한다.</p>
+<xmp class="xmp">
+var source = new EventSource('event.php');
+source.onmessage = function (event) {
+	alert(event.data);
+};
+</xmp>
+
+<h4>event.php 작성하기</h4>
+서버단 언어는 PHP이며, 서버의 시간을 스트리밍하도록 작성한 것이다.
+이 때 mime-type은 "text/event-stream"이어야 한다.
+<xmp class="xmp">
+<?php
+header("Content-Type: text/event-stream");
+echo "data: " . time() . "\n";
+?>
+</xmp>
+<p>"\n"은 라인 변경을 의미한다. 수신 받은 데이터는 아래와 같다.</p>
+<xmp class="xmp">
+data: 1277717394\n
+</xmp>
+<p>실행해 보면 alert에 "1277717394" 문자가 출력될 것이다. 그리고 이 과정은 계속 반복된다. 때문에 서버는 long-poll 형식으로 응답해 주는 것이 효과적이다.</p>
+<p>오페라 브라우저 역시 이 기능을 지원하지만 &lt;event-source&gt; 요소에 "src"와 이벤트를 할당하는 방법으로 사용해야 하며, mime-type은 "application/x-dom-event-stream"이어야 하고 반드시 수신 데이터에 "Event: server-time"과 같은 이벤트를 명시해야 한다.</p>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/sse.html">http://html5.firejune.com/demo/sse.html</a></li>
+</ul>
+
+<p>4.3 리치 웹 API....................................................................................108</p>
+
+<h3 id="Selector">Selector API</h3>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" /> -->
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<img src="../img/br_op.png" height="25" alt="Opera" />
+</p>
+
+<p>HTML5에는 새로운 Selector API인 querySelector, querySelectorAll 메서드가 추가되었다. 이 메서드들을 이용하여 DOM으로 부터 요소를 빠르고 쉽게 찾아낼 수 있다. 기존 자바스크립트 라이브러리(Prototype, jQuery 등)들이 지원하던 DOM Selector의 네이티브 구현이라 할 수 있겠다.</p>
+<p><strong>querySelector</strong> 메서드는 인자로 받은 선택 조건을 DOM 트리로부터 검색하여 첫 번째 일치하는 요소 노드를 반환한다. 그리고 노드가 발견되지 않으면 null을 반환한다.</p>
+<p><strong>querySelectorAll</strong> 메서드는 인자로 받은 선택 조건을 DOM 트리로부터 검색하여 일치하는 모든 요소 노드를 반환한다. 일치되는 노드가 없는 경우, 비어있는 목록을 반환한다.</p>
+<p>그리고 우리가 그토록 바라던 <strong>getElementByClassName도</strong> 추가적으로 사용할 수 있게 되었다.</p>
+
+<h5>Selector API 사용법</h5>
+<p>두 메서드 모두 인자로 전달되는 검색 조건에는 우리가 일반적으로 많이 사용하는 CSS 선택 문법을 그대로 사용할 수 있으며, 쉼표(',')로 구분하여 하나 이상의 검색 조건을 추가할 수 있다.</p>
+<xmp class="xmp">
+// 클래스 이름이 'warning', 또는 'note'인 p 단락 요소를 모두 찾음
+var special = document.querySelectorAll("p.warning, p.note");
+// id 가 'main', 'basic', 'exclamation'인 요소들 중 첫 번째 발견된 요소를 찾음
+var el = document.querySelector("#main, #basic, #exclamation");
+// HTML 문서의 body에 속한 style 요소들 중
+// 'type' 속성이 없거나, 'text/css'인 첫 번째 발견된 요소를 찾음
+var style = document.body.querySelector("style[type='text/css'],style:not([type])");
+// id 가 'fruits'인 요소의 <input> 요소(체크박스)들 중 선택된(checked) 요소를 찾음
+var list = document.querySelectorAll("#fruits input:checked");
+// 또는
+var list = document.getElementByID('fruits').querySelectorAll("input:checked");
+</xmp>
+
+<h3 id="Drag">Drag and Drop</h3>
+<p>지원 브라우저 :
+<img src="../img/br_ie.png" height="25" alt="Internet Explorer" />
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<!-- <img src="../img/br_op.png" height="25" alt="Opera" /> -->
+</p>
+<p>Drag and Drop API가 없던 시절에도 "mousemove", "mousedown", "mouseup" 이벤트를 이용하여 요소를 특정한 요소에 끌어다 놓는 수준은 구현할 수 있었다. 그러나 잡다한 뒤처리를 해야 했기 때문에 자바스크립트 라이브러리를 추가적으로 이용해야 했고 이벤트 이상 증식현상이나 CPU 부하로 인한 오작동이 빈번하게 발생하여 널리 사용되고 있지는 않았다.</p>
+<p>HTML5에서 새롭게 지원하기 시작한 Drag and Drop API는 더욱 향상된 끌어다 놓기 경험을 제공한다. 특히, File API를 함께 이용하면, 바탕화면 혹은 탐색기의 파일을 브라우저로 직접 끌어나 놓는 방식으로도 파일을 업로드 할 수 있게 되었다.</p>
+<p>이 예제는 로컬에 위치한 파일을 특정한 HTML 요소에 끌어다 놓고 해당 파일을 직접 액세스하고 미리보기를 보여주는 예제이다.</p>
+
+<h4>드랍 영역 마크업하기</h4>
+<p>아이템을 드래그할 수 있는 영역과 미리볼 수 있는 이미지를 등록한다.</p>
+<xmp class="xmp">
+<div id="dropbox">
+<span id="droplabel">
+이곳에 파일을 드랍해 주세요...
+</span>
+</div>
+<img id="preview" alt="[ preview will display here ]" />
+</xmp>
+
+<h4>드랍 영역 이벤트 등록하기</h4>
+<p>그리고 아래와 같이 이벤트를 할당한다.</p>
+<xmp class="xmp">
+var dropbox = document.getElementById("dropbox")
+// 이벤트 핸들러 할당
+dropbox.addEventListener("dragenter", dragEnter, false);
+dropbox.addEventListener("dragexit", dragExit, false);
+dropbox.addEventListener("dragover", dragOver, false);
+dropbox.addEventListener("drop", drop, false);
+</xmp>
+<p>위 코드는 얼핏 보면 복잡해 보이지만 dragEnter, dragExit, dragOver 핸들러는 아래와 같은 이벤트의 이상 증식현상을 중지시키는 역할을 할 뿐이다.</p>
+<xmp class="xmp">
+event.stopPropagation();
+event.preventDefault();
+</xmp>
+
+<h4>drop 이벤트 헨들러 작성하기</h4>
+<p>반환된 이벤트로 부터 dataTransfer.files 개체로 접근한 후 파일이 1개 이상 존재하면 handleFiles 함수를 호출한다.</p>
+<xmp class="xmp">
+event.stopPropagation();
+event.preventDefault();
+var files = event.dataTransfer.files;
+var count = files.length;
+// 오직 한개 이상의 파일이 드랍된 경우에만 처리기를 호출한다.
+if (count > 0)
+handleFiles(files);
+</xmp>
+
+<h4>handleFiles 함수 작성하기</h4>
+<p>전달 받은 개체로 부터 파일들 선택하고, 파일 이름을 표시하고, FileReader(File API) 인스턴스를 생성하여 파일을 처리한다.</p>
+<xmp class="xmp">
+var file = files[0];
+document.getElementById("droplabel").innerHTML = "Processing " + file.name;
+var reader = new FileReader();
+// 파일 리더의 이베트 핸들러 정의
+reader.onloadend = handleReaderLoadEnd;
+// 파일을 읽는 작업 시작
+reader.readAsDataURL(file);
+</xmp>
+<p>readAsDataURL 메서드는 파일을 data URL 형식으로 만들어 준다. 이는 파일을 서버에 업로드하지 않고도 조작할 수 있음을 의미한다. 포멧을 변환하거나, 데이터를 분석하여 변조하는 일이 가능해 진다. 예를 들면, 이미지의 특정한 영역을 클라이언트-사이드에서 크롭한 후 서버에 업로드하는 것이 가능하다. 보다 자세한 내용은 '4.3.5 File API'에서 다루도록 한다.</p>
+
+
+<h4>handleReaderLoadEnd 함수 작성하기</h4>
+<p>handleReaderLoadEnd 함수의 내용은 아주 간단하다. 미리보기할 이미지 요소에 소스를 대입한다.</p>
+<xmp class="xmp">
+var img = document.getElementById("preview");
+img.src = event.target.result;
+</xmp>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/dnd.html">http://html5.firejune.com/demo/dnd.html</a></li>
+</ul>
+
+<h3 id="Geolocation">Geolocation</h3>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" /> -->
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<img src="../img/br_op.png" height="25" alt="Opera" />
+</p>
+<p>Geolocation API는 브라우저가 사용자의 지리적 위치를 찾아내고 그 정보를 애플리케이션에서 이용할 수 있도록 하는 기능이다. 사용자의 위치 정보를 이용하기 위해서는 먼저 승인 절차를 거쳐야 하며, 승인이 완료 된 상태라면 사용자 컨텐츠가 생성될 때 지오-태깅(geo-tagging)기능을 제공할 수 있고 근처에서 촬영된 사진 등에 대한 정보를 유기적으로 연결시켜 서비스할 수 있다.</p>
+<p>그리고 사용자의 위치가 변경 될 때 마다 콜백 메서드로 전달되어 항상최신의 위치 정보를 유지하는 것이 가능하다. 이러한 지리 정보는 기본적으로 GPS 장치로 부터 얻어지는 것이 가장 정확하지만 그외 지리 정보를 얻을 수 있는 수단들을 단계적으로 이용하여 최소한 수도 또는 국가 단위의 지리 정보를 취득할 수 있다.</p>
+<p>다음 예제는 이동 거리 측정기를 만드는 과정을 소개한다. 이 예제를 통해 Geolocation API의 자세한 사용방법을 알아보자.</p>
+
+<h5>브라우저 호환성 확인</h5>
+<p>geolocation 개체의 존재를 확인하는 방법으로 브라우저가 이를 지원하는지의 여부를 쉽게 확인 할 수 있다.</p>
+<xmp class="xmp">
+// check for Geolocation support
+if (navigator.geolocation) {
+	console.log('Geolocation 을 지원합니다.');
+}
+else {
+	console.log('이 브라우저또는 OS 는 Geolocation 을 지원하지 않습니다.');
+}
+</xmp>
+
+<h5>측정기의 HTML 마크업</h5>
+<p>아래는 이동 거리 측정기를 구성하는 HTML을 마크업 한 것이다.</p>
+<xmp class="xmp">
+<div id="tripmeter">
+<p>시작 위치 (위도, 경도):<br/><span id="startLat"></span>°, <span id="startLon"></span>°</p>
+<p>현재 위치 (위도, 경도):<br/><span id="currentLat"></span>°, <span id="currentLon"></span>°</p>
+<p>시작 위치로 부터의 거리:<br/><span id="distance">0</span> km</p>
+</div>
+</xmp>
+
+<h5>사용자의 현재 위치 확인</h5>
+<p>getCurrentPosition() 메서드를 이용하여 사용자의 현재 위치를 찾아낼 수 있다. 이 것은 페이지 로드가 완료되는 시점에 실행된다.</p>
+<xmp class="xmp">
+window.onload = function() {
+	var startPos;
+	navigator.geolocation.getCurrentPosition(function(position) {
+		startPos = position;
+		document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+		document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+	});
+};
+</xmp>
+<p>만약, 처음으로 위와 같은 과정이 발생하는 경우 브라우저는 사용자에게 위치 정보 사용을 허용할지에 대한 여부를 확인한다. 브라우저에 따라서는 환경설정에서 항상 허용 또는 거부할 수 있는 기능을 제공하기도 하기 때문에 이 과정이 무시될 수도 있다.</p>
+<p>위 코드를 실행해 보자. 반환되는 position 개체에서 시작 위치의 좌표를 확인할 수 있어야 한다. position 개체는 위도(latitude)와 경도(longitude) 외에도 많은 정보가 포함되어 있는데, 사용자의 지리정보를 수신하는 기기 환경에 따라서는 고도(altitude)와 방향(direction) 정보까지 얻어낼 수 있다. console.log를 이용하여 이 값들의 포함 여부를 살펴보자.</p>
+
+<h5>오류 처리</h5>
+<p>불행하게도 위치 조회를 성공하지 못하는 경우가 발생한다. 어쩌면 갑자기 GPS를 찾을 수 없거나 위치 정보 사용 권한을 박탈당한 경우일 것이다.
+getCurrentPosition() 메서드의 두 번째 인자로 넘긴 콜백은 이러한 오류가 발생한 경우 호출되어 사용자에게 이 사실을 전달할 수 있다.</p>
+<xmp class="xmp">
+window.onload = function() {
+	var startPos;
+	navigator.geolocation.getCurrentPosition(function(position) {
+		// 상기와 동일
+	}, function(error) {
+		alert('오류 발생. 오류 코드: ' + error.code);
+		// error.code 는 다음을 의미함:
+		// 0: 알 수 없는 오류
+		// 1: 권한 거부
+		// 2: 위치를 사용할 수 없음 (이 오류는 위치 정보 공급자가 응답)
+		// 3: 시간 초과
+	});
+};
+</xmp>
+
+<h5>사용자 위치 모니터링</h5>
+<p>getCurrentPosition()의 호출은 페이지가 로드되고 난 다음 딱 한 번만 하면 된다. 이후의 위치 변동사항을 추적하려면 watchPosition()을 사용한다. 이것은 사용자의 위치변동이 감지될 때마다 인자로 받은 콜백을 호출한다.</p>
+<xmp class="xmp">
+navigator.geolocation.watchPosition(function(position) {
+	document.getElementById('currentLat').innerHTML = position.coords.latitude;
+	document.getElementById('currentLon').innerHTML = position.coords.longitude;
+});
+</xmp>
+
+<h5>이동한 거리 측정</h5>
+<p>이 예제는 Geolocation API와 직접적인 관계는 없다. 하지만 당신이 얻어낸 위치 데이터를 조금 더 구체적으로 이용할 수 있는 방법에 대하여 제시한다.</p>
+<xmp class="xmp">
+navigator.geolocation.watchPosition(function(position) {
+	// 상기와 동일
+	document.getElementById('distance').innerHTML = calculateDistance(startPos.coords.latitude, startPos.coords.longitude, position.coords.latitude, position.coords.longitude);
+});
+</xmp>
+<p>지금부터 작성하게 될 calculateDistance() 함수는 두 좌표 사이의 거리를 확인하는 기하학적 알고리즘을 수행한다. 아래의 스크립트 코드는 Moveable Type에서 제공하는 것으로 Creative Commons 라이센스에 따라 이용할 수 있다.</p>
+<xmp class="xmp">
+function calculateDistance(lat1, lon1, lat2, lon2) {
+	var R = 6371; // km
+	var dLat = (lat2 - lat1).toRad();
+	var dLon = (lon2 - lon1).toRad();
+	var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var d = R * c;
+	return d;
+}
+Number.prototype.toRad = function() {
+	return this * Math.PI / 180;
+}
+</xmp>
+<p>이 이동 거리 측정기 예제는 페이지가 로드된 시점으로 부터 일정한 거리를 이동해 봐야 작동여부를 확인할 수 있다. 실질적으로 GPS가 장착된 최신 스마트폰에서 무난히 테스트 할 수 있을 것이다.</p>
+
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/geolocation.html">http://html5.firejune.com/demo/geolocation.html</a></li>
+</ul>
+
+<h4>IndexedDB</h4>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" /> -->
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<!-- <img src="../img/br_sf.png" height="25" alt="Safari" />
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<img src="../img/br_op.png" height="25" alt="Opera" /> -->
+</p>
+<p>IndexedDB(Indexed Database API)는 구조적 데이터 저장소이다. 이는 Web Storage나 Web Database와 마찬가지로 온/오프라인 상태에서 사용할 수 있는 클라이언트-사이드 데이터베이스이다. IndexedDB는 최초 Oracle에서 처음 제안된 것으로 사용 측면에서는 Web Database와 상당부분 겹친다.
+Web Database에 비하여 IndexedDB는 스크립트를 이용한 데이터베이스를 다루하기에 최적화된 인터페이스를 제공하며, 알고리즘 방식의 입/출력을 지원하고 비동기/동기 처리 모두 API차원에서 제공하고 있으며 커서까지 지원하여 관계형 데이터베이스(RDB)형식으로 데이터 구조를 설계할 수 있다.</p>
+
+<h5>indexedDB 사용 예</h5>
+<xmp class="xmp">
+var db = indexedDB.open('books', 'Book store', false);
+if (db.version !== '1.0') {
+	var olddb = indexedDB.open('books', 'Book store');
+	olddb.createObjectStore('books', 'isbn');
+	olddb.createIndex('BookAuthor', 'books', 'author', false);
+	olddb.setVersion("1.0");
+}
+// db.version === "1.0";
+var index = db.openIndex('BookAuthor');
+var matching = index.get('fred');
+if (matching)
+	report(matching.isbn, matching.name, matching.author);
+else
+	report(null);
+</xmp>
+
+<h4>Notifications</h4>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" />
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<img src="../img/br_sf.png" height="25" alt="Safari" /> -->
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<!-- <img src="../img/br_op.png" height="25" alt="Opera" /> -->
+</p>
+<p>구글 크롬은 새로운 방식의 독자적 알림 수단인 Notifications API를 제시했다. 이 것은 사용자에게 특정한 상황의 메시지를 전달하여 즉시 알릴 수 있는 기능으로 소프트웨어 업데이트 알림, 메신저의 메시지 도착 또는 친구 접속 알림 기능을 연상하면 이해하기 쉽다. 윈도 혹은 맥 OS의 작업 표시줄 근처에 풍선말이 출력되면서 이벤트 발생 사실을 문자로 알리는 것과 매우 흡사하기 때문이다. 그래서 새 이메일이 도착하거나 트위터에 답변이 작성되거나 혹은 캘린더의 일정과 같은 알림성 컨텐츠를 Server-Sent Event 로 부터 받아 처리하기에 적합하다. 특히, 브라우저의 탭 또는 윈도의 활성화 여부에 상관없이 작동하기 때문에 페이지로의 접근을 용이하게 한다. 현재 Notifications는 아직 기초 단계에 있는 사양이며 표준안으로 채택될지는 불분명하다.</p>
+
+<h5>Notifications API 지원여부 확인</h5>
+<p>Notifications API가 지원되는 브라우저인지 확인하는 방법은 다음과 같다.</p>
+<xmp class="xmp">
+// notifications 를 지원하는지 확인
+// 'window' 키워드는 생략 가능
+if (window.webkitNotifications) {
+	console.log("Notifications are supported!");
+}
+else {
+	console.log("이 브라우저 또는 OS 는 Notifications 기능을 지원하지 않습니다.");
+}
+</xmp>
+
+<h5>알림 인스턴스 생성하기</h5>
+<p>알림에 들어가는 컨텐츠는 일반 텍스트 또는 HTML 형식으로 작성할 수 있다. 이것을 옵션화 하여 두 종류 모두 사용할 수 있게 했다.</p>
+<xmp class="xmp">
+function createNotificationInstance(options) {
+	if (options.notificationType == 'simple') {
+		return window.webkitNotifications.createNotification(
+		'icon.png', 'Notification Title', 'Notification content...');
+	} else if (options.notificationType == 'html') {
+	return window.webkitNotifications.createHTMLNotification('http://someurl.com'	);
+	}
+}
+</xmp>
+
+<h5>사용자 승인여부 구분하여 출력하기</h5>
+<div style="padding: .5em 1em;border:1px solid #cc6;background:#ff9;">~ show desktop notifications? [Allow] [Deny] X</div>
+<p>이 기능은 사용자의 승인을 얻어야만 작동하는 기능이다. 최신 브라우저들은 팝업이 기본으로 막혀있는데, 이를 사용자가 승인해 주어야지만 작동하는 모습과 비슷하다. 만약, 사용자가 이를 승인하지 않았다면 오류가 발생한다. 물론 try-catch를 사용할 수도 있지만 checkPermission 메서드를 사용하여 승인여부를 구분할 수 있다. 그리고 ondisplay 또는 onclose 프로퍼티에 상황에 따른 콜백함수를 정의할 수도 있다.</p>
+<xmp class="xmp">
+document.getElementById('show_button').addEventListener('click',
+function() {
+	// 값이 "0"이면 승인을 얻어낸 것이다.
+	if (window.webkitNotifications.checkPermission() == 0) {
+		// 다음 단계에서 함수를 정의한다.
+		notification_test = createNotificationInstance({ notificationType:'html' });
+		notification_test.ondisplay = function() { ... do	something ... };
+		notification_test.onclose = function() { ... do something	else ... };
+		notification_test.show();
+	} else {
+		window.webkitNotifications.requestPermission();
+	}
+}, false);
+</xmp>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/notification.html">http://html5.firejune.com/demo/notification.html</a></li>
+</ul>
+
+<h4>File API</h4>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" /> -->
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<!-- <img src="../img/br_sf.png" height="25" alt="Safari" /> -->
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<!-- <img src="../img/br_op.png" height="25" alt="Opera" /> -->
+</p>
+<p>File API는 웹 애플리케이션이 로컬 파일에 프로그램적으로 접근할 수 있게한다.
+파일을 업로드하기 위해 웹 사이트의 특정 영역으로 파일을 드래그하거나 &lt;input&gt; 요소로부터 전달받은 파일에 접근하여 파일의 이름, 경로, 크기, 종류 등에 대한 정보를 취득할 수 있다.
+물론, 읽기전용 상태로 접근된 것이기 때문에 실제 파일의 물리적 변형은 일어나지 않는다.
+그러나 4.3.2 Drag and Drop에서 언급했듯이 &lt;canvas&gt;요소를 응용하면 파일을 서버에 업로드하지 않고도 포멧을 변환하거나, 변조한 후 서버로 업로드 하는 일이 가능하다.
+또한 FileReader개체를 이용하면 바이너리 데이터를 분석하여 JPEG 파일의 EXIF 정보, MP3의 ID3 태그를 가져오는 등의 작업을 수행할 수 있다.</p>
+<p>다음에 소개할 예제는 &lt;input&gt; 요소에 선택된 파일의 정보를 분석하는 과정을 설명할 것이다.</p>
+
+<h5>HTML 구성하기</h5>
+<p>&lt;input type="file"&gt; 요소는 일반적으로 단 하나의 파일만을 선택할 수 있지만 "multiple" 속성을 사용하면 여러개 파일을 선택할 수 있게된다.
+그러나 "multiple" 속성을 지원하지 않는 브라우저들이 있으므로 호환성을 위해서는 플래시의 File I/O와 연동하는 방법이 사용되기도 한다.</p>
+<xmp class="xmp">
+<h3>파일(들)을 선택하세요.</h3>
+<!-- multiple 속성을 이용하면 파일을 다중으로 업로드 할 수 있음 -->
+<input id="files-upload" type="file" multiple>
+<h3>Uploaded files</h3>
+<ul id="file-list">
+<li class="no-items">(파일이 선택되 않음)</li>
+</ul>
+</xmp>
+
+<h5>스크립트 구성하기</h5>
+<p>&lt;input&gt; 요소에 변동사항이 발생하면 traverseFiles함수가 호출되며, 이 함수는 파일의 정보를 &lt;ul&gt; 요소에 출력할 것이다.</p>
+<xmp class="xmp">
+var filesUpload = document.getElementById("files-upload"), fileList = document.getElementById("file-list");
+function traverseFiles (files) {
+	var li,	file,	fileInfo;
+	fileList.innerHTML = "";
+	for (var i=0, il=files.length; i<il; i++) {
+		li = document.createElement("li");
+		file = files[i];
+		fileInfo = "<div><strong>Name:</strong> " + file.name + "</div>";
+		fileInfo += "<div><strong>Size:</strong> " + file.size + " bytes</div>";
+		fileInfo += "<div><strong>Type:</strong> " + file.type + "</div>";
+		li.innerHTML = fileInfo;
+		fileList.appendChild(li);
+	};
+};
+filesUpload.onchange = function () {
+	traverseFiles(this.files);
+};
+</xmp>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/file.html">http://html5.firejune.com/demo/file.html</a></li>
+</ul>
+
+<h4>WebGL</h4>
+<p>지원 브라우저 :
+<!-- <img src="../img/br_ie.png" height="25" alt="Internet Explorer" /> -->
+<img src="../img/br_ff.png" height="25" alt="Firefox" />
+<!-- <img src="../img/br_sf.png" height="25" alt="Safari" /> -->
+<img src="../img/br_cr.png" height="25" alt="Chrome" />
+<!-- <img src="../img/br_op.png" height="25" alt="Opera" /> -->
+</p>
+<p>WebGL은 브라우저가 플러그인의 도움을 받지 않고 3D 웹 그래픽을 표현하기 위한 OepnGL ES 2.0의 자바스크립트 바인딩이다. 이것은 하드웨어 가속이 되는 실시간 3D 그래픽을 표현하는 것이 가능하다. AMD, 구글, 모질라, 엔비디아 등의 굵직한 벤더들이 워킹 그룹에 참여하고 있다. 현재 WebGL은 <em>개발 버전의 브라우저</em>에서만 사용할 수 있으며, &lt;canvas&gt; 요소 위에 그려지도록 설계 되었다.</p>
+<p>지금부터 하나의 정육면체를 생성하고 간단한 애니메이션 효과를 부여하는 예제를 작성할 것이다. 3차원 공간에서 정육면체를 생성하는 과정을 학습해 보자.</p>
+
+<h5>정육면체의 버텍스 위치 정의</h5>
+<p>첫 번째로 정육면체의 버텍스(꼭지점) 위치를 정의해야 한다. 아래와 같이 총 24개의 버텍스 위치의 배열을 만든다.</p>
+<xmp class="xmp">
+var vertices = [
+	// 전면
+	-1.0, -1.0, 1.0,
+	1.0, -1.0, 1.0,
+	1.0, 1.0, 1.0,
+	-1.0, 1.0, 1.0,
+	// 후면
+	-1.0, -1.0, -1.0,
+	-1.0, 1.0, -1.0,
+	1.0, 1.0, -1.0,
+	1.0, -1.0, -1.0,
+	// 윗면
+	-1.0, 1.0, -1.0,
+	-1.0, 1.0, 1.0,
+	1.0, 1.0, 1.0,
+	1.0, 1.0, -1.0,
+	// 아랫면
+	-1.0, -1.0, -1.0,
+	1.0, -1.0, -1.0,
+	1.0, -1.0, 1.0,
+	-1.0, -1.0, 1.0,
+	// 우측면
+	1.0, -1.0, -1.0,
+	1.0, 1.0, -1.0,
+	1.0, 1.0, 1.0,
+	1.0, -1.0, 1.0,
+	// 좌측면
+	-1.0, -1.0, -1.0,
+	-1.0, -1.0, 1.0,
+	-1.0, 1.0, 1.0,
+	-1.0, 1.0, -1.0
+];
+</xmp>
+
+<h5>버텍스의 색상 정의</h5>
+<p>생성된 24개의 버텍스에 색상을 정의한다. 아래의 코드는 정육면체의 각 면단위로 색상을 정의할 것이다.</p>
+
+<xmp class="xmp">
+var colors = [
+	[1.0, 1.0, 1.0, 1.0], // 전면: 하양
+	[1.0, 0.0, 0.0, 1.0], // 후면: 빨강
+	[0.0, 1.0, 0.0, 1.0], // 윗면: 초록
+	[0.0, 0.0, 1.0, 1.0], // 아랫면: 파랑
+	[1.0, 1.0, 0.0, 1.0], // 우측면: 노랑
+	[1.0, 0.0, 1.0, 1.0] // 좌측면: 보라
+];
+var generatedColors = [];
+for (j=0; j<6; j++) {
+	var c = colors[j];
+	for (var i=0; i<4; i++) {
+		generatedColors = generatedColors.concat(c);
+	}
+}
+cubeVerticesColorBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, cubeVerticesColorBuffer);
+gl.bufferData(gl.ARRAY_BUFFER, new WebGLFloatArray(generatedColors), gl.STATIC_DRAW);
+</xmp>
+
+<h5>요소 배열 정의</h5>
+<p>앞서 버텍스 배열을 생성했다. 이제 구성 요소들을 구축해야 할 단계이다.</p>
+<xmp class="xmp">
+cubeVerticesIndexBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVerticesIndexBuffer);
+// 이 배열은 두개의 삼각형으로 하나의 면을 정의한다.
+// 각 삼각형의 버텍스 위치를 정의하여 순차적으로 지정한다.
+var cubeVertexIndices = [
+	0, 1, 2, 0, 2, 3, // 전
+	4, 5, 6, 4, 6, 7, // 후
+	8, 9, 10, 8, 10, 11, // 위
+	12, 13, 14, 12, 14, 15, // 아래
+	16, 17, 18, 16, 18, 19, // 우측
+	20, 21, 22, 20, 22, 23 // 좌측
+]
+// 이제 요소의 배열을 GL 에 보낸다.
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new WebGLUnsignedShortArray(cubeVertexIndices), gl.STATIC_DRAW);
+</xmp>
+<p>cubeVertexIndices 배열은 한 쌍이 삼각형으로 구성되어 있고 삼각형 두개로 하나의 면을 형성하는 구조로 정의한다.
+삼각형은 세개의 버텍스를 순차적으로 지정한다. 결국 하나의 정육면체는 12개의 삼각형의 집합인 것이다.</p>
+
+<h5>정육면체 그리기</h5>
+<p>bindBuffer()을 추가하고 drawElements()메서드를 호출한다.</p>
+<xmp class="xmp">
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVerticesIndexBuffer);
+setMatrixUniforms();
+gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+</xmp>
+<p>한 면당 2개의 삼각형, 6개의 버텍스로 구성된다. 즉 정육면체는 총 36개의 버텍스로 이루어지며, 대부분 중복되는 위치에 있다. 그리고 이 버텍스들의 배열은 간단한 정수로 구성되어 있다.</p>
+<ul class="bu">
+<li>데모: <a href="http://html5.firejune.com/demo/webgl.html">http://html5.firejune.com/demo/webgl.html</a></li>
+</ul>
+
+<h3>FAQ</h3>
+
+<h4>자바스크립트 API의 브라우저 지원은 언제쯤?</h4>
+<p>크로스-브라우저 이슈가 사라지는 그날이 과연 올 것인가? 대답은 '아니오'이다. 이 이슈는 지금까지도 줄곧 이어져 왔고 앞으로도 계속될 것이다.
+왜냐하면 브라우저를 만드는 집단이 한 곳이 아니기 때문이다. 물론 웹 표준화 단체에서 권고사항을 문서화하고 표준이라는 단어를 앞세워 노력하고는 있지만 새로운 웹 기술을 제시하는 쪽은 대부분 브라우저 개발업체이거나 관련 업계여서 선/후발 주자가 생기고 또한 같은 기능을 만들어도 자신들만의 특징을 집어넣고 싶어하기 마련이다.</p>
+<p>결국, 표준화 단체로 부터 기술을 인증받고 공식화 된 다음에야 비로소 모든 브라우저 개발사들이 새로운 기술을 구현하는 이 과정은 지속적으로 반복될 것이다. 그래서, 이러한 정책적인 문제는 웹 개발자들이 고민할 일도 아니고 한다고 해서 해결되지도 않는다. 일찌감치 포기하고 실현 가능성만을 바라보는 것이 훨씬 현실적이다. 예를 들어 Web Sockets 라는 멋진 API가 생겨났지만 일부 브라우저에서는 지원되지 않기 때문에 사용할 수 없다고 판단해버릴 문제가 아니라는 것이다. COMET이라는 대안이 있잖은가.</p>
+
+<h4>브라우저의 알파버전은 어디에서 다운로드하나?</h4>
+<p>대부분의 브라우저 개발사는 개발하는 과정에서 공개 테스트를 거친 후 안정적인 버전을 내 놓는다. 우리는 이 과정에서 배포된 버전을 베타 버전이라고 한다. 최근 들어서는 그 이전 내부 개발 단계에서 빌드된 버전들까지도 배포하는 풍토가 생겨났으며, 이 버전을 알파 또는 나이틀리 버전이라한다.</p>
+<p>알파버전은 곧 탑재될 새로운 기능 단위 테스트가 이루어지는 경우가 많아서 개발자들이 새로운 API를 미리 테스트하여 향후 계획을 설계하는데 사용되곤 한다. 여기에 소개한 내용의 일부 역시 알파버전에서만 작동하는 것이 있다. 브라우저별 알파버전을 다운로드하는 주소는 다음과 같다:</p>
+<ul class="bu">
+<li>IE9 - <a href="ie.microsoft.com/testdrive/">ie.microsoft.com/testdrive/</a></li>
+<li>Firefox: <a href="ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/">ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/</a></li>
+<li>Chrome(Chromium): <a href="build.chromium.org/buildbot/continuous/">build.chromium.org/buildbot/continuous/</a></li>
+<li>Safari: <a href="nightly.webkit.org/">nightly.webkit.org/</a></li>
+</ul>
+
+<h4>클라이언트-사이드의 개발분야가 너무 광범위하지 않나?</h4>
+<p>광범위해진 것이 사실이다. 웹 프론트-엔드 개발자가 생각치도 못했던 SQL, OpenGL을 다루게 생겼고 심지어 로컬 파일의 바이너리까지 분석할 수 있게 되었다. 이러한 멋진 기능들 중에 무엇부터 공부해야 할지, 어떠한 애플리케이션을 만들수 있는지, 정신을 못차릴 정도의 행복한 고민에 빠져들게 한다.</p>
+<p>정말 눈부신 발전 속도다. 이 상태라면 다음 세대 HTML은 과연 어떤 모습으로 다가올지 두렵기까지 하다. 그렇다고 너무 걱정할 필요는 없지 않을까? 프로젝트를 혼자서 구축하지 않는 이상은 여럿이 협업하여 분담할 수 있고, 그러면서 각 분야의 전문가가 차차 나타나게 될 것이 분명하다.</p>
+
+<h4>오프라인을 고려하는 이유는 무엇인가?</h4>
+<p>HTML5에 새롭게 추가된 API들 중 상당부분이 오프라인을 염두하고 있음을 눈여겨 보지 않아도 알 수 있다. 데스크탑 컴퓨터에서 24시간 인터넷을 무제한으로 사용할 수 있는 환경이라면 선뜻 이해할 수 없는 부분이기도 하다.</p>
+<p>그러나 긍정적으로 생각하면 기존 웹이 가진 특성상 서버나 브라우저 모두 자원 소모가 심한 비효율적인 통신 로직을 보완하여 성능 향상을 꾀할 수 있고, 상대적으로 통신 요금이 비싼 모바일 인터넷 사용자 또는 인터넷 인프라가 발전하지 못한 국가에는 패킷을 절약하여 요금 부담을 줄일 수도 있으며, 구글이 강력하게 밀고있는 웹 O/S기반에서 오프라인의 의미는 곧 애플리케이션을 설치한 개념으로 통할 수 있게 된다. 이정도만으로도 오프라인을 고려하려는 의지를 설명하기에 충분치 않겠는가.</p>
+
+<h4>향후 웹 개발 풍토는 어떻게 변하나?</h4>
+<p>프론트-엔드 개발자의 시각으로 볼 때 HTML5의 등장으로 두드러진 업무적 변화는 바로 스크립트로 하는 뒤치닥거리가 많이 줄었다는 점이다.
+CSS3의 등장으로 마우스 행동을 동반한 애니메이션을 스크립트 없이 만들어 낼 수 있고, <a href="http://www.whatwg.org/specs/web-forms/current-work/">Web Forms 2.0</a>을 이용하면 유효성 검사 및 오류 메시지 출력, 인풋의 레이블 바꿔치기, 포커싱 등을 스크립트의 도움을 받지 않고 HTML 마크업만으로 작성할 수 있게 된 것이다.</p>
+<p>그러나 새로운 스크립트 API들이 대거 추가되면서 서버에 의지하여 처리하던 작업들을 스크립트만으로 처리할 수 있게 되었다. 예를 들면, 프로파일 이미지의 크롭 및 리사이즈, 서버에서 생성한 데이터 차트 이미지 등 의 리소스를 많이 잡아먹는 작업은 이제 클라이언트-사이드에서도 가능하다.</p>
+<p>그리고 Server-Sent Event, Web Sockets 등의 출현으로 서버-사이드에는 새로운 개념의 통신 프로토콜이 마련되어야 하며, 실시간 상호작용을 위해 잦은 양방향 통신이 발생하는 웹 애플리케이션 개발에 어울리는 설계를 모색하게 될 것이다.</p>
+
+<h3>참고 자료</h3>
+<ul class="bu">
+<li><a href="http://www.whatwg.org/html5/">www.whatwg.org/html5/</a> - HTML5 Working Draft</li>
+<li><a href="http://dev.w3.org/html5/">dev.w3.org/html5/</a> - W3C HTML5</li>
+<li><a href="http://html5doctor.com/">html5doctor.com/</a> - HTML5 Doctor</li>
+<li><a href="http://diveintohtml5.org/">diveintohtml5.org/</a> - DIVE INTO HTML 5</li>
+<li><a href="http://html5demos.com">html5demos.com</a> - HTML5 Demos and Examples</li>
+<li><a href="http://www.html5rocks.com">www.html5rocks.com</a> - HTML5 guides</li>
+<li><a href="http://developer.mozilla.org/en/HTML/HTML5">developer.mozilla.org/en/HTML/HTML5</a> - MDC</li>
+<li><a href="http://www.canvasdemos.com/">www.canvasdemos.com/</a> - HTML5 Canvas Demos</li>
+<li><a href="http://tutorials.jenkov.com/svg/index.html">tutorials.jenkov.com/svg/index.html</a> - SVG Tutorial</li>
+<li><a href="http://srufaculty.sru.edu/david.dailey/svg/SVGAnimations.htm">srufaculty.sru.edu/david.dailey/svg/SVGAnimations.htm</a> - SVG Animation</li>
+</ul>
+
+<!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+<h2 id="html5mobile">HTML5와 모바일</h2>
+<p>본 장에서는 HTML5에 대한 가장 최적의 적용 환경이라 할 수 있는 모바일 환경에서의 상황에 대해 알아보고, 아이폰에서의 HTML5 웹 어플리케이션 개발방법을 예제와 함께 살펴본다.</p>
+
+<h3>5.1 모바일에서의 HTML5</h3>
+<p>HTML5 를 이용한 많은 Web Application(웹 어플리케이션, 웹 앱)들이 만들어 지고 있지만, 데스크탑 환경에선 아직 이슈가 남아있다. 현재 브라우저 점유율에서 가장 큰 위치를 차지하고 있는 Internet Explorer (6.0 ~ 8.0) 이 아직 HTML5 지원이 미진하기 때문이다. 이 때문에 HTML5 웹어플리케이션들은 Firefox, Chrome, Safari 같은 타 브라우저를 통해서만 확인이 가능하다.</p>
+<p>하지만 모바일 환경으로 오면 얘기가 달라진다. 현재 모바일 웹 트래픽의 대부분을 차지하고 있는 것이 iPhone, Android 이고 이 두개의 플랫폼이 HTML5 를 잘 지원하고 있는 WebKit 기반의 브라우저를 사용하기 때문이다.</p>
+
+<p>Mobile Metrics Report: <a href="http://metrics.admob.com/" class="button">http://metrics.admob.com/</a><br /></p>
+
+<h4>5.1.1 모바일 브라우저들의 HTML5 대응</h4>
+<p>현재 모바일 폰에서 HTML5 를 가장 잘 지원하고 있는 것은 아이폰 OS 4.0 ( iOS4 ) 에 포함된 Mobile Safari 이다. Apple 은 HTML5 에 대한 지원을 공공연히 드러내기 전부터 Mobile Safari 에 조용히 HTML5의 스펙을 지원하기 시작했다.</p>
+<p>아래는 <a href="http://html5test.com">http://html5test.com</a> 에서 제공하는 HTML5 테스트 결과점수로 살펴본 모바일 / 데스크탑 브라우저들의 HTML5 지원현황이다. (160점 만점으로 되어있으며, 현재는 좀더 항목을 세분화하여 300점 만점으로 개편되었다. 완벽한 기능테스트가 아니기 때문에 브라우저 별로 개체만 만들고 기능은 구현 안 한 경우도 있을 수 있다. )</p>
+<p>..표 생략..</p>
+<p>현재로선 Android 2.2 와 iOS 4.0 의 브라우저가 거의 모든 HTML5 스펙을 다 지원하기 때문에, HTML5 를 이용한 어플리케이션 작성에 있어선 모바일이 좀 더 나은 환경이라고 볼 수 있다.</p>
+
+<h4>5.1.2 모바일 웹 에서의 HTML5 Key Elements</h4>
+<p>모바일에서 HTML5 가 특별히 다른 태그를 활용하는 것은 아니다. 다만 API 중 몇 개가 모바일에 더욱 쓰기 좋은 형태일 뿐이다.</p>
+<ul class="bu">
+<li>Offline 지원 : LocalStorage , Web Database , App Cache</li>
+<li>미디어 처리 : Video , Audio , Canvas</li>
+<li>입력 지원 : Advanced Forms</li>
+<li>위치 정보 : GeoLocation ( 연계표준 )</li>
+</ul>
+<p>Offline 지원의 경우 항상 인터넷에 연결되어 있는 데스크탑과 달리 모바일 환경은 꼭 3G 와 같은 네트웍에 항시 연결되어있지 않은 WIFI 전용기기( iPod Touch , iPad ) 들도 있으며, 3G 환경이라 할지라도 네트웍 트래픽을 최소화 하는 것이 아주 중요하다. 또한 HTML5 의 중요 스펙중 몇 가지는 아직 주요 브라우저에서도 지원되지 않는다,</p>
+<ul class="bu">
+<li>WebSocket</li>
+<li>FileReader</li>
+<li>IndexedDB</li>
+<li>Web Workers</li>
+</ul>
+<p>현재로선 모바일에서의 HTML5 사용은 주로 Offline 지원을 통한 Local App 으로서의 동작 및 트래픽 최적화, Geo Location 을 통한 위치 정보 연동이 가장 많이 쓰이고 있다.</p>
+
+<h4>5.1.3 Web App vs. Native App</h4>
+
+<p>Web App (웹앱)이라고 하면, 웹 기술을 이용하여 만들어진 어플리케이션을 말한다. 즉, 컨텐츠 리딩을 위해 사용되던 단방향성이던 웹사이트와 달리 사용자와의 인터랙션을 통하여 데스크탑에서의 Application 같은 사용성을 주는 앱을 말한다. 위젯이라는 단어도 종종 사용되는데 웹 앱은 이 위젯을 포함한 좀 더 넓은 범위로 보는게 맞다.</p>
+<p>HTML5 를 이용해서 만들어진 Web App 과 iPhone / Android 환경에서의 Native App 을 비교해보자.</p>
+
+<table border="1" class="t3" summary=""><caption>Web App VS Native App</caption>
+<col style="width: 50%;" /><col />
+<thead>
+<tr>
+<th scope="col">Web App</th>
+<th scope="col">Native App</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">모바일 디바이스에 최적화된 웹사이트</th>
+<td>모바일 디바이스 전용 앱</td>
+</tr>
+<tr>
+<th scope="row">HTML , CSS , Javascript</th>
+<td>Objective-C ( iPhone ) , Java ( Android )</td>
+</tr>
+<tr>
+<th scope="row">기존에 사용하던 웹 개발환경</th>
+<td>XCode ( iPhone ) , Eclipse ( Android )</td>
+</tr>
+<tr>
+<th scope="row">웹 표준 컨트롤 , iUI , JQTouch ..</th>
+<td>Cocoa Touch (iPhone), UI Framework (Android)</td>
+</tr>
+<tr>
+<th scope="row">꼭 Mac 이 필요하지는 않음</th>
+<td>Mac 이 필요 ( iPhone )<br />Android 는 멀티플랫폼 ( Win , Mac , Linux )</td>
+</tr>
+<tr>
+<th scope="row">App 개발자 등록 필요없음 1)</th>
+<td>개발자등록 년 $99 (iPhone) or $35 (Android)</td>
+</tr>
+<tr>
+<th scope="row">제한적인 디바이스 사용 - 카메라/마이크.. 2)</th>
+<td>디바이스의 모든 기능을 활용</td>
+</tr>
+<tr>
+<th scope="row">자체 결제시스템 구축필요 또는 광고</th>
+<td>App Store/Market를 통한 판매/수익 & 광고</td>
+</tr>
+<tr>
+<th scope="row">서버에서 바로바로 업데이트가능</th>
+<td>업그레이드 할 때 마다 검수 ( iPhone )</td>
+</tr>
+<tr>
+<th scope="row">Android / Blackberry등으로도 바로 변환가능</th>
+<td>실행속도가 빠르다</td>
+</tr>
+</tbody>
+</table>
+<ul class="bu">
+<li>1) PhoneGap 등 Hybrid App Framework 사용하여 앱 만든후 등록시 필요함</li>
+<li>2) honegap , QuickConnect 를 통하여 카메라/연락처 정보등 사용가능. 따로 진행중인 W3C DAP , OMTP BONDI , JIL 등의 스펙으로 디바이스 접근가능(차후)</li>
+</ul>
+
+<h4>5.1.4 Mobile Web App 의 종류</h4>
+<p>Web App 이라고 해서 특별한 것은 아니지만, 모바일 관점에서 볼 때 다음과 같이 나눠 볼수 있다.</p>
+
+<h5>Online Web Application</h5>
+<img src="http://xguru.net/wp-content/uploads/2010/07/541-OnlineWebApp-600x181.png" width="400" alt="Online Web Application" />
+<ul class="bu">
+<li>기존의 모바일 웹페이지를 포함한 웹 앱을 의미한다.</li>
+<li>HTML5, CSS3 등을 통하여 모바일 에서의 UI / UX 를 향상한다.</li>
+<li>GeoLocation API 를 이용하여 위치가 고정되지 않는 모바일의 장점을 활용한다.</li>
+<li>주로 포털이나 컨텐츠를 리딩하는 형태의 앱이 많다.</li>
+</ul>
+
+<h5>Offline Enabled Web Application</h5>
+<img src="http://xguru.net/wp-content/uploads/2010/07/542-OfflineEnabled-600x185.png" width="400" alt="Offline Enabled Web Application" />
+<ul class="bu">
+<li>Application Cache , LocalStorage , Web SQL Database 를 활용하여 오프라인에서도 사용이 가능한 웹 앱을 의미한다.</li>
+<li>처음 접속시에 주요데이타를 캐쉬하여 재 접속시에 네트웍 트래픽을 최소화한다.</li>
+<li>오프라인상태에서 행한 동작들에 대해서 온라인시 서버의 데이터와 싱크한다.</li>
+<li>이메일 어플리케이션과 같은 컨텐츠 리딩 & 작성앱에 적절하다.</li>
+<li>모바일 Gmail 사이트는 이미 완벽한 오프라인 메일 앱으로 동작한다.</li>
+</ul>
+
+<h5>Offline Web Application</h5>
+<img src="http://xguru.net/wp-content/uploads/2010/07/543-OfflineWebApp-600x184.png" width="400" alt="Offline Web Application" />
+<ul class="bu">
+<li>한번 서버에 접속해서 다운받으면 계속 오프라인으로 사용 가능한 앱.</li>
+<li>Application Cache 와 Web SQL Database 를 활용</li>
+<li>서버와의 동기화를 필요로 하지 않는 게임, 유틸리티, EBook</li>
+</ul>
+
+<h5>Hybrid Web Application</h5>
+<img src="http://xguru.net/wp-content/uploads/2010/07/544-Hybrid-Web-App-600x185.png" width="400" alt="Hybrid Web Application" />
+<ul class="bu">
+<li>Native App 과 Web App을 합친 형태의 앱.</li>
+<li>앱 스토어를 통한 다운로드 가능.</li>
+<li>모바일 디바이스로 다운로드후에는 앱 속성에 따라 서버와의 AJAX 통신도 가능</li>
+<li>Native 수준의 다양한 앱 작성가능</li>
+</ul>
+<p>모바일 웹 앱이 이렇게 4가지로 명확하게 분리되는 것은 아니지만, 이를 통해 모바일에서 어떤 종류의 웹 앱이 만들어 질 수 있는지를 알 수 있다.</p>
+
+
+<h3>5.2 아이폰 기반 HTML5 앱 개발</h3>
+<p>앞서 언급한대로 현재 Web App 을 가장 잘 지원하는 것은 아이폰이다.
+이는 아이폰OS의 1.0 버전때에는 App Store 가 없었기에 애플측에서 Web App 의 사용을 권장했었기 때문이고, 아이폰 OS 2.0 버전부터 App Store 가 런칭되면서 사용용도가 많이 줄기는 했지만, 아직도 애플 웹사이트의 Web App Directory (<a href="http://www.apple.com/webapps/">http://www.apple.com/webapps/</a>)에는 약 5천개 정도의 Web App 들이 등록되어 있다. 아이폰상에서 어떻게 HTML5 Web App 을 만드는지를 알아보자.</p>
+
+<h4>5.2.1 iPhone 환경에서의 Web App 지원</h4>
+<p>먼저, iPhone 환경에서는 데스크탑과 달리 사이트에 접근하는 방식이 차이가 있기 때문에 특이한 사항이 몇 개 있다. HTML5 지원과는 조금 다른 얘기이지만, HTML5 를 이용한 Web Application 을 만든다면 알아둬야 것 중의 하나다.</p>
+<p>아이폰 사파리는 웹 사이트에 대해 “홈 화면에 추가 ( Add to Home Screen )” 이라는 기능을 제공한다. 사파리 브라우저에서 맨 아래 + 버튼을 누르면 “책갈피추가 / 홈 화면에 추가” 선택팝업이 뜨고, 이를 통해 아이폰 메인화면에 웹 사이트에 대한 바로가기 기능을 추가 할 수 있다. ( 안드로이드 에서도 비슷한 기능을 제공하긴 하지만 단계가 조금 복잡하다 )</p>
+<p>이렇게 + 를 눌러 “홈 화면에 추가”후 실행하면 iPhone 에서는 Web App 으로 동작하게 된다. 이때 Web App 의 지원을 위해 모바일 사파리는 몇 가지 태그를 지원한다.</p>
+<p>&lt;head&gt; 섹션에 아래의 4가지 태그를 추가할 수 있다.</p>
+<xmp class="xmp">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="/startup.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</xmp>
+<p>각각은 다음과 같은 기능을 지원한다.</p>
+<xmp class="xmp">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</xmp>
+<p>등록되는 웹 사이트의 아이콘을 지정할 수 있다. apple-touch-icon.png 가 기본 이름이며 일반적으로 웹사이트 아이콘을 추가하게 되면 웹사이트 화면을 캡쳐한 내용을 아이콘으로 사용하는데 apple-touch-icon 이라는 링크를 추가하여 아이콘을 내가 지정한 것으로 사용할 수 있다. favicon 의 아이폰 버전이라고 생각하면 된다.</p>
+<p>iPhone 은 57x57 , iPad 는 72 x 72 사이즈의 png 이미지를 사용한다.</p>
+<p>이 아이콘은 기본적으로 아이폰이 제공하는 UI 처리 (모서리를 둥글게 하고 반원형의 밝은 부분을 추가해 주는 것) 가 된다. 원하지 않을 때는 파일 이름을 apple-touch-icon-precomposed.png 라는 이름으로 저장하여 사용하면 된다.</p>
+<xmp class="xmp">
+<link rel="apple-touch-icon" href="/apple-touch-iconprecomposed.png" />
+</xmp>
+<ul class="bu">
+<li>이 아이콘기능은 안드로이드 에서도 지원된다. 단 precomposed 만 사용가능 (48x48)</li>
+</ul>
+<xmp class="xmp">
+<link rel="apple-touch-startup-image" href="/startup.png" />
+</xmp>
+<p>화면이 로딩될 때 스타트업 이미지를 지정할 수 있다. Web App 이지만 앱 처음 로딩시 로고화면 같은걸 보여줄 수 있다. 아이폰 기본 앱에 들어있는 Default.png 와 비슷한 역할이다.</p>
+<xmp class="xmp">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+</xmp>
+<p>Web App으로 선언하여 브라우저의 UI (URL 바) 를 안 보이도록 할 수 있다. 즉, Web App 이 마치 일반 Native App 처럼 화면 전체 (최상단 상태바 20px 제외) 를 활용할 수 있도록 한다.</p>
+<xmp class="xmp">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</xmp>
+<p>상태바의 색상을 지정할수 있다. 바탕화면이 검정색인 어플리케이션의 경우 상태바만 회색인 이질감을 줄이기 위해 사용한다.<br />
+3가지 스타일 : default (회색) , black , black-translucent (반투명)</p>
+<p>이렇게 4가지 기능을 지원함으로써 HTML5 기반의 Local 또는 Online Web Application 들이 마치 Native App 처럼 실행하는 효과를 지원할 수 있다.</p>
+
+<h4>5.2.2 아이폰 개발 환경 꾸미기</h4>
+<p>Web App 은 아이폰 Native App 과 달리 개발환경으로 꼭 Mac을 필요로 하지 않는다.
+기존의 웹 개발 할때와 마찬가지로 손에 익은 툴을 이용하여 개발할 수 있다.
+아이폰 상에서의 동작 화면을 테스트하기 위해서는 XCode 에 포함된 iPhone Simulator 가 테스트용으로 아주 적절하지만, Mac 사용자가 아니라면 사용이 어렵다.
+또한 Web App 개발시 iPhone Simulator는 디버깅을 하는 용도로는 적합하지 않다.</p>
+
+<h5>Safari 의 개발자 도구 활용하기</h5>
+<p>Webkit 기반의 브라우저 최신버전들에는 개발자 도구가 들어있다. 이를 활용해 보자.</p>
+<p>Safari 의 메뉴에서 편집->기본설정 또는 <em>[Ctrl]+[,]</em> 를 눌러서 설정창을 연다. 우측 끝 고급탭을 선택하여 맨 밑에 “메뉴 막대에서 개발자용 메뉴 보기” 를 활성화 한다.</p>
+<img src="http://cfs8.tistory.com/image/9/tistory/2008/07/31/22/54/4891c4156e0ca" alt="사파리 - [Ctrl]+[,] - [고급탭] - 메뉴 막대에서 개발자용 메뉴 보기 창 선택 화면" />
+<p>활성화 하면 아래와 같이 개발자용 메뉴가 추가된다. 이 개발자 도구는 같은 WebKit 기반인 Chrome 브라우저에도 비슷한 기능이 있지만, Safari가 더 많은 기능을 가지고 있다.</p>
+<img src="http://html.nhndesign.com/files/attach/images/5827/154/002/safari_2.gif" alt="사파리 개발자용 메뉴" />
+<p>개발자용 메뉴중 주요 기능을 몇 개 살펴보자.</p>
+
+<h6>사용자 에이전트</h6>
+<p>만들고 있는 웹 사이트를 iPhone / iPad 및 각 브라우저별로 어떻게 표시되는지를 테스트해보기 위해 UserAgent 를 쉽게 바꾸는 기능을 제공한다.</p>
+<p>Chrome 이나 Firefox 에서는 확장기능을 설치해야 가능했던 동작인데 기본으로 포함하고 있다. Mobile Safari 로 설정시 거의 아이폰 화면과 비슷한 화면을 보여주기 때문에 아이폰용 Web App 개발후 테스트시 아주 유용하다.</p>
+<p>아래는 사파리 브라우저 사이즈를 아이폰과 비슷하게 맞춘후, UserAgent 를 iPhone 으로 설정하고, 아이폰용 UI 라이브러리인 <a href="http://www.jqtouch.com/preview/demos/main/">jQTouch 데모 사이트</a>를 불러온 화면이다.</p>
+<p>거의 비슷한 형태의 화면을 볼 수 있으며, Webkit 애니메이션들도 그대로 볼 수 있다. 아이폰용 Web App 을 만든다면 꼭 알고 있어야 할 필수 테스트 방법이다.</p>
+<p>..[그림]생략..</p>
+<iframe title="jQTouch 데모 사이트" name="iPhoneSize" src="http://www.jqtouch.com/preview/demos/main/" frameborder="0" scrolling="no"
+style="width: 320px; height: 480px; overflow: auto;">
+아이폰용 UI 라이브러리인 <a href="http://www.jqtouch.com/preview/demos/main/">jQTouch 데모 사이트</a>
+</iframe>
+
+<h6>웹 속성보기 – Web Inspector (<em>[Ctrl]+[Alt]+[I]</em>)</h6>
+<p>현재 웹 페이지의 상세 속성을 보는 창이다.</p>
+<p>..[그림]생략..</p>
+<ul class="bu">
+<li>요소 : 현재 페이지의 HTML 소스를 보여준다.</li>
+<li>리소스 : 현재 페이지에서 로딩한 리소스 파일들 ( CSS, JS , 이미지 등 ) 및 각 리소스의 로딩에 걸린시간을 보여준다.</li>
+<li>스크립트 : 현재 페이지내의 Javascript 소스를 확인하고 디버깅 할 수 있다.</li>
+<li>타임라인 : 리소스 로드/스크립트수행/렌더링 시간들의 타임라인을 볼 수 있다.</li>
+<li>프로파일 : 현재 페이지내의 스크립트가 CPU 자원을 얼마나 소모하는지 프로파일링</li>
+<li>스토리지 : Database , Local/Session Storage , Cookie 들을 일목요연하게 볼 수 있다.</li>
+<li>콘솔 : 에러 확인 및 자바스크립트 실행이 가능한 커맨드 라인 창</li>
+</ul>
+<p>마치 Firefox 에서의 Firebug 플러그인을 보는 것처럼 잘 만들어져 있다.
+다른 부분은 기존의 툴들과 비슷하니 HTML5 에 관련된 스토리지 메뉴만 살펴보도록 하자.</p>
+<p>..[그림]생략..</p>
+<p>스토리지 메뉴의 좌측엔 데이터베이스 / 로컬 스토리지 / 세션 스토리지 / 쿠키 로 나뉘어져 있으며 현재 사이트에 대해 저장된 값들을 확인할 수 있다.</p>
+<ul class="bu">
+<li>데이터 베이스 : HTML5 API중 Web SQL Database를 활용하여 작성된 Database / Table 을 확인할 수 있다. 각 테이블에 들어있는 컬럼 및 데이터를 볼수있지만 편집은 불가능하다.</li>
+<li>로컬/세션 스토리지 : HTML5 API중 LocalStorage/SessionStorage 를 통해 저장된 Key/Value 쌍들을 확인할 수 있다. 직접 추가/수정/삭제도 가능하다.</li>
+<li>쿠키 : 쿠키의 이름/값/도메인/만료일자 등 을 확인할 수 있다. 삭제는 가능하지만 편집은 불가능하다.</li>
+</ul>
+<p>Database 와 Storage 의 내용들을 콘솔창을 이용하여 아래와 같이 직접 컨트롤이 가능하다.</p>
+<p>..[그림]생략..</p>
+
+<h5>Windows용 iPhone Simulator – MobiOne</h5>
+<p>또 다른 방법으로 Genuitec 이라는 회사에서 제공하는 MobiOne이라는 프로그램을 이용하는 것이다. MobiOne 은 아이폰상에서의 Web App 을 디자인하기 위한 Design Center 와 테스트를 위한 Test Center 두가지 어플리케이션을 제공한다.
+(다운로드: <a href="http://www.genuitec.com/mobile/">http://www.genuitec.com/mobile/</a>)</p>
+
+<h6>Design Center</h6>
+<p>Design 센터에서는 GUI Drag & Drop 방식으로 iPhone Web App 의 UI 를 생성할 수 있게 해준다.</p>
+<p>이렇게 작성된 UI 는 HTML5 형태로 CSS/JS/HTML 파일로 저장되어 바로 Web App 작성에 이용할 수 있다.</p>
+
+<h6>Test Center</h6>
+<p>Test Center 는 Design Center로 만든 UI 를 테스트하는 아이폰 에뮬레이터이다. URL 입력이 가능하기 때문에 사파리와 비슷하게 아이폰 웹 앱 테스터로 유용하다.</p>
+
+
+<h4>5.2.3 웹 기반 아이폰 스타일 UI 만들기</h4>
+<p>아이폰은 터치기반의 CocoaTouch 프레임워크를 제공하여 터치에 최적화된 UI 컨트롤셋을 제공한다. 주로 사용하는 네비게이션바/탭바/테이블 뷰 같은 것이 있는데, 이런 UI 를 Web App 에서도 제공하기 위한 다양한 UI 라이브러리/프레임워크 들이 출시되어 있다</p>
+
+<h5>JQTouch - <a href="http://jqtouch.com/">http://jqtouch.com/</a></h5>
+<p>jQuery 를 사용하며, 터치기반의 UI 컨트롤을 제공하는 라이브러리.
+Native WebKit 애니메이션 효과를 지원하며, 성능이 좋아서 가장 많이 쓰인다.</p>
+<p>jQTouch 개발자가 Ext JS & Raphael 개발자와 같이 Sencha Touch 라이브러리로 발전중이다.
+<a href="http://www.sencha.com/products/touch/">Sencha Touch</a>는 아이폰 만이 아닌 아이패드/안드로이드/데스크탑 까지 동시 지원을 목적으로 하는 HTML5 기반의 UI 프레임워크 이다.</p>
+
+<h5>iUI - <a href="http://code.google.com/p/iui/">http://code.google.com/p/iui/</a></h5>
+<p>아이폰 출시 초기부터 지원되었던 라이브러리. 주로 네비게이션/테이블 뷰의 사용에 초점이 맞춰져 있다.</p>
+
+<h5>WebApp.Net - <a href="http://webapp-net.com/">http://webapp-net.com/</a></h5>
+<p>최근에 출시된 라이브러리로 jQTouch 와 iUI 중간정도의 기능을 제공한다.</p>
+
+<p>현재 가장 많이 사용되는 것은 jQTouch 이므로 간단히 사용방법을 알아보자.</p>
+
+<h5>jQTouch 설치 및 초기화</h5>
+<p>jQTouch 최신버전을 <a href="http://jqtouch.com">http://jqtouch.com</a> 에서 다운받는다. 초기 index.html 파일에 아래 코드를 삽입하여 jQTouch 라이브러리를 인클루드 한다.</p>
+<xmp class="xmp">
+<head>
+...
+<style type="text/css" media="screen">@import "jqtouch.min.css";</style>
+<style type="text/css" media="screen">@import "themes/apple/theme.min.css";</style>
+<script src="jquery.1.3.2.min.js"></script>
+<script src="jqtouch.min.js"></script>
+<script >$.jQTouch();</script>
+…
+</head>
+</xmp>
+<p>jQuery 에 기반하고 있기 때문에 먼저 jQuery 를 인클루드 해야한다.
+jQTouch의 초기화 함수는 $.jQTouch() 이다. 아래와 같이 초기화 옵션을 줄 수 있다.</p>
+<xmp class="xmp">
+$.jqTouch({
+	icon: "path/to/apple-touch-icon.png", // 홈 스크린 추가시 아이콘으로 지정
+	startupScreen: "path/to/startup-image.png", // 시작 스크린
+	statusBar: "default|black|black-translucent", // 상태바 의 색상
+	addGlossToIcon: true|false, // 아이콘이 Precomposed 인지 설정
+})
+</xmp>
+<p>앞에서 살펴봤던 아이폰에서의 Web App 지원을 위한 &lt;meta&gt; 태그를 초기화 옵션으로 지정한다.</p>
+
+<h5>jQTouch 를 이용한 테이블 뷰 만들기</h5>
+<p>아이폰 UI중 데이터 네비게이션을 위한 테이블뷰는 div 와 ul 을 이용하여 만들수 있다.
+아래 에제중 class 를 눈여겨 보기 바란다. toolbar 클래스는 상단의 툴바를, rounded 는 각 아이템의 테두리를 둥근 아이템으로 설정한다.</p>
+<p>ul 클래스는 5가지의 스타일을 제공한다.</p>
+<ul class="bu">
+<li>rounded</li>
+<li>edgetoedge</li>
+<li>plastic</li>
+<li>metal</li>
+<li>form</li>
+</ul>
+<xmp class="xmp">
+<body>
+<div id="home">
+<div class="toolbar"><h1>My app</h1></div>
+<ul class="rounded">
+<li><a href="#foo">Foo</a></li>
+<li><a href="#bar">Bar</a></li>
+</xmp>
+<p>jQTouch는 각 화면간의 변환시 총 8가지의 Native Webkit Animation 을 지원한다.</p>
+<p><strong>slide, slideup, dissolve, fade, flip, pop, swap, cube</strong></p>
+<p>이 각각의 애니메이션 이름을 a 태그의 클래스명으로 지정하면 자동으로 애니메이션이 수행된다.</p>
+<xmp class="xmp">
+<a href="#foo" class="dissolve">Foo</a>
+</xmp>
+<p>이렇게 애니메이션을 지정하면, Back 버튼으로 돌아올시 자동으로 반대쪽 애니메이션도 처리된다.</p>
+
+<h5>jQTouch 테마 지정</h5>
+<p>jQTouch 는 기본으로 2가지의 테마를 지원한다.</p>
+<h6>jQTouch Theme</h6>
+<xmp class="xmp">
+<style type="text/css" media="screen">@import "themes/jqt/theme.min.css";</style>
+</xmp>
+<h6>Apple Theme</h6>
+<xmp class="xmp">
+<style type="text/css" media="screen">@import "themes/apple/theme.min.css";</style>
+</xmp>
+<p>CSS 만 변경함으로서 간단히 테마를 선택할 수 있다.</p>
+
+<h4>5.2.4 Phonegap</h4>
+<p>Web App 은 기본적으로 웹 서버에 올려지고 원격으로 모바일 디바이스에 다운로드 받는 방식으로 진행된다. 즉, 구조 자체는 기존의 Web Site와 다른점이 없다.</p>
+<p>여기서 소개하는 Phonegap 은 작성된 Web App 의 소스를 Native App 안에 내장하여 모바일 디바이스에는 앱처럼 설치하고 실행은 웹브라우저가 로컬에 있는 파일을 불러들이는 형태의 Hybrid App 을 만들 수 있게 한다.</p>
+<p>Hybrid App 의 장점이 몇가지 있다.</p>
+<ul class="bu">
+<li>Multi Platform – Web App 하나로 iPhone,Android,Blackberry,PalmPre 등 다양한 디바이스동시 지원 가능</li>
+<li>Camera , Contacts 와 같은 Device API 에 접근할수 있는 방법이 제공</li>
+<li>App Store / Market 을 통한 어플리케이션 판매 가능</li>
+</ul>
+<p>Hybrid App 를 만들수 있도록 하는 Cross Platform Mobile Application Framework 들도 다양하게 등장하고 있다.</p>
+<ul class="bu">
+<li>PhoneGap: <a href="http://www.phonegap.com/">http://www.phonegap.com/</a> iPhone, Android,Blackberry,Symbian,Palm,Windows Mobile (제한적)</li>
+<li>Titanium Mobile <a href="http://www.appcelerator.com/">http://www.appcelerator.com/</a> iPhone, Android</li>
+<li>QuickConnect <a href="http://quickconnectfamily.org/">http://quickconnectfamily.org/</a> iPhone, Android,Blackberry</li>
+<li>NimbleKit <a href="http://www.nimblekit.com/">http://www.nimblekit.com/</a> iPhone</li>
+</ul>
+<p>그나마 Phonegap 은 오픈 소스로 되어있어 많은 개발자에 의해 발전되고 있다. 여기서는 Phonegap 을 이용하여 WebApp 을 Native App 으로 만드는 방법을 알아보자.</p>
+<p>Phonegap 소스를 <a href="http://github.com/phonegap/">http://github.com/phonegap/</a> 에서 내려받아 Mac 에 설치한다.</p>
+<p>* Phonegap 은 NativeApp 들을 위한 Container 들을 제공하여 컴파일 후 Native App 을 만드는 방법을 사용하고 있으므로, 기존 Web App 개발과는 달리 Mac 과 XCode 개발환경을 필요로 한다.</p>
+<p>설치하고 나면 XCode 의 새 프로젝트 생성화면에 아래와 같이 PhoneGap based Application 이라는 항목이 생긴다.</p>
+<img src="http://idebuggedababoon.com/wp-content/uploads/2010/05/PhoneGap-Figure-1.2.png" width="50%" alt="PhoneGap based Application 화면" />
+<p>템플릿을 선택하면 프로젝트 이름만 입력하면 된다. 그럼 아래와 같이 폰갭 프로젝트가 생성된다.</p>
+<p>..[그림]생략..</p>
+<p>개발자가 눈 여겨 봐야 할 부분은 프로젝트 내의 www 폴더다.
+이 폴더가 Web Root 역할을 하며 폰갭 어플리케이션이 실행되면 여기에 있는 index.html 을 로드해서 보여주게 된다.
+즉, 자신이 작성한 Web App 소스를 프로젝트의 www 폴더에 복사하는 것 만으로 기본 준비는 끝나게 된다.</p>
+<p>우측에 보면 javascript 를 하나 로드하는게 있다.</p>
+<xmp class="xmp">
+<script src="phonegap.js"></script>
+</xmp>
+<p>이 Phonegap.js 는 모바일 디바이스의 웹 브라우저를 확장하여 Device 관련한 기능들 ( Camera , Contacts .. ) 에 접근할수 있도록 하는 역할을 한다.
+이를 통해 확장되는 기능을 몇 개 살펴보자.</p>
+<xmp class="xmp">
+navigator.notification.alert ( message , title , button ) //경고메시지 창을 띄운다.
+navigator.notification.beep ( times ) //비프음을 n 회 울린다.
+navigator.notification.vibrate ( duration ) //진동을 n 초간 울린다.
+navigator.notification.loadingStart ( options ) //로딩화면을 보여준다.
+navigator.notification.loadingStop (); //로딩화면을 닫는다.
+device.platform // Device 의 플랫폼을 읽어온다.
+iPhone/Android ..
+device.version // 플랫폼 버전
+device.name // Device 의 이름
+device.uuid // iPhone 의 경우 UUID 값을 읽어온다.
+navigator.camera.getPicture( success , fail , options ); //카메라에서 사진을 가져온다. Options 에 sourceType = 0 은 폰의 포토앨범, 1 은 카메라에서 사진을 가져온다.
+// 폰에 있는 연락처 정보를 읽어오거나 추가/삭제 동작을 한다.
+navigator.contact.contactsCount ( function(num) { alert(num); } , fail );
+navigator.contact.getAllContacts( function(contactsArray) {} , fail , options );
+navigator.contact.chooseContact ( function(contact) {} , options );
+navigator.contact.displayContact(contactsArray[x].recordID , fail, options );
+navigator.contact.removeContact(contactsArray[x].recordID, succ, fail );
+navigator.contact.newContact(nc, succ );
+</xmp>
+<p>위에서 보는 바와 같이 Javascript 에 확장기능을 추가함으로써, Web App 이 Device 의 기능을 사용할 수 있게 된다.
+실제로 이런 시도는 W3C DAP , OMTP BONDI , JIL 에 의해 제안되고 표준화 작업이 진행되고 있으나, 아직 실제적용은 되지 않은 상태이다.
+그리고 iPhone 에서 이 표준이 받아들여질지도 아직은 미지수 이기 때문에 현재로선 이런 Hybrid 프레임워크가 대안이라고 볼수 있다.</p>
+
+<h3>5.3 실전예제</h3>
+
+<h4>5.3.1 오프라인 앱 어플리케이션 – 체크리스트</h4>
+<p>본 예제는 <a href="http://berttimmermans.com/checklist/">http://berttimmermans.com/checklist/</a>에 대한것이다.
+Web App 를 좀더 간략하게 만든 것이 Javascript 만으로 실행 가능한 Web App 을 만들었다면 HTML5 의 App Cache 기능을 활용해서 Offline 에서도 실행이 가능한 Application 을 만들 수 있다.
+Offline 에서도 실행 가능한 Web App 의 HTML 내용은 다음과 같다.</p>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html manifest="webapp.manifest">
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width,
+initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="iphone_icon.png"/>
+<link rel="apple-touch-startup-image" href="startup.png" />
+<script src="app.js"></script>
+</xmp>
+<p>간단한 체크리스트를 Offline 에서 등록/관리 하는 Application 이다.
+주요 기능은 <a href="http://dev.xguru.net/checklist/app.js">app.js</a> 에 있다.</p>
+<xmp class="xmp">
+..중략..
+</xmp>
+<p>그리고, 오프라인 실행을 위해 webapp.manifest 를 만든다.</p>
+<xmp class="xmp">
+CACHE MANIFEST
+app.js
+startup.png
+# 캐시를 선언한 index.html 은 자동으로
+</xmp>
+<p>실행한 화면은 다음과 같다. 한번 온라인상태에서 로딩만 되면 오프라인시에도 동작된다.</p>
+<p>..[화면]생략..</p>
+<xmp class="xmp">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="iphone_icon.png" />
+<link rel="apple-touch-startup-image" href="startup.png" />
+</xmp>
+<p>그리고, HTML의 &lt;head&gt; iPhone Web App 모드를 지원하는 태그를 추가했기 때문에 하단 + 버튼을 눌러서 추가하면 다음과 같이 지정한 iphone_icon.png 아이콘이 보이게 된다.</p>
+<p>추가된 아이콘을 눌러서 실행하면 startup-image 로 지정한 화면이 로딩할 때 보이게되며, URL 바 없이 전체화면으로 실행된다. Status Bar 의 색상은 검정색이다.</p>
+<p>예제는 <a href="http://dev.xguru.net/checklist/">http://dev.xguru.net/checklist/</a> 에 올려져 있으므로, 아이폰에서 접속하면 바로 사용할수 있다.</p>
+<p>..[아이콘 추가] [로딩 화면 이미지] [전체화면 모드로 실행] [Offline 모드] 화면 생략..</p>
+
+<h4>5.3.2 GeoLocation 어플리케이션 - GeoChicken</h4>
+<p>이제 간단한 위치정보 Web App 을 만들어보자.</p>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width,
+initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="iphone_icon.png"/>
+<link rel="apple-touch-startup-image" href="startup.png" />
+// 예제를 위해 Daum 지도 API 사용
+<script src="http://apis.daum.net/maps/maps2.js?apikey=DAUM_MAP_APIKEY"></script>
+<script src="app.js"></script>
+<title>GeoChicken WebApp</title>
+</head>
+<body>
+<div id="map_canvas" style="width:300px;height:300px"></div>
+</body>
+</html>
+</xmp>
+<p>역시 간단한 소스코드는 app.js 파일에 있다.</p>
+<xmp class="xmp">
+// 페이지가 로드되면 위치정보를 요청하여 바로 그 위치의 지도를 그린다.
+function loaded(){
+	navigator.geolocation.getCurrentPosition(
+		function(position) {
+			var map = new DMap("map_canvas", {point:new DLatLng(position.coords.latitude,	position.coords.longitude), level:3});
+		},
+		function(){
+			alert('Error');
+		}
+	);
+}
+// 페이지 로드후 이벤트에 등록한다.
+addEventListener('load', loaded, false);
+</xmp>
+<p>페이지를 로딩하면 바로 현재 위치정보 사용 승인창이 나오고 승인 버튼을 누르면, 현재 있는곳 부근의 지도정보를 웹 페이지에 보여주게 된다.</p>
+<p>..[화면]생략..</p>
+<p>지도정보만 보여서는 기존 지도 앱과 다를바 없으니, 다른 기능을 한번 추가해 보자. 데모 이름이 GeoChicken 이라는걸 확인했다면 무엇을 할지 바로 알 수 있다. 클릭 한번만으로 내 주위에 치킨 집을 바로 검색해보도록 하자.</p>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width,
+initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="iphone_icon.png"/>
+<link rel="apple-touch-startup-image" href="startup.png" />
+// 예제를 위해 Daum 지도 API 사용
+<script src="http://apis.daum.net/maps/maps2.js?apikey=DAUM_MAP_APIKEY"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="app.js"></script>
+<title>GeoChicken WebApp</title>
+</head>
+<body>
+<div id="addr"></div>
+<ul id="items"></ul>
+// 지도에 위치표시 하는 기능은 생략.
+</html>
+</xmp>
+<p>역시 간단한 소스코드는 <a href="http://dev.xguru.net/geo/app.js">app.js</a> 파일에 있다.</p>
+<xmp class="xmp">
+코드생략
+</xmp>
+<p>예제 소스를 <a href="http://dev.xguru.net/geo/">http://dev.xguru.net/geo/</a>에 올려두었다. HTML5 GeoLocation API를 지원하는 모든 브라우저에서 다 실행 가능하다. 실행하면 다음과 같은 화면을 볼수 있다.</p>
+<p>..[화면]생략..</p>
+<p>이 사이트 역시 + 버튼을 이용하여 웹 앱으로 추가가능하며 한번의 클릭으로 원하는 치킨집을 찾을수 있다.
+이와 같이 HTML5의 GeoLocation과 Web SQL Database API를 이용하여 간단한 Mobile HTML5 어플리케이션을 만들어 보았다.</p>
+
+
+<h2>부록.</h2>
+<ul class="bu">
+<li><a href="http://www.bloter.net/archives/24791">[블로터포럼] HTML5가 개발자에게 ‘기회의 땅’인 이유</a></li>
+<li><a href="http://channy.creation.net/blog/801">[읽을꺼리] HTML5 동영상에 대한 전망</a></li>
+</ul>
+
+<xmp class="xmp">
+<video>
+<source src="openvideo.ogg" type="video/ogg"/>
+<source src="openvideo.mp4" type="video/mp4"/>
+<embed src="player.swf?openvideo.flv" type="application/x-shockwaveflash"
+width="480" height="300" allowscriptaccess="always"
+allowfullscreen="true"/>
+</video>
+</xmp>
+
+<h3>국내 웹 표준 커뮤니티 목록</h3>
+
+<h5>Web Standards Korea : <a href="http://webstandards.or.kr/">webstandards.or.kr</a></h5>
+<p>국내 최초 웹 표준 커뮤니티로 2004년에 만들어져 다양한 강의,저술 활동, 공공 기관 지원을 하고 있다. 또한, 세계 웹표준 운동의 주축인 웹표준 프로젝트(Web Standards Project)의 지역화 단체이기도 하다.</p>
+<p>“실전 웹 표준 가이드”(2005) 무료 배포, 한중일 공개SW포럼웹표준 W/G활동(2005~2008) 그리고 공공기관 웹 표준 평가 및 가이드 마련 등에 실질적인 도움을 주었다. 2007년 이후 겉으로 뚜렸하게 보이는 활동은 없지만 한국의 웹표준 커뮤니티 리더들이 필요한 경우, 공동 활동을 펼치기도 한다.</p>
+
+<h5>Mozilla 한국 커뮤니티: 웹표준 게시판 <a href="http://forums.mozilla.or.kr/">forums.mozilla.or.kr</a></h5>
+<p>모질라 재단에서 만든 웹 브라우저인 파이어폭스가 웹표준을 지키는 것을 중요하게 여기고 있어서 커뮤니티에 웹표준을 주제로 게시판이 생기게 되었다.</p>
+<p>2004년 당시 웹표준에 대한 얘기를 할 수 있는 유일한 곳이어서 많은 사람들이 활동하고 토론하였고 이러한 활동을 지금까지고 계속되고 있다. 이곳에서는 표준을 지키지 않은 사이트나 웹표준 관련된 기술적, 이론적인 내용에 관련된 논의가 활발하게 이루어지고 있다.</p>
+
+<h5>CSS 디자인 코리아: <a href="http://forum.standardmag.org/">forum.standardmag.org</a></h5>
+<p>웹표준과 CSS관련된 활동을 하던 사람들의 의견을 모아 장지윤님이 만든 사이트이다. 초기에는 토론게시판 형태로 운영이 되다가 최근에는 자료와 활동을 정리하는 위키를 도입하여 운영되고 있다. 현재 홍윤표님께서 총괄 운영을 맡아서 수고해 주고 계시며 게시판에서는 웹표준이나 웹 접근성 실무자 분들이 활발한 토의를 진행하고 있다.</p>
+<p>최근에는 "한국 웹 표준의 날"이라는 행사를 시작하였고 한국의 웹표준을 이끌어가는 중심 행사로 자리 잡을 수 있도록 노력하고 있다.</p>
+
+<h5>클리어 보스(ClearBoth): <a href="http://clearboth.org/">clearboth.org</a></h5>
+<p>클리어보스는 추지호님을 중심으로 스터디 모임으로 시작하여 다양한 주제의 웹 표준 연구 모임이다. 친목과 공부 모임을 주관하면서 웹 표준 문서 번역를 번역하고 있기도 하다. 최근에 일본 CSS Nite를 국내에서 협력해서 행사를 개최하고 있다.</p>
+
+<h5>한국웹접근성그룹(Korea Web Accessibility Group): <a href="http://kwag.net/">kwag.net</a></h5>
+<p>조훈님이 시작한 웹 접근성 전문 그룹이다. 일반인을 대상으로 한 워크샵을 진행하였고 한국 정보문화진흥원과 함께 한국의 웹접근성을 향상시키는데 중요한 역할을 하였다. 최근 다시 활동을 준비하고 있다.</p>
+
+<h5>네이버 카페 하코사: <a href="http://www.hacosa.com/">www.hacosa.com</a></h5>
+<p>하코사는 "하드코딩하는 사람들"의 준말로 네이버 카페에서 운영되고 있는 모임이다. 회원수가 3000명이 넘고 웹표준 뿐만 아니라 HTML을 다루는 다양한 직군의 회원들이 있다.</p>
+
+<h5><del>정보통신 접근성 향상 표준화 포럼: <a href="http://www.iabf.or.kr/">www.iabf.or.kr</a></del></h5>
+<h5><ins>웹 접근성 연구소: <a href="http://www.wah.or.kr/">www.wah.or.kr</a></ins></h5>
+<p>국내의 웹접근성 전문가들의 포럼이다. 한국 정보문화 진흥원의 지원으로 운영되고 있고, 관련 세미나정보나 웹접근성 관련 자료들이 많다.</p>
+
+
+
+<hr /><!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+<h2 id="ref">Reference</h2>
+<h3>HTML5</h3>
+<ul class="bu">
+<li><a href="http://webstandards.or.kr/html5">실전 HTML5 가이드</a> - <a href="http://channy.creation.net/">윤석찬</a>, <a href="http://hyeonseok.com/">신현석</a>, <a href="http://naradesign.net/">정찬명</a>, <a href="http://firejune.com/">경준호</a>, <a href="http://xguru.net/">권정혁</a> - Creative Commons Licence</li>
+<li><strong><a href="http://webappscon.com/html5/">HTML5 오픈 콘퍼런스</a></strong></li>
+<li><a href="http://channy.creation.net/blog/776" rel="external">HTML5의 모든 것</a></li>
+<li><a href="http://channy.creation.net/project/html5/html4-differences/" rel="external">HTML4와 차이점</a></li>
+<li><a href="http://hacks.mozilla.or.kr/" rel="external">한국 Mozilla Hacks</a></li>
+<li><a href="http://kr.html5doctor.com" rel="external">한국 HTML5Doctor</a></li>
+<li><a href="http://html5demos.com">HTML5 Demo</a></li>
+<li><a href="http://html5test.com" rel="external">HTML5 Test</a></li>
+<li><a href="http://html5gallery.com" rel="external">HTML5 Gallery</a></li>
+<li><a href="http://www.w3.org/TR/html5/" rel="external">W3C HTML5 Working Draft</a></li>
+</ul>
+
+<ul class="bu">
+<li><a href="http://www.w3schools.com/html5/html5_reference.asp">HTML 5 Tag Reference</a></li>
+</ul>
+
+<h3>CSS3</h3>
+<ul class="bu">
+<li><a href="http://naradesign.net/ouif/css3/">Useful CSS3 Properties 12ea</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/html-css-techniques/html-5-and-css-3-the-techniques-youll-soon-be-using/" target="_blank">HTML5와 CSS3: 곧 사용하게 될 것(HTML 5 and CSS 3: The Techniques You’ll Soon Be Using)</a></li>
+<li><a href="http://www.evotech.net/blog/2010/02/css3-columns-browser-support/" target="_blank">CSS3 다단과 지원 브라우저(CSS3 Columns &amp; Browser Support)</a></li>
+<li><a href="http://www.evotech.net/blog/2010/02/css3-properties-values-browser-support/" target="_blank">CSS3 프로퍼티와 값, 그리고 지원 브라우저(CSS3 Properties, Values &amp; Browser Support)</a></li>
+</ul>
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+2010.11.30.
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

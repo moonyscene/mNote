@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Linux | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Linux</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Tutorial">Tutorial</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Basic">Basic</a></li>
+<li><a href="#misc">misc</a></li>
+<li><a href="#Link">Reference Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+<br />
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:59%;margin:0 1% 0 0;"><!-- contentsBlock -->
+
+<h2 id="Tutorial">Linux Tutorial</h2>
+
+<h3><cite><a href="http://opentutorials.org/course/141">생활코딩 - 리눅스</a></cite></h3>
+<div class="box3"><!-- box3 -->
+<span class="markingpen1">
+커버 페이지
+|| 리눅스란 무엇인가?
+|| 리눅스 설치
+<span class="fade1">| 클라우드 컴퓨팅
+| 머신에 설치 ..준비중..
+| 가상머신에 설치
+|| 터미널
+|| 슈퍼유저<!-- /.fade1 --></span>
+|| 사용자 관리
+|| 파일,디렉토리
+| ACL
+<span class="fade1">| 마운트<!-- /.fade1 --></span>
+|| 프로세스 관리
+<span class="fade1">|| 스케줄 관리(cron)</span>
+|| 패키지 관리
+<span class="fade1">|| 주요 프로그램 사용법</span>
+<!-- /.markingpen1 --></span>
+| nano
+| top
+| rsync
+| vi
+| grep
+| ls
+| find
+| df &amp; du
+| ps &amp; pstree &amp; kill
+|| 서비스 운영
+| 웹서비스 운영(LAMP)
+| SFTP
+| DNS
+| 메일서버
+| SSH
+|| 네트워크 관리
+|| 파일시스템
+|| 보안
+| iptables
+| tcpwrapper
+<!-- /box3 --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+<pre>
+커버 페이지
+리눅스란 무엇인가?
+<div class="box1"><!-- box1 -->
+리눅스란? 운영체제 : 웹서비스, 과학계산, 윈도우 대체재
+우분투란? 우분투(Ubuntu)란 리눅스 배포본의 한 종류 : 레드햇(Redhat), 페도라(Fedora), 데비안(Debian), 우분투
+맥OS와의 관계 : 사촌 관계
+리눅스의 역사 : <a href="http://en.wikipedia.org/wiki/File:Gldt.svg" target="_blank">http://en.wikipedia.org/wiki/File:Gldt.svg</a>
+ <!-- /box1 --></div>
+리눅스 설치
+<div class="box1"><!-- box1 -->
+<a href="../Dev/WebService.html">▶ 웹 서비스 만들기</a>
+<!-- /box1 --></div>
+클라우드 컴퓨팅
+<div class="box1"><!-- box1 -->
+<a href="http://opentutorials.org/course/61" target="_blank">생활코딩 Hello world 아마존 웹서비스 편 참고</a>
+<!-- /box1 --></div>
+머신에 설치 ..준비중..
+가상머신에 설치
+<div class="box1"><!-- box1 -->
+<a href="http://opentutorials.org/course/173" target="_blank">가상머신</a>
+<!-- /box1 --></div>
+터미널 <em>-- [m] 동영상</em>
+슈퍼유저 <em>-- [m] 동영상</em>
+사용자 관리
+<div class="box1"><!-- box1 -->
+<strong>사용자 관리</strong>
+리눅스는 다중 접속, 다중 사용자, 멀티테스킹을 지원하는 운영체제.
+로그인이라는 과정을 통해 사용자를 구분.
+사용자별로 그룹을 지정하여 관리가 가능. 예) 시스템 관리자, 개발팀, 관리팀
+<b>adduser</b> : 대화형 작업으로 사용자 홈 디렉터리, 사용자 그룹 비밀번호를 처리할 수 있음
+<b>useradd</b> : 명령어 실행 시 사용자 환경을 옵션으로 지정해야됨
+<b>passwd</b> : 자신의 비밀번호를 관리할 수 있음.
+	슈퍼유저(리눅스 시스템을 관리하는 사용자)는 모든 사용자들의 비밀번호를 변경할 수 있음.
+	일반 사용자의 경우 자신의 비밀번호만 변경 가능
+<b>deluser</b> : 대화형으로 삭제 가능
+<b>userdel</b> : 명령실행 시 옵션으로 처리해야됩
+<b>chfn</b> : 대화식 사용자 정보 변경
+<b>chsh</b> : 대화식으로 사용자 쉘 변경
+<b>usermod</b> : 비 대화식 변경
+
+<strong>그룹 관리</strong>
+<b>addgroup</b> : 대화형으로 그룹 생성
+<b>groupadd</b> : 비대화형 그룹 생성. 다양한 옵션으로 작업 가능
+<b>groupmod</b> : 비대화형 그룹 변경
+<b>delgroup</b> : 대화형으로 그룹 삭제
+<b>groupdel</b> : 비대화형 그룹 삭제
+<!-- /box1 --></div>
+
+파일,디렉토리
+<div class="box1"><!-- box1 -->
+<strong>ls</strong> ↙ 파일,디렉토리 목록 열람
+ls -alh ↙ 모든 파일, 리스트 형식 출력, 가독성
+<strong>cd</strong> : change directory
+cd 디렉토리명 ↙ 
+상대경로 - 현재 디렉토리 기준
+절대경로 - 최상위 디렉토리 기준
+<strong>pwd</strong> ↙ 현재 작업 디렉토리
+<strong>mkdir</strong> : make directory. 디렉토리 생성
+mkdir -p ↙ 기술된 경로가 없을 경우 자동 생성
+<strong>rm</strong> : remove. 파일, 디렉토리 삭제
+rm ↙ 파일만 삭제
+rm -r ↙ 디렉토리 및 하위 디렉토리를 모두 삭제
+rm -f ↙ 강제 삭제
+<strong>cp</strong> : copy. 파일 및 디렉토리 복사
+cp 원본 사본 ↙ 
+cp -r ↙ 디렉토리 및 하위 디렉토리 복사
+<strong>mv</strong> : move. 파일 및 디렉토리 이동 및 이름 변경
+mv 원본 사본 ↙ 
+<strong>touch</strong> : 파일의 시간과 정보를 변경. 빈 파일을 생성
+touch 파일명 ↙ 
+<!-- /box1 --></div>
+ACL
+<div class="box1"><!-- box1 -->
+<strong>ACL</strong> (Access Control List) : 파일과 디렉토리을 사용할 수 있는 권한을 관리
+
+<strong>권한</strong>
+<samp class="xmp">
+-rw-rw-r--	1	m	m	test
+drwxrwxr-x	2	m	m	test1
+</samp>
+디렉토리 d
+소유자(Owner) rwx
+그룹(Group) rwx
+기타(Other) rwx
+
+<strong>chmod</strong> (change mode) : 파일과 디렉토리의 권한 설정
+chmod [OPTION]... MODE[,MODE]... FILE...
+<div class="mnote1"><!-- mnote1 -->
+U±RWX : 소유자
+G±RWX : 그룹
+O±RWX : 기타
+<!-- /mnote1 --></div>
+<div class="mnote1"><!-- mnote1 -->
+R	W	X
+읽기	쓰기	실행
+4	2	1
+<!-- /mnote1 --></div>
+ex1) 파일 codingeverybody의 권한을.. 소유자 : 읽기, 쓰기, 실행 | 그룹 : 읽기, 쓰기 | 기타 : 읽기
+<kbd class="xmp">
+chmod 764 codingeverybody;
+</kbd>
+ex2) 파일 codingeverybody의 소유자에게 읽기 권한을 부여
+<kbd class="xmp">
+chmod u+R codingeverybody;
+</kbd>
+ex3) codingeverybody의 그룹의 읽기 권한 제거
+<kbd class="xmp">
+chmod g-R codingeverybody;
+</kbd>
+
+<strong>chown</strong> (change owner) : 파일과 디렉토리의 소유자를 변경
+chown 소유자명 파일,디렉토리 명
+chown -R : 하위 디렉토리까지 포함해서 변경
+ex1) 파일 codingeverybody의 소유자를 someone으로 변경
+<kbd class="xmp">
+chown someone codingeverybody;
+</kbd>
+ex2) 파일 codingeverybody의 소유자와 그룹을 someone으로 변경
+<kbd class="xmp">
+chown someone:someone codingeverybody;
+</kbd>
+
+<strong>chgrp</strong> (change group) : 파일과 디렉토리의 그룹을 변경
+chgrp 그룹명 파일,디렉토리
+chgrp -R : 하위 디렉토리까지 포함해서 변경
+ex1) 파일 codingeverybody의 그룹을 someone으로 변경
+<kbd class="xmp">
+chgrp someone codingeverybody
+</kbd>
+<!-- /box1 --></div>
+
+마운트 <em>-- [m] 동영상 보자!</em>
+
+프로세스 관리
+<div class="box1"><!-- box1 -->
+<strong>ps</strong> : 리눅스 서버에서 현재 동작하고 있는 프로세스 정보를 확인
+프로세스 고유 ID, 구동 터미널, 구동 시간, 명령어를 기본으로 알 수 있음
+옵션
+a : 모든 프로세스 정보를 출력
+u : 각 프로세스 유저명, 시작 시간 출력
+x : 백그라운드로 동작하는 프로세스도 출력
+<kbd class="xmp">
+ps
+ps aux
+</kbd>
+<strong>top</strong> : 동적으로 ps결과를 볼 수 있음
+<strong>kill</strong> : 구동 중인 프로세스 동작을 정지시킴
+<!-- /box1 --></div>
+
+스케줄 관리(cron) <em>-- [m] 동영상 보자!</em>
+<div class="box1"><!-- box1 -->
+<strong>cron</strong> : UNIX/LINUX에서 특정 시간, 특정 날짜에 정해진 명령어를 실행
+/etc/crontab : cron 작업을 설정
+<b>형식</b> : 분 | 시간 | 날짜 | 달 | 요일 | 사용자 | 명령
+분 : 00 ~ 59
+시간 : 00 ~ 23
+날짜 : 00 ~ 31
+달 : 1 ~ 12
+요일 : 0 ~ 7
+* : everytime
+- : 해당 시간 사이. 예) 시간 항목에 1-3 이면 1시에서 3시 사이
+,  : 구분. 예) 시간 항목에 1,3 이면 1시, 3시
+/ : 뒤에 오는 단위별로 매번. 예) 분에 */2 인 경우 2분 단위로 실행
+<!-- /box1 --></div>
+
+패키지 관리
+<div class="box1"><!-- box1 -->
+<strong>패키지 관리</strong> <em>(([m])) 패키지 의미?</em>
+리눅스 배포본에서 패키지를 설치/삭제/검증 하는 것들
+우분투, 패도라가 패키지 관리하는 명령어가 다름
+<strong>패키지 관리 프로그램을 사용하는 이유</strong>
+사용자가 패키지를 관리 하는 경우 사용하는 어플리케이션에 보안 업데이트등의 업데이트가 일어 났을 때 능동적으로 대응하기 어려움
+<strong>패키지 설치</strong> (([m])) <em>apt-get(<abbr>Advanced Packaging Tool</abbr>)</em>
+<kbd class="xmp">
+apt-get install 패키지명 ↙ 우분투
+yum install 패키지명 ↙ 패도라
+</kbd>
+<strong>패키지 제거</strong>
+<kbd class="xmp">
+apt-get remove 패키지명 ↙ 우분투
+yum remove 패키지명 ↙ 패도라
+</kbd>
+<strong>패키지 업데이트</strong>
+<kbd class="xmp">
+apt-get update ↙ 우분투(패키지 저장소 업데이트)
+apt-get upgrade ↙ 우분투(패키지 업데이트)
+yum update ↙ 패도라
+</kbd>
+<strong>패키지 검색</strong>
+<kbd class="xmp">
+apt-cache search 패키지명 ↙ 우분투
+yum search 패키지명 ↙ 패도라
+</kbd>
+<!-- /box1 --></div>
+
+주요 프로그램 사용법 <em>-- [m] 동영상 보자!</em>
+nano ..준비중..
+top
+rsync ..준비중..
+vi ..준비중..
+grep ..준비중..
+ls
+find ..준비중..
+df &amp; du
+ps &amp; pstree &amp; kill ..준비중..
+서비스 운영 ..준비중..
+웹서비스 운영(LAMP) ..준비중..
+SFTP ..준비중..
+DNS ..준비중..
+메일서버 ..준비중..
+SSH
+<div class="box1"><!-- box1 -->
+SSH에 대한 수업은 원격제어 수업으로 대체합니다. <a href="http://opentutorials.org/module/432/3738" target="_blank">SSH 수업 바로가기</a>
+<!-- /box1 --></div>
+네트워크 관리 ..준비중..
+파일시스템 ..준비중..
+보안 ..준비중..
+iptables ..준비중..
+tcpwrapper ..준비중..
+</pre>
+
+<h2 id="Start">Start</h2>
+
+
+<h2 id="Basic">Basic</h2>
+
+
+<h2 id="misc">misc.</h2>
+
+<ol class="num">
+<li><strong>Q?</strong><br />
+<div class="cont">
+A
+</div>
+</li>
+</ol>
+
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:39%;margin:0 0 0 1%;"><!-- contentsBlock -->
+
+
+<h2 id="Link">Reference Link</h2>
+
+<ol class="bo num">
+<li><a href="http://opentutorials.org/course/141"><strong>생활코딩 - 리눅스</strong></a></a>
+<blockquote cite=""><div>
+</div></blockquote>
+</li>
+</ol>
+
+<h3>Reference</h3>
+<h4>리눅스 재부팅과 종료 명령어 <span class=""><small>(halt , reboot , shutdown , init)</small></span></h4>
+<kbd class="xmp">
+$ halt ↙ 시스템 종료
+$ halt -f ↙ 시스템 강제 종료
+$ reboot ↙ 시스템 재부팅
+$ reboot -f ↙ 시스템 강제 재부팅
+$ shutdown -h now ↙ 바로 시스템 종료
+$ shutdown -h 10 ↙ 10분후 시스템을 종료
+$ shutdown -h 15:10 ↙ 15시 10분에 시스템을 종료 (hh:mm 형식)
+$ shutdown -r now ↙ 즉시 시스템을 재부팅
+$ shutdown -r 15 ↙ 15분후에 시스템을 재부팅
+$ shutdown -r 17:40 ↙ 17시 40분에 시스템을 재부팅 (hh:mm 형식)
+$ shutdown -c ↙ 예약된 shutdown 명령을 취소
+$ init 0 ↙ 시스템 종료
+$ init 6 ↙ 시스템 재부팅
+</kbd>
+<div class="mnote1"><!-- mnote1 -->
+<strong class="fsd">init 런레벨</strong><hr class="dotted" />
+0 : 시스템 종료모드<br />
+1 : 단일 사용자 모드 (시스템 복구시에 사용합니다)<br />
+2 : 다중 사용자 텍스트 모드 (NFS 사용 불가로 서버와 공유가 안됩니다)<br />
+3 : 다중 사용자 텍스트 모드 (일반적인 CLI (Command Line Interface) 모드 입니다.)<br />
+4 : 사용 안함<br />
+5 : 다중 사용자 그래픽모드 (일반적인 GUI (Graphical User Interface) 모드 입니다,)<br />
+6 : 시스템 재부팅 모드<br />
+<!-- /mnote1 --></div>
+
+<!-- /contentsBlock --></div>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130314. 준비중 이외 일단완료! 동영상만 보면 된다.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

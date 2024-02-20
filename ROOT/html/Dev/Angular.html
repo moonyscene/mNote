@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var _$ = {
+	nowPage: {
+		id: [0,1,0,0,0],
+		title: 'Angular', // Home | mNote
+		pageType: 'sub',
+		layoutType: 'sub'
+	}
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">Angular</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li>
+	<a href="#h2-01">Angular (( PoiemaWeb</a>
+	<ul>
+	<li><a href="#h3-01">1 Angular의 소개와 특징</a></li>
+	<li><a href="#h3-02">2 Angular CLI를 사용한 프로젝트의 생성, 구성요소 추가와 빌드</a></li>
+	<li><a href="#h3-03">3 컴포넌트 소개와 기본 구조</a></li>
+	<li><a href="#h3-04">4 템플릿과 템플릿 문법</a></li>
+	<li><a href="#h3-05">5 데이터 바인딩</a></li>
+	<li><a href="#h3-06">6 빌트인 디렉티브</a></li>
+	<li><a href="#h3-07">7 서비스와 의존성 주입</a></li>
+	<li><a href="#h3-08">8 Reactive Programming과 RxJS</a></li>
+	<li><a href="#h3-09">9 Cold observable과 Hot observable</a></li>
+	<li><a href="#h3-10">10 Token 기반 인증</a></li>
+	<li><a href="#h3-11">11 Angular CLI 환경에서 jQuery 플러그인 사용하기</a></li>
+	<li><a href="#h3-12">12 Angular 파일 업로드</a></li>
+	<li><a href="#h3-13">13 Firebase를 사용한 Angular 애플리케이션 배포</a></li>
+	</ul>
+</li>
+<li><a href="#Link">Reference Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="h2-01">Angular (( <a href="https://poiemaweb.com/angular-basics" target="_blank" rel="noopener" title="새 창" class="a1">PoiemaWeb</a></h2>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-01">1 Angular의 소개와 특징</h3>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">1. Angular 소개</h4>
+
+<p>
+	Angular는 SPA(Single Page Application) 개발을 위한 구글의 오픈소스 자바스크립트 프레임워크이다.
+	웹 애플리케이션은 물론 모바일 웹, 네이티브 모바일과 데스크탑 애플리케이션까지 프론트엔드 개발에 필요한 대부분의 기능을 갖추고 있다.
+	정적 타입을 제공하는 TypeScript를 주력 언어로 채택하여 대규모 애플리케이션 개발에 보다 적합한 환경을 제공한다.
+</p>
+<p>
+	이전 버전인 AngularJS는 2009년 구글의 미스코 헤브리(Miško Hevery)가 시작한 개인 프로젝트로 시작하여 2012년 AngularJS 1.0이 공개되었으며,
+	2017년 1.6.2가 공개되는 등 Angular 정식 버전이 공개된 이후에도 지속적으로 업데이트를 진행하고 있다.
+</p>
+
+<p class="panel0 bg-info">
+	Angular 1 버전을 <b class="em0">AngularJS</b>, Angular 2 버전 이상을 <b class="em0">Angular</b>라 부른다
+</p>
+
+<p>
+	Angular는 AngularJS(version 1)의 후속 버전으로 2014년 ng 컨퍼런스에서 처음으로 소개되었다.
+	2016년 9월 14일 Angular 2 버전이 공개되었고
+	Angular 3을 뛰어 넘어 2017년 3월 23일 Angular 4, 2017년 11월 1일 Angular 5(pentagonal-donut), 2018년 5월 3일 Angular 6이 출시되었다.
+	Angular는 AngularJS의 후속 버전이지만 호환성이 없을 뿐아니라
+	알파, 베타, RC(Release Candidate)를 거치며 브레이킹 체인지(Breaking Change, 이전 버전과 호환성이 없는 변경)가 빈번하게 발생하여 많은 개발자를 혼란스럽게 하였다.
+</p>
+<p>
+	하지만 2016년 10월 발표된 Angular 버저닝과 출시 계획에 따르면 개발자의 부담이 적은 방향으로 계획적인 버전업이 이루어질 듯하다.
+	SemVer를 도입하여 버전 체계를 메이저, 마이너, 패치로 명확히 구분하고,
+	6개월간 1회의 메이저 릴리스(호환성이 없는 브레이킹 체인지 포함),
+	3회의 마이너 릴리스(브레이킹 체인지가 없는 호환성이 있는 변경)
+	그리고 주 단위의 패치 릴리스(버그 수정)가 실시될 예정이다.
+</p>
+<p>
+	이처럼 Angular는 버전 업이 빠르게 진행 중이지만 버전 5 이후 안정된 모습을 보이고 있어
+	Angular 1에서 Angular 2로의 버전 업에서 발생하였던 큰 혼란은 더 이상 없을 것으로 예상된다.
+</p>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">2. Angular와 AngulaJS의 차이점</h4>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">3. Angular의 장점</h4>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">3.1 개선된 개발 생산성</h5>
+
+<p>
+	AngularJS는 Controller와 $scope가 개발의 중심이었지만 Angular에서는 컴포넌트가 개발의 중심이다.
+	<em class="em">컴포넌트 기반 개발(<b class="em0">CBD</b>: Component Based Development)</em>은 개발 생산성을 높이며 대규모 애플리케이션에 적합한 구조이다.
+</p>
+
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.1.1 컴포넌트 기반 개발</h6>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.1.2 TypeScript의 도입</h6>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.1.3 개발 도구의 통합 및 개발 환경 구축 자동화</h6>
+<!-- ◇◆◇◆ -->
+<h5 class="hb1 h5">3.2 성능의 향상</h5>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.2.1 Digest Loop로 인한 성능저하 문제의 해결</h6>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.2.2 AoT 컴파일</h6>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.2.3 Lazy Loading</h6>
+<!-- ◇◆ -->
+<h6 class="hb1 h6">3.2.4 코드 최적화</h6>
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">4. 브라우저 지원 범위</h4>
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-02">2 Angular CLI를 사용한 프로젝트의 생성, 구성요소 추가와 빌드</h3>
+
+
+1. Angular CLI란?
+2. Angular CLI 설치
+3. 프로젝트 생성
+4. 프로젝트 실행
+5. 프로젝트 구성 요소 생성
+5.1 컴포넌트 생성
+5.1.1 파일명의 암묵적 변경
+5.1.2 selector 프로퍼티값의 접두사(prefix)와 컴포넌트 클래스 이름
+5.1.3 templateUrl, styleUrls 프로퍼티와 template, styles 프로퍼티
+5.2 디렉티브 생성
+5.3 모듈 생성
+5.4 서비스 생성
+5.5 클래스 생성
+6. 프로젝트 빌드
+6.1 트랜스파일링과 의존 모듈 번들링
+6.2 프로덕션 빌드와 배포
+6.3 AoT(Ahead-of Time) 컴파일
+7. 기본 옵션 변경
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-03">3 컴포넌트 소개와 기본 구조</h3>
+
+
+1. 컴포넌트 소개
+1.1 웹 컴포넌트
+1.2 컴포넌트 트리
+2. 컴포넌트 기본 구조
+2.1 컴포넌트의 코드 구조
+2.2 컴포넌트의 기본 동작 구조
+3. 컴포넌트 작성 실습
+3.1 네이밍 컨벤션
+3.2 컴포넌트 클래스
+3.3 @Component 데코레이터
+3.4 Angular 라이브러리 모듈 임포트
+3.5 메타데이터
+3.5.1 seletor 프로퍼티
+3.5.2 template/templateUrl 프로퍼티
+3.5.3 styles/styleUrls 프로퍼티
+3.6 컴포넌트 클래스와 템플릿의 연동
+3.7 컴포넌트의 호출
+3.8 모듈에 컴포넌트 등록
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-04">4 템플릿과 템플릿 문법</h3>
+
+
+1. 템플릿이란?
+2. 템플릿 문법(Template Syntax)
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-05">5 데이터 바인딩</h3>
+
+
+1. 데이터 바인딩(Data binding)이란?
+2. 변화 감지(Change detection)
+3. 데이터 바인딩
+3.1 인터폴레이션(Interpolation)
+3.2 프로퍼티 바인딩(Property binding)
+3.3 어트리뷰트 바인딩(Attribute binding)
+3.4 클래스 바인딩(Class binding)
+3.5 스타일 바인딩(Style binding)
+3.6 이벤트 바인딩(Event binding)
+3.7 양방향 데이터 바인딩(Two-way data binding)
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-06">6 빌트인 디렉티브</h3>
+
+
+1. 빌트인 디렉티브(Built-in directive)란?
+2. 빌트인 어트리뷰트 디렉티브(Built-in attribute directive)
+2.1 ngClass
+2.2 ngStyle
+3. 빌트인 구조 디렉티브(Built-in structural directive)
+3.1 ngIf
+3.2 ngFor
+3.3 ngSwitch
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-07">7 서비스와 의존성 주입</h3>
+
+
+1. 서비스(Service)란?
+2. 의존성 주입(Dependency Injection)
+3. 인젝터(Injector)
+4. 인젝터 트리(Injector tree)
+5. 프로바이더(Provider)
+5.1 클래스 프로바이더(Class Provideer)
+5.2 값 프로바이더(Value Provider)
+5.3 팩토리 프로바이더(Factory Provider)
+5.4 인젝션 토큰(Injection Token)
+5.5 선택적 의존성 주입(Optional Dependency)
+6. 서비스 중재자 패턴(Service Mediator Pattern)
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-08">8 Reactive Programming과 RxJS</h3>
+
+
+1. 리액티브 프로그래밍이란?
+2. 리액티브 프로그래밍의 특징
+3. RxJS 임포트
+4. 옵저버블과 옵저버
+5. 오퍼레이터(Operator)
+6. 옵저버블 이벤트 스트림 예제
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-09">9 Cold observable과 Hot observable</h3>
+
+
+1. Cold observable
+2. Hot observable
+3. 유니캐스트 vs 멀티캐스트
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-10">10 Token 기반 인증</h3>
+
+
+1. JWT(JSON Web Token)이란?
+2. Angular JWT 인증
+2.1 Backend
+2.2 Frontend
+2.2.1 로그인 컴포넌트 (signin.component.ts)
+2.2.2 대시보드 컴포넌트 (dashboard.component.ts)
+2.2.3 인증 서비스 (auth.service.ts)
+2.2.4 인증 가드 (auth.guard.ts)
+2.2.5 라우팅 모듈 (app-routing.module.ts)
+2.2.5 사용자 서비스 (user.service.ts)
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-11">11 Angular CLI 환경에서 jQuery 플러그인 사용하기</h3>
+
+
+1. Angular 프로젝트 생성
+2. jQuery 설치
+3. jQuery 임포트
+4. jQuery 타입 정의 파일 설치
+5. slick 플러그인 설치 및 임포트
+5. slick 플러그인 임포트
+6. slick 플러그인 타입 정의 파일 설치
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-12">12 Angular 파일 업로드</h3>
+
+
+1. Backend
+2. Frontend
+Reference
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3-13">13 Firebase를 사용한 Angular 애플리케이션 배포</h3>
+
+
+1. Firebase 소개
+2. Firebase 프로젝트 생성
+3. Firebase CLI 설치
+4. Deploy
+4.1 Firebase Hosting을 사용한 로컬 프로젝트 Deploy 설정
+4.2 Firebase CLI로 로컬 프로젝트 실행
+4.3 Firebase Hosting에의 Deploy
+Reference
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Reference Link</h2>
+
+
+
+
+
+<div class="brclear"></div>
+<hr class="line1 dott" />
+<p>
+<strong>History</strong>
+: 20200210.~
+20200210. 
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

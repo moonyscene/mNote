@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS Detail Rule | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>CSS Detail Rule</h1>
+
+<dl>
+
+<!-- <dt>body 태그 기본 스타일은 다음으로 통일한다.</dt>
+<dd>
+<xmp style=" font-size: 1.2em;">
+body { font-size: 12px; font-family: AppleGothic,맑은고딕,나눔고딕,굴림,Gulim,돋움,Dotum,sans-serif; line-height: 1.5; }
+</xmp>
+font-size: 75%; 적용시 IE 텍스트 크기 조절  민원 제기 방지.<br />
+AppleGothic 로 맥사용자 고려. [참고]<a tabindex="0" href="http://blog.daum.net/uidev/15027601">Safari 유저를 조금만 고려해 본다면..</a><br />
+확인과제 : 이렇게 하면 줄간격 td {  } 스타일을 줄 때 상하단 차이가 생길까?
+</dd> -->
+
+<dt>복수 Selector를 지정할 경우 표기방법 통일</dt>
+<dd>
+각 셀렉터의 콤마(,)후 개행 한다.
+
+<table style="width: 80%; font-size: 1.5em;">
+<tr>
+<td style="width: 35%;" class="box1">
+<xmp class="xmp">
+div, td, .selector {  }
+</xmp>
+</td>
+<td style="width: 30%; font: bold 4em 맑은고딕; text-align: center;">→</td>
+<td style="width: 35%;" class="box1">
+<xmp class="xmp">
+div,
+td,
+.selector {  }
+</xmp>
+</td>
+</tr>
+</table>
+
+</dd>
+
+<!-- <dt>CSS정렬 방식은 구조파악이 쉽도록 Content단의 들여쓰기와 동일하게 구성한다.</dt>
+<dd>
+<h6>Content단의 div 들여쓰기 정렬 Depth와 CSS의 Depth가 같도록 구성한다.</h6>
+</dd> -->
+
+</dl>
+
+<hr />
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

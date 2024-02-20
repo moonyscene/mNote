@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Open Source+API - Map | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Open API - MAP</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Google">Google</a></li>
+<li><a href="#Naver">Naver</a></li>
+<li><a href="#Daum">Daum</a></li>
+</menu>
+<menu>
+<li><a href="http://googler.pe.kr/" target="_blank">Googler</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<h2 id="Google"><a href="https://developers.google.com/maps/documentation/javascript/overlays?hl=ko">Google</a></h2>
+
+<h3>Google Maps JavaScript API V3 오버레이</h3>
+
+<p>매쉬업 테스트 OK 마커생성 OK</p>
+
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+<div id="map_canvas" style="width:500px;height:400px;"></div>
+<script>
+(function(){
+	var myLatLng=new google.maps.LatLng(35.251213,129.086416);
+	var myOptions={zoom:16,center:myLatLng,mapTypeId:google.maps.MapTypeId.ROADMAP};
+	var myMap=new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	var myMarker = new google.maps.Marker({position:myLatLng, map:myMap, title:"Hello World!"});
+	//아이콘마커
+	var myLatLng=new google.maps.LatLng(35.249676,129.087789);
+	var myMarker=new google.maps.Marker({position:myLatLng,map:myMap,icon:'./img/markerA.png'});
+	var myLatLng=new google.maps.LatLng(35.253093, 129.089119);
+	var myMarker=new google.maps.Marker({position:myLatLng,map:myMap,icon:'./img/markerB.png'});
+})();
+</script>
+
+<h3>지도 링크</h3>
+<p><a href="http://maps.google.co.kr/maps?q=%EB%B6%80%EC%82%B0%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC+%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&hl=ko&ie=UTF8&ll=35.251525,129.087612&spn=0.003246,0.005643&sll=35.240599,129.089963&sspn=0.025972,0.045147&hq=%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&hnear=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC&t=m&z=18&iwloc=A">울집</a></p>
+
+
+<h3>지도 iframe</h3>
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.kr/maps?f=q&amp;source=s_q&amp;hl=ko&amp;geocode=&amp;q=%EB%B6%80%EC%82%B0%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC+%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&amp;aq=&amp;sll=35.240599,129.089963&amp;sspn=0.025972,0.045147&amp;ie=UTF8&amp;hq=%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&amp;hnear=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC&amp;t=m&amp;ll=35.251213,129.086416&amp;spn=0.830609,1.444702&amp;z=10&amp;iwloc=A&amp;cid=14976719926439704983&amp;output=embed"></iframe><br /><small><a href="http://maps.google.co.kr/maps?f=q&amp;source=embed&amp;hl=ko&amp;geocode=&amp;q=%EB%B6%80%EC%82%B0%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC+%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&amp;aq=&amp;sll=35.240599,129.089963&amp;sspn=0.025972,0.045147&amp;ie=UTF8&amp;hq=%EB%A1%AF%EB%8D%B0%EC%BA%90%EC%8A%AC+2%EB%8B%A8%EC%A7%80&amp;hnear=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C+%EA%B8%88%EC%A0%95%EA%B5%AC&amp;t=m&amp;ll=35.251213,129.086416&amp;spn=0.830609,1.444702&amp;z=10&amp;iwloc=A&amp;cid=14976719926439704983" style="color:#0000FF;text-align:left">크게 보기</a></small>
+
+
+<h2 id="Naver"><a href="http://dev.naver.com/openapi/">Naver</a></h2>
+
+<p>Static Map 1.0 적용 실패, Javascript 1.0 테스트 안해봄.</p>
+
+다시해보자!!
+
+
+<h3><a href="http://dev.naver.com/openapi/apis/map/javascript_2_0/example">Javascript 2.0</a></h3>
+
+<p><a href="http://jspcoding.정보행동.co.kr/naverMapAPI.js2.0.html">매쉬업 테스트 OK</a> 마커생성?</p>
+
+<h3>메일보내기 소스코드 복사</h3>
+
+<a href="http://map.naver.com/?dlevel=11&lat=35.2513155&lng=129.086049&type=SITE_1&queryRank=1&siteLocation=&query=67aA7IKw7IucIOq4iOygleq1rCDroa%2FrjbDsupDsiqzqs6jrk5w%3D&menu=location&searchCoord=127.7850033%3B36.7899193&tab=1&mapMode=0&enc=b64" target="_blank"><img src="http://prt.map.naver.com/mashupmap/print?key=p1332724991687_851879379" width="534" height="418" alt="지도" border="0"></a>
+
+
+<h3>지도공유 - 지도복사 - HTML 코드 복사</h3>
+
+<table cellpadding="0" cellspacing="0" width="462"> <tr> <td style="border:1px solid #cecece;"><a href="http://map.naver.com/?dlevel=8&lat=35.2687142&lng=129.0934689&slng=129.0967694&slat=35.2839162&elng=129.0875825&elat=35.2501188&pathType=1&dtPathType=0&menu=location&mapMode=0&perimeter=0&sText=67aA7IKw7KKF7ZWp67KE7Iqk7YSw66%2B464SQ&eText=66Gv642w7LqQ7Iqs7Ja066aw7J207KeR&enc=b64" target="_blank"><img src="http://prt.map.naver.com/mashupmap/print?key=p1332828719707_-490802771" width="460" height="340" alt="지도 크게 보기" title="지도 크게 보기" border="0" style="vertical-align:top;"/></a></td> </tr> <tr> <td>  <table cellpadding="0" cellspacing="0" width="100%">  <tr>  <td height="30" bgcolor="#f9f9f9" align="left" style="padding-left:9px; border-left:1px solid #cecece; border-bottom:1px solid #cecece;">   <span style="font-family: tahoma; font-size: 11px; color:#666;">2012.3.27</span>&nbsp;<span style="font-size: 11px; color:#e5e5e5;">|</span>&nbsp;<a style="font-family: dotum,sans-serif; font-size: 11px; color:#666; text-decoration: none; letter-spacing: -1px;" href="http://map.naver.com/?dlevel=8&lat=35.2687142&lng=129.0934689&slng=129.0967694&slat=35.2839162&elng=129.0875825&elat=35.2501188&pathType=1&dtPathType=0&menu=location&mapMode=0&perimeter=0&sText=67aA7IKw7KKF7ZWp67KE7Iqk7YSw66%2B464SQ&eText=66Gv642w7LqQ7Iqs7Ja066aw7J207KeR&enc=b64" target="_blank">지도 크게 보기</a>  </td>  <td width="98" bgcolor="#f9f9f9" align="right" style="text-align:right; padding-right:9px; border-right:1px solid #cecece; border-bottom:1px solid #cecece;">   <span style="float:right;"><span style="font-size:9px; font-family:Verdana, sans-serif; color:#444;">&copy;&nbsp;</span>&nbsp;<a style="font-family:tahoma; font-size:9px; font-weight:bold; color:#009bc8; text-decoration:none;" href="http://www.nhncorp.com" target="_blank">NHN Corp.</a></span>  </td>  </tr>  </table> </td> </tr> </table>
+
+<h2 id="Daum"><a href="http://dna.daum.net/apis/">Daum</a></h2>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130130.
+20120327. 20120323.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

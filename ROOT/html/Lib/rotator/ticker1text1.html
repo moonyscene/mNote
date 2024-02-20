@@ -1,0 +1,315 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>회전하는 것, 자동 순환 ticker1text1</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+#ticker1text1{display:block;position:relative;left:10px;top:0px;width:788px;height:45px;border:1px solid #D6D6D6;overflow:hidden;}
+#ticker1text1 *{list-style:none;margin:0;padding:0;letter-spacing:-1px;}
+#ticker1text1 h3{margin:0 0 0 18px;line-height:45px;}
+#ticker1text1s{position:absolute;left:129px;top:0;width:598px;height:45px;overflow:hidden;}
+#ticker1text1c{position:absolute;left:0;top:0;width:100%;overflow:hidden;}
+#ticker1text1c li{display:inline;float:left;margin:0 0 0 -1px;padding:0 0 0 1px;background:url(../img/main/ticker1text1sep.gif) no-repeat 0 50%;}
+#ticker1text1c a{float:left;height:15px;padding:16px 14px 14px;color:#333;white-space:nowrap;}
+#ticker1text1 .control a.prev{position:absolute;left:120px;top:0;}
+#ticker1text1 .control a.next{position:absolute;left:728px;top:0;}
+#ticker1text1 .control a.stop{position:absolute;left:749px;top:0;}
+#ticker1text1 .control img{padding:17px 4px;}
+#ticker1text1 .more{position:absolute;left:0;top:0;}
+#ticker1text1 .more img{padding:18px 4px 18px 64px;}
+
+#ticker1text2{display:block;position:relative;left:10px;top:0px;width:730px;height:73px;border:1px solid #D6D6D6;overflow:hidden;}
+#ticker1text2 *{list-style:none;margin:0;padding:0;letter-spacing:-1px;}
+#ticker1text2 h3{height:30%;margin:10px 0 0 18px;line-height:30px;}
+#ticker1text2s{position:absolute;left:130px;top:3px;width:600px;height:70px;overflow:hidden;}
+#ticker1text2c{position:absolute;left:0;top:0;width:100%;overflow:hidden;}
+#ticker1text2c li{display:inline;}
+#ticker1text2c a{float:left;width:295px;height:30px;margin:0 3px 3px 0;border:1px solid #ddd;line-height:30px;background:#fcfcfc;color:#333;text-align:center;white-space:nowrap;}
+#ticker1text2 .control{position:absolute;left:18px;top:60%;}
+#ticker1text2 .control a{float:left;margin:0 2px 0 0;}
+#ticker1text2 .control img{padding:2px;}
+#ticker1text2 .more{position:absolute;left:0;top:0;}
+#ticker1text2 .more img{padding:21px 24px 0 64px;}
+
+#ticker1text2pict1{display:block;position:relative;left:10px;top:0px;width:242px;height:250px;letter-spacing:-1px;}
+#ticker1text2pict1 *{list-style:none;margin:0;padding:0;letter-spacing:-1px;}
+#ticker1text2pict1 h3{margin:0 5px 10px 2px;}
+#ticker1text2pict1s{position:absolute;left:0;top:23px;width:242px;height:218px;overflow:hidden;}
+#ticker1text2pict1c{position:absolute;left:0;top:0;width:242px;overflow:hidden;}
+#ticker1text2pict1c li{width:242px;height:62px;overflow:hidden;}
+#ticker1text2pict1c li.pic{height:94px;}
+#ticker1text2pict1c li.pic img{width:240px;height:80px;border:1px solid #D9DEE1;}
+#ticker1text2pict1c li .t1{display:block;width:100%;padding:0 0 2px 0;color:#06c;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+#ticker1text2pict1c li .t2,
+#ticker1text2pict1c li .t3{display:block;width:100%;color:#567;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+#ticker1text2pict1c li *:hover{text-decoration:underline;}
+#ticker1text2pict1 .more a{position:absolute;right:0;top:0;}
+#ticker1text2pict1 .more img{padding:2px;}
+#ticker1text2pict1 .control{position:absolute;right:20px;top:0;}
+#ticker1text2pict1 .control img{padding:2px;}
+
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+/* 무브티커(순환,롤링)
+#20111221. MoonYoungShin. 첫앵커 포커스시 맨앞으로
+멈춤버튼실행여부판단.
+(주의!)SF,CR만offsetHeight다른값해결: js이전에css가와야함.
+mtickerEl[i].style.display="none"(mtickerEl[i].cont.offsetHeight=0)일 경우 카운터 count=0 상태로 멈춤
+마우스오버시멈춤, 호출수로스피드,지연시간보정, 컨텐츠1번렌더링, 줄별너비무관(더미li불필요)
+#20100105. LeeYoungSeok. 복수라인노출시(총개수가 노출수의 배수가 아닐때), 버튼prev 및 루프리셋문제 해결&delay인자='none'으로 루프해지
+'none' 이 들어간 조건문식이 삽입됨
+movemTicker()의 마지막 if문 부등호가 다름(==에서<=로)
+prevmTicker()에 magicNum 이라는 변수생성 하여 경우의 수에 대응
+(css)
+#ticker1text1scroll{position:absolute;left:0;top:30px;width:240px;height:15px;overflow:hidden;}
+#ticker1text1content{position:absolute;left:0;top:0;}
+(ex)초기화,이전,다음,멈춤,시작
+initmTicker(document.getElementById("ticker1text1scroll"),document.getElementById("ticker1text1content"),3000);//객체사용.
+prevmTicker(1);nextmTicker(1);stopmTicker(1);playmTicker(1);//호출순번(1부터시작)사용.
+prevmTicker(document.getElementById("ticker1text1scroll"));//객체사용. initmTicker()호출후사용가능
+prevmTicker(document.getElementById(mtickerEl.length);//마지막initmTicker()만사용
+(task)focus하면a보이기
+*/
+var mtickerEl=new Array();
+function initmTicker(mtickerContainer,mtickerContent,delay){
+	mtickerEl[mtickerEl.length]=mtickerContainer;//컨테이너
+	var speed=20;//롤링속도-작을수록빠름
+	mtickerContainer.delay=delay;//로테이션속도
+	mtickerContainer.n=mtickerEl.length;//순번
+	mtickerContainer.moveOffset=mtickerContainer.offsetHeight;//세로움직임값=컨테이너높이
+	mtickerContainer.count=0;//시간계산
+	mtickerContainer.mtickerOver=false;//true=멈춤(마우스오버or키보드포커스)
+	mtickerContainer.btnStop=false;//true=멈춤버튼누른상태
+	mtickerContainer.cont=mtickerContent;//콘텐츠
+	mtickerContainer.cont.currentTop=0;//콘텐츠현재위치
+	//mtickerContainer.cont.innerHTML+=mtickerContainer.cont.innerHTML;//컨텐츠복제하여2번렌더링..롤링할때필요
+	//var aa="";
+	for(i=0;i<mtickerEl.length;i++){
+		if(mtickerEl[i].delay !="none"){
+			mtickerEl[i].delayOffset=mtickerEl[i].delay/(speed/mtickerEl.length);//로테이션속도보정
+		}else{
+			mtickerEl[i].delayOffset="none";
+		}
+		//var aa=aa+"  "+(mtickerEl[i].delayOffset*speed)/mtickerEl.length;//모든delay값확인
+	}
+	//alert(aa);
+	mtickerContainer.move=setInterval("movemTicker()",speed);
+	mtickerContainer.onmouseover=function(){this.mtickerOver=true;}
+	mtickerContainer.onmouseout=function(){if(!mtickerContainer.btnStop)this.mtickerOver=false;}
+	mtickerContainer.anchor=mtickerContainer.getElementsByTagName("a");
+	if(mtickerContainer.anchor.length){//a가존재하면
+		for(var i=0;i<mtickerContainer.anchor.length;i++){//키보드포커스제어
+			mtickerContainer.anchor[i].onfocus=function(){mtickerContainer.mtickerOver=true;}
+			mtickerContainer.anchor[i].onblur=function(){if(!mtickerContainer.btnStop)mtickerContainer.mtickerOver=false;}
+		}
+		mtickerContainer.anchor[0].onfocus=function(){//첫앵커 포커스시 맨앞으로
+			mtickerContainer.mtickerOver=true;
+			mtickerContainer.cont.style.top=mtickerContainer.cont.currentTop=0;
+		}
+		/* mtickerContainer.anchor[mtickerContainer.anchor.length-1].onfocus=function(){//끝앵커포커스. 키보드 후진 진입시 브라우저가 맨뒤로 보내줌.
+			mtickerContainer.mtickerOver=true;
+			mtickerContainer.cont.style.top=mtickerContainer.offsetHeight-mtickerContainer.cont.offsetHeight+"px";
+		} */
+	}
+}
+function movemTicker(){//위로이동
+	for(var i=0;i<mtickerEl.length;i++){
+		if(mtickerEl[i].delayOffset !="none"){
+			if(mtickerEl[i].cont.currentTop%mtickerEl[i].moveOffset==0&&mtickerEl[i].count<mtickerEl[i].delayOffset){
+				if(!mtickerEl[i].mtickerOver){//mtickerOver가 false 일때 카운트증가
+					if(mtickerEl[i].cont.offsetHeight){mtickerEl[i].count++;}
+					else{mtickerEl[i].count=0;}
+				}
+			}else{
+				mtickerEl[i].count=0;
+				//mtickerEl[i].cont.currentTop--;//한줄씩위로롤링
+				mtickerEl[i].cont.currentTop-=mtickerEl[i].moveOffset;//롤링없이한줄씩순환
+				if((mtickerEl[i].cont.currentTop+mtickerEl[i].cont.offsetHeight<=0)||mtickerEl[i].cont.offsetHeight==0){
+					mtickerEl[i].cont.style.top=mtickerEl[i].cont.currentTop=mtickerEl[i].count=0;
+				}
+				mtickerEl[i].cont.style.top=mtickerEl[i].cont.currentTop+"px";
+			}
+		}
+	}
+}
+//시간제어:a=순번or컨테이너객체
+function prevmTicker(a){//이전
+	var n=(isNaN(a))?a.n-1:a-1;
+	if(!mtickerEl[n])return false;
+	mtickerEl[n].count=0;
+	mtickerEl[n].cont.currentTop+=mtickerEl[n].moveOffset;
+	if(-mtickerEl[n].cont.currentTop<0){
+		var magicNum=Math.floor((mtickerEl[n].cont.offsetHeight-1)/mtickerEl[n].moveOffset);//-1이유:개수가 맞아떨어져도 -moveOffset이 되어야 한다.
+		mtickerEl[n].cont.currentTop=-(mtickerEl[n].moveOffset*magicNum);
+		//mtickerEl[n].cont.currentTop=mtickerEl[n].moveOffset-mtickerEl[n].cont.offsetHeight;
+	}
+	mtickerEl[n].cont.style.top=mtickerEl[n].cont.currentTop+"px";
+}
+function nextmTicker(a){//다음
+	var n=(isNaN(a))?a.n-1:a-1;
+	if(!mtickerEl[n])return false;
+	mtickerEl[n].count=0;
+	mtickerEl[n].cont.currentTop-=mtickerEl[n].moveOffset;
+	if(-mtickerEl[n].cont.currentTop>=mtickerEl[n].cont.offsetHeight){
+		mtickerEl[n].cont.currentTop=0;
+	}
+	mtickerEl[n].cont.style.top=mtickerEl[n].cont.currentTop+"px";
+}
+function stopmTicker(a){//멈춤
+	var n=(isNaN(a))?a.n-1:a-1;
+	if(!mtickerEl[n])return false;
+	mtickerEl[n].mtickerOver=true;
+	mtickerEl[n].btnStop=true;
+}
+function playmTicker(a){//시작
+	var n=(isNaN(a))?a.n-1:a-1;
+	if(!mtickerEl[n])return false;
+	mtickerEl[n].mtickerOver=false;
+	mtickerEl[n].btnStop=false;
+}
+/*]]>*/</script>
+</head>
+<body>
+<h1>회전하는 것, 자동 순환 ticker1text1</h1>
+
+<!-- <ol class="num">
+<li>
+</li>
+</ol> -->
+
+<h2>텍스트 一줄 ticker1text1</h2>
+<!-- ticker1text1 -->
+<div id="ticker1text1">
+<h3>배너존</h3>
+<div class="more"><a href="?" title="배너 더보기"><img src="../img/main/more.gif" width="38" height="10" alt="더보기" /></a></div>
+<div id="ticker1text1s">
+<ul id="ticker1text1c">
+<li><a href="?" target="_blank" title="새 창">국가상징 알아보기</a></li>
+<li><a href="?" target="_blank" title="새 창">풍수해 보험제도</a></li>
+<li><a href="?" target="_blank" title="새 창">김해스토리뱅크</a></li>
+<li><a href="?" target="_blank" title="새 창">도로명주소안내</a></li>
+<li><a href="?" target="_blank" title="새 창">김해시선거관리위원회</a></li>
+<li><a href="?" target="_blank" title="새 창">풍수해 보험제도</a></li>
+<li><a href="?" target="_blank" title="새 창">김해스토리뱅크</a></li>
+<li><a href="?" target="_blank" title="새 창">도로명주소안내</a></li>
+</ul>
+</div>
+<script>initmTicker(document.getElementById('ticker1text1s'),document.getElementById('ticker1text1c'),3000);</script>
+<!-- control -->
+<div class="control">
+<a href="#ticker1text1" onclick="prevmTicker(document.getElementById('ticker1text1s'));return false;" title="이전 배너 보기" class="prev"><img src="../img/main/b1prev.gif" width="10" height="10" alt="이전" /></a>
+<a href="#ticker1text1" onclick="nextmTicker(document.getElementById('ticker1text1s'));return false;" title="다음 배너 보기" class="next"><img src="../img/main/b1next.gif" width="10" height="10" alt="다음" /></a>
+<a href="#ticker1text1" onclick="stopmTicker(document.getElementById('ticker1text1s'));return false;" title="배너 순환 정지" class="stop"><img src="../img/main/b1stop.gif" width="10" height="10" alt="정지" /></a>
+<a href="#ticker1text1" onclick="stopmTicker(document.getElementById('ticker1text1s'));return false;" title="배너 순환 시작" class="play"><img src="../img/main/b1stop.gif" width="10" height="10" alt="시작" /></a>
+</div>
+<!-- /control -->
+</div>
+<!-- /ticker1text1 -->
+
+<h2>텍스트 多줄 ticker1text2</h2>
+<!-- ticker1text2 -->
+<div id="ticker1text2">
+<h3>배너존</h3>
+<div class="more"><a href="?" title="배너 더보기"><img src="../img/main/more.gif" width="38" height="10" alt="더보기" /></a></div>
+<div id="ticker1text2s">
+<ul id="ticker1text2c">
+<li><a href="?" target="_blank" title="새 창">일일일일 일일일일</a></li>
+<li><a href="?" target="_blank" title="새 창">이이이이 이이이이</a></li>
+<li><a href="?" target="_blank" title="새 창">삼삼삼삼 삼삼삼삼</a></li>
+<li><a href="?" target="_blank" title="새 창">사사사사 사사사사</a></li>
+<li><a href="?" target="_blank" title="새 창">오오오오 오오오오</a></li>
+<li><a href="?" target="_blank" title="새 창">륙륙륙륙 륙륙륙륙</a></li>
+<li><a href="?" target="_blank" title="새 창">칠칠칠칠 칠칠칠칠</a></li>
+<li><a href="?" target="_blank" title="새 창">팔팔팔팔 팔팔팔팔</a></li>
+<li><a href="?" target="_blank" title="새 창">구구구구 구구구구</a></li>
+</ul>
+</div>
+<script>initmTicker(document.getElementById('ticker1text2s'),document.getElementById('ticker1text2c'),3000);</script>
+<!-- control -->
+<div class="control">
+<a href="#ticker1text2" onclick="prevmTicker(document.getElementById('ticker1text2s'));return false;" title="이전 배너 보기" class="prev"><img src="../img/main/b1prev.gif" width="10" height="10" alt="이전" /></a>
+<a href="#ticker1text2" onclick="nextmTicker(document.getElementById('ticker1text2s'));return false;" title="다음 배너 보기" class="next"><img src="../img/main/b1next.gif" width="10" height="10" alt="다음" /></a>
+<a href="#ticker1text2" onclick="stopmTicker(document.getElementById('ticker1text2s'));return false;" title="배너 순환 정지" class="stop"><img src="../img/main/b1stop.gif" width="10" height="10" alt="정지" /></a>
+<a href="#ticker1text2" onclick="stopmTicker(document.getElementById('ticker1text2s'));return false;" title="배너 순환 시작" class="play"><img src="../img/main/b1play.gif" width="10" height="10" alt="시작" /></a>
+</div>
+<!-- /control -->
+</div>
+<!-- /ticker1text2 -->
+
+<h2>텍스트 이미지 혼합 ticker1text2pict1</h2>
+<!-- ticker1text2pict1 -->
+<div id="ticker1text2pict1">
+<h3>텍스트이미지혼합</h3>
+<div id="ticker1text2pict1s">
+<ul id="ticker1text2pict1c">
+<li class="pic"><a href="?"><img src="../img/win7/3vs1.jpg" width="240" height="80" alt="★대체텍스트" /></a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 해인사  해인사  해인사  해인사  해인사</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 해인사 해인사 해인사 해인사 해인사</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 해인사  해인사  해인사  해인사  해인사</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 해인사 해인사 해인사 해인사 해인사</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+<li class="pic"><a href="?"><img src="../img/win7/3vs1.jpg" width="240" height="80" alt="★대체텍스트" /></a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 2페이지  2페이지  2페이지  2페이지  2페이지</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 2페이지 2페이지 2페이지 2페이지 2페이지</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 2페이지  2페이지  2페이지  2페이지  2페이지</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 2페이지 2페이지 2페이지 2페이지 2페이지</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+<li class="pic"><a href="?"><img src="../img/win7/3vs1.jpg" width="240" height="80" alt="★대체텍스트" /></a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 해인사  3페이지  3페이지  3페이지  3페이지</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 3페이지 3페이지 3페이지 3페이지 3페이지</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+<li><a href="?">
+<strong class="t1">소리길 따라 걸어본 합천 3페이지  3페이지  3페이지  3페이지  3페이지</strong>
+<span class="t2">원문: 소리길 따라 걸어본 합천 3페이지 3페이지 3페이지 3페이지 3페이지</span>
+<span class="t3">출처: ttp://blog.daum.net/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/chdl1/</span>
+</a></li>
+</ul>
+</div>
+<script>initmTicker(document.getElementById('ticker1text2pict1s'),document.getElementById('ticker1text2pict1c'),9000);</script>
+<!-- control -->
+<div class="control">
+<a href="#ticker1text2pict1" onclick="prevmTicker(document.getElementById('ticker1text2pict1s'));return false;" title="이전 텍스트이미지혼합 보기" class="prev"><img src="../img/main/b1prev.gif" width="10" height="10" alt="이전" /></a>
+<a href="#ticker1text2pict1" onclick="nextmTicker(document.getElementById('ticker1text2pict1s'));return false;" title="다음 텍스트이미지혼합 보기" class="next"><img src="../img/main/b1next.gif" width="10" height="10" alt="다음" /></a>
+<a href="#ticker1text2pict1" onclick="stopmTicker(document.getElementById('ticker1text2pict1s'));return false;" title="텍스트이미지혼합 순환 멈춤" class="stop"><img src="../img/main/b1stop.gif" width="10" height="10" alt="멈춤" /></a>
+<a href="#ticker1text2pict1" onclick="playmTicker(document.getElementById('ticker1text2pict1s'));return false;" title="텍스트이미지혼합 순환 시작" class="play"><img src="../img/main/b1play.gif" width="10" height="10" alt="시작" /></a>
+</div>
+<!-- /control -->
+<div class="more"><a href="?" title="텍스트이미지혼합 더보기"><img src="../img/main/b2more.gif" width="12" height="12" alt="더보기" /></a></div>
+</div>
+<!-- /ticker1text2pict1 -->
+
+
+
+<br />
+<hr />
+<p>Revision. 20120814.</p>
+
+</body>
+</html>

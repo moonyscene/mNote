@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>flexbox</title>
+<link rel="stylesheet" type="text/css" href="../../share/font-awesome/css/font-awesome_@m.valid.css">
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/lib.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/mNote.v2.css" /> <!-- ◇◆ -->
+<style type="text/css">/*<![CDATA[*/
+
+	/* Base */
+	*,
+	*:before,
+	*:after { box-sizing: border-box; }
+
+	body {
+		background:#fafafa;
+		color:#444;
+		font-size:1em;
+		line-height:1.75;
+		letter-spacing:0;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: .175em;
+		margin-bottom: 0.375em;
+		line-height: 1.375;
+		color: #222;
+		font-weight: 700;
+		font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+		font-style: normal;
+		text-rendering: optimizeLegibility;
+	 }
+	code {
+		padding:.0875em .25em;
+		border: 1px solid #c7e7ed;
+		border-style: solid;
+		border-color: #c7e7ed;
+		background-color: #ecf6f9;
+		color: #333;
+		font-weight: normal;
+		font-family: Consolas, 'Liberation Mono', Courier, monospace;
+	}
+	pre {
+		padding: 0;
+		font-size: 13px;
+		font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+		line-height: 1.5;
+	}
+	pre code {
+		padding: 0;
+		border: none;
+		background: none;
+		font-size: inherit;
+		border-radius: none;
+	}
+	hr { margin:2em 0; }
+
+	/* Lib */
+	.row { width:100%;margin:0 auto;
+		max-width:960px; /* ☆ */
+	 }
+	.row:before,
+	.row:after { content:" ";display:table; }
+	.row:after { clear:both; }
+	.column { float:left;position:relative;width:100%;padding:0 1.5rem; }
+	.inline-list { list-style:none;margin-left:-1.333em;padding:0;overflow:hidden; }
+	.inline-list > li { float:left;margin-left:1.333em; }
+	.highlight.highlight { display:block;
+		margin:0 0 1.333em;
+		padding:.333em .666em;
+		background:#f7f7f7;color:#333;
+		overflow-x: auto;
+	 }
+	/* ◇◆ */
+	@media all and (min-width: 768px)  {
+		.medium-1 { width:8.333%; }
+		.medium-2 { width:16.667%; }
+		.medium-3 { width:25%; }
+		.medium-4 { width:33.333%; }
+		.medium-5 { width:41.667%; }
+		.medium-6 { width:50%; }
+		.medium-7 { width:58.333%; }
+		.medium-8 { width:66.667%; }
+		.medium-9 { width:75%; }
+		.medium-10 { width:83.333%; }
+		.medium-11 { width:91.667%; }
+		.medium-12 { width:100%; }
+	 }
+
+	/* Layout */
+	#container { min-width:320px;margin:0 auto;
+		/* padding:0 1em; */
+		overflow-x:hidden;
+	 }
+		#header { padding:1em 0;background:#579;line-height:1.375; }
+		#wrapper { padding:1.75em 0 3em;background:#fff; }
+			#sidebar {
+				line-height:1.375;
+			}
+		#footer { padding:1em 0;background:#959595;line-height:1.375; }
+
+	#logo { margin:0;color:#fff; }
+	#logo a { color:inherit; }
+
+	.main-nav {  }
+	.main-nav a { color:#fff; }
+
+	a.toggle-sidebar { display:inline-block;
+		margin:0 0 1em;
+		color:#579;
+		font-weight:600;
+		text-decoration:underline;
+	 }
+	a.toggle-sidebar .ic1 {
+		transform: rotate(-90deg);
+		transition:.2s;
+		font-size:20px;
+		vertical-align:middle;
+	 }
+	a.toggle-sidebar.on .ic1 {
+		transform: rotate(90deg);
+	 }
+	a.toggle-sidebar .t1 {
+		/* vertical-align:middle; */
+	 }
+
+	.side-h2 { margin:0 0 .666em;font-size:14px; }
+	.side-nav { list-style:none;margin:0 0 1em;padding:0; }
+	.side-nav > li { margin:0 0 1px;padding:0; }
+	.side-nav > li > a { display:block;
+		margin:0 .666em 0 -.666em;
+		padding:.333em .666em;
+		font-size:13px;
+		text-decoration:underline;
+	 }
+	.side-nav > li > a:hover { background:rgba(0,0,0, .02);
+		text-decoration:none;
+	 }
+
+	.foot-nav { float:left; margin-top:0;margin-bottom:.666em;font-size:12px; }
+	.foot-nav a { color:#fff; }
+
+	#address{ clear:both; float:left;color:#fff;font-size:12px; }
+
+	#foot-logo{ float:right;color:#fff;font-size:12px; }
+
+	/* ◇◆ */
+	@media all and (min-width: 768px)  {
+		#sidebar {
+			/* position:fixed; */
+		}
+		.main-nav { float:right; }
+	 }
+/*]]>*/</style>
+<!-- ☆(take) -->
+<script src="../../share/js/iscroll-min.js"></script>
+<script src="../../share/js/hammer.min.js"></script> <!-- ◇◆ -->
+<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script src="../../share/js/jquery-1.12.4.min.js"></script>
+<script src="../../share/js/jquery.easing.1.3.js"></script>
+<!--[if lt IE 9]>
+<script src="../../share/js/html5shiv.min.js"></script>
+<script src="../../share/js/selectivizr.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<script src="../../share/js/jquery.backgroundSize.js"></script>
+<![endif]-->
+<!-- ☆(make) -->
+<script src="../../share/js/jq.js"></script>
+<script src="../../share/js/mNote.v2.js"></script> <!-- ◇◆ -->
+<script>/*<![CDATA[*/
+(function() {
+	$(function() {
+
+	 });
+ }());
+/*]]>*/</script>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+<!-- header -->
+<div id="header">
+<!-- row -->
+<div class="row">
+<!-- column -->
+<div class="column medium-4">
+
+	<h1 id="logo" class="hb0"><a href="/">flexbox</a></h1>
+
+</div>
+<!-- /column -->
+<!-- column -->
+<div class="column medium-8">
+
+	<ul class="main-nav inline-list">
+	<li><a href="/#getting-started">Docs</a></li>
+	<li><a href="/#try-it">Try it</a></li>
+	<li><a href="/#support">Support</a></li>
+	<li><a href="/#contribute">Contribute</a></li>
+	<li><a href="/#team">Team</a></li>
+	</ul>
+
+</div>
+<!-- /column -->
+</div>
+<!-- /row -->
+</div>
+<!-- /header -->
+<!-- wrapper -->
+<div id="wrapper">
+<!-- row -->
+<div class="row">
+<!-- column -->
+<div class="column medium-3">
+
+<a href="#sidebar" class="toggle-sidebar toggle hide-medium">
+	<i class="ic1 fa fa-arrow-circle-o-left"></i>
+	<span class="t1">Toggle navigation</span>
+</a>
+
+
+<!-- sidebar -->
+<div id="sidebar">
+	<h4 class="side-h2"><a href="#FlexContainer">Flex Container</a></h4>
+	<ul class="side-nav">
+		<li><a href="#display">display</a></li>
+		<li><a href="#flex-direction">flex-direction</a></li>
+		<li><a href="#flex-wrap">flex-wrap</a></li>
+		<li><a href="#justify-content">justify-content</a></li>
+		<li><a href="#align-items">align-items</a></li>
+		<li><a href="#align-content">align-content</a></li>
+	</ul>
+	<h4 class="side-h2"><a href="#FlexItems">Flex Items</a></h4>
+	<ul class="side-nav">
+		<li><a href="#order">order</a></li>
+		<li><a href="#flex-grow">flex-grow</a></li>
+		<li><a href="#flex-shrink">flex-shrink</a></li>
+		<li><a href="#flex-basis">flex-basis</a></li>
+		<li><a href="#flex">flex</a></li>
+		<li><a href="#align-self">align-self</a></li>
+	</ul>
+	<h4 class="side-h2"><a href="#BrowserSupport">Browser Support</a></h4>
+	<h4 class="side-h2"><a href="#Demo">Demo</a></h4>
+	<ul class="side-nav">
+		<li><a href="#order">Image Grid</a> (핀터레스트 배치 유사)</li>
+	</ul>
+</div>
+<!-- /sidebar -->
+
+
+</div>
+<!-- /column -->
+<!-- column -->
+<div class="column medium-9">
+
+
+
+
+
+<!-- ★여기에본문내용마크업 -->
+<h1>flexbox</h1>
+
+
+<!-- panel1 -->
+<div class="panel1">
+	<ol class="bo mg0">
+	<li>20170209. <a href="http://daumui.tistory.com/44" target="_blank" title="새 창">flexbox - [다룸, Darum - 웹표준을 다루다]</a>
+		여기 예제 소스 시험! <em class="em">[IE11+]</em><br />
+	</li>
+	<li>20170210. ※ <a href="http://www.beautifulcss.com/archives/2812" target="_blank" title="새 창">Beautiful CSS  &raquo; 포지셔닝 : Flexbox</a><br /></li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="big">Bug)</strong>
+	<ol class="bo mg0">
+	<li>[IE11] 플렉스 아이템이 position:absolute; 값일 때도 플렉스 아이템으로 배치된다.</li>
+	<li>
+		[IE11] input type="text" 이 flex:auto; 처럼 배치되지 않고 범위를 벗어남.<br />
+		)))Fix) size="4" 처럼 작은 값을 넣어주니 해결
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<!-- /* ◇◆ CSS ◇◆ body > style 태그는 비표준이지만, 편의상 */ -->
+<style type="text/css">/*<![CDATA[*/
+[class*="container"] {
+	display:flex;
+	margin:0 0 1em;
+	background:#eee;
+ }
+[class*="container"] [class*="item"] {
+	padding:.5em 1em;
+	background:#ee0;
+	text-align:center;
+ }
+[class*="container"] .item1 { background:#ec0; }
+[class*="container"] .item2 { background:#ce0; }
+[class*="container"] .item3 { background:#0ec; }
+[class*="container"] .item4 { background:#0ce; }
+[class*="container"] .item5 { background:#c9e; }
+[class*="container"] .item6 { background:#e9c; }
+[class*="container"] .item7 { background:#fb0; }
+[class*="container"] .item8 { background:#bf0; }
+[class*="container"] .item9 { background:#0fb; }
+[class*="container"] .item10 { background:#0bf; }
+[class*="container"] .item11 { background:#b9f; }
+[class*="container"] .item12 { background:#f9b; }
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="FlexContainer">Flex Container (Properties for the Parent) <small class="fw5">- 컨테이너 속성</small></h2>
+
+
+<h3 class="hb1 h3" id="display">display</h3>
+
+<pre>
+<code class="xmp">
+.container { display: flex } /* 블록 배치 */
+.container { display: inline-flex } /* 인라인 배치 */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container11 { display:flex; }
+.container12 { display:inline-flex; }
+/*]]>*/</style>
+
+<h4 class="hb1 h4">flex</h4>
+<div class="container11">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+<h4 class="hb1 h4">inline-flex</h4>
+<div class="container12">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+
+<h3 class="hb1 h3" id="flex-direction">flex-direction</h3>
+
+<pre>
+<code class="xmp">
+.container { <em class="em">flex-direction: row</em> } /* 기본값 : 좌에서 우로 */
+.container { flex-direction: row-reverse } /* 우에서 좌로 */
+.container { flex-direction: column } /* 위에서 아래로 */
+.container { flex-direction: column-reverse } /* 아래서 위로 */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container21 { flex-direction: row }
+.container22 { flex-direction: row-reverse }
+.container23 { flex-direction: column }
+.container24 { flex-direction: column-reverse }
+/*]]>*/</style>
+
+<h4 class="hb1 h4">row</h4>
+<div class="container21">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+<h4 class="hb1 h4">row-reverse</h4>
+<div class="container22">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+<h4 class="hb1 h4">column</h4>
+<div class="container23">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+<h4 class="hb1 h4">column-reverse</h4>
+<div class="container24">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item3">item3</span>
+	<span class="item4">item4</span>
+</div>
+
+
+<h3 class="hb1 h3" id="flex-wrap">flex-wrap</h3>
+
+<pre>
+<code class="xmp">
+.container { <em class="em">flex-wrap: nowrap</em> } /* 기본값 : 단일라인 왼쪽에서 오른쪽으로 */
+.container { flex-wrap: wrap } /* 멀티라인 왼쪽에서 오른쪽으로 */
+.container { flex-wrap: wrap-reverse } /* 멀티라인 아래서 위로 */
+</code>
+</pre>
+
+
+<style type="text/css">/*<![CDATA[*/
+.container31 { flex-wrap: nowrap }
+.container32 { flex-wrap: wrap }
+.container33 { flex-wrap: wrap-reverse }
+/*]]>*/</style>
+
+<h4 class="hb1 h4">nowrap</h4>
+<div class="container31">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span><span class="item4">item4</span><span class="item5">item5</span><span
+	class="item6">item6</span><span class="item7">item7</span><span class="item8">item8</span><span class="item9">item9</span><span class="item10">item10</span><span
+	class="item11">item11</span><span class="item12">item12</span>
+</div>
+<div class="container31">
+	<span class="item1">아이템1</span><span class="item2">아이템2</span><span class="item3">아이템3</span><span class="item4">아이템4</span><span class="item5">아이템5</span><span
+	class="item6">아이템6</span><span class="item7">아이템7</span><span class="item8">아이템8</span><span class="item9">아이템9</span><span class="item10">아이템10</span><span
+	class="item11">아이템11</span><span class="item12">아이템12</span>
+</div>
+
+<h4 class="hb1 h4">wrap</h4>
+<div class="container32">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span><span class="item4">item4</span><span class="item5">item5</span><span
+	class="item6">item6</span><span class="item7">item7</span><span class="item8">item8</span><span class="item9">item9</span><span class="item10">item10</span><span
+	class="item11">item11</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">wrap-reverse</h4>
+<div class="container33">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span><span class="item4">item4</span><span class="item5">item5</span><span
+	class="item6">item6</span><span class="item7">item7</span><span class="item8">item8</span><span class="item9">item9</span><span class="item10">item10</span><span
+	class="item11">item11</span><span class="item12">item12</span>
+</div>
+
+
+<h3 class="hb1 h3" id="justify-content">justify-content</h3>
+
+<pre>
+<code class="xmp">
+.container { <em class="em">justify-content: flex-start</em> } /* 기본값 : 수평 좌측 정렬 */
+.container { justify-content: flex-end } /* 수평 우측 정렬 */
+.container { justify-content: center } /* 수평 중앙 정렬 */
+.container { justify-content: space-between } /* 아이템들간의 간격을 동일하게 수평 양측 정렬 */
+.container { justify-content: space-around } /* 아이템들의 좌우 여백을 동일하게 정렬 (여백은 안 겹친다) */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container41 { justify-content: flex-start }
+.container42 { justify-content: flex-end }
+.container43 { justify-content: center }
+.container44 { justify-content: space-between }
+.container45 { justify-content: space-around }
+/*]]>*/</style>
+
+<h4 class="hb1 h4">flex-start</h4>
+<div class="container41">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+<h5 class="hb1 h5">stretch 표현</h5>
+
+<h6 class="hb1 h6">Flex Items {flex:auto;}</h6>
+
+<div class="container41">
+	<span class="item1" style="flex:auto;">item1</span>
+	<span class="item2" style="flex:auto;">item2 내용폭 다름</span>
+	<span class="item3" style="flex:auto;">item3</span>
+</div>
+
+<h6 class="hb1 h6">Flex Items {flex-grow:1}</h6>
+
+<div class="container41">
+	<span class="item1" style="flex-grow:1;">item1</span>
+	<span class="item2" style="flex-grow:1;">item2 내용폭 다름</span>
+	<span class="item3" style="flex-grow:1;">item3</span>
+</div>
+
+<h6 class="hb1 h6">Flex Items {flex-grow:1} {flex-grow:2} {flex-grow:1}</h6>
+
+<div class="container41">
+	<span class="item1" style="flex-grow:1;">item1</span>
+	<span class="item2" style="flex-grow:2;">item2 내용폭 다름</span>
+	<span class="item3" style="flex-grow:1;">item3</span>
+</div>
+
+
+<h6 class="hb1 h6">Flex Items {width:100%;}</h6>
+
+<div class="container41">
+	<span class="item1" style="width:100%;">item1</span>
+	<span class="item2" style="width:100%;">item2 내용폭 다름</span>
+	<span class="item3" style="width:100%;">item3</span>
+</div>
+
+
+
+
+
+<h4 class="hb1 h4">flex-end</h4>
+<div class="container42">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+<h4 class="hb1 h4">center</h4>
+<div class="container43">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+<h4 class="hb1 h4">space-between</h4>
+<div class="container44">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+<h5 class="hb1 h5">부가설명</h5>
+<h6 class="hb1 h6">item1 하나 밖에 없다면</h6>
+<div class="container44">
+	<span class="item1">item1</span>
+</div>
+<h6 class="hb1 h6">item1 하나 밖에 없는데 컨테이너에 :before{content:''} 과 :after{content:''} 있다면</h6>
+<div class="container44 clearfix">
+	<span class="item1">item1</span>
+</div>
+
+<h4 class="hb1 h4">space-around</h4>
+<div class="container45">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+
+<h3 class="hb1 h3" id="align-items">align-items</h3>
+
+<pre>
+<code class="xmp">
+.container { <em class="em">align-items: stretch</em> } /* 기본값 : 컨테이너 높이로 늘임 */
+.container { align-items: flex-start } /* 수직 상단 정렬 */
+.container { align-items: flex-end } /* 수직 하단 정렬 */
+.container { align-items: center } /* 수직 중앙 정렬 */
+.container { align-items: baseline } /* 아이템들의 인라인요소(텍스트)들이 기준선 정렬 */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container51 { height:200px; align-items: stretch }
+.container52 { height:200px; align-items: flex-start }
+.container53 { height:200px; align-items: flex-end }
+.container54 { height:200px; align-items: center }
+.container55 { height:200px; align-items: baseline }
+/*]]>*/</style>
+
+<h4 class="hb1 h4">stretch</h4>
+<div class="container51">
+	<span class="item1">item1<br />item1<br />item1<br />item1<br />item1</span>
+	<span class="item2">item2<br />item2<br />item2</span>
+	<span class="item3">item3<br />item3</span>
+	<span class="item4">item4<br />item4<br />item4<br />item4</span>
+</div>
+
+<h4 class="hb1 h4">flex-start</h4>
+<div class="container52">
+	<span class="item1">item1<br />item1<br />item1<br />item1<br />item1</span>
+	<span class="item2">item2<br />item2<br />item2</span>
+	<span class="item3">item3<br />item3</span>
+	<span class="item4">item4<br />item4<br />item4<br />item4</span>
+</div>
+
+<h4 class="hb1 h4">flex-end</h4>
+<div class="container53">
+	<span class="item1">item1<br />item1<br />item1<br />item1<br />item1</span>
+	<span class="item2">item2<br />item2<br />item2</span>
+	<span class="item3">item3<br />item3</span>
+	<span class="item4">item4<br />item4<br />item4<br />item4</span>
+</div>
+
+<h4 class="hb1 h4">center</h4>
+<div class="container54">
+	<span class="item1">item1<br />item1<br />item1<br />item1<br />item1</span>
+	<span class="item2">item2<br />item2<br />item2</span>
+	<span class="item3">item3<br />item3</span>
+	<span class="item4">item4<br />item4<br />item4<br />item4</span>
+</div>
+
+<h4 class="hb1 h4">baseline</h4>
+<div class="container55">
+	<span class="item1" style="height:10em;line-height:6;">item1</span><span class="item2" style="height:6em;line-height:3;">item2</span><span class="item3" style="height:4em;line-height:2;">item3</span><span class="item4" style="height:8em;line-height:3;">item4</span>
+</div>
+
+
+<h3 class="hb1 h3" id="align-content">align-content</h3>
+
+<pre>
+<code class="xmp">
+.container { <em class="em">align-content: stretch</em> } /* 기본값 : 꽉차게 노출 */
+.container { align-content: flex-start } /* 위로 정렬 */
+.container { align-content: flex-end } /* 아래로 정렬 */
+.container { align-content: center } /* 가운데로 정렬 */
+.container { align-content: space-between } /* 라인들간의 공간을 동일하게 주며 정렬 */
+.container { align-content: space-around } /* 라인들간의 상하여백을 동일하게 주며 정렬(여백은 겹치지 않습니다.) */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container61 { height:200px; flex-wrap: wrap; align-content: stretch } /* 기본값 : 꽉차게 노출 */
+.container62 { height:200px; flex-wrap: wrap; align-content: flex-start } /* 위로 정렬 */
+.container63 { height:200px; flex-wrap: wrap; align-content: flex-end } /* 아래로 정렬 */
+.container64 { height:200px; flex-wrap: wrap; align-content: center } /* 가운데로 정렬 */
+.container65 { height:200px; flex-wrap: wrap; align-content: space-between } /* 라인들간의 공간을 동일하게 주며 정렬 */
+.container66 { height:200px; flex-wrap: wrap; align-content: space-around } /* 라인들간의 상하여백을 동일하게 주며 정렬(여백은 겹치지 않습니다.) */
+/*]]>*/</style>
+
+<h4 class="hb1 h4">stretch</h4>
+<div class="container61">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">flex-start</h4>
+<div class="container62">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">flex-end</h4>
+<div class="container63">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">center</h4>
+<div class="container64">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">space-between</h4>
+<div class="container65">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+<h4 class="hb1 h4">space-around</h4>
+<div class="container66">
+	<span class="item1">item1</span><span class="item2">item2 mmmm</span><span class="item3">item3 mm</span><span class="item4">item4 mmm</span><span class="item5">item5 mmmmm</span><span
+	class="item6">item6 mm</span><span class="item7">item7 mmm</span><span class="item8">item8 mmm</span><span class="item9">item9 mmmm</span><span class="item10">item10 mm</span><span
+	class="item11">item11 mmmmm</span><span class="item12">item12</span>
+</div>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="FlexItems">Flex Items (Properties for the Children) <small class="fw5">- 아이템 속성</small></h2>
+
+<h3 class="hb1 h3" id="order">order</h3>
+
+<pre>
+<code class="xmp">
+.item1 { order: 2 }
+.item2 { order: 4 }
+.item3 { order: 1 }
+.item4 { order: 5 }
+.item5 { order: 3 }
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container71 .item1 { order: 2 }
+.container71 .item2 { order: 4 }
+.container71 .item3 { order: 1 }
+.container71 .item4 { order: 5 }
+.container71 .item5 { order: 3 }
+/*]]>*/</style>
+
+<div class="container71">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span><span class="item4">item4</span><span class="item5">item5</span>
+</div>
+
+
+<h3 class="hb1 h3" id="flex-grow">flex-grow</h3>
+
+<pre>
+<code class="xmp">
+.item1 { flex-grow: 1 }
+.item2 { flex-grow: 2 }
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container81 .item1 { flex-grow: 1 }
+.container81 .item2 { flex-grow: 2 }
+/*]]>*/</style>
+
+<p><em class="em">표현? 아이템 너비가 1 : 2 는 아니다.</em></p>
+
+<div class="container81">
+	<span class="item1">item1</span>
+	<span class="item2">item2</span>
+	<span class="item1">item1</span>
+</div>
+
+<p>아이템 내용이 넘쳐 2줄 이상되면.. 너비가 등분된다.</p>
+
+<div class="container81">
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+	<span class="item2">item2 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+</div>
+
+<p>일부 아이템 내용만 길어지면.. </p>
+
+<div class="container81">
+	<span class="item1">item1</span>
+	<span class="item2">item2 내용이 길어지면 어떻게 표현되는지 확인하라. 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+</div>
+
+<div class="container81">
+	<span class="item1">item1</span>
+	<span class="item2">item2 내용이 길어지면 어떻게 표현되는지 확인하라. 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 확인하라. 내용이 길어지면 어떻게 표현되는지 확인하라.</span>
+</div>
+
+<p>아이템 내용이 없으면 너비가 1 : 2 에 근접한다.</p>
+
+<div class="container81">
+	<span class="item1" style="padding:.5em 0;"></span>
+	<span class="item2" style="padding:.5em 0;"></span>
+	<span class="item1" style="padding:.5em 0;"></span>
+</div>
+
+<p><em class="em">표현? 좌우 패딩 0 해봐도 너비는 1 : 2 가 아니다.</em></p>
+
+<div class="container81">
+	<span class="item1" style="padding:.5em 0;">item1</span><span class="item2" style="padding:.5em 0;">item2</span><span class="item1" style="padding:.5em 0;">item1</span>
+</div>
+
+<p>좌우 패딩 0 이고 아이템 내용이 없으니 너비가 1 : 2 가 된다. (단, 소수점 계산 1px 오차 있을 수 있음)</em></p>
+
+<div class="container81">
+	<span class="item1" style="padding:.5em 0;"></span>
+	<span class="item2" style="padding:.5em 0;"></span>
+	<span class="item1" style="padding:.5em 0;"></span>
+</div>
+
+
+<h4 class="hb1 h4">연구결과) 좌우 패딩과 내용 없으면 너비는 flex-grow 값과 같다.</h4>
+
+<pre>
+<code class="xmp">
+.item1 { flex-grow: 1 }
+.item2 { flex-grow: 2 }
+.item3 { flex-grow: 1 }
+.item4 { flex-grow: 3 }
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container82 .item1 { flex-grow: 1 }
+.container82 .item2 { flex-grow: 2 }
+.container82 .item3 { flex-grow: 1 }
+.container82 .item4 { flex-grow: 3 }
+/*]]>*/</style>
+
+<div class="container82">
+	<span class="item1" style="padding:.5em 0;"></span>
+	<span class="item2" style="padding:.5em 0;"></span>
+	<span class="item3" style="padding:.5em 0;"></span>
+	<span class="item4" style="padding:.5em 0;"></span>
+</div>
+
+
+<h3 class="hb1 h3" id="flex-shrink">flex-shrink</h3>
+
+<pre>
+<code class="xmp">
+.item1 { flex-shrink: 1 }
+.item2 { flex-shrink: 3 }
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container91 .item1 { flex-shrink: 1 }
+.container91 .item2 { flex-shrink: 3 }
+/*]]>*/</style>
+
+<div class="container91">
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 대략 알 수 있다.</span>
+	<span class="item2">item2 내용이 길어지면 어떻게 표현되는지 대략 알 수 있다.</span>
+	<span class="item1">item1 내용이 길어지면 어떻게 표현되는지 대략 알 수 있다.</span>
+</div>
+
+
+<h3 class="hb1 h3" id="flex-basis">flex-basis</h3>
+
+<pre>
+<code class="xmp">
+.item1 { flex-basis: 6em }
+.item2 { flex-basis: 33.333% }
+.item3 { flex-basis: 80px }
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container101 .item1 { flex-basis: 6em }
+.container101 .item2 { flex-basis: 33.333% }
+.container101 .item3 { flex-basis: 80px }
+/*]]>*/</style>
+
+<div class="container101">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3LongLengthText</span><span class="item1">item1 내용이 많으면 높이가 늘어나고 다른 아이템도 따라간다</span>
+</div>
+
+<ol class="bo">
+<li><em class="em">[IE~11]bug)</em> item3LongLengthText 처럼 영숫자 1단어가 flex-basis 보다 길면 아이템 영역을 뚫고 나옴.</li>
+</ol>
+
+
+<h3 class="hb1 h3" id="flex">flex</h3>
+
+※ 이거보시오! ))) <a href="https://developer.mozilla.org/ko/docs/Web/CSS/flex" target="_blank" rel="noopener" title="새 창">
+	flex
+</a> - MDN -
+
+
+<p>축약 속성 <b class="em2">{ flex : flex-grow flex-shrink flex-basis; }</b> 기본값 <em class="em">flex:0 1 auto;</em> 이고, flex-shrink 와 flex-basis 값은 선택사항이다.</p>
+
+<pre>
+<code class="xmp">
+.item { <em class="em">flex: 0 1 auto</em> } /* 기본값 flex: initial; ( flex-grow | flex-shrink | flex-basis ) */
+.item { flex: auto } /* <em class="em">flex: 1 1 auto;</em> */
+.item { flex: none } /* <em class="em">flex: 0 0 auto;</em> */
+.item { flex: 2 } /* flex: 2 1 0; */
+.item { flex: 30% } /* flex: 1 1 30%; */
+.item { flex: 2 2 } /* flex: 2 2 0; */
+.item { flex: 2 30% } /* flex: 2 1 30%; */
+.item { flex: 2 2 30% } /* flex-grow | flex-shrink | flex-basis */
+</code>
+</pre>
+
+
+<p><em class="em">20170213. 브라우저 표현? 정확히 알 수 없음.<br /></em>
+	flex-shrink 은 구현 여부는 모르겠으니.. 일단 제쳐두고..<br />
+	flex-basis 너비보다 내용이 작으면 flex-basis 값이 적용되고..<br />
+	flex-basis 너비보다 내용이 크면 flex-grow 가 가동된다고 생각했으나 아니었음.<br />
+</p>
+
+<style type="text/css">/*<![CDATA[*/
+/* .container111 .item1 { flex: 1 30px } */
+/* .container111 .item2 { flex: 2 2 } */
+/* .container111 .item3 { flex: 3 2 10% } */
+/*]]>*/</style>
+
+<h4 class="hb1 h4">.item2 { flex: 2 2 }</h4>
+
+<div class="container111">
+	<span class="item1">item1</span><span class="item2">item2</span><span class="item3">item3</span>
+</div>
+
+<h4 class="hb1 h4">.item2 { flex: auto }</h4>
+
+<div class="container111">
+	<span class="item1">item1</span><span class="item2" style="flex: auto;">item2</span><span class="item3">item3</span>
+</div>
+
+<h4 class="hb1 h4">.item2 { flex: none }</h4>
+
+<div class="container111">
+	<span class="item1">item1</span><span class="item2" style="flex: none;">item2</span><span class="item3">item3</span>
+</div>
+
+<h4 class="hb1 h4">.item1 { flex: 1 } .item2 { flex: 1 } .item3 { flex: 1 }</h4>
+
+<div class="container111">
+	<span class="item1" style="flex: 1;">item1</span><span class="item2" style="flex: 1;">item2 item2 item2 item2 item2 item2</span><span class="item3" style="flex: 1;">item3</span>
+</div>
+
+<h4 class="hb1 h4">.item1 { flex-grow: 1 } .item2 { flex-grow: 1 } .item3 { flex-grow: 1 }</h4>
+
+<div class="container111">
+	<span class="item1" style="flex-grow: 1;">item1</span><span class="item2" style="flex-grow: 1;">item2 item2 item2 item2 item2 item2</span><span class="item3" style="flex-grow: 1;">item3</span>
+</div>
+
+
+<h4 class="hb1 h4">.item1 { flex-shrink: 1 } .item2 { flex-shrink: 1 } .item3 { flex-shrink: 1 }</h4>
+
+<div class="container111">
+	<span class="item1" style="flex-shrink: 1;">item1</span><span class="item2" style="flex-shrink: 1;">item2 item2 item2 item2 item2 item2</span><span class="item3" style="flex-shrink: 1;">item3</span>
+</div>
+
+
+
+<h4 class="hb1 h4">.item1 { flex-basis: 1 } .item2 { flex-basis: 1 } .item3 { flex-basis: 1 }</h4>
+
+<div class="container111">
+	<span class="item1" style="flex-basis: 1;">item1</span><span class="item2" style="flex-basis: 1;">item2 item2 item2 item2 item2 item2</span><span class="item3" style="flex-basis: 1;">item3</span>
+</div>
+
+
+
+<h3 class="hb1 h3" id="align-self">align-self</h3>
+
+<pre>
+<code class="xmp">
+.item1 { <em class="em">align-self: stretch</em> } /* 컨테이너 높이로 늘임 (기본값) */
+.item2 { align-self: flex-start } /* 컨테이너 상단 위치 */
+.item3 { align-self: flex-end } /* 컨테이너 하단 위치 */
+.item4 { align-self: center } /* 컨테이너 수직 중앙 위치 */
+.item5 { align-self: baseline } /* 아이템들의 인라인요소(텍스트)들이 기준선 위치 */
+.item6 { align-self: initial } /* 이 속성의 기본값을 따름 */
+.item7 { align-self: inherit } /* 부모 요소로부터 값을 상속 받음 */
+</code>
+</pre>
+
+<style type="text/css">/*<![CDATA[*/
+.container121 { height:200px; }
+.container121 .item { width:100px; }
+.container121 .item1 { align-self: stretch }
+.container121 .item2 { align-self: flex-start }
+.container121 .item3 { align-self: flex-end }
+.container121 .item4 { align-self: center }
+.container121 .item5 { align-self: baseline }
+.container121 .item6 { align-self: initial }
+.container121 .item7 { align-self: inherit }
+/*]]>*/</style>
+
+<div class="container121">
+	<span class="item item1">stretch</span>
+	<span class="item item2">flex-start</span>
+	<span class="item item3">flex-end</span>
+	<span class="item item4">center</span>
+	<span class="item item5">baseline</span>
+	<span class="item item6">initial</span>
+	<span class="item item7">inherit</span>
+</div>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="BrowserSupport">Browser Support</h2>
+
+
+<table class="t2 w100 tttac tt1tal ttvam lhD">
+<caption class="pd0">
+	<strong class="h1">브라우저 지원현황 [IE11+]</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<thead>
+<tr>
+<th scope="col">Property</th>
+<th scope="col">Chrome<br>-webkit-</th>
+<th scope="col">IE</th>
+<th scope="col">Firefox<br>-moz-</th>
+<th scope="col">Safari<br>-webkit-</th>
+<th scope="col">Opera<br>-o-</th>
+<th scope="col">prefix를 이용한 지원</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">
+<p>display</p>
+<p>flex-direction</p>
+<p>flex-wrap</p>
+<p>flex-flow</p>
+<p>justify-content</p>
+<p>order</p>
+<p>flex-grow</p>
+<p>flex-shrink</p>
+<p>flex-basis</p>
+<p>flex</p>					
+</th>
+<td>29.0</td>
+<td rowspan="3">11.0</td>
+<td>28.0</td>
+<td rowspan="3">9.0</td>
+<td>17.0</td>
+<td>
+<p>Chrome 21.0</p>
+<p>safari 6.1</p>
+<p>FF 18.0</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p>align-items</p>
+<p>align-self</p>
+</th>
+<td rowspan="2">21.0</td>
+<td>20.0</td>
+<td rowspan="2">12.1</td>
+<td rowspan="2">
+<p>Safari 7.0</p>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<p>align-content</p>
+</th>
+<td>28.0</td>
+</tr>																	
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Demo">Demo</h2>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆-->
+<h3 class="hb1 h3 dpib">Image Grid</h3>
+<span class="dpib">(핀터레스트 배치 유사)</span>
+
+
+<div class="demo01 row"> 
+  <div class="column">
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/apples-490474_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/autumn-200293_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/baby-501630_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/beach-84533_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/beach-801808_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/beautiful-71493_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/panoramic-624239_320.jpg" alt="★대체텍스트필수" />
+  </div>
+  <div class="column">
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/bike-602012_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/brothers-457237_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/child-542038_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/church-781998_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/coffee-640647_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/dandelion-793275_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/panorama-847370_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/person-809598_320.jpg" alt="★대체텍스트필수" />
+  </div> 
+  <div class="column">
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/dinant-832508_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/frankfurt-285629_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/girl-545510_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/girl-852123_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/grapes-690230_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/house-773527_320.jpg" alt="★대체텍스트필수" />
+  </div>
+  <div class="column">
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/ice-cream-700542_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/koala-630117_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/little-girls-walking-773024_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/mother-84628_320.jpg" alt="★대체텍스트필수" />
+    <img src="http://www.iacts.co.kr/+m/_lib/_img.ex/w320/museum-777998_320.jpg" alt="★대체텍스트필수" />
+  </div>
+</div>
+
+
+<style>/*<![CDATA[*/
+.demo01.row{display:flex;
+	flex-wrap: wrap;
+	margin:0 -4px;
+}
+.column {
+	flex: 25%;
+	padding:0 4px;
+}
+.column img {display:block;
+	margin:0 0 8px;
+	vertical-align:middle;
+}
+/*]]>*/</style>
+
+
+
+
+
+</div>
+<!-- /column -->
+</div>
+<!-- /row -->
+</div>
+<!-- /wrapper -->
+<!-- footer -->
+<div id="footer">
+<!-- row -->
+<div class="row">
+<!-- column -->
+<div class="column">
+
+
+<ul class="foot-nav inline-list">
+<li><a href="#?">Family Site</a></li>
+<li><a href="#?">SNS Share</a></li>
+</ul>
+
+<address id="address">
+Copyright (c) 20170209~
+	20220527. 
+	20220520. 수정
+	20220418. flex: 예제 추가
+	20220329. justify-content 에서 stretch 표현
+	20220317. align-content 예제 기본값 먼저
+	20220310. item width:100%; 추가
+	20210402.
+	20210224.
+	20210204.
+	20190404.
+	20180125.
+	20170425. 20170213.
+by@m
+</address>
+
+<a id="foot-logo">
+flexbox
+</a>
+
+
+</div>
+<!-- /column -->
+</div>
+<!-- /row -->
+</div>
+<!-- /footer -->
+</div>
+<!-- /container -->
+</body>
+</html>

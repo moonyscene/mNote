@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript">/*<![CDATA[*/
+var $meta = {
+	title: 'Bug Fix | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script type="text/javascript" src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">Bug Fix [User Agent (Web Browser)] Bug Report</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Hot">Hot</a></li>
+<li><a href="#Contemporary">Contemporary</a></li>
+<li><a href="#hasLayout">[~IE7] hasLayout</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Task</h2>
+
+
+
+<ol class="bo">
+<li><b><em>[IE8,FF] 표 위치 좌-1px 우-1px 어긋나다.</em></b><br />
+<xmp class="xmp">
+#timetable1 .calendar table{position:absolute;left:0;top:40px;width:auto;height:auto;padding:0;border-collapse:collapse;}
+</xmp>
+증상) table 요소 위치 좌-1px 우-1px 어긋난다. 안그럴 때도 있다. 이유는 모르겠다.<br />
+해결1) [IE8] 핵 말고는 없는가? [FF] 는 또 어떻게 해야하는가?<br />
+#timetable1 .calendar table:lang(ko){left:1px;}<br />
+:root #timetable1 .calendar table{left:0;}<br />
+</li>
+</ol>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- contentsBlock -->
+<div id="" class="contentsBlock" style="float:right;width:40%;padding:0 0 0 2%;background:#fff;">
+<div class="x1"></div><div class="x2"></div><div class="x3"></div><div class="x4"></div>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="hasLayout">[~IE7] hasLayout</h2>
+<cite>[cite] <a href="http://www.satzansatz.de/cssd/onhavinglayout.html">On having layout</a></cite>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" class="hb1 h3">Default layout elements</h3>
+
+<xmp class="xmp">
+<html>, <body>
+<table>, <tr>, <th>, <td>
+<img>
+<hr>
+<input>, <button>, <select>, <textarea>, <fieldset>, <legend>
+<iframe>, <embed>, <object>, <applet>
+<marquee>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Properties </h3>
+The following CSS property/value pairs will, if applied, allow an element to gain layout.
+<code class="xmp">
+display: inline-block
+float: left | right
+position: absolute | fixed
+width: any value other than 'auto'
+height: any value other than 'auto'
+min-width: any value
+max-width: any value other than 'none'
+min-height: any value
+overflow: hidden | scroll | auto
+
+zoom: any value other than 'normal' (MS proprietary, does not validate.)
+writing-mode: tb-rl (MS proprietary, does not validate.)
+</code>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Resetting hasLayout</h3>
+<xmp class="xmp">
+float: none
+position: static
+width: auto
+height: auto
+max-width: none (in IE 7)
+max-height: none (in IE 7)
+overflow: visible (in IE 7)
+
+zoom: normal
+writing-mode: lr-tb
+</xmp>
+<p><em>The display-property differs: while 'inline-block' sets haslayout = true, the flag will not be reset to false later on by overriding the value with 'block' or 'inline' in another rule set.</em></p>
+
+</div>
+<!-- /contentsBlock -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- contentsBlock -->
+<div id="" class="contentsBlock" style="">
+<div class="x1"></div><div class="x2"></div><div class="x3"></div><div class="x4"></div>
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Hot" style="">Hot</h2>
+
+<ol class="bo dfn">
+
+<li><b>[All]</b>
+	<b>table th, td</b> 요소는 <em>position:relative; 안된다.
+	</em> 셀 자식 <b>td>div</b> 요소는 <em>height:100%; 안된다.</em>
+	<br />
+	))) table-layout:fixed; 하면 되다고 알고 있음!
+</li>
+<li><b>[IE8~11]</b> overflow:scroll; 요소의 padding-bottom:값 무시한다.
+<xmp class="xmp">
+#section1{position:absolute;left:0;top:0;bottom:0;width:834px;padding:20px 16px 20px 20px;overflow:scroll;overflow-x:hidden;}
+</xmp>
+[IE7,CR]반영된다.<br />
+</li>
+<li><b>[~IE10] button{background:transparent;} 투명한 부분 마우스오버 효과 상실</b><br />
+증상) 겹쳐진 아래 콘텐츠가 배경만 있으면 괜찮으나, 전경 이미지 등이 있으면 불투명 영역만 인식한다.<br />
+표준) 이상무<br />
+해결1) 투명이미지로 채워라!<br />
+<xmp class="xmp">
+button{background:transparent url(/img/inc/b.png);}
+</xmp>
+url() 이렇게만 하면 안되고, url(/img/inc/b.png) 투명이미지를 넣어줘야 한다.<br />
+b.png 가 실존하지 않으면? 동작은 하지만 브라우저가 없는 것 찾느라 성능 저하된다.<br />
+</li>
+<li><b>[IE9~] button{background:transparent;} 화면에는 이상없으나, 인쇄 미리보기에서 회색으로 표현됨.</b><br />
+해결1) 투명하게 처리.<br />
+<xmp class="xmp">
+@media print{
+	button{opacity:0;}
+}
+</xmp>
+</li>
+<li style="list-style:none;">
+	<p>
+		<b class="em9">((( ((( ((( ((( ((( ((( ((( ((( ((( ((( ((( ((( [IE9+] [~IE8] ))) ))) ))) ))) ))) ))) ))) ))) ))) ))) ))) )))</b>
+	</p>
+</li>
+<li><b>[IE7]</b> <br />
+증상) <b class="em">overflow-y:scroll;</b> 자식이 overflow: hidden; 이여도 자손이 넘치면 가로 스크롤 발생한다.<br />
+표준) 가로 스크롤 생기지 않는다.
+<xmp class="xmp">
+html{
+	overflow-y: scroll;
+}
+body {
+	overflow: hidden;
+}
+#v1{position:absolute;left:50%;top:0;width:2000px;height:1024px;margin-left:-1000px;..}
+</xmp>
+해결1) overflow-x:hidden;
+</li>
+<li><b>[IE7]</b> <br />
+증상) <b class="em">font-size 12.5px~12.9px</b> 반올림되지 않고 내림으로 계산되어 12px 가 된다.<br />
+표준) 반올림 계산된다. 13px<br />
+<xmp class="xmp">
+font-size:12.5px;
+</xmp>
+해결1) 때에 따라 적합한 방법을 구하세요.
+</li>
+<li><b>[IE7]</b> <br />
+증상) <b class="em">font-awesome.css</b> 에 정의된 <em class="em">font-size: inherit;</em> 안되더라.<br />
+<xmp class="xmp">
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  ...}
+</xmp>
+해결1) font-size: 1em; /* [IE7]fix.20150812 */ 를 추가하였다. ))) font-awesome_@m.valid.css
+</li>
+<li><b>[IE7]</b> <br />
+증상) <em class="em">[href]</em> 로만 정의하니 IE7 에서 안되더라.<br />
+<xmp class="xmp">
+a[href]{color:#039;cursor:pointer;}
+</xmp>
+해결1) font-size: 가 부모와 다르면.. 자손 더 만들어서.. font-size: 적용한다.<br />
+해결2) em 단위 대신 px 이나 % 를 사용한다.<br />
+</li>
+<li><b>[IE7]</b> <br />
+증상) <em class="em">margin:0 0 0 1em;</em> 나의 1em 이 아니라 부모의 1em 으로 계산한다.<br />
+<xmp class="xmp">
+.timetable1 .month .today{position:absolute;left:100%;top:50%;margin:-1.167em 0 0 1em;font-size:12px;}
+</xmp>
+해결1) font-size: 가 부모와 다르면.. 자손 더 만들어서.. font-size: 적용한다.
+해결2) em 단위 대신 px 이나 % 를 사용한다.
+</li>
+<li><b>[IE7]</b> 
+증상) <em class="em">overflow:hidden; background-positon</em> 세로 위치 50% 맞지 않다.<br />
+<xmp class="xmp">
+.calendar3 .layer1pop .c1>.close1{
+	float:left;position:absolute;right:30px;top:27px;width:15px;height:15px;
+	background:url(../../img/inc/b1s.png) no-repeat 50% 50%;
+	overflow:hidden;
+	text-indent:-9999px;
+}</xmp>
+해결1) overflow:visible;
+</li>
+<li><b>[IE7]</b> 
+증상) <em class="em">td 안의 pre 결함</em>. 폭 colspan 안한 것처럼 좁아지고, 텍스트 중복되어 보여진다.<br />
+<xmp class="xmp">
+<td colspan="8">
+<pre>
+「우포생태촌 유스호스텔 관리·운영 조례」 제10조에 따라 아래 사항을<br />
+준수할 것을 서명하고 위와 같이 신청합니다.<br />
+</pre>
+</td>
+</xmp>
+해결0) td 안에서는 pre 사용하지 말고 다른 방법 구사하자.
+</li>
+<li><b>[IE8]</b> 
+증상) <em class="em">overflow:scroll;</em> 요소의 <em class="em">padding-bottom</em> 과 자식 요소의 <em class="em">margin-bottom</em> 이 없어지고 아래가 붙는다.
+<xmp class="xmp">
+<div style="width:300px;height:300px;padding:1em;overflow:scroll; ">
+	<p style="margin:1em 0;"></p>
+</div>
+</xmp>
+해결0) 특수한 요소 fieldset 내부에 있으면 괜찮다.
+<xmp class="xmp">
+<div style="width:300px;height:300px;padding:1em;overflow:scroll;">
+	<fieldset>
+		<div style="padding:1em;">
+			<p style="margin:1em 0;"></p>
+		</div>
+	</fieldset>
+</div>
+</xmp>
+해결1) 패딩값 분리하여 내부 래퍼를 만든다.
+<xmp class="xmp">
+<div style="width:300px;height:300px;padding:1em;overflow:scroll;">
+	<div style="padding:1em;">
+		<p style="margin:1em 0;"></p>
+	</div>
+</div>
+</xmp>
+해결2) 마지막에. -마진값 +패딩값 요소를 추가한다.
+<xmp class="xmp">
+<div style="width:300px;height:300px;padding:1em;overflow:scroll;">
+	<p style="margin:1em 0;"></p>
+	<div class="mgb-pdb2em" style="margin-bottom:-2em;padding-bottom:2em;"><!-- ☆[IE8] scroll bottom bugFix --></div>
+</div>
+</xmp>
+
+
+<li><b>[~IE7]</b> 
+증상) <em>position:absolute;</em> 이용한 꽉찬 % 배치에서 <em>padding %</em> 사용하니.. 내부 콘텐츠가 박스 범위를 벗어나는 결함 발생.
+<xmp class="xmp">
+#section2{position:absolute;left:68.75% /* 880/1280 */;right:0;top:0;bottom:0;padding:1.5625% /* 20/1280 */;overflow:scroll;overflow-x:hidden;}
+</xmp>
+해결1) 패딩값 px 사용하니.. 제대로 나온다.
+<xmp class="xmp">
+*+html #section2{padding:20px;}
+</xmp>
+ -- 반응형에서 스크롤 영역이 너비 계산이 어긋난다.
+해결2) table 요소 등 특정 요소만 문제가 발생하니.. 조금 줄여준다.
+<xmp class="xmp">
+*+html #section2{padding:20px;}
+</xmp>
+
+</li>
+<li><b>[~IE7]</b> <em class="em1">.li1:first-child{}</em> 오류!<br />
+증상) :first-child 무시하고 .li1{} 처럼 해석한다.<br />
+해결1) li.li1:first-child{} 처럼 요소명을 같이 적어준다!<br />
+</li>
+<li><pre>
+<b>[Mobile]</b> 부모의 범위를 넘어서는 자식의 자식들 위치를 제대로 못잡는 경우
+<code class="xmp">
+#gnb1 #gnb1c{<em>display:none;position:relative;left:-50%;width:200%;</em>padding:8px 0;background:#ff7a00;overflow:hidden;}
+#gnb1 #gnb1cc{position:relative;width:50%;margin:0 auto;text-align:center;}
+#gnb1c ul{z-index:10;display:inline-block;position:relative;padding:0 30px;overflow:hidden;}
+</code>
+증상) 안드로이드 스마트폰, 태블릿에서만 부모의 범위를 넘어서는 자식의 자식들 위치가 춤춘다.
+해결1) #gnb1 #gnb1c{<em class="em1">overflow:hidden;</em>} 하니 이상무
+</pre>
+</li>
+<li><b>[~IE7] background-position 의 top 위치값 50% 잘못 계산될 때 있으니.. 주의!</b><br />
+(예) background-position:50%; 또는 background-position:50% 50%; 둘다 문제 있어.. background-position:50% 0; 로 변경하여 해결함.</li>
+<li><b>[~IE8] float 래퍼</b>는 확실하게.. float 해제시켜야 이전 요소와의 렌더링 오류를 피할 수 있다.</li>
+<li><b>[IE8] button 요소</b> overflow:hidden; 하면 position 위치 문제 있으므로 상속 받은 <em class="em1">overflow:visible;</em> 을 유지하자!
+</li>
+<li>[IE8] #logo img{<em>max-width:100%;</em>} 가 보이지 않는다.<br />
+증상) [IE7,9~] 이상무! [IE8] 에서만 일부 이미지만 그렇다.<br />
+해결1) #logo img{max-width:none;}<br />
+과제) 항상 그런거가 아니라면, 어떤 경우게 그런지 알아내서 피해가자!<br />
+※ <a href="http://blog.naver.com/PostView.nhn?blogId=5gam&logNo=30146103042">img{max-width:100%}와 ie8</a><br />
+※ <a href="http://www.xpressengine.com/userForum/20663575">img{border:0;max-width:100%;height:auto} 죽 가실겁니까??</a><br />
+<br />
+</li>
+<li>[~IE7] <em>float 요소들 width 합이 100% 정확해도 px 단위로 정확하게 계산안되는 % 값일 경우 줄이 변경되는 오류</em><br />
+해결1) 0.1% 정도 작게 만든다.<br />
+해결2) float 요소들 부모 padding 가로 값 1px 만 줘도 해결된다.<br />
+해결3) float 요소들 부모 margin-right: -1px; 한다. -2px 하면 안된다.<br />
+</li>
+<li>[~IE8] <em>height 보다 큰 line-height</em> 일 경우 패딩 영역까지 침범하여 줄높이가 되어 세로 정렬되어 보이지 않는다.<br />
+[IE9+표준] height 보다 큰 line-height 무시하는 것 같다.<br />
+</li>
+<li>[~IE8] <em>@media 가 상위 우선 순위를 가지게 하는 것 같다.</em> 정확하지는 않음.<br />
+[IE9+표준] @media 가 우선 순위에 영향을 주지는 않는 것 같다.
+</li>
+<li><b>[IE7] js 로 src 변경 후 4px gap 발생 예방</b><br />
+<xmp class="xmp">
+.workenviron1 .photo1 .figure .p1{overflow:hidden;}
+.workenviron1 .photo1 .figure .p1 img{float:left;} /*[IE7] js 로 src 변경 후 4px gap 발생 예방 */
+</xmp>
+</li>
+<li><b>[CR] .cnb1 li a{margin:0 1px 1px 0;padding:0 2em;}</b><br />
+증상1) <i>marign-right 가 0 되는 경우가 있음</i><br />
+시험1) .cnb1 li a{padding:0 3.6ex;} 이래도 안되더라.<br />
+시험2) .cnb1 li a{padding:0 32px;} 증상1 해결되는거 같던데.. 화면가변 시 같은 문제 발생, 글꼴 크기에 반응할 수 없다.<br />
+시험3) .cnb1 li a{<em>padding:0 2.01em;</em>} 증상1 해결. 글꼴 크기에 반응 가능.<br />
+</li>
+<li><b>[IE7][표준] #pr2 .mControl button.m{width:21px;height:43px;padding:32px 8px 39px;}</b>
+증상1) [IE7] button 요소에 padding 속성 적용안됨.<br />
+증상1) [IE7] button 요소를 height:10px 만드니 배경 잘림.<br />
+증상2) [표준] padding 속성 호환 안됨. 지정한 값과 다르게 렌더링.<br />
+해결1) <em>button 요소는  width: height: 에 padding 값을 더해서 만들어라.</em> {width:37px;height:112px;}<br />
+해결2) [IE7]  height:20px; 로 하니 배경 안 잘리더라.
+</li>
+<li><b>[IE7] #allmenu1{z-index:40;position:relative;} 자손 position:absolute; 위치 못 잡는 bug</b><br />
+해결1) #allmenu1{z-index:40;position:relative;width:100%;}<br />
+</li>
+<li><b>[IE7] {position:relative;} 자손 a 요소 초점 안보이는 bug</b><br />
+해결1) position:relative; 제거<br />
+</li>
+<li><b>[IE7] {overflow-y:auto;}>{position:relative;} bug</b><br />
+<xmp class="xmp">
+#menu1 #menu1c7 ol{width:274px;height:196px;overflow-y:auto;}
+#menu1 #menu1c7 li{position:relative;width:254px;height:27px;}
+</xmp>
+증상) overflow 박스 범위를 벗어난다.<br />
+원인) overflow: hidden; auto; scroll; 위 자식 요소가  position:relative; 면 이상하게 동작하더라.<br />
+해결1) position:relative; 제거<br />
+</li>
+<li><b>[CR. Android WebBrowser] {text-overflow:ellipsis} bug</b><br />
+<xmp class="xmp">
+#location1{width:100%;height:1em;font-size:12px;line-height:1;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+#location1 *{margin:0 1px;color:#555;}
+</xmp>
+증상) … 안 보인다.<br />
+원인) #head *,#foot *,body.d *,*.init{..} 에서 상속된 vertical-align:top; 때문
+해결1) {padding:10px 0;} 추가 후 … 가 보이긴 하나 텍스트 최상단 보다 위에 있음.
+해결2) 자식 요소에 {vertical-align:middle;} 추가하여 완전히 해결함.
+<xmp class="xmp">
+#location1{width:100%;height:1em;padding:10px 0;font-size:12px;line-height:1;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+#location1 *{margin:0 1px;color:#555;vertical-align:middle;}
+</xmp>
+</li>
+<li><b>[IE7] {overflow:hidden} bug</b><br />
+증상) 내용물이 보인다.<br />
+해결1) {position:relative;} 추가
+<xmp class="xmp">
+{position:relative;overflow:hidden}
+</xmp>
+참고 : <a href="http://junyong.tistory.com/66">IE7 overflow:hidden bug(?)</a>
+</li>
+
+<li><b>[IE7,8] a 요소 float:left; 자식 요소가 position:relative; 이면 초점 사라진다.</b><br />
+<xmp class="xmp">
+#gallery1 li a{float:left;}
+#gallery1 li a .pic{float:left;position:relative;}
+</xmp>
+증상) a 요소 float:left; 자식 요소가 position:relative; 이면 초점 사라진다.<br />
+해결1) position:relative; 제거<br />
+해결2) position:relative; 제거 안되면.. a:focus{outlline:1px solid #000;} 추가<br />
+</li>
+<li><b>[IE6,7] 자식이 position:absolute; 만 있으면 부모 세로 마진 2px 발생</b><br />
+<xmp class="xmp">
+#member1s{position:absolute;left:0;top:0;width:292px;height:137px;overflow:hidden;}
+ul#member1c{position:absolute;left:0;top:0;width:100%;overflow:hidden;}
+ul#member1c li{position:relative;width:292px;height:137px;overflow:hidden;}
+ul#member1c li .t1{position:absolute;left:10px;top:43px;width:145px;font-size:14px;}
+ul#member1c li .p1{float:left;position:absolute;left:169px;top:14px;width:100px;height:116px;overflow:hidden;}
+ul#member1c li .t2{position:absolute;left:10px;top:62px;width:145px;font-size:12px;line-height:20px;}
+ul#member1c li a{float:left;position:absolute;left:11px;top:105px;width:80px;height:19px;overflow:hidden;text-indent:-9999px;}
+</xmp>
+증상) 자식이 position:absolute; 만 있으면 부모 세로 마진 2px 발생<br />
+해결1) ul#member1c li{float:left;} 추가<br />
+</li>
+<li><b>[IE7,8] absolute, z-index 표준 렌더링 무시</b><br />
+<xmp class="xmp">
+#head{z-index:40;clear:both;position:relative;width:1000px;height:105px;margin:0 auto;}
+#visual{z-index:10;position:relative;width:1000px;height:0;margin:0 auto;}
+#head #topmenu{position:absolute;left:280px;top:40px;width:720px;height:65px;}
+#head #topmenu li a{float:left;height:15px;padding:13px 20px;text-indent:-9999px;}
+</xmp>
+증상) #visual 이 #topmenu 부모 #head 보다 z-index 가 낮은데, a 요소와 겹쳐진 영역에 #visual 가 있는 경우,
+a가 블럭인데도 투명 영역에서는 마우스오버시 mouseover 이벤트 발생안하고 mouseout 되는 문제 발생.<br />
+표준) 이상무<br />
+해결1) 부모 background:url(/img/all/b.png); 속성 추가한다.<br />
+</li>
+<li><b>[IE6,7] float 자식 float 요소의 세로 마진값 무시된다.</b><br />
+<xmp class="xmp">
+#menu1 li{float:left;}
+#menu1 li a{float:left;width:126px;height:21px;margin:0 0 1px 0;overflow:hidden;text-indent:-9999px;}
+</xmp>
+해결1) 부모 float:left; 를 제거하고 display:inline; 속성 추가<br />
+</li>
+<li><b>[IE6,7] float 요소 사이에 부모요소의 세로 패딩값 만큼의 간격이 생긴다.</b><br />
+<xmp class="xmp">
+#news1 ul{padding:50px 21px 0;}
+#news1 li{float:left;width:100%;padding:5px 0;overflow:hidden;}
+</xmp>
+해결1) width 또는 hieght 값(auto제외) 추가<br />
+해결2) float:left; 추가<br />
+해결3) overflow:hidden; 추가 -- [IE7] 만 해결됨.<br />
+</li>
+<li><b>[IE6] 탭 유사 동작에서 초기 .on 활성 공간만 있고 보이지 않음</b><br />
+<xmp class="xmp">
+.c1pic3 ul.pt li{display:none;position:relative;overflow:hidden;}
+.c1pic3 ul.pt .on{display:block;}
+</xmp>
+해결1) width 또는 hieght 값(auto제외) 추가<br />
+해결2) position:relative; 제거<br />
+해결2) overflow:hidden; 제거<br />
+</li>
+<li><b>[IE6] 탭 장식 요소의 크기 커지고 정의하지 않은 배경으로 텍스트를 가림</b><br />
+<xmp class="xmp">
+.c1tab1 li.on .ic{float:left;position:absolute;left:50%;bottom:0;width:6px;height:3px;margin:0 0 0 -3px;background:transparent url(/img/c1/c1tab1bgs.gif) no-repeat 50% 100%;}
+</xmp>
+해결1) z-index:-1; 추가
+</li>
+<li><b>[IE8] 블럭 요소 포커스 초점(점선) 사라짐</b><br />
+<xmp class="xmp">
+#list1 .c1 li a{display:block;width:100%;cursor:pointer;}
+</xmp>
+해결1) float:left;
+</li>
+<li><b>[IE6] float 요소 a 세로마진 10px 발생</b><br />
+<xmp class="xmp">
+#gouri1 .cont1 ul{padding:10px;overflow:hidden;}
+#gouri1 .cont1 li{display:inline;}
+#gouri1 .cont1 li a{float:left;width:140px;padding:3px 0;overflow:hidden;}
+</xmp>
+해결1) 부모의 너비를 지정해주니 해결.
+<xmp class="xmp">
+#gouri1 .cont1 ul{..width:280px;..}
+</xmp>
+</li>
+<li><b>[FF] 버튼 요소 높이 14px 넘는 배경 불가!</b><br />
+<xmp class="xmp">
+#gallery1control2 button{float:left;width:27px;height:42px;margin:0;border:0;text-align:center;overflow:hidden;cursor:pointer;}
+#gallery1control2 button::-moz-focus-inner{padding:0;border:0;}/* FF */
+#gallery1control2 button *{display:block;width:100%;height:100%;background:url() no-repeat 50%;text-indent:-9999px;}
+#gallery1control2 button.prev *{background-image:url(/img/main/gallery1bprev.png);}
+#gallery1control2 button.next *{background-image:url(/img/main/gallery1bnext.png);}
+</xmp>
+해결1) button 자식 높이를 100% 해석 안되니, button 높이와 동일한 값으로 수정해서 해결.
+<xmp class="xmp">
+#gallery1control2 button *{..height:42px;..}
+</xmp>
+</li>
+<li>[IE7] block 자손 float 가 있으니, 부모 2px 간격 발생. 부모 block 에 <em>float:left;width:100%;</em> 간격 사라짐. 하지만, 자손 float 끝요소 line-height 영향으로.. 오차는 남음.</li>
+<li>[IE8] letter-spacing:-1px 마지막 글자 1px 안보이는 오류. 해당 요소에 padding:0 1px 0 0;background:#fff; 속성 2개 다 있어야 해결된다.
+<xmp class="xmp">
+#location .on{padding:0 1px 0 0;background:#fff;font-weight:bold;letter-spacing:-1px;}
+</xmp>
+</li>
+<li>[IE6] 2번째 탭 첫 콘텐츠 보이지 않는 오류. script 한 번 더 실행하여 해결함.</li>
+<li>[IE8] overflow:hidden; 겹칠 때 포커스 점선 안 보일 때 있다. overflow:hidden; 을 남발하지 말자!</li>
+<li>[IE8] 인라인 요소가 상하 padding  값을 가지고 자식 요소가 블럭일 때 인라인 요소의 높이가 비정상적으로 커진다.
+<xmp class="xmp">
+#allmenu #allm li li{display:inline;float:none;padding:4px 0 0 0;}
+#allmenu #allm li li a{display:block;}
+</xmp>
+증상) 위에서 li li 가.. li li a 높이 더하기 line-height 높이 ±1 값을 가졌으며, 자식요소가 자동 줄바꿈이 된거나 마찬가지다. 상하 padding 값이 얼마인지는 상관없이 동일한 높이를 가진다.
+해결1) #allmenu #allm li li{padding:0;}
+</li>
+<li>[IE8] box-shadow: 효과용 IE 필터속성 filter:progid:DXImageTransform.Microsoft.Shadow(..); 를 사용하니, 전체메뉴 초점이 키보드 탭이 지날 때 안나오고 멈춘 뒤 몇 초 뒤에 나오는 문제 있음.</li>
+<li>
+[IE6] position:relative; 자식 안보일 때가 있다.
+#allmenu #allm ul{position:relative;width:978;overflow:hidden;}
+#allmenu #allm ul ul{} 이 안보였다
+position:relative; 삭제하여 해결
+</li>
+<li>[IE6,7] body{overflow-y:scroll;} 하면 스크롤바가 2중으로 나타남. 해결은.. body 에서 overflow 속성 제거하고.. <em>html{overflow-y:scroll;}</em></li>
+<li>[표준] float:left; 부모에 width 값 없으면 줄바꿈 일어난다.</li>
+<li>[IE6] <em>호버,포커스하면</em> 백그라운드 속성만 바꿨는데.. bodrder, margin 등 <em>다른 속성이 변경되는 오류</em>. 호버,포커스 속성 삭제해버림!<br />
+a{margin:0 0 -1px 0;background:#fff url(/img/main/inside1mbg.gif) no-repeat 144px 50%;}<br />
+#inside1 li a:hover,<br />
+#inside1 li a:focus{background-position:146px 50%;}<br />
+</li>
+<li>[IE6] 부모{overflow:hidden;} 자식 {<em>float:left;</em>} 7px 의 <em>줄간격</em> 발생. 부모{width:값;} 으로 해결!</li>
+<li>[IE6] {<em>height:1px</em>} 높이가 font-size, line-height 값으로 계산됨. overflow:hidden; 으로 해결!</li>
+<li>[IE6~8] id="getComputedStyle" 오류 콘솔 jquery.js 코드: 0 줄: 2 문자:19249 "개체가 이 속성 또는 메서드를 지원하지 않습니다."<br />
+<strong>[m]</strong> 자바스크립트 코드에서 정의한 속성 또는 메서드와 동일한 이름의 id 값을 마크업하면 발생한다.
+</li>
+<li>[IE6] img 요소만 있어도 line-height 영향받음. line-height:1; 또는 overflow:hidden; 으로 해결!</li>
+<li>[IE7,IE6?] ul li dl 하면 안보임</li>
+<li>[IE6~7] table tr{height:0;} 하여도 내용이 없어도 height:1px; 를 차지한다.<br /><br /></li>
+<li>[IE8] <xmp class="dpi"><a><img /></a></xmp> 일 때 img 가 display:block; 이면 키보드 운용시 focus 이동 안됨. 타UA는 잘됨.<br /><br /></li>
+<li>[IE7] overflow:auto; 요소 안에 position:absolute;right:값; 요소가 있으면, 이벤트시 display:none; 에서 block 으로 콘텐츠를 보여줄 때 가로스크롤이 생긴다.</li>
+<li>[IE7] font-family:sans-serif,"맑은고딕","나눔고딕","돋움",Dotum; 하면 12px 이상 "굴림" 글꼴로 렌더링. sans-serif 등 영문 서체를 맨끝으로 보내라.</li>
+<li>[IE7] utf-8 에서 font 12px/1.25 "돋움"일 때 다른 브라우저에서는 상하 3px 1px 로 euc-kr 과 동일하지만 IE7만 2px 2px 로 렌더링</li>
+<li>[표준] display:inline-block; 에 width, height 값이 있어도 배경이 다 차지는 않고, 텍스트가 차지하는 공간만 배경이 형성된다.</li>
+<li>[IE6] 인라인요소에 display:block; 하더라도 블럭요소가 되지 않는다. float, width, height 값 중 1개 이상 필요하다.※<a href="http://www.famian.com/tip/9798">hasLayout</a></li>
+<li>[IE6] select</li>
+</ol>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Contemporary">Contemporary</h2>
+
+<ol reversed="reversed" start="1" class="bo dfn">
+
+<li><strong>[IE6] <em>문자 중복 버그2</em></strong> - <em>IE6 Duplicate Characters Bug</em><br />
+증상) <em>float</em> 요소인 .t3 내용은 "2012.12.33" 인데.. "2012.12.33" 줄바뀜 "33" 으로 화면표시.<br />
+<xmp class="xmp">
+.bbs2 .c1 li a{display:block;width:330px;overflow:hidden;cursor:pointer;}
+.bbs2 .c1 .pic{float:left;width:120px;height:80px;margin:0 13px 0 0;border:1px solid #D9DEE1;overflow:hidden;}
+.bbs2 .c1 .pic img{float:left;width:120px;height:auto;}
+.bbs2 .c1 .t1{float:left;width:195px;color:#06c;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+.bbs2 .c1 .t2{float:left;width:195px;margin:6px 0 6px 0;line-height:18px;}
+.bbs2 .c1 .t3{float:left;width:194px;letter-spacing:0;}
+</xmp>
+해결1) .bbs2 .c1 .t3{margin:0 -3px 0 0;} /* 우마진 -3px 추가 */<br />
+해결2) .bbs2 .c1 li a{width:333px;} /* <b>3px 이상 여유있게 수정 </b>*/<br />
+</li>
+
+<li><strong>[IE6] <em>문자 중복 버그1</em></strong> - <em>IE6 Duplicate Characters Bug</em><br />
+증상) <em>float 요소 사이에 주석</em>이 연속 2개 이상이면.. 마지막 float 요소 안의 문자가 [연속된 주석문수-1]개 만큼의 문자 중복이 발생한다.<br />
+아래 나쁜예는 4-1=3 이므로 "삼이일" 문자가 반복된다.
+<xmp class="xmp">
+<!-- float_wrap -->
+<div class="float_wrap">
+<!-- float -->
+<div class="float"></div>
+<!-- /float -->
+<!-- float -->
+<div class="float">십구팔칠육오사삼이일</div>
+<!-- /float -->
+</div>
+<!-- /float_wrap -->
+</xmp>
+해결1) 주석문을 2개 연속으로 기입하지 않는다.<br />
+<xmp class="xmp">
+(..중략..)
+<!-- /float  float -->
+<div class="float">십구팔칠육오사삼이일</div>
+<!-- //float -->
+(..중략..)
+</xmp>
+</li>
+
+<li><strong>[IE6,7] <em>background:url() no-repeat 0 100%; 배경 버그</em></strong><br />
+<xmp class="xmp">
+#bg2foot{clear:both;width:1250px;height:1px;margin:0 auto 30px;}
+#bg2foot .bg{clear:both;width:100%;height:1px;background:url(/img/inc/bg_wrap.gif) no-repeat 0 100%;overflow:hidden;text-indent:-9999px;}
+</xmp>
+증상) height:1px; 자식이 height:1px; background:url() no-repeat 0 100%; 일 때 배경 사라진다. (y축 배경 포지션 100%+1px 로 렌더링)<br />
+단, 배경색은 잘나온다.<br />
+해결1) height:2px;font-size:0;<br />
+<xmp class="xmp">
+#bg2foot{clear:both;width:1250px;height:1px;margin:0 auto 30px;}
+#bg2foot .bg{clear:both;width:100%;height:2px;font-size:0;background:url(/img/inc/bg_wrap.gif) no-repeat 0 100%;overflow:hidden;text-indent:-9999px;}
+</xmp>
+해결2) y축 배경 포지션을 상단 기준으로 (1-배경높이)px 로 지정한다. background:url() no-repeat 0 -199px;<br />
+<xmp class="xmp">
+#bg2foot{clear:both;width:1250px;height:1px;margin:0 auto 30px;}
+#bg2foot .bg{clear:both;width:100%;height:1px;background:url(/img/inc/bg_wrap.gif) no-repeat 0 -199px;overflow:hidden;text-indent:-9999px;}
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>display:none; 이었던 요소 하위의 float:left; 오동작</em></strong><br />
+<xmp class="xmp">
+#topmenu ul ul li{float:none;width:100%;overflow:hidden;}
+#topmenu ul ul li a{float:left;width:120px;}
+#topmenu ul ul ul{float:left;width:620px;}
+</xmp>
+증상) display:none; 이었던 요소 하위가 float:left; 일 경우 display:blcok; 으로 바뀌는 순간에 float:left; 는 제대로 해석 안되고 겹쳐 보임.<br />
+해결1) position:relative; 추가<br />
+<xmp class="xmp">
+#topmenu ul ul li{float:none;position:relative;width:100%;overflow:hidden;}
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>float:left;width:100%;overflow:hidden;white-space:nowrap;</em></strong><br />
+증상) 100% 범위를 넘어버려서, 이 후 요소를 밀어내서 사라지거나 함.<br />
+해결1) float:none;<br />
+</li>
+
+<li><strong>[IE6,7] <em>hasLayout 요소 안 hasLayout 요소</em></strong><br />
+증상) 안 hasLayout 요소 위 3px 줄간격 발생<br />
+해결1) block 요소 중 하나는 inline 으로 수정<br />
+</li>
+
+<li><strong>[IE6,7] <em>position:absolute; 요소 float:left; 요소 혼용시 이상 증상 </em></strong><br />
+증상) 첫번째 float 적용 요소 위 여백 16px 줄간격 발생<br />
+[IE7] 해결1) 두 요소의 조상에 overflow:hidden;<br />
+<em>[IE6] 해결안됨. 핵 말고는 없는가?</em><br />
+<xmp class="xmp">
+#list1{clear:both;position:relative;padding:43px 0 0 0;background:url(/img/main/list1bg.gif) repeat-x;overflow:hidden;}
+#list1 *{list-style:none;margin:0;padding:0;letter-spacing:0;line-height:20px;}
+#list1 .tab{display:inline;}
+#list1 .tab a{display:block;position:absolute;left:10px;top:0;width:89px;height:27px;border:1px solid #A3B2BA;color:#333;line-height:27px;text-align:center;}
+#list1 .tab a#list1m2{left:100px;}
+#list1 .tab a#list1m3{left:190px;}
+#list1 .tab.on a{height:20px;padding:7px 0 0 0;border:1px solid #A3B2BA;border-bottom-color:#fff;background:#fff;color:#06b;line-height:20px;}
+#list1 .cont.list{padding:0 10px;}
+#list1 .cont.list a.more{position:absolute;right:10px;top:6px;height:auto;padding:0;border:0;}
+#list1 .cont.list ul{width:100%;overflow:hidden;}
+#list1 .cont.list ul li{display:inline;}
+#list1 .cont.list ul li a{display:block;position:relative;height:20px;padding:6px 57px 6px 7px;border:0;border-bottom:1px dotted #A3B2BA;background:url(/img/main/libg1.gif) no-repeat 0 13px;overflow:hidden;}
+#list1 .cont.list ul li a .h1{float:left;width:100%;color:#333;font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+* html #list1 .cont.list ul li a .h1{float:none;}
+#list1 .cont.list ul li a .t1{position:absolute;right:0;top:7px;color:#666;font-size:11px;}
+#list1 .cont.list ul li img{vertical-align:baseline}
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>position:absolute;right:0; 안되는 경우</em></strong><br />
+<xmp class="xmp">
+.gallery1.focus1 .btns1{position:absolute;right:0;top:15px;text-align:right;}
+</xmp>
+증상) 블럭요소 .btns1 너비의 좌측에 표시<br />
+[IE6] 사라진다.<br />
+[표준] 보인다.<br />
+해결1) 인라인 요소를 블럭 요소로 만들어라.<br />
+<xmp class="xmp">
+#search1 label{display:block;text-indent:-9999%;}
+</xmp>
+</li>
+
+
+<li><strong>[표준] <em>text-indent:-9999%; 안되는 경우</em></strong><br />
+<xmp class="xmp">
+#search1 label{text-indent:-9999%;}
+</xmp>
+증상) 인라인 요소에 text-indent:; 적용되지 않음.<br />
+[IE6,7] 사라진다.<br />
+[표준] 보인다. 보이면 안되는데..<br />
+해결1) 인라인 요소를 블럭 요소로 만들어라.<br />
+<xmp class="xmp">
+#search1 label{display:block;text-indent:-9999%;}
+</xmp>
+</li>
+
+<li><strong>[IE8] <em>a 요소 초점 표시가 안되는 경우</em></strong><br />
+<xmp class="xmp">
+a *{positon:absolute;}
+a *{float:left;}
+</xmp>
+증상) 초점 표시 사라짐<br />
+[IE6,7,OP] 이상무<br />
+[표준] 초점 표시 사라짐<br />
+해결1) a 요소에 직접 배치 관련 속성을 정의하라<br />
+</li>
+
+<li><strong>[IE6] <em>postion:relative; 자손에 postion:absolute; float:left; 혼용할 때</em> </strong><br />
+<xmp class="xmp">
+.c1around1{position:relative;width:718px;margin:0 auto;padding:34px 0 9px;border:1px solid #D6D6D6;}
+.c1around1 *{list-style:none;margin:0;padding:0;line-height:1.25;}
+.c1around1 dl{width:100%;background:url(/img/c1/c1around1bg.gif) repeat-y;overflow:hidden;}
+.c1around1 dt{position:absolute;left:0;top:8px;width:226px;height:15px;padding:3px 0;background:url(/img/c1/bar2bg.gif) no-repeat;color:#555;font-weight:bold;text-align:center;}
+.c1around1 dt.dt01{left:9px;}
+.c1around1 dt.dt02{left:246px;}
+.c1around1 dt.dt03{left:483px;}
+.c1around1 dd{float:left;width:33.3%;}
+.c1around1 dd ul{min-height:18px;height:auto !important;height:18px;padding:7px 13px;}
+.c1around1 li{display:inline;}
+.c1around1 li a{display:block;padding:2px 0 1px 7px;background:url(/img/c1/bu102.gif) no-repeat 0 4px;color:#333 !important;}
+</xmp>
+증상) dt{position:absolute;..} 요소가 사라짐<br />
+표준) 이상무<br />
+해결1) .c1around1 dd{float:left;width:33.3% !important;width:238px;}<br />
+해결2) .c1around1 dd  의 {float:left;} 를 제거하고 스타일 디자인하는 방법을 찾아보자.<br />
+<xmp class="xmp">
+.c1around1 dd{display:inline;float:left;width:33.3%;}
+* html .c1around1 dd{float:none;}
+*+html .c1around1 dd{float:none;}
+</xmp>
+해결3) float 요소 안에 absolute 요소를 포함시키는 구조의 마크업을 하자.<br />
+해결4) float 요소에 position:relative; 속성 추가로 해결되기도 함.<br />
+<ins>해결5) absolute 요소에 float:left; 속성 추가.</ins>
+<xmp class="xmp">
+#gouri1 .cont1 div.close{float:left;}/* [IE6] float, absolute mix bug fix */
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>복합 클래스는 주의해서 사용하자.</em> </strong><br />
+<xmp class="xmp">
+.select1.select2 .select3.select4{}/* 2중 2중 */
+.select1.select3.select4{}/* 3중 */
+</xmp>
+증상) 요소가 사라지거나 오동작<br />
+표준) 이상무<br />
+해결1) .select1.select2{} 2개의 클래스를 묶는 수준 이상<br />
+</li>
+
+<li><strong>[IE7,6] PNG 오류 : <em>img class="png24" 이미지 사라짐</em> </strong><br />
+증상) "<em>[IE7,6]-[인터넷 옵션]-[보안]-[인터넷]-[바이너리 및 스크립트 동작] 사용 안함</em>" 선택시 img class="png24" (style.filter 이용) 이미지 사라짐.<br />
+그런데, 다른 사이트 들은 또 잘나온다.<br />
+아마도, 자바스크립트에서 innerHTML 로 png 요소를 생성해서 그럴 수도 있겠다. Test 안해봐서 확실하지는 않지만..<br />
+표준) 이상무. IE전용 style.filter 사용안하니 당연한 것.<br />
+해결1) * html .png24{tmp:expression(setPng24(this));} 이렇게 하면.. IE7 은 filter 이용하지 않으므로 이상무.<br />
+해결2) gif 로 수정한다. 안되면 IE6만 gif 로 수정.<br />
+해결3) IE6 무시한다.<br />
+</li>
+
+<li><strong>[IE7,6?] 인쇄 오류 : <em>#body #body_head #body_title h1 제목 사라짐. 1페이지 이상 사라짐</em> </strong><br />
+<xmp class="xmp">
+body, #container, #wrap, #body, #body_head, #body_content{top:0;margin:0 !important;padding:0 !important;border:0 !important;background:#fff !important;}
+</xmp>
+증상) <br />
+표준) 이상무<br />
+해결1) h1 사라짐은 #body{background:transparent !important;} 로 수정해서 해결<br />
+해결2) 1페이지 이상 사라짐은 #body{float:none;} 추가해서 해결<br />
+</li>
+
+<li><strong>[IE6] Duplicate Characters Bug : <em>float 요소의 문자 끝부분이 중복 출력되는 문제</em> </strong><br />
+<xmp class="xmp">
+.gallery1 a{float:left;width:33.3%;}
+</xmp>
+증상) 다른 Duplicate Characters Bug 는 마지막 float 요소에서 문제 생기는데 중간 요소에서 발생함<br />
+표준) 이상무<br />
+해결1) 모드 float요소 합이 99.8% 를 넘지 않도록 gallery1 a{float:left;width:33.26%;}<br />
+</li>
+
+<li><strong>[IE6] <em>float 안의 block 줄바뀜</em> </strong><br />
+<xmp class="xmp">
+ul li{float:left;}
+ul li a{float:block;}
+</xmp>
+증상) float 안의 block 줄바뀜<br />
+표준) 이상무<br />
+해결1) ul li a{float:left;}<br />
+</li>
+
+<li><strong>[IE6] <em>#search1 fieldset{margin:0;padding:0;border:0;}</em> </strong><br />
+증상) 안쪽에 상하 1px 여백이 생긴다.<br />
+표준) CSS값대로 초기화된다.<br />
+해결1) #search1 fieldset{margin:0 !important;margin:-1px 0;}<br />
+</li>
+
+<li><strong>[All] <em>fieldset, legend</em> </strong><br />
+증상) CSS 적용해서 맞출 수 없다. fieldset 의 경우 IE6~8 버전별로 다르다. <br />
+표준) fieldset 의 경우 바르게 표시된다.<br />
+해결1) 초기화 fieldset{margin:0;padding:0;border:0;} legend{display:none;} 또는 left:-9999px 이용하여 숨김 처리<br />
+</li>
+
+<li><strong>[IE6,7] <em>inline-block 오류들</em></strong><br />
+<xmp class="xmp">
+#fnav2 ul li{display:inline-block;padding:0 0 0 1px;background:url(/img/inc/fnav2msep.gif) no-repeat 0 50%;}
+#fnav2 ul li a{display:block;height:30px;padding:0 10px;line-height:30px;}
+</xmp>
+증상1) inline-block 안에 block 요소가 있으면, 줄 바꿈이 일어난다. block 대신에 float 사용해도 마찬가지.<br />
+<em>block 요소에 inline-block 을 선언해도.. 줄바꿈은 일어난다.</em><br />
+증상2) inline-block 안에 inline-block 사라진다.<br />
+표준) 문제없음<br />
+해결1) li{display:inline;} a{display:inline-block;} 로 수정하여 a 에 분리배경 적용한다.<br />
+<div class="box4">
+inline요소 {inline-block} : 이상없음<br />
+block요소 (inline-block) : inline-block을 block속성으로 인식하는 버그로 인하여 핵으로 해결해야함<br />
+* html 선택자{display:inline;height:1%;}<br />
+*+html 선택자{display:inline;height:1%;}<br />
+</div>
+</li>
+<li><strong>[OP11.51] <em>float:left;width:24.9%;</em> </strong><br />
+증상) 25% 일 때 [IE6] 이 넘쳐버리는 문제 해결하기 위해 24.9%; 사용하니.. 오페라만 이상하게 24.9% 보다 더 줄어버린다.  <br />
+표준) 문제없음<br />
+해결1) * html 선택자 사용해서 [IE6] 만 width:24.9%; 적용한다.<br />
+</li>
+
+<li><strong>[IE6] <em>padding:1.5em 0 .5em 0;overflow:hidden;</em> </strong><br />
+<xmp class="xmp">
+.board .gallery1 ul{list-style:none;margin:0;padding:1.5em 0 .5em 0;overflow:hidden;}
+.board .gallery1 ul li{display:inline;}
+.board .gallery1 a{float:left;width:25%;font-size:1em;line-height:1.42;cursor:pointer;}
+</xmp>
+증상) 플로트 부모가 overflow:hidden 로 플로트 해제했으나 padding-bottom 은 적용안되고, padding-top 은 float 요소마다 값을 가지는 문제<br />
+표준) 문제없음<br />
+해결1) 플로트 부모에 height:auto !important;height:1%; 를 추가하여 레이아웃을 가지게 한다.<br />
+해결2) 플로트 부모에 float:left;width:100%; 추가하면 되나, width 값을 가변적으로 적용할 수 없다.<br />
+</li>
+
+<li><strong>[IE6] <em>padding:12px 0 12px 150px;overflow:hidden</em> </strong><br />
+<xmp class="xmp">
+.board .gallery1.focus1 ul li a{padding:12px 0 12px 150px;overflow:hidden}
+.board .gallery1.focus1 a .pic{float:left;}
+.board .gallery1.focus1 a .text{float:left;}
+</xmp>
+증상) 플로트 부모가 overflow:hidden 로 플로트 해제했으나 padding-bottom 이 적용안되는 문제<br />
+표준) 문제없음<br />
+해결1) 플로트 부모에 height:auto !important;height:1%; 를 추가하여 레이아웃을 가지게 한다.<br />
+해결2) 플로트 부모에 float:left;width:100%; 추가하면 되나, width 값을 가변적으로 적용할 수 없다.<br />
+주의1) 자식이 float 가 아닐때.. overflow:hidden; 속성이 있는 곳에 height:1%; 추가하면 높이 벗어나는 콘텐츠는 보이지 않음.<br />
+</li>
+
+<li><strong>[IE6] <em>#topmenu ul ul li{float:left;} #topmenu ul ul li a{display:block;height:15px;background:~;}</em> </strong><br />
+증상) float 되지 않고 줄바꿈된다.<br />
+표준) 문제없음<br />
+미해결1) height:15px; 을 삭제하면 float 되지만,  [IE6,7] 에서 배경 이미지가 사라져버림.<br />
+해결1) display:block; 를 float:left; 로 수정하면 깔끔하게 해결됨.<br />
+</li>
+
+<li><strong>[IE6] <em>#wrap{overflow:hidden;} #wrap #sidebar{float:left;} #wrap #body{float:left;}  #wrap #body_foot{position:absolute;left:0;bottom:0;}</em> </strong><br />
+증상) 이벤트에 의해 #sidebar 확장되어 #wrap 높이 늘어나도 #body_foot 위치는 변하지 않는다.<br />
+표준) 문제없음<br />
+해결1) #body_foot 안 콘텐츠를 #foot2 에 담아서 #wrap 다음 요소로 만듦.
+</li>
+
+<li><strong>[FF] <em>#m9 ul li.focus a{float:left;width:100%;..} #m9 ul li.list a{display:block;width:100%;..}</em> </strong><br />
+증상) float:left; 만 보이고 display:block; 은 보이지 않음.<br />
+표준) 문제없음<br />
+해결1) display:block; 을 float:left; 로 수정.
+</li>
+
+<li><strong>[IE7,6] <em>&lt;div id="author"&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;tabOn('author',1);&lt;/script&gt;</em> </strong><br />
+증상) 자바스크립트 오류 "잘못된 인수입니다"<br />
+표준) 문제없음<br />
+해결1) "author1" 으로 수정하니 해결됨. <em>Markup 태그 및 속성, CSS, JS 예약어는 인수로 사용하지 말자.</em>
+</li>
+
+<li><strong>[IE7,6?] <em>background:url() no-repeat 0 100%;</em> </strong><br />
+<xmp class="xmp">
+#body_foot{clear:both;width:100%;height:10px;background:url(/img/inc/bg_body.png) no-repeat 0 100%;overflow:hidden;}
+</xmp>
+증상) 배경이 세로 100% 보다 아래에 위치하여 잘림.<br />
+해결1) font-size:0; 추가함.
+</li>
+
+<li><strong>[IE6] <em>overflow:hidden;</em> </strong><br />
+<xmp class="xmp">
+div.write fieldset .item{margin:0;padding:4px 0 2px 90px;border-top:1px solid #ddd;overflow:hidden}
+div.write fieldset .item .h{display:inline;float:left;width:90px;margin:0 0 2px -90px;padding:5px 0;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis}
+</xmp>
+증상) 세로 정렬 안맞음.<br />
+해결1) <a href="http://blog.wystan.net/2007/08/14/understanding-haslayout-property-and-holly-hack">hasLayout</a> 을 갖게 만드는 CSS 속성 height:1%; 을 사용한다.
+<xmp class="xmp">
+* html div.write fieldset .item{height:1%;}
+</xmp>
+</li>
+
+<li><strong>[IE8] <em>display:inline-block;overflow:hidden;</em> </strong><br />
+<xmp class="xmp">
+div.pagenav span a{display:inline-block;}
+div.pagenav span.pprev a{display:inline-block;overflow:hidden;}
+</xmp>
+증상) 세로 정렬 안맞음.<br />
+해결1) display:inline-block; 인 요소 모두 overflow:hidden; 하면 호환됨.
+<xmp class="xmp">
+div.pagenav span a{display:inline-block;overflow:hidden;}
+</xmp>
+</li>
+
+<li><strong>[IE외,iOS4SF,AndroidBrowser] <em>text-overflow:ellipsis;</em> </strong><br />
+<xmp class="xmp">
+#gallery1 .cont ul{/* position:absolute; */left:0;top:0;}
+#gallery1 .cont ul li{display:block;height:84px;background:url(/img/main/gallery1bg.png) no-repeat;}
+#gallery1 .cont ul li a{display:block;padding:0 0 12px 121px;overflow:hidden}
+#gallery1 .cont ul li a .pic{float:left;width:95px;height:69px;margin:6px 10px 0 -110px;overflow:hidden;}
+#gallery1 .cont ul li a .h{display:block;width:99%;padding:6px 0 0 0;color:#333;font-size:14px;line-height:19px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;}
+</xmp>
+증상) text-overflow:ellipsis; 안됨. nowrap 영향으로 요소영역 width 가 길어짐.<br />
+해결1) 조상 position:absolute; 에 width 값 추가!
+<xmp class="xmp">
+#gallery1 .cont ul{/* position:absolute; */left:0;top:0;width:100%;}
+</xmp>
+</li>
+
+<li><strong>[IE6] position:relative; 가 아닌 콘텐츠를 margin 마이너가 값 줘서 부모 영역 벗어날 때</strong><br />
+<xmp class="xmp">
+#sidemenu h3{position:relative;height:1px;width:188px;margin:-16px 11px 0;overflow:hidden;text-indent:-9999px;background:#fff;}
+#sidemenu ul{width:188px;margin:-1px 11px -7px;}
+#sidemenu ul li{width:100%;}
+#sidemenu ul li a{display:block;width:148px;padding:6px 20px 4px 20px;background:url(/img/inc/side2mbg.gif) no-repeat;color:#555;font-weight:bold;letter-spacing:-1px;text-decoration:none;cursor:pointer;}
+#sidemenu ul li a span{}/* js생성 */
+#sidemenu ul li a:hover,
+#sidemenu ul li a:focus,
+#sidemenu ul li a.on{position:relative;margin:0 0 -1px 0;padding:6px 20px 5px 20px;background:#fff url(/img/inc/side2mbgon.gif) no-repeat;color:#0074D6;}
+</xmp>
+증상) 부모 영역 밖은 안보인다.<br />
+해결1) 핵사용. IE6 외에는 #sidemenu ul li a.on 일 때 h3 보다 z-index 낮아지는 문제가 발생하므로..
+<xmp class="xmp">
+* html #sidemenu ul{position:relative;}
+</xmp>
+</li>
+
+<li><strong>[IE6] 가로100% 배치. *{padding:12px 0 12px 112px;overflow:hidden;} * .pic{<em>float:left;</em>width:102px;height:68px;<em>margin:0 10px 0 -112px;</em>} * .h{display:block;width:100%;}</strong>
+<br />
+증상) width:100%; 요소가 float:left; 우측 아래로 떨어짐<br />
+해결1) * .h{width:99%;}<br />
+해결2) float:left; 요소를 position:absolute; 로 수정<br />
+</li>
+
+<li><strong>[IE6] *{<em>position:relative;</em>width:100%;<em>overflow:hidden;</em>}</strong>
+<br />
+증상) 하나도 보이지 않음<br />
+해결1) *{float:left;width:100%;}<br />
+</li>
+
+<li><strong>[IE6,7] *{float:left;} * *{<em>display:inline-block;text-indent:-9999px;</em>}</strong>
+<br />
+증상) * *{display:inline-block} 요소가 브라우저 화면에 보이지 않음<br />
+해결1) *{float:none;} 으로 수정<br />
+해결2) * *{float:left;} 으로 수정<br />
+해결3) * *{text-indent:-9999px;} 삭제 {font-size:1px;color:배경색과동일하게사용;}<br />
+해결4) 배경색이 유동적일 때는 복잡하므로 아래 핵을 사용<br />
+<xmp class="xmp">
+* html * *{letter-spacing:-9999px;text-indent:0;}
+*+html * *{letter-spacing:-9999px;text-indent:0;}
+</xmp>
+</li>
+
+<li><strong>[IE6] * html #m2 ul li a <em>.mask{background:transparent;</em>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/img/main/m2pmask.png",sizingMethod=crop,enabled=true);}</strong>
+<br />
+증상) img 에 마우스오버하면 상태표시줄에 링크된 uri가 보였으나 클릭하면 이동 안됨 (텍스트는 가능)<br />
+해결1) 아래와 같이 background:transparent; 를 url(/img/all/b.png); 로 수정<br />
+<xmp class="xmp">
+* html #m2 ul li a .mask{background:url(/img/all/b.png);filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/img/main/m2pmask.png",sizingMethod=crop,enabled=true);}</em></strong>
+</xmp>
+</li>
+
+<li><strong>[All] <em>이미지맵 링크 z-index 관계?</em></strong>
+<br />
+증상) 앞선 area가 위에 온다. area.m3{position:relative;z-index:10;}적용안됨.<br />
+해결1) 분리해야함.<br />
+</li>
+
+<li><strong>[IE6,7] <em>li{width:auto;}</em> li a{width:100%;overflow:hidden;} li a span{float:left;}</strong>
+<br />
+증상) 첫번째 li 만 보인다.<br />
+해결1) li 가 width값을 가져야한다.<br />
+</li>
+
+<li><strong>[IE6] <em>.cb1{float:none;}</em> .cb1 *{float:left;} <em>.cb2{float:right;}</em> .cb2 *{float:left;}</strong>
+<br />
+증상) float:none; 이웃 요소가 float:right; 이고 자손이 float:left; 를 가지면 브라우저 다운됨.<br />
+해결1) float:none; 을 float:left; 로 수정.<br />
+또한, float:right; 자식들이 float:left; 라면 float:right 는 width 값을 가져야한다.
+</li>
+
+<li><strong>[IE6] <em>*{float:right;}</em> * *{float:left;} * *{float:right;}</strong>
+<br />
+증상) float:right; 요소의 자손 float:left; 우측에 float:right; 가 오지않고 줄바꿈되어 표시<br />
+부모의 float:right; 를 없애니 이상없으나, 다른 방법 모두 실패함.<br />
+해결1) float:right; 의 자손 float 대신 positon:absolute; 를 사용<br />
+</li>
+
+<li><strong>[IE7] <em>#head *{min-height:1em;}</em> #head #allm{position:absolute;}</strong>
+<br />
+증상) #allm 이 보이지 않음<br />
+해결1) min-height:1em; 삭제<br />
+해결2) position:absolute; 삭제<br />
+</li>
+
+<li><strong>[표준] <em>*{vertical-align:middle;}</em></strong>
+<br />
+증상) img 와 text 가 세로 가운데 정렬 안됨. margin:-2px 0 0 0; 하면 됨.<br />
+단, [IE7이하]는 보정 필요없음.<br />
+해결1) [표준] vertical-align:top; [IE7이하] vertical-align:middle;<br />
+</li>
+
+<li><strong>[IE] <em>td{width:auto;padding:10px 1%;}</em></strong>
+<br />
+증상) 1% 계산오류나서 예측불가.  td 자손 중앙정렬 어긋남.<br />
+표준) 확인필요<br />
+해결1) width %값 있을 때 padding %값 적용한다.<br />
+</li>
+
+<li><strong>[IE8] <em>개발자도구 요소 선택 후 추적 스타일 오류</em></strong>
+<br />
+증상) print 용 CSS 도 계산되어 bakcground 를 찾을 수 없음.<br />
+표준) FF 올바르게 표시됨.<br />
+과제) IE9 는?<br />
+해결1) FF 사용한다.<br />
+</li>
+
+<li><strong>[IE,FF] <em>IE, FF 는 키보드 운용시 display:none; 요소 자손 a 는 건너뛴다.</em></strong>
+<br />
+증상) <br />
+표준) 모두 다 지나간다.<br />
+해결1) 사용자가 브라우저 선택한다.<br />
+</li>
+
+<li><strong>[IE7] #selectstation <em>button</em>.close{position:absolute;right:15px;top:15px;}</strong>
+<br />
+증상) button 요소 width가 100% 되어서 원하는 위치에 놓을 수 없는 문제<br />
+표준) 이상무<br />
+해결1) width 값을 넣어준다.<br />
+</li>
+
+<!-- <li><strong>[IE6,7] <em>@media print{body, #container, #wrap, #body, #body_head, #body_content{margin:0 !important;}}</em></strong>
+<br />
+증상) 브라우저 스크린 화면에서도 이 스타일이 적용된다.<br />
+표준) 이상무<br />
+해결1) padding 등 다른 방법을 사용해서 해결..<br />
+</li> -->
+
+<li><strong>[IE6,7] <em>#topmenu ul ul#top2m4{width:660px;height:50px;padding:0 280px 0 20px;}</em></strong>
+<br />
+증상) <em>#topmenu ul ul li a{float:left;white-space:nowrap;}</em> 인 경우 padding-right 만큼 width 가 늘어나는 문제<br />
+표준) 이상무<br />
+해결1) 주석핵사용 배경만 별도로 분리한다.<br />
+HTML
+<xmp class="xmp">
+<li><a href="?" id="top1m4">주메뉴1차4번째</a>
+<!--[if lte IE 7]>
+<div class="bg"></div>
+<![endif]-->
+	<ul id="top2m4">
+	<!-- 중략 -->
+	</ul>
+</xmp>
+CSS
+<xmp class="xmp">
+#topmenu ul li.on .bg{display:block;}
+#topmenu ul .bg{display:none;position:absolute;left:0;top:45px;width:960px;height:50px;border-top:1px solid #168DCB;background:#27ADDB;overflow:hidden;}
+#topmenu ul ul{display:none;position:absolute;left:0;top:45px;width:960px;height:26px;border-top:1px solid #168DCB;background:#27ADDB;overflow:hidden;}
+#topmenu ul ul#top2m4{width:660px;height:50px;padding:0 280px 0 20px;}
+* html #topmenu ul ul#top2m4{padding:0 0 0 20px;}
+*+html #topmenu ul ul#top2m4{padding:0 0 0 20px;}
+#topmenu ul ul#top2m4 #top2m4m5{padding-left:0;background:transparent;}
+</xmp>
+</li>
+
+<li><strong>[IE8] th, td { <em>padding:</em> 7px <em>2%</em> 5px 2%; }</strong>
+<br />
+증상) 테이블 셀 padding %값 오류. 좌우 같은 값도 배대칭. <br />
+표준) 인식함<br />
+해결1) px값으로 수정. 단, width는 %값 사용 권장.<br />
+<xmp class="xmp">
+<script type="text/javascript">/*<![CDATA[*/
+//삭제 암호 입력 보이기감추기
+function pswdShow(a){pswdHide();objEl=document.getElementById("pswd"+a);objEl.style.display="table-row";}
+function pswdHide(){for(i=1;i<=100;i++){objEl=document.getElementById("pswd"+i);if(objEl){objEl.style.display="none";}}}
+/*]]>*/</script>
+<!--[if IE]>
+<script type="text/javascript">/*<![CDATA[*/
+function pswdShow(a){pswdHide();objEl=document.getElementById("pswd"+a);objEl.style.display="block";}
+/*]]>*/</script>
+<![endif]-->
+</xmp>
+</li>
+
+<li><strong>[IE6,7] objEl.style.display="<em>table-row</em>";</strong>
+<br />
+증상) table-row 인식못함 <br />
+표준) 인식함<br />
+해결1) 조건주석문 으로 IE용 추가<br />
+<xmp class="xmp">
+<script type="text/javascript">/*<![CDATA[*/
+//삭제 암호 입력 보이기감추기
+function pswdShow(a){pswdHide();objEl=document.getElementById("pswd"+a);objEl.style.display="table-row";}
+function pswdHide(){for(i=1;i<=100;i++){objEl=document.getElementById("pswd"+i);if(objEl){objEl.style.display="none";}}}
+/*]]>*/</script>
+<!--[if IE]>
+<script type="text/javascript">/*<![CDATA[*/
+function pswdShow(a){pswdHide();objEl=document.getElementById("pswd"+a);objEl.style.display="block";}
+/*]]>*/</script>
+<![endif]-->
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>body.d1n1.d2n0</em> {  }</strong>
+<br />
+증상) body.d1n1 OR body.d2n0 적용되므로 <br />
+표준) body.d1n1 AND body.d2n0 적용<br />
+해결1) IE6이 사라질때까지 사용하지 말자!<br />
+</li>
+
+<li><strong>[IE6,7,8] 자바스크립트 제거 상태에서 보이는 본문으로 바로가기 링크 클릭하면</strong>
+<br />
+증상) 화면으로 이동하는데 포커스는 이동 안됨.<br />
+표준) FF 에서 이상무<br />
+해결1) 공론화 전에는 그냥 두자.<br />
+</li>
+
+<li><strong>[IE6,7] #topmenu ul ul li.on a .bg { background: url(/img/inc/top2mbgon.png) no-repeat !important; background: transparent; <em>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/img/inc/top2mbgon.png",sizingMethod=crop,enabled=true);</em> }</strong>
+<br />
+증상) 영문 Tahoma 글꼴이 보통 안티알리아싱으로 보이는데 그렇지 않음 <br />
+표준) 이상무<br />
+해결1) IE6 만 filter 가 적용되도록 한다.<br />
+</li>
+
+<li><strong>[IE6,7] <em>#topmenu ul ul li.last .bgr { display: inline; float: left; width: 20px; height: 25px; background: url(/img/inc/top2bgright.png) no-repeat !important; background: transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src="/img/inc/top2bgright.png"); }</em></strong>
+<br />
+증상) 마지막 float 요소가 다음 라인으로 밀려난다.<br />
+표준) 이상한 현상 없다.<br />
+해결1) position: relative; margin: 0 -20px 0 0; 속성 추가<br />
+</li>
+
+<li><strong>[IE6,7] <em>#topmenu ul ul li a { display: block; position: relative; padding: 5px 0; color: #3A3E41 !important; text-decoration: none; white-space: nowrap; text-indent: 0; letter-spacing: -1px; }</em></strong>
+<br />
+증상) &amp; 가 있으면 다음 float 요소가 다음 라인으로 밀려난다.<br />
+표준) 이상한 현상 없다.<br />
+해결1) margin: 0 -1px 0 0; 속성 추가<br />
+</li>
+
+<li><strong>[IE6,7] <em>a { display: block; border: 1px solid #ccc; background: #fff url(/img/inc/combo_bg.png) no-repeat 100% 0; }</em></strong>
+<br />
+증상) 배경이미지가 border 영역부터 시작한다.<br />
+표준) 배경이미지가 border 영역제외하고 시작한다.<br />
+해결1) width 값 또는 height 값을 정의한다.<br />
+</li>
+
+<li><strong>[IE8] <em>initmTicker();</em></strong>
+<br />
+= 원본 : http://test.krx.co.kr/m11/m11_5/m11_5_2/m11_5_2_2/UHPKOR11005_02_02_01.html<br />
+= 테스트본 : M:\X\KRX_mTicker.html<br />
+증상) [IE8] initmTicker(); 2개일 때 Play 되지 않는 문제 발생. - 리로드 할 때마다 다름 (이상무, 첫번째만 오류, 두번째만 오류, 2개다 오류)<br />
+점검) IE6, IE7, FF 이상무, Sa 이상무. 로컬에서 확인시 다른 문제 발생(안보임)하였으나 원본 주소는 잘보임.<br />
+해결) <em>미해결</em><br />
+</li>
+
+<li><strong>[IE6,7] <em>letter-spacing: -1px;</em></strong>
+<br />
+증상) br 요소 두번 적용시 하나로 인식한다.<br />
+표준) 아무 문제 없이 잘보인다.<br />
+해결1) 여러줄인 콘텐츠는 letter-spacing: -1; 하지 않는다.<br />
+해결2) br { letter-spacing: 0; }<br />
+</li>
+
+<li><strong>[IE6] <em>#head { float: left; } #visual { position: absolute; } #wrap { float: left; }</em></strong>
+<br />
+증상) float: 요소 사이에 position: absolute; 요소를 넣으니 안보인다.<br />
+표준) 아무 문제 없이 잘보인다.<br />
+해결1) float 요소 끝에 둔다.<br />
+해결2) float 요소 부모 밖에 둔다.<br />
+해결3) float 요소 안에 둔다.<br />
+</li>
+
+<li><strong>[IE8] <em>th { width: 55px; } td { width: auto; }</em></strong>
+<br />
+증상) 테이블 셀에 width 를 px값으로 지정하면 width 값 없는 셀의 폭을 제대로 표시 못하는 오류.<br />
+특히 한줄 전체를 colspan 하고 있는 셀에 폭보다 긴 텍스트 콘텐츠가 들어가면 width 값 없는 셀은 최소의 값만 가져서 텍스트가 여러줄로 줄바꿈 되어 버린다.<br />
+해결) %를 사용하면 괜찮다!
+</li>
+
+<li><strong>[IE6] <em>li { float: left; } li.on { position: absolute; left: 0; top: 0; }</em></strong>
+<br />
+증상) li 요소중 float 와 absolute 가 섞여 있으면, absolute 적용된 li 가 보이지 않는다.
+해결) float 를 없애면 된다.
+</li>
+
+<li><strong>[IE7] <em>.multicol { width: 100%; } .multicol .col { float: left; }</em></strong>
+<br />
+증상) 다단배치를 위해서 float 를 담는 박스에 width: 100%; 를 하면 마지막 단(float)가 밀려남.
+해결) 담는 박스 width: 99.9%; 를 하든지.. 단 중 1개의 width 를 0.1% 줄여준다. (0.01% 하면 효과없다.)
+</li>
+
+<li><strong>[All] td { height: 100px; }</strong>
+<br />
+증상) min-height 는 브라우저마다 다르고 height 가 min-height 처럼 동작한다.
+</li>
+
+<li><strong>[IE6,7] td { position: relative; }</strong>
+<br />
+증상) border 두배가 되거나, 안나오거나<br />
+표준) 평소에 잘나오나, 자손의 a 태그 클릭시 1px 오차남.<br />
+해결) td 안에 div 만들어서 쓰자<br />
+</li>
+
+<li><strong>[IE6,7] body_content 높이</strong>
+<br />
+증상) body_content 가 높이를 가지지 않는 문제..<br />
+원인) 플래시 object 코드만 달랑 있다.<br />
+표준) object 가 inline 요소라도 높이를 인식함.<br />
+해결) object 에 display: block; 을 넣어보니 해결됨.<br />
+과제) 다른 원인도 찾아보자!
+</li>
+
+<li><strong>[IE7,8] <em>&lt;param name="wmode" value="window" /&gt;</em></strong>
+<br />
+증상) 키보드 포커스 잃어버림.<br />
+해결1) opaque, transparent 로 수정.
+해결2) 플래시 자체에 tabindex 지정.
+</li>
+
+<li><strong>[All] <em>* { font-style: normal/* em, dfn, var, cite, address */; font-family: AppleGothic,굴림,Gulim,돋움,Dotum,sans-serif; }</em></strong>
+<br />
+/* 전체 선택자 사용시 위 속성 외에는 지정하지 마세요. */
+</li>
+
+<li><strong>[IE8] <em>body.main #search input.text { background: transparent; }</em></strong>
+<br />
+증상) 통합검색 입력박스에 마우스로 포커싱 안됨.
+항상 그런것이 아니고 횡성군 본청 메인에서만 발견된 오류. 주변 요소에 영향을 받지 않을까 추측할뿐.<br />
+해결) { background: url(/img/all/b.gif); }
+</li>
+
+<li><strong>[IE7] <em>#topmenu ul ul li a.on { display: inline; float: left; height: 15px; white-space: nowrap; overflow: hidden; }</em> 오류</strong>
+<br />
+width 값이 명시되지 않으면 1글자(1em)만 보이고 이후는 안보인다.<br />
+overflow: visible; 로 수정필요하다.<br />
+</li>
+
+<li><strong>[IE6,7] <em>#foot .bg2 { position: absolute; left: 1px; top: -31px; .. }</em> 속성 오류</strong>
+<br />
+부모(#foot) 범위를 벗어나는 위치에 콘텐츠(.bg2)를 위치시킬 때 z-index 가 제대로 상속 안되고 최상위 z-index  값을 가져버림.<br />
+margin 음수값을 주어도 되고 마찬가지이다.<br />
+콘텐츠에 직접 #foot .bg2 { z-index: -1; } 등등 줘도 해결 안되었음.<br />
+</li>
+
+<li><strong>[IE6,7] <em>caption { margin: 1em; }</em> 속성 적용불가</strong>
+<br />
+</li>
+
+<li><strong>[GC,Sf] <em>@charset "utf-8";</em></strong>
+<br />
+증상) 임베드 CSS 의 @charset "utf-8"; 이후 첫번재 선택자의 스타일이 적용되지 않음.<br />
+해결) @charset "utf-8"; 는 외부CSS 파일에만 사용하는 것이므로 삭제하면 됨.<br />
+<xmp class="xmp">
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>body.d1n1.d2n1</em></strong>
+<br />
+증상) 한 요소에 클래스가 여러개인 조건을 만족하는 선택자를 다른 브라우저와 달리 IE6만 안됨.<br />
+해결) 못찾음 TT. 그리고 이처럼 사용하는 선택자가 표준 방식인지는 확인 못함.<br />
+<xmp class="xmp">
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>fieldset#search { .. margin: 1px 0 77px 5px; .. }</em></strong>
+<br />
+증상) fieldset 의 하단 마진값만 제대로 렌더링하지 못하는 경우가 있다.<br />
+해결) fieldset 하단 마진값을 아래 요소 상단 마진값으로 수정<br />
+<xmp class="xmp">
+fieldset#search { .. margin: 1px 0 0 5px; .. }
+#sidemenu { .. margin: 77px 0 0 34px; .. }
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>width: 120px; height: auto;</em></strong>
+<br />
+표준) 원본 비율에 맞게 width 120px 에 대응되는 hegiht 값을 가진다.<br />
+증상) width 120px 에 hegiht 는 원본 길이를 보여줘서 비율이 엉망진창<br />
+해결) height: auto; 값을 주지 않거나 정확한 px 값을 주자!<br />
+<xmp class="xmp">
+</xmp>
+</li>
+
+<li><strong>[IE6,7] <em>position: absolute;</em></strong>
+<br />
+증상) 가로 4px 밀림.<br />
+해결) left: 0; 값을 주자!<br />
+<xmp class="xmp">
+#sidebar h1 { .. position: absolute; left: 0; top: 0; .. }
+</xmp>
+</li>
+
+<li><strong>[IE] <em>z-index</em></strong>
+<br />
+표준) FF3, GC2, Sf4, Op9.64 에서 position: relative|absolute; 에 z-index 속성 없으면 z좌표가 코드 순서와 관계없이 동일하다고 판단.<br />
+z-index 있으면 뒤에 나오는 요소가 위에 있다고 판단.<br />
+증상) IE6,7,8 에서는 z-index 속성이 없어도 뒤에 나오는 요소가 위에 있다고 판단.
+해결) z-index 값을 주자!<br />
+기타) z-index 에 -값을 줘서 점검해보니 모든 브라우저에서 잘된다.
+<xmp class="xmp">
+#m1 { z-index: 20; .. }
+</xmp>
+</li>
+
+<li><strong>[IE6] <em>background</em> 가 보였다 안보였다하는 문제</strong>
+<br />
+증상) 보이는 상태에서 작업표시줄의 다른 작업을 활성화시켰다가 다시 돌아오니 안보임. 새로고침하면 다시 보이지만..<br />
+해결) 아래처럼 높이값(혹은 너비값)을 지정<br />
+<xmp class="xmp">
+#body_title h1 { height: 21px; .. }
+</xmp>
+</li>
+
+<li><strong>[IE6] 좌우 <em>margin</em> 오류</strong>
+<br />
+증상) 상단주메뉴2차 스타일 적용시 좌우마진이 표준과 다르게 더해져서 렌더링한다.<br />
+<xmp class="xmp">
+#topmenu ul ul li a { display: block; margin: 0 4px; }
+</xmp>
+해결) 아래와 같이 하면 표준 방식처럼 겹치는 마진 중 큰 값으로 렌더링한다.<br />
+<xmp class="xmp">
+#topmenu ul ul li a { display: inline; float: left; margin: 0 4px; }
+</xmp>
+</li>
+
+<li><strong>[IE6,7] <em>click</em> 오류</strong>
+<br />
+증상) img 에 마우스오버하면 상태표시줄에 링크된 uri가 보였으나 클릭하면 이동 안됨 (텍스트는 가능)<br />
+해결) 아래와 같이 img 위에 background: url(/img/all/b.gif); 속성을 가지는 투명 레이어 추가<br />
+<xmp class="xmp">
+.board .gallery a { cursor: pointer; }
+.board .gallery a .pic { display: block; position: relative; width: 141px; height: 115px; .. }
+.board .gallery a .pic img { .. width: 129px; height: 87px; .. }
+.board .gallery a .pic .mask { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: url(/img/all/b.gif); }
+.board .gallery a span.subject { display: block; width: 129px; padding: 0 0 0 1.2em; .. }
+</xmp>
+<a href="http://tour.sancheong.ne.kr/program/tour/tourimage/lstTourImage.asp">산청 문화관광 포토갤러리</a><br />
+.board .gallery a { display: block; position: relative; width: 141px; height:115px; cursor: pointer; } 로 해도 소용없었음.<br />
+.board .gallery a .pic img { position: 속성; } 이 무엇이든지 관계없이 문제 발생.
+</li>
+
+<li><strong>[IE6] <em>position</em> 위치 오류</strong>
+<br />
+증상) #picpr .summary { .. width: 183px; .. } 속성 지정 후 발생. 왜 그럴까?<br />
+해결) { width: 183px; _width: auto; } 이렇게 Hack 사용했음.. 다른 방법 없을까?<br />
+<xmp class="xmp">
+#picpr ul li { display: inline; }
+#picpr ul li a { display: inline; float: left; position: relative; width: 300px; height: 72px; overflow: hidden; cursor: pointer; }
+#picpr ul li a .pic { display: inline; float: left; position: relative; width: 108px; height: 71px; margin: 1px 9px 0 0; overflow: hidden;}
+#picpr ul li a .pic img { position: absolute; left: 5px; top: 5px; width: 98px; height: 61px; vertical-align: top; }
+#picpr ul li a .pic .mask { position: absolute; width: 100%; height: 100%; background: url(/img/main/m2pmask.png) no-repeat 0 50%; }
+#picpr ul li a .subject { display: inline; float: left; width: 183px; padding: 4px 0 0 0; color: #e50; font-weight: bold; line-height: 1.5; letter-spacing: -1px; }
+#picpr ul li a .summary { display: inline; float: left; width: 183px; _width: auto; line-height: 1.25; color: #333; }
+#picpr ul li a .more { position: absolute; right: 1px; top: 58px; width: 29px; height: 11px; }
+</xmp>
+</li>
+
+<li><strong>[IE6,7,8.FF,Sf,Op제외] <em>top: -값;</em> 혹은 <em>margin: -값;</em> 으로 부모 영역을 벗어날때 서식요소 오류</strong>
+<br />
+증상) <a href="http://www.masan.go.kr/">산청군청</a> 직원검색에서..<br />
+[IE6,7,8] 텍스트상자는 안되고, 라디오 버튼은 된다.<br />
+[FF,Sf] 텍스트상자, 라디오 버튼 모두 안된다.<br />
+[Op] 텍스트상자, 라디오 버튼은 된다.<br />
+해결) -값 안들어가도록 배치 방법을 수정하자!<br />
+<a href="http://www.masan.go.kr/">마산시청</a> 처럼 a요소는 클릭이 가능하다.
+</li>
+
+<li><strong>[IE7,8] <em>a:hover</em> {  } 스타일이 제대로 적용안되는 오류</strong>
+<br />
+<xmp class="xmp">
+<a href="#"><span>메뉴명</span></a>
+#topmenu ul ul li a:hover { background: url(/img/inc/top2mbg.gif) no-repeat 0 6px; font-weight: bold; }
+</xmp>
+a:hover span {} 으로 디자인해야할 필요가 없다면,
+initTopMenu(); 의 코드 중 아래 부분을 찾아 주석처리.
+<xmp class="xmp">
+top2MenuAs[j].innerHTML = '<span>'+top2MenuAs[j].innerHTML+'</span>';//디자인용
+</xmp>
+</li>
+
+<li><strong>[IE6,7] <em>height: 0;</em> 에도 width 값을 가지는 오류.</strong>
+<br />
+<xmp class="xmp">
+#charge dl dt.manager { width: 66px; height: 0; }
+</xmp>
+위와 같은 소스에서 IE8 과 그외 표준 브라우저 들은 height 값이 0 이므로 width 값이 있더라도 너비를 가지지 않지만,
+IE6,7은 너비를 가진다.<br />
+<em>[IE6]만 &lt;div&gt;&lt;/div&gt; 처럼 요소 안 내용이 없을 경우 높이 2px의 공간이 생긴다. 하지만, 내용이 있고 font-size 가 0 이면 높이를 가지지 않는다.</em>
+</li>
+
+<li><strong>[IE6,7] 배경 이미지 { <em>background: url();</em> } 가 있는 요소의 자식이 a 요소이면 배경이 안보이는 오류</strong>
+<br />
+width: 값; 혹은 height: 값; 을 지정하면 제대로 나온다. 아래와 같이 배경색과 같이 지정해도 된다.
+<xmp class="xmp">
+{ background: #fff url(); }
+</xmp>
+</li>
+
+<li><strong>[IE6] 탭콘텐츠가 안보이는 오류 (<em>JS함수 호출 위치</em>)</strong>
+<br />
+<xmp class="xmp">
+<script type="text/javascript">tabOn('tab3',1);</script><noscript><p>JavaScript</p></noscript>
+</xmp>
+<a href="http://www.hsg.go.kr/main/default_20090122.asp">횡성군 메인</a> 탭콘텐츠 전자민원에서 발견.
+이 함수를 &lt;/body&gt; 바로 앞에서 호출하여 해결.
+</li>
+
+<li><strong>[IE7] 화면이 엄청 길어져 <em>scrollbar</em>가 세로, 가로 2개씩 생기는 오류.</strong>
+<br />멀티게시판 뷰 제목바에서 발견.<br />
+.board .title { display: block; padding: 0 0 0 1%; background: url(/img/board1/thead_bg.gif) no-repeat; overflow: hidden; line-height: 1.25; }<br />
+에<br />
+.board .title { .. width: 99%; .. } 추가하여 해결함.
+</li>
+
+<li><strong>[OP9.63] 투명 배경의 a 요소 영역 사라지는 오류.</strong>
+<br />보통의 경우에는 문제가 없으나, a 요소보다 z-index 낮은 다른 이미지와 겹쳐질 경우 문제 발생.<br />
+<xmp class="xmp">
+#m4 a { font-size: 0; line-height: 0; overflow: hidden; text-indent: -9999px; cursor: pointer; }
+#m4 ul li a { display: inline; float: left; width: 79px; height: 52px; }
+</xmp>
+해결1) 아래처럼 투명 배경이미지 추가. b.gif 존재여부와 관계없으므로 url() 만 있어도 된다.<br />
+<dfn>
+#m4 ul li a { background: url(/img/all/b.gif); } 또는
+</dfn>
+해결2) 아래처럼 배경색을 넣고 opacity(불투명도)를 0로 설정. (transparent는 안됨)<br />
+<dfn>
+#m4 ul li a { background: #0ff; filter: alpha(opacity=0); opacity: 0; }
+</dfn>
+<em>미결) 플래시와 겹칠 때는 영역은 인식하나 cursor 가 손모양으로 변하지 않음</em>
+</li>
+
+<li><strong>[IE6] 주메뉴 2차 현재 위치 활성화 안보이는 오류</strong>
+<br />아래와 같이 부모 보다 자식 width 를 더 크게 만들어서 해결함.<br />
+#topmenu { .. position: relative; .. width: 677px; height: 67px; .. }<br />
+#topmenu ul { .. position: absolute; left: 4px; top: 0; width: 674px; }<br />
+<a href="http://council.sancheong.ne.kr/07/01.asp">산청군 군의회 내용페이지</a>에서 현상 발견되어 수정하였음.
+</li>
+
+<li><strong>[IE6,7,8] 부모 { float: right; position: relative; } 의 자식 { position: relative; } 에서 마우스오버 영역 오류 발생</strong>
+<br />부모의 position: relative; 을 제거하니 해결됨.<br />
+position: relative; 가 중첩되어 적용되면 IE에서는 여러 형태의 오류가 발생한다.<br />
+<a href="http://sancheong.ne.kr/05life/03_04.asp">산청군 내용페이지</a>에서 현상 발견되어 수정하였음.
+</li>
+
+<li><strong>[FF3.04] 플래시 버튼을 클릭할 수 없는 오류.</strong>
+<br />#wrap가 #visual 플래시 보다 z-index 가 아래에 있지만, 이상하게 위에 있는 것과 같이 플래시 버튼 클릭을 무력화 시킴.<br />
+body.main #wrap { overflow: auto; } 속성을 제거하니 해결됨.
+</li>
+
+<li><strong>[웹표준] tabindex 속성을 사용할 수 없는 태그들..</strong>
+<br />span, iframe</li>
+
+<li><strong>[IE6,7] position: relative; 인 요소와 위쪽(상위가 아님) 요소간에 줄겹침 오류</strong>
+<br />
+<dfn>
+부산강서, 사천 본청 작업에서 발견되었다.<br />
+ul.bu li { /* position: relative; */ ... } 처럼 position: relative; 를 없애니 줄겹침 문제가 더 이상 나타나지 않았다.
+</dfn>
+</li>
+
+<li><strong>[IE6,7] position: relative; 인 요소의 하위 요소 배경 오류</strong>
+<br />
+<dfn>
+하위 요소가 position: static; 이면... 배경이 잘 보이는 듯 하나 스크롤바 움직여 보면 나타났다 사라졌다<br />
+하위 요소가 position: relative; 이면... 배경이 제대로 안나오고 잘린다. 인라인처럼..<br />
+하위 요소에 width: 값; height: 값; 둘 중 하나 이상 지정하면.. 배경이 잘나온다<br />
+</dfn>
+</li>
+
+<li><strong>[IE6,7] 플래시 위에 a요소 블럭 클릭 영역, 서식요소 포커싱 오류 있을 때</strong>
+<br />
+<xmp class="xmp">
+a { .. width: 49px; .. } /* 너비나 높이값을 지정 */
+input.text { .. background: #fff; .. } /* 배경을 transparent 이외의 값으로 지정 */
+</xmp>
+</li>
+
+<li><strong>[표준 브라우저] position: relative; 으로 여러 요소를 배치할 때 left, top 보다는 margin, padding 을 사용하시오.</strong>
+<br />
+어떤 요소가 top: 10px; 으로 위치가 이동되었다 하더라도,<br />
+이어지는 요소는 첫번째 요소의 원래 위치인 top: 0; 를 기준으로 자기 위치를 찾을 것이다.<br />
+</li>
+
+<li><strong>[표준 브라우저] 마진 겹침 현상 없애려면</strong>
+<br />
+<xmp class="xmp">
+overflow: auto; 또는 overflow: hidden;
+</xmp>
+</li>
+
+<li><strong>[IE6]</strong>
+<br />
+<xmp class="xmp">
+div.moviebox div.caption { float: left; display: inline; width: 230px; height: 290px; padding: 10px; border: 4px solid #e4e4e4; border-left: 0; overflow: auto; }/* IE6 아무내용없으면우마진3px오차발생 */
+</xmp>
+</li>
+
+<li><strong>[IE7] display: inline; float: left; 마지막 요소 오류</strong>
+<br />
+* 아래 하마진이 적용안되어 패딩으로 수정하여 해결.
+<xmp class="xmp">
+ul#banner-content li a { display: inline; float: left; margin: 0; padding: 0 0 1px 0; }
+</xmp>
+* block 으로 인식 안되고, width 도 증가(2px?)된 것 같이 되어버려 플로팅에서 밀려나서 콘텐츠가 아래로 떨어짐.<br />
+#c2m2 .tabcontent .focus .substance { padding: 0 0 1px 0; } 추가하여 해결.
+<xmp class="xmp">
+#c2m2 .tabcontent .focus a { display: block; position: relative; width: 245px; }
+#c2m2 .tabcontent .focus .pic { display: inline; float: left; width: 73px; height: 46px; margin: 5px 15px 5px 5px; overflow: hidden; }
+#c2m2 .tabcontent .focus .pic img { width: 73px; height: auto; }
+#c2m2 .tabcontent .focus .subject { display: inline; float: left; width: 152px; padding: 3px 0 5px 0; .. }
+#c2m2 .tabcontent .focus .substance { display: inline; float: left; width: 152px; padding: 0 0 1px 0; line-height: 1.34; }
+</xmp>
+</li>
+
+<li><strong>[IE6,7] <em>object type="image/jpeg"</em> 지원안됨</strong>
+<br />
+<xmp class="xmp">
+<object data="/img/inc/visual.jpg" type="image/jpeg" width="1000" height="200"></object>
+</xmp>
+스크롤바가 생김. object { overflow: hidden; } 으로도 스크롤바 없어지지 않음.
+</li>
+
+<li><strong>[IE6] <em>thead, tfoot</em> 에는 <em>background: ;</em> 속성을 사용하지 마라</strong>
+<br />
+<xmp class="xmp">
+thead, tfoot 에는 background: ; 속성을 사용하고, li 요소 안에 table 요소를 사용하면, 스크롤시 배경이 나타났다 사라졌다함.
+</xmp>
+</li>
+
+<li><strong>[IE6]</strong>
+<br />
+<xmp class="xmp">
+#tab1 { position: absolute; left: 207px; top: 14px; width: 630px; height: 355px; }
+#tab1 .tabmenu { position: absolute; left: 0; top: 0; width: 100%; height: 30px; }
+를 아래 처럼 수정.
+#tab1 { position: absolute; left: 207px; top: 14px; /* width: 630px; 있으니 IE6에서 tab1c1 초기활성 동작안해서 삭제함 */ }
+#tab1 .tabmenu { background: transparent /* 원치않는 배경 생겨서 추가 */; }
+</xmp>
+</li>
+
+<li><strong>[IE6]</strong>
+<br />
+<xmp class="xmp">
+* html body.main #sidebar { height: auto; background: #fff/* [IE6]height오류발생시이속성으로해결 */; }
+.list ul li a { display: block; width: 100%; margin: 0; padding: 2px 0 1px 0; background: url(/town/img/main/list_libg.png) no-repeat; color: #fff; overflow: hidden; cursor: pointer;/* IE에서 a 요소안에 span요소 올때 손모양커서 안나오는 버그해결 */ }
+.list ul li span:hover { text-decoration: underline; }/* Op는a안에float가오면hover를다시설정해야함 */
+.list ul li img { vertical-align: baseline; }/* 기본값외에다른것을사용하면a높이가달라져배경이사라짐 */
+</xmp>
+</li>
+
+<li><strong>[IE6] display: inline; float: left; 는 우측 1px 공간을 남기므로 position: 의 기준으로 부적합</strong>
+<br />
+아울러, display 를 제어하는 콘텐츠에서 처음에는 제대로 나오나, none 속성 적용 후 다시 보면 position 의 기준을 상실하여 어긋나버림.
+<xmp class="xmp">
+#globalmenu ul { float: right; list-style: none; position: relative; margin: 0; padding: 0; }
+#globalmenu ul li { display: inline; float: left; /* position: relative; */ margin: 0; padding: 0; }
+</xmp>
+위와 같이 li 말고 상위 block 요소 ul 을 기준으로 삼도록 수정하여 해결.
+</li>
+
+<li><strong>[IE6] #gm_langm { display: none; } 적용 후 border가 안보이는 문제.</strong>
+<br />
+<xmp class="xmp">
+#gm_langm li a { float: left; }</xmp>
+속성 추가하여 해결.
+</li>
+
+<li><strong>[IE6,7] 부모 좌측에 4px 버그 해결  */</strong>
+<br />
+<xmp class="xmp">
+#sidebar .menuall img { display: block; }</xmp>
+</li>
+
+<li><strong>[IE6,7] input.text 요소 background-image 오류</strong>
+<br />키워드 입력시 범위를 벗어나면 배경이미지가 입력 텍스트 길이에 따라 밀리는 오류발견</li>
+<li><strong>[IE6,7] position: relative; 설정 후 자손 요소의 background, border 속성 오류</strong>
+<br />
+발견된 현상 - 페이지 열 때마다, 스크롤 할 때마다
+ul li { background: url(); } 에서 불릿 이미지가 보였다 안보였다함.<br />
+a.button { border: ; } 에서 테두리가 보였다 안보였다함.
+<dfn>
+<xmp class="xmp">
+자손 요소 선택자 { display: inline-block; }</xmp>
+혹은
+<xmp class="xmp">
+부모 요소 선택자 { display: static;/*(기본값)*/ }</xmp>
+</dfn>
+</li>
+
+<li><strong>[IE] 프레임 안의 페이지 화면이 뭉개지는 문제</strong>
+<br />
+<xmp class="xmp">
+html, body { background: #fff; }
+</xmp>
+배경색을 지정하면 해결.
+</li>
+
+<li><strong>[IE6] 프레임 안의 가로 스크롤 문제</strong>
+<br />
+<xmp class="xmp">
+* html { overflow: scroll; overflow-x: auto; }
+</xmp>
+위와 같이 지정해서 해결.
+</li>
+
+<li><strong>[FF] text-indent 음수값일때 FF에서 링크 폭이 길어지는걸 방지.</strong>
+<br />
+<xmp class="xmp">
+font-size: 0;
+</xmp>
+Disable Image 경우를 위한다면 권장하지 않음.
+</li>
+
+<li><strong>[IE] left, top 없으면 상단 1px 오차발생</strong>
+<br />
+<xmp class="xmp">
+#topmenu ul li a span { display: block; position: absolute; left: 0; top: 0; }
+</xmp>
+위와 같이 0 값이라도 지정해주자!
+</li>
+
+<li><strong>[IE6,7] #topmenu ul ul 배경이 없을 경우 마우스 오버 동작 안하는 문제</strong>
+<br />#topmenu ul ul { .. background: url(/img/all/b.gif); } 로 해결됨.이미지 파일 존재하지 않아도 가능</li>
+<li><strong>/* min-height: 0; 초기값이다. auto 라는 속성값은 없음.. FF, Op 에서 auto 는 100% 로 해석해버림 */</strong>
+<br /></li>
+
+<li><strong>[비표준] 메일 내용은 비표준 모드로 코딩해야함.</strong>
+<br />웹메일에서 CSS 지원 안될 수 있으니, 무식하게 디자인을 마크업에 모두 포함해야 안심.</li>
+
+<li><strong>[비표준]  DOCTYPE 없으면 속성 상속 안되는 것들 정의해주어야 함.</strong>
+<br />table, pre { font-size: ; font-family: ; line-height: ; }</li>
+
+<li><strong>[표준] 앵커 태그 일괄 속정 적용시 주의.</strong>
+<br />a, a:link { cursor: pointer; } 이렇게하면 a 태그에 href 없어도 손모양 커서 나오므로 하지말자.<br />
+ (href 속성 없어도 마크업 오류 아니다.)<br />
+</li>
+
+<li><strong>[IE6,7] :focus 미지원, a 이외의 :hover 도 미지원.</strong>
+<br /></li>
+
+<li><strong>[IE6] #container 의 background 가 반복되는 오류가 있으면 </strong>
+<br />아래와 같은 CSS로 인하여 발생함. 어느 속성이 문제인지는 모르겠으나. display: none; 속성 적용하여 해결함.<br />
+.altcontents { position: relative; left: -2000px; clear: both; width: 0; height: 0; margin: 0; padding: 0; font-size: 0; line-height: 0; text-indent: -2000px; }</li>
+
+<li><strong>[IE,FF] 에서 탭키 이동시 a 태그를 지나가므로 li:focus 는 적용안됨.</strong>
+<br />
+#contenttabmenu ul li:hover a,<br />
+#contenttabmenu ul li:focus a,<br />
+#contenttabmenu ul li.on a {  }<br />
+</li>
+
+<li><strong>[표준] float 의 parent-node 가 공간을 가지려면 display: table; table-layout: fixed;</strong>
+<br />하지만, 범용하기엔 무리.<br />
+overflow: auto|hidden; 방식을 추천한다.</li>
+
+<li><strong>[?] white-space: nowrap; 일때는 부모영역을 벗어남</strong>
+<br />.contentmenu ul li { white-space: normal; }</li>
+
+<li><strong>[IE6,7] block 요소는 width, height 속성 중 한개 이상 값(auto외)이 필요함.</strong>
+<br />
+#selectId h3 a { display: block; padding: 5px 6px 3px; background: #eee; color: #000; text-decoration: none; }<br />
+* html #selectId a { height: 15px; }
+</li>
+
+<li><strong>[공통] dotted 는 브라우저에 따라 다르게 보이므로 dashed 를 추천합니다.</strong>
+<br />
+div.dot { border-bottom : 1px dashed #ccc; }
+</li>
+
+<li><strong>[공통] colgroup 으로 td 스타일제어하려면 tr에 정의</strong>
+<br />table.t3 tr { text-align: left; }</li>
+
+<li><strong>[IE] 아래 줄바꿈 CSS 는.. float 다음이 아니면 2라인 간격이 생김</strong>
+<br />div.brclear { clear: both; height: 0; margin: 0; padding: 0; font-size: 0; line-height: 0; }</li>
+
+<li><strong>[IE] 입력폼에서 춤추지 않는 최소 줄간 1.2</strong>
+<br />button { margin: 0; padding: 0; 	font-size: 1em; font-family: AppleGothic,굴림,Gulim,sans-serif; line-height: 1.25; vertical-align: middle; }</li>
+
+<li><strong>[공통] textarea는 인라인요소!</strong>
+<br />textarea {  }</li>
+
+<li><strong>[Sf3] Sf3 hack CSS ver3 valid</strong>
+<br />body:first-of-type input.file { border-width: 0; }</li>
+
+<li><strong>[Op9이전?] input 태그안의 value 는 text-indent가 적용안되어 button태그로 수정 */</strong>
+<br />.board .search button.button { width: 55px; height: 21px; border: 0; background: transparent url(/img/board/bt_search.gif) no-repeat; text-indent: -2000px; }</li>
+
+<li><strong>[IE6이하] tr:hover {  } 미지원.</strong>
+<br /></li>
+
+<li><strong>[공통] form 태그에는 CSS 적용하지마세요.. 프로그래머요청</strong>
+<br /></li>
+
+<li><strong>[IE6] margin: -1px 0 0 0; 일 경우 배경이 안보이는 경우 발생</strong>
+<br />아래 처럼 속성 수정하여 해결함.
+.selector { .. margin: 0 0 1px 0; }
+</li>
+
+<li><strong>[IE6] position: relative; 일때 안보이는 경우 발생</strong>
+<br />부모에게도 position: relative; 속성 부여하여 해결할 수도 있음.
+#selector { position: relative; display: inline; float: left; width: 500px; }<br />
+#selector .selector { position: relative; width: 500px; background: url(/img/sub/selector_bg.gif); }
+</li>
+
+<li><strong>[Op,Sf] template.css  h4 선택자의 line-height 속성 적용됨(웹표준).. body 속성과 동일하게 line-height 추가함. (뭔말인지?)</strong>
+<br />
+#selector h4 { display: inline; position: relative; margin: 0; padding: 0; background: transparent; font-weight: normal; cursor: pointer; line-height: 1.84; }<br />
+</li>
+
+<li><strong>[IE7,6] 3px보정</strong>
+<br />
+.selector { clear: both; position: relative; width: 370px; height: auto; margin: 0; padding: 4px 0 4px 70px; border: 1px solid #999; }<br />
+*:first-child+html .selector { padding-bottom: 1px; }
+* html .selector { padding-bottom: 1px; }
+</li>
+
+<li><strong>[IE6,7] 센터정렬하지도 않을거면서 margin: 0 auto; 사용하지 마라.</strong>
+<br /></li>
+
+</ol>
+
+<hr />
+
+
+</div>
+<!-- /contentsBlock -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20190412.
+20150630. 20150324. 20150312. 20150311. 20150217.
+20141028. 20140917. 20140806. 20140116. 20140103.
+20131206. 20131129. 20131115. 20131111. 20130926. 20130924. 20130527. 20130510. 20130222.
+20121220. 20121129. 20121115. 20121015. 20120926. 20120918. 20120911. 20120907. 20120820. 20120810. 20120803. 20120704. 20120628. 20120521. 20120228. 20120217.
+20111221 20111216 20111125 20111104 20111102 20111027 20111025 20111010 20111004 20110923 20110906 20110829 20110805 20110803 20110722 20110714 20110706 20110701 20110630 20110615
+</p>
+
+
+
+<script type="text/javascript" src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

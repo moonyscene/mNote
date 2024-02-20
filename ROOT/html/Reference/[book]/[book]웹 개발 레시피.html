@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]웹 개발 레시피 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+
+
+<h1>[book]웹 개발 레시피 <sub>Web Development Recipes</sub></h1>
+| <a href="http://www.yes24.com/24/goods/8446417?scode=032&OzSrank=1">View</a>
+| <a href="?">Demo</a>
+| <a href="http://pragprog.com/titles/wbdev/source_code">Exam</a>
+| <a href="http://www.insightbook.co.kr/95250">Errata</a>
+| <a href="http://www.matsunoki.net/files/b/Web%20Development%20Recipes%20-%20B.%20Hogan,%20et%20al.,%20(Pragmatic,%202012)%20WW.pdf">[PDF]</a>
+<br />
+| <a href="http://webdevelopmentrecipes.com/">http://webdevelopmentrecipes.com/</a><br />
+--| Download Source Code<br />
+--| Download QEDServer (30 MB)<br />
+--| Download Virtual Machine (335 MB) - The username and password for the VM is webdev<br />
+| <a href="http://www.virtualbox.org/">http://www.virtualbox.org/</a><br />
+| <a href="http://pragprog.com/titles/wbdev/">http://pragprog.com/titles/wbdev/</a><br />
+| <a href="http://qedserver.napcs.com/">http://qedserver.napcs.com/</a><br />
+| Read 356p/40h = 8.9/h
+
+<h2 id="Exam">Exam Code</h2>
+
+<h3>1장 눈이 즐거운 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 01 <strong>버튼과 링크</strong> 꾸미기
+<i>• CSS3</i><br />
+<xmp class="xmp">
+<input type="button" value="A Button!" class="button" />
+<a href="http://pragprog.com" class="button">A Link!</a>
+</xmp>
+line-height 값을 알 수 있는 방법은 특별히 없다.<br />
+a 와 button 크기가 같아질 때까지 브라우저에서 확대해 일일이 비교해가면서  line-height 를 조절해야 한다.<br />
+</li>
+<li>레시피 02 CSS로 <strong>인용문</strong> 꾸미기
+<i>• CSS3</i><br />
+<xmp class="xmp">
+<blockquote>
+	<p>
+	Determine that the thing can and shall be done, 
+	and then we shall find the way.
+	</p>
+</blockquote>
+<cite>Abraham Lincoln</cite>
+</xmp>
+</li>
+<li>레시피 03 CSS3 변환으로 <strong>애니메이션</strong> 만들기
+<i>• CSS3
+• JQuery</i><br />
+<xmp class="xmp">
+<header>
+<div class="sheen"></div>
+<img src="logo.png" class="logo">
+</header>
+<script>
+$(function(){
+	$("header").addClass("loaded");
+});
+</script>
+</xmp>
+<pre class="xmp">
+<code>blockquote + cite {
+  font-size: 1.1em;
+  display: block;
+  margin: 1em 0 0 4em;
+}
+
+blockquote:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: -50px;
+  left: 40px;
+  border-width: 0 15px 50px 0px;
+  border-style: solid;
+  border-color: transparent #faa;
+  display: block; 
+  width: 0;
+}</code></pre>
+</li>
+<li>레시피 04 jQuery로 역동적인 <strong><b>슬라이드 쇼</b></strong> 만들기
+<i>• jquery.cycle.all.2.74.js, theme</i><br />
+| <a href="http://malsup.com/jquery/cycle/">http://malsup.com/jquery/cycle/</a><br />
+| <a href="http://malsup.com/jquery/cycle/lite/">http://malsup.com/jquery/cycle/lite/</a><br />
+| <a href="http://jquery.malsup.com/cycle/options.html">Options</a>
+| <a href="http://jquery.malsup.com/cycle/more.html">Demos</a>
+<br />
+멈춤, 재생, 이전, 다음, 페이저.. 모두 다 된다.<br />
+한 가지 해결과제) 키보드 운용 순서 "순번-이미지-순번-이미지.." 로 가능한지 테스트 필요!<br />
+</li>
+<li>레시피 05 페이지 안에 예쁜 <strong>도움말 다이얼로그</strong> 만들기
+<i>• jquery-ui.min.js</i><br />
+| <a href="http://jqueryui.com/">http://jqueryui.com/</a>
+| <a href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a>
+<br />
+jQuery get() 사용하므로 온라인에서만 실행된다.<br />
+ESC 키로 다이얼로그를 닫을 수 있다.<br />
+</li>
+</ol>
+
+<h3>2장 사용자 인터페이스 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 06 HTML <strong>이메일 템플릿</strong> 만들기<br />
+table 중첩, font, center, 최소한의 CSS<br />
+미지원 클라이언트 지원하기 : 이메일을 볼 수 없습니까? <a href="?">대신 브라우저에서 볼 수 있습니다.</a><br />
+이미지 호스팅과 절대 경로 추가 : img 요소 alt 속성 사용한다. 배경은 지원하지 않을 수 있다.<br />
+이메일 전체 내용을 이미지로 만드는 것은 보기에는 좋을 수 있지만 접근성이 떨어진다.<br />
+| <a href="http://litmus.com/">litmus.com</a> 이메일 클라이언트 테스트<br />
+| <a href="http://www.email-standards.org/"><small>http://www.email-standards.org/</small></a> 이메일 표준 프로젝트 <br />
+| <a href="http://mailchimp.com">mailchimp.com</a> 메일침프 : 이메일을 성공적으로 보내는 노하우.<br />
+| <a href="https://github.com/mailchimp/Email-Blueprints">https://github.com/mailchimp/Email-Blueprints</a> 메일침프 오픈소스로 이메일 템플릿 공부<br />
+
+</li>
+<li>레시피 07 <strong>탭 인터페이스</strong>에서 내용 전환하기
+<i>• jQuery</i><br />
+[m] 키보드 운용 하려면 수정 필요하다!<br />
+</li>
+<li>레시피 08 접근성이 좋은 <strong>확장/축소</strong> 기능
+<i>• jQuery</i><br />
+[m] 목록 개별 확장/축소 는 키보드 운용 수정 필요햐다!<br />
+<pre class="xmp">
+<code>ul.collapsible li {
+  list-style: none;
+  cursor: default;
+}
+ul.collapsible li.expanded, ul.collapsible li.collapsed {
+  cursor: pointer;
+}
+ul.collapsible li:before {
+  display: block;
+  float: left;
+  width: 10px;
+  text-align: center;
+}
+ul.collapsible li.expanded:before {
+  content: '-';
+}
+ul.collapsible li.collapsed:before {
+  content: '+';
+}</code></pre>
+
+</li>
+<li>레시피 09 웹페이지에 키보드 <strong>단축키</strong> 추가하기
+<i>• jQuery</i><br />
+<xmp class="xmp">
+$(document).keydown(function(e) {
+  if($(document.activeElement)[0] == $(document.body)[0]){
+    switch(e.keyCode){
+    // In Page Navigation
+    case 74: // j
+      scrollToNext();
+      break;
+    case 75: // k
+      scrollToPrevious();
+      break;
+    // Between Page Navigation
+    case 39: // right arrow
+      loadNextPage();
+      break;
+    case 37: // left arrow
+      loadPreviousPage();
+      break;
+    // Search
+    case 191: // / (and ? with shift)
+      if(e.shiftKey){
+        $('#search').focus().val('');
+        return false;
+      }
+      break;
+    }
+  }
+});
+</xmp>
+
+</li>
+<li>레시피 10 <strong>Mustache.js</strong>로 HTML 만들기
+<i>• jQuery
+• Mustache.js
+• QEDServer</i><br />
+| <a href="https://github.com/janl/mustache.js/">https://github.com/janl/mustache.js/</a><br />
+QEDServer 로 Ajax 와 products.json 파일 이용한다.<br />
+</li>
+<li>레시피 11 끝이 없는 것처럼 <strong>한 페이지</strong>에 보여주기
+<i>• jQuery
+• Mustache.js
+• QEDServer</i><br />
+예제 코드 동작이 불완전 하던데..?<br />
+</li>
+<li>레시피 12 <strong>상태 인식</strong> Ajax
+<i>• jQuery
+• Mustache.js
+• QEDServer</i><br />
+예제 코드 동작이 불완전 하던데..?<br />
+</li>
+<li>레시피 13 <strong>Knockout.js</strong>와 함께 알아서 척척 인터페이스 만들기
+<i>• jQuery
+• Knockout.js
+• QEDServer</i><br />
+예제 코드 동작이 불완전 하던데..?<br />
+<br />
+</li>
+<li>레시피 14 Backbone.js로 코드 정리하기
+<i>
+• <a href="http://documentcloud.github.com/backbone">Backbone.js</a>
+• <a href="http://documentcloud.github.com/underscore/">Underscore.js</a>
+• <a href="https://github.com/douglascrockford/JSON-js">JSON2.js</a>
+• <a href="http://mustache.github.com/">Mustache</a>
+• jQuery
+• QEDServer
+</i><br />
+ex) <a href="http://localhost:8080/code/14.backbone/public/index.html">http://localhost:8080/code/14.backbone/public/index.html</a>
+목록과 글쓰기 가능<br />
+<br />
+</li>
+</ol>
+
+<h3>3장 데이터 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 15 웹페이지에 <strong>구글 지도</strong> 추가하기
+<i>• The Google Maps API</i><br />
+ex) <a href="http://localhost:8080/code/15.googlemaps/map_example.html">http://localhost:8080/code/15.googlemaps/map_example.html</a>
+지도와 마커, 이벤트<br />
+| 구글 맵 API 공식문서 <a href="http://code.google.com/apis/maps/documentation/javascript/reference.html">http://code.google.com/apis/maps/documentation/javascript/reference.html</a><br />
+| 구글 API 전체와 개발자 작품 <a href="http://code.google.com/more/table">http://code.google.com/more/table</a><br />
+</li>
+<li>레시피 16 Highcharts로 <strong>차트와 그래프</strong> 만들기
+<i>• jQuery
+• <a href="http://www.highcharts.com/">Highcharts7</a>
+• QEDServer
+</i><br />
+ex1) <a href="http://localhost:8080/code/16.highcharts/example_chart.html">http://localhost:8080/code/16.highcharts/example_chart.html</a><br />
+ex2) <a href="http://localhost:8080/code/16.highcharts/affiliates.html">http://localhost:8080/code/16.highcharts/affiliates.html</a><br />
+| plotOptions property : <a href="http://www.highcharts.com/ref/#plotOptions">http://www.highcharts.com/ref/#plotOptions</a><br />
+| 레퍼런스 : <a href="http://highcharts.com/ref">http://highcharts.com/ref</a><br />
+| A JavaScript-sharing site: <a href="http://jsfiddle.net">http://jsfiddle.net</a><br />
+</li>
+<li>레시피 17 간단한 연락처 <strong>입력 폼</strong> 만들기
+<i>
+• PHP 개발 서버 ▷ 레시피 37 가상머신 만들기
+</i><br />
+ex1) <a href="http://192.168.0.105/contact.php">http://192.168.0.105/contact.php</a>
+<p><em>err)</em> Mail failed to send.</p>
+</li>
+<li>레시피 18 JSONP로 다른 도메인의 데이터에 접근하기
+<i>• jQuery
+• A remote server returning JSONP
+• <a href="http://www.flickr.com/services/api/keys/">Flickr API Key</a></i>
+<br />
+| <a href="https://developer.mozilla.org/en/Same_origin_policy_for_JavaScript">the same-origin policy</a> : 다른 도메인의 페이지에 접근하는 것을 막는..<br />
+| <a href="http://www.flickr.com/services/api/">http://www.flickr.com/services/api/</a> -- Flickr 가 지원하는 함수들 API 문서<br />
+<p><em>err)</em> Uncaught TypeError: Cannot read property 'photo' of undefined</p>
+</li>
+<li>레시피 19 다른 사이트에 넣을 수 있는 위젯 만들기
+<i>• jQuery
+• JSONP</i>
+<br />
+| 공식 루비 온 레일스 저장소 <a href="https://github.com/rails/rails">https://github.com/rails/rails</a> 로부터 사용자가 커밋 로그를 볼 수 있도록 돕는 위젯<br />
+ex1) <a href="http://localhost:8080/code/19.widget/index.html">http://localhost:8080/code/19.widget/index.html</a><br />
+<em>err)</em> Failed to load resource: the server responded with a status of 404 (Not Found) http://github.com/api/v2/json/commits/list/rails/rails/master?callback=jQuery17207249965826049447_1368679996986&_=1368679996998<br />
+</li>
+<li>레시피 20 자바스크립트와 CouchDB로 상태 정보 사이트 만들기
+<i>• <a href="http://couchdb.apache.org/">CouchDB</a>
+• <a href="http://cloudant.com">A Cloudant.com account</a>
+• <a href="http://couchapp.org">CouchApp</a>
+• jQuery
+• <a href="http://mustache.github.com/">Mustache</a></i>
+<br />
+<p>
+CouchDB 는 문서 데이터베이스와 웹 서버가 통합된 강력한 패키지다.<br />
+데이터베이스 기반의 애플리케이션을 HTML 과 자바스크립트만으로 만들 수 있고다.<br />
+CouchDB 서버에 직접 만든 클라이언트 사이드 파일들을 올릴 수 있어 사용자들에게 바로 서비스를 제공할 수 있다.<br />
+심지어 자바스크립트를 이용해 데이터에 쿼리를 날릴 수 있다.<br />
+MySQL 이나 Oracle 같은 관계형 데이터베이스가 아니어도 되는 곳에서는 충분히 쓰일 수 있다.<br />
+</p>
+| <a href="http://couchapp.org/page/installing">http://couchapp.org/page/installing</a><br />
+| <a href="http://couchapp.org/page/evently">http://couchapp.org/page/evently</a><br />
+<br />
+ex) <a href="http://localhost:8080/code/20.couchapps/statuses/_attachments/index.html">http://localhost:8080/code/20.couchapps/statuses/_attachments/index.html</a><br />
+<em>err2)</em><br />
+</li>
+</ol>
+
+<h3>4장 모바일 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 21 모바일 장비 고르기
+<i>• jQuery
+• CSS Media Queries</i>
+<br />
+ex) <a href="http://localhost:8080/code/21.targeting_mobile/index.m.html">http://localhost:8080/code/21.targeting_mobile/index.m.html</a><br />
+<br />
+| <a href="https://github.com/taitems/iOS-Inspired-jQuery-Mobile-Theme">https://github.com/taitems/iOS-Inspired-jQuery-Mobile-Theme</a> -- iOS 느낌 스타일 iOS
+Inspired jQuery Mobile Theme<br />
+| <a href="http://www.getskeleton.com/">http://www.getskeleton.com/</a> -- 미디어 쿼리를 지원하는 프레임워크 Skeleton<br />
+</li>
+<li>레시피 22 터치에 반응하는 드롭-다운 메뉴
+<i>• jQuery</i>
+<br />
+ex) <a href="http://localhost:8080/code/22.mobiledropdown/index.html">http://localhost:8080/code/22.mobiledropdown/index.html</a><br />
+<p>
+모바일은 :hover 불가하므로,<br />
+직전에 누른 요소와 일치하면 링크로 아니면, 하위 목록을 보여준다.<br />
+하위 목록은 링크만 있으므로 이벤트 전파를 하지 않는다.<br />
+데스크콥 사용자들도 최상위 카테고리를 따라가기 위해서 두 번 클릭해야 한다. 해결책은 아래에..<br />
+</p>
+| <a href="http://detectmobilebrowsers.com/">http://detectmobilebrowsers.com/</a> -- 모바일 아니면 작동하지 않게~ 샘플<br />
+</li>
+<li>레시피 23 모바일 장비에서 드래그-앤-드롭 하기
+<i>• jQuery</i>
+<br />
+ex) <a href="http://localhost:8080/code/23.dragndrop/index.html">http://localhost:8080/code/23.dragndrop/index.html</a><br />
+err) 모바일에서 [X] 버튼 동작안함.<br />
+<pre class="xmp">
+▷ <code><a href="http://localhost:8080/code/23.dragndrop/dragndrop.js">dragndrop.js</a>
+</code></pre>
+<br />
+| <a href="http://www.html5rocks.com/en/mobile/touch.html">http://www.html5rocks.com/en/mobile/touch.html</a> -- touch API
+</li>
+<li>레시피 24 jQuery 모바일로 인터페이스 만들기
+<i>• jQuery
+• <a href="http://jquerymobile.com/">jQuery Mobile</a></i>
+<br />
+| jQuery 모바일 테스트하기<br />
+--|a. <a href="http://marketcircle.com/iphoney/">http://marketcircle.com/iphoney/</a> -- 맥용 에뮬레이터<br />
+--|b. <a href="http://testiphone.com/">http://testiphone.com/</a> -- 윈도우, 리눅스용 에뮬레이터 무료 사이트<br />
+<br />
+| <a href="http://jquerymobile.com/demos/1.0rc1/#/demos/1.0rc1/docs/buttons/buttonsicons.html">http://jquerymobile.com/demos/1.0rc1/#/demos/1.0rc1/docs/buttons/buttonsicons.html</a>
+-- 기본적으로 지원되는 아이콘들<br />
+| <a href="http://jquerymobile.com/demos/1.0b2/#/demos/1.0b2/">http://jquerymobile.com/demos/1.0b2/#/demos/1.0b2/</a> -- jQuery Mobile 문서와 예제<br />
+</li>
+<li>레시피 25 CSS Sprite
+<i>• CSS</i>
+<br />
+ex) <a href="http://localhost:8080/code/25.css_sprites/index.m.html">http://localhost:8080/code/25.css_sprites/index.m.html</a><br />
+<xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="iPhone.css" media="only screen and (max-device-width: 480px)">
+</xmp>
+</li>
+</ol>
+
+<h3>5장 워크 플로우 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 26 그리드 시스템을 이용해 빠르게 반응하는 디자인 만들기
+<i>• <a href="http://getskeleton.com">Skeleton</a></i>
+<br />
+<p>디자인 목업이나 사이트 구조를 간단히 표현 : 종이와 연필, OmniGraffle, Visio, or Balsamiq Mockups, ..<br />
+스켈레톤 Skeleton 은 HTML, CSS 만 사용해 디자인 목업 만들고, 반응도 넣을 수 있고, 실제 개발에 재사용도 가능하다.<br />
+</p>
+ex) <a href="http://localhost:8080/code/26.cssgrids/index.html">http://localhost:8080/code/26.cssgrids/index.html</a><br />
+<br />
+| <a href="http://code.google.com/p/html5shiv/">http://code.google.com/p/html5shiv/</a> -- HTML5Shiv library : 구 브라우저에서 HTML5 요소 스타일 적용<br />
+| <a href="http://placehold.it">http://placehold.it</a> -- 이미지가 들어갈 자리 잡자. URL 만 넣으면 목업을 위한 이미지를 만들 수 있다.<br />
+| <a href="http://paulirish.com/2010/the-protocol-relative-url/">http://paulirish.com/2010/the-protocol-relative-url/</a> -- HTTPS?<br />
+| <a href="https://github.com/scottjehl/Respond">https://github.com/scottjehl/Respond</a> -- Respond.js : IE 에 미디어쿼리만 사용하고 싶은거라면..<br />
+| <a href="http://compass-style.org/">http://compass-style.org/</a> -- 추상화된 그리드 시스템 제공한다. 스타일시트 만들기 위해 Sass 를 이용한다.<br />
+
+</li>
+<li>레시피 27 Jekyll을 이용해 간단한 블로그 만들기
+<i>• Ruby interpreter
+• <a href="http://jekyllrb.com/">Jekyll library</a></i><br />
+
+<p>데이터베이스를 사용하지 않는 블로그를 만들기 위해.. 정적 사이트 제너레이터 (static-site generator : 레이아웃 코드를 재사용해 빠르게 정적 사이트를 만들 수 있게 해주는 툴) 사용.
+그 중에서 Jekyll 은 블로그를 위해 만들어진 프레임워크다.
+Jekyll 만의 약간은 고집스러운 스타일이 반영된 파일 수조를 기반으로 페이지나 글을 만든다.
+사실 워드프레스나 대형 포털 블로그를 사용하는 블로거들을 위한 것은 아니다.
+하지만 단순하고 효과적인 레이아웃 시스템을 가지고 있어, 테이터베이스에 대한 부담 없이 빠르고 간단한 블로그를 만들고 싶은 전문 블로거에게는 매우 적합하다.</p>
+
+<strong>Jekyll  설치하기</strong> -- "부록 A1 루비 설치하기" 먼저하자!
+<pre class="xmp">
+<code>gem install jekyll</code></pre>
+
+
+Jekyll 는 동적으로 페이지를 만들기 위해 <a href="http://www.liquidmarkup.org/">Liquid template language</a> 를 사용한다. [m]<a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">https://github.com/Shopify/liquid/wiki/Liquid-for-Designers</a><br />
+
+
+<cite>creatingablog/index.html</cite>
+<xmp class="xmp">
+---
+layout: base
+---
+<ul>
+{% for post in site.posts %}
+<li>
+<!-- link to the post -->
+</li>
+{% endfor
+</xmp>
+처음 세 줄은 YAML 을 이용해 페이지 앞부분을 표시한 것이다.<br />
+나중에 Jekyll 이 인식해 페이지 앞부분에 들어갈 내용을 추가할 수 있게 해 준다.<br />
+<a href="http://yaml.org/">YAML</a> 이란 사람이 읽을 수 있는 형태로 데이터를 저장하는 포맷으로 JSON 과 같이 프로그래밍 언어 전반에 걸쳐 사용할 수 있다.<br />
+
+<pre class="xmp">
+<code>$ jekyll
+$ jekyll serve
+</code></pre>
+
+사이트가 만들어지고, WEBrick 서버가 포트 4000번에서 시작된다.<br />
+사이트를 확인하고 싶다면 브라우저에서 <a href="http://localhost:4000">http://localhost:4000</a> 로 접근하자.<br />
+<br />
+
+| <a href="https://github.com/mojombo/jekyll/wiki/Configuration">https://github.com/mojombo/jekyll/wiki/Configuration</a> -  Jekyll 의 설정<br />
+| <a href="https://github.com/mojombo/jekyll/wiki">https://github.com/mojombo/jekyll/wiki</a> -  Jekyll 의 다양한 기능<br />
+
+
+
+</li>
+<li>레시피 28 Sass로 모듈화된 스타일 시트 만들기
+<i>• <a href="http://sass-lang.com">Sass</a></i>
+<br />
+<pre class="xmp">
+<code>$ gem install sass
+$ mkdir sass
+$ mkdir stylesheets
+$ sass --watch sass:stylesheets
+</code></pre>
+<br />
+| <a href="http://compass-style.org/">http://compass-style.org/</a> -- Sass 기반의 CSS 프레임워크인 컴퍼스(Compass) 를 쓰면 그리드 프레임워크나 CSS3 를 위해 만들어진 Mixins 과 플러그인도 이용할 수 있다.
+
+
+</li>
+<li>레시피 29 CoffeeScript로 더 깨끗한 자바스크립트 코드 만들기
+<i>• <a href="http://coffeescript.org/">CoffeeScript</a>
+• <a href="https://github.com/guard/guard">Guard</a> and the <a href="https://github.com/netzpirat/guard-coffeescript">CoffeeScript add-on</a>
+• QEDServer</i>
+<br />
+
+1) <a href="http://jashkenas.github.com/coffee-script/extras/coffee-script.js">CoffeeScript 인터프리터</a> 를 다운받아 웹페이지에 추가<br />
+<xmp class="xmp">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="coffee-script.js"></script>
+<script type="text/coffeescript">
+$ ->
+	url = "/products.json"
+	$.ajax url,
+		dataType: "json"
+		success: (data, status, XHR) ->
+			alert "It worked!"
+</script>
+</xmp>
+<br />
+
+2) CoffeeScript 인터프리터를 설치  
+
+보통 Node.JS, <a href="http://npmjs.org/">NPM(Node Package Manager)</a> 과 함께 설치한다.<br />
+루비와 함께 쓸 수도 있다. 루비를 설치했다면.. 다음 명령어를 커맨드라인에서 실행하여, CoffeeScript 인터프리터 와 Guard 를 설치한다.<br />
+<pre class="xmp">
+<code>$ gem install coffee-script guard guard-coffeescript
+</code></pre>
+Guard 는 파일 변경을 관찰하다가, 바뀌면 미리 지정된 작업을 처리하도록 설정할 수 있는 커맨드라인 툴이다.<br />
+프로젝트의 최상위 폴더에 Guardfile 이라는 이름의 파일을  아래 커맨드를 통해 만들 수 있다.<br />
+<pre class="xmp">
+<code>$ guard init coffeescript
+</code></pre>
+새로 만들어진 Guardfile 을 열어 input, output 폴더 값들이 우리가 만든 폴더를 가리키도록 수정한다.<br />
+<pre class="xmp">
+<code># A sample Guardfile
+# More info at https://github.com/guard/guard#readme
+guard 'coffeescript', :input => 'coffeescripts', :output => "javascripts"
+</code></pre>
+<br />
+CoffeeScript 장점 더 보기
+<pre class="xmp">
+<code>var fullName = firstName + " " + lastName; // JavaScript
+fullname = "#{firstName} #{lastName}" // CoffeeScript
+</code></pre>
+<pre class="xmp">
+<code>// JavaScript
+var colors = ["red", "green", "blue"];
+for (i = 0, length = colors.length; i < length; i++) {
+	var color = colors[i];
+	alert(color);
+}
+// CoffeeScript
+alert color for color in ["red", "green", "blue"]
+</code></pre>
+<br />
+만약 정말 CoffeeScript 를 웹 개발 환경에 통합하고 싶다면, Sass 와 CoffeeScript 로 한 번에 정적 사이트를 만들도록 도와주는 <a href="http://middlemanapp.com/">MiddleMan</a> 을 살펴 보자.
+
+
+</li>
+<li>레시피 30 Git을 이용해 파일 관리하기
+<i>• <a href="http://git-scm.com/">Git</a></i>
+<br />
+버전 콘트롤 시스템 (Version Control System, VCS)<br />
+
+<strong>Git 설정하기</strong><br />
+윈도우용Git 버전 <a href="http://code.google.com/p/msysgit/">MsysGit</a> 을 설치하면 Git Bash 를 쓸 수 있다.<br />
+윈도 사용자가 이 레시피를 따라하기 위해서는 일반 커맨드라인이 아닌 Git Bash 가 있어야 한다.<br />
+<pre class="xmp">
+<code>$ git config --global user.name "Firstname Lastname"
+$ git config --global user.email "your_email@youremail.com"
+</code></pre>
+<strong>Git 기초</strong><br />
+
+<pre class="xmp">
+<code>$ mkdir git_site
+$ cd git_site
+$ git init
+$ git add .
+$ git commit -a -m "initial commit of files"
+</code></pre>
+
+<strong>Working with Branches (브랜치)</strong><br />
+<strong>Working with Remote Repositories (원격 저장소)</strong><br />
+<br />
+| <a href="http://www.github.com">http://www.github.com</a> -- 오픈소스 프로젝트.
+클론 만들기, 브랜치 만들기, 새 기능 오픈소스 프로젝트 관리자에게 서브밋 해보자.
+</li>
+</ol>
+
+<h3>6장 테스트 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 31 자바스크립트 디버깅
+<i>• A modern browser
+• <a href="http://getfirebug.com/firebuglite">Firebug Lite</a></i>
+<br />
+
+<!-- box1 -->
+<pre class="box1">
+• Chrome: View > Developer > JavaScript Console
+• Safari: Safari > Preferences > Advanced > Show Develop menu in menu bar and then Develop > Show Web Inspector
+• Firefox: Install Firebuga
+• Firefox: Tools > Web Console will load a JavaScript console without Firebug
+• IE: Install IE Developer Toolbarb
+</pre><!-- /box1 -->
+<pre class="xmp">
+<code>console.log();
+</code></pre>
+</li>
+<li>레시피 32 Heatmaps 로 사용자 행동 추적하기
+<i>• A server running PHP
+• <a href="http://www.labsmedia.com/clickheat/index.html">ClickHeat</a></i>
+<br />
+사용자가 클릭하는 곳을 추적하거나, 페이지에서 가장 많이 사용되는 부분이 어딘지 한 번에 알아 볼 수 있는, 열지도(Heatmaps) 라 부르는 시작적인 방법이 있다.<br />
+오픈소스인 ClickHeat 스크립트 -- 같은 사용자의 클릭을 몇 번까지 기록할지 정하는 것처럼 옵션을 통해 추가적으로 동작을 제어할 수 있다.<br />
+<br />
+| <a href="http://www.crazyegg.com/">CrazyEgg</a> -- 상용솔루션. 좀 더 강력한 기능을 원한다면..<br />
+
+</li>
+<li>레시피 33 Selenium으로 브라우저 테스트하기
+<i>• <a href="http://getfirefox.com">Firefox</a>
+• <a href="http://seleniumhq.org/download/">Selenium IDE</a>
+• QEDServer</i>
+<br />
+파이어폭스용 Selenium IDE 는 웹사이트를 사용하는 행동들을 녹화하는 방법으로 테스트를 만들 수 있게 해 준다.<br />
+이렇게 만든 반복 가능하고 자동화된 테스틑는 다음에 원할 때 다시 실행할 수 있다.<br />
+<br />
+| <a href="http://selenium-grid.seleniumhq.org/">http://selenium-grid.seleniumhq.org/</a> -- 다양한 브라우저에 테스트할 수 있는 자동화 테스트 수트를 만들고, 이를 제어할 수 있는 Selenium 원격 제어와 Selenium 그리드도 살펴 보자.<br />
+
+</li>
+<li>레시피 34 Cucumber를 이용한 Selenium 테스트
+<i>• <a href="http://pragprog.com/book/wbdev/web-development-recipes">Cucumber Testing Harness</a>
+• <a href="http://webdevelopmentrecipes.com/files/qedserver.zip">QED Server</a>
+• <a href="http://www.saucelabs.com">Sauce Labs Account</a>
+• <a href="https://saucelabs.com/downloads/Sauce-Connect-latest.zip">Sauce Connect</a>
+• <a href="http://gembundler.com/">Bundler</a></i>
+<br />
+| <a href="https://saucelabs.com/signup">free Sauce Labs account</a><br />
+| <a href="http://pragprog.com/book/wbdev/web-development-recipes">CTH (Cucumber Testing Harness) 다운로드</a><br />
+| <a href="https://saucelabs.com/downloads/Sauce-Connect-latest.zip">Sauce Connect</a><br />
+| <a href="http://ant.apache.org">Ant</a><br />
+| <a href="http://selenium-grid.seleniumhq.org/download.html">Selenium Grid</a><br />
+| <a href="https://saucelabs.com/docs/sauce-ondemand/browsers">https://saucelabs.com/docs/sauce-ondemand/browsers</a><br />
+| <a href="http://saucelabs.com/jobs">My Job</a><br />
+| Sauce Scout<br />
+| <a href="http://selenium.rubyforge.org/getting-started.html">selenium-rc gem</a><br />
+
+</li>
+<li>레시피 35 Jasmine으로 자바스크립트 테스트하기
+<i>• jQuery
+• <a href="http://pivotal.github.com/jasmine/downloads/jasmine-standalone-1.0.2.zip">Jasmine</a>
+• <a href="https://github.com/downloads/velesin/jasmine-jquery/jasmine-jquery-1.2.0.js">Jasmine-jQuery</a>
+• <a href="http://www.mozilla.com/en-US/firefox/new/">Firefox</a></i>
+<br />
+The flexibility and dynamic nature of JavaScript can make it difficult to accurately test well because it is a moving target.<br />
+Jasmine : 자바스크립트 테스트 프레임워크. 자바스크립트를 이용한 행위 주도 개발 (Behavior-Driven Development, BDD) 을 지원한다.<br />
+Jasmine 문법은 <a href="http://rspec.info/">Ruby’s RSpec testing framework</a> 와 비슷하다.<br />
+BDD : 밖에서 안으로 접근하는 방식으로, 애플리케이션의 구조 보다는 행동에 초점을 맞춰 테스트하는 방법을 말한다.<br />
+테스트 주도 개발 (Test-Driven Development, TDD)<br />
+| <a href="http://getfirebug.com/">Firebug</a><br />
+| <a href="http://pivotal.github.com/jasmine/jsdoc/symbols/jasmine.Spy.html">Jasmine spy</a> : 함수가 호출되었는지 확신을 얻기 위해서 이용. stub, fake, mock 등 여러 가지 용도로 테스트에 사용하는 툴이다.
+</li> 
+</ol>
+
+<h3>7장 호스팅과 배포 레시피</h3>
+<ol class="bo num dl">
+<li>레시피 36 Dropbox로 스태틱 사이트 호스팅하기
+<i>• <a href="http://www.dropbox.com">Dropbox</a></i><br />
+</li>
+<li>레시피 37 <h4>가상머신 만들기</h4>
+<i>
+• <a href="http://www.virtualbox.org/">VirtualBox</a>
+• <a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu 10.04 Server image</a>
+</i><br />
+| <a href="http://www.ubuntu.com/download/server/download">Ubuntu download page</a> - the 32-bit server version of Ubuntu 10.04 LTS<br />
+
+<h5>Creating Our Virtual Machine</h5>
+<ol class="bo num">
+<li>버추얼박스 최신판 다운로드 후 기본 설정으로 설치</li>
+<li>버추얼박스 실행</li>
+<li>[새로 만들기] 클릭하여 버추얼박스 마법사 실행</li>
+<li>새 버추얼박스 가상머신 : '내 웹 서버' 같이 원하는 이름 입력</li>
+<li>운영체제 : 리눅스 - 우분투 버전 선택</li>
+<li>메모리 크기 : 512MB, 하드디스크 크기 : 8GB 로 설정</li>
+<li>설정 버튼 클릭하여 추가적인 옵션 세팅</li>
+<li>네트워크 설정을 NAT 에서 브리지 어댑터로 변경. (운영체제에서 가상머신 서버에 접근 가능하도록 한다.)</li>
+<li>시작 버튼 클릭하여 새 가상머신을 실행</li>
+<li>버추얼박스가 처음 실행하는지 확인한 후 우분투 운영체제를 실행하기 위해 해야 할 일을 안내한다.</li>
+<li>운영 체제 설치를 위한 미디어를 고르는데, CD로 설치할 수 있지만 방금 받은 ISO 이미지로도 할 수 있다.</li>
+<li>설치를 위한 미디어를 고르면 버추얼 서버가 시작되고 우분투가 설치되기 시작한다.</li>
+<li>우분투 설치 과정 중 모든 설정에 기본값을 사용</li>
+<li>가상머신이므로 어떤 것을 선택해도 실제 운영체제의 파일을 지우는 일은 없다.</li>
+<li>설치 막바지에 사용자 계정 생성 (서버에 로그인하고 웹 서버 설정을 할 것임)</li>
+<li>전체 이름과 사용자 이름 칸에 똑같이 입력. ex)webdev</li>
+<li>비밀번호 설정 아무거나. 잊지말자! ex)m111</li>
+<li>미리 정의된 소프트웨어 설치 질문 나오면 '다음'을 고르자!</li>
+<li>설치 과정의 마지막에 원하는 소프트웨어를 직접 설치할 예정이다.</li>
+<li>설치가 끝나면 가상머신이 재시작한 후, 아이디와 비밀번호를 이용해 로그인을 하는 창이 나올 것이다.</li>
+<li>로그인을 해서 웹 서버가 작동하게 하자.</li>
+</ol>
+
+<h5>Configuring Apache and PHP</h5>
+설치와 재시작
+<pre class="xmp">
+<code>$ sudo apt-get install apache2 libapache2-mod-php5
+$ sudo service apache2 restart
+</code></pre>
+
+<h5>Getting Files to Our Virtual Server</h5>
+
+<ol class="bo num">
+<li>VPS <sub>Virtual private server</sub> 서비스들을 셋업해야.. 파일을 웹 서버의 폴더에 넣을 수 있다.</li>
+<li>아파치는 /var/www 폴더와 폴더 안에 있는 파일들의 권한 모두 바꾸자.
+<pre class="xmp">
+<code>$ sudo chown -R webdev:webdev /var/www
+</code></pre>
+</li>
+<li>OpenSSH 를 설정해서 SFTP 를 쓸 수 있게 하자.
+<pre class="xmp">
+<code>$ sudo apt-get install openssh-server
+</code></pre>
+</li>
+<li>아이피 주소 찾기
+<pre class="xmp">
+<code>$ ifconfig eth0
+</code></pre>
+... inet addr: 192.168.0.105 ...
+</li>
+<li>파일질라 같은 SFTP 클라이언트로 아이피 주소로 접근한 후, 가상머신을 만들 때 설정한 아이디와 비밀번호로 로그인한다.
+<pre class="xmp">
+<var>SFTP: 192.168.0.105
+webdev // m111
+dir: /var/www
+</var></pre>
+</li>
+</ol>
+
+<h4>Further Exploration</h4>
+<p class="bu">가상머신은..<br />
+버추얼 박스 '스냅샷' 기능은 복구 지점을 만들어 문제가 발생했을 때 스냅샷을 만들었던 때로 되돌아 갈 수 있게 해 준다.<br />
+'전용 패키지' 를 만들 수 있다. PHP, MySQL, 아파치를 미리 설정.<br />
+애플리케이션 배포에도 매우 유용하다.<br />
+| VMware (상용) : <a href="http://www.vmware.com/virtualization/">http://www.vmware.com/virtualization/</a> -- 한 개의 서버에 여러 개의 가상머신<br />
+| <a href="http://www.vmware.com/products/converter/">http://www.vmware.com/products/converter/</a> -- 실제 서버를 가상머신으로 바꾸는 도구 제공<br />
+</p>
+
+</li>
+<li>레시피 38 Vim으로 웹 서버 설정 바꾸기
+<i>• Recipe 37, Setting Up a <a href="http://www.webdevelopmentrecipes.com/">Virtual Machine</a>
+• The Vim text editor</i>
+<br />
+서버 설정 파일을 서버에서 직접 고칠 수 있는 빠른 방법은?<br />
+리눅스 명령창 텍스트 에디터인 Vim : 대부분의 운영체제 환경에서 사용 가능, 가볍고, 사용자 입맛대로 변경 가능.<br />
+<br />
+<strong>Vim 으로 파일 수정하기</strong><br />
+Vim has four main modes: normal, insert, command, and visual.<br />
+• <i>Normal mode</i> is for navigating around a file and switching to other modes.<br />
+• <i>Insert mode</i> is for entering text or making changes to the file.<br />
+• <i>Command mode</i> is where we execute specific commands such as saving and opening files.<br />
+• <i>Visual mode</i> is for selecting text so we can manipulate it.<br />
+<!-- box1 -->
+<pre class="box1">
+i 편집모드 가기 
+ESC 일반모드로 돌아가기 
+h,j,k,l 일반모드 탐색키
+: 명령모드로 가기
+:w 명령모드로 저장
+:w test.txt
+:q Vim 끝내기
+:wq 저장하고 나가기
+</pre><!-- /box1 -->
+<br />
+<strong>404 에러 페이지 만들기</strong><br />
+.htaccess<br />
+mod_rewrite 켜기
+<pre class="xmp">
+<code>$ sudo a2enmod rewrite
+</code></pre>
+<pre class="xmp">
+<code>$ sudo vim /etc/apache2/sites-enabled/000-default
+</code></pre>
+<pre class="xmp">
+<code>&lt;Directory /var/www&gt;
+Options Indexes FollowSymLinks MultiViews
+AllowOverride <em>All</em>
+Order allow,deny
+allow from all
+&lt;/Directory&gt;
+</code></pre>
+<pre class="xmp">
+<code>$ cd /var/www
+$ vim 404.html</code></pre>
+<xmp class="xmp">
+<h1>We're sorry</h1>
+<p>
+The page you are looking for can't be found.
+It may have been moved to a new location.
+</p>
+<p>
+You might be able to find what you're looking for
+<a href="/">here</a>.
+</p>
+</xmp>
+<pre class="xmp">
+<code>$ vim .htaccess
+</code></pre>
+<pre class="xmp">
+<code>ErrorDocument 404 /404.html
+</code></pre>
+적당한 플러그인을 조합하면 모든 기능을 가진 멋있는 IDE 로 탈바꿈 시킬 수 있다.<br />
+| <a href="http://www.vim.org/download.php">http://www.vim.org/download.php</a> -- Vim 설치파일<br />
+| <a href="http://www.vim.org/scripts/script_search_results.php">http://www.vim.org/scripts/script_search_results.php</a> -- 개발 환경에 관련된 플러그인<br />
+| <a href="http://www.vim.org/scripts/script.php?script_id=2332">http://www.vim.org/scripts/script.php?script_id=2332</a>-- 파토젠(Pathogen) : 플러그인 관리.<br />
+플러그인을 vim/bundles 폴더에 내려받기만 하면 파토젠이 Vim 에게 그 폴더와 하위 폴더 안에 저장된 플러그인을 알려 준다.<br />
+| <a href="http://vimcasts.org/">http://vimcasts.org/</a> -- VimCasts : Vim 의 다른 기능에 대해 더 알고 싶다면 둘러보자.<br />
+</li>
+<li>레시피 39 SSL과 HTTPS를 이용해 아파치 보호하기
+<i>• <a href="http://www.webdevelopmentrecipes.com/">A virtual machine running Ubuntu for testing</a>
+• The Apache web server with SSL support</i>
+<br />
+고객의 컴퓨터와 서버가 데이터를 보내거나 받는 과정에서 문제가 발생하지 않도록 데이터를 지켜야 한다.<br />
+그러기 위해서는 웹 서버 설정을 바꿔, 웹 브라우저가 SSL 을 통해 연결되도록 하는 것이 좋을 것이다.<br />
+| <a href="http://www.thawte.com/">http://www.thawte.com/</a> -- 인증 기관<br />
+| <a href="https://www.verisign.com/">https://www.verisign.com/</a> -- 인증 기관<br />
+| 서버 이름 확인 (Server Name Indication, SNI) 인증서 -- 최신 브라우저와 운영체제에서만 작동<br />
+</li>
+<li>레시피 40 <h4>저작물 보안</h4>
+<i>• Development server with Apache</i>
+<br />
+<h5>기본 HTTP 인증 사용하기</h5>
+.htaccess<br />
+.htpasswd<br />
+<pre class="xmp">
+<code>$ sudo service apache2 restart
+</code></pre>
+<pre class="xmp">
+<code>$ htpasswd -c ~/mywebsite.com/.htpasswd webdev
+</code></pre>
+<pre class="xmp">
+<code>$ htpasswd -c ~/.htpasswd webdev
+</code></pre>
+<pre class="xmp">
+<code>$ cat .htpasswd
+webdev:mT8fQuzEhguRg
+</code></pre>
+<pre class="xmp">
+<code>$ cd /var/www
+$ touch .htaccess
+</code></pre>
+<pre class="xmp">
+<code>AuthUserFile /home/webdev/.htpasswd
+AuthType Basic
+AuthName Our secure section
+Require valid-user
+</code></pre>
+
+<h5>외부의 이미지 요청 거절하기</h5>
+<pre class="xmp">
+<code>$ sudo a2enmod rewrite
+</code></pre>
+.htaccess 파일을 열어 아래 코드를 추가하자.
+<pre class="xmp">
+<code>RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?mywebsite.com/.*$ [NC]
+RewriteRule \.(jpg|png|gif)$ - [F]
+</code></pre>
+| <a href="http://httpd.apache.org/docs/current/howto/htaccess.html">http://httpd.apache.org/docs/current/howto/htaccess.html</a> -- .htaccess 튜토리얼.<br />
+</li>
+<li>레시피 41 링크를 보존하기 위해 URL 다시 쓰기
+<i>• The Apache server
+• mod_rewrite</i>
+<br />
+CMS 부분을 새로 만들고 싶은데, 새로 만들면 URL 이 바뀔 것 같다.
+오래된 URL 에서 새 URL 로 쉽게 리다이렉트할 수 있는 방법은?
+지정한 다른 파일로 대신 응답하도록 서버 설정할 수 있다.<br />
+정규식으로 일괄 지정 가능하다.<br />
+헤더 설정으로 검색엔진에게 사용자들이 새로운 장소로 이동할 것이라는 점을 알릴 수도 있다.<br />
+
+<!-- box1 -->
+<pre class="box1">
+※ 시스템 설정 파일, 숨긴 파일 보기
+리눅스$ ls -al
+윈도우명령창> dir /a
+</pre><!-- /box1 -->
+
+
+<strong>mod_rewrite</strong> 설치 여부 확인<br />
+<xmp class="xmp">
+<?php phpinfo(); ?>
+</xmp>
+
+but we’re looking for “mod_rewrite” in the “apache2handler” section under
+“Loaded Modules,” just like in Figure 68, Using phpinfo() to see loaded modules,
+on page 293. (If you’re checking on a production server, you should remove
+this file once you’ve finished checking, because it exposes details of your
+server configuration that would be best kept private.) If it’s there, we’re good
+to go. If not, we’ll SSH to the server and install it by running sudo a2enmod rewrite
+in terminal. Next open /etc/apache2/sites-available/default and change the line
+AllowOverRide None in the &lt;Directory /var/www/&gt; section of the file to AllowOverRide All.
+Finally restart Apache with
+<pre class="xmp">
+<code>sudo /etc/init.d/apache2 restart
+</code></pre>
+and mod_rewrite will be ready to use.
+<pre class="xmp">
+<code>RewriteEngine on
+RewriteRule ^pages/page-2.html$ pages/2
+</code></pre>
+<pre class="xmp">
+<code>RewriteRule pages/page-(\d+) pages/$1 [L]
+</code></pre>
+<pre class="xmp">
+<code>RewriteRule pages/page-(\d+) pages/$1 [R=301,L]
+</code></pre>
+
+<strong>Further Exploration</strong><br />
+다른 도메인으로 리다이렉트<br />
+a.com 에서 b.com 으로 사용자를 안내<br />
+사이트의 일부분이 도메인에서 서브 도메인으로 옮겨졌거나, <br />
+서버 쪽의 언어가 PHP에서 루비 온 레일스로 바꾸었다면?<br />
+내용은 /term/foo 나 /term/123 에서 불러와야 하지만 URL 은 /display.php?term=foo&id=123 형태로 계속 보여주고 싶다면?<br />
+
+</li>
+<li>레시피 42 Jammit과 Rake를 이용해 스태틱 사이트 배포 자동화하기
+<i>• <a href="http://www.webdevelopmentrecipes.com/">Virtual Machine</a>
+• <a href="http://documentcloud.github.com/jammit/">Jammit</a>
+• <a href="https://github.com/guard/guard">Guard</a>
+• <a href="https://github.com/jimweirich/rake">Rake</a></i>
+<br />
+파일과 이미지 같은 리소스 배포,
+여러 자바스크립트 파일을 하나의 파일로 묶기,
+파일 압축하기 등을 자동 배포 프로세스에 추가하기<br />
+Jammit : 자바스크립트와 CSS 파일을 합쳐서 최적화한다.<br />
+Guard : Jammit 을 실행해, Jammit 이 jQuery 와 폼을 최적화한 후 public/assets/app.js 파일에 저장하도록 할 것이다.<br />
+Rake : 누구나 서버로 업데이트된 내용을 빠르게 올릴 수 있게 해 주는 스크립트 작성.<br />
+
+<pre class="xmp">
+<code>$ gem install jammit guard guard-jammit
+$ guard
+$ gem install rake
+$ rake cleanup
+$ rake -T
+$ rake deploy
+</code></pre>
+
+<pre class="xmp">
+<code>$ gem install coffee-script guard-coffeescript
+$ gem install sass guard-sass
+</code></pre>
+
+| <a href="http://sshwindows.sourceforge.net/">http://sshwindows.sourceforge.net/</a>  -- 윈도 서버에 OpenSSH 설치<br />
+| <a href="https://github.com/capistrano/capistrano/wiki/">https://github.com/capistrano/capistrano/wiki/</a> -- 카피스트라노(Capistrano) : Git 과 같은 VCS에서 파일을 베포하도록 도와주는 루비 기반의 도구. PHP 애플리케이션이나 다른 소프트웨어 패키지와도 잘 작동한다.<br />
+</li>
+</ol>
+
+<h3>부록</h3>
+<h4>A1 루비 설치하기</h4>
+
+<p>루비는 웹 개발 프레임워크에서 Ruby on Rails 로 더 잘 알려진 강력한 크로스 플랫폼 인터프리터 언어다.<br />
+웹 개발 속도를 향상시키는 <a href="http://cukes.info/">Cucumber</a> 나 <a href="http://sass-lang.com">SassOS X</a> 같은 놀라운 도구들을 만들기 위해 루비를 쓰고 있다.<br />
+그래서 이 툴들을 사용하려면 루비 인터프리터와 루비의 패키지 매니지먼트 시스템인 RubyGems 가 설치되어 있어야 한다.<br />
+이 부록에서는 윈도, OS X, 우분투에서 각각 어떻게 루비를 설치하는지 살펴본다.</p>
+
+<h5>A1.1 윈도에 설치하기</h5>
+ <a href="http://rubyinstaller.org/downloads/">루비 인스톨러</a> 1.9.2버전 다운로드 후 C:\ruby 폴더에 설치.. 루비 인스톨러가 루비를 PATH 에 추가할지 물으면 추가한다. 이 방법으로 루비와 여러분이 설치한 다른 라이브러리들이 어떤 폴더의 위치에 있든 실행할 수 있다.<br />
+<a href="http://rubyinstaller.org/downloads/">개발 키트</a> - 몇 가지 컴포넌트가 C언어로 작성되어 있기 때문에.. 필요한 컴파일러들이 들어 있다. C:\ruby\devkit 폴더에 압축을 푼다.<br />
+설정을 위해 명령 프롬프트 창을 열어 다음과 같이 입력하자.
+<pre class="xmp">
+<code>C:\ruby> cd \devkit
+C:\ruby\devkit> ruby dk.rb init
+C:\ruby\devkit> ruby dk.rb install
+</code></pre>
+설정 테스트 위해, 명령창을 열어 cucumber 젬을 설치해보자.
+<pre class="xmp">
+<code>C:\ruby\devkit> gem install cucumber
+</code></pre>
+이것으로 다 됐다.
+이제 Cucumber 나 Sass 같은 라이브러리를 개발 프로젝트에 사용할 수 있다.
+
+<h5>A1.2 루비 버전 관리자로 맥 OS X 와 리눅스(우분투)에 설치하기</h5>
+
+<a href="http://rvm.beginrescueend.com">루비 버전 관리자 (Ruby Version Manager, RVM)</a> 를 이용해 루비 설치판 을 설치하고 관리<br />
+
+<h6>OS X 에 루비 버전 관리자 설치하기</h6>
+
+<a href="http://developer.apple.com/xcode/">Xcode</a>, <a href="http://code.google.com/p/git-osx-installer/">Git</a> 설치 필요하다.
+다음은 루비 버전 관리자 설치하기
+<xmp class="xmp">
+$ bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+</xmp>
+다음 명령어로 새로 터미널 세션을 켤 때마다 루비 버전 관리자와 파일들을 사용 가능하게 하자.
+<pre class="xmp">
+<code>$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+</code></pre>
+마지막으로 터미널 세션을 끄고 다시 시작해 루비 버전 관리자가 실행되도록 한다.
+
+<h6>우분투에 루비 버전 관리자 설치하기</h6>
+
+ 컴파일러, Git 외에 필요한 라이브러리들의 설치가 필요하다.
+ <pre class="xmp">
+<code>$ sudo apt-get install build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf
+</code></pre>
+다음은 루비 버전 관리자 설치하기
+<pre class="xmp">
+<code>$ bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+</code></pre>
+다음 명령어로 새로 터미널 세션을 켤 때마다 루비 버전 관리자와 파일들을 사용 가능하게 하자.
+<pre class="xmp">
+<code>$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+</code></pre>
+마지막으로 터미널 세션을 끄고 다시 시작해 루비 버전 관리자가 실행되도록 한다.<br />
+<br />
+[m] 설치 안된다 나옴. 안내된 명령어로 다시 설치함.
+<pre class="xmp">
+<code>sudo apt-get install ruby-rvm
+</code></pre>
+
+<h6>루비 버전 관리자로 루비 설치하기</h6>
+
+<pre class="xmp">
+<code>$ rvm install 1.9.2
+</code></pre>
+
+<p>[m]<em>ERROR</em></p>
+
+<code>
+$ rvm use 1.9.2
+$ rvm --default use 1.9.2
+</code></pre>
+
+Cucumber 라이브러리 설치하는 것으로 루비 설치 완료 테스트 할 수 있다.
+<pre class="xmp">
+<code>$ gem install cucumber
+</code></pre>
+That’s it! Ruby and its prerequisites are now installed, and you can now use tools like Cucumber, Sass, Guard, and Jekyll in your web development projects.
+
+
+
+<h4>A2 참고 문헌 일람표 </h4>
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130521.
+20130520.
+20130516.
+20130515.
+20130514.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

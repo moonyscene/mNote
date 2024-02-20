@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'WMAS | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>WAMS - 케익소프트(CakeSoft)</h1>
+
+<p>
+v2010.02.19 진단 에러 이유 추가<br />
+v2009.09.03 <a href="http://정보행동.co.kr/repair/repair_document.asp?idx=68607&page=1&searchString=">유지보수</a> 요청 받은
+<a href="http://211.41.25.206:1017/CheckLogin.aspx?login_id=admin&login_pass=0000">사천시 대표 웹사이트 검사결과</a> (접속기간~2009.09.30)
+분석
+</p>
+
+WAMS 를 만든 <a href="http://www.cakesoft.net/">케익소프트</a> 에서 2006년 말부터 독자적으로 웹 접근성 진단하여 순위를 매긴 후 공공기관 등에 무차별적으로 결과를 배포하는 영업을 한 적이 있다.
+그 때 <a href="http://www.veryfineweb.com">케익소프트의 온라인 웹 접근성 진단 툴</a>로 케익소프트 웹사이트를 검사하였더니, 70% 정도 밖에 나오지 않아서, 메일로 게시판으로 질문을 보냈었는데, 답변 조차 없었다.
+한동안 잠잠하더니, 2009.09.03 에 또다시 무차별 영업 행태를 반복하고 있다.
+이번엔  KADO-WAH 로 <a href="http://www.cakesoft.net/">케익소프트</a> 를 확인해보니 이제는 오류가 발견되지 않고 그럭저럭 신경 쓴 흔적이 보인다. 하지만, <a href="http://211.41.25.206:1017/_manager/wams_domain/domain_summary.aspx">검사결과 페이지</a> 자체를 KADO-WAH 와 수동 점검해보았더니 대체텍스트, 데이터 테이블 등 오류가 다수 발견되었다. 정말 한심한 곳이다.
+하지만, 앞으로도 이 업체와 계속 부딪혀야 하므로, WAMS가 얼마나 신뢰할 수 있는 진단 툴인지 점검해보았다.
+
+
+<h3>WAMS > 검사결과 > 접근성 자동검사 > KWCAG 보고서</h3>
+
+<p>
+오류 검출된 지침 내용 중 진단 에러는 <em>(X)</em> 로 표시하였다.
+</p>
+
+<ul class="bu">
+<li>(O) 이미지에 "alt" 속성이 없습니다.<br />
+
+</li>
+<li><em>(X)</em> 이미지에 "alt" 속성 값이 255자를 초과합니다.<br />
+.. 현재 보조기술 수준으로 봤을 때 255자가 넘었다고 오류라고 단정하는 것은 억지다.
+</li>
+<li>(O) 움직이는 이미지(애니메이션)에 "alt" 속성이 없습니다.<br />
+
+</li>
+<li><em>(X)</em> &lt;script&gt;에 &lt;noscript&gt;가 없습니다.<br />
+.. &lt;noscript&gt; 는 필요한 곳에만 있으면 된다.
+</li>
+<li>(O) 프레임에 "title" 속성이 없습니다.<br />
+
+</li>
+<li><em>(X)</em> "onmouseover"와 "onfocus"을 함께(pair) 제공하지 않습니다.<br />
+.. 마우스와 키보드 운용이 가능하다면 onmouseover 와 onfocus 를 함께 제공하지 않아도 된다.
+</li>
+<li><em>(X)</em> "onmouseout"과 "onblur"를 함께(pair) 제공하지 않습니다.<br />
+.. 마우스와 키보드 운용이 가능하다면 onmouseout 와 onblur 를 함께 제공하지 않아도 된다.<br />
+같이 제공함으로서 운용에 또다른 오류가 발생할 수 있다.
+</li>
+<li><em>(X)</em> 자동 전환 페이지를 사용하고 있습니다.<br />
+.. 자동 전환되더라도 非일반인 차별이라고 볼 수 없다.
+</li>
+<li><em>(X)</em> 데이터 테이블에 제목행과 제목열을 명시 하도록 합니다.<br />
+.. 레이아웃 테이블도 있을 수 있다.
+</li>
+<li><em>(X)</em> 데이터 테이블에서 제목을 제공하는지 확인하십시오.<br />
+.. 레이아웃 테이블도 있을 수 있다.
+</li>
+<li><em>(X)</em> 데이터 테이블의 크기는 상대 값을 사용하도록 합니다.<br />
+.. 절대 값을 사용해야 할 경우도 있으면 그렇다고 웹 접근성이 떨어진다고 볼 수 없다.
+</li>
+<li><em>(X)</em> 머리글 요소의 사용이 적절하지 않습니다.<br />
+.. 적절한 머리글 사용은 무엇인가? 머리글 요소와 웹 접근성은 관계 없다.
+</li>
+</ul>
+
+<p>
+결론 - 진단 결과에서 alt 속성, title 속성 여부만 참고하면 되겠다.
+</p>
+
+<h3>WAMS > 검사결과 > 브라우저 호환성 검사 > 페이지별 결과</h3>
+
+<h3>WAMS > 검사결과 > CSS 검사 > 페이지별 결과</h3>
+
+<h3>WAMS > 검사결과 > 링크유효성 검사 > 페이지별 결과</h3>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'High Performance Web Sites | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+<h1>웹 사이트 최적화 (성능 향상)</h1>
+
+<ul class="bu">
+<li><a href="#h2-1">High Performance Web Sites</a>
+
+<ol class="num">
+<li><a href="#rule1">Make Fewer HTTP Requests</a>  HTTP 요청을 줄여라</li>
+<li><a href="#rule2">Use a Content Delivery Network</a> 콘텐츠 전송 네트워크(CDN)를 이용하라</li>
+<li><a href="#rule3">Add an Expires Header</a> 헤더에 만료기한을 추가하라 (Expires 헤더를 추가하라)</li>
+<li><a href="#rule4">Gzip Components</a> Gzip 압축을 사용하라</li>
+<li><a href="#rule5">Put Stylesheets at the Top</a> 스타일시트(CSS)는 위에 넣어라</li>
+<li><a href="#rule6">Put Scripts at the Bottom</a> 스크립트는 아래에 넣어라</li>
+<li><a href="#rule7">Avoid CSS Expressions</a> CSS Expression 사용을 자제하라</li>
+<li><a href="#rule8">Make JavaScript and CSS External</a> 자바스크립트와 스타일시트를 외부파일로 분리하라</li>
+<li><a href="#rule9">Reduce DNS Lookups</a> DNS 조회를 줄여라</li>
+<li><a href="#rule10">Minify JavaScript</a> 자바스크립트를 최소화하라</li>
+<li><a href="#rule11">Avoid Redirects</a> 리다이렉트를 피하라</li>
+<li><a href="#rule12">Remove Duplicate Scripts</a> 중복되는 스크립트를 제거하라</li>
+<li><a href="#rule13">Configure ETags</a> ETag 헤더를 설정하라</li>
+<li><a href="#rule14">Make Ajax Cacheable</a> AJAX를 캐시하도록 하라</li>
+<li><a href="#rule15">iframe</a> 아이프레임을 현명하게 사용하라</li>
+</ol>
+
+</li>
+<li><a href="#h2-2">Performance Test</a></li>
+<li><a href="#ref">Reference</a></li>
+</ul>
+
+<br /><hr class="dash" /><br />
+
+<p>
+<strong>
+먼저, <a href="http://www.mozilla.or.kr/ko/">파이어폭스3</a> 에 부가기능 <a href="https://addons.mozilla.org/ko/firefox/addon/1843">Firebug</a>, <a href="https://addons.mozilla.org/ko/firefox/addon/5369">YSlow</a> 를 차례로 설치하고 사용해보세요! 
+</strong>
+</p>
+HTTP 요청 차트는 <a href="http://www.alphaworks.ibm.com/tech/pagedetailer/download">IBM Page Detailer</a>,
+응답 시간은 Gomez의 <a href="http://www.gomez.com/info_center/instant_test.php">웹 모니터링 서비스</a> 를 이용하고<br />
+여러 페이지의 자바스크립트와 CSS를 분석하는 데는 <a href="http://www.getfirebug.com">Firebug</a>
+(DOM 조사, CSS 변경, JS 실행, HTML 조사, ..).<br />
+성능을 분석하는 데 <a href="http://developer.yahoo.com/yslow">YSlow</a> 툴<br />
+<blockquote><div>
+페이지의 DOM을 하나씩 읽어 페이지 내의 모든 구성요소를 찾고 나서,<br />
+XMLHttpRequest 를 이용해 각 구성요소의 응답 시간과 HTTP 응답 헤더를 얻는다.<br />
+이 정보와 페이지의 HTML을 분석해 얻은 정보를 종합해 각 규칙에 대한 점수를 매긴다.<br />
+YSlow 총점 (Performance Grade: C (79)) 은 각 규칙에 매겨진 가중치에 따른 점수의 평균치이다.<br />
+</div></blockquote>
+을 주로 이용하고,
+YSlow 는 페이지 내의 구성요소에 대한 요약 툴인 <a href="http://jslint.com">JSLint</a> 도 제공한다.
+
+
+
+<h2>적용</h2>
+<div class="box4">
+<strong><a href="http://hsg.go.kr/">횡성군</a></strong>은 본청 메인용 main.js 와 main.css 를 합쳐서 필요한 것만 불러오게 최적화하여 HTTP 요청을 줄이고, Expires 헤더를 추가하였음.<br />
+<strong><a href="http://project.정보행동.co.kr:9000/">강서구</a>, <a href="http://project.정보행동.co.kr:9000/">진주시</a>, <a href="http://project.정보행동.co.kr:7850/">창녕군</a></strong>은 오픈 전에 본청 메인 최적화 작업을 하는걸로 한다.<br />
+<strong><a href="http://project.정보행동.co.kr:9100/">사천시</a></strong>를 포함하여 이후에 작업하는 프로젝트는 초기 UI코딩부터 성능 향상 작업(js, css 최적화)을 하도록 한다!<br />
+</div>
+<h5 class="box"><em>추가</em> 규칙 A1 - 이미지, 플래시 용량과 개수를 줄여라</h5>
+<dfn>
+<ul class="bu">
+<li>이미지는 가장 적합한 압축 포맷(gif/jpg/png8/png24)을 선택하여 저장하고, jpg는 압축 퀄러티 60을 넘지 않도록 한다.</li>
+<li>이미지 중 메인에서 로테이션되는 팝업존, 배너 이미지 등의 수를 제한하고 용량에 주의한다.</li>
+<li>플래시는 꼭 필요한 부분만 잘라서 적용하며, 임포트 이미지 압축률을 높이고, CPU 점유율(투명도 변화 액션 주의!)을 고려하여 만든다.</li>
+<li>플래시 용량이 클(200KB 이상) 경우 다른 구성요소가 모두 렌더링 된 후에 로딩하도록 구현한다.<br />
+</li>
+</ul>
+</dfn>
+
+
+
+<h6>이미지와 플래시가 전체 구성요소에서 차지하는 비율이 너무 높아서 문제!!</h6>
+<p>
+<em>
+* (이미지+플래시 요청) / (전체 요청) : 191/202 HTTP requests == 94%<br />
+* (이미지+플래시 용량) / (전체 용량) : 2152K/2323.2K Total size == 92%<br />
+(메인 배너 수 60개 용량 169KB) + (팝업존 9개 용량 352.4KB) + (플래시 1개 용량 692.7KB) + (포토뉴스 4개 132KB)= 1346.1KB<br />
+이것만 반으로 줄여도 js, css 최소화와는 비교가 안될 정도의 효과를 볼 수 있을 것이다.<br />
+</em>
+<br />
+※ 위 수치와 아래 규칙 (YSlow 성능 등급 값) 은 횡성군 본청 메인에 대한 YSlow 검사(2008.09.11) 결과입니다.<br />
+※ YSlow 에서 간혹 flash Components를 중복해서 불러오거나 안불러오는 오류가 있다.<br />
+(object 중첩으로 ActiveX와 표준방식 동시 사용 코드와 무관)<br />
+</p>
+
+
+<h2 id="h2-1"><a href="http://www.yes24.com/Goods/FTGoodsView.aspx?goodsNo=2961377&CategoryNumber=001001003016001012">웹 사이트 최적화 기법</a></h2>
+
+<p>
+| 원제 : "<a href="../Reference/book/O'Reilly - High Performance Web Sites - Essential Knowledge for Frontend Engineers - Sep 2007(웹 사이트 최적화 기법  UI 개발자를 위한 필수 지침서).pdf">High Performance Web Sites</a>"라는 이름으로 출판된 내용을 토대로 웹사이트 작업 시 규칙.
+</p>
+
+<h5 id="rule1" class="box">규칙 1 - HTTP 요청을 줄여라</h5>
+<p>
+HTML에 속해있는 이미지, 스크립트, 플래시 등은 서버로 요청하고 응답받기까지의 시간을 필요로한다. 이러한 외부파일들이 많으면 많을 수록 웹 사이트의 성능을 떨어트리기 마련이다.
+</p>
+<ul class="bu">
+<li>이미지 맵을 사용하여 Request 수량 감소</li>
+<li>아이콘 처리 시 CSS Sprite 를 이용.</li>
+<li>스크립트, CSS 파일을 분리하지 말고 합치도록 처리, 분리할 경우 Server-side script를 이용하여 하나의 파일로 출력되는 방식을 사용</li>
+</ul>
+<br />
+
+<dfn>
+HTML 문서를 다운받는 데 소비되는 시간은 전체 응답 시간의 10~20% 밖에 되지 않고, 나머지는 이미지, 플래시, 스타일시트, 스크립트와 같은 구성요소룰 다운 받기 위해 HTTP 요청을 보내고 응답을 받는데 소비된다.<br />
+==> <em>부분적으로 적용 필요</em> (YSlow 성능 등급 F)<br />
+<ol class="num">
+<li class="n01">이미지맵, CSS Sprite 는 이미지 표시 기능 제거시 대체텍스트가 안보이는 문제가 발생하므로 사용에 주의를 기울이자.<br />
+<a href="http://www.yellowpipe.com/yis/tools/lynx/lynx_viewer.php">Lynx viewer</a>에서 확인결과.. 이미지맵 대체텍스트(area 요소의 alt 속성)는 안보이고  CSS Sprite 는 보인다.<br />
+<a href="http://project.정보행동.co.kr:9105/main/">☞ 사천시 장애인 정보</a> 장애인 관련사이트 참고.<br />
+<a href="../Accessibility/accessibility_guideline.html">장차법 소송시 평가기준(안)</a> (2)번을 보면 CSS Sprite 도 접근성 준수로 판단한다.<br />
+단, 최근까지의 공무원 접근성 교육에서 접근성 평가방법으로 FF의 [Disable Images] 을 알려주고 있으므로 클라이언트 재교육이 필요하다.<br />
+</li>
+<li class="n02">인라인 이미지(data:image/gif;base64,이미지데이터코드)의 단점은 IE7이하 미지원, 용량 제한, base64 인코딩시 용량이 증가, 캐시에 저장되지 않는(공용 이미지로는 부적합) 등 많으므로 사용하지 않는다.<br /></li>
+<li class="n03">외부 참조 파일(*.css, *.js)은 아래와 같이 메인, 서브페이지 별로 불러오고..<br />
+메인 -  all.js (all.css 포함), main.js (main.css 포함), print.css <br />
+서브 -  all.js (all.css 포함), sub.js (sub.css, board.css, content.css 포함), print.css<br />
+<a href="../Guide/myshin_library_guide.html#css1">☞ myshin Library Guide 의 /share/css/*.css 최적화 참조</a><br />
+상황에 따라 js, css 별로 분리 또는 결합을 선택하여 처리한다.
+</li>
+</ol>
+<strong><a href="http://hsg.go.kr/">횡성군</a></strong> 본청 메인은 현재 css 2개, js 5개를 사용하고 있다.<br />
+main.css 는 메인에 사용중인 전체 스타일시트를 포함하고 있으며, print.css 인쇄용을 main.css 와 통합하지 않고 별도로 둔 것은 행안부의 "행정기관 웹사이트 진단" 과 "접근성 실태조사" 를 동시에 만족하기 위한 부득이한 선택이었다.<br />
+main.js 에는 주메뉴 함수 등 공용 js 함수들이 있고,
+iezn_embed_patch.0.43.js (ActiveX패치완료전 임시사용),
+picpr.js (팝업존 아래에 넣음),
+mticker.js (국정브리핑(koreabrief.html)용 콘텐츠 로테이션),
+korean_news_wide.js (국정브리핑(koreabrief.html)용 데이터. 외부서버에 존재) 를 각각 불러오고 있다.
+<em>횡성군 본청은 HTTP 요청을 최대한 줄이고자 main.css 에 서브와 공용 스타일시트를 중복 지정해놓았기에, 공통부분 css 수정시 서브에서 사용중인 css 도 같이 수정해야 한다.</em><br />
+<strong><a href="#">사천시</a></strong> 본청 메인은 위에서 설명한 외부 참조 파일대로 구축중이며, 현재 css 3개, js 6개를 사용하고 있다.<br />
+js 파일을 통합하면 2개(all.js, main.js)로 줄일 수 있겠지만, HTTP 요청 수보다 js 파일을 모듈별로 관리하는 것이 더 중요하다고 판단했기에 topmenu.js  등 주요한 함수 라이브러리는 별도로 관리하고 있다.
+</dfn>
+
+<h5 id="rule2" class="box">규칙 2 - 콘텐츠 전송 네트워크(CDN)를 이용하라</h5>
+<p>
+CDN(Content Delivery Network) 은 접속하는 사용자의 위치에 따라서 응답이 빠른 서버로 접속하여 필요한 파일들을 호출하는 것을 말하며, IDC에서 제공되는 별도의 서비스제공을 받아야 가능함. 불가능.
+</p>
+
+<dfn>
+==> <em>서버 적용 보류</em> (YSlow 성능 등급 F)<br />
+서버 비용이 들어가므로 향후 고려할 문제다.
+</dfn>
+
+<h5 id="rule3" class="box">규칙 3 - 헤더에 만료기한을 추가하라 (Expires 헤더를 추가하라)</h5>
+<p>
+Expires 정보를 추가하여 클라이언트 상에 캐쉬된 자료를 읽어 들일 수 있도록 조정.
+</p>
+<ul class="bu">
+<li>IIS, Apache, WebToB등 웹서버에서 기능 제공 할 시에 설정을 변경하여 Expires Header를 추가하도록 구성함, 구성 시 캐쉬로 인해서 신규 데이터가 수정되지 않는 부분에 대한 고려 필요.</li>
+</ul>
+
+<dfn>
+==> <em>서버 설정 필요</em> (YSlow 성능 등급 F)<br />
+이미지 뿐만 아니라 flash도 만료기한 설정이 필요하다.<br />
+html 이외의 js, css, iframe 은 정적 구성요소로 분류하고 있지만, 만료기한 설정에는 신중을 기할 필요가 있다.<br />
+실제로 유지보수 중에 css는 빈번히 갱신되고 있어 즉시 적용이 필요하다.<br />
+이럴 경우, <a href="#">Yahoo</a>처럼 구성요소 파일 이름에 버전 번호를 붙이는 방법이 있다.(all_20080911.css)<br />
+하지만, 원본인 all.css 를 관리자 모드 등에서 참조를 할 수 있으므로 all.css?20080911 방법이 더 효율적이다.
+(버전은 css 파일 내용에 명시할 수 있다.)<br />
+현재 사이트 구축시 <em>자동으로 변수(?20080911)가 붙도록 하여 매번 갱신된 페이지를 확인</em>할 수 있게 하고 있는데,<br />
+<em>론칭 후에는</em> 이 부분을 반드시 제거하고, <em>수동으로 변수를 붙여서 변경된 css, js 파일이 즉시 적용</em>되도록 한다.
+</dfn>
+
+<h5 id="rule4" class="box">규칙 4 - Gzip 압축을 사용하라</h5>
+<p>
+외부파일들을 압축하여 성능을 높일 수도 있다. 현존하는 대부분의 브라우저가 Gzip 압축전송을 지원하며, 이또한 헤더 정보를 수정하고 비교적 간단한 서버단 작업으로 구현할 수 있다.
+</p>
+<ul class="bu">
+<li>제공되는 컨텐츠에 대해서 Gzip형태로 압축하여 클라이언트로 전달 될 수 있도록 웹서버에 대한 설정을 변경.</li>
+</ul>
+
+<dfn>
+==> <em>서버 설정 필요</em> (YSlow 성능 등급 F)<br />
+Gzip 압축으로 파일 용량을 50~80% 감소시킬 수 있다.<br />
+이미지는 이미 압축된것이므로 Gzip 압축을 하면 오히려 용량이 증가할 수 있으므로 적용하지 않는다. 
+</dfn>
+
+<h5 id="rule5" class="box">규칙 5 - 스타일시트(CSS)는 위에 넣어라</h5>
+<p>
+스타일시트(CSS)는 HTML의 헤드(Head)태그의 최상단에 위치하는 것이 성능향상에 도움된다.<br />
+</p>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 A)<br />
+CSS 를 완전히 로딩하기 전까지는 HTML은 렌더링되지 않는다.<br />
+어차피 head 가 아닌 body 태그에 선언하면 문법 오류가 발생한다.<br />
+</dfn>
+
+<h5 id="rule6" class="box">규칙 6 - 스크립트는 아래에 넣어라</h5>
+<p>
+스크립트 파일들은 바디(Body)태그에서 호출하는 것으로 성능을 높일 수 있다.<br />
+</p>
+
+<dfn>
+Script를 로딩중일 때는 다른 구성요소를 동시에 로딩하지 않기 때문이다.<br />
+==> <em>적용 보류</em> (YSlow 성능 등급 A)<br />
+현재 디자인 코딩용 자바스크립트 대부분은 렌더링과 관계가 있어 head 에서 외부js 파일로 불러오고 있으며, 콘텐츠 바로 아래에서 실행을 하게 구성되어 있다. 
+이렇게 해도(현재 작업 상태에서도) YSlow 성능 등급 A로 나온다.<br />
+</dfn>
+
+<h5 id="rule7" class="box">규칙 7 - CSS Expression 사용을 자제하라</h5>
+<p>
+IE계열 브라우저에서만 작동하는 expression은 IE6 이하에서 표현하지 못하는 스타일링에 상습적으로 사용한다. 브라우저로 하여금 다소 무리한 연산을 요구하기 때문에 사용을 자제하는 것이 좋다. 현재 미사용
+</p>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 B)<br />
+[IE6] PNG-24 투명 이미지 버그 해결책으로 간혹 expression을 사용하지만, 가급적 사용을 피하고 있음.<br />
+투명 이미지가 필요할 때는 PNG-24 대신 가능하면 PNG-8 이미지(expression 필요없음)로 만든다.<br />
+PNG-8 이미지는 GIF처럼 거친 경계선(알리아싱)으로 투명 영역을 만들 수 있으면서 압축 효율도 조금(10~20%) 우수하다.<br />
+</dfn>
+
+<h5 id="rule8" class="box">규칙 8 - 자바스크립트와 스타일시트를 외부파일로 분리하라</h5>
+<p>
+너무나도 당연한 성능향상을 기대할 수 있다. 일단 브라우저에서 캐시효과를 누릴 수 있는 것 외에도 필요한 스크립트만을 호출할 수 있는 등 부가적으로 얻어지는 가치는 상당하다.
+</p>
+<ul class="bu">
+<li>캐시를 통해서 성능 향상을 꿰할 수도 있으나 작은 크기의 캐시가 필요없는 js인경우 inline으로 구현 시 성능향상에 더 도움이 됩니다.</li>
+</ul>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 A)<br />
+</dfn>
+
+<h5 id="rule9" class="box">규칙 9 - DNS 조회를 줄여라</h5>
+<p>
+해당 도메인에 대한DNS검색 시 소요되는 시간을 줄이도록 조치한다.
+</p>
+<ul class="bu">
+<li>웹서버에서 Keep-Alive의 설정을 통해서 DNS확인 시간을 줄일 수 있음, 그러나 너무 많은 시간을 설정하는 하는 경우 TIME-WAIT나, FIN_WAIT, FIN_WAIT2발생으로 웹서버의 성능에 문제를 초래할 수 있음.</li>
+</ul>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 A) <br />
+이 규칙은 DNS 조회 수를 줄여서 전체 DNS 검색 소요시간을 줄이는 것인데..<br />
+현재 대부분의 프로젝트에서 단일 호스트를 사용하므로 별다른 조치는 필요하지 않다.<br />
+<br />
+1개의 호스트 당 구성요소(이미지, 플래시, ..) 다운로드가 2개로 제한되어 있으므로,<br />
+최적화 가이드라인은 호스트 수를 최소 2개에서 최대 4개로 분리하여 DNS 조회는 많지 않으면서 동시 다운로드를 최대한 활용하자고 되어 있다.
+</dfn>
+
+<h5 id="rule10" class="box">규칙 10 - 자바스크립트를 최소화하라</h5>
+<p>
+JS, CSS 파일을 압축(Minified) 또는 암호화(Obfuscated or Packed)하여 용량을 줄일 수 있다.<br />
+Minify는 파일 내부의 개행과 주석 그리고 인텐트(들여쓰기) 등, 시스템이 이해하기에 불표한 문자열을 제거하여 용량을 줄이는 방법이고,<br />
+Packing은 여러가지 압축기법으로 문장을 암호화하여 브라우저의 인터프리터에 의존해 해석(Evaluate)하는 방식으로 Minified 파일보다 압축률이 훨씬 높다.
+</p>
+
+<dfn>
+==> <em>JS, CSS 최소화는 이미지 최소화 이후에 고려하자</em> (YSlow 성능 등급 F)<br />
+JS 를 최소화(압축) 또는 난독화(암호화)하면 10~40% 비율의 크기 감소 효과가 있지만,<br />
+2가지 방법의 효과 차이는 적으며, Gzip 압축을 추가하면 그 차이는 더 감소하므로, 적용하려면 최소화 방법을 권장한다.<br />
+(난독화는 버그 발생 가능성이 높고, 유지보수 디버깅이 어렵다.)<br />
+하지만 Gzip 압축이 더 효과적(50~80%감소)이고,<br />
+전체 용량에서 적은 부분인 JS 파일 보다는 이미지 최소화 작업이 더 많은 용량 감소 효과를 가져다 줄것이다.<br />
+CSS는 최소화 효과가 적다. 향후 연구와 툴 개발이 필요한 복잡한 문제(순서 의존적인)가 있으므로,
+현재 최선의 해결책은 동일한 클래스 합치고 미사용 클래스 삭제, 주석과 여백을 제거하고 단축값(#666) 이용, 불필요한 문자를 제거(0px 대신 0)하는 것이다.
+</dfn>
+
+<h5 id="rule11" class="box">규칙 11 - 리다이렉트를 피하라</h5>
+<p>
+포워딩(Forwarding)과 달리 리다이렉트(Redirect)는 2차례에 걸쳐 통신하게 된다. 그만큼 서버로부터의 응답이 완료되기까지 소요되는 시간이 길기 때문이다.
+</p>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 A)<br />
+</dfn>
+
+<h5 id="rule12" class="box">규칙 12 - 중복되는 스크립트를 제거하라</h5>
+<p>
+때때로 자바스크립트 파일을 복수로 불러야할 때가 있다. 이 때 캐시설정을 하지 않았다면, 동일한 파일이라 할지라도 브라우저는 지속적으로 요청을 하고 같은 수행을 반복 한다. 이와 같은 스크립팅은 가급적이면 피하는 것이 좋다.
+Server-side script를 이용하여 중복되는 스크립트, CSS에 대한 로딩을 제거 할 수있도록 구성.
+</p>
+
+<dfn>
+==> <em>적용중~</em> (YSlow 성능 등급 A)<br />
+여러 사람이 협업하다보면 쿠키 관련 함수, 팝업 관련 함수 등을 중복 호출하는 경우가 있는데 주의가 필요하다.<br />
+<a href="http://www.yes24.com/Goods/FTGoodsView.aspx?goodsNo=2961377&CategoryNumber=001001003016001012">웹 사이트 최적화 기법</a> 책을 보면.. PHP 에서 대안으로 insertScript 라는 함수를 만들어서 중복스크립트 문제, 스크립트의 버전과 의존성을 관리하기 위한 기능 추가 방법이 있다.
+</dfn>
+
+<h5 id="rule13" class="box">규칙 13 - ETag 헤더를 설정하라</h5>
+<p>
+ETag는 HTTP/1.1에 기본으로 사용하도록 설정된 태그로서 파일캐시 및 갱신 진위여부를 가리는데 사용된다. 캐시와 밀접한 연관이 있으므로 외부파일의 헤더에는 ETag를 항상 설정하여 전송량을 최소화할 수 있다.
+웹 서버별로의 설정을 변경하여 처리하도록 함.
+</p>
+
+<dfn>
+==> <em>서버 설정 필요 : ETag(Entity Tag) 의 구조를 변경하거나 삭제하라.</em> (YSlow 성능 등급 F)<br />
+구성요소 헤더에 먼 미래의 날짜로 Expires를 지정했다 하더라도 새로고침을 클릭하거나 페이지가 리프레시될 때마다 여전히 조건부 GET요청(만료기간이 유효한지 확인하는 작업)이 발생한다.
+IIS의 경우 ETag 는 Filetimestamp(파일크기, 타임스탬프), ChangeNumber(IIS의 구성 변경 횟수)로 구성되어 있어 두 번째 리로드시 ChangeNumber 가 달라져 똑 같은 콘텐츠를 다시 받게된다.
+아파치도 비슷한 Etag 문제가 있다.
+</dfn>
+
+<h5 id="rule14" class="box">규칙 14 - AJAX를 캐시하도록 하라</h5>
+<p>
+Ajax요청 역시 Expires 헤더를 설정하여 캐시효과를 누릴 수 있다.
+</p>
+
+<dfn>
+==> <em>Ajax 사용시 적용 고려</em> (YSlow 성능 등급 없음)<br />
+Ajax 요청은 반드시 성능 가이드라인(Gzip, DNS, JS최소화, 리다이렉트 피함, Etag 변경)을 따라서 적용하고, 특히 헤더에 미래의 날짜를 지정하라.
+</dfn>
+
+<h5 id="rule15" class="box">규칙 15 - 아이프레임을 현명하게 사용하라</h5>
+<p>
+아이프레임역시 src 속성에 의해 브러우저로 하여금 HTTP 요청을 할당한다. 아이프레임을 다수 사용할 때 src 속성을 지정하지 않는 것으로 로딩속도를 향상시킬 수 있다.
+</p>
+
+<dfn>
+==> <em>적용 안함</em> (YSlow 성능 등급 없음)<br />
+<a href="http://www.msn.com">MSN</a>은 광고용 iframe 사용시 src="about:blank" 로 설정하여 HTTP 요청이 발생하지 않게 하면서,
+document.write 를 쓰는 외부 js를 이용하여 광고를 삽입하고 있다. 이 스크립트를 인라인으로 포함시키면 HTTP 트래픽을 줄일 수 있다고 책에서 설명하고 있다.<br />
+하지만, 문제는 js 제거시 콘텐츠가 안보이므로 적용하지 않는걸로 한다.
+</dfn>
+
+<hr />
+
+<h2 id="h2-2">Performance Test</h2>
+
+<h3>CSS minify Test</h3>
+<pre>
+board.css
+1)공백삭제 25,833/27,954 = 0.92412534878729341060313371968234 = 0.924 = 7.6% 크기감소
+2)빈줄삭제 25,743/27,954 = 0.92090577377119553552264434427989 = 0.921 = 0.3% 크기감소
+3)주석삭제 23,246/27,954 = 0.83158045360234671245617800672533 = 0.832 = 8.9% 크기감소
+4)줄합치기 22,919/27,954 = 0.81988266437719109966373327609644 = 0.820 = 1.2% 크기감소
+총) 18% 크기감소
+</pre>
+
+
+
+<h2 id="ref">Reference</h2>
+
+
+<h2 id="rev">Revision</h2>
+<p>
+v2008.09.11 박실장의 웹서버성능향상관련.odt 문서를 토대로 추가 정리.<br />
+v2008.10.15 테스트 툴 링크들 제공<br />
+v2010.08.19 Performance Test 추가<br />
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

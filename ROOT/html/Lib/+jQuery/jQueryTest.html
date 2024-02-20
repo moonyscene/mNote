@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery Test',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</title>
+<script src="http://html.nhndesign.com/js/default.js"></script>
+<script>
+jQuery(document).ready(function($){
+	$('li.third-item').siblings('li.n5').css('background-color', 'red');
+});
+</script>
+</head>
+<body>
+
+<ul>
+   <li>list item 1</li>
+   <li>list item 2</li>
+   <li class="third-item">list item 3</li>
+   <li>list item 4</li>
+   <li class="n5">list item 5</li>
+</ul>
+
+
+</body>
+</html>

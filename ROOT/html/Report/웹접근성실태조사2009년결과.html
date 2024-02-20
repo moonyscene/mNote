@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹접근성실태조사2009년결과',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css" title="myshin_css">
+body { margin: 20px; color: #000; font-size: 75%; font-family: AppleGothic,"돋움",sans-serif; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div id="head"><!-- /share/inc/head.html --></div>
+
+
+<h1>웹접근성실태조사2009년결과</h1>
+
+<p>
+v2010.04.09
+v2010.04.02
+v2010.03.26
+<a href="웹접근성실태조사2009년결과.20100303.html">v2010.03.03</a>
+</p>
+
+<h2>목차</h2>
+<ul class="bu">
+<li><a href="#task1">웹접근성 실태조사 결과 보고서 보완 작업 참고</a></li>
+<li><a href="#table1">[표1] 2009년도 웹 접근성 실태조사 결과</a></li>
+</ul>
+
+
+<h2 id="task1">웹접근성 실태조사 결과 보고서 보완 작업 참고</h2>
+
+<!-- box4 -->
+<div class="box4">
+2010.04.09<br />
+==>@@수신 : 전체(경영지원 제외)<br />
+<h3>제목 : 웹접근성 실태조사 결과 보고서 ★평가오류. 답변과 조치 안내</h3>
+<a href="#d20100329">03.29 쪽지</a>로 작업보류하였던  ★평가오류 에 대한 정보화진흥원 답변요약과 조치 안내입니다.<br />
+<em>보완 조치 후 반드시 유지보수 게시판에 내역 남겨주시기 바랍니다. (처리 완료 여부 확인이 가능하도록..)</em><br />
+<a href="#table1">현재까지 결과 보고서 pdf 파일 보내준 곳은 11군데</a>입니다. (<a href="http://정보행동.co.kr/repair/repair_list.asp?page=&state=&stype=r_content&searchString=%C1%A2%B1%D9%BC%BA">유지보수 게시판에서 "접근성" 으로 검색</a>)
+
+<br />
+<blockquote><div><strong>정보화진흥원 답변요약</strong> :
+함안군청 사이트는 웹 접근성 준수가 매우 잘 되어 있는 사이트입니다.<br />
+그리고 준수율이 100%가 아니더라도 부적합이 아니라 일부 보완을 하면 좋을 것 같다는 의견정도로 보시면 됩니다.
+</div></blockquote>
+<em>▶<strong>조치 안내</strong> : 갑은 정보화진흥원 답변처럼 생각안하므로 ㅡ..ㅡb  아래 내용대로 조치합니다.</em><br />
+<br />
+<hr class="dash" />
+<strong>★평가오류1</strong>: 이미지에 대한 대체 텍스트 제공이 미흡함<br />
+조직도 http://www.haman.go.kr/02administration/02_01.asp<br />
+==>이의 제기! area 요소의 alt 속성으로 대체 텍스트를 제공하고 있는데..<br />
+<blockquote><div>실수 인것 같다.. 죄송합니다.</div></blockquote>
+<em>▶area 요소 alt 속성 또는 longdesc 속성에 적절한 대체텍스트가 있는데도 불구하고 부적합 판정을 하고 있다면,
+갑에게 정보화진흥원에서 실수한 거라고 알려주시면 됩니다.<br /></em>
+<br />
+<strong>★평가오류2</strong>: 이용에 시간제한이 있는 콘텐츠에 제어 기능 제공하나 작동되지 않음.<br />
+메인 팝업존 http://www.haman.go.kr/main/<br />
+==>이의 제기! 접근성 문제 없으며.. 심사자가 착각한것 같다..<br />
+<blockquote><div>
+잘 구현이 잘 되어 있습니다.. 정지 버튼의 기능이 클릭 이벤트가 아닌 포커스에 의해 상실되어 버리고 있기 때문에 정지 버튼의 기능에서 벗어났다고 할 수 있습니다. 그래서 약간의 감점을 되었습니다.
+</div></blockquote>
+<em>▶논란거리가 없도록 코딩팀에서 picpr.js 갱신(정지 버튼 제공시 포커스에 따라 동작 상태 변하지 않도록) 예정임. 이후 프로젝트는 2010.04 이후 버전을 사용바람.<br /></em>
+※ 장애인에게만 차별을 두는 것이 아니므로, (심사자의 예상과 다르게 동작된다면) "사용성" 문제일뿐이지 "접근성" 감점 요인은 아니라고..다시 이의제기 중이지만 답변 기대 안함.<br />
+<br />
+<strong>★평가오류3</strong>: 레이아웃 테이블에 부적절한 속성 또는 태그를 제공하고 있음.<br />
+관내사업추진현황 http://www.haman.go.kr/program/incsilboard/lstEnterprise.asp<br />
+==> 이의 제기! "레이아웃 테이블 summary 속성 제공" 은 접근성을 저하시킨다고 볼 수 없으며..<br />
+<blockquote><div>접근성에 대한 저하 문제는 많은 논란거리가 있긴 합니다만, ..중략.. 계도 차원에서 평가 항목에 포함을 시켰기 때문에 이번 조사 기준에 평가항목에서는 레이아웃 테이블에 적절한 summary 속성을 제공하였더라도  약간의 감점을 주고 있습니다..
+현재 품질마크에서는 관련 내용을 평가하지 않는 건 맞습니다. 허나 실태조사에서는 이 부분에 대해서 앞서 설명했듯이 일부 포함해서 평가를 했습니다.</div></blockquote>
+<em>▶지적된 곳만 summary="페이지 네비게이션" 을 삭제합니다.<br />
+그리고, 이후 프로젝트는 레이아웃 테이블에서 summary 속성을 제공하지 않습니다. 진보로 고통받느니 보수를 수용하는게 편할 수도 있습니다.<br /></em>
+※ 다음 평가 혹은 조사에서는 어떻게 평가하는지.. 재문의 중이지만 답변 기대 안함.<br />
+<br />
+<strong>★항목2</strong>. 멀티미디어 매체의 인식 준수율 90.0% 라고 되어 있는데..<br />
+어떤 부분이 부적합인지 나와 있지 않습니다. 알려주시면 보완하도록 하겠습니다.<br />
+<blockquote><div>
+<a href="http://haman.go.kr/program/incsilboard/outSilBoard.asp?hdnPage=1& amp;SString=영상&SType=Bod02Title&T=&Bod01Code=18& Kwa01Code=&Bod02Code=499996793">게시판 페이지에 동영상이 링크되어 있습니다.</a> 외부사이트에 있는 동영상이라고 할지라도 현 사이트에 콘텐츠를 제공하고 있기 때문에 평가대상이 되었습니다.</div></blockquote>
+<em>▶외부 콘텐츠는 외부 링크로 제공하고, 현 사이트로 가져오지 마세요.</em>
+<br />
+<hr class="dash" />
+<br />
+
+
+</div>
+<!-- //box4 -->
+
+
+<!-- box2 -->
+<div class="box2">
+<pre id="d20100329">2010.03.29
+==>@@수신 : 웹사이트 작업자 전체(경영지원만 제외)
+<strong>제목 : 웹접근성 실태조사 결과 보고서 보완 작업전 참고</strong>
+http://정보행동.co.kr/repair/repair_document.asp?SESSIONID=925945708&searchString=접근성&idx=80233&page=1
+(유집보수 게시판 - 함안군 웹접근성 실태조사 결과)
+[처리내역] 내용에 남긴 ★평가오류에 관해서는 답변 받기 전까지 작업보류하시고,
+나머지는 보완 조치한 후 갑에게 내역 남겨주시기 바랍니다.
+완료된 건에 대해서는 저에게도 알려주시면 감사하겠습니다.
+현재까지.. 결과 보고서 pdf 파일 보내준 곳은 6군데입니다.
+(유지보수 게시판에서 "접근성" 으로 검색해서 보세요.)
+
+갑 - 디자인코딩,기획.
+강서구 - 유지보수,손정은
+거창군 - 양미정,강광일
+부산시 - 김주희,정창신
+진해시 - 유지보수,강광일
+통영시 - 이영석+유지보수,손정은
+함안군 - 문영신+유지보수,심윤정
+
+프로그래머는 개발실에서 알아서 하시면 됩니다.
+
+==>@이영석,양현미
+보내드린 유지보수 게시판 내용 보신 후에 저랑 업무 분장 좀 합시다.
+</pre>
+
+<pre>2010.03.26
+==>@@수신 : 전체(경영지원 제외)
+<strong>제목 : 2009년 웹 접근성 실태조사 결과 보고서가 나오고 있습니다. 다음 절차로 처리해주시기 바랍니다.</strong>
+1. 유지보수는 시군별 결과 내용이 올라오면.. 기획실(@최석문 팀장), 프로그램실(@박태공 실장), 코딩팀(@문영신 팀장)에게 동시에 알려주세요.
+2. 실팀별로 구축시 담당자(@기획자, @콘텐츠 디자이너, @프로그래머) 에게 전달합니다.
+3. 구축시 담당자(없으면 대체 인력)는 본인 작업 영역을 파악한 후 유지보수팀과 배분하여 처리합니다.(<em>유지보수 게시판에 처리내역 남겨주세요.</em>)
+4. 처리중 애로사항은 코딩팀에게 문의하시기 바랍니다.
+-- 감사합니다.
+==>@김주희,장영규
+##부산시청은 상주인력이 처리하시고 완료 여부를 알려주시기 바랍니다.
+</pre>
+</div>
+<!-- //box2 -->
+
+<br />
+
+<table id="table1" class="t3" summary="[표1] 2009년도 웹 접근성 실태조사 결과"><caption><h3>[표1] 2009년도 웹 접근성 실태조사 결과</h3><span class="unit">※ 2010.02.26.18:00 점수 배포. 2010.03.25~2010.04.08~ 보고서. 가나다순</span></caption>
+<col class="nowrap" style="width: 8%;" /><col class="nowrap" /><col class="nowrap" /><col class="nowrap" />
+<thead>
+<tr>
+<th scope="col" rowspan="2">갑</th>
+<th scope="col" rowspan="2">총점</th>
+<th scope="col" rowspan="2">Note</th>
+<th scope="col" rowspan="2">보완조치담당<br />기획(취합),디자인,개발,코더<br />
+(O)완료,(X)불가,(R)보류<br />
+(N/A)해당사항없음<br />
+(<em>err</em>) 평가오류
+(<em>?</em>) 내용없음
+</th>
+<th scope="col" colspan="13">항목별 준수율</th>
+</tr>
+<tr>
+<th scope="col">1. 텍스트 아닌 콘텐츠 인식</th>
+<th scope="col">2. 멀티미디어 매체의 인식</th>
+<th scope="col">3. 콘텐츠의 시각적 명료성</th>
+<th scope="col">4. 이미지맵 기법 사용 제한</th>
+<th scope="col">5. 프레임의 사용 제한</th>
+<th scope="col">6. 깜빡거리는 객체 사용 제한</th>
+<th scope="col">7. 키보드만 운용 가능</th>
+<th scope="col">8. 반복 내비게이션 링크</th>
+<th scope="col">9. 반응 시간의 조절 기능</th>
+<th scope="col">10. 데이터 테이블 구성</th>
+<th scope="col">11. 페이지의 논리적 구성</th>
+<th scope="col">12. 온라인 서식 구성</th>
+<th scope="col">13. 신기술의 사용</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th scope="row">배점</th>
+<td title="총점">100</td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">23</td>
+<td title="2">10</td>
+<td title="3">4</td>
+<td title="4">1</td>
+<td title="5">5</td>
+<td title="6">3</td>
+<td title="7">16</td>
+<td title="8">3</td>
+<td title="9">5</td>
+<td title="10">8</td>
+<td title="11">8</td>
+<td title="12">4</td>
+<td title="13">10</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<th scope="row">배점</th>
+<td title="총점">100</td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">23</td>
+<td title="2">10</td>
+<td title="3">4</td>
+<td title="4">1</td>
+<td title="5">5</td>
+<td title="6">3</td>
+<td title="7">16</td>
+<td title="8">3</td>
+<td title="9">5</td>
+<td title="10">8</td>
+<td title="11">8</td>
+<td title="12">4</td>
+<td title="13">10</td>
+</tr>
+<tr>
+<th scope="row"><strong>강서구 부산</strong></th>
+<td title="총점"><em>99.0</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80184&page=2&searchString=접근성">보고서 받음</a><br />
+처리내역 필요!
+</td>
+<td title="담당">손정은,유지보수,이녕길?,문영신(O)
+</td>
+<td title="1"><em>95.7 err</em></td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>거창군 경남</strong></th>
+<td title="총점"><em>95.7</em></td>
+<td title="Note">보고서 받음<br />
+유지보수글없음
+</td>
+<td title="담당">강광일,양미정,김수진?,이영석
+</td>
+<td title="1">100</td>
+<td title="2"><em>60.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8"><em>90.0</em></td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">김해시 경남</th>
+<td title="총점"><em>99.0</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">100</td>
+<td title="2"><em>90.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">남해군 경남</th>
+<td title="총점"><em>99.0</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">100</td>
+<td title="2">100</td>
+<td title="3"><em>80.0</em></td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>96.0</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">마산시 경남</th>
+<td title="총점"><em>97.5</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">100</td>
+<td title="2"><em>80.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>98.0</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12"><em>90.0</em></td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">밀양시 경남</th>
+<td title="총점"><em>96.4</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">100</td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>92.0</em></td>
+<td title="10"><em>90.0</em></td>
+<td title="11">100</td>
+<td title="12"><em>90.0</em></td>
+<td title="13"><em>80.0</em></td>
+</tr>
+<tr>
+<th scope="row"><strong>부산광역시</strong></th>
+<td title="총점"><em>95.2</em></td>
+<td title="Note">보고서 받음<br />
+유지보수글없음
+</td>
+<td title="담당">정창신,김주희(O),장영규,문영신(O)
+</td>
+<td title="1">100</td>
+<td title="2"><em>60.0</em></td>
+<td title="3"><em>90.0 ?</em></td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10"><em>95.0</em></td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">사천시 경남</th>
+<td title="총점"><em>97.4</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1"><em>95.7</em></td>
+<td title="2"><em>90.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>88.0</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>산청군 경남</strong></th>
+<td title="총점"><em>99.1</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80763&page=1&searchString=접근성">보고서 받음</a></td>
+<td title="담당">최석문,김호정(O),남태형?,문영신(O)
+</td>
+<td title="1"><em>97.8</em></td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12"><em>90.0 ?</em></td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>영천시 경북</strong></th>
+<td title="총점"><em>97.9</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80985&page=1&searchString=접근성">보고서 받음</a><br />개편전사이트</td>
+<td title="담당">손정은,김호정,남태형?,문영신(R)
+</td>
+<td title="1">100</td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8"><em>70.0</em></td>
+<td title="9"><em>96.0</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13"><em>90.0</em></td>
+</tr>
+<tr>
+<th scope="row"><strong>의령군 경남</strong></th>
+<td title="총점"><em>99.5</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80415&page=1&searchString=접근성">보고서 받음</a></td>
+<td title="담당">손정은(O),양미정,남태형?,문영신(O)
+</td>
+<td title="1">100</td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>90.0 ?</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">진주시 경남</th>
+<td title="총점"><em>99.3</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1">100</td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>96.0</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13"><em>95.0</em></td>
+</tr>
+<tr>
+<th scope="row"><strong>진해시 경남</strong></th>
+<td title="총점"><em>96.0</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80304&page=2&searchString=접근성">보고서 받음</a></td>
+<td title="담당">강광일,유지보수,배대훈?,문영신(O)
+</td>
+<td title="1">100</td>
+<td title="2"><em>70.0</em></td>
+<td title="3"><em>90.0</em></td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>96.0</em></td>
+<td title="10"><em>95.0 err</em></td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">창녕군 경남</th>
+<td title="총점"><em>97.6</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1"><em>95.7</em></td>
+<td title="2">100</td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>88.0</em></td>
+<td title="10"><em>95.0</em></td>
+<td title="11">100</td>
+<td title="12"><em>90.0</em></td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>청송군 경북</strong></th>
+<td title="총점"><em>98.6</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80703&page=1&searchString=접근성">보고서 받음</a></td>
+<td title="담당">강광일,양미정(O),김수진?,이영석
+</td>
+<td title="1">100</td>
+<td title="2"><em>90.0</em></td>
+<td title="3"><em>90.0</em></td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>통영시 경남</strong></th>
+<td title="총점"><em>89.9</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80249&page=2&searchString=접근성">보고서 받음</a></td>
+<td title="담당">손정은,<a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80787&page=1&searchString=접근성">유지보수(O)</a>,남태형?(O),이영석(O)
+</td>
+<td title="1">100</td>
+<td title="2"><em>60.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5"><em>10.0</em></td>
+<td title="6">100</td>
+<td title="7"><em>92.5</em></td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10"><em>95.0 err</em></td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>하동군 경남</strong></th>
+<td title="총점"><em>93.8</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80712&page=1&searchString=접근성">보고서 받음</a><br />
+처리내역 필요!
+</td>
+<td title="담당">최석문,유지보수,남태형?,이영석
+</td>
+<td title="1"><em>92.2</em></td>
+<td title="2"><em>80.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5"><em>80.0</em></td>
+<td title="6">100</td>
+<td title="7"><em>92.5</em></td>
+<td title="8">100</td>
+<td title="9"><em>96.0 ?</em></td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row"><strong>함안군 경남</strong></th>
+<td title="총점"><em>97.3</em></td>
+<td title="Note"><a href="http://정보행동.co.kr/repair/repair_document.asp?idx=80233&page=2&searchString=접근성">보고서 받음</a></td>
+<td title="담당">심윤정,유지보수,남태형?,문영신(O)
+</td>
+<td title="1"><em>95.7 err</em></td>
+<td title="2"><em>90.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7">100</td>
+<td title="8">100</td>
+<td title="9"><em>94.0</em></td>
+<td title="10"><em>95.0 err</em></td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+<tr>
+<th scope="row">함양군 경남</th>
+<td title="총점"><em>90.8</em></td>
+<td title="Note"></td>
+<td title="담당"></td>
+<td title="1"><em>95.7</em></td>
+<td title="2"><em>90.0</em></td>
+<td title="3">100</td>
+<td title="4">100</td>
+<td title="5">100</td>
+<td title="6">100</td>
+<td title="7"><em>55.0</em></td>
+<td title="8">100</td>
+<td title="9">100</td>
+<td title="10">100</td>
+<td title="11">100</td>
+<td title="12">100</td>
+<td title="13">100</td>
+</tr>
+</tbody>
+</table>
+
+<script>
+var makeBg = function(){
+	var el = document.getElementById("table1");
+	var eltbody = el.getElementsByTagName("tbody")[0];
+	var eltr = el.getElementsByTagName("tr");
+	for(var i=0;i<eltr.length;i++){
+		if(!(i%2)) eltr[i].style.background="#ffe";
+	}
+}
+makeBg();
+</script>
+
+
+
+
+
+<br /><br /><br />
+
+
+
+
+
+</body>
+</html>

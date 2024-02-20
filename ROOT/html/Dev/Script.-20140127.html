@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Back-end(Server-side) Dev - Script | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Back-end (Server-side) Script</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Link">Link</a></li>
+<li><a href="#Reference">Reference</a></li>
+<li><a href="#Compare">Compare</a></li>
+<li><a href="#Compare">JSP</a></li>
+<li><a href="#Compare">PHP</a></li>
+<li><a href="#Compare">ASP</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<h2 id="Link">Link</h2>
+
+<h3>Tech &amp; Tip</h3>
+
+<ul class="bu">
+<li><a href="http://weblogic.tistory.com/26">배열(Array) - ASP, JSP, PHP 비교</a></li>
+</ul>
+
+<h3 id="Reference">Reference</h3>
+
+<!-- box3 -->
+<div class="box3">
+<ul class="bu">
+<li><a href="http://www.rankey.com/rank/rank_site_cate.php?cat1_id=22&cat2_id=2333&cat3_id=1546"><strong>rankey - 프로그래밍</strong></a></li>
+<li><a href="http://www.hanb.co.kr/web/sample/1498/sample_chapter5.pdf">JSP 기본 문법</a></li>
+<li><a href="http://www.lovehana.com/tag/168?TSSESSIONlovehanacom=2058af725b50d3f931bc2774572a312b">PHP 프로젝트에 필요한 것</a></li>
+<li><a href="http://php.net/manual/kr/">PHP 매뉴얼</a></li>
+<li><a href="http://www.okjsp.pe.kr/">okjsp</a></li>
+<li><a href="http://www.phpschool.com/">phpschool</a></li>
+<li><a href="http://www.taeyo.pe.kr/lecture/">taeyo's ASP</a></li>
+<li><a href="http://www.w3schools.com/vbscript/vbscript_ref_functions.asp"> VBScript References Functions</a> - w3schools</li>
+<li><a href="http://nongsuk.pe.kr/home_old/bulguk/vbsdocs/vbstutor_f.htm"> VBScript 자습서</a></li>
+<li><a href="http://www.sqltutorial.org/DownloadHandler.ashx?pg=ae9c941b-ad7c-4740-899d-2aa3495b459d&section=5d091d6c-95fd-4123-adc4-a2e4ca1839dc&file=sqlcheatsheet.pdf">SQL Cheat Sheet</a></li>
+</ul>
+</div>
+<!-- /box3 -->
+
+<h2 id="Compare">Compare</h2>
+
+<table border="1" class="t3" summary=""><caption>Compare Script</caption>
+<col />
+<col />
+<col span="4" style="width:20%;" />
+<col />
+<thead>
+<tr>
+<th scope="col">No.</th>
+<th scope="col">Title</th>
+<th scope="col">JS</th>
+<th scope="col">ASP</th>
+<th scope="col">PHP</th>
+<th scope="col">JSP</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<th scope="row">How To</th>
+<td>
+<xmp class="xmp"><script>
+document.write("<p>" + Date() + "</p>");
+</script></xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+<?
+phpinfo();
+$connect=mysql_connect("","","");
+echo("MYSQL 작동 완료!");
+?>
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>02</td>
+<th scope="row">Where To 출력</th>
+<td>
+<xmp class="xmp">document.getElementById("demo").innerHTML=Date();</xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+<?
+echo "거북이<br />";
+ECHO "버스<br />";
+?>
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>03</td>
+<th scope="row">Comments 주석</th>
+<td>
+<xmp class="xmp">// Write a heading
+/*
+The code below will write
+one heading and two paragraphs
+*/
+</xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+//한줄
+/* 한줄
+여러줄 */
+echo "요건 출력됩니다.";
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>04</td>
+<th scope="row">Variables 변수</th>
+<td>
+<xmp class="xmp">var x;//Local
+var x=5;//Local
+x=5;//global 
+</xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+<?
+$aaa="사과";
+$aaa=100;
+?>
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>05</td>
+<th scope="row">Arithmetic Operators 산술 연산자</th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+<?
+$a=3;
+$b=2;
+$c=$a+$b;
+$b=$a*$b;
+$c=$a+$b*$c;
+echo "$a $b $c<br />";
+$c=$a%$b;
+$b++;
+$a--;
+echo "$a $b $c<br />";
+
+$a=10;
+$a+=2;
+$a -=7;
+$a*=5;
+$a/=5;
+$a%=7;
+$a="미키";
+$a .=" 마우스";
+?>
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>06</td>
+<th scope="row">Assignment Operators 할당 연산자</th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>07</td>
+<th scope="row">문자열</th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+<?
+$a="토끼 ";
+$b="거북이";
+$c=$a.$b;
+echo $a."<br />";
+echo $b."<br />";
+echo $c."<br />";
+?>
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>08</td>
+<th scope="row">제어</th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td>
+<xmp class="xmp">
+if($birth_month<$now_month)$age=$now_year-$birth_year;
+else if($birth_month==$now_month){
+	if($birth_day<=$now_day)$age=$now_year-$birth_year;
+	else $age=$now_year-$birth_year-1;
+}
+else $age=$now_year-$birth_year-1;
+</xmp>
+<xmp class="xmp">
+$i=100;
+do{echo $i."<br />";
+}while($i<=10)
+</xmp>
+<xmp class="xmp">
+$i=100;
+do{echo $i."<br />";
+}while($i<=10)
+</xmp>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<th scope="row"></th>
+<td>
+<xmp class="xmp"></xmp>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20131120.
+20120612.
+20100418.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Grid | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/grid_row_content-box.css" /><!-- ☆(Added) -->
+<link rel="stylesheet" type="text/css" href="../../share/css/all.css" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script type="text/javascript" src="../../share/js/respond.min.js"></script>
+<![endif]-->
+<!-- ☆(take) -->
+<script type="text/javascript" src="../../share/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../share/js/selectivizr-min.js"></script><!-- ☆(Added) -->
+<!-- ☆(make) -->
+<script type="text/javascript" src="../../share/js/all.js"></script>
+<script type="text/javascript" src="../../share/js/jq.js"></script>
+<!-- /html_head -->
+
+<script type="text/javascript">/*<![CDATA[*/
+/* ◇◆ 20150421.MoonYoungshin. [IE7] % to px 계산 오류로  있으면.. 폭 줄인다.  */
+$(function(){
+		if (navigator.userAgent.indexOf("MSIE 7.") != -1){
+			setTimeout(function(){
+				$('.row').each(function(){
+					var row1wd = pawd = rest = 0;
+					$('>.column', this).each(function(){
+						pawd = $(this).parent().width();
+						row1wd += $(this).outerWidth(true);
+						rest = row1wd % pawd;
+						if( rest > 0 && rest < 12 ){
+							$(this).css({'margin-right': (0 - rest) + 'px'});
+							row1wd -= rest;
+							$(this).parent().css({'border-color': '#f00'});
+						}
+					});
+				});
+			}, 100);
+		}
+});
+
+var _winWidth = 0;
+$(window).on('load resize', function(e){
+	switch(e.type){
+	case 'load':
+		break;
+	case 'resize':
+		if( _winWidth == $(this).width() ){
+			console.log(_winWidth);
+		}else{
+			_winWidth = $(this).width();
+		}
+		/* ☆if (navigator.userAgent.indexOf("MSIE 7.") != -1){
+			setTimeout(function(){
+				$('.row').each(function(){
+					var row1wd = pawd = rest = 0;
+					$('>.column', this).each(function(){
+						pawd = $(this).parent().width();
+						row1wd += $(this).outerWidth(true);
+						rest = row1wd % pawd;
+						if( rest > 0 && rest < 12 ){
+							//console.log(row1wd + '  ' + pawd + '  ' + rest);
+							$(this).css({'margin-right': - rest + 'px'});
+							row1wd -= rest;
+							$(this).parent().css({'border-color': '#f00'});
+						}
+					});
+				});
+			}, 100);
+		} */
+		break;
+	default:
+		//console.log('default');
+	}
+});
+
+/*]]>*/</script>
+
+</head>
+<body>
+<!-- container -->
+<div id="container" style="max-width:1200px;margin:0 auto;">
+
+
+
+
+
+<h1>Grid Row content-box</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+<h2 id="Demo">Demo</h2>
+
+
+<!-- box2 -->
+<div class="box2">
+[IE9](◇) )) <em class="em">BugFix)) Nested, Collapse</em><br />
+[IE8](◇) + respond.min.js + selectivizr-min.js )) <em class="em">BugFix)) Nested, Collapse</em><br />
+[IE7](▽) + respond.min.js + selectivizr-min.js )) <em class="em">BugFix)) Nested, Collapse, Incomplete Rows</em><br />
+<blockquote cite=""><div>
+1) last-child 에서 줄바뀜에서.. % 오차 발생한다. >>> 콘텐츠 별로 조정해야 할 듯.. >>>@m. CSS? JS?<br />
+2) Incomplete 에서 마진이 작다. >>>@m. 관대하자!<br />
+</div></blockquote>
+</div>
+<!-- /box2 -->
+
+
+<!-- box1 -->
+<div class="box1">
+
+<ol class="bo1 num00">
+<li><a href="http://selectivizr.com/" target="_blank" title="새 창">selectivizr-min.js</a> 
+<a href="http://html5please.com/#selector" target="_blank" title="새 창">[IE6(?)7(o)8(o)]</a>
+</li>
+</ol>
+
+</div>
+<!-- /box1 -->
+
+
+<h3 class="hb1 h4">Basic</h3>
+
+<div class="row display">
+  <div class="small-span-2 large-span-4 column"><span class="show-all hide-large">2</span><span class="hide-all show-large">4</span></div>
+  <div class="small-span-4 large-span-4 column">4</div>
+  <div class="small-span-6 large-span-4 column"><span class="show-all hide-large">6</span><span class="hide-all show-large">4</span></div>
+</div>
+<div class="row display bugFix">
+  <div class="large-span-3 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">3</span></div>
+  <div class="large-span-6 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">6</span></div>
+  <div class="large-span-3 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">3</span></div>
+</div>
+<div class="row display">
+  <div class="small-span-6 large-span-2 column"><span class="show-all hide-large">6</span><span class="hide-all show-large">2</span></div>
+  <div class="small-span-6 large-span-8 column"><span class="show-all hide-large">6</span><span class="hide-all show-large">8</span></div>
+  <div class="small-span-12 large-span-2 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">2</span></div>
+</div>
+<div class="row display">
+  <div class="small-span-3 column">3</div>
+  <div class="small-span-9 column">9</div>
+</div>
+<div class="row display">
+  <div class="large-span-4 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">4</span></div>
+  <div class="large-span-8 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">8</span></div>
+</div>
+<div class="row display">
+  <div class="small-span-6 large-span-5 column"><span class="show-all hide-large">6</span><span class="hide-all show-large">5</span></div>
+  <div class="small-span-6 large-span-7 column"><span class="show-all hide-large">6</span><span class="hide-all show-large">7</span></div>
+</div>
+<div class="row display">
+  <div class="large-span-6 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">6</span></div>
+  <div class="large-span-6 column"><span class="show-all hide-large">full</span><span class="hide-all show-large">6</span></div>
+</div>
+
+<h3 class="hb1 h4">Small Grid</h3>
+
+<div class="row display">
+  <div class="small-span-2 column">2 column</div>
+  <div class="small-span-10 column">10 column</div>
+</div>
+<div class="row display">
+  <div class="small-span-3 column">3 column</div>
+  <div class="small-span-9 column">9 column</div>
+</div>
+
+<h3 class="hb1 h4">Medium Grid</h3>
+
+<div class="row display">
+  <div class="medium-span-2 column">2 column</div>
+  <div class="medium-span-10 column">10 column</div>
+</div>
+<div class="row display">
+  <div class="medium-span-3 column">3 column</div>
+  <div class="medium-span-9 column">9 column</div>
+</div>
+
+
+<h3 class="hb1 h3">Advanced</h3>
+
+<h4 class="hb1 h4">Nested</h4>
+
+<div class="row display">
+  <div class="small-span-8 column">8
+    <div class="row">
+      <div class="small-span-8 column">8 Nested
+        <div class="row">
+          <div class="small-span-8 column">8 Nested Again</div>
+          <div class="small-span-4 column">4</div>
+        </div>
+      </div>
+      <div class="small-span-4 column">4</div>
+    </div>
+  </div>
+  <div class="small-span-4 column">4</div>
+</div>
+
+<h3 class="hb1 h4">Offsets</h3>
+
+<div class="row display">
+  <div class="large-span-1 column">1</div>
+  <div class="large-span-11 column">11</div>
+</div>
+<div class="row display">
+  <div class="large-span-1 column">1</div>
+  <div class="large-span-10 large-offset-1 column">10, offset 1</div>
+</div>
+<div class="row display">
+  <div class="large-span-1 column">1</div>
+  <div class="large-span-9 large-offset-2 column">9, offset 2</div>
+</div>
+<div class="row display">
+  <div class="large-span-1 column">1</div>
+  <div class="large-span-8 large-offset-3 column">8, offset 3</div>
+</div>
+
+<h3 class="hb1 h4">Incomplete Rows</h3>
+
+<div class="row display-end incomplete">
+  <div class="medium-span-3 column">3</div>
+  <div class="medium-span-3 column">3</div>
+  <div class="medium-span-3 column">3</div>
+</div>
+<div class="row display-end incomplete">
+  <div class="medium-span-3 column">3</div>
+  <div class="medium-span-3 column">3</div>
+  <div class="medium-span-3 column end">3 end</div>
+</div>
+
+<h3 class="hb1 h4">Collapse/Uncollapse Rows</h3>
+
+<div class="row medium-uncollapse large-collapse">
+    <div class="small-span-6 column">
+        <div class="panel">
+            <p class="hide-all show-medium hide-large">On a medium screen, I have gutters!</p>
+            <p class="hide-all show-large">On a large screen, I have no gutters!</p>
+        </div>
+    </div>
+    <div class="small-span-6 column">
+        <div class="panel">
+            <p class="hide-all show-medium hide-large">On a medium screen, I have gutters!</p>
+            <p class="hide-all show-large">On a large screen, I have no gutters!</p>
+        </div>
+    </div>
+</div>
+
+<h3 class="hb1 h4">Centered column</h3>
+
+<div class="row display">
+  <div class="small-span-3 small-centered column">3 centered</div>
+</div>
+<div class="row display">
+  <div class="small-span-6 large-centered column">6 centered, large</div>
+</div>
+<div class="row display">
+  <div class="small-span-9 small-centered large-uncentered column">9 centered small</div>
+</div>
+<div class="row display">
+  <div class="small-span-11 small-centered column">11 centered</div>
+</div>
+
+<h3 class="hb1 h4">Source Ordering</h3>
+
+<div class="row display">
+  <div class="small-span-10 small-push-2 column">10</div>
+  <div class="small-span-2 small-pull-10 column">2, last</div>
+</div>
+<div class="row display">
+  <div class="large-span-9 large-push-3 column">9</div>
+  <div class="large-span-3 large-pull-9 column">3, last</div>
+</div>
+<div class="row display">
+  <div class="large-span-8 large-push-4 column">8</div>
+  <div class="large-span-4 large-pull-8 column">4, last</div>
+</div>
+<div class="row display">
+  <div class="small-span-5 small-push-7 medium-span-7 medium-push-5 column">7</div>
+  <div class="small-span-7 small-pull-5 medium-span-5 medium-pull-7 column">5, last</div>
+</div>
+<div class="row display">
+  <div class="medium-span-6 medium-push-6 column">6</div>
+  <div class="medium-span-6 medium-pull-6 column">6, last</div>
+</div>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Block_Grid">Block Grid</h2>
+
+
+
+
+
+<div class="brclear"></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Link">Link</h2>
+
+<ol class="bo1 num00">
+
+</ol>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150421.
+20150420.
+</p>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

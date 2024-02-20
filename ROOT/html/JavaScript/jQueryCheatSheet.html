@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - jQuery Cheat Sheet | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>/*<![CDATA[*/
+$(function(){
+	$('.apiobj').css({clear:'both',width:'100%',padding:'.2em 0',borderBottom:'1px solid #ddd',overflow:'hidden'});
+	$('.apiobj>*').css({float:'left'});
+	$('.apiobj>.description').css({marginLeft:'1em'});
+});
+/*]]>*/</script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>jQuery Cheat Sheet</h1>
+
+<a href="http://www.futurecolors.ru/jquery/"><strong>jQuery 1.x API Cheat Sheet</strong></a>
+
+<h2>jQuery Reference / Tutorial</h2>
+
+<h3>JQuery Base</h3>
+<h3>Core</h3>
+<h3>Selectors 선택</h3>
+<h3>Traversing 탐색</h3>
+<h3><a href="http://api.jquery.com/category/manipulation/">Manipulation</a> 조작</h3>
+<pre>
+Inserting Inside 안에 삽입
+$.append( content | fn( index, html ) )
+$.appendTo( target )
+$.prepend( content | fn( index, html ) )
+$.prependTo( target )
+Inserting Outside 밖에 삽입
+$.after( content | fn() )
+$.before( content | fn() )
+$.insertAfter( target )
+$.insertBefore( target )
+Inserting Around 주위에 삽입
+$.unwrap( )
+$.wrap( wrappingElement | fn )
+$.wrapAll( wrappingElement | fn )
+$.wrapInner( wrappingElement | fn )
+Replacing 교체
+$.replaceWith( content | fn )
+$.replaceAll( selector )
+Removing 제거
+$.detach( [selector] )
+$.empty( )
+$.remove( [selector] )
+Copying 복사
+$.clone( [withDataAndEvents], [deepWithDataAndEvents] )
+</pre>
+y
+
+<h2>JQuery Library</h2>
+
+<h3><a href="http://www.yes24.com/Cooperate/Naver/welcomeNaver.aspx?pageNo=3">[Book]</a> jQuery Cookbook</h3>
+<ul class="bu">
+<li><a href="../book/OReilly-jQuery.Cookbook(2010).pdf_index.html">OReilly-jQuery.Cookbook(2010).pdf_index.html</a></li>
+<li><a href="http://jquery-cookbook.com/examples/">예제</a></li>
+<li><a href="http://jquery-cookbook.com/examples/06/chapter6-complete.html">Effect - All examples rolled in to one</a></li>
+<li><a href="http://jqueryui.com/docs/Effects/Methods">jQueryUI Effects</a></li>
+</ul>
+
+<h3><a href="http://www.yes24.com/24/goods/6349958?scode=032&OzSrank=1">[Book]</a> 만들면서 배우는 HTML5+CSS3+jQuery</h3>
+<ul class="bu">
+<li><a href="http://www.hanb.co.kr/demo/1910/ex11/">데모</a></li>
+<li><a href="http://www.hanb.co.kr/book/look.html?isbn=978-89-7914-910-4">예제</a></li>
+</ul>
+
+<h3><a href="http://www.yes24.com/24/goods/6349958?scode=032&OzSrank=1">[Book]</a> jQuery를 활용한 인터랙티브 웹 콘텐츠 제작</h3>
+<ul class="bu">
+<li><a href="http://ddandongne.com/book/ex/">데모</a></li>
+</ul>
+
+<h3><a href="http://www.yes24.com/24/goods/5949036?scode=032&OzSrank=1">[Book]</a> 웹 디자이너를 위한 jQuery</h3>
+
+<ul class="bu">
+<li><a href="http://roadbook.zerois.net/xe/index.php?mid=archive&package_srl=381">예제소스</a></li>
+</ul>
+
+<ol>
+<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/01/">jQL01 CSS 셀렉터를 이용한 스트라이프 테이블</a> <em>★table</em>
+	<ul class="bu">
+	<li><a>CSS3 셀렉터의 사용으로 작업 효율을 높이자</a></li>
+	<li><a>스트라이프 테이블 만들기</a></li>
+	<li><a>마우스오버로 행이나 열에 하이라이트 효과 주기</a></li>
+	<li><a>[실무에서 자주 나타나는 함정] jQuery로 CSS를 직접 조작하는 방법은 좋지 않습니다.</a></li>
+	<li><a>[JavaScript 원포인트 레슨] 텍스트 연결과 계산식의 차이</a></li>
+	</ul>
+</li>
+<li>jQL02 슬라이드식 이미지 갤러리 <em>★Slide Image PR</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/02/sample1.html">이미지 갤러리의 기본이 되는 부분을 만들어 보자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/02/sample2.html">애니메이션 효과로 그림을 매끄럽게 변경해 보자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/02/sample3.html">그림이 추가되는 슬라이드식 갤러리로 개선해보자</a></li>
+	<li><a>[JavaScript 원포인트 레슨] 문자열을 수식으로 바꿔주는 parseInt()</a></li>
+	</ul>
+</li>
+<li>jQL03 부드러운 아코디언 패널 <em>★FAQ</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/03/sample1.html">간단한 아코디언 만들기</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/03/sample2.html">더욱 보기 좋고 사용하기 편리한 아코디언으로 개선</a></li>
+	<li><a>[실무에서 자주 나타나는 함정] “JavaScript off”를 고려한 UI 디자인을 하자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/03/sample3.html">[고객의 요구사항에 대처하기] “아코디언을 옆으로 열고 닫게 해주세요!”</a></li>
+	</ul>
+</li>
+<li>jQL04 포털사이트에서 많이 볼 수 있는 탭 패널 <em>★Tab</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/04/sample1.html">기본 탭 패널의 작성법</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/04/sample2.html">애니메이션 효과로 좀 더 보기 좋은 탭 패널로 개선</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/04/sample3.html">[고객의 요구사항에 대처하기] 고객이 간단히 변경할 수 있는 탭 패널을 만들어 보자</a></li>
+	</ul>
+</li>
+<li>jQL05 개성적인 3종류의 툴팁 <em>★Tooltip, Calendar, Board, Organ Chart</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/05/sample1.html">CSS로 꾸민 심플한 툴팁</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/05/sample2.html">투명한 GIF로 만든 고정위치 툴팁</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/05/sample3.html">투명한 PNG로 만든 타이머식 툴팁</a></li>
+	</ul>
+</li>
+<li>jQL06 롤오버 형식의 내비게이션 메뉴 바 <em>★Navigation</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/06/sample1.html">롤오버의 기본적인 구조부터 만들기</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/06/sample2.html">범용적인 롤오버로 개선하기</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/06/sample3.html">이미지의 프리로드(preload) 처리 추가</a></li>
+	<li><a>[JavaScript 원포인트 레슨] 문자열 치환을 편리하게 해주는 정규표현</a></li>
+	</ul>
+</li>
+<li>jQL07 투명한 PNG 이미지를 지원하는 롤오버 <em>★Navigation</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/07/sample1.html">롤오버 기능의 기본 부분 복습</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/07/sample2.html">IE6에서의 투명 PNG 표시</a> <ins><strong>[m]</strong> gif 로 대체하란다..ㅋ..</ins></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/07/sample3.html">크로스브라우징 가능한 투명 PNG 롤오버 기능</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/07/sample4.html">[CSS 원포인트 레슨] 투명 PNG를 웹 제작에 이용하기</a></li>
+	</ul>
+</li>
+<li>jQL08 다단계 형식의 드롭다운 메뉴 <em>★Navigation</em> <ins><strong>[m]</strong> 키보드 운용 안됨</ins>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/08/sample1.html">기본 드롭 다운 메뉴</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/08/sample2.html">다단계 구조를 지원하는 드롭다운 메뉴로 개선</a></li>
+	<li><a>[CSS 원포인트 레슨] float 현상을 제거하는 clearfix</a></li>
+	</ul>
+</li>
+<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/09/">jQL09 Lightbox 형식의 모달 윈도우</a> <em>★Gallery</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/09/sample1.html">HTML과 CSS로 표현을 생각하자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/09/sample2.html">jQuery로 모달 윈도우를 만들자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/09/sample3.html">[JavaScript 원포인트 레슨] IE에서만 “setExpression”을 사용하자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/09/sample4.html">[고객의 요구사항에 대처하기] 이미지가 아닌 텍스트를 모달 윈도우로 표시</a></li>
+	</ul>
+</li>
+<li>jQL10 드래그&드롭으로 움직이는 플로팅 윈도우 <em>★Popup</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/10/sample1.html">기본 플로우팅 윈도우 만들기</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/10/sample2.html">IE6에서 버그 제거하기</a></li>
+	<li><a>[실무에서 자주 나타나는 함정] 투명 PNG의 페이드인/페이드아웃 효과가 검게 변한다</a></li>
+	</ul>
+</li>
+<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/11/">jQL11 유효성 기능을 지원하는 메일 폼</a> <em>★Form</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/11/sample1.html">클래스 속성으로 룰을 지정하는 범용적인 Validation 기능</a></li>
+	</ul>
+</li>
+<li>jQL12 Amazon 형식의 슬라이딩 윈도우 <em>★Slide Image PR</em>
+	<ul class="bu">
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/12/sample1.html">HTML/CSS로 슬라이딩 윈도우의 베이스를 만들자</a></li>
+	<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/12/sample2.html">[고객의 요구사항에 대처하기] “슬라이딩 윈도우를 자동으로 슬라이딩되도록 해주세요!”</a></li>
+	</ul>
+</li>
+<li><a href="../data/ex)/jquery_for_webdesigner/Chapter03/13/sample1.html">jQL13 Ajax를 이용한 부드러운 페이징</a> <em>★Ajax</em>
+	<ul class="bu">
+	<li><a>데이터 HTML을 준비하자</a></li>
+	<li><a>전체 HTML을 만들자</a></li>
+	<li><a>[고객의 요구사항에 대처하기] “대용량의 데이터를 Ajax로 표시하고 싶습니다”</a></li>
+	<li><a>Column03_ Firebug를 이용한 디버깅</a></li>
+	<li><a>Column04_ jQuery의 고속화</a></li>
+	</ul>
+</li>
+</ol>
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120130.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CMD | mNote</title>
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>명령 프롬프트 (CMD 창)</h1>
+
+<ol class="num">
+<li><strong>명령 프롬프트 실행</strong> : [시작]-[실행]cmd ↙</li>
+<li><strong>명령 프롬프트로 붙여넣기</strong> : 복사 후 명령 프롬프트 창에서 [우클릭]-[붙여넣기]</li>
+<li>CMD 창에서 cd 입력 후 탐색기 주소를 클릭해서 명령 프롬프트 창으로 끌어다 놓으면 해당 경로가 붙는다.</li>
+<li><strong>명령 프롬프트에서 복사</strong> : 명령 프롬프트 창에서 [우클릭]-[모두 선택]-^C</li>
+<li><strong>User Account</strong> : control userpasswords2 ↙</li>
+<li><strong>MAC Address</strong> : ipconfig/all ↙ Physical Address</li>
+</ol>
+
+<h2>명령 프롬프트 명령어</h2>
+
+<p><strong>HELP</strong> <em>명령어</em> ↙ 특정 명령어에 대한 자세한 내용</p>
+
+<table border="1" class="t3 w100" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">cmd</th>
+<th scope="col">note</th>
+<th scope="col">ex</th>
+</tr>
+<tbody>
+<tr>
+<th scope="row">ASSOC</th>
+<td>파일 확장명 연결을 보여주거나 수정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">AT</th>
+<td>명령어와 프로그램의 실행을 스케줄합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">ATTRIB</th>
+<td>파일 속성을 표시하거나 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">BREAK</th>
+<td>확장된 CTRL+C 검사를 설정하거나 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CACLS</th>
+<td>파일의 액세스 컨트롤 목록(ACL)을 표시하거나 수정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CALL</th>
+<td>한 일괄 프로그램에서 다른 일괄 프로그램을 호출합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CD</th>
+<td>현재 디렉터리 이름을 보여주거나 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CHCP</th>
+<td>활성화된 코드 페이지의 번호를 표시하거나 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CHDIR</th>
+<td>현재 디렉터리 이름을 보여주거나 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CHKDSK</th>
+<td>디스크를 검사하고 상태 보고서를 표시합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CHKNTFS</th>
+<td>부팅하는 동안 디스크 확인을 화면에 표시하거나 변경합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CLS</th>
+<td>화면을 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CMD</th>
+<td>Windows 명령 인터프리터의 새 인스턴스를 시작합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">COLOR</th>
+<td>콘솔의 기본색과 배경색을 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">COMP</th>
+<td>두 개 또는 여러 개의 파일을 비교합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">COMPACT</th>
+<td>NTFS 분할 영역에 있는 파일의 압축을 표시하거나 변경합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">CONVERT</th>
+<td>FAT 볼륨을 NTFS로 변환합니다. 현재 드라이브는 변환할 수 없습니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row" class="em">COPY</th>
+<td>하나 이상의 파일을 다른 위치로 복사합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DATE</th>
+<td>날짜를 보여주거나 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DEL</th>
+<td>하나 이상의 파일을 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DIR</th>
+<td>디렉터리에 있는 파일과 하위 디렉터리 목록을 보여줍니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DISKCOMP</th>
+<td>두 플로피 디스크의 내용을 비교합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DISKCOPY</th>
+<td>플로피 디스크의 내용을 다른 플로피 디스크로 복사합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DOSKEY</th>
+<td>명령줄을 편집하고, Windows 명령을 다시 호출하고, 매크로를 만듭니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row" class="em">ECHO</th>
+<td>메시지를 보여주거나, 명령어 반향을 켜거나 끕니다.</td>
+<td>
+* TXT 파일에 내용 넣기 (텍스트 끝 공백 줄바꿈 생김)<br />
+<xmp class="xmp">
+echo 안녕하세요 > test.txt
+</xmp>
+* TXT 파일에 내용 추가하기<br />
+<xmp class="xmp">
+echo 안녕하세요 >> test.txt
+</xmp>
+</td>
+</tr><tr>
+<th scope="row">ENDLOCAL</th>
+<td>일괄 파일에서 환경 변경의 지역화를 끝냅니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">ERASE</th>
+<td>하나 이상의 파일을 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">EXIT</th>
+<td>CMD.EXE 프로그램(명령 인터프리터)을 마칩니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FC</th>
+<td>두 파일 또는 파일의 집합을 비교하여 다른 점을 표시합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FIND</th>
+<td>파일에서 텍스트 문자열을 찾습니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FINDSTR</th>
+<td>파일에서 문자열을 찾습니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FOR</th>
+<td>파일 집합에서 각 파일에 대해 지정된 명령을 실행합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FORMAT</th>
+<td>Windows에서 사용할 디스크를 포맷합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">FTYPE</th>
+<td>파일 확장 연결에 사용되는 파일 형식을 표시하거나 수정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">GOTO</th>
+<td>Windows 명령 인터프리터가 일괄 프로그램에서 이름표가 붙여진 줄로 가게 합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">GRAFTABL</th>
+<td>Windows가 그래픽 모드에서 확장 문자 세트를 표시할 수 있게 합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">HELP</th>
+<td>Windows 명령어에 관한 도움말을 제공합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">IF</th>
+<td>일괄 프로그램에서 조건 처리를 수행합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">LABEL</th>
+<td>디스크의 볼륨 이름을 만들거나, 바꾸거나, 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MD</th>
+<td>디렉터리를 만듭니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MKDIR</th>
+<td>디렉터리를 만듭니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MODE</th>
+<td>시스템 장치를 구성합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MORE</th>
+<td>출력을 한번에 한 화면씩 표시합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MOVE</th>
+<td>하나 이상의 파일을 한 디렉터리에서 다른 디렉터리로 옮깁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">PATH</th>
+<td>실행 파일의 찾기 경로를 보여주거나 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">PAUSE</th>
+<td>일괄 파일의 처리를 보류하고 메시지를 보여줍니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">POPD</th>
+<td>PUSHD 명령으로 저장된 디렉터리로 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">PRINT</th>
+<td>텍스트 파일을 인쇄합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">PROMPT</th>
+<td>Windows 명령 프롬프트를 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">PUSHD</th>
+<td>현재 디렉터리를 저장한 후 디렉터리를 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">RD</th>
+<td>디렉터리를 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">RECOVER</th>
+<td>불량이거나 결함이 있는 디스크에서 읽을 수 있는 정보를 복구합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">REM</th>
+<td>일괄 파일 또는 CONFIG.SYS에서 주석을 기록합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">REN</th>
+<td>파일 이름을 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">RENAME</th>
+<td>파일 이름을 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">REPLACE</th>
+<td>파일을 대체합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">RMDIR</th>
+<td>디렉터리를 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SET</th>
+<td>Windows 환경 변수를 보여주거나, 설정하거나, 지웁니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SETLOCAL</th>
+<td>일괄 파일에서 환경 변경의 지역화를 시작합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SHIFT</th>
+<td>일괄 파일에서 바꿀 수 있는 매개 변수의 위치를 바꿉니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SORT</th>
+<td>입력을 정렬합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">START</th>
+<td>지정된 프로그램이나 명령을 별도의 창에서 시작합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SUBST</th>
+<td>경로를 드라이브 문자로 지정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">TIME</th>
+<td>시스템 시간을 보여주거나 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">TITLE</th>
+<td>CMD.EXE 세션에 대한 창의 창 제목을 설정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">TREE</th>
+<td>드라이브 또는 경로의 디렉터리 구조를 그래픽으로 화면에 표시합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row" class="em">TYPE</th>
+<td>텍스트 파일의 내용을 보여줍니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">VER</th>
+<td>Windows 버전을 보여줍니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">VERIFY</th>
+<td>파일이 디스크에 올바로 쓰였는지 검증할지 여부를 지정합니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">VOL</th>
+<td>디스크 볼륨 이름과 일련 번호를 보여줍니다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">XCOPY</th>
+<td>파일과 디렉터리 트리를 복사합니다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>16비트 명령어 세트</h3>
+
+<table border="1" class="t3 w100" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">cmd</th>
+<th scope="col">note</th>
+<th scope="col">ex</th>
+</tr>
+<tbody>
+<tr>
+<th scope="row">APPEND</th>
+<td>프로그램으로 하여금 지정된 디렉토리에 있는 데이터 파일을, 파일이 현재 디렉터리에 있는 것처럼 하여 열게 한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">BACKUP</th>
+<td>다른 디스크로 파일들을 백업한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">DEBUG</th>
+<td>프로그램 테스트/편집 도구인 Debug를 실행한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">EDIT</th>
+<td>텍스트 파일을 새로 만들거나, 변경하려 할때 한글 MS-DOS 편집기를 사용한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">EDLIN</th>
+<td>줄 단위 텍스트 편집기인 EDLIN을 시작한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">EXE2BIN</th>
+<td>EXE(실행 파일)을 이진 형식으로 변환한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">EXPAND</th>
+<td>하나 이상의 압축 파일을 푼다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">GRAPHICS</th>
+<td>그래픽을 인쇄할 수 있는 프로그램을 읽어들인다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">LOADFIX</th>
+<td>프로그램을 메모리의 처음 64K에 읽어들여서 실행한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">LOADHIGH</th>
+<td>프로그램을 상위 메모리에 읽어들인다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">MEM</th>
+<td>시스템에서 사용된 메모리 및 사용 가능한 메모리 양을 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">QBasic</th>
+<td>한글 MS-DOS QBasic 프로그램 환경을 시작한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SETVER</th>
+<td>MS-DOS가 프로그램에 보고하는 버전 번호를 설정한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">SHARE</th>
+<td>SHARE 프로그램을 시작한다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<table border="1" class="t3 w100" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">cmd</th>
+<th scope="col">note</th>
+<th scope="col">ex</th>
+</tr>
+<tbody>
+<tr>
+<th scope="row">NET ACCOUNTS</th>
+<td>도메인 서버의 로그온에 필요한 것이나 암호를 표시 또는 설정한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET COMPUTERS</th>
+<td>Windows NT 도메인 서버에 컴퓨터의 추가(도메인 서버에서만 가능)한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET CONFIG</th>
+<td>서비스 동작 중에 제어가능한 서비스를 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET CONFIG SERVER</th>
+<td>서비스 동작 중에 서버 서비스의 설정을 변경하거나 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET CONFIG WORKSTATION</th>
+<td>워크스테이션 동작 중에 워크스테이션 서비스의 설정을 변경하거나 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET CONTIUNE</th>
+<td>일시 정지된 서비스의 재활성화한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET FILE</th>
+<td>서버에 있는 열린 공유 파일의 수와 각 파일의 락(존재할 경우)의 수를 표시한다. 이 명령은 개인 공유 파일을 닫을 수도 있고 락을 제거할 수도 있다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET GROUP</th>
+<td>글로벌 그룹의 추가, 표시 또는 수정(서버에서만 가능)한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET HELP</th>
+<td>네트워크 명령과 도움말을 얻고자 하는 것의 제목 목록을 표시하거나 특정 명령이나 제목에 대한 도움말의 제공한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET HELPMSG</th>
+<td>네트워크 에러 메시지에 대한 도움말 제공한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET LOCALGROUP</th>
+<td>지역 그룹의 추가, 표시, 수정한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET NAME</th>
+<td>워크스테이션에 메시지 이름을 추가, 삭제하거나 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET PAUSE</th>
+<td>서비스나 공유 프린터를 일시 멈춘다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET PRINT</th>
+<td>프린터 작업을 표시화거나 컨트롤한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET SEND</th>
+<td>네트워크의 다른 컴퓨터에 메시지를 전달한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET SESSION</th>
+<td>서버와 워크스테이션과의 세션을 보여주거나 연결 해제한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET SHARE</th>
+<td>공유 리소스를 작성, 삭제 또는 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET START</th>
+<td>서비스를 시작하거나 시작된 서비스의 목록을 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET STATISTICS</th>
+<td>Statistics Log를 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET STOP</th>
+<td>네트워크 서비스의 중단한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET TIME</th>
+<td>서버나 도메인의 시계가 컴퓨터의 시계와 일치하도록 하는 것이거나 서버나 도메인의 시간을 표시한다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET USE</th>
+<td>컴퓨터를 공유 리소스에 연결하거나 연결 해제하거나 컴퓨터 연결간의 정보를 본다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET USER</th>
+<td>사용자 계정을 추가하거나 수정, 또는 계정 정보를 본다.</td>
+<td></td>
+</tr><tr>
+<th scope="row">NET VIEW</th>
+<td>서버의 목록이나 서버에 의해 공유된 리소스를 표시한다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Link / Cite</h2>
+<ul class="bu">
+<li><a href="http://pcycom.com.ne.kr/hanmir/dos/dos/windos.htm#dosprompt.html#dosprompt">윈도우 시대의 도스 명령어</a></li>
+<li><a href="http://nogun.tistory.com/12">DOS .bat 파일 생성 및 사용</a></li>
+</ul>
+
+
+<hr />
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120601
+20120531
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

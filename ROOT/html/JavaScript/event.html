@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'JavaScript Event Reference | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1 class="hb1 h1">JavaScript Event, ..</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#event">Event &amp; Cross-Browsing</a></li>
+<li><a href="#Error">Exception | Error</a></li>
+<li><a href="#Reference">Event Reference</a></li>
+<li><a href="#genaralizeEvent">자바스크립트 이벤트 객체 정규화</a></li>
+<li><a href="#Touch">Touch</a></li>
+<li><a href="#DragDrop">DragDrop</a></li>
+</li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- even-grid -->
+<div class="even-grid float-left gap2pct">
+<div class="small-12 medium-8 column">
+
+
+<h2 class="hb1 h2" id="event">Event &amp; Cross-Browsing</h2>
+
+
+<h3 class="hb1 h3">비동기식 콜백</h3>
+
+
+<code class="xmp">
+window.onload = loaded;
+function loaded() {
+	document.getElementById("body").style.border = "1px solid #000";
+}
+</code>
+
+
+<h3 class="hb1 h3"><a href="../JavaScript/compatibility.html#event"><b>이벤트 객체</b></a></h3>
+
+
+<code class="xmp">
+document.getElementsByTagName("textarea")[0].onkeypress = function(<i class="em">e</i>){
+	<i class="em">e = e || window.event;</i>
+	return e.keyCode != 13;
+};
+</code>
+
+
+<h3 class="hb1 h3">this 키워드</h3>
+
+
+<code class="xmp">
+var li = document.getElementsByTagName("li");
+for ( var i = 0; i < li.length; i++ ) {
+	li[i].onclick = handleClick;
+}
+function handleClick() {
+	<i class="em">this</i>.style.backgroundColor = "blue";
+	<i class="em">this</i>.style.color = "white";
+}
+</code>
+
+
+<h3 class="hb1 h3"><b>Event Propagation</b> 전파</h3>
+
+※ <a href="http://blog.javarouka.me/2011/12/html-event-bubbling.html">HTML 이벤트 버블링(Event Bubbling) 에 대해서</a>
+
+<ul class="bu">
+<li>Bubbling 버블링</li>
+<li>Capturing 캡쳐링</li>
+<li>stopPropagation() 이벤트 버블 취소하기
+<code class="xmp">
+function stopBubble(e) {
+	if ( e && e.stopPropagation ) // W3C
+		<i class="em">e.stopPropagation();</i>
+	else // IE
+		<i class="em">window.event.cancelBubble = true;</i>
+}
+</code>
+</li>
+</ul>
+
+
+<h3 class="hb1 h3">브라우저 기본 동작 무효로 하기</h3>
+
+<code class="xmp">
+function stopDefault( e ) {
+	if ( e && e.preventDefault ) // W3C
+		<i class="em">e.preventDefault();</i>
+	else // IE
+		<i class="em">window.event.returnValue = false;</i>
+return false;
+}
+</code>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Binding Event Listeners (이벤트 리스너 연결, 이벤트 핸들러(처리기) 등록)</h3>
+
+
+<h4 class="hb1 h4">인라인 이벤트</h4>
+
+<pre class="mg0">
+<code class="xmp">
+&lt;a href="#?" <em class="em">onclick</em>="alert()"&gt;인라인 이벤트&lt;/a&gt;
+</code>
+</pre>
+
+
+<h4 class="hb1 h4">이벤트 핸들러</h4>
+<code class="xmp">
+document.getElementsByTagName("form")[0].<em class="em">onsubmit</em> = function(e){
+	return stopDefault( e );
+};
+document.body.<em class="em">onkeypress</em> = myKeyPressHandler;
+window.<em class="em">onload</em> = function(){ … };
+</code>
+
+
+<h4 class="hb1 h4">이벤트 리스너 <strong><b>[W3C]</b> addEventListener</strong>(이벤트타입, 핸들러함수, 캡처여부);</h4>
+
+<code class="xmp">
+document.getElementsByTagName("form")[0].<em class="em5">addEventListener</em>('<em class="em">submit</em>',function(e){
+	return stopDefault( e );
+}, <i class="em1">false</i>);
+document.body.<em class="em5">addEventListener</em>('<em class="em">keypress</em>', myKeyPressHandler, false);
+window.<em class="em5">addEventListener</em>('<em class="em">load</em>', function(){ … }, false);
+</code>
+
+<ol class="bo num">
+<li>IE8이하는 작동 안한다.</li>
+<li>복수의 이벤트 연결이 가능. 기존 이벤트 덮어쓰지 않는다.</li>
+<li><strong><b><em>버블(false)</em>과 캡처(true) 모두 지원</b></strong></li>
+<li>이벤트 핸들러 함수 내부에서 this 는 현재 요소</li>
+<li>이벤트 객체는 처리 함수의 첫 번째 전달인자로 얻을 수 있다.</li>
+</ol>
+
+<!-- box1 -->
+<pre class="box1">
+[m]20150129
+document.addEventListener('DOMContentLoaded', function(){});
+window.addEventListener('load', function(){});
+</pre>
+<!-- /box1 -->
+
+<h4 class="hb1 h4"><strong><b>[~IE8]</b> attachEvent</strong>(이벤트타입, 핸들러함수);</h4>
+
+<code class="xmp">
+document.getElementsByTagName("form")[0].attachEvent('<i class="em">onsubmit</i>',function(){
+	return stopDefault();
+},);
+document.body.attachEvent('onkeypress', myKeyPressHandler);
+window.attachEvent('onload', function(){ … });
+</code>
+
+<ol class="bo num">
+<li>IE 만 작동한다.</li>
+<li>복수의 이벤트 연결이 가능. 기존 이벤트 덮어쓰지 않는다.</li>
+<li><strong><b><em>버블</em>만 지원</b></strong></li>
+<li>이벤트 핸들러 함수 내부에서 this 는 window 객체</li>
+<li>이벤트 객체는 window.event 를 통해서만 사용 가능.</li>
+<li>이벤트 이름을 'on타입' 형식으로 해야만 한다.</li>
+</ol>
+
+
+
+<h4 class="hb1 h4">전통적인 연결 방법을 이용한 이벤트 추가 제거 함수 개발. (단, 버블링만 작동)</h4>
+
+
+<a href="../JavaScript/compatibility.html#addEventListener">addEvent(element, type, handler){} removeEvent(element, type, handler){}</a>
+
+<h2 class="hb1 h2" id="Error">Exception | Error</h2>
+
+<xmp class="xmp">
+<script>
+var txt="";
+function message(){
+	try {
+		adddlert("Welcome guest!");
+	} catch(err) {
+		txt="There was an error on this page.\n\n";
+		txt+="Error description: " + err.message + "\n\n";
+		txt+="Click OK to continue.\n\n";
+		alert(txt);
+	}
+}
+</script>
+<input type="button" value="View message" onclick="message()" />
+</xmp>
+
+<xmp class="xmp">
+<script>
+function myFunction(){
+	try { 
+		var x=document.getElementById("demo").value;
+		if(x=="") throw "empty";
+		if(isNaN(x)) throw "not a number";
+		if(x>10) throw "too high";
+		if(x<5) throw "too low";
+	} catch(err) {
+		var y=document.getElementById("mess");
+		y.innerHTML="Error: " + err + ".";
+	}
+}
+</script>
+<p>Please input a number between 5 and 10:</p>
+<input id="demo" type="text" />
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="mess"></p>
+</xmp>
+
+<h2 class="hb1 h2" id="Reference"><a href="http://www.w3schools.com/jsref/dom_obj_event.asp">Event Reference</a></h2>
+
+
+
+<h2 class="hb1 h2" id="genaralizeEvent">자바스크립트 이벤트 객체 정규화</h2>
+
+<cite>※<a href="http://blog.javarouka.me/2012/01/blog-post_21.html">자바스크립트 이벤트 객체 정규화</a></cite>
+
+<div id="input_mouse_trace" style="padding:.5em;background:#efc;"></div><!-- /checkMouse -->
+
+
+<script>
+var mt = document.getElementById("input_mouse_trace");
+window.onload = function() {
+    var genaralizeEvent = function(evt) {
+        if(!evt) {
+            evt = window.event;
+            evt.target = evt.srcElement;
+            evt.pageX = evt.clientX + (document.body.scrollLeft);
+            evt.pageY = evt.clientY + (document.body.scrollTop);
+            evt.preventDefault = genaralizeEvent.preventDefault;
+            evt.stopPropagation = genaralizeEvent.stopPropagation;
+        }
+        return evt;
+    }
+    genaralizeEvent.preventDefault = function() {
+        this.returnValue = false;
+    }
+    genaralizeEvent.stopPropagation = function() {
+        this.cancelBubble = true;
+    }
+    var checkMousePosition = function(e) {
+    try {
+        var event = genaralizeEvent(e);
+        mt.innerText =
+             "[target]: " + event.target.tagName + " / " +
+             "[type]: " + event.type + " / " +
+             "[x]: " + event.pageX + " / " +
+             "[y]: " + event.pageY;
+    }
+    catch(e) {}
+    };
+    document.getElementById("body").onmousemove = checkMousePosition;
+}
+</script>
+<xmp class="xmp">
+var mt = document.getElementById("input_mouse_trace");
+window.onload = function() {
+    var genaralizeEvent = function(evt) {
+        if(!evt) {
+            evt = window.event;
+            evt.target = evt.srcElement;
+            evt.pageX = evt.clientX + (document.body.scrollLeft);
+            evt.pageY = evt.clientY + (document.body.scrollTop);
+            evt.preventDefault = genaralizeEvent.preventDefault;
+            evt.stopPropagation = genaralizeEvent.stopPropagation;
+        }
+        return evt;
+    }
+    genaralizeEvent.preventDefault = function() {
+        this.returnValue = false;
+    }
+    genaralizeEvent.stopPropagation = function() {
+        this.cancelBubble = true;
+    }
+    var checkMousePosition = function(e) {
+    try {
+        var event = genaralizeEvent(e);
+        mt.innerText =
+             "[target]: " + event.target.tagName + " / " +
+             "[type]: " + event.type + " / " +
+             "[x]: " + event.pageX + " / " +
+             "[y]: " + event.pageY;
+    }
+    catch(e) {}
+    };
+    document.getElementById("body").onmousemove = checkMousePosition;
+}
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Touch">Touch</h2>
+
+
+<pre class="mg0">
+<code class="xmp">
+var box = document.getElementById('box');
+
+// 터치 제어를 위한 객체 선언
+var touch = {
+	start: function(){
+		box.innerHTML = '나를 건드렸군요!';
+		this.style.background = "red";
+	},
+	end: function(){
+		box.innerHTML = '손을 떼었군요!';
+		this.style.background = '';
+	},
+	move: function(e){
+		box.innerHTML = '만지는 중입니다';
+		this.style.background = 'yellow';
+	}
+} // 객체 끝
+
+// 터치 이벤트 리스너 추가
+box.addEventListener('touchstart', touch.start);
+box.addEventListener('touchend', touch.end);
+box.addEventListener('touchmove', touch.move);
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="DragDrop">DragDrop</h2>
+
+
+<pre class="mg0">
+<code class="xmp">
+var box = document.getElementById('box');
+
+// 터치 제어를 위한 객체 선언
+var touch = {
+	tstart: function(){
+		box.innerHTML = '나를 건드렸군요!';
+		this.style.background = "red";
+	},
+	tend: function(){
+		box.innerHTML = '손을 떼었군요!';
+		this.style.background = '';
+	},
+	tmove: function(e){
+		// 현재 터치 이벤트의 위치(배열) 감지
+		var touchobj = e.changedTouches[0];
+		// 현재 손가락 위치
+		var x = parseInt(touchobj.clientX), 
+			y = parseInt(touchobj.clientY),
+			ex = x - 100;
+			ey = y - 200;
+		box.innerHTML = '만지는 중입니다';
+		this.style.background = 'yellow';
+
+		this.style.left = ex+'px';
+		this.style.top = ey+'px';
+		console.log(touchobj);
+	}
+} // 객체 끝
+
+// 터치 이벤트 리스너 추가
+box.addEventListener('touchstart', touch.tstart);
+box.addEventListener('touchend', touch.tend);
+box.addEventListener('touchmove', touch.tmove);
+</code>
+</pre>
+
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-12 medium-4 column">
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<!-- /even-grid -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20120427 ~
+20181128 자바스크립트 프로젝트북 참조 내용 Touch DragDrop
+20140108.
+20131017.
+20130226.
+20120615. 20120427.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

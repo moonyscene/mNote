@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹 접근성 작업 안내 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+<p><big><a href="../Accessibility/accessibility_checklist.html"><strong>웹 접근성 체크리스트 [53]</strong></a></big></p>
+
+<h1>웹 접근성 작업 안내</h1>
+
+2009년 KADO의 웹접근성 품질마크는 <a href="../Reference/090317_웹_접근성_향상을_위한_국가표준_기술_가이드라인_Final_Mopas.pdf">웹 접근성 향상을 위한 국가 표준 기술 가이드 라인 (한국정보문화진흥원, 2009.03)</a> 을 따른다고 한다.<br />
+하지만, 인증 심사의 객관성 확보와 웹접근성의 확대를 위한 최소한의 가이드 라인이기에 내용이 부족하다.<br />
+또한, 2009년 실태조사(7월~10월?)의 기준은 뭐가 될지 알 수가 없다.<br />
+현재의 평가 기준에만 국한하지않고 누구에게나 실질적인 도움이 되는 웹접근성 작업을 해야지 향후에도 좋은 평가를 받을 수 있을 것이다.<br />
+그러므로, 아래 내용은 2009년 이후 웹접근성 작업에도 참조할만한 유용한 내용임에는 틀림없다.<br />
+
+<h3>2007년 정통부 실태조사 결과 검토사항</h3>
+
+<!-- box4 -->
+<div class="box4">
+<ul class="bu">
+<li>자동평가(KADO-WAH) 가능한 4가지 중에서 2가지만 평가.</li>
+	<ol class="num">
+	<li>항목1(텍스트 아닌 콘텐츠의 인식) 중 대체 텍스트 제공 준수율</li>
+	<li>항목5(프레임의 사용 제한) 중 타이틀 제공 준수율</li>
+	</ol>
+<li>자동평가 가능하지만 부정확하여.. 전문가 평가로 점수 부여.</li>
+	<ol class="num">
+	<li>깜빡거리는 객체 사용 제한 : 여전히 기준이 모호함.(진주, 김해, 함안은 준수율 100%)<br />blink 처럼 동작하지 않는 일반적인 움직임은 깜빡거리는 걸로 판단하지는 않음.</li>
+	<li>키보드로만 운용 가능 : 아래 표를 참고하세요.<br />
+		<table class="t3" summary="2008년 웹접근성 작업 참고"><caption>2008년 웹접근성 작업 참고</caption>
+		<thead>
+		<th scope="col">구분</th>
+		<th scope="col">필요</th>
+		<th scope="col">설명</th>
+		</thead>
+		<tbody>
+		<tr>
+		<th scope="row">onkeypress=""</th>
+		<td>O</td>
+		<td> KADO-WAH 오류 미검출용으로 사용하였지만, 없어도 키보드로 운용이 가능하면 됨.<br />
+		하지만 클라이언트에 작업 내역 제시용 KADO-Wah 보고서 출력을 위해 계속 사용한다.</td>
+		</tr>
+		<tr>
+		<th scope="row">tabindex="0"</th>
+		<td>X</td>
+		<td>오페라와 사파리에서의 탭키 이동을 위해 사용하였지만,<br />
+		오페라에서 ctrl+상하화살표, shift+상하좌우화살표 로 다양한 항목 이동 키를 제공하므로 더이상 사용하지 않는다.<br />
+		사파리 : [편집] - [기본설정] - [고급] - "Tab을 눌러 웹 페이지에 있는 각 항목을 선택표시" 체크하면 탭키 이동 가능
+		</td>
+		</tr>
+		</tbody>
+		</table>	
+	</li>
+	</ol>
+</ul>
+</div>
+<!-- //box4 -->
+
+<br />
+<h2>2007년 웹 접근성 품질마크 체크리스트 [53] 설명 + 웹 접근성 실태조사 조사항목 및 배점 </h2>
+
+<!-- <div class="box2">
+* 추가 상세 설명
+<xmp class="xmp">용례 (준수 예시)</xmp>
+<div class="box2">
+<h6>[Update]</h6>
+v2007.03.26 : 웹 접근성 품질마크 인증제도 체크리스트 내용과 관련 자료들 정리
+v2007.05.25 : 기존 항목, 지표, 체크리스트에서 삭제되고 정통부 웹 접근성 실태조사의 변경, 추가 내용입니다.
+v2007.06.18 : 테이블 제거, 정통부 웹 접근성 실태조사 항목별 체크리스트 설명회 자료 내용 보강 등
+v2008.01.28 : 준수 예시 구분, 애매한 표현들 내용 보강, 파트별 중요부분 표시 등
+v2008.10.07 : 그동안의 접근성 평가 분석 결과에 따른 수정 보완..
+v2008.10.23~ : 웹 접근성 실태조사 점검 방법 추가중~
+<h6>[범례]</h6>
+<dfn>* 설명 : 
+<em class="autotest">KADO-WAH</em> 자동 평가 가능
+&nbsp;
+<em class="program">* 프로그램</em> 프로그램 코딩시 주의
+&nbsp;
+<em class="design">* 디자인</em> 디자인 제작시 주의
+</dfn>
+<div class="box2">
+* 추가 상세 설명
+<xmp class="xmp">용례 (준수 예시)</xmp>
+</div>
+</div> -->
+
+
+<h3>1. 인식의 용이성 (43점)</h3>
+
+
+<h4>1-1. 텍스트 아닌 콘텐츠의 인식</h4>
+<h5 class="box" id="gp1-1-1">1-1-1. 텍스트가 아닌 콘텐츠에는 모두 대체 텍스트가 제공되어야 한다. <em class="p1">(1의무)</em> <ins>11점</ins></h5>
+
+<ul>
+<li><ins>(1)</ins> 텍스트가 아닌 콘텐츠에 대해서는 대체 텍스트를 제공하고 있는가? <em class="autotest">KADO-WAH</em><br />
+<dfn>
+* img, area, input(type="image") 태그에 alt="" 속성으로 제목이나 설명을 넣음.<br />
+* <em>&lt;object&gt;&lt;/object&gt; 태그 안에 대체콘텐츠 넣음.</em><br />
+<em class="program">* 프로그램</em> : 버튼에 대체텍스트 넣음. 설문 결과 막대 옆에 텍스트가 있으면 alt=""로만 처리.<br />
+* 게시판 예: <a href="http://project.정보행동.co.kr:9100/_lib/board/">사천 구축중</a>
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 비텍스트 콘텐츠(이미지, 오디오와 비디오 파일, GIF 애니메이션, 스크립트, 애플릿, ASCII 그림 등)에 대체 텍스트를 제공해야 함<br />
+- 이미지의 대체 텍스트 제공여부를 점검함
+예)<br />
+<xmp class="xmp">
+<img src="/img/new_notice_01.gif" width="450" height="97" alt="공지사항: 대한민국 전자정부 단일 창구 안내" />
+<img src="" alt="대체텍스트" />
+<area alt="대체텍스트" />
+<input type="image" alt="대체텍스트" />
+<object>
+대체콘텐츠
+</object>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h5 class="box" id="gp1-1-2">1-1-2. 대체 텍스트의 내용은 적절하게 제공되어야 한다. <em class="p1">(1의무)</em> <ins>7점</ins></h5>
+
+<ul>
+<li><ins>(2)</ins> ~링크, ~버튼과 같이 중복된 내용을 대체 텍스트로 제공하지 않으며, 콘텐츠를 파악할 수 있는 구체적인 설명을 제공하고 있는가? </li>
+<li><ins>(3)</ins> 콘텐츠 이미지의 경우 이미지를 설명하는 적절한 대체 텍스트를 제공하고 있는가?
+<br />※ 의미가 없는 이미지의 경우 배경 이미지 사용을 권장함
+<br />※ 이미지의 의미가 없는 경우 대체 텍스트를 <del>blank(alt=&quot;&quot;)</del>alt=&quot;&quot;로 제공
+</li>
+<li><ins>(4)</ins> 대체 텍스트의 내용이 길거나 복잡한 경우 longdesc 속성을 이용하여 적절한 추가적인 정보를 제공하고 있는가?<br />
+<dfn>
+<!-- <del>* 내용이 길거나 복잡한 경우가 불명확하여 작업시 고려하지 않음.</del><br /> -->
+<em>* 스크린리더 확인</em><br />
+title="" longdesc="" 속성은 센스리더(스크린리더) 프로그램에서 읽어주지 않음.(2006.12.22현재)<br />
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 읽어줌.
+(2008.10.06현재)<br />
+ longdesc에서 지정하는 파일은 <em>*.html, *.txt 형태 둘다 가능</em>한데, 구조적 마크업이 필요하면 *.html 로 하되 <a href="../Guide/webpublish.html#htmlbasic">HTML 문서 기본 구조</a> 코드가 다 있어야 한다. 
+
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 불필요한 대체텍스트는 넣지 않음
+<xmp class="xmp">
+alt="도움말 링크 버튼" → alt="도움말"
+alt="불릿" → alt=""
+</xmp>
+* alt 속성에 의미있는 값 입력 <del>(이미지 텍스트 내용 전부)</del> 예) 의도한 내용이 전달되도록 간단 명료하게 작성
+<xmp class="xmp">
+<img src="graph.gif" alt="웹접근성이라는 용어를 처음 들어봄 : 74%, 나머지 : 26%" />
+</xmp>
+* 불릿 이미지 등 의미 없는 이미지에는 alt="" 예)
+<xmp class="xmp">
+<img src="/img/b.gif" alt="" />
+</xmp>
+
+* 한글 75자(150byte)를 초과할 때 longdesc="설명파일.html" 를 사용 예)
+<xmp class="xmp">
+<img src="organogram.png" longdesc="longdesc_organogram.html" alt="정보통신 접근성 향상 표준화 포럼 조직도" />
+<!-- longdesc_organogram.html -->
+~
+<title>정보통신 접근성 향상 표준화 포럼 조직도</title>
+~
+<ol>
+  <li>정보통신 접근성 향상 표준화 포럼</li>
+  <li>고문위원</li>
+  <li>운영위원회</li>
+  <li>사무국 (한국정보문화진흥원)</li>
+  <li>
+    <ul>
+      <li>정책분과</li>
+      <li>정보통신분과</li>
+      <li>웹접근성분과</li>
+    </ul>
+  </li>
+</ol>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+<blockquote><div>
+* KADO-WAH (경고) alt속성의 값이 255자를 초과할 경우 보고됩니다.<br />
+<!-- * HTML이 "longdesc" 속성의 사용을 지원한다고는 하지만, 현재 대부분의 브라우저에서 지원되는 것은 아닙니다. 그러므로, "longdesc" 속성 외에 웹 개발자들은 문서에 d-links 를 포함시키는 것도 고려할 필요가 있습니다. (주: 현재의 웹 문서들 속에 "longdesc" 포함시키는 이점은 새로운 브라우저들이 d-links를 지원하지 않게 될 때, "longdesc" 속성이 그 설명에 접근 가능하도록 보장할 것입니다).<br /> -->
+</div></blockquote>
+
+
+
+
+<h5>1-1-3. 정보가 있는 콘텐츠를 배경 이미지로 사용하지 않아야 한다. <em class="p1">(1의무)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(5)</ins> 텍스트로 표현이 가능한 내용을 전부 이미지로 제작하여 배경으로 삽입하는 경우 대체 텍스트를 넣을 수 없으므로, 일반적인 텍스트로 표현하거나 전경 이미지와 대체 텍스트로 표현하고 있는가?<br />
+<dfn>* 이미지 대치 기법으로 표현할 수 있으나, <del>배경 인쇄 안되므로</del> 배경 인쇄 OFF 가 브라우저 기본설정이므로 위 지침 준수를 권장.<br />
+* 조직도 작업 예 : <a href="http://www.namhae.ac.kr/college/01namjeon/04_01.jsp">http://www.namhae.ac.kr/college/01namjeon/04_01.jsp</a>
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 정보가 있는 콘텐츠의 경우 이미지로 표현하지 않고, 이미지로 표현하였더라도 대체 텍스트를 제공함<br />
+잘못된 예)<br />
+- 일반적으로 조직도나 찾아오는 길처럼 대체 텍스트를 제공하기 어려운 그래픽 콘텐츠의 경우, <br />
+자동평가도구의 점검을 회피하기 위해서 눈속임의 일환으로 사용되고 있음<br />
+<br />
+* 참고 : 이미지 대치 기법 3가지 - 도서 : <a href="http://www.yes24.com/Goods/FTGoodsView.aspx?goodsNo=2306350&CategoryNumber=001001003017">CSS 마스터 전략</a> 
+<xmp class="xmp">
+FIR 방법 display: none;
+파크 방법 text-indent: -9999px;
+길더/레빈 방법 <h2><span></span>Hello World</h2>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h4>1-2. 멀티미디어 매체의 인식 (<ins>영상매체의 인식</ins>)</h4>
+<h5>1-2-1. 동영상 등의 시청각 멀티미디어 콘텐츠에는 동기화된 자막이 제공되어야 한다. <em class="p1">(1의무)</em> <ins>10점</ins></h5>
+
+<ul>
+<li><ins>(6)</ins> 동영상, 오디오 등 멀티미디어 콘텐츠는 동기화된 자막을 제공하고 있는가?
+<br />※ 동기화된 자막이 원칙이나, 콘텐츠의 내용을 즉시적으로 충분히 이해할 수 있는 자막 또는 원고를 제공할 경우 허용됨<br />
+<dfn>
+* 자막을 텍스트 파일로 제공시 <del>※ 허용방법에 한해 작업 가능.</del> 비동기 자막 또는 원고를 제공한다.<br />
+* 비동기 자막 예 : <a href="http://gimhae.go.kr/07info/mvgallery/40.jsp">김해시 - 동영상 갤러리</a><br />
+</dfn>
+</li>
+<li>실시간 멀티미디어 콘텐츠는 동기화된 자막을 제공하고 있는가?<br />
+<dfn>
+* 실시간 멀티미디어 콘텐츠의 예가 어떤 것이 있는지? 위와 동일한 기준으로 작업 가능.<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 동기화된 자막 예)
+<xmp class="xmp">
+<object id="Player" classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6">
+  <param name="URL" value="mediafile.wmv" />
+  <param name="autoStart" value="True" />
+  <param name="uimode" value="full" />
+  <param name="captioningID" value="captions" /><!-- 캡션 ID -->
+  <param name="SAMIFileName" value="samifile.smi" /><!-- 캡션 File -->
+</object>
+<!-- 캡션부분 -->
+<div id="captions"></div>
+</xmp>
+
+* 멀티미디어 파일들과 텍스트 자막, 번역된 자막을 제공하는 것은 무척 바람직<br />
+예) WebAIM(<a href="http://www.webaim.org/intro/index.php#video">http://www.webaim.org/intro/index.php#video</a>)
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h4>1-3. 콘텐츠의 시각적 명료성 (<ins>색상에 무관한 인식</ins>)</h4>
+<h5 class="box" id="gp1-3-1">1-3-1. 색상으로 표현된 정보는 색상을 배제하여도 원하는 내용을 전달할 수 있어야 한다. <em class="p1">(1의무)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(7)</ins> 색상 이외에도 명암이나 패턴으로 콘텐츠 구분이 가능한가?<br />
+<dfn>
+<em class="design">* 디자인</em> : 도표 등 작업시 해당 그래프에 직접 설명을 넣어서 제작<br />
+* 도표 예: <a href="http://www.subway.busan.kr/korea/01/02_02_03_y2005.php">http://www.subway.busan.kr/korea/01/02_02_03_y2005.php</a><br />
+<em class="program">* 프로그램</em> : 입력폼 필수항목을 색으로만 구분하게 만들지 않는다.<br />
+* 입력폼 예: <a href="http://www.iabf.or.kr/Member/Register.asp">http://www.iabf.or.kr/Member/Register.asp</a><br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 콘텐츠를 색상에 의존하지 않고 별도의 방법으로 콘텐츠의 의미를 설명함
+<xmp class="xmp">
+<span class="required">*</span> 로 표시된 항목은 필수 항목입니다.
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+<h5 class="box" id="gp1-3-2">1-3-2. 전경색과 배경색은 충분한 대비를 가지고 있어야 한다. <em class="p2">(2권고)</em> <ins>4점</ins></h5>
+
+<ul>
+<li id="checklist8"><ins>(8)</ins> 흰 바탕에 밝은 회색글자처럼 판독이 어려운 색조합을 피하고, 흰 바탕에 검정 글자처럼 <del>판독이 쉬운</del> <ins>대비가 큰</ins> 색조합을 제공하고 있는가?<br />
+<dfn>
+<em class="design">* 디자인</em> : 명도, 색상 대비가 높게 제작<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+판독이 어려운 색조합을 사용했을 경우 점수가 차감되며 정도에 따라 정성평가<br />
+(수동평가도구(<a href="http://www.snook.ca/technical/colour_contrast/colour.html">http://www.snook.ca/technical/colour_contrast/colour.html</a> 등) 활용)<br />
+상단 메뉴와 하단 카피라이트 정보 및 본문 텍스트 색상을 중점적으로 체크<br />
+<br />
+* 위 수동평가 기준으로 이상적인 명도 대비<br />
+예) backgrouind: #fff; color: #808080; 대비 이상 적용<br />
+<br />
+<strong>[KADO심사기준]</strong><br />
+* 대표적으로 흰색바탕에 회색글씨 같이 불분명한 부분이 체크의 대상이 됩니다.<br />
+좀 더 구체적으로는 명도대비 125, 색상대비 500 이상을 적합하다고 보고 있으며,<br />
+사이트 "<a href="http://juicystudio.com/services/colourcontrast.php">http://juicystudio.com/services/colourcontrast.php</a>" 에서 테스트 해보실 수 있습니다.<br />
+* 진주 부적합 사례 심사의견 : <a href="../Reference/웹 접근성 품질마크 전문가심사 평가보고서 - 진주시.pdf">웹 접근성 품질마크 전문가심사 평가보고서 - 진주시.pdf</a><br />
+하단 영역의 이미지 텍스트 최대 색상이 #4f4f4f 였지만, 텍스트의 안티알리아싱 효과로 뿌옇게 보이기 때문에 실제론 이보다 더 낮은 #777~#999 정도의 색상으로 보여졌다. 이보다 더 진한 색상으로 표현하길 바란다.<br />
+<br />
+<strong>제3회 웹접근성 품질마크 (2008.05~2008.09) 심사시 사용한 도구</strong> : <a href="../Reference/Fujitsu ColorSelector for Korean.zip">Fujitsu ColorSelector for Korean.zip</a><br />
+압축 푼 후 설치 없이 exe 실행하면 됩니다.(JAVA.. 없다며 실행이 안되면 <a href="../Reference/jre-1_5_0_06-windows-i586-p.exe">jre-1_5_0_06-windows-i586-p.exe</a>를 설치 후 다시 실행해보세요.)
+
+
+
+</div>
+<!-- //준수예시 -->
+
+
+<h5 class="box" id="gp1-3-3">1-3-3. 텍스트는 쉽게 읽을 수 있도록 충분한 크기로 제공되어야 한다. <em class="p2">(2권고)</em> <ins>5점</ins></h5>
+
+<ul>
+<li><ins>(9)</ins> <del>약시자</del> <ins>저시력자</ins>나 다양한 환경의 사용자도 텍스트를 쉽게 읽을 수 있도록 적절한 크기로 텍스트를 제공하고 있는가?<br />
+<ins>※ 사용자가 텍스트의 크기를 키우거나 줄일 수 있도록 텍스트 크기를 상대적인 단위로 적용하고 있으며, 크기가 변하더라도 내용을 인식할 수 있도록 바르게 표시되어야 함</ins>
+<dfn>
+<em class="design">* 디자인</em> : 시안 작업부터 고려해서 제작. 하단 주소, 카피라이트 등에 특히 주의.<br />
+<em>* 폰트크기 11px 이하는 사용을 자제한다.</em><br />
+2008년까지는 이전 기준 그대로 적용하므로, 객관적 평가 방법이 나오기전에는 감점에 주의해야 한다.<br />
+하단 정보, 메뉴, 버튼(more, go 버튼 포함), 각 페이지 요약 설명 등에서 지적된 사례가 있다.
+</dfn>
+</li>
+<li>사용자가 텍스트의 크기를 키우거나 줄일 수 있도록 텍스트 크기를 상대적인 단위로 적용하고 있으며, 크기가 변하더라도 내용을 인식할 수 있도록 바르게 표시되고 있는가?<br />
+<dfn>
+<!-- <del>* body 스타일에 font-size: small; 로 상대크기 사용.</del> (small≒13px)<br /> -->
+* 텍스트 크기를 px 로 지정하면 IE에서 [보기]-[텍스트 크기]-[크게] 가 동작안됨.<br />
+<em>* IE6 브라우저에서 텍스트크기 확대축소가 가능해야한다.</em><br />
+body { font-size: 75%; } 만 12px로 하여도 제3회 품질마크 심사시 지적되었다.<br />
+<a href="http://www.iabf.or.kr/Lab/Board/ConsultView.asp?bCode=&cSeq=193&sf=&ss=">2009-01-22 조현진님 답변.. "허나, 사이트 운영 중 이 문제로 인해 잦은 문의나 불편 사항이 발생하는 점을 인정하여 웹 접근성 품질마크 심사에서는 글자 크기를 px로 고정하여도 인정하고 있습니다."</a><br />
+
+글자크기로 계속적인 민원이 문제가 된다면, 홈페이지 이용안내 혹은 날개메뉴 등에..<br />
+<a href="http://www.mic.go.kr/">http://www.mic.go.kr/ 의 우측 "글자가 작거나 크게 보이세요?"</a> 와 같이 사용법을 넣는 방법을 고려해보십시오.<br />
+* 텍스트 크기가 변하더라도 내용 인식에 문제 없이 코딩.<br />(텍스트 기반 웹페이지가 아닌 이상, 디자인 및 레이아웃이 어긋날 수는 있음)<br />
+* 상대폰트 예: <a href="http://www.iabf.or.kr/">정보통신 접근성 향상 표준화 포럼</a><br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 상대폰트 예) <a href="http://www.gimhae.go.kr/share/css/template.css">http://www.gimhae.go.kr/share/css/template.css</a> 참고<br />
+<xmp class="xmp">
+body { font-size: 75%; }
+/* font-size 상대크기 : em단위 사용 (%단위는 IE5.5이하 텍스트 크기 오류 - 확인필요)
+body만 %단위 사용 - body 에 em 단위 사용시 IE에서 [보기]-[텍스트 크기]-[크게] 실행시 한번에 너무 커짐.
+브라우저 기본 폰트 크기 16px
+16px * 75% = 12px
+12px * .92em = 11px
+12px * 1.17em = 14px
+12px * 1.34em = 16px
+*/
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<!-- ************************************************************ -->
+
+<h3>2. 운용의 용이성 (25점)</h3>
+
+
+
+
+
+
+
+
+
+<h4>2-1. 이미지맵 기법 사용 제한</h4>
+<h5 class="box" id="gp2-1-1">2-1-1. 서버측 이미지맵을 불필요하게 사용하지 않아야 한다. <em class="p1">(1의무)</em> <ins>1점</ins></h5>
+
+<ul>
+<li><ins>(10)</ins> 불필요하게 서버측 이미지맵을 사용하는 경우는 없는가?
+<dfn>* 항상 클라이언트측 이미지맵만 사용하고, 이미지맵의 영역에 대한 대체 텍스트 제공.<br />
+</dfn>
+</li>
+<li><ins>(11)</ins> 서버측 이미지맵을 사용할 경우, 해당 내용 및 기능을 동등하게 사용할 수 있는 대체 수단을 제공하고 있는가?</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 클라이언트측 이미지맵 예) img 태그와 area 태그에 대체 텍스트를 제공해야 함.
+<xmp class="xmp">
+<img src="/img/ex.jpg" width="400" height="300" alt="대체텍스트" usemap="#Map" />
+<map name="Map" id="Map">
+<area shape="rect" coords="0,0,100,100" href="#" alt="대체텍스트" />
+<area shape="rect" coords="0,100,100,200" href="#" alt="대체텍스트" />
+</map>
+</xmp>
+** 불필요한 서버측 이미지맵은 사용하지 않아야 함<br />
+※ 현재 국내 스크린리더는 서버측 이미지맵을 읽지 못함<br />
+- 서버측 이미지맵을 사용해야만 한다면, 이미지맵의 영역에 대응하는 텍스트 링크를 별도로 제공해야 함<br />
+※ 서버측 이미지맵이 사용되는 예 : 지도 서비스<br />
+잘못된 예)
+<xmp class="xmp">
+<a href="server-image-map.php">
+<img src="http://pcsi.go.kr//img/main_2005_07/quick_banner.gif" ismap="ismap" alt="QuickMenu" />
+</a>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h4>2-2. 프레임의 사용 제한</h4>
+<h5 class="box" id="gp2-2-1">2-2-1. 불필요하거나 과도하게 많은 프레임을 사용하지 않아야 한다. <em class="p1">(1의무)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(12)</ins> 화면을 분할하거나 외부 콘텐츠를 불러들이는 용도 이외로 프레임을 사용하는 경우는 없는가?<br />
+<dfn>
+<em class="program">* 프로그램</em> : 프레임 가급적 사용하지 않음.. 부득이하게 사용할 경우 title="" 속성 부여<br />
+* 내부 콘텐츠 자바스크립트 충돌을 이유로 iframe 을 사용하는 경우가 없도록 주의.<br />
+* 외부 콘텐츠를 불러들이는 용도(국정브리핑, 뉴스파인더 등)로는 iframe 사용을 권장.<br />
+- 외부 콘텐츠를 페이지 내에 포함시, 외부 서버가 문제가 있으면 전체 페이지에 문제가 생길 수 있음.<br />
+<!-- <del>
+* 클라이언트가 요청하는 경우도 있음.<br />
+1프레임 구조를 사용해서 주소표시줄에 현재페이지 주소가 뜨는 것을 막아달라고 하는 경우. (어불성설 : 보안 강화??)<br />
+* 1프레임 : <a href="http://changwon.go.kr">http://changwon.go.kr</a>
+</del> -->
+* 클라이언트가 주소 숨기는 프레임을 요청한 경우 : <a href="http://changwon.go.kr">창원시</a> (보안 강화로 잘못 인식하고 있음)<br />
+* 보안모듈적용 위해 <em>주소 숨기는 프레임을 적용하였다가 지적받은 사례 있음.</em>
+</dfn>
+</li>
+<li><ins>(13)</ins> 한 페이지 내에 과도하게 많은 수(<del>4개</del> <ins><em>5개</em></ins> 이상)의 프레임을 사용하는 경우는 없는가?<br />
+<dfn>
+* 경상남도 외에는 아마도 없지 않을까 싶습니다. (최근 접근성 작업물에는 없음)<br />
+<del>
+** 불필요하거나 과도하게 많은 프레임 사용여부<br />현재 공공기관에서 불가피하게 사용할 수밖에 없는 프레임들 수 = 
+주소 숨기는 프레임 1 + 국정홍보 롤링 뉴스 2 + 통합민원관리 서비스 epeople 1 = "4"<br />
+</del>
+<del>※ 자동평가 가능, 사용한 프레임의 적절성 판단은 정성평가<br /></del>
+</dfn>
+</li>
+</ul>
+
+
+
+
+<h5 class="box" id="gp2-2-2">2-2-2. 각 프레임의 title속성을 적절하게 제공하여야 한다. <em class="p1">(1의무)</em> <ins>2점</ins></h5>
+
+<ul>
+<li><ins>(14)</ins> 프레임 별로 적절한 title속성을 제공하고 있는가? <em class="autotest">KADO-WAH</em><br />
+<dfn>
+* title 속성과 아울러, 해당 문서의 title 태그에 정보 깊이를 표시하여, 현재 어떤 문서를 보고 있는지 쉽게 구분 할 수 있게함.
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+*  title 속성 <a href="../Markup/iframe.html">☞ iframe, frame : 접근성을 고려한 프레임 콘텐츠</a>
+<xmp class="xmp">
+예) 인라인프레임
+<iframe src="" title="국정브리핑"></iframe>
+예) 프레임셑
+<frameset title="웹페이지제목" cols="180,*">
+  <frame src="nav.html" title="좌측 서브메뉴" />
+  <frame src="content.html" title="메인 콘텐츠" />
+  <noframes title="웹페이지제목">
+    <body>
+    <ul>
+    <li><a href="nav.html">좌측 서브메뉴</a></li>
+    <li><a href="content.html"">메인 콘텐츠</a></li>
+    </ul>
+    </body>
+  </noframes>
+</frameset>
+</xmp>
+
+* title 태그 예)
+<xmp class="xmp">
+<title>김해시 - 국정브리핑</title>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+<h4>2-3. 깜빡거리는 객체 사용 제한 <em class="p1">(1의무)</em> <ins>3점</ins></h4>
+<h5 class="box" id="gp2-3-1">2-3-1. 깜빡이는 콘텐츠를 사용할 경우, 이에 대한 경고 및 제어방안을 제공하여야 한다.</h5>
+
+<ul>
+<li><ins>(15)</ins> 깜빡이는 콘텐츠가 있을 경우 사전 경고를 제공하고 있는가?
+<br />※ 깜박임 기준: 초당 <del>3~49번</del> <ins>4~59번</ins>을 깜박이는 콘텐츠<br />
+<dfn>
+<del>※ 깜빡이는 콘텐츠 : 움직이는 GIF 이미지, 플래시 광고, 애플릿 및 스크립트를 사용한 움직임 등</del><br />
+<em class="design">* 디자인</em> : 지나치게 깜박거리는 요소가 없게 디자인.<br />
+** 첫 페이지에는 최소한 깜빡거림이 없도록 콘텐츠를 구성<br />
+** 만일 다음 페이지에 깜빡거림이 있는 콘텐츠가 포함되어 있을 경우에는 경고문을 첫 페이지에 표시하고,<br />
+깜빡거리는 콘텐츠를 제거한 대체 페이지와 이 페이지로 이동하는 링크를 제공하도록 구성하여야 함.. <em>(예를 찾을 수 없음)</em><br />
+** 글자가 깜빡이게 하거나 흐르게 하는 비표준 태그 marquee나 blink 태그는 사용하지 말아야 함 <em class="autotest">KADO-WAH</em><br />
+* 스크롤 하도록 구성된 텍스트는 <a href="#checklist2-6-1">2-6-1 항목 이용에 시간제한이 있는 콘텐츠.. </a>에서 별도 체크하고 있음.<br />
+※ <a href="http://tools.webaccessibile.org/test/check.aspx">자동평가 도구(Flickering and Photosensitive Epilepsy)</a> 를 활용하여
+깜빡임을 평가 - 움직이는 GIF만 평가 가능.
+</dfn>
+</li>
+<li><ins>(16)</ins> 깜빡임을 중지 또는 제어할 수 있는 컨트롤을 제공하고 있는가?<br />
+<dfn>
+<em>예를 찾을 수 없음</em>
+</dfn>
+</li>
+<li><ins>(17)</ins> <ins>동영상/멀티미디어 콘텐츠를 정지된 상태에서 제공하고 있는가?</ins><br />
+<dfn>
+** 웹사이트는 정지된 상태의 동영상을 제공하고, 사용자가 재생 여부를 판단해야 함.<br />
+어떠한 동영상도 자동 재생되지 않아야 함.<br />
+<em>2009.02현재 제정작업중인.. 장애인 웹 접근성 국가표준 준수 기술 가이드라인</em>에는<br />
+동영상/멀티미디어 콘텐츠를 정지된 상태에서 제공.. 은 현 국가표준에서 다루고 있지 않는 내용으로 다소 확대 해석한 것으로 삭제하였다.<br />
+하지만, 정지 상태에서 제공하는 것이 접근성이 더 우수하다고 판단됩니다.<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+<em>* 2007~2008.09 의 웹접근성 평가 결과를 분석해 본 결과.. blink 태그 형태의 깜빡임이 아닌 움직임은 여기서 체크하지 않음.</em><br />
+
+* 정지된 상태의 동영상을 제공 예) <a href="../Markup/movie.html">접근성을 고려한 동영상 콘텐츠</a>
+<xmp class="xmp">
+<object ..>
+<param name="url" value="/data/vision.wmv" />
+<param name="autoStart" value="false" />
+</object>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h4>2-4. 키보드로만 운용 가능</h4>
+<h5 class="box" id="gp2-4-1">2-4-1. 키보드만으로 모든 콘텐츠를 제어할 수 있어야 한다. <em class="p1">(1의무)</em> <ins>9점</ins></h5>
+
+<ul>
+<li><ins>(18)</ins> 키보드만으로 콘텐츠가 제공하는 모든 기능에 대한 제어가 가능한가?
+<br />※ 온라인 입력서식은 중요도가 높으므로 '3-3-2'항목에서 별도 체크<br />
+<dfn>* 키보드만으로도 메뉴 선택과 링크 선택 등 웹페이지내의 상호작용이 가능하게 작업.<br />
+* 마우스 이벤트핸들러에 상응하는 키보드 이벤트 함께 사용(장치 독립적인 이벤트 사용) <em class="autotest">KADO-WAH</em><br />
+* 포커스를 상실하게 하는 이벤트 및 스크립트 삭제<br />
+<em class="program">* 프로그램</em> : <em>탭키 이동 확인(역방향 포함). 키보드로 과제(회원가입, 로그인 등)를 수행할 수 있는지 확인.</em>
+</dfn>
+</li>
+<li><ins>(19)</ins> 키보드로 폼 컨트롤, 링크, 객체 사이를 이동할 때, 논리적 이동 순서가 적절한가?<br />
+<dfn>* CSS 레이아웃으로 작업하면서 순서를 맞춤.<br />
+</dfn>
+</li>
+<li><ins>(20)</ins> &lt;select&gt;(목록상자) 사용시 해당 목록을 선택한 후 [이동]버튼을 반드시 제공하고 있는가? (키보드로 모든 목록을 선택할 수 있는 방법을 제공)<br />
+<dfn>
+<em class="design">* 디자인</em> : select 작업시, 기본 폼 모양에 이동 버튼 넣어서 디자인.<br />
+<em class="program">* 프로그램</em> : onchange 이벤트 사용하지 말것. 바른예: <a href="http://www.iabf.or.kr/">IABF - 관련사이트 바로가기</a><br />
+<!-- * 선택 후 클릭의 두번 동작으로 사용성 저하를 초래할 수 있음. (개인견해)</del> -->
+* 이동 버튼 없이도 [alt+방향키↑↓]로 선택 후 [Enter]키를 사용하여도 가능하지만, 지침대로 작업<br />
+<!-- <em>* 확인필요</em> -->
+</dfn>
+</li>
+<li><ins>(21)</ins> focus만으로 급격하게 상황이 바뀌지 않으며, 활성화(activate)에 의해 상황이 바뀌고 있는가?.<br />
+<!-- 
+(예: 마우스 오버에 의해 광고가 나타나거나, 공지사항의 내용이 바뀌면 안 됨. 단, 내비게이션에서 상위메뉴에 마우스를 올려놓았을 때에 하위메뉴가 나오는 경우는 관련된 콘텐츠가 출현하는 것으로 간주하여 허용됨)<br />
+ -->
+<dfn>
+* 틀린 예: <a href="http://www.uiseong.go.kr/">의성군</a> - 마우스 오버에 의해 광고가 나타나거나, 공지사항의 내용이 바뀌는 경우<br />
+* 예외 : 내비게이션에서 상위메뉴에 마우스를 올려놓았을 때에 하위메뉴가 나오는 경우는 주요 콘텐츠나 상황의 변화가 아니기 때문에 허용<br />
+<em class="program">* 프로그램</em> : onfocus 이벤트로 우편번호 찾기 창 등을 띄우지 말것.<br />
+<!-- 
+* 메인 콘텐츠 탭리스트 등에서 빈번히 사용중.<br />
+* 키보드로 운영시도 고려하여 모든 리스트 접근 가능하게 구현하여서 문제가 없다고 판단됨.<br />
+* click 이벤트로 바꾸거나, 전부 나열하는 것을 클라이언트가 수용하면 그렇게 작업 가능.<br />
+<em>* 확인필요</em> -->
+</dfn>
+</li>
+<li><ins>(22)</ins> <ins>하위 메뉴를 제공하는 주(상단) 메뉴의 경우, 키보드만으로도 서브 메뉴를 이용할 수 있는가?</ins>
+<dfn>
+* 틀린 예: <a href="http://www.mofe.go.kr/">재경부</a> - 마우스 오버시 2차메뉴 보이는데 키보드 focus 시 2차메뉴를 볼 수 없다.<br />
+* 바른 예: <a href="http://www.iabf.or.kr/">정보통신 접근성 향상 표준화 포럼</a><br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* <strong>병용: 마우스 이벤트핸들러에 상응하는 키보드 이벤트 함께 사용</strong> 
+<xmp class="xmp">
+onclick="" onkeypress=""
+onmouseover="" onfocus=""
+onmouseout="" onblur=""
+onmousedown="" onkeydown=""
+onmouseup="" onkeyup=""
+</xmp>
+<!-- <del>- a 태그에 href 속성이 없으면 IE, Op 에서 [Enter] 키로 onclick 이벤트를 실행할 수 없음.</del><br /> -->
+- a 태그에 href 속성이 없고 onkeypress 속성값이 비어있으면(onkeypress="") IE, FF 에서 [Enter] 키로 onclick 이벤트를 실행할 수 없음. Op에서는 가능함..<br />
+- onkeypress="함수();" IE를 제외한 브라우저 (FF, Op) 에서 아무 키나 눌러도, 함수가 실행되므로 주의..<br />
+- 해결방안 : onkeypress="함수();" 에 [Enter] 키에서만 동작하도록 스크립트를 추가하거나(예:<a href="http://www.mic.go.kr/js/ui.js">정통부 메인 탭스크립트</a>), 아래 형태로 코딩한다.
+
+
+<xmp class="xmp">
+<a href="#" onclick="함수(); return false;" onkeypress=""></a>
+</xmp>
+href="#" 속성이 있으므로 [Enter] 키로 onclick 이벤트가 실행이 된다.<br />
+return false; 는 href 의 링크주소로 이동되지 않도록 한다. ( # : 현재페이지만을 의미하는데 IE만 현재 페이지 상단으로 이동하고 나머지 브라우저에서는 아무런 동작 안함)<br />
+onkeypress="" 없이도 키보드 운용이 가능하지만, KADO-WAH 자동검사 오류 미검출 100%달성을 위해 적는다.<br />
+<em>2007년 정통부 웹접근성 실태조사에서는 자동평가(KADO-WAH)에서 이 항목을 평가하지 안고 전문가 평가만 하였음.</em><br />
+
+<br />
+* <strong>삭제 : 포커스 점선 안보이게 하는 스크립트들 제거</strong>
+<xmp class="xmp">
+onFocus="this.blur();"
+<script>
+function autoBlur(){ 
+  if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG") 
+  document.body.focus(); 
+} 
+document.onfocusin=autoBlur; 
+</script>
+</xmp>
+
+<del>* 추가 : <em>a 태그에 tabindex="0" 삽입 (Op, Sa 에서는 없으면 기본적으로 Tab키이동 안됨)</del></em><br />
+※ 오페라 : [Tab]키 대신 A(Ctrl+↓)키로 다음 링크 선택, Q(Ctrl+↑)키로 이전 링크 선택이 가능.<br />
+ref) 링크와 폼 요소 사이 이동	은 Shift + ← ↑ → ↓, 페이지에서 머리글 사이 순환	S 등.. 오페라 도움말[F1] - 키보드 단축키 참조<br />
+여기서 링크라 함은 a, area 태그에 href="" 속성이 있는 것을 말함.<br />
+※ 사파리 : [편집] - [기본설정] - [고급] - "Tab을 눌러 웹 페이지에 있는 각 항목을 선택표시" 체크하면 탭키 이동 가능<br />
+<xmp class="xmp">
+<a href="#"></a>
+</xmp>
+- object 태그에 tabindex="0" 속성을 넣으면 페이지 로딩시 바로 포커싱되므로 주의.<br />
+- form의 input 태그는 tabindex 없이도 IE, FF, Op 에서 탭키 이동 가능하여 생략함.<br />
+
+<br />
+* <strong>수정 : img와 연결된 map은 img 태그 바로 아래에 코드가 오게 이동</strong>
+<xmp class="xmp">
+<img src="" alt="" usemap="#isMap" />
+<map name="isMap" id="isMap">
+<area shape="rect" coords=",,," href="#" alt="" />
+</map>
+</xmp>
+
+* <strong>링크에는 a 태그를 사용하고, 사용자 입력을 받아야 하는 경우에는 form과 input control을 적절하게 사용</strong>
+<xmp class="xmp">
+틀린예)
+<img src="link.gif" alt="" onclick="window.open(webpage.html); return false;" />
+바른예)
+<a href="webpage.html" onclick="window.open(this.href); return false;" onkeypress=""><img src="link.gif" alt="" /></a>
+</xmp>
+
+* <strong>&lt;select&gt;(목록상자) 사용시 onchange 이벤트 없애고, 선택 후 [이동]버튼을 클릭하면 기능이 작동되도록 제작.</strong><br />
+<a href="../Tip/select+go.html">☞ &lt;select&gt;(목록상자) [이동]버튼</a>
+<xmp class="xmp">
+<form action="/share/GoSite.asp">
+<p class="related">
+<select name="uri">
+<option value="">관련사이트 바로가기</option>
+<option value="http://www.iabf.or.kr/Lab/">웹 접근성 연구소</option>
+<option value="http://www.mic.go.kr/">정보통신부</option>
+<option value="http://www.kado.or.kr/">한국정보문화진흥원</option>
+<option value="http://www.tta.or.kr/">한국정보통신기술협회</option>
+</select>
+<input type="image" src="/images/nav/FootRelatedGo.gif" alt="Go">
+</p>
+</form>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+<blockquote><div>
+사실상 현존하는 대부분의 브라우저는 onclick 이벤트에 대해서 onkeypress를 동시에 지원해주므로 현실적으로는 onkeypress를 명시할 필요성은 줄어들고 있음.<br />
+KADO-WAH (오류) 마우스 이벤트 처리기가 있을 경우 그에 상응하는 키보드 이벤트 처리기가 없으면 보고됩니다.<br />
+KADO-WAH (경고) &lt;input&gt;, &lt;a&gt;, &lt;object&gt; 태그에 tabindex 없는 경우 보고됩니다.<br />
+</div></blockquote>
+
+
+
+
+<h4>2-5. 반복 내비게이션 링크</h4>
+<h5 class="box" id="gp2-5-1">2-5-1. 반복되는 링크가 많은 페이지를 효율적으로 이용하기 위한 스킵 내비게이션 링크를 제공하여야 한다. <em class="p3">(3권장)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(23)</ins> 스킵 내비게이션을 제공하고 있는가?<br />
+<dfn>
+* 주메뉴, 부메뉴, 본문에 대한 스킵내비게이션 제공.<br />
+<em>* 스크린리더 확인</em><br />
+- 스크린리더가 id="" 위치를 제대로 찾아가는지? (센스리더PE2.2, 드림보이스6.21 둘다 불가)<br />
+- 해결 : id="" 요소 안쪽에 a 태그로 name="" 속성 추가해야함. (센스리더PE2.2 가능, 드림보이스6.21 불가)<br />
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 스크린리더가 id="" 위치를 제대로 찾아간다. (2008.10.06현재)
+</dfn>
+</li>
+<li><ins>(24)</ins> 링크가 이동되는 위치보다는 링크로 인해 건너뛰는 부분을 알려줄 수 있도록 링크명을 정하는 등 제공 내용이 적절한가?<br />
+<dfn>
+* 링크의 텍스트에 '여기를 클릭'등의 문구를 사용하지 않음.<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 스킵내비게이션 추가 (위치는 body태그 바로 밑에) : HTML 코드 상에 콘텐츠로의 앵커를 제공하고 CSS로 이를 감추어 줌으로써 구현할 수 있음
+<xmp class="xmp">
+HTML 예)
+<ul id="skipnavigation">
+<li><a href="#body">본문으로 바로가기</a></li>
+<li><a href="#topmenu">주메뉴로 바로가기</a></li>
+<li><a href="#sidemenu">부메뉴로 바로가기</a></li>
+</ul>
+<!-- 각 대응되는 위치에.. -->
+<div id="body"><a name="body"></a>
+<div id="topmenu"><a name="topmenu"></a>
+<div id="sidemenu"><a name="sidemenu"></a>
+CSS 예)
+#skipnavigation { display: none; }
+</xmp>
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 스크린리더가 id="" 위치를 제대로 찾아간다. (2008.10.06현재)<br />
+<p>
+* 추가 : 전체적으로 사이트 구조를 파악할 수 있는 사이트맵을 제공한다.
+</p>
+</div>
+<!-- //준수예시 -->
+
+
+<h4>2-6. 반응 시간의 조절기능</h4>
+<h5 class="box" id="gp2-6-1">2-6-1. 이용에 시간제한이 있는 콘텐츠의 경우 경고 및 시간조절 기능을 제공하여야 한다. <em class="p2">(2권고)</em> <ins>2점</ins></h5>
+
+<ul>
+<li><span class="tt"><ins>(25)</ins> 이용에 시간제한이 있는 콘텐츠의 경우 경고를 적절히 제공하고 있으며, 경고의 시점(사전경고, 시간 만료전 재경고 등)이 적절한가?</span>
+<br />※ 이용에 시간제한이 있는 콘텐츠<br />
+	<ul>
+	<li>자동적으로 갱신되도록 구성된 콘텐츠(계속 갱신되는 뉴스, 일정 시간마다 다시 로드되는 페이지 등)<br /></li>
+	<li>몇 초 후에 다른 페이지로 이동하도록 구성된 콘텐츠<br /></li>
+	<li>깜빡이는 텍스트나 스스로 스크롤하도록 구성된 텍스트<br /></li>
+	<li>짧은 기간 동안 나타났다 일정시간 후에 사라지는 팝업창<br /></li>
+	<li>일정시간 동안 사용하지 않으면 페이지에 대한 접근이 강제 차단되거나 사용할 수 없게 되는 콘텐츠<br /></li>
+	<li>기타 경매, 실시간 게임, 온라인 시험 등과 같이 시간제한이 필수적인 콘텐츠<br /></li>
+	</ul>
+<dfn>
+<em class="design">* 디자인</em> : 디자인시 해당 사항 없도록 고려할 사항.<br />
+* 클라이언트 요청시 부득이 사용<br />
+<!-- <del>* 경고 방법이 불명확함.</del><br /> -->
+* 경고 방법 예 : [로그아웃] 남은시간 04:33 [연장] 
+</dfn>
+</li>
+<li><ins>(26)</ins> 이용에 시간제한이 있는 콘텐츠의 경우 시간 설정을 변경할 수 있는 기능을 제공하고 있는가?<br />
+<dfn>
+<em>
+* 디자인</em> : 가급적 이런 콘텐츠를 넣지 말고, 부득이 작업시 설정 변경 기능 버튼 추가하여 디자인.<br />
+* 멈춤, 시작, 이전, 다음 등의 기능 제공 필요.<br />
+(2007~2008.09 접근성 심사를 보니 사전 경고 없어도 지나간 콘텐츠를 이용하는 기능이 있으면 준수한 것으로 판단함)<br />
+* 이전 다음 기능 버튼 예: <a href="http://gimhae.go.kr/main/">김해시 메인 - 이미지 홍보, 배너 모음</a>
+</dfn>
+</li>
+</ul>
+
+
+
+
+<h5 class="box" id="gp2-6-2">2-6-2. 팝업창을 불필요하게 사용하지 않아야 한다. <em class="p2">(2권고)</em> <ins>2점</ins></h5>
+
+<ul>
+<li><ins>(27)</ins> 사용자의 입력 없이 자동으로 발생하는 팝업창을 사용 하는 경우는 없는가?<br />
+<dfn>* 팝업존(이미지홍보)으로 대체 - 예) <a href="http://gimhae.go.kr/main/">김해시 본청 메인</a><br />
+* 클라이언트가 요구시 어떻게 해야 하는가?<br />
+* 접근성  심사시 메인 팝업 1개는 허용한 경우가 있음.(제3회 품질마크)<br />
+</dfn>
+</li>
+<li><ins>(28)</ins> 사용자의 입력에 의해서 발생하는 팝업창은 미리 팝업창임을 알리고 있는가?<br />
+<dfn>
+* 팝업 링크에 <del>[새 창]</del> title="새 창에서 열림" 삽입 필요.<br />
+<em class="program">* 프로그램</em> : 우편번호 찾기, 아이디 중복 검사, 달력, 회원가입 등 새 창으로 진행되는 모든 것..<br />
+<em>* 스크린리더 확인 : </em>
+드림보이스에서 title="" 속성 읽지 않음.<br />
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 읽어줌.
+(2008.10.06현재)
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+바른 예)
+<xmp class="xmp">
+<a href="#" onclick="window.open(this.href); return false;" onkeypress="" title="site name[새 창] 보기">site name[새 창]</a>
+<a href="#" onclick="window.open(this.href); return false;" onkeypress="" title="site name 보기: 새 창으로 열림">site name</a>
+<a  href="#" onclick="window.open(this.href); return false;" onkeypress="" title="새 창에서 확인" >주민등록번호 확인</a>
+</xmp>
+- 또한 아이콘 등을 이용하여 링크가 새 창으로 열리는 것을 알려줄 수 있음
+<xmp class="xmp">
+<a href="#" title="site name 보기">site name</a>
+<a href="#" onclick="window.open(this.href); return false;" onkeypress="">[새 창]</a>
+</xmp>
+
+틀린 예)<br />
+- 메인 페이지에서 사전 경고 없이 팝업창을 사용<br />
+- 회원가입, 회원정보 확인 페이지에서 팝업을 사용시 사용자에게 미리 알리지 않는 경우<br />
+<br />
+참고) 최근 팝업창을 웹 페이지 내에서 레이어 형식으로 처리하는 경향이 있는데, 이는 콘텐츠 선형화(논리적 구성)에서 점검하고 있음<br />
+
+</div>
+<!-- //준수예시 -->
+
+
+
+
+<!-- ************************************************************ -->
+
+<h3>3. 이해의 용이성 (22점)</h3>
+
+
+
+
+
+
+
+
+
+<h4>3-1. 데이터테이블 구성</h4>
+<h5 class="box" id="gp3-1-1">3-1-1. 테이블에 대한 summary와 caption을 제공하여야 한다. <em class="p2">(2권고)</em> <ins>3점</ins></h5>
+
+<ul>
+<li id="checklist29"><ins>(29)</ins> summary 속성을 통해서 미리 표의 <del>전체 내용과 표의 항목을</del> <ins>내용을 요약해서</ins> 전달하고 있는가?<br />
+<dfn>
+<!-- <del>
+* 제공은 하고 있으나, 제목을 그대로 적고 있음.<br />
+* 내용 요약을 적으려면 표의 전체 내용을 분석해서 정리해야 함.<br />
+</del> -->
+* 내용을 요약해서 전달하기 곤란하면, summary 에 표제(표의 제목)를 그대로 적는 것으로 한다.
+</dfn>
+</li>
+<li><ins>(30)</ins> 표의 제목을 &lt;caption&gt; 태그로 제공하고 있는가?
+<br />※ &lt;h1&gt;~&lt;h6&gt; 태그를 이용하여 표의 제목을 제공할 수 있음<br />
+<dfn>
+<!-- <del>
+* caption 태그를 제공하지만, display: none; 시키고 h1~h6 태그 사용중~.<br />
+(구축 자료에 표의 제목이 중요도가 다른 표제로 제공되는 경우가 대부분 . .)<br />
+* 스크린리더에서 중복해서 읽으므로 h1~h6 를 권장함.<br />
+</del> -->
+* 표의 제목은 h1~h6 태그로 제공하는 것으로 한다.
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+※ 데이터 테이블 : 표로 나타내기에 적당한 논리적인 정보들(예를 들면 연도별 예산표 또는 일주일 식단표 등)을 머리글(header) 부분과 일반 내용 부분으로 나누어 표현한 표를 말하며, 배치용 테이블(layout table)과 대조됨<br />
+* 표의 내용 요약 예)
+<xmp class="xmp">
+<table summary="이 표는 운전 시간과 운동 시간, 그리고 비만의 상관관계를 표시하고 있다.">
+<caption>운전 시간과 운동시간 비만의 상관 관계표</caption>
+:
+</table>
+</xmp>
+* 표의 제목을 아래와 같이 title 속성이나 아예 표 바깥의 머리글 (heading)을 이용해서 다른 방법으로 표현할 수도 있다. 예)
+<xmp class="xmp">
+<table title="운전 시간과 운동 시간, 그리고 비만의 상관 관계표">
+:
+</table>
+</xmp>
+<xmp class="xmp">
+<h3>운전 시간과 운동 시간, 그리고 비만의 상관 관계표</h3>
+<table>
+:
+</table>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+
+<h5 class="box" id="gp3-1-2">3-1-2. 데이터 테이블을 의미적으로 이해할 수 있도록 적절히 태그를 사용하여야 한다. <em class="p2">(2권고)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(31)</ins> 행단위 구분을 위한 태그를 제공하고 있는가?
+<br />※ &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; 등
+<dfn>
+* thead, tfoot, tbody 순서로 코딩하는 것이 표준이다.<br />
+* thead, tfoot 는 1개 이하가 있어야 하지만, tbody 는 연관된 행의 묶음으로 여러개가 사용되어도 된다.<br />
+</dfn>
+</li>
+<li>열단위 구분을 위한 태그를 제공하고 있는가?
+<br />※ &lt;colgroup&gt;, &lt;col&gt; 등<br />
+<dfn>
+<em>* 브라우저 확인</em> : colgroup, col 은 IE만 제대로 지원을 한다.
+</dfn>
+</li>
+<li><ins>(32)</ins> 제목셀과 내용셀의 구분을 위한 태그를 제공하고 있는가?
+<br />※ &lt;th&gt;,&lt;td&gt; 등<br />
+<dfn>
+* tbody 안에서도 제목에 해당되는 셀은 th 를 사용한다.
+</dfn>
+</li>
+<li><ins>(33)</ins> 헤더는 <del>1행과 1열에</del> <ins>행과 열의 범위를 구분하여 적절히</ins> 배치하고 있는가?<br />
+<dfn>* 테이블 데이터 특성상 th가 없는 경우도 발생함.<br />
+</dfn>
+</li>
+<li><ins>(34)</ins> <span class="tt">colspan, rowspan이 많이 사용되어 헤더 구조가 복잡한 테이블의 경우 <ins>적절하게 사용되고 있는가?</ins></span><br />
+<del>
+- 모든 헤더 셀에 scope=&quot;col&quot; 또는 scope=&quot;row&quot; 속성을 사용하여 해당 행 또는 열의 헤더를 구분할 수 있도록 하고 있는가?<br />
+- scope 속성으로도 헤더셀을 식별토록 하는 것이 불가능할 때, 또는 헤더와 데이터셀 간의 관계를 명확히 할 필요가 있을 때 각 헤더 셀에 id를 할당하고, 데이터셀의 header 속성을 이용하여, 각 데이터셀의 헤더셀을 식별할 수 있도록 하고 있는가?
+</del>
+<br />
+<dfn>
+<em>* 스크린리더 확인</em>
+- 2007.06.18현재.. 센스리더, 드림보이스에서 지원하지 않음. (2008.10.06)<br />
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 아직 지원하지 않는 걸로 판단됨.(2008.10.06현재)<br />
+<!-- <del>* 이렇게 표 작업시 현재보다 몇 배의 시간이 요구됨.</del><br />
+<del>* 대부분 표가 간단한 구조이므로 작업 생략함.</del><br /> -->
+<em>* 확인필요</em> : 헤더 구조가 복잡한 테이블의 경우? ...<br />
+<!-- <del>* 스크린리더 무지원, 해당 경우 불명확하여 작업 생략함.</del><br /> -->
+<ins>모든 데이터 테이블에 scope=&quot;col&quot; 또는 scope=&quot;row&quot; 속성을 사용하여 작업함.</ins><br />
+(2007~2008.09 접근성 심사 의견에서 이 부분을 언급한 경우가 발견되지 않았음.)
+</dfn>
+</li>
+<li class="tt"><ins>(35)</ins> 헤더에 긴 내용이 들어갈 경우 abbr속성을 사용해 약어를 표시하고 있는가?<br />
+<dfn>
+<em>* 스크린리더 확인</em><br />
+- 2007.06.18현재.. 드림보이스에서 지원하지 않음.<br />
+<a href="http://html.nhndesign.com/guidelines/accessibility/ssreader/">센스리더 최종버전 (Power 1.5, Pro)에 대한 리뷰</a> 를 보면 아직 지원하지 않는 걸로 판단됨.(2008.10.06현재)<br />
+<del>* 필요한 경우가 거의 없어 작업 생략함.</del><br />
+<em>* 확인필요</em> : 헤더에 긴 내용이 들어갈 경우?<br />
+* 스크린리더 무지원, 해당 경우 불명확하여 작업 생략함.<br />
+(2007~2008.09 접근성 심사 의견에서 이 부분을 언급한 경우가 발견되지 않았음.)
+</dfn>
+</li>
+</ul>
+
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* abbr속성을 사용해 약어를 표시
+<xmp class="xmp">
+<th abbr="CPU 종류">사용된 CPU의 종류</th>
+</xmp>
+** 데이터 테이블 안의 내용들은 다른 칸의 제목을 나타내는 머리글 부분과 일반 내용 칸으로 나눌 수 있다.<br />
+머리글을 나타내기 위해 사용하는 요소로 &lt;thead&gt;, &lt;tfoot&gt;, &lt;th&gt;가 있다.<br />
+데이터 테이블의 가로줄(row)은 반복되는 머리글을 위한 &lt;thead&gt;, 반복되는 꼬리글을 위한 &lt;tfoot&gt;, 나머지 부분을 위한 &lt;tbody&gt;를 이용하여 다음과 같이 크게 세 개의 그룹으로 나눌 수 있다.<br />
+* 데이터 테이블에서 행단위, 열단위, 헤더 사용
+<xmp class="xmp">
+<h3>표제</h3>
+<table class="t3" summary="요약내용(표제)">
+<thead>
+<tr><th></th><th></th></tr>
+</thead>
+<tfoot>
+<tr>
+<th></th><td></td></tr>
+</tfoot>
+<tbody>
+<tr><th></th><td></td></tr>
+</tbody>
+<tbody>
+<tr><th></th><td></td></tr>
+</tbody>
+</table>
+</xmp>
+** 표의 머리글과 내용 칸을 바르게 짝지어야 한다.
+이렇게 함으로써 비시각적인 방법으로 표를 읽어야 하는 사용자들이 표의 내용을 바르게 이해할 수 있다.
+짝짓는 첫 번째 방법은 머리글에 해당하는 <td>나 <th> 요소에 그 머리글이 어디에 영향을 주는지 scope 속성을 붙여서 표시하는 것이다.
+두 번째 짝짓기 방법은 머리글을 나타내는 <td>나 <th>에 고유한 id 속성 값을 주고,
+그 머리글과 짝지어지는 내용 칸을 나타내는 <td>에 id 속성 값과 동일한 headers 속성 값을 주는 것이다.
+아래에는 동일한 표를 두 가지 짝짓기 방법으로 코딩한 사례이다.  (아래 모양의 디자인을 위한 코드는 생략하였음)
+
+<table class="t3" summary="중간고사와 기말고사 성적을 개인별로 보여주는 표">
+<caption>개인별 시험 성적표</caption>
+<colgroup><col class="tac"><col span="2" class="tar"></colgroup>
+<thead>
+<tr>
+<th>구분</th>
+<th scope="col">중간고사</th>
+<th scope="col">기말고사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">김철수</th>
+<td>50</td>
+<td>60</td>
+<tr>
+<th scope="row">박영희</th>
+<td>70</td>
+<td>80</td>
+</tbody>
+</table>
+<br />
+
+scope를 이용해 머리글과 내용을 짝지은 예) -- 작업 공수가 적게 드는 이 방법을 추천.
+<xmp class="xmp">
+<table summary="중간고사와 기말고사 성적을 개인별로 보여주는 표">
+<caption>개인별 시험 성적표</caption>
+<thead>
+<tr>
+<th>구분</th>
+<th scope="col">중간고사</th>
+<th scope="col">기말고사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">김철수</th>
+<td>50</td>
+<td>60</td>
+</tr>
+<tr>
+<th scope="row">박영희</th>
+<td>70</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+</xmp>
+id, headers 속성을 이용해 머릿글과 내용을 짝지은 예)
+<xmp class="xmp">
+<table summary="중간고사와 기말고사 성적을 개인별로 보여주는 표">
+<caption>개인별 시험 성적표</caption>
+<thead>
+<tr>
+<th>구분</th>
+<th id="midterm">중간고사</th>
+<th id="final">기말고사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th id="kim">김철수</th>
+<td headers="midterm kim">50</td>
+<td headers="final kim">60</td>
+</tr>
+<tr>
+<th id="park">박영희</th>
+<td headers="midterm park">70</td>
+<td headers="final park">80</td>
+</tr>
+</tbody>
+</table>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+
+
+
+<h4>3-2. 페이지의 논리적 구성</h4>
+<h5 class="box" id="gp3-2-1">3-2-1. 의미에 맞는 적절한 HTML태그를 사용하여야 한다. <em class="p2">(2권고)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(36)</ins> 모든 문서마다 문서의 제목(&lt;title&gt;)을 제공하고, 문서의 제목은 문서의 특성을 잘 나타내도록 간단명료하게 기술하고 있는가?<br />
+<dfn>
+* 각 웹페이지의 특성을 나타내는 고유한 제목을 가져야 함.<br />
+* "사이트제목 : 1차메뉴 - 2차메뉴 - 3차메뉴" 로 경로를 명확히 제공<br />
+</dfn>
+</li>
+<li><ins>(37)</ins> 제목 (&lt;h1&gt;~&lt;h6&gt;), 문단 (&lt;p&gt;), 목록, (&lt;ul&gt;,&lt;ol&gt;, &lt;dl&gt;) 등을 나타내기 위한 적절한 HTML태그를 사용하고 있는가?<br />
+<dfn>
+* 적절한 태그로 마크업.<br />
+* 문단을 표현하기 위해서는 강제적인 줄바꿈(&lt;br /&gt;)을 사용하지 말고 문단의 시작에 &lt;p&gt;를 넣고 문단의 끝부분에 &lt;/p&gt;를 넣음<br />
+* 순서가 없는 목록에는 &lt;ul&gt;과 &lt;li&gt;를, 번호를 매겨야 하는 순서가 있는 목록에는 &lt;ol&gt;과 &lt;li&gt;를, <br />
+보통 두 개씩 짝지어지는 목록에는 &lt;dl&gt;과 &lt;dt&gt;, &lt;dd&gt;를 사용<br />
+* &lt;p&gt;&lt;/p&gt; 태그 안에는 블럭요소가 올 경우 p태그 대신 div 태그를 사용.(웹표준문법)<br />
+</dfn>
+</li>
+<li><ins>(38)</ins> 디자인 요소를 CSS를 사용하여 분리하고 있는가?<br />
+<dfn>
+* 문서의 순수한 구조와 의미를 나타내는 요소를 제외한 모든 꾸밈요소는 CSS로 분리해야 함.<br />
+* 외부 스타일시트 사용을 기본으로 하고 부득이한 경우 인라인 스타일 사용.<br />
+</dfn>
+</li>
+<li><ins>(39)</ins> 스타일 시트 기능을 해제하여도 콘텐츠를 이해할 수 있는가?<br />
+<dfn>
+* FF(파이어폭스) 에서 [Web Developer Toolbar] - [CSS] - [Disable Styles] 로 확인.
+</dfn>
+
+※ <a href="http://www.relaycall.or.kr">통신중계서비스</a> 는 테이블 레이아웃, 문서타입이 비표준인데도 제1회 <a href="http://www.iabf.or.kr/Lab/Certification/Cites.asp">품질마크 인증사이트</a> 7개에 포함된 사례가 있다.
+
+</li>
+</ul>
+
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* title 태그에 불필요한 요소
+<xmp class="xmp">
+틀린 예) “####”, "≪≪≪≪" 문자와 같이 시각적인 꾸밈과 “~에 오신 것을 환영합니다.”
+</xmp>
+ * title 태그에 정보 깊이를 표시하여, 현재 어떤문서를 보고 있는지 쉽게 구분 할 수 있게함.
+<xmp class="xmp">
+바른 예) <title>김해시청 - 김해소개 - 김해개요 - 김해의상징 - 상징물</title>
+</xmp>
+<em>* 팝업창, 마이크로 사이트, 이미지의 자세한 설명(longdesc)을 위한 페이지 등도 적절한 HTML태그를 사용하여야 함.</em><br />
+<a href="../_lib/share/ui/template.html">☞ template.html</a> 링크를 열어서 소스보기 해보세요.
+
+</div>
+<!-- //준수예시 -->
+
+<h5 class="box" id="gp3-2-2">3-2-2. 콘텐츠의 내용은 선형화(순서대로 나열) 했을 때에도 무리 없이 인식을 할 수 있어야 한다. <em class="p1">(1의무)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(40)</ins> 레이아웃을 설정하는 CSS(테이블을 사용했을 경우는 테이블)를 제거하여도 콘텐츠의 구성 순서가 논리적으로 배치되는가?<br />
+<dfn>
+* 문서의 모양이나 콘텐츠의 배치를 위해서 스타일시트를 사용함. (구조가 간결해서 유지보수가 용이함)<br />
+* table 배치 대신 div 태그로 배치<br />
+* 레이아웃 테이블을 논리적으로 구성을 하려면 중첩 테이블이 필요하므로 권장하지 않음.<br />
+* 전체 레이아웃은 CSS를 사용하고, 내용에 부분적으로 배치용 테이블 사용을 허용.<br />
+* 주석문 시작, 종료 적극 활용<br />
+* 콘텐츠의 구성순서는 왼쪽에서 오른쪽으로, 위에서 아래로 순서대로 나열되어야 함<br />
+- 예 : <a href="http://www.mic.go.kr/">정보통신부</a>
+* FF(파이어폭스) 에서 [Web Developer Toolbar] - [CSS] - [Disable Styles] 로 확인.
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+테이블을 해체하면 이름과 주소를 넣을 필드를 구분할 수 없게 되어 좋지 않은 예
+<xmp class="xmp">
+<table border="1">
+<tr>
+<td>이름</td>
+<td>주소</td>
+</tr>
+<tr>
+<td><input type="text" name="name" /></td>
+<td><input type="text" name="address" /></td>
+</tr>
+</table>
+</xmp>
+
+CSS를 제거해도 이름과 주소를 넣을 필드를 구분할 수 있도록 구조적으로 작성한 예
+<xmp class="xmp">
+<dl>
+<dt><label for="name">이름</label><dt>
+<dd><input type="text" name="name" id="name" value="" /></dd>
+<dt><label for="address">주소</label><dt>
+<dd><input type="text" name="address" id="address" value="" /></dd>
+</dl>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+<h5 class="box" id="gp3-2-3">3-2-3. 레이아웃 테이블 작성에 테이블의 구조 정보를 정의하는 태그를 사용하지 않아야 한다. <em class="p3">(3권장)</em> <ins>1점</ins></h5>
+
+<ul>
+<li><ins>(41)</ins> &lt;caption&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;th&gt;, <del>&lt;td&gt;</del> 등 테이블 구조화를 위한 태그를 레이아웃용 테이블에 사용하는 경우는 없는가?<br />
+<dfn>
+* 레이아웃 테이블 사용시 주의요망.<br />
+** 데이터를 나타내기 위한 표가 아닌 내용물의 배치를 위한 표에는 의미적인 마크업(&lt;thead&gt;, &lt;tfoot&gt;, &lt;tbody&gt;, &lt;th&gt;<del>, scope, headers, id, summary, title</del> 등)을 사용하지 않아야 함<br />
+<em>→ "~ 태그를 사용하지 않아야 한다" 라고 되어 있고 속성 사용 가능 여부는 언급하지 않고 있음.<br />
+<blockquote><div><cite><a href="http://www.yes24.com/Goods/FTGoodsView.aspx?goodsNo=2795721&CategoryNumber=001001003017001003">제프리 젤드만의 웹표준 가이드 2ed</a></cite><br />
+p208 레이아웃을 두 개의 테이블로 분리하면 summary 속성을 각각 추가할 수 있다.<br />
+p348 만약에 글로 전달되지 못한 중요한 의미를  배경이미지가 가지고 있다면 title 속성에 넣어주거나 테이블의 summary 속성에 넣어주면 된다.
+</div></blockquote>
+</em>
+* 웹 페이지의 레이아웃을 구성하기 위해서 table이 아닌, div 와 css를 이용하는 것을 권장함.<br />
+<em>* 확인 필요 : 달력은 데이터 테이블인가? 레이아읏 테이블인가?</em><br />
+2007 접근서 실태조사 평가시 김해시 메인의 달력을 데이터 테이블로 보고 있음.<br />
+(코드 구조가 이미 데이터 테이블로 짜여져 있어서 그렇게 심사했을거라고 추측됨.)<br />
+하지만, 레이아웃 테이블이 의미론적으로 더 맞다고 판단됨.
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 배치용 테이블의 예)
+<xmp class="xmp">
+<table class="layout">
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h5 class="box" id="gp3-2-4">3-2-4. 각 링크의 목표 위치를 명확하게 하여야 한다. <em class="p3">(3권장)</em> <ins>2점</ins></h5>
+
+<ul>
+<li><ins>(42)</ins> 주변 맥락을 제거하고 링크만 독립적으로 접근하여도 링크의 목표 위치가 명확히 드러나도록 링크 텍스트를 만들거나, 부가적인 설명을 title 속성으로 제시하고 있는가?<br />
+<dfn>
+* 링크 텍스트 부여시 주의요망.<br />
+* 주변 맥락을 제거하고 링크만 독립적으로 떼어내도 링크의 목표 위치가 명확히 드러나도록 링크 텍스트를 만들거나, 부가적인 설명을 title 속성으로 제시<br />
+* 특히, 게시판 하단에 위치한 숫자형 페이지 이동 링크의 경우, title 속성을 이용하여 "처음 페이지, 이전 페이지, 다음 페이지, 마지막 페이지"와 같은
+설명을 적절히 제공하고 있는지 여부를 판단
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+<xmp class="xmp">
+틀린 예: <p>관리자 모드로 가서 추가 메뉴를 보시려면 <a href="admin.html">여기</a>를 누르십시오.</p>
+바른 예: <p><a href="admin.html">관리자 모드</a>로 이동하면 추가 메뉴가 나타납니다.</p>
+</xmp>
+<xmp class="xmp">
+틀린 예: <p><a href="result.html" target="_blank">검색 결과</a></p><!-- 검색 결과가 새 창에 뜬다는 것을 예측할 수 없다.-->
+바른 예: <p><a href="result.html" title="검색 결과 현재창에서 보기">검색 결과</a> | <a href="result.html" target="_blank" title="검색 결과 새 창으로 보기">[새 창]</a></p><!-- 검색 결과를 어떤 창에서 볼 지 선택 가능하다. -->
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h4>3-3. 온라인 서식 구성</h4>
+<h5 class="box" id="gp3-3-1">3-3-1. 각 서식 제어 요소를 설명하는 레이블을 사용하여야 한다. <em class="p1">(1의무)</em> <ins>3점</ins></h5>
+
+<ul>
+<li><ins>(43)</ins> &lt;label&gt; 태그를 이용하여 서식 제어 요소와 레이블을 서로 연결하고 있는가?
+<br /><del>※ id와 for를 이용할 수도 있고, 서식과 레이블을 &lt;label&gt;태그로 감쌀 수 있음</del><br />
+<ins>※ id와 for를 적절히 매칭시키고 있는가?</ins>
+<br />
+<dfn><em class="program">* 프로그램</em> : 작업시 고려 사항.<br />
+* 모든 양식 제어 요소에는 이름에 해당하는 레이블을 붙여야 함<br />
+- 양식 요소에는 고유한 id 속성 값을 주어야 하고, &lt;label&gt; 요소에는 id 속성 값과 동일한 값으로 for 속성 값을 주어야 함<br />
+※ 레이블 텍스트를 클릭해도 입력 서식에 초점이 이동됨 (IE버그:&lt;label&gt;&lt;img&gt;&lt;/label&gt; 일 경우 초점 이동 안됨)<br />
+
+<em>* 레이블을 &lt;label&gt;태그로 감쌀 경우 IE는 레이블 클릭시 포커싱이 안됨.. 감싸지 말고 for 와 id 연결 방법만 사용.</em>
+
+</dfn>
+</li>
+<li><ins>(44)</ins> 전화번호, 우편번호와 같은 필드를 여러 개로 나누어 입력해야 하는 경우 정확한 title 속성을 제공하고 있는가?<br />
+<dfn><em class="program">* 프로그램</em> : 작업시 고려 사항.<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+<xmp class="xmp">
+<label for="name">이름</label>
+<input type="text" name="name" id="name" value="" />
+</xmp>
+<xmp class="xmp">
+<fieldset>
+<legend>성별</legend>
+<input type="radio" name="sex" id="sex0" value="" checked="checked" /><label for="sex0">남자</label>
+<input type="radio" name="sex" id="sex1" value="" /><label for="sex1">여자</label>
+</fieldset>
+</xmp>
+<xmp class="xmp">
+<label for="ssid1">주민등록번호</label>:
+<input type="text" name="ssid1" id="ssid1" value="" title="주민등록번호 앞 6자리" />-
+<input type="password" name="ssid2" id="ssid2" value="" title="주민등록번호 뒤 7자리" />
+</xmp>
+<em>** 확인필요(스크린리더)</em> : 모든 양식 제어 요소에 id 와 for 를 연결하지 않았는데 맞는 건가?
+<xmp class="xmp">
+<p>
+<label for="phone1">전화 번호</label>:
+지역 번호 <input type="text" id="phone1" /> -
+국번 <input type="text" id="phone2" title="국번" /> -
+전화번호 끝자리 <input type="text" id="phone3" title="전화번호 끝자리" />
+</p>
+</xmp>
+</div>
+<!-- //준수예시 -->
+
+
+
+<h5 class="box" id="gp3-3-2">3-3-2. 키보드만으로도 온라인 서식 입력 및 서식 간 이동이 가능하여야 한다. <em class="p1">(1의무)</em> <ins>4점</ins></h5>
+
+<ul>
+<li><ins>(45)</ins> 키보드만으로 서식의 이용이 가능한가?
+<br />※ 주민등록번호 입력시 자동으로 포커스가 이동되지 <del>않아야 하고</del> <ins>않고</ins> 있는가?<br />
+<dfn><em class="program">* 프로그램</em> : 작업시 고려 사항.<br />
+</dfn>
+</li>
+<li><ins>(46)</ins> 키보드로 서식을 이용할 때 포커스의 이동 순서가 논리적인가?<br />
+<dfn><em class="program">* 프로그램</em> : 작업시 고려 사항.<br />
+* CSS 레이아웃으로 물리적 순서를 논리적 순서와 맞출 수 있다.<br />
+* form 서식에서는 를 넣지 않아도 IE, FF, Op 에서 탭키 이동이 가능하다.<br />
+</dfn>
+</li>
+</ul>
+
+
+<!-- 준수예시 -->
+<div class="box2">
+잘못된 예)
+<ul style="list-style: square;">
+<li>주민등록번호 앞자리 6글자가 채워지면 무조건 뒷 자리 필드로 이동하게 하는 경우</li>
+<li>로그인 버튼이 일반적인 submit 유형의 입력 양식이 아닌 이미지로 되어 있고, 스크립트로 마우스 이벤트에 대해서만 처리하도록 되어 있을 때, 양식에 입력 값을 넣은 뒤 [Enter]키를 누르면 양식의 값을 서버에 전송할 수 없는 경우</li>
+<li>목록 상자에 이동 버튼을 따로 두지 않고, 목록을 선택하자마자 바로 특정한 동작이 일어나도록 설계하여 키보드로 목록을 선택할 수 없는 경우 ☞ 예: <a href="#checklist50">체크리스트 (50)</a></li>
+<li>아이디와 비밀번호를 입력한 후 로그인 버튼을 누르는 일반적인 순서로 코드가 작성되지 않은 경우</li>
+</ul>
+※ 코드를 반드시 순서대로 작성해야 함. tabindex 사용을 권장하지 않음
+</div>
+<!-- //준수예시 -->
+
+
+
+
+
+<!-- ************************************************************ -->
+
+<h3>4. 신기술적 진보성 (10점)</h3>
+
+
+
+
+
+
+
+
+
+<h4>4-1. 신기술의 사용</h4>
+<h5 class="box" id="gp4-1-1">4-1-1. 스크립트, 애플릿, 플러그인 등 부가 어플리케이션에 의한 콘텐츠는 자체적인 접근성을 지니고 있어야 한다. <em class="p2">(2권고)</em> <ins>3점</ins></h5>
+
+<ul>
+<li class="otl"><ins>(47)</ins> 자바스크립트, 자바애플릿, ActiveX, 플래시 등 외부 콘텐츠가 자체적인 접근성을 지원하고 있는가?<br />
+<dfn>* 대부분 자체적인 접근성을 기대할 수 없음.<br />
+* 자바스크립트는 IE, FF, Op 테스트 후 사용.<br />
+* 자바애플릿, ActiveX는 외부에서 개발된 걸 사용하기에 불가.<br />
+* 플래시는 순차적인 자체 탭이동 및 대체텍스트 삽입.<br />
+<em>* 주요 플러그인 콘텐츠 확인(2007.08.27)</em><br />
+PVR180도(자바스크립트)는 IE, FF, Op 모두 보임.<br />
+PVR360도(자바애플릿)는 IE, FF, Op 모두 보임.<br />
+동영상H.264(ActiveX)은 IE 만 보이며, H.264 ActiveX Player에서 탭키 이동은 불가함.<br />
+동영상WMV는 IE, FF(플러그인설치후), Op(플러그인설치후)에서 모두 보임, Sa에서 플레이어는 보이나 재생이 안됨.<br />
+Window Media Player 버전 9,10,11 은 IE 에서만 탭키 이동 가능<br />
+</dfn>
+</li>
+<li>내비게이션, 검색, 로그인 등 주요한 요소에 플래시 등의 플러그인이 필요한 콘텐츠를 사용하는 경우가 있는가?<br />
+<dfn>
+* 주메뉴를 플래시가 아닌 텍스트 스크립트로 제작하여 접근성을 높임.<br />
+* 스크립트가 내비게이션을 방해하지 않도록 최소한으로 사용함.<br />
+* 주요한 요소에 사용하지 않음.<br />
+* 클라이언트 요구시 부득이 사용 후 대체 콘텐츠를 제공.<br />
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+
+* 플래시에 대체 콘텐츠 삽입
+<xmp class="xmp">
+<ul>
+<li><a href="#">1차메뉴</a>
+  <ul>
+  <li><a href="#">2차메뉴</a></li>
+  <li><a href="#">2차메뉴</a></li>
+  </ul>
+</li>
+<li><a href="#">1차메뉴</a></li>
+</ul>
+</xmp>
+<p>
+** 액티브(Active)X를 제외한 대부분의 부가 어플리케이션은 자체적인 접근성 향상 방법이 존재하고 있으며,
+개발자나 디자이너가 이와 같은 방법을 활용해서 부가 어플리케이션을 작성했는지 여부를 판단함
+</p>
+<p>
+** 부가 어플리케이션의 접근성 향상 방법<br />
+* <a href="http://developer.mozilla.org/en/docs/Accessible_DHTML">Accessible DHTML</a> :
+* <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msaa/msaastart_9w2t.asp">Microsoft Active Accessibility</a> :
+* <a href="http://www-306.ibm.com/able/guidelines/java/snsjavag.html">Accessible Applications using 100% Pure Java</a> :
+* <a href="http://www.adobe.com/resources/accessibility/flash8/">플래시</a> : 
+</p>
+<p>
+<strong>☞ 아래는 웹표준 관점에서의 코딩 가이드입니다.</strong>
+</p>
+* 자바스크립트 객체호출은 DOM(DocumentObject Model) 표준에 따라 호출함
+<xmp class="xmp">
+obj = document.getElementById("quick_img").getElementsByTagName("img")[0];
+</xmp>
+* form 태그의 name="" 속성은 id="" 로.. 
+<xmp class="xmp">
+<form id="formId" method="post" action="">
+<fieldset><legend>유사요소제목</legend>
+<input type="submit" value="" />
+</fieldset>
+</form>
+</xmp>
+* 자바스크립트를 HTML 중간에 삽입할 때, 스크립트 유형을 정확히 지정함.
+<xmp class="xmp">
+<script></script><noscript><p></p></noscript>
+</xmp>
+
+</div>
+<!-- //준수예시 -->
+
+
+
+<h5 class="box" id="gp4-1-2">4-1-2. 부가 애플리케이션이 작동하지 않을 경우에도 동일한 내용을 전달할 수 있는 대체 콘텐츠를 제공하여야 한다. <em class="p1">(1의무)</em> <ins>5점</ins></h5>
+
+<ul>
+<li class="tt"><ins>(48)</ins> 대체 콘텐츠는 간단명료하면서 원본과 동일한 기능을 수행하고 있는가?<br />
+<dfn>
+<!-- <del>
+* 일반 링크 외에는 원본과 동일한 기능 수행이 어려움.<br />
+* 관광지도, 청사안내도 플래시 기능과 같은 대체 콘텐츠를 구성할 수 있겠는가?<br />
+* 현재로선 대체콘텐츠 원본이 있는 링크를 제공하는 것이 최선의 작업<br />
+</del> -->
+* object 태그 대체콘텐츠 제공~<br />
+- 플래시 : 콘텐츠 내용 및 링크 제공 <a href="../Markup/flash.html">☞ 접근성을 고려한 플래시 콘텐츠</a><br />
+- 동영상 : 동영상파일 원본 링크 제공 <a href="../Markup/movie.html">☞ 접근성을 고려한 동영상 콘텐츠</a><br />
+<br />
+<em class="program">* 프로그램</em> : 보안모듈설치 등.. ActiveX 는 작업불가하더라도, 설치 안내 페이지 등에 접근성 강화 필요함.<br />
+<br />
+<em>* KADO-WAH 확인(버그)</em><br />
+param 태그가 있으면 KADO-WAH 2.0 프로그램이 경고 체크시 문한루프되어 다운되는 현상 발생 (<a href="http://www.iabf.or.kr/Lab/Kadowah/Kadoweb.asp">KADO-WAH 2.0 Web</a> 에서는 괜찮음)<br />
+object 의 대체콘텐츠 텍스트는 같은 줄에 태그를 사용하면 오류발생. 해결 방법은 아래 예) 에서 Hello! 처럼 다른 줄에 걸쳐 코딩해야 함.<br />
+</dfn>
+</li>
+<li class="tt"><ins>(49)</ins> 텍스트 브라우저로도 해당 기능을 제어하고 있는가?<br />
+<dfn>
+* 일반 링크 외에는 원본과 동일한 기능 수행이 어려움.<br />
+* 지도 같이 텍스트로 표현 못하는 콘텐츠도 있음.<br />
+</dfn>
+</li>
+<li id="checklist50"><ins>(50)</ins> 링크는 자바스크립트 없이도 작동하고 있는가?. 
+<br />※ 자바스크립트로만 링크를 구성하지 않아야 함<br />
+<dfn><em class="program">* 프로그램</em> :  href="" 에는 링크(uri) 만 적고, onclick="" onkeypress="" 로 동작을 수행.<br />
+* 다른페이지로 링크 :
+<xmp class="xmp">
+<a href="http://m.com" onclick="window.open(this.href); return false;" onkeypress=""></a>
+</xmp>
+* 링크 없이 자바스크립트 기능만 있을 경우 예: <a href="http://gimhae.go.kr/main/#bannerzone">김해시청 배너모음 이전 다음 배너 보기</a>
+<xmp class="xmp">
+<a href="#" onclick="prevmTicker(1); return false;" onkeypress=""></a>
+</xmp>
+* 현재 페이지 링크(참조)가 있는 경우.. : <a href="http://naradesign.net/wp/2007/07/11/123/">참고설명</a>
+<xmp class="xmp">
+<dl>
+<dt><a href="#help" onclick="showBubble(); return false;" onkeypress=""><img .. /></a></dt>
+<dd id="help">관련상품을 자동으로 추천해주는 기능입니다.<dd>
+</dl>
+</xmp>
+* 폼 전송 버튼 예: <a href="http://www.iabf.or.kr/Member/Register.asp">IABF 회원가입</a>
+<!-- <input type="image" name="submit" src="" alt="확인" onclick="goLogin(); return false;" class="image" /> -->
+<xmp class="xmp">
+<form name="frm" method="post" action="MemberProc.asp" onsubmit="return validate()">
+~
+<input type="image" src="/img/board/btn_confirm.gif" alt="확인" class="image" />
+</form>
+</xmp>
+<strong>[참고]</strong> noscript 태그가 필요한가?
+<xmp class="xmp">
+<script></script><noscript><p>JavaScript</p></noscript><!-- OK -->
+<script></script><noscript><p></p></noscript><!-- OK -->
+<script></script><noscript>JavaScript</noscript><!-- HTML4.01 strict Error : noscript 안에 인라인요소가 바로 올 수 없음 -->
+<script></script><noscript></noscript><!-- HTML4.01 strict Error : noscript 안에 블럭요소 없음 -->
+<script></script><!-- HTML4.01 strict Valid. noscript 없으면 KADO-WAH 검사에서 경고 -->
+</xmp>
+* noscript 태그는 <a href="/Reference/품질마크가이드.hwp">품질마크(가이드)</a>, <a href="/Reference/03[1].실태조사설명회자료(지침설명)(2007.6).pdf">실태조사(지침설명)</a> 에 언급이 없으므로 없어도 되지만,<br />
+* 자바스크립트가 콘텐츠를 담고 있다면 작동하지 않을 시 동일한 내용을 전달할 수 있는 대체 콘텐츠를 noscript 태그로 제공하여야 한다.<br />
+<a href="http://www.yc.go.kr/guide/sitemap.asp">(예) 사이트맵을 폴더파일 모양의 자바스크립트로 구성했다면..</a><br />
+<del><xmp class="xmp">
+<head> 안에서는 <script></script> 만 쓰고, (head 태그 안에 noscript 가 있으면 HTML4.01 strict Error)
+<body> 안에서는 <script></script><noscript><p>JavaScript</p></noscript> 형태로 쓴다.
+</xmp></del>
+<strong>[결론]</strong> <em>자바스크립트가 콘텐츠를 담고 있지 않으면 noscript 태그는 사용하지 않아도됩니다.</em>
+<xmp class="xmp">
+<head> 안에서는 <script></script> 만 쓰고, (head 태그 안에 noscript 가 있으면 HTML4.01 strict Error)
+<body> 안에서는 <script></script> 형태로 쓴다. (자바스크립트로 마크업을 만들지 않는다.)
+<body> 안에서 마크업을 만드는 자바스크립트 구현시 <script></script><noscript><p>대체콘텐츠</p></noscript> 형태로 사용한다.
+</xmp>
+</dfn>
+</li>
+</ul>
+
+
+<!-- 준수예시 -->
+<div class="box2">
+** &lt;object&gt;의 대체 콘텐츠 제공 방법 - &lt;object&gt;태그는 하위에 포함하고 있는 콘텐츠를 상위 &lt;object&gt;의 대체 콘텐츠로 인식
+<xmp class="xmp">
+<object data="hello.swf" type="application/x-shockwave-flash">
+  <object data="hello.png" type="images/png">
+    <object data="hello.gif" type="images/gif">
+      <p>
+      Hello!
+      </p>
+    </object>
+  </object>
+</object>
+</xmp>
+※ <a href="http://lynx.browser.org/">Lynx(링크스)</a> : 텍스트 브라우저로써, 시각적인 콘텐츠를 단순 텍스트로 변환하여 출력하기 때문에 스크린리더를 사용하는 시각장애인에게 유용함<br />
+☞ <a href="http://www.yellowpipe.com/yis/tools/lynx/lynx_viewer.php">Lynx viewer</a><br />
+<br />
+** 자바스크립트에 의존하여 콘텐츠를 제공하면 안 됨<br />
+- 페이지 이동시 &lt;a&gt; 태그를 이용하며, &lt;a&gt; 태그의 href 속성 값으로 “javascript:goPage()"와 같이 스크립트 구문을 사용하지 않아야 함
+<xmp class="xmp">
+예) <a href="http://m.com" onclick="window.open(this.href); return false;" onkeypress=""></a>
+</xmp>
+</div>
+<!-- //준수예시 -->
+
+
+
+<h5 class="box" id="gp4-1-3">4-1-3. 부가 애플리케이션의 설치가 요구되는 페이지는 해당 페이지에서 직접 어플리케이션을 설치할 수 있는 링크를 제공하여야 한다. <em class="p3">(3권장)</em> <ins>2점</ins></h5>
+
+<ul>
+<li><ins>(51)</ins> 어플리케이션의 링크나 어플리케이션을 다운받을 수 있는 페이지의 링크를 제공하고 있는가?<br />
+<dfn>
+<em class="design">* 디자인</em> : 뷰어프로그램 모음 메뉴 링크가 모든 페이지에 존재하도록 설계.<br />
+* 팝업창에서는 직접 뷰어프로그램 다운로드 <del>직접</del> 링크<br />
+* Windows XP, Vista, Mac 등 다른 OS 확인, IE6, IE7, FF, Op, Safari 등 다른 브라우저용도 확인 필요.<br />
+* 뷰어모음 예: <a href="http://www.mic.go.kr/user.tdf?a=common.HtmlApp&c=1001&page=help/viewer.html&mc=P_07_03">정보통신부 > 이용안내 > 뷰어 모음</a>,
+<a href="http://gimhae.go.kr/07info/06.jsp">김해시 - 뷰어모음</a>
+</dfn>
+</li>
+</ul>
+
+<!-- 준수예시 -->
+<div class="box2">
+* 웹 접근성 실태조사 항목별 체크리스트 - [조사 방법 및 기준]<br />
+3종류 이상의 어플리케이션 링크(pdf, odf 포함)를 제공할 경우 100<br />
+2종류의 링크(pdf, odf 포함)를 제공할 경우 90<br />
+2종류의 링크(pdf, odf 미포함)를 제공할 경우 80<br />
+1종류의 링크를 제공할 경우 70<br />
+제공 안할 경우 0<br />
+</div>
+<!-- //준수예시 -->
+
+<br /><br />
+
+
+<dfn>
+(주) 14번째 지침인 항목 4.2 별도 웹사이트 제공 은 고려사항이 아님. ==> 해당 사항 없음.<br />
+ps) 별도 페이지는 소수자에 대한 또 다른 차별이고 자원 낭비이며, 유지보수가 어려워 권장되지 않습니다.
+</dfn>
+
+
+<br /><br />
+
+<hr />
+
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

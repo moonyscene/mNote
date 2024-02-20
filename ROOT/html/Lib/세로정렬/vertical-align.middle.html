@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8" />
+<title>세로중앙정렬</title>
+<style type="text/css">/*<![CDATA[*/
+	*{font-family:'나눔고딕';}
+	img{border:0;}
+/*]]>*/</style>
+</head>
+<body>
+<h1>세로중앙정렬</h1>
+
+<h2>이미지 단독, 텍스트 단독, 래퍼 높이 가변</h2>
+
+<style type="text/css">
+.vaMiddle { display:table; position:relative; width:400px; min-height:200px; margin:10px 0; border:1px solid #ddd; }
+.vaMiddle .cell { display:table-cell; text-align:center; vertical-align:middle; }
+.vaMiddle .cell .cont { display: block; padding: 20px; }
+*+html .vaMiddle .cell { display:inline-block; position:relative; top:50%; width:100%; }
+*+html .vaMiddle .cell .cont { position:relative; top:-50%;}
+</style>
+
+<div class="vaMiddle">
+	<div class="cell">
+		<span class="cont">
+		<img src="picture.jpg" width="200" height="100" alt="이미지세로중앙정렬" />
+		</span>
+	</div>
+</div>
+
+<div class="vaMiddle">
+	<div class="cell">
+		<span class="cont">
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		</span>
+	</div>
+</div>
+
+<div class="vaMiddle">
+	<div class="cell">
+		<span class="cont">
+		<img src="picture.jpg" width="200" height="300" alt="이미지세로중앙정렬" />
+		</span>
+	</div>
+</div>
+
+<div class="vaMiddle">
+	<div class="cell">
+		<span class="cont">
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		</span>
+	</div>
+</div>
+
+
+<h2>이미지 텍스트 어울림, 래퍼 높이 고정</h2>
+
+<style type="text/css">
+.vaMiddle2 { display:table; position:relative; width:400px; min-height:200px; margin:10px 0; border:1px solid #ddd; }
+.vaMiddle2 .cell { display:table-cell; text-align:left; vertical-align:middle; }
+.vaMiddle2 .cell .cont { display: block; padding: 20px; }
+.vaMiddle2 .cell1 .cont { width:170px; padding: 20px 10px 20px 20px; }
+.vaMiddle2 .cell2 .cont { width:170px; padding: 20px 20px 20px 10px; }
+*+html .vaMiddle2 .cell { display:inline-block; position:absolute /* relative 하면 안됨 */; top:50%; }
+*+html .vaMiddle2 .cell2 { left:50%; }
+*+html .vaMiddle2 .cell .cont { position:relative; top:-50%; }
+</style>
+
+<div class="vaMiddle2">
+	<div class="cell cell1">
+		<span class="cont">
+		<img src="picture.jpg" width="170" height="100" alt="이미지세로중앙정렬" />
+		</span>
+	</div>
+	<div class="cell cell2">
+		<span class="cont">
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		</span>
+	</div>
+</div>
+
+<h2>이미지 텍스트 어울림, 래퍼 높이 가변</h2>
+
+<style type="text/css">
+.vaMiddle3 { display:table; position:relative; width:400px; min-height:200px; margin:10px 0; border:1px solid #ddd; }
+.vaMiddle3 .cell { display:table-cell; text-align:center; vertical-align:middle; }
+.vaMiddle3 .cell .cont { display: block; padding: 20px; }
+.vaMiddle3 .cell1 .cont { width:170px; padding: 20px 10px 20px 20px; }
+.vaMiddle3 .cell2 .cont { width:170px; padding: 20px 20px 20px 10px; text-align:left; }
+*+html .vaMiddle3 .cell { display:inline-block; float:left; position:relative; top:50%; }
+*+html .vaMiddle3 .cell .cont { position:relative; top:-50%; }
+</style>
+
+<div class="vaMiddle3">
+	<div class="cell cell1">
+		<span class="cont">
+		<img src="picture.jpg" width="170" height="100" alt="이미지세로중앙정렬" />
+		</span>
+	</div>
+	<div class="cell cell2">
+		<span class="cont">
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		</span>
+	</div>
+</div>
+
+<div class="vaMiddle3">
+	<div class="cell cell1">
+		<span class="cont">
+		<img src="picture.jpg" width="170" height="100" alt="이미지세로중앙정렬" />
+		</span>
+	</div>
+	<div class="cell cell2">
+		<span class="cont">
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		멀티라인텍스트멀티라인텍스트멀티라인텍스트멀티라인텍스트
+		</span>
+	</div>
+</div>
+
+
+
+</body>
+</html>

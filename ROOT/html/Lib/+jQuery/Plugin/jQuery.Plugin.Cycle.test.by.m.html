@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8" />
+<title>JQuery Cycle Plugin - Basic Demo</title>
+<style type="text/css">
+#pr1 *{list-style:none;margin:0;padding:0;}
+#pr1 .slideshow{width:220px;height:220px;margin:0;}
+#pr1 .slideshow li a{float:left;width:200px;height:200px;margin:0;padding:9px;border:1px solid #ddd;background:#f7f7f7;}
+#pr1 .slideshow img{border:0;}
+#pr1 .control button,
+#pr1 .control a{display:inline-block;width:38px;height:38px;margin:0 2px;border:1px solid #ddd;background:#eee;color:#000;font-weight:bold;line-height:38px;text-decoration:none;text-align:center;vertical-align:middle;cursor:pointer;}
+#pr1 .gotoNum .activeSlide{width:34px;height:34px;border:3px solid #ddd;background:#fff;line-height:34px;}
+ </style>
+<!-- include jQuery library -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<!-- include Cycle plugin -->
+<script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+<script>
+/* 
+멈춤, 재생, 이전, 다음, 순번
+현재 순번 표시
+초기 현재 페이지
+-- 과제 --
+콘텐츠 탐색 용이?
+앵커 hover 말고 focus 에서도 멈춤 기능 동작?
+키보드 운용 순서 "순번-이미지-순번-이미지.." 로 가능?
+터치 기능 추가 가능?
+ */
+$(document).ready(function() {
+    //$('.slideshow').cycle('fade');
+	var $pr1 = $('#pr1');
+    $pr1.gotoNum = $('.gotoNum',$pr1);
+    $pr1.manualEffects = ['fade','turnUp','curtainY','blindZ','zoom'];
+	$pr1.slideshow = $('.slideshow',$pr1).cycle({
+		fx: 'blindX,blindY,blindZ,cover,curtainX,curtainY,fade,fadeZoom,growX,growY,scrollUp,scrollDown,scrollLeft,scrollRight,scrollHorz,scrollVert,shuffle,slideX,slideY,toss,turnUp,turnDown,turnLeft,turnRight,uncover,wipe,zoom',
+		speed: 300,
+		timeout: 2000,
+		pause: 1,
+		//random: 1,
+		prev: '#pr1 .control .prev',
+		next: '#pr1 .control .next',
+		pager: '#pr1 .gotoNum',
+		after: 	function (curr,next,opts) {
+			var caption =  (opts.currSlide + 1) + ' / ' + opts.slideCount;
+			$('.caption',$pr1).html(caption);
+		}
+	});
+	$('.control .pause',$pr1).click(function(e){e.preventDefault();
+		$('.slideshow',$pr1).cycle('pause');
+	});
+	$('.control .resume',$pr1).click(function(e){e.preventDefault();
+		$('.slideshow',$pr1).cycle('resume');
+	});
+	$('button, a',$pr1).bind('focusin mouseenter',function(){$('.slideshow',$pr1).cycle('pause');});
+	$('button, a',$pr1).bind('focusout mouseleave',function(){$('.slideshow',$pr1).cycle('resume');});
+});
+</script>
+</head>
+<body>
+
+<!-- pr1 -->
+<div id="pr1">
+<h3>jquery.cycle.all.latest.js</h3>
+<ul class="slideshow">
+<li><a href="?"><img src="http://cloud.github.com/downloads/malsup/cycle/beach1.jpg" width="200" height="200" /></a></li>
+<li><a href="?"><img src="http://cloud.github.com/downloads/malsup/cycle/beach2.jpg" width="200" height="200" /></a></li>
+<li><a href="?"><img src="http://cloud.github.com/downloads/malsup/cycle/beach3.jpg" width="200" height="200" /></a></li>
+<li><a href="?"><img src="http://cloud.github.com/downloads/malsup/cycle/beach4.jpg" width="200" height="200" /></a></li>
+<li><a href="?"><img src="http://cloud.github.com/downloads/malsup/cycle/beach5.jpg" width="200" height="200" /></a></li>
+</ul>
+<p class="caption">111</p>
+<p class="control">
+<button type="button" class="pause">||</button>
+<button type="button" class="resume">▶</button>
+<button type="button" class="prev">&lt;</button>
+<span class="gotoNum"></span>
+<button type="button" class="next">&gt;</button>
+</p>
+</div><!-- /pr1 -->
+
+
+
+
+
+</body>
+</html>

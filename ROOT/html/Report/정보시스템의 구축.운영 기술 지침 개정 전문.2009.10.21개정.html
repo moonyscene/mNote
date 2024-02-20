@@ -1,0 +1,4572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '정보시스템의 구축.운영 기술 지침 개정 전문. 개정 2009.10.21',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css" title="myshin_css">
+body { margin: 20px; }
+</style>
+</head>
+<body>
+
+
+
+<div id="head"><!-- /share/inc/head.html --></div>
+
+<!-- document start -->
+<h1>정보시스템의 구축&#8228;운영 기술 지침</h1>
+<br />
+
+<br />
+제정 2006. 8. 11 정보통신부고시 제2006-37호
+개정 2009. 8. 25 행정안전부고시 제2009-50호
+개정 2009. 10. 21 행정안전부고시 제2009-62호
+<br />
+<h2>제1장 총칙</h2>
+<br />
+
+제1조(목적) 이 지침은「정보시스템의 효율적 도입 및 운영 등에 관한 법률」(이하 “법”이라 한다) 제7조에 따라 공공기관에서 정보시스템을 구축·운영함에 있어서 준수해야 할 기술과 표준을 정하고, 법 제10조에 따라 정보시스템의 상호운용성, 정보의 공동활용, 정보시스템의 효율성 및 정보접근을 위한 기술적 편의성 등을 위한 기술평가에 필요한 사항을 정함을 목적으로 한다.
+<br />
+
+제2조(정의) ① 이 지침에서 사용하는 용어의 정의는 다음과 같다.
+&nbsp;&nbsp;1. “기술참조모형”은 정보시스템에서 업무를 지원하는 응용기능을 구현하기 위하여 필요한 정보기술 및 표준을 분류하고 정의한 체계를 말한다.
+&nbsp;&nbsp;2. “서비스 접근 및 전달”은 사람과 정보시스템 간에 또는 정보시스템과 정보시스템 간에 서비스를 이용 또는 제공하는 것과 관련된 규약과 기술 분야를 말한다.
+&nbsp;&nbsp;3. “플랫폼 및 기반구조”는 정보시스템을 구축, 유지, 사용할 수 있도록 지원하는 하드웨어, 네트워크, 미들웨어, 운영체제 등의 기반 기술 분야를 말한다.
+<br />
+
+&nbsp;&nbsp;4. “요소기술”은 플랫폼 및 기반구조에서 정보시스템을 구현하는데 필요한 소프트웨어 기술 분야를 말한다.
+&nbsp;&nbsp;5. “인터페이스 및 통합”은 타 정보시스템 또는 서비스와의 연계를 위한 기술 분야를 말한다.
+&nbsp; 6. “보안”은 정보자원을 보호하기 위한 관리적, 기술적, 물리적 분야를 말한다.
+&nbsp;&nbsp;② 이 지침에서 사용하는 용어의 정의는 제1항에서 정한 것을 제외하고는 관련 법령 및 고시, 「정보기술아키텍처 도입·운영 지침」제7조제1항에 따른 범정부 기술참조모형에서 정하는 바에 의한다.
+<br />
+
+제3조(적용범위) ① 이 지침은 공공기관이 정보시스템을 구축·운영함에 있어 계획수립, 개발, 감리, 검사, 운영 및 유지관리 등 전 단계에 적용된다.
+&nbsp;&nbsp;② 이 지침은 정보시스템을 신규 구축 및 운영하는 경우에 적용되며, 기존 정보시스템의 경우에는 개선 또는 유지보수하고자 할 때에 적용된다.
+&nbsp; ③ 제1항 및 제2항의 규정에도 불구하고, 무기체계와 연동하여 구축하는 국방 분야의 정보시스템에 대하여는 국방부장관 또는 방위사업청장이 기술지침을 별도로 정하여 적용할 수 있다.
+<br />
+
+제4조(기본원칙) 정보시스템의 효율적 도입 및 운영을 위해 준수해야 할 기본원칙은 다음 각호와 같다.
+&nbsp;&nbsp;1. 공공기관의 장은 기관의 정보기술아키텍처를 기반으로 정보시스템을 구축·운영 하여야 한다.
+&nbsp;&nbsp;2. 정보시스템에 적용되는 기술은 표준화된 개방형 기술을 사용하는 것을 원칙으로 한다. 단, 비표준의 폐쇄형 기술을 사용하는 경우에는 그 사유를 명시하여야 한다.
+&nbsp;&nbsp;3. 정보시스템의 구축·운영시 관련된 법률, 규정, 지침 등을 식별 및 정의하고 준수하여야 한다.
+&nbsp;&nbsp;4. 데이터는 신뢰성을 위한 무결성, 일치성 및 보안을 위한 기밀성, 가용성이 확보될 수 있도록 구축되어야 한다.
+<br />
+<h2>제2장 세부 분야별 기술지침</h2>
+<br />
+
+제5조(서비스접근 및 전달 분야) ① 대민서비스용 정보시스템은 사용자가 브라우저 등 다양한 사용자 환경에서도 서비스를 이용할 수 있도록 표준 기술이 준수되어야 하고, 장애인, 저사양 컴퓨터 사용자 등 서비스 이용 소외계층을 고려한 설계·구현을 검토하여야 한다.
+&nbsp;&nbsp;② 서비스접근 및 전달 분야의 세부 지침은 별표2의 기술지침 항목과 같다.
+<br />
+
+제6조(플랫폼 및 기반구조 분야) ① 데이터베이스는 관리 기능이 제공되어야 하며, 데이터베이스 관리자를 지정하여 운영하여야 한다.
+&nbsp;&nbsp;② 정보시스템의 운영에 사용되는 네트워크는 안전성 및 확장성이 보장되도록 구축·운영하여야 한다.
+&nbsp;&nbsp;③ 정보시스템 운영에 사용되는 통신장비는 IPv4와 IPv6가 동시에 지원되는 장비를 채택하여야 한다.
+&nbsp;&nbsp;④ 하드웨어는 이기종간 연계가 가능하여야 하며, 특정 기능을 수행하는 임베디드 장치 및 주변 장치는 해당 장치가 설치되는 정보시스템과 호환성 및 확장성이 보장되어야 한다.
+&nbsp;&nbsp;⑤ 플랫폼 및 기반구조 분야의 세부 지침은 별표2의 기술지침 항목과 같다.
+<br />
+
+제7조(요소기술 분야) ① 응용서비스는 컴포넌트화하여 개발하는 것을 원칙으로 한다.
+&nbsp;&nbsp;② 데이터는 데이터 공유 및 재사용, 데이터 교환, 데이터 품질 향상, 데이터베이스 통합 등을 위하여 표준화되어야 한다.
+&nbsp;&nbsp;③ 행정정보의 공동활용에 필요한 행정코드는 행정표준코드를 준수하여야 하며 그렇지 못한 경우에는 공공기관의 장이 그 사유를 행정안전부 장관에 보고하고 행정안전부의 “행정기관의 코드표준화 추진지침”에 따라 코드체계 및 코드를 생성하여 행정안전부에 표준 등록을 요청하여야 한다.
+&nbsp;&nbsp;④ 패키지소프트웨어는 타 패키지소프트웨어 또는 타 정보시스템과의 연계를 위해 데이터베이스 사용이 투명해야 하며 다양한 유형의 인터페이스를 지원하여야 한다.
+&nbsp;&nbsp;⑤ 해외 사용자가 있는 정보시스템은 다국어를 지원하고 국제 표준통화 및 도량형을 지원하여야 한다.
+&nbsp;&nbsp;⑥ 요소기술 분야의 세부 지침은 별표2의 기술지침 항목과 같다.
+<br />
+
+제8조(인터페이스 및 통합 분야) ① 정보시스템간 서비스의 연계 및 통합에는 웹서비스 적용을 검토하고, 개발된 웹서비스 중 타기관과 공유가 가능한 웹서비스는 범정부 차원의 공유·활용을 위하여 국가 웹서비스 등록 저장소에 등록할 수 있도록 관련 조치를 취하여야 한다.
+&nbsp;&nbsp;② 인터페이스 및 통합 분야의 세부 지침은 별표2의 기술지침 항목과 같다.
+<br />
+
+제9조(보안) ① 정보시스템 및 정보시스템의 운영에 사용되는 네트워크는 보안성이 보장되도록 구축·운영하여야 한다.
+&nbsp;&nbsp;② 정보시스템의 보안을 위하여 위험분석을 통한 보안 계획을 수립하고 이를 적용하여야 한다. 이는 정보시스템의 구축 운영과 관련된 “서비스 접근 및 전달”, “플랫폼 및 기반구조”, “요소기술” 및 “인터페이스 및 통합” 분야를 모두 포함하여야 한다.
+&nbsp;&nbsp;③ 보안이 중요한 서비스 및 데이터의 접근에 관련된 사용자 인증은 공인전자서명 또는 행정전자서명을 기반으로 하여야 한다.
+&nbsp;&nbsp;④ 보안 분야의 세부 지침은 별표2의 기술지침 항목과 같다.
+<br />
+<h2>제3장 기술참조모형 분야별 기술지침</h2>
+<br />
+
+제10조(정보시스템의 상호운용성 평가) ① 정보시스템의 상호운용성에 대한 평가는 기술적 요구사항 정의의 적절성, 타 정보시스템과의 연계성, 정보시스템 통합성에 대하여 실시한다.
+&nbsp;&nbsp;② 세부 분야별 평가항목은 별표1의 기술평가 항목과 같다.
+<br />
+<h2>제4장 지침의 적용방법</h2>
+<br />
+
+제11조(사업계획 수립 시 활용) ① 공공기관등의 장은「법 시행령」(이하 “영”이라 한다) 제8조에 따른 기술평가 대상사업의 사업계획서(이하 “사업계획서”라 한다) 확정 이전에 별표1의 기술평가를 수행하여야 한다.
+&nbsp;&nbsp;② 공공기관의 장은 제1항의 기술평가 수행을 위해 별지 제1호 서식의 검토결과에 해당 세부 평가항목의 검토여부와 주요 기술적 검토 사항 및 미검토 사유 등을 포함하여 검토내용을 작성하여야 한다. 다만, 검토결과의 세부적인 설명을 위하여 관련 자료를 첨부할 수 있다.
+&nbsp; ③ 공공기관의 장은 제2항의 검토결과를 반영하여 사업계획서 및 제안요청서를 작성하여야 한다.
+&nbsp;&nbsp;④ 공공기관의 장은 사업계획서 및 제안요청서 작성시 별지 제2호서식의 기술적용계획표를 작성하고 사업자에게 이 지침의 준수를 요구하여야 한다. 다만, 공공기관의 장은 사업의 특성에 따라 기술적용계획표 항목을 조정하여 사용할 수 있다.
+&nbsp;&nbsp;⑤ 공공기관의 장은 과업내용서 작성시 정보시스템을 구축·운영하는 사업자와 협의된 기술적용계획표를 첨부하여야 한다.
+<br />
+
+제12조(사업 추진 시 활용) ① 정보시스템을 구축·운영하는 사업자는 제11조제4항에서 작성된 기술적용계획표를 준수하여 사업을 추진하여야 한다.
+<br />
+
+제13조(사업 검사 시 활용) ① 정보시스템을 구축·운영하는 사업자는 사업 검사 요청시 별지 제3호서식의 기술적용결과표를 작성하여야 한다.
+&nbsp;&nbsp;② 감리법인은 감리계획서의 감리점검항목에 제11조제4항에서 작성된 기술적용계획표 준수 여부를 기재하고, 제1항의 기술적용결과표를 활용하여 본 지침의 준수 여부를 점검하고 그 결과를 감리보고서에 기술하여야 한다.
+&nbsp;&nbsp;③ 공공기관의 장은 검사 확인시 제1항의 사업자가 제출한 기술적용결과표와 제2항의 감리보고서를 토대로 지침 준수여부를 확인하여야 한다.
+<br />
+<h2>제5장 전담기관의 책무</h2>
+<br />
+
+제14조(해설서 등의 작성) 행정안전부장관은 영 제6조제1항에 따른 전담기관의 장으로 하여금 이 지침의 시행 및 적용에 대한 이해를 높이기 위하여 필요한 해설서 등 세부적인 사항을 정하여 공지하게 할 수 있다.
+<br />
+
+제6장 기 타
+제15조(재검토기한)「훈령·예규 등의 발령 및 관리에 관한 규정」(대통령훈령 제248호)에 따라 이 고시 발령후의 법령이나 현실여건의 변화 등을 검토하여 이 고시의 폐지, 개정 등의 조치를 하여야 하는 기한은 2012년 8월 24일까지로 한다.
+<br />
+
+부&nbsp;&nbsp; 칙
+<br />
+
+제1조(시행일) 이 지침은 고시한 날부터 시행한다.
+<br />
+
+제2조(다른 고시의 폐지) 「상호운용성 확보 등을 위한 기술평가기준(정보통신부 고시 제2006-36호, 2006.9.11)」을 폐지한다.
+
+<hr />
+<div class="brclear"></div>
+
+<h3>[별표 1] 기술평가 항목</h3>
+<A NAME="#45124b65"></A>
+
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">평가분야</th>
+<th scope="col">상호운용성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">기술적 요구사항 정의의 적절성</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;정보시스템에 대한 기술적 요구사항을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;현행 정보시스템의 기술환경을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;신규 구축 또는 개선될 정보시스템의 기술환경을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">타 정보시스템과의 연계성</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;타 정보시스템과의 연계를 위한 필요성을 파악하고 연계대상 정보시스템을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>식별된 정보시스템간 연계방식을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보시스템 통합성</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;기존 또는 타 정보시스템과의 통합 필요성을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>통합에 필요한 방법 및 절차를 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td>정보의 공동활용</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+</tr>
+<tr>
+<th scope="row">데이터 및 서비스 식별</th>
+<td>●<A NAME=#80000000></A>공동활용 대상 데이터 및 서비스를 식별하고, 공동활용 데이터 또는 서비스의 기술<br />환경을 검토하였는가?</TD>
+</tr>
+<tr>
+<th scope="row">데이터 표준화</th>
+<td>●<A NAME=#80000000></A>&nbsp;공동활용 데이터의 표준화 요소와 관련 지침을 식별하고 표준화 방안을 검토하였는가?</TD>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보공동활용 체계 구축 및 활용</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;공동활용 데이터의 제공대상, 제공범위, 제공방식 등을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;공동활용 데이터의 접근 및 공개 수준을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">데이터의<br />안전성 및 신뢰성</th>
+<td>●<A NAME=#80000000></A>공동활용 데이터의 안전 및 신뢰성을 확보하기 위한 방안을 검토하였는가?</TD>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td>정보시스템의 효율성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보시스템 용량산정 및 성능</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;정보시스템의 사용자수, 응답시간, 데이터량 등을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>정보시스템의 사용환경과 구성요소의 용량산정이 확장성을 고려하였는지 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">정보시스템 운영 및 유지보수</th>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;정보시스템의 운영관리 및 유지보수에 필요한 절차, 조직, 계획, 지침 등을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>개발 산출물(최종산출물, 개발 소프트웨어)의 저작권을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>&nbsp;시스템 업그레이드 및 패치 용이성 등을 검토하였는가?</th>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td>정보접근을 위한 기술적 편의성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+</tr>
+<tr>
+<th scope="row">접근 다양성</th>
+<td>●<A NAME=#80000000></A>정보접근을 위한 다양한 제공방식을 검토하였는가?</TD>
+</tr>
+<tr>
+<th scope="row">접근 편의성</th>
+<td>●<A NAME=#80000000></A>시스템 사용의 편리성을 제고하기 위한 교육 및 매뉴얼 작성을 검토하였는가?</TD>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td>정보시스템 구축&#8228;운영 기술의 적합성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+</tr>
+<tr>
+<th scope="row">정보시스템 구축·운영 기술의 적합성</th>
+<td>●<A NAME=#80000000></A>&nbsp;정보시스템의 구축·운영 기술 지침의 &lt;별지 제2호 서식&gt; 기술적용계획표를 작성 및<br />검토하였는가?</TD>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<h3>[별표 2] 기술지침 항목</h3>
+<br />
+<h4>법률 및 고시</h4>
+<A NAME="#45124b66"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="2">법률 및 고시</th>
+</tr>
+<tr>
+<th scope="row">법률 / 시행령 /<br />시행규칙</th>
+<td>&#8729;공공기관의개인정보보호에관한법률 &#8729;국가정보화기본법 &#8729;소프트웨어산업진흥법 &#8729;인터넷주소자원에관한법률 &#8729;전자서명법 &#8729;전자정부법 &#8729;정보시스템의효율적도입및운영등에관한법률 &#8729;정보통신기반보호법 &#8729;정보통신망이용촉진및정보보호등에관한법률 &#8729;통신비밀보호법</td>
+</tr>
+<tr>
+<th scope="row">고시</th>
+<td>&#8729;개인정보의기술적·관리적보호조치기준 &#8729;도메인이름관리준칙 &#8729;소프트웨어사업대가기준 &#8729;소프트웨어품질인증기준 &#8729;장애인노인등의정보통신접근성향상을위한권장지침 &#8729;전자정부웹표준준수지침 &#8729;정보보호관리체계인증에관한고시 &#8729;정보보호시스템공동평가기준 &#8729;정보보호시스템평가·인증지침 &#8729;정보시스템감리기준 &#8729;정보시스템의구축·운영기술지침 &#8729;정보통신서비스정보보호지침 &#8729;행정기관도메인명및IP주소체계표준</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>서비스 접근 및 전달 분야</h4>
+<A NAME="#45124b67"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col" colspan="2">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="3">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;대민서비스용 정보시스템은 사용자가 다양한 브라우저 환경에서 서비스를 이용할 수 있도록<br />표준기술을 준수하여야 하고, 장애인, 저사양 컴퓨터 사용자 등 서비스 이용 소외계층을<br />고려한 설계·구현을 검토하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="7">외부 접근 장치</th>
+<th scope="row" rowspan="4">웹 브라우저</th>
+<th scope="row">&#8729;웹페이지 제작 언어 :<br />
+&nbsp;&nbsp;- <a href="#">HTML 4.01</a><br />
+&nbsp;&nbsp;- <a href="#">XHTML 1.0</a><br />
+&nbsp;&nbsp;- <a href="#">XML 1.0</a></th>
+</tr>
+<tr>
+<th scope="row">&#8729;스타일 시트 :<br />
+&nbsp;&nbsp;- <a href="#">CSS 2.1</a><br />
+&nbsp;&nbsp;- <a href="#">XSL 1.0</a></th>
+</tr>
+<tr>
+<th scope="row">&#8729;클라이언트 측 스크립트 :<br />
+&nbsp;&nbsp;- <a href="#">ECMAScript</a></th>
+</tr>
+<tr>
+<th scope="row">&#8729;장애인의 이용가능성 제공 :<br />
+&nbsp;&nbsp;- <a href="#">인터넷웹콘텐츠접근성지침(KICS.OT-10.0003)</a></th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">모바일/ 무선채널&nbsp;</th>
+<th scope="row">&#8729;개발 언어 :<br />
+&nbsp;&nbsp;- J2ME 2.1<br />
+&nbsp;&nbsp;- XHTML MP 1.1<br />
+&nbsp;&nbsp;- WML 2.0</th>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 프로토콜 :<br />
+&nbsp;&nbsp;- WAP 2.0</th>
+</tr>
+<tr>
+<th scope="row">&#8729;모바일 플랫폼 :<br />
+&nbsp;&nbsp;- WIPI 2.0.1<br />
+&nbsp;&nbsp;- BREW 3.1</th>
+</tr>
+<tr>
+<th scope="row">서비스 요구사항</th>
+<th scope="row">호스팅 서비스</th>
+<td>&#8729;IT 서비스 프레임워크 :<br />
+&nbsp;&nbsp;- 서비스관리(KSXISO/IEC 20000)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">서비스 전달 프로토콜</th>
+<th scope="row" rowspan="3">전달 프로토콜</th>
+<th scope="row">&#8729;TCP/IP 상위 프로토콜 :<br />
+&nbsp;&nbsp;- TCP<br />
+&nbsp;&nbsp;- UDP</th>
+</tr>
+<tr>
+<th scope="row">&#8729;TCP/IP 하위 프로토콜 :<br />
+&nbsp;&nbsp;- IPv4<br />
+&nbsp;&nbsp;- IPv6</th>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 :<br />
+&nbsp;&nbsp;- IPSec</th>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>플랫폼 및 기반구조 분야</h4>
+<A NAME="#45124b68"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col" colspan="2">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="3">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템 운영에 사용되는 통신장비는 IPv4와 IPv6가 동시에 지원되는 장비를 채택하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;신규 도입되는 정보시스템은 에너지 절약형 전산장비 표준규격을 통과한 장비를 채택하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;하드웨어는 이기종간 연계가 가능하여야 하며, 특정 기능을 수행하는 임베디드 장치 및 주변<br />장치는 해당 장치가 설치되는 정보시스템과 호환성 및 확장성이 보장되어야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="7">네트워크</th>
+<th scope="row">LAN</th>
+<td>&#8729;CSMA/CD : - IEEE 802.x</td>
+</tr>
+<tr>
+<th scope="row" rowspan="5">가상멀티미디어회의</th>
+<th scope="row">&#8729;영상 회의 단말 시스템의 구성 : &nbsp;&nbsp;- H.320~H.324, H.310</th>
+</tr>
+<tr>
+<th scope="row">&#8729;데이터 회의 : &nbsp;&nbsp;- T.120</th>
+</tr>
+<tr>
+<th scope="row">&#8729;영상 압축 프로토콜 : &nbsp;&nbsp;- H.261~H.264</th>
+</tr>
+<tr>
+<th scope="row">&#8729;전송 제어 관련 프레임 구조 : &nbsp;&nbsp;- H.221, H.230, H.242</th>
+</tr>
+<tr>
+<th scope="row">&#8729;음성 압축 프로토콜 : &nbsp;&nbsp;- G.711, G.722, G.723, G.723.1, G.728, G.729A</th>
+</tr>
+<tr>
+<th scope="row">부가통신</th>
+<td>&#8729;VoIP : &nbsp;&nbsp;- H.323 &nbsp;&nbsp;- SIP</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">운영체제 및<br />기반 환경</th>
+<th scope="row">개방형 운영체제 및 기반환경</th>
+<td>&#8729;개방형 운영체제 &nbsp;&nbsp;- UNIX &nbsp;&nbsp;- POSIX &nbsp;&nbsp;- LINUX</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">무선용 운영체제 및 기반환경</th>
+<th scope="row">&#8729;무선용 운영체제 : &nbsp;&nbsp;- WIPI 1.1 &nbsp;&nbsp;- Embedded Linux</th>
+</tr>
+<tr>
+<th scope="row">&#8729;무선용 기반환경 : &nbsp;&nbsp;- J2ME 2.1</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">&#8729;DBMS : &nbsp;&nbsp;- RDBMS &nbsp;&nbsp;- ORDBMS &nbsp;&nbsp;- OODBMS &nbsp;&nbsp;- MMDBMS</th>
+</tr>
+<tr>
+<th scope="row">데이터베이스</th>
+<td>DBMS</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">서비스 제공 서버</th>
+<th scope="row" rowspan="2">웹서버</th>
+<th scope="row">&#8729;하이퍼텍스트 문서 교환 : - HTTP 1.1</th>
+</tr>
+<tr>
+<th scope="row">&#8729;콘텐츠 인식 : - URI</th>
+</tr>
+<tr>
+<th scope="row" rowspan="6">시스템 관리</th>
+<th scope="row">구성 및 변경관리</th>
+<td>&#8729;지침 : - 정보시스템운영관리지침(한국정보화진흥원) - 정보시스템이전관리지침(한국정보화진흥원) - 정보시스템구성및변경관리지침(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row">운영상태<br />관리</th>
+<td>&#8729;지침 : - 정보시스템운영상태관리지침(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row">성능관리</th>
+<td>&#8729;지침 : - 정보시스템성능관리지침(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row">장애관리</th>
+<td>&#8729;지침 : - 정보시스템장애관리지침(한국정보화진흥원) - 공공기관정보시스템을위한비상계획및재해복구에관한지침서 (TTAS.KO-12.009)</td>
+</tr>
+<tr>
+<th scope="row">백업관리</th>
+<td>&#8729;지침 : - 정보시스템백업지침(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row">서비스 수준관리</th>
+<td>&#8729;지침 : - SLA를강화한정보시스템운영계약참조모델(한국정보화진흥원) - 서비스데스크운영관리지침(한국정보화진흥원) - 전산실관리지침(한국정보화진흥원) - 정보시스템운영아웃소싱관리지침(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">소프트웨어 공학</th>
+<th scope="row">방법론</th>
+<td>&#8729;지침 : - 소프트웨어생명주기공정(KSXISO/IEC 12207) - 소프트웨어생명주기공정을위한지침(KSXISO/IEC 15271) - 시스템엔지니어링-시스템생명주기프로세스(KSXISO/IEC 15288)</td>
+</tr>
+<tr>
+<th scope="row">소프트웨어 품질 및 형상관리</th>
+<td>&#8729;지침 : - 소프트웨어제품평가(KSXISO/IEC 14598) - 소프트웨어제품품질(KSXISO/IEC 9126) - 소프트웨어생명주기공정-형상관리(KSXISO/IEC TR 15846)</td>
+</tr>
+<tr>
+<th scope="row">모델링</th>
+<td>&#8729;지침 : - CASE도구적용을위한지침(KSXISO/IEC TR 14471) &#8729;모델링 : - UML 2.0</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>요소기술 분야</h4>
+<A NAME="#45124b69"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col" colspan="2">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="3">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;응용서비스는 컴포넌트화하여 개발하는 것을 원칙으로 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;데이터는 데이터 공유 및 재사용, 데이터 교환, 데이터 품질 향상, 데이터베이스 통합 등을<br />위하여 표준화되어야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;행정정보의 공동활용에 필요한 행정코드는 행정표준코드를 준수하여야 하며 그렇지 못한<br />경우에는 행정기관등의 장이 그 사유를 행정안전부 장관에 보고하고 행정안전부의 “행정기관의<br />코드표준화 추진지침”에 따라 코드체계 및 코드를 생성하여 행정안전부에 표준 등록을 요청하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;패키지소프트웨어는 타 패키지소프트웨어 또는 타 정보시스템과의 연계를 위해 데이터베이스<br />사용이 투명해야 하며 다양한 유형의 인터페이스를 지원하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">데이터 표현</th>
+<th scope="row">&nbsp;정적표현</th>
+<td>&#8729;정적표현 :<br />
+&nbsp;&nbsp;- <a href="#">HTML 4.01</a></td>
+</tr>
+<tr>
+<th scope="row">&nbsp;동적표현</th>
+<td>&#8729;동적표현 :<br />
+&nbsp;&nbsp;- <a href="#">JSP 2.1</a><br />
+&nbsp;&nbsp;- <a href="#">ASP 3.0</a><br />
+&nbsp;&nbsp;- <a href="#">PHP 5.3</a></td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">프로그래밍</th>
+<th scope="row" rowspan="2">&nbsp;개방형 프로그래밍</th>
+<th scope="row">&#8729;프로그래밍 언어<br />
+&nbsp;&nbsp;- J2SE 5.0/6.0<br />
+&nbsp;&nbsp;- Java Servlet 2.5<br />
+&nbsp;&nbsp;- Java Script</th>
+</tr>
+<tr>
+<th scope="row">&#8729;개발 플랫폼 및 프레임워크<br />
+&nbsp;&nbsp;- J2EE 5<br />
+&nbsp;&nbsp;- EJB 3.1</th>
+</tr>
+<tr>
+<th scope="row">웹 프로그래밍</th>
+<td>&#8729;웹 프로그래밍 :<br />
+&nbsp;&nbsp;- XSL 1.1<br />
+&nbsp;&nbsp;- RDF<br />
+&nbsp;&nbsp;- XML 1.0<br />
+&nbsp;&nbsp;- WSDL 2.0<br />
+&nbsp;&nbsp;- DOM Level 2<br />
+&nbsp;&nbsp;- AJAX</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">데이터 교환</th>
+<th scope="row">데이터 교환 프로토콜</th>
+<td>&#8729;데이터 교환 :<br />
+&nbsp;&nbsp;- XMI<br />
+&nbsp;&nbsp;- SOAP 1.2</td>
+</tr>
+<tr>
+<th scope="row">데이터베이스<br />접근</th>
+<td>&#8729;데이터베이스 접근 :<br />
+&nbsp;&nbsp;- ODBC<br />
+&nbsp;&nbsp;- JDBC</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>인터페이스 및 통합 분야</h4>
+<A NAME="#45124b6a"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col" colspan="2">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="3">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템간 서비스의 연계 및 통합에는 웹서비스 적용을 검토하고, 개발된 웹서비스 중<br />타기관과 공유가 가능한 웹서비스는 범정부 차원의 공유·활용이 가능하도록 지원하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">서비스 통합</th>
+<th scope="row">웹 서비스</th>
+<td>&#8729;웹 서비스 : &nbsp;&nbsp;- SOAP 1.2 &nbsp;&nbsp;- XML 1.0 &nbsp;&nbsp;- WSDL 2.0 &nbsp;&nbsp;- UDDI 3.0</td>
+</tr>
+<tr>
+<th scope="row">비즈니스 프로세스 관리</th>
+<td>&#8729;비즈니스 프로세스 관리 : &nbsp;&nbsp;- UML 2.0 &nbsp;&nbsp;- ebXML &nbsp;&nbsp;- BPMN 1.0 &nbsp;&nbsp;- BPEL 2.0 &nbsp;&nbsp;- XPDL 2.0</td>
+</tr>
+<tr>
+<th scope="row">데이터 공유</th>
+<td>데이터 형식</td>
+<td>&#8729;데이터 형식 : &nbsp;&nbsp;- XML 1.0 &nbsp;&nbsp;- XML Schema 1.1 &nbsp;&nbsp;- XLink 1.0 &nbsp;&nbsp;- DTD</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">인터페이스</th>
+<th scope="row">서비스 발견</th>
+<td>&#8729;서비스 발견 : &nbsp;&nbsp;- UDDI 3.0</td>
+</tr>
+<tr>
+<th scope="row">서비스 명세 및 인터페이스</th>
+<td>&#8729;서비스 명세 : &nbsp;&nbsp;- WSDL 2.0</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>보안 분야</h4>
+<A NAME="#45124b6b"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col" colspan="2">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="3">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템의 보안을 위하여 위험분석을 통한 보안 계획을 수립하고 이를 적용하여야 한다.<br />이는 정보시스템의 구축 운영과 관련된 “서비스 접근 및 전달”, “플랫폼 및 기반구조”, “요소기술”<br />및 “인터페이스 및 통합” 분야를 모두 포함하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;보안이 중요한 서비스 및 데이터의 접근에 관련된 사용자 인증은 공인전자서명 또는 행정전자서명을<br />기반으로 하여야 한다.</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="5">관리적 보안</th>
+<th scope="row">보안 정책 및 지침</th>
+<td>&#8729;지침 : - 정보기술-보안기술-정보보안관리를위한실무지침 (KSXISO/IEC 17799) - 행정기관정보시스템접근권한관리규정(국무총리훈령) - 공공기관의개인정보보호에대한기본지침(행정안전부지침) - 행정전자서명인증업무지침(행정안전부훈령)</td>
+</tr>
+<tr>
+<th scope="row">보안 조직 구성 및 운영</th>
+<td>&#8729;지침 : - 정보보호수준평가방법(한국정보화진흥원)</td>
+</tr>
+<tr>
+<th scope="row">보안 운영 관리</th>
+<td>&#8729;지침 : - 정보보호관리체계수립지침(TTAS_KO-12.0036)</td>
+</tr>
+<tr>
+<th scope="row">준거성</th>
+<td>&#8729;지침 : - 공공기관정보시스템구축준비단계의 보안지침서 (TTAS_KO-12.0008) - 네트워크운영자를위한침입차단시스템선정지침 (TTAS_KO-12.0003/R1) - 악성코드감염예방을위한지침(TTAS_KO-12.0010/R1) - 자료보안관리지침(TTAS_KO-12.0074/R1) - 국가정보보안기본지침(대통령훈령(국가정보원)) - 정보시스템저장매체불용처리지침(국가정보원)</td>
+</tr>
+<tr>
+<th scope="row">일반통제</th>
+<td>&#8729;지침 : - 정보통신보안업무규정(행정안전부령)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">기술적 보안</th>
+<th scope="row" rowspan="3">네트워크 보안</th>
+<th scope="row">&#8729;지침 : &nbsp;&nbsp;- 가상사설망 보호프로파일(국가정보원) &nbsp;&nbsp;- 침입차단시스템 보호프로파일(국가정보원) &nbsp;&nbsp;- 네트워크 침입방지시스템보호프로파일(국가정보원) &nbsp;&nbsp;- 네트워크 스팸메일차단시스템보호프로파일(국가정보원) &nbsp;&nbsp;- 무선랜 인증시스템 보호프로파일(국가정보원) &nbsp;&nbsp;- 통합보안관리시스템 보호프로파일(국가정보원) &nbsp;&nbsp;- 국가·공공기관인터넷전화보안가이드라인(국가정보원) &nbsp;&nbsp;- 안전한정보통신환경구현을위한네트워크구축가이드라인(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;유선 : &nbsp;&nbsp;- SSH &nbsp;&nbsp;- IPSec</th>
+</tr>
+<tr>
+<th scope="row">&#8729;무선 : &nbsp;&nbsp;- SSID &nbsp;&nbsp;- WAP2 &nbsp;&nbsp;- Diameter</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">사용자 인증<br />및 권한관리</th>
+<th scope="row">&#8729;지침 : &nbsp;&nbsp;- 개방형 스마트카드 플랫폼보호프로파일(국가정보원) &nbsp;&nbsp;- 보호토큰보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;사용자 인증 및 권한관리 : &nbsp;&nbsp;- SSO &nbsp;&nbsp;- EAM &nbsp;&nbsp;- IAM</th>
+</tr>
+<tr>
+<th scope="row" rowspan="4">암호화 기술</th>
+<th scope="row">&#8729;지침 : &nbsp;&nbsp;- 전자서명인증체계기술규격(한국정보보호진흥원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 : &nbsp;&nbsp;- SSL 3.0 &nbsp;&nbsp;- TLS 1.0 &nbsp;&nbsp;- sRTP &nbsp;&nbsp;- IPSec</th>
+</tr>
+<tr>
+<th scope="row">&#8729;암호화 알고리즘 : &nbsp;&nbsp;- 3DES &nbsp;&nbsp;- AES &nbsp; - SEED &nbsp; - RSA &nbsp; - ARIA</th>
+</tr>
+<tr>
+<th scope="row">&#8729;메일 암호화 : &nbsp;&nbsp;- S/MIME 3</th>
+</tr>
+<tr>
+<th scope="row" rowspan="2">데이터 보안</th>
+<th scope="row">&#8729;접근 제어 : &nbsp;&nbsp;- DAC</th>
+</tr>
+<tr>
+<th scope="row">&#8729;문서 분배 : &nbsp;&nbsp;- DRM</th>
+</tr>
+<tr>
+<th scope="row">물리적 보안</th>
+<td>방재 및 내부 설비</td>
+<td>&#8729;방재 시설 : - UPS - 하론소화설비</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h3>&lt;별지 제1호 서식&gt; 기술평가 검토서식</h3>
+<br />
+<h4>기술평가 검토서식</h4>
+<A NAME="#45124b6c"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" colspan="3">기술평가 항목 및 검토결과서</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">평가분야</th>
+<td colspan="2">상호운용성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+<td>검토결과<SUP></SUP></TD>
+</tr>
+<tr>
+<th scope="row" rowspan="3">기술적 요구사항 정의의 적절성</th>
+<th scope="row">●<A NAME=#80000000></A>정보시스템에 대한 기술적 요구사항을 검토하였는가?</th>
+<td>ㅇ 검토여부 :<SUP></SUP>
+ㅇ 검토내용 :</TD>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>현행 정보시스템의 기술환경을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>신규 구축 또는 개선될 정보시스템의 기술환경을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">타 정보시스템과의 연계성</th>
+<th scope="row">●<A NAME=#80000000></A>타 정보시스템과의 연계를 위한 필요성을 파악하고 연계대상 정보시스템을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>식별된 정보시스템간 연계방식을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보시스템 통합성</th>
+<th scope="row">●<A NAME=#80000000></A>기존 또는 타 정보시스템과의 통합 필요성을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>통합에 필요한 방법 및 절차를 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td colspan="2">정보의 공동활용</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+<td>검토결과</td>
+</tr>
+<tr>
+<th scope="row">데이터 식별</th>
+<td>●<A NAME=#80000000></A>공동활용 대상 데이터 또는 서비스를 식별하고, 공동활용 데이터 또는 서비스의 기술환경을 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">데이터 표준화</th>
+<td>●<A NAME=#80000000></A>공동활용 데이터의 표준화 요소와 관련 지침을 식별하고 표준화 방안을 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보공동활용 체계 구축 및 활용</th>
+<th scope="row">●<A NAME=#80000000></A>공동활용 데이터의 제공대상, 제공범위, 제공방식 등을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>공동활용 데이터의 접근 및 공개 수준을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">데이터의<br />안전성 및 신뢰성</th>
+<td>●<A NAME=#80000000></A>공동활용 데이터의 안전 및 신뢰성을 확보하기 위한 방안을 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td colspan="2">정보시스템의 효율성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+<td>검토결과</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">정보시스템 용량산정 및 성능</th>
+<th scope="row">●<A NAME=#80000000></A>정보시스템의 사용자수, 응답시간, 데이터량 등을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>정보시스템의 사용환경과 구성요소의 용량산정이 확장성을 고려하였는지 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">정보시스템 운영 및 유지보수</th>
+<th scope="row">●<A NAME=#80000000></A>정보시스템의 운영관리 및 유지보수에 필요한 절차, 조직, 계획, 지침 등을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>개발 산출물(최종산출물, 개발 소프트웨어)의 저작권을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">●<A NAME=#80000000></A>시스템 업그레이드 및 패치 용이성 등을 검토하였는가?</th>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td colspan="2">정보접근을 위한 기술적 편의성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+<td>검토결과</td>
+</tr>
+<tr>
+<th scope="row">접근 다양성</th>
+<td>●<A NAME=#80000000></A>정보접근을 위한 다양한 제공방식을 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">접근 편의성</th>
+<td>●<A NAME=#80000000></A>시스템 사용의 편리성을 제고하기 위한 교육 및 매뉴얼 작성을 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+<tr>
+<th scope="row">평가분야</th>
+<td colspan="2">정보시스템 구축&#8228;운영 기술의 적합성</td>
+</tr>
+<tr>
+<th scope="row">평가항목</th>
+<td>세부 평가항목</td>
+<td>검토결과</td>
+</tr>
+<tr>
+<th scope="row">정보시스템 구축·운영 기술의 적합성</th>
+<td>●<A NAME=#80000000></A>정보시스템의 구축·운영 기술 지침의 &lt;별지 제2호 서식&gt; 기술적용계획표를 작성 및 검토하였는가?</TD>
+<td>ㅇ 검토여부 : ㅇ 검토내용 :</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+※ 검토여부에는 ‘검토’, ‘해당없음’ 중 하나를 기재하되, 검토내용에는 ‘검토’한 경우에는 기술적<br />분석사항을, ‘해당없음’인 경우에는 사유 등이 포함된 세부내용을 기재함
+&lt;별지 제2호 서식&gt; 기술적용계획표
+<br />
+
+<A NAME="#45124b6d"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" colspan="2">기술적용계획표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">사업명</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">작성일</th>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>법률 및 고시</h4>
+<A NAME="#45124b6e"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="2">법률 및 고시</th>
+</tr>
+<tr>
+<th scope="row">법률 / 시행령 /<br />시행규칙</th>
+<td>&#8729;공공기관의개인정보보호에관한법률 &#8729;국가정보화기본법 &#8729;소프트웨어산업진흥법 &#8729;인터넷주소자원에관한법률 &#8729;전자서명법 &#8729;전자정부법 &#8729;정보시스템의효율적도입및운영등에관한법률 &#8729;정보통신기반보호법 &#8729;정보통신망이용촉진및정보보호등에관한법률 &#8729;통신비밀보호법</td>
+</tr>
+<tr>
+<th scope="row">고시</th>
+<td>&#8729;개인정보의기술적·관리적보호조치기준 &#8729;도메인이름관리준칙 &#8729;소프트웨어사업대가기준 &#8729;소프트웨어품질인증기준 &#8729;장애인노인등의정보통신접근성향상을위한권장지침 &#8729;전자정부웹표준준수지침 &#8729;정보보호관리체계인증에관한고시 &#8729;정보보호시스템공동평가기준 &#8729;정보보호시스템평가·인증지침 &#8729;정보시스템감리기준 &#8729;정보시스템의구축·운영기술지침 &#8729;정보통신서비스정보보호지침 &#8729;행정기관도메인명및IP주소체계표준</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>서비스 접근 및 전달 분야</h4>
+<A NAME="#45124b6f"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 계획</th>
+<th scope="col" rowspan="2">부분적용/ 미적용시 : 사유 및 대체기술</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;대민서비스용 정보시스템은 사용자가 다양한 브라우저 환경에서 서비스를 이용할 수 있도록 표준기술을 준수하여야 하고, 장애인, 저사양 컴퓨터 사용자 등 서비스 이용 소외계층을 고려한 설계·구현을 검토하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="21">□ 외부 접근 &nbsp;&nbsp;&nbsp;장치</th>
+<th scope="row" rowspan="12">□ 웹 브라우저</th>
+<th scope="row">&#8729;웹페이지 제작 언어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- HTML 4.01</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XHTML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;스타일 시트 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- CSS 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - XSL 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;클라이언트 측 스크립트 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - ECMAScript</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;장애인의 이용가능성 제공 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 인터넷웹콘텐츠접근성지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KICS.OT-10.0003)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="9">□ 모바일/ &nbsp;&nbsp;무선채널</th>
+<th scope="row">&#8729;개발 언어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2ME 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XHTML MP 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WAP 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;모바일 플랫폼 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WIPI 2.0.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BREW 3.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">□ 서비스<br />&nbsp;&nbsp; 요구사항</th>
+<th scope="row" rowspan="2">호스팅서비스</th>
+<th scope="row">&#8729;IT 서비스 프레임워크 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 서비스관리(KSXISO/IEC 20000)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 서비스전달 &nbsp;&nbsp;&nbsp;프로토콜</th>
+<th scope="row" rowspan="8">전달 프로토콜</th>
+<th scope="row">&#8729;TCP/IP 상위 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- TCP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;TCP/IP 하위 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPv4</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPv6</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>플랫폼 및 기반구조 분야</h4>
+<A NAME="#45124b70"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 계획</th>
+<th scope="col" rowspan="2">부분적용/ 미적용시 : 사유 및 대체기술</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템 운영에 사용되는 통신장비는 IPv4와 IPv6가 동시에 지원되는 장비를 채택하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;신규 도입되는 정보시스템은 에너지 절약형 전산장비 표준규격을 통과한 장비를 채택하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;하드웨어는 이기종간 연계가 가능하여야 하며, 특정 기능을 수행하는 임베디드 장치 및 주변 장치는 해당 장치가 설치되는 정보시스템과 호환성 및 확장성이 보장되어야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="16">□ 네트워크</th>
+<th scope="row" rowspan="2">□ LAN</th>
+<th scope="row">&#8729;CSMA/CD :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- IEEE 802.x</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">&nbsp;&nbsp;□&nbsp; 가상 &nbsp;&nbsp;&nbsp;멀티미디어 &nbsp;&nbsp; 회의</th>
+<th scope="row">&#8729;영상 회의 단말 시스템의 구성 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.320~H.324, H.310</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;데이터 회의 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- T.120</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;영상 압축 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.261~H.264</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;음성 압축 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;- G.711, G.722, G.723, G.723.1,</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; G.728, G.729A</th>
+</tr>
+<tr>
+<th scope="row">&#8729;전송 제어 관련 프레임 구조 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.221, H.230, H.242</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 부가통신</th>
+<th scope="row">&#8729;VoIP :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.323</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SIP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="10">□ 운영체제 및<br />&nbsp;&nbsp; 기반 환경</th>
+<th scope="row" rowspan="4">□ 개방형 &nbsp;&nbsp;운영체제 및 &nbsp;&nbsp;기반환경</th>
+<th scope="row">&#8729;개방형 운영체제</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UNIX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- POSIX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- LINUX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 무선용 &nbsp;&nbsp;운영체제 및&nbsp; &nbsp;&nbsp;기반환경</th>
+<th scope="row">&#8729;무선용 운영체제 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WIPI 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Embedded Linux</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;무선용 기반환경 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2ME 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">&#8729;DBMS :</th>
+<th scope="row" rowspan="2" colspan="5">&nbsp;</th>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 데이터<br />&nbsp;&nbsp; 베이스</th>
+<th scope="row" rowspan="5">DBMS</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- RDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ORDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- OODBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- MMDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 서비스 &nbsp;&nbsp;&nbsp;제공 서버</th>
+<th scope="row" rowspan="4">웹서버</th>
+<th scope="row">&#8729;하이퍼텍스트 문서 교환 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- HTTP 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;콘텐츠 인식 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- URI</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="30">□ 시스템 &nbsp;&nbsp;&nbsp;관리</th>
+<th scope="row" rowspan="7">□ 구성 및 &nbsp;&nbsp;&nbsp;변경관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템이전관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템구성및변경관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 운영상태<br />&nbsp;&nbsp; 관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영상태관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 성능관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템성능관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 장애관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템장애관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 공공기관정보시스템을위한비상</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">계획및재해복구에관한지침서</th>
+</tr>
+<tr>
+<th scope="row">(TTAS.KO-12.009)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 백업관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템백업지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 서비스 &nbsp;&nbsp;&nbsp;수준관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- SLA를강화한정보시스템운영</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">계약참조모델(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 서비스데스크운영관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 전산실관리지침(한국정보화진흥원)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영아웃소싱관리</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">지침(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="19">□ 소프트웨어 &nbsp;&nbsp;&nbsp;공학</th>
+<th scope="row" rowspan="7">□ 방법론</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 12207)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정을위한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">지침(KSXISO/IEC 15271)</th>
+</tr>
+<tr>
+<th scope="row">- 시스템엔지니어링-시스템생명주기</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">프로세스(KSXISO/IEC 15288)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="7">□ 소프트웨어 &nbsp;&nbsp;&nbsp;품질 및 &nbsp;&nbsp;&nbsp;형상관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어제품평가</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 14598)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어제품품질</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 9126)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정-형상관리</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC TR 15846)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 모델링</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- CASE도구적용을위한지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC TR 14471)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;모델링 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- UML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>요소기술 분야</h4>
+<A NAME="#45124b71"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 계획</th>
+<th scope="col" rowspan="2">부분적용/ 미적용시 : 사유 및 대체기술</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;응용서비스는 컴포넌트화하여 개발하는 것을 원칙으로 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;데이터는 데이터 공유 및 재사용, 데이터 교환, 데이터 품질 향상, 데이터베이스 통합 등을 위하여 표준화되어야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;행정정보의 공동활용에 필요한 행정코드는 행정표준코드를 준수하여야 하며 그렇지 못한 경우에는 행정기관등의 장이 그 사유를 행정안전부 장관에 보고하고 행정안전부의 “행정기관의 코드표준화 추진지침”에 따라 코드체계 및 코드를 생성하여 행정안전부에 표준 등록을 요청하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;패키지소프트웨어는 타 패키지소프트웨어 또는 타 정보시스템과의 연계를 위해 데이터베이스 사용이 투명해야 하며 다양한 유형의 인터페이스를 지원하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 데이터 &nbsp;&nbsp;&nbsp;표현</th>
+<th scope="row" rowspan="2">□ 정적표현</th>
+<th scope="row">&#8729;정적표현 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- HTML 4.01</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 동적표현</th>
+<th scope="row">&#8729;동적표현 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- JSP 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ASP 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- PHP 5.3</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="14">□ 프로그래밍</th>
+<th scope="row" rowspan="7">□ 개방형 &nbsp;&nbsp;&nbsp;프로그래밍</th>
+<th scope="row">&#8729;프로그래밍 언어</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2SE 5.0/6.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Java Servlet 2.5</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Java Script</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;개발 플랫폼 및 프레임워크</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2EE 5</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- EJB 3.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="7">&nbsp;&nbsp;&nbsp;□&nbsp; 웹 &nbsp;&nbsp;&nbsp;프로그래밍</th>
+<th scope="row">&#8729;웹 프로그래밍 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XSL 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- RDF</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DOM Level 2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- AJAX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 데이터 &nbsp;&nbsp;&nbsp;교환</th>
+<th scope="row" rowspan="3">□ 데이터 교환 &nbsp;&nbsp;&nbsp;프로토콜</th>
+<th scope="row">&#8729;데이터 교환 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XMI</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SOAP 1.2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 데이터베이스 &nbsp;&nbsp;&nbsp;접근</th>
+<th scope="row">&#8729;데이터베이스 접근 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ODBC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- JDBC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>인터페이스 및 통합 분야</h4>
+<A NAME="#45124b72"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 계획</th>
+<th scope="col" rowspan="2">부분적용/ 미적용시 : 사유 및 대체기술</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템간 서비스의 연계 및 통합에는 웹서비스 적용을 검토하고, 개발된 웹서비스 중 타기관과 공유가 가능한 웹서비스는 범정부 차원의 공유·활용이 가능하도록 지원하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="11">□ 서비스<br />&nbsp;&nbsp; 통합</th>
+<th scope="row" rowspan="5">□ 웹 서비스</th>
+<th scope="row">&#8729;웹 서비스 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SOAP 1.2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDDI 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 비즈니스 &nbsp;&nbsp;&nbsp;프로세스 관리</th>
+<th scope="row">&#8729;비즈니스 프로세스 관리 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ebXML</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BPMN 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BPEL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XPDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 데이터 &nbsp;&nbsp;&nbsp;공유</th>
+<th scope="row" rowspan="5">데이터 형식</th>
+<th scope="row">&#8729;데이터 형식 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML Schema 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XLink 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DTD</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 인터페이스</th>
+<th scope="row" rowspan="2">□ 서비스 &nbsp;&nbsp;&nbsp;발견</th>
+<th scope="row">&#8729;서비스 발견 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDDI 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">□ 서비스 명세 &nbsp;&nbsp;&nbsp;및 인터페이스</th>
+<th scope="row">&#8729;서비스 명세 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>보안 분야</h4>
+<A NAME="#45124b73"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 계획</th>
+<th scope="col" rowspan="2">부분적용/ 미적용시 : 사유 및 대체기술</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템의 보안을 위하여 위험분석을 통한 보안 계획을 수립하고 이를 적용하여야 한다. 이는 정보시스템의 구축 운영과 관련된 “서비스 접근 및 전달”, “플랫폼 및 기반구조”, “요소기술” 및 “인터페이스 및 통합” 분야를 모두 포함하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;보안이 중요한 서비스 및 데이터의 접근에 관련된 사용자 인증은 공인전자서명 또는 행정전자서명을 기반으로 하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="34">□ 관리적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="10">□ 보안 정책 &nbsp;&nbsp;&nbsp;및 지침</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보기술-보안기술-정보보안</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">관리를위한실무지침</th>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 17799)</th>
+</tr>
+<tr>
+<th scope="row">- 행정기관정보시스템접근권한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">관리규정(국무총리훈령)</th>
+</tr>
+<tr>
+<th scope="row">- 공공기관의개인정보보호에</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">대한기본지침(행정안전부지침)</th>
+</tr>
+<tr>
+<th scope="row">- 행정전자서명인증업무지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(행정안전부훈령)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 보안 조직 &nbsp;&nbsp;&nbsp;구성 및 운영</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보보호수준평가방법</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 보안 운영 &nbsp;&nbsp;&nbsp;관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보보호관리체계수립지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0036)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="15">□ 준거성</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 공공기관정보시스템구축준비</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">단계의 보안지침서</th>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0008)</th>
+</tr>
+<tr>
+<th scope="row">- 네트워크운영자를위한침입</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">차단시스템선정지침</th>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0003/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 악성코드감염예방을위한지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0010/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 자료보안관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0074/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 국가정보보안기본지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(대통령훈령(국가정보원))</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템저장매체불용처리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 일반통제</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보통신보안업무규정</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(행정안전부령)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="53">□ 기술적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="24">□ 네트워크 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 가상사설망 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 침입차단시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 네트워크 침입방지시스템</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 네트워크 스팸메일차단시스템</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 무선랜 인증시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 통합보안관리시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 국가·공공기관인터넷전화보안</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">가이드라인(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 안전한정보통신환경구현을위한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">네트워크구축가이드라인(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;유선 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSH</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;무선 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSID</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WAP2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Diameter</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 사용자 &nbsp;&nbsp;&nbsp;인증 및 &nbsp;&nbsp;&nbsp;권한관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 개방형 스마트카드 플랫폼</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 보호토큰보호프로파일(국가정보원)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;사용자 인증 및 권한관리 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSO</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- EAM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IAM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="16">□ 암호화 &nbsp;&nbsp;&nbsp;기술</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 전자서명인증체계기술규격</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보보호진흥원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSL 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- TLS 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- sRTP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;암호화 알고리즘 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 3DES</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- AES</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - SEED</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - RSA</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - ARIA</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;메일 암호화 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- S/MIME 3</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 데이터 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row">&#8729;접근 제어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DAC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;문서 분배 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DRM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">&#8729;방재 시설 :</th>
+<th scope="row" rowspan="2" colspan="5">&nbsp;</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 물리적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="3">방재 및 내부 설비</th>
+</tr>
+<tr>
+<th scope="row">- UPS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 하론소화설비</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<h3>&lt;별지 제3호 서식&gt; 기술적용결과표</h3>
+<br />
+<A NAME="#45124b74"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" colspan="2">기술적용결과표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">사업명</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">작성일</th>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>법률 및 고시</h4>
+<A NAME="#45124b75"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">항 목</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="2">법률 및 고시</th>
+</tr>
+<tr>
+<th scope="row">법률 / 시행령 /<br />시행규칙</th>
+<td>&#8729;공공기관의개인정보보호에관한법률 &#8729;국가정보화기본법 &#8729;소프트웨어산업진흥법 &#8729;인터넷주소자원에관한법률 &#8729;전자서명법 &#8729;전자정부법 &#8729;정보시스템의효율적도입및운영등에관한법률 &#8729;정보통신기반보호법 &#8729;정보통신망이용촉진및정보보호등에관한법률 &#8729;통신비밀보호법</td>
+</tr>
+<tr>
+<th scope="row">고시</th>
+<td>&#8729;개인정보의기술적·관리적보호조치기준 &#8729;도메인이름관리준칙 &#8729;소프트웨어사업대가기준 &#8729;소프트웨어품질인증기준 &#8729;장애인노인등의정보통신접근성향상을위한권장지침 &#8729;전자정부웹표준준수지침 &#8729;정보보호관리체계인증에관한고시 &#8729;정보보호시스템공동평가기준 &#8729;정보보호시스템평가·인증지침 &#8729;정보시스템감리기준 &#8729;정보시스템의구축·운영기술지침 &#8729;정보통신서비스정보보호지침 &#8729;행정기관도메인명및IP주소체계표준</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>서비스 접근 및 전달 분야</h4>
+<A NAME="#45124b76"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 결과</th>
+<th scope="col" rowspan="2">적용결과 확인 가능 산출물명<br />및 페이지 (부분적용/미적용시는 사유)</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;대민서비스용 정보시스템은 사용자가 다양한 브라우저 환경에서 서비스를 이용할 수 있도록 표준기술을 준수하여야 하고, 장애인, 저사양 컴퓨터 사용자 등 서비스 이용 소외계층을 고려한 설계·구현을 검토하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="21">□ 외부 접근 장치</th>
+<th scope="row" rowspan="12">□ 웹 브라우저</th>
+<th scope="row">&#8729;웹페이지 제작 언어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- HTML 4.01</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XHTML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;스타일 시트 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- CSS 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - XSL 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;클라이언트 측 스크립트 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - ECMAScript</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;장애인의 이용가능성 제공 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 인터넷웹콘텐츠접근성지침</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KICS.OT-10.0003)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="9">□ 모바일/ &nbsp;&nbsp;무선채널</th>
+<th scope="row">&#8729;개발 언어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2ME 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XHTML MP 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WAP 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;모바일 플랫폼 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WIPI 2.0.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BREW 3.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">□ 서비스 &nbsp;&nbsp;&nbsp;요구사항</th>
+<th scope="row" rowspan="2">호스팅서비스</th>
+<th scope="row">&#8729;IT 서비스 프레임워크 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 서비스관리(KSXISO/IEC 20000)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 서비스전달 &nbsp;&nbsp;&nbsp;프로토콜</th>
+<th scope="row" rowspan="8">전달 프로토콜</th>
+<th scope="row">&#8729;TCP/IP 상위 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- TCP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;TCP/IP 하위 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPv4</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPv6</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>플랫폼 및 기반구조 분야</h4>
+<A NAME="#4675e349"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 결과</th>
+<th scope="col" rowspan="2">적용결과 확인 가능 산출물명 및 페이지 (부분적용/미적용시는 사유)</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템 운영에 사용되는 통신장비는 IPv4와 IPv6가 동시에 지원되는 장비를 채택하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;신규 도입되는 정보시스템은 에너지 절약형 전산장비 표준규격을 통과한 장비를 채택하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;하드웨어는 이기종간 연계가 가능하여야 하며, 특정 기능을 수행하는 임베디드 장치 및 주변 장치는 해당 장치가 설치되는 정보시스템과 호환성 및 확장성이 보장되어야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="16">□ 네트워크</th>
+<th scope="row" rowspan="2">□ LAN</th>
+<th scope="row">&#8729;CSMA/CD :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- IEEE 802.x</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="11">&nbsp;&nbsp;□&nbsp; 가상 &nbsp;&nbsp;&nbsp;멀티미디어 &nbsp;&nbsp;&nbsp;회의</th>
+<th scope="row">&#8729;영상 회의 단말 시스템의 구성 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.320~H.324, H.310</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;데이터 회의 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- T.120</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;영상 압축 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.261~H.264</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;음성 압축 프로토콜 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;- G.711, G.722, G.723, G.723.1,</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; G.728, G.729A</th>
+</tr>
+<tr>
+<th scope="row">&#8729;전송 제어 관련 프레임 구조 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.221, H.230, H.242</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 부가통신</th>
+<th scope="row">&#8729;VoIP :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- H.323</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SIP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="10">□ 운영체제 및<br />&nbsp;&nbsp; 기반 환경</th>
+<th scope="row" rowspan="4">□ 개방형 &nbsp;&nbsp;&nbsp;운영체제 및 &nbsp;&nbsp;&nbsp;기반환경</th>
+<th scope="row">&#8729;개방형 운영체제</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UNIX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- POSIX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- LINUX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 무선용 &nbsp;&nbsp;운영체제 및 &nbsp;&nbsp;&nbsp;기반환경</th>
+<th scope="row">&#8729;무선용 운영체제 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WIPI 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Embedded Linux</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;무선용 기반환경 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2ME 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">&#8729;DBMS :</th>
+<th scope="row" rowspan="2" colspan="5">&nbsp;</th>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 데이터 &nbsp;&nbsp;&nbsp;베이스</th>
+<th scope="row" rowspan="5">DBMS</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- RDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ORDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- OODBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- MMDBMS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 서비스 &nbsp;&nbsp;&nbsp;제공 서버</th>
+<th scope="row" rowspan="4">웹서버</th>
+<th scope="row">&#8729;하이퍼텍스트 문서 교환 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- HTTP 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;콘텐츠 인식 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- URI</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="30">□ 시스템 &nbsp;&nbsp;&nbsp;관리</th>
+<th scope="row" rowspan="7">□ 구성 및 &nbsp;&nbsp;&nbsp;변경관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템이전관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템구성및변경관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 운영상태<br />&nbsp;&nbsp; 관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영상태관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 성능관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템성능관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 장애관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템장애관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 공공기관정보시스템을위한비상</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">계획및재해복구에관한지침서</th>
+</tr>
+<tr>
+<th scope="row">(TTAS.KO-12.009)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 백업관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템백업지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 서비스 &nbsp;&nbsp;&nbsp;수준관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- SLA를강화한정보시스템운영</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">계약참조모델(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 서비스데스크운영관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row">- 전산실관리지침(한국정보화진흥원)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보시스템운영아웃소싱관리</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">지침(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="19">□ 소프트웨어 &nbsp;&nbsp;&nbsp;공학</th>
+<th scope="row" rowspan="7">□ 방법론</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 12207)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정을위한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">지침(KSXISO/IEC 15271)</th>
+</tr>
+<tr>
+<th scope="row">- 시스템엔지니어링-시스템생명주기</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">프로세스(KSXISO/IEC 15288)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="7">□ 소프트웨어 &nbsp;&nbsp;&nbsp;품질 및 &nbsp;&nbsp;&nbsp;형상관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어제품평가</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 14598)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어제품품질</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 9126)</th>
+</tr>
+<tr>
+<th scope="row">- 소프트웨어생명주기공정-형상관리</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC TR 15846)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 모델링</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- CASE도구적용을위한지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC TR 14471)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;모델링 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- UML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>요소기술 분야</h4>
+<A NAME="#45124b78"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 결과</th>
+<th scope="col" rowspan="2">적용결과 확인 가능 산출물명<br />및 페이지 (부분적용/미적용시는 사유)</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;응용서비스는 컴포넌트화하여 개발하는 것을 원칙으로 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;데이터는 데이터 공유 및 재사용, 데이터 교환, 데이터 품질 향상, 데이터베이스 통합 등을 위하여 표준화되어야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;행정정보의 공동활용에 필요한 행정코드는 행정표준코드를 준수하여야 하며 그렇지 못한 경우에는 행정기관등의 장이 그 사유를 행정안전부 장관에 보고하고 행정안전부의 “행정기관의 코드표준화 추진지침”에 따라 코드체계 및 코드를 생성하여 행정안전부에 표준 등록을 요청하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;패키지소프트웨어는 타 패키지소프트웨어 또는 타 정보시스템과의 연계를 위해 데이터베이스 사용이 투명해야 하며 다양한 유형의 인터페이스를 지원하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 데이터 &nbsp;&nbsp;&nbsp;표현</th>
+<th scope="row" rowspan="2">□ 정적표현</th>
+<th scope="row">&#8729;정적표현 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- HTML 4.01</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 동적표현</th>
+<th scope="row">&#8729;동적표현 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- JSP 2.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ASP 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- PHP 5.3</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="14">□ 프로그래밍</th>
+<th scope="row" rowspan="7">□ 개방형 &nbsp;&nbsp;&nbsp;프로그래밍</th>
+<th scope="row">&#8729;프로그래밍 언어</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2SE 5.0/6.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Java Servlet 2.5</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Java Script</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;개발 플랫폼 및 프레임워크</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- J2EE 5</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- EJB 3.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="7">□&nbsp; 웹 &nbsp;&nbsp;&nbsp;프로그래밍</th>
+<th scope="row">&#8729;웹 프로그래밍 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XSL 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- RDF</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DOM Level 2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- AJAX</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 데이터 &nbsp;&nbsp;&nbsp;교환</th>
+<th scope="row" rowspan="3">□ 데이터 교환 &nbsp;&nbsp;&nbsp;프로토콜</th>
+<th scope="row">&#8729;데이터 교환 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XMI</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SOAP 1.2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 데이터베이스<br />&nbsp;&nbsp; 접근</th>
+<th scope="row">&#8729;데이터베이스 접근 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ODBC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- JDBC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>인터페이스 및 통합 분야</h4>
+<A NAME="#45124b79"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 결과</th>
+<th scope="col" rowspan="2">적용결과 확인 가능 산출물명<br />및 페이지 (부분적용/미적용시는 사유)</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템간 서비스의 연계 및 통합에는 웹서비스 적용을 검토하고, 개발된 웹서비스 중 타기관과 공유가 가능한 웹서비스는 범정부 차원의 공유·활용이 가능하도록 지원하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="11">□ 서비스 &nbsp;&nbsp;&nbsp;통합</th>
+<th scope="row" rowspan="5">□ 웹 서비스</th>
+<th scope="row">&#8729;웹 서비스 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SOAP 1.2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDDI 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="6">□ 비즈니스 &nbsp;&nbsp; 프로세스 관리</th>
+<th scope="row">&#8729;비즈니스 프로세스 관리 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UML 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- ebXML</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BPMN 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- BPEL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XPDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="5">□ 데이터 &nbsp;&nbsp;&nbsp;공유</th>
+<th scope="row" rowspan="5">데이터 형식</th>
+<th scope="row">&#8729;데이터 형식 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XML Schema 1.1</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- XLink 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DTD</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 인터페이스</th>
+<th scope="row" rowspan="2">□ 서비스 &nbsp;&nbsp;&nbsp;발견</th>
+<th scope="row">&#8729;서비스 발견 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- UDDI 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="2">□ 서비스 명세 &nbsp;&nbsp;&nbsp;및 인터페이스</th>
+<th scope="row">&#8729;서비스 명세 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WSDL 2.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4>보안 분야</h4>
+<A NAME="#4675e34a"></A>
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col" rowspan="2">구분</th>
+<th scope="col" rowspan="2" colspan="2">항 목</th>
+<th scope="col" colspan="4">적용 결과</th>
+<th scope="col" rowspan="2">적용결과 확인 가능 산출물명 및 페이지 (부분적용/미적용시는 사유)</th>
+</tr>
+<tr>
+<th scope="col">적용</th>
+<th scope="col">부분 적용</th>
+<th scope="col">미 적용</th>
+<th scope="col">해당 없음</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" colspan="8">기본 지침</th>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;정보시스템의 보안을 위하여 위험분석을 통한 보안 계획을 수립하고 이를 적용하여야 한다. 이는 정보시스템의 구축 운영과 관련된 “서비스 접근 및 전달”, “플랫폼 및 기반구조”, “요소기술” 및 “인터페이스 및 통합” 분야를 모두 포함하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="3">&#8729;보안이 중요한 서비스 및 데이터의 접근에 관련된 사용자 인증은 공인전자서명 또는 행정전자서명을 기반으로 하여야 한다.</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" colspan="8">세부 기술 지침</th>
+</tr>
+<tr>
+<th scope="row" rowspan="34">□ 관리적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="10">□ 보안 정책 &nbsp;&nbsp;&nbsp;및 지침</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보기술-보안기술-정보보안</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">관리를위한실무지침</th>
+</tr>
+<tr>
+<th scope="row">(KSXISO/IEC 17799)</th>
+</tr>
+<tr>
+<th scope="row">- 행정기관정보시스템접근권한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">관리규정(국무총리훈령)</th>
+</tr>
+<tr>
+<th scope="row">- 공공기관의개인정보보호에</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">대한기본지침(행정안전부지침)</th>
+</tr>
+<tr>
+<th scope="row">- 행정전자서명인증업무지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(행정안전부훈령)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 보안 조직 &nbsp;&nbsp;&nbsp;구성 및 운영</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보보호수준평가방법</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보화진흥원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 보안 운영 &nbsp;&nbsp;&nbsp;관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보보호관리체계수립지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0036)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="15">□ 준거성</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 공공기관정보시스템구축준비</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">단계의 보안지침서</th>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0008)</th>
+</tr>
+<tr>
+<th scope="row">- 네트워크운영자를위한침입</th>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+<td rowspan="3">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">차단시스템선정지침</th>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0003/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 악성코드감염예방을위한지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0010/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 자료보안관리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(TTAS_KO-12.0074/R1)</th>
+</tr>
+<tr>
+<th scope="row">- 국가정보보안기본지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(대통령훈령(국가정보원))</th>
+</tr>
+<tr>
+<th scope="row">- 정보시스템저장매체불용처리지침</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 일반통제</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 정보통신보안업무규정</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(행정안전부령)</th>
+</tr>
+<tr>
+<th scope="row" rowspan="52">□ 기술적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="24">□ 네트워크 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 가상사설망 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 침입차단시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 네트워크 침입방지시스템</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 네트워크 스팸메일차단시스템</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 무선랜 인증시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 통합보안관리시스템 보호프로파일</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 국가·공공기관인터넷전화보안</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">가이드라인(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 안전한정보통신환경구현을위한</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">네트워크구축가이드라인(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;유선 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSH</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;무선 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSID</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- WAP2</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- Diameter</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="8">□ 사용자 &nbsp;&nbsp;&nbsp;인증 및 &nbsp;&nbsp;&nbsp;권한관리</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 개방형 스마트카드 플랫폼</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">보호프로파일(국가정보원)</th>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 보호토큰보호프로파일(국가정보원)</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;사용자 인증 및 권한관리 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSO</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- EAM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IAM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="16">□ 암호화 &nbsp;&nbsp;&nbsp;기술</th>
+<th scope="row">&#8729;지침 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 전자서명인증체계기술규격</th>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+<td rowspan="2">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">(한국정보보호진흥원)</th>
+</tr>
+<tr>
+<th scope="row">&#8729;통신 보안 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- SSL 3.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- TLS 1.0</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- sRTP</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- IPSec</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;암호화 알고리즘 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- 3DES</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- AES</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - SEED</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - RSA</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp; - ARIA</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;메일 암호화 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- S/MIME 3</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">□ 데이터 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row">&#8729;접근 제어 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DAC</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&#8729;문서 분배 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">&nbsp;&nbsp;- DRM</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">□ 물리적 &nbsp;&nbsp;&nbsp;보안</th>
+<th scope="row" rowspan="3">방재 및 내부 설비</th>
+<th scope="row">&#8729;방재 시설 :</th>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- UPS</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">- 하론소화설비</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<!-- document end -->
+
+<br /><br /><br />
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '제8회 웹 접근성 품질마크 전문가심사 보고서 분석',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css" title="myshin_css">
+body { margin: 20px; color: #000; font-size: 75%; font-family: AppleGothic,"돋움",sans-serif; line-height: 1.5; }
+input, select, textarea { border: 1px solid #999; color: #555; font-size: 1em; line-height: 1.2; }
+a, a:link { color: #06c; text-decoration: none; cursor: pointer; }
+a:visited { /* color: #369; */ }
+a:hover, a:active, a:focus { color: #00c; text-decoration: underline; }
+table.t3 { border-collapse: collapse; width: auto; margin: 3px 0; border: 0px solid #9cf; border-width: 2px 0 0 0; }
+table.t3 tr { text-align: left; vertical-align: top; } /* colgroup 으로 td 스타일제어하려면 tr에 정의  */
+table.t3 th, table.t3 td { border: 1px solid #ddd; padding: 3px 8px; }
+table.t3 thead th, table.t3 tfoot th { background: #f4f4f4; vertical-align: middle; }
+table.t3 th { background: #fcfcfc; text-align: left; }
+
+em { font-style: normal; color: #f00; }
+</style>
+</head>
+<body>
+
+<div id="head"><!-- /share/inc/head.html --></div>
+
+
+<h1>제8회 웹 접근성 품질마크 결과 분석</h1>
+
+<ul class="bu">
+<li><a href="#outline">개요</a></li>
+<li><a href="#yc">영천시 미준수 사례 분석 바로가기</a></li>
+<li><a href="#gc">거창군 미준수 사례 분석 바로가기</a></li>
+</ul>
+
+<p>※ 참고: <a href="http://www.wah.or.kr/Certification/statistics.asp">인증사이트 통계</a> 2010.07.12 현재 신청 사이트 수 176 인증 사이트 수 46 합격률 26.14%</p>
+
+
+<h2 id="outline">개요</h2>
+
+<p>
+(인증 제도가 유료화로 바뀐 후 처음 실시된..) 제 8회 웹 접근성 품질마크 결과 입니다.<br />
+갱신 신청한 의령군은 인증 성공하였고, (운이 좋았을 뿐입니다.)<br />
+신규 신청한 영천시, 거창군은 인증 실패하였습니다.<br />
+아래 영천시와 거창군 <em>전문가심사보고서를 모두 검토하여 업무에 반영</em>하여 주시기 바랍니다.<br />
+</p>
+<p style="font-size: 2em;">
+<strong><a href="../data/2010 제8회 평가결과.zip">⇒ 2010년 제8회 웹 접근성 품질마크 전문가심사보고서 다운로드</a></strong>
+</p>
+
+<p>특히, 거창군을 심사한 전문가는 고맙게도 아주 세밀하게 심사하여 보고서를 보내왔습니다.<br />
+단, 영천시는 3가지 심사오류<del>가 발견되어 문의중입니다.</del> <a href="#answer1"><ins>정보화진흥원에 문의하여 2가지 오류 동의 및 1가지 애매한 답변 받았습니다.</ins></a><br />
+</p>
+
+
+<h3 id="vs">새로운 인증 심사의 특징</h3>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col /><col /><col style="background: #ffc;" /><col />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">제3회~7회<br />2008년~2009년</th>
+<th scope="col">제8회<br />2010년</th>
+<th scope="col">비고(대응책)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1. 신청서 및 사전설문지 접수</th>
+<td>사전설문지에 기재한 페이지 위주로 심사</td>
+<td>* 신청기간: 2010.04.01~ 2010.04.09<br />
+사전설문지에 기재한 페이지 무관하게 심사.<br />
+##거창군은 기재된 페이지 중 플래시 등 플러그인이 사용된 것만 심사하였고,<br />
+인기페이지 등 나머지는 전문가 심사하지 않았음.<br />
+제외 신청 페이지는 심사 대상에 포함 안되었음.<br />
+(사전설문지에 기재한 플래시 콘텐츠의 확인 및 작업이 미흡하여 불합격되었음)<br />
+</td>
+<td>사전설문지의 기재한 페이지 콘텐츠 뿐만 아니라<br />
+<em>모든 페이지가 심사 대상이 될 수 있으므로, 한 페이지도 실수 없이 작업해야 한다.</em>
+</td>
+</tr>
+<tr>
+<th scope="row">2. 사전심사</th>
+<td>전체 페이지 자동평가(KADO-WAH 2.0) 와 수동심사 병행.<br />
+* 합격기준: 90%~50%<br />
+1개→5개→8개 항목으로 점차 기준 항목이 많아짐.<br />
+불합격시 보고서 없다가 7회부터 받음.<br />
+</td>
+<td>* 심사기간: 2010.04.20~ 2010.04.25<br />
+* 심사대상: 10페이지 K-WAH 3.0 및 세부(수동)평가<br />
+<em>* 합격기준: 95% (항목당 오류 페이지 1개면 불합격)</em><br />
+불합격시 보고서 받음.<br />
+합격시 통보 없이? 전문가심사 진행.
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<th scope="row">3. 전문가심사</th>
+<td>* 심사대상: 30페이지 (메인 및 주요 메뉴 페이지)<br />
+* 합격기준: 90%~50%<br />
+불합격시 보고서 받음.<br />
+</td>
+<td>* 심사기간: 2010.05.10~ 2010.05.31<br />
+* 심사대상: 20페이지 K-WAH 3.0 및 세부(수동)평가<br />
+<em>* 합격기준: 95% (항목당 오류 페이지 2개면 불합격)</em><br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">4. 사용자심사</th>
+<td>결과 없었음</td>
+<td>심사기간: 인증 실패하여 자료 없음</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">5. 품질마크 발표</th>
+<td></td>
+<td>발표: 2010.06.30.<br />
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="yc" style="page-break-before: always;"><a href="http://www.yc.go.kr/">영천시</a></h2>
+<h3 id="n1">웹 접근성 품질마크 전문가심사 보고서 지표[18]별 미준수 사례 분석</h3>
+<pre class="box1">
+<strong>1.대체텍스트</strong>
+
+* 영천의하루 http://www.yc.go.kr/05about/02_02_05.asp 
+대체텍스트 부족
+▶작업 누락.
+
+* 우수제품 http://www.yc.go.kr/program/excellentgoods/lstExcellentGoods.asp
+alt="00001.jpg파일" 처럼 각 리스트 이미지의 대체텍스트가 "이미지이름+파일" 형식으로 제공되어지고 있음
+▶작업 누락.
+
+* 우수제품 내용보기 http://www.yc.go.kr/program/excellentgoods/outExcellentGoods.asp
+상세내용에 이미지만 들어가 있으면 각 이미지에 대한 대체텍스트 부족
+▶작업 누락.
+
+<strong>10.반응시간조절</strong>
+
+* 메인 http://www.yc.go.kr/main/main.asp 배너모음. 정지기능이 없음.
+▶심사오류. 마우스 오버나 키보드 포커스로 정지 기능 제공하므로 정지버튼은 필요하지 않습니다.
+<em>▶정보화진흥원에 이의 제기</em>하였고, 답변 기다리고 있습니다. <ins>▶심사오류 동의</ins>
+
+
+<strong>16.온라인서식</strong>
+
+* 글쓰기 http://www.yc.go.kr/program/publicboard/inBoardDoc.asp?cidx=1067&SType=&SString=&page=1&cate=&idx=&same=&robot=&depart=&num=&sec=&mefidx=&pub=&amode=modIN
+첨부파일 2,3번째는 label이 없음
+▶작업 누락.
+(스크린리더로 들었을 때 1번째 label 만 있어도 이용에 문제가 없다고 생각하지만,
+심사 기준은 2, 3번째 서식 요소에도 label 을 요구하고 있습니다.)
+
+<strong>17.부가어플리케이션</strong>
+
+* 행정구역 http://www.yc.go.kr/05about/02_02_02.asp
+키보드 접근이 안됨, 홈페이지 이동 대체 콘텐츠가 없음
+▶(플래시 자체) 작업 누락.
+
+* 찾아오시는 길 http://www.yc.go.kr/05about/03_04.asp
+플래쉬를 대체할 컨텐츠가 없음.
+▶심사오류. 대체 콘텐츠 링크가 제공되고 있습니다.
+<em>▶정보화진흥원에 이의 제기</em>하였고, 답변 기다리고 있습니다. <ins>▶심사오류 동의</ins>
+
+<strong>18.자바스크립트</strong>
+
+* 메인 등 모든 페이지 http://www.yc.go.kr/main/main.asp
+자바스크립트가 지원이 안되면 전체메뉴를 사용할수없음.
+▶네트워크 속도 늦어져 외부 CSS 파일 불러오지 못하는 것 해결 위해 웹페이지 내에 CSS 코드 삽입 후 발생.
+
+* 실명인증 http://www.yc.go.kr/program/publicboard/inRealName.asp?path=/program/publicboard/inBoardDoc.asp&query=cidx=1067|SType=|SString=|page=1|cate=|idx=|same=|robot=|depart=|num=|sec=|mefidx=|pub=|amode=modIN&cidx=1067&sec=&mefidx=
+자바스크립트 미작동시 동작안함.
+▶네트워크 속도 늦어져 외부 CSS 파일 불러오지 못하는 것 해결 위해 웹페이지 내에 CSS 코드 삽입 후 발생.
+
+* 글쓰기 http://www.yc.go.kr/program/publicboard/inBoardDoc.asp?cidx=1067&SType=&SString=&page=1&cate=&idx=&same=&robot=&depart=&num=&sec=&mefidx=&pub=&amode=modIN
+자바스크립트 미동작시 주소 입력이 안됨.
+자바스크립트 미동작시 필수항목 체크기능이 안되어 글이 저장이 안됨.
+
+▶자바스크립트에 대한 심사기준이 모호합니다.
+(이전 평가에서는 심사하지 않았는데 이번에 포함시켰습니다.
+자바스크립트 심사는 전문가들조차도 존폐 여부에 대해 논란이 많은 주제이고,
+2010년 말에 국가표준이 될 "한국형 웹 콘텐츠 접근성 지침 2.0" 에는 삭제된 내용입니다.)
+<em>▶정보화진흥원에 이의 제기</em>하였고, 답변 기다리고 있습니다.
+-- 문의한 내용 --
+심사기준인 『웹 접근성 향상을 위한 국가 표준 기술 가이드라인』에는 
+"마크업 언어로 구현할 수 있는 기능(링크, 서식, 버튼, 페이지 제목)을 자바스크립트로만 구현하지 말아야 한다." 되어 있습니다.
+정보화진흥원에서 링크, 서식 등에서의 자바스크립트 오남용에 대해서만 심사하고,
+전체 콘텐츠에 대해 자바스크립트 미작동시 이용 가능 여부는 평가하지 않는다고 들었습니다.
+그런데, 이번 평가에서 전체 콘텐츠에 대해 평가를 하셨더군요.
+품질마크 받은 곳 대부분이 이부분에 대해 완벽하게 처리가 된 곳은 없는 것 같은데..
+적합과 부적합 판정을 하는 기준이 뭔지 명확하게 설명 부탁드립니다.
+----
+<ins id="answer1">
+==> 2010.07.12. 한국정보화진흥원 "류영일(ryuyi@nia.or.kr Tel.02-3660-2572  M.010-9059-4551)" 님 전화 답변.<br />
+담당자가 해외출장이라서 대신 답변. 웹표준팀에 있다가 웹 접근성 팀에 온지 얼마 안되었음.
+10.반응시간조절 ▶심사오류 동의.
+17.부가어플리케이션 ▶심사오류 동의.
+18.자바스크립트 ▶심사기준이 모호합니다.
+자바스크립트 제거시 전체메뉴 박스가 가려져 있지 않다면? 기준을 완화해서 생각한다면 합격 처리될 수 있다고함.
+하지만, 기준을 정확하게 처리한다면 불합격 처리할 수도 있다.
+KWCAG2.0 자바스크립트 부분은 기준을 완화할 예정이다.
+부가애플리케이션에서 아이핀 이런 부분은 현재 완화된 기준을 앞으로 강화할 수도 있다.
+정보행동에서 제작한 영천시의 경우 안타깝다.
+--> 처리
+1. #영천시 에 보고서 재 작성해서 보내고 충분히 설명드리겠다.
+2. 자바스크립트 심사 기준 정리해서 올리겠다.
+3. 제10회 전에 웹 접근성 평가 사례집 배포 예정.
+</ins>
+</pre>
+
+
+
+<h2 id="gc" style="page-break-before: always;"><a href="?">거창군</a></h2>
+<h3 id="n1">웹 접근성 품질마크 전문가심사 보고서 지표[18]별 미준수 사례 분석</h3>
+<pre class="box1">
+<strong>1.대체텍스트</strong>
+
+* 민원사무편람 http://www.geochang.go.kr/program/incprogram/lstOfficeForm.asp
+* 자유게시판 http://www.geochang.go.kr/program/publicboard/lstBoardDoc.asp?cidx=1017
+대체텍스트 오류. 바로보기 이미지의 alt 미제공.
+▶(솔루션) 작업 누락.
+
+* 빈집정보 http://www.geochang.go.kr/program/housevacant/lstHousevacant.asp
+대체텍스트 내용 부적절. 게시판 이미지의 alt가 모두 동일한 '사진'이라고 제공함.
+▶(솔루션) 작업 누락.
+
+<strong>8.키보드이용</strong>
+
+* 거창갤러리 - E-book http://www.geochang.go.kr/07geochang/04_03.asp
+* 군정백서 http://www.geochang.go.kr/08open/04_05.asp
+
+E-Book 보기 버튼이 키보드의 tab 으로도 동작함.
+E-Book 보기 페이지의 컨트롤 버튼들이 tab 으로도 동작함.
+상단의 내용과 같이 onkeypress 속성의 잘못된 사용으로 인하여 사용자의 의도와 상관없는 동작이 일어남.
+▶(솔루션) 작업 실수.
+onclick 가 있으면 onkeypress 는 불필요하지만 KADO-WAH 2.0 에서는 onkeypress 존재하지 않으면 오류로 평가되었음.
+그래서 불필요한 onkeypress 속성을 넣다가 실수하였음.
+(IE에서는 동작 이상 없고 이전에 부적합 판정 내린 사례 없음.
+한국정보화진흥원에서 배포한 『웹 접근성 점검 매뉴얼』을 보면,
+"IE 브라우저를 이용하여 평가한다." 고 되어 있어 다른 브라우저 확인이 생략되었습니다.)
+
+<strong>10.반응시간조절</strong>
+
+* 오시는 길 http://www.geochang.go.kr/08open/03_04_02.asp
+상단의 이미지는 플래시 지도 이미지로 각 노선을 주기적으로 나타내고 있으나 이를 정지하거나 재생할 수 있는 수단이 없음.
+▶(플래시 자체) 작업 누락.
+(사용자 경험을 향상시키려 추가한 기능 때문에 오히려 부적합 판정을 받게 되었습니다.)
+
+<strong>11.새창(팝업창)</strong>
+
+* 민원사무편람 http://www.geochang.go.kr/program/incprogram/lstOfficeForm.asp
+* 자유게시판 http://www.geochang.go.kr/program/publicboard/lstBoardDoc.asp?cidx=1017
+바로보기 버튼이 새창으로 열리지만 이에 대한 경고나 target이 없음.
+▶(솔루션) 작업 누락.
+
+<strong>12.데이터테이블정보제공</strong>
+
+* 공동시설세 http://www.geochang.go.kr/01appeal/05_01.asp
+* 차량등록 http://www.geochang.go.kr/01appeal/02_06_02.asp
+세율 일반과세 - 테이블의 summary가 도시계획세안내로 잘못 표기됨.
+이전등록 구비서류 테이블의 summary가 자동차 신규 등록시 구비서류로 잘못 표기됨.
+caption 제공이 되지 않고 이를 summary로 제공하고 있지만 삽입된 페이지의 내용과 맞지 않는 요약 정보를 제공하고 있습니다.
+▶작업 실수.
+
+<strong>13.제목셀 내용셀구분</strong>
+
+* 행사일정표 http://www.geochang.go.kr/program/calendar/lstcalendar.asp
+위의 사례와 같이 일정달력은 데이터를 담은 데이터 테이블이지만 이에 대한 제목셀과 내용셀의 구분이 없습니다.
+▶작업 실수.
+(이전에 달력이 데이터 테이블인지, 레이아웃 테이블 인지를 두고 전문가들 사이에 논란이 있었고,
+평가 위원에 따라 부적합이 될 수도 적합 판정을 받을 수도 있었습니다.
+하지만 대체적으로 데이터 테이블로 보는 견해가 우세하여 항상 데이터 테이블로 작업을 했었는데..)
+
+<strong>15.논리적구성</strong>
+
+* 재난관리 http://www.geochang.go.kr/06life/12_01.asp
+상단의 이미지는 맵으로 구성되어 있습니다. 허나 이의 순서가 역으로 되어있습니다.
+‘재난관리01 - 재난관리 02 - 재난관리 03’ 순으로 처리해야 함.
+▶작업 실수. 
+(드림위버 툴이 이미지맵 코드를 역으로 만들어 버리는데 수정하지 못했습니다.) 
+
+<strong>16.온라인서식</strong>
+
+* 전세매매 http://www.geochang.go.kr/program/RealEstate/lstRealEstate.asp
+검색의 select 입니다. 동일한 title로 ‘검색분류’라고 제공되어 사용자로 하여금 어떠한 검색분류인지 구분하지 못합니다.
+▶작업 실수.
+
+<strong>17.부가어플리케이션</strong>
+
+* 메인 http://www.geochang.go.kr/main/
+&lt;param value="transparent" name="wmode"&gt;
+메인페이지의 열린군수실에 키보드가 접근하지 못합니다.
+▶작업 실수.
+&lt;param name="wmode" value="window" /&gt; 로 해야 하지만, 플래시 위에 다른 콘텐츠를 배치하기 위해서 transparent 를 사용함.
+(그동안 플래시 자체가 접근성을 잘 지원하지 않았기에 wmode 속성값으로 평가하지는 않았고, 플래시 자체의 접근성 지원이 향상될 때까지 평가를 유보하는 분위기였는데.. 이번 품질마크에서는 평가에 포함됨.)
+
+* 민원실안내 http://www.geochang.go.kr/01appeal/02_02.asp
+시간이 지남에 따라 각 창구안내를 보여주지만 제어하지 못합니다.
+▶(플래시 자체) 작업 누락.
+(사용자 경험을 향상시키려 추가한 기능 때문에 오히려 부적합 판정을 받게 되었습니다.)
+
+* 거창읍시가도 서비스 http://www.geochang.go.kr/07geochang/05_02_pop.asp
+&lt;param name="wmode" value="opaque" /&gt;
+거창읍시가도 서비스의 각 도로들이 색상으로만 구분되어 있고 이 안의 내용에 키보드가 접근하지 못합니다.
+▶(플래시 자체) 작업 실수.
+
+* 군정백서 http://www.geochang.go.kr/08open/04_05.asp
+E-Book 서비스 키보드로 접근하지 못합니다.
+▶(플래시 자체) 작업 실수.
+
+<strong>18.자바스크립트</strong>
+
+* 거창갤러리 - E-book http://www.geochang.go.kr/07geochang/04_03.asp
+* 군정백서 http://www.geochang.go.kr/08open/04_05.asp
+E-Book, 군정백서 보기 버튼이 스크립트로만 운영되고 있습니다.
+▶(솔루션) 작업 실수.
+</pre>
+
+
+<!-- 
+<pre>
+** 제8회 웹 접근성 품질마크 인증 실패 후 원인 분석
+
+#거창군 http://www.geochang.go.kr/ 인증실패
+* 경남데이 ==> 이전 다음 보기 기능 없음
+* 팝업존 성화 봉송주자 모집 ==> 대체텍스트 없음
+* 생활정보 - 교통정보 - 철도 ==> 색상 배제시 인식 안됨
+* 통합검색 ==> 검색도움말 새창알림 없음, 대체텍스트 다름
+* 동영상 이상무
+* 문화관광 웹사이트 접근성 안되어 있음?
+
+#영천시 http://www.yc.go.kr/ 인증실패
+* 팝업존 ==> 대체텍스트 부족
+* 하단메뉴 - 홈페이지 오류신고 ==> 대체텍스트 다름.
+* 찾아오시는길 플래시 ==> 깜박임? 대체텍스트 부족?
+* 통합검색 ==> 검색도움말 새창알림 없음, 대체텍스트 다름
+* 동영상 이상무
+* 문화관광 웹사이트 접근성 안되어 있음?
+* 문화관광 검색 ==> 인기 검색어 롤링 제어 안되고 링크 자바스크립트 의존 등?
+
+@양현미
+http://정보행동.co.kr/repair/repair_document.asp?idx=85993&page=1&searchString=
+##영천에서 웹접근성관련 글 올렸습니다. 확인바랍니다.
+(문팀장님/최팀장님)
+----
+웹접근성 품질마크 전문가 심사 보고서 결과 입니다. 
+확인하시고, 홈페이지 수정 부탁드립니다. 
+특히 자바스크립트에서 준수율이 낮으니, 확인 해 주세요.
+첨부 #1: 040_제8회_영천시청_전문가심사보고서.zip    
+----
+==>@김호정,방문준,이영석
+
+@김호정
+여기서 제시하는 요구사항에 맞게 수정해야 되는것인지요? 
+1. 배너 부분의 반응시간 조절 ??? 이건 이해가 안됨...
+2. 플래시 부분은 대체텍스트는 제공 되어 있는데 ... 인식안된것으로 나왔나본데염... display: none 으로 숨겨서 그런건가요???
+3. 자바스크립트... 전체메뉴보기를 지적한것 같은뎅...
+위 3건은 좀 이상하네염... 
+==> 그 3가지는 제가 정보화진흥원에 문의한 후에 처리내역에 남기겠습니다. 나머지 디자인 부분 작업해주시면 됩니다.
+프로그램 부부은 남팀장이 처리할겁니다.
+
+===> 20100701.문준기(jun1122@nia.or.kr☎02-3660-2576)메일질문보냄_제8회품질마크심사결과문의(영천시).txt 
+작성해서 메일 질문 보냄.
+==> 유지보수 게시판에 처리내역 남김
+</pre>
+ -->
+
+<h2>문서이력</h2>
+
+<p>
+2010.07.08. 개요 추가<br />
+2010.07.06. 영천시, 거창군 분석 내용 작성.<br />
+2010.07.05. 제8회 웹 접근성 품질마크 전문가심사 보고서 2009.07.05 - 한국정보화진흥원 - 거창군 보고서 추가<br />
+2010.07.01. 제8회 웹 접근성 품질마크 전문가심사 보고서 2009.07.01 - 한국정보화진흥원 - 영천시 보고서 참조하여 작성<br />
+</p>
+<br />
+
+
+
+</body>
+</html>

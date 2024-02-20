@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Open Source+API - SNS | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>SNS + Blog</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#SNS">Send to SNS</a></li>
+<li><a href="#facebook">facebook</a></li>
+<li><a href="#twitter">twitter</a></li>
+<li><a href="#me2day">me2day</a></li>
+<li><a href="#NaverBlog">naver Blog</a></li>
+<li><a href="#GooglePlus">Google Plus</a></li>
+<li><a href="#KakaoTalk">KakaoTalk</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<p>
+[m] 합천군, 함안군 모두 서버측 스크립트 사용중~
+</p>
+<p>
+<a href="http://www.mopas.go.kr/">행안부</a>는 페이스북 iframe [IE8]오류발생, 트위터는 JS API, 다음 블로그는 서버측 스크립트로 가져오고 있다.
+</p>
+
+
+
+<h2 id="SNS">Send to SNS</h2>
+
+<h3>URL 사용</h3>
+
+
+
+<h3>Plugin 사용</h3>
+
+<p>[m] 웹 접근성 키보드 운용 미준수<br />
+[m] 로딩 넘 느려.. 사용안할거야~
+</p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+| <a class="addthis_button_facebook" class="button"></a>
+| <a class="addthis_button_twitter"></a>
+| <a class="addthis_button_live"></a>
+| <a class="addthis_button_google"></a>
+| <a class="addthis_button_bitly"></a>
+| <a class="addthis_button_favorites"> </a>
+| <a class="addthis_button_email"> </a>
+| <a class="addthis_button_print"></a>
+| <a class="addthis_button_compact"></a>
+| <a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<!-- 아래 주석 풀면 뻑난다!! -->
+<!-- <script>var addthis_config = {"data_track_clickback":true};</script>
+<script src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e27a7825442d8a8"></script> -->
+<!-- AddThis Button END -->
+
+
+<h2 id="facebook">facebook</h2>
+<h2 id="twitter">twitter</h2>
+
+<!-- 행안부 -->
+<div class="contentsBlock" style="float:left;">
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+  new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 4,
+    interval: 30000,
+    width: 277,
+    height: 220,
+    theme: {
+      shell: {
+        background: '#fff',
+        color: '#666'
+      },
+      tweets: {
+        background: '#fff',
+        color: '#666',
+        links: '#0079cd'
+      }
+    },
+    features: {
+      scrollbar: true,
+      loop: false,
+      live: false,
+      behavior: 'default'
+    }
+  }).render().setUser('happymopas').start();
+</script>
+</div>
+<!-- /행안부 -->
+
+<!-- me -->
+<div class="contentsBlock" style="float:left;">
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+  new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 4,
+    interval: 30000,
+    width: 277,
+    height: 220,
+    theme: {
+      shell: {
+        background: '#fff',
+        color: '#666'
+      },
+      tweets: {
+        background: '#fff',
+        color: '#666',
+        links: '#0079cd'
+      }
+    },
+    features: {
+      scrollbar: true,
+      loop: false,
+      live: false,
+      behavior: 'default'
+    }
+  }).render().setUser('moonyscece').start();//https://twitter.com/★User
+</script>
+</div>
+<!-- /me -->
+<hr />
+
+<h2 id="me2day">me2day</h2>
+<h2 id="naverBlog">naver Blog</h2>
+<h2 id="DaumBlog">Daum Blog (Tistory)</h2>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150421.
+20130913.
+20130130.
+20120327. 20120323.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<title>iPhone/iPod Development: 12 Tips To Get You Started - Test Ex',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+*{font-style:normal;font-family:"맑은고딕","나눔고딕","돋움",Dotum,sans-serif;}
+body{margin:0 auto;padding:2em;font-size:75%;line-height:1.5;}
+pre{padding:1em;border:1px solid #888;background:#ffd;white-space:pre-wrap;word-wrap:break-word;}
+code{border:0;font-size:1em;font-family:Verdana;}
+section{font-size:1.17em;}
+em{color:#f06;}
+h1, h2, h3, h4, h5, h6{height:1em;margin:1.34em 0 .84em;line-height:1;}
+h3{height:1em;padding:0 0 .1em .5em;border-left:.4em solid #f80;font-size:1.5em;}
+@media only screen and (max-device-width: 480px) {
+  pre{background:#dff;}
+}
+/*]]>*/</style>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link href="m.png" rel="apple-touch-icon" />
+<link href="m.png" rel="apple-touch-icon-precomposed" />
+<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+
+<p>
+<strong>userAgent</strong>:
+<script>/*<![CDATA[*/
+document.writeln(navigator.userAgent);
+/*]]>*/</script>
+</p>
+
+
+<script>/*<![CDATA[*/
+/* all #2011.01.20.MoonYoungShin. */
+jQuery.noConflict();
+jQuery(document).ready(function($){
+	var ua = window.navigator.userAgent;
+	if(/lgtelecom/.test(ua)||/Android/.test(ua)||/blackberry/.test(ua)||/iPhone/.test(ua)||/iPad/.test(ua)||/samsung/.test(ua)||/symbian/.test(ua)||/sony/.test(ua)||/SCH-/.test(ua)||/SPH-/.test(ua)){
+		//대소문자구분이안되어있어안됨
+		$('.contentsArea').text("거의 모든 모바일 기기를 판단");
+	}
+	if(/Android/.test(ua)==true){
+		$('.contentsArea').text("안드로이드 폰으로 접속함");
+	}
+	if(/iPhone/.test(ua)){
+		$('.contentsArea').text("애플 iPhone, iPod");
+	}
+	/* document.addEventListener('touchmove',function(event){
+		var touch=event.touches[0];
+		$('.contentsArea').html(navigator.userAgent+"<br />"+event.touches.length+"<br />"+"Touch x:"+touch.pageX+", y:"+touch.pageY+"<br />"+window.event.type);
+		event.preventDefault();
+		console.log("Touch x:"+touch.pageX+", y:"+touch.pageY);
+	},false); */
+	document.addEventListener('touchEnd',function(event){
+		var touch=event.touches[0];
+		$('.contentsArea').html(navigator.userAgent+"<br />"+event.touches.length+"<br />"+"Touch x:"+touch.pageX+", y:"+touch.pageY+"<br />"+window.event.type);
+		event.preventDefault();
+		console.log("Touch x:"+touch.pageX+", y:"+touch.pageY);
+	},false);
+	window.onorientationchange=function(){
+		alert(window.orientation);
+	}
+});//jQuery end
+var onNavt1="",onNavt2="",onNavt3="";//전역변수
+/*]]>*/</script>
+
+
+<!-- contentsArea -->
+<div class="contentsArea" style="padding:1em;border:1px solid #888;background:#ffd;">
+<script>/*<![CDATA[*/
+document.writeln("<strong>navigator.userAgent</strong>: "+navigator.userAgent);
+/*]]>*/</script>
+</div>
+<!-- //contentsArea -->
+
+<h1>아이폰/아이팟터치용 웹 개발 팁 12개 Test Ex</h1>
+
+<p><cite><a href="http://articles.sitepoint.com/article/iphone-development-12-tips">사파리 브라우저(이하 모바일 사파리)용 웹페이지를 구축할 때 알아두면 유용한 팁 12가지</a></cite></p>
+
+<nav>
+<ul>
+<li><a href="#tip1">1: 관련 문서와 아이폰 시뮬레이터</a></li>
+<li><a href="#tip2">2: 작은 화면용 CSS</a></li>
+<li><a href="#tip3">3: 뷰포트 &lt;meta&gt; 요소</a></li>
+<li><a href="#tip4">4: 기울기(Orientation) 변화</a></li>
+<li><a href="#tip5">5: 스타일시트의 기울기 명세</a></li>
+<li><a href="#tip6">6: 툴바 감추기</a></li>
+<li><a href="#tip7">7: 둥근 모서리들</a></li>
+<li><a href="#tip8">8: 터치 이벤트</a></li>
+<li><a href="#tip9">9: 제스처들</a></li>
+<li><a href="#tip10">10: 특수한 링크들</a></li>
+<li><a href="#tip11">11: 홈 아이콘</a></li>
+<li><a href="#tip12">12: 디버깅: 소스 보기와 콘솔</a></li>
+</ul>
+</nav>
+
+
+<section class="article">
+ Stoyan Stefanov씨는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>/아이팟 터치에서 제공하는 사파리 브라우저(이하 모바일 사파리)용 웹페이지를 구축할 때 알아두면 유용한 <a href="http://articles.sitepoint.com/article/iphone-development-12-tips">팁 12가지</a>를 작성했습니다. 아시다시피 모바일 사파리는 데스크탑용 브라우저와 견주어도 손색없을 정도의 풀브라우징을 지원하며, 작은 화면에서 효과적으로 컨텐츠를 조작 및 조회할 수 있도록 추가적인 특수한 API를 제공하고 있습니다. 지금부터 소개할 12가지 팁과 트릭은 기존의 사이트를 모바일 사파리에 최적화하거나, 새롭게 구축할 때 유용하게 사용할 수 있을 것입니다.<br />
+<br />
+
+<h3 id="tip1">1: 관련 문서와 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> 시뮬레이터</h3>
+
+<a href="http://www.quirksmode.org/blog/archives/2008/08/iphone_events.html">Peter-Paul Koch</a>씨는 모바일 사파리를 가지고 연구하기 시작했을 무렵에는 그 어디에도 관련 개발 문서를 찾을수 없었다고 불평했습니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>은 한참이 지나서야 모바일 사파리 브라우저의 명세인 <a href="http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariWebContent/Introduction/chapter_1_section_1.html#//apple_ref/doc/uid/TP40002079-SW1">iPhone-specific web development information</a> 문서를 공개했습니다.<br />
+ <br />
+모바일 사파리용 웹사이트를 만들기 위해서 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>이나 아이팟 터치를 꼭 가지고 있어야 하는 것은 아닙니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> SDK(맥 버전만 제공됨)에서 제공하는 시뮬레이터로도 테스트 할 수 있으니까요. 이것을 설치하기 위해서는 <a href="http://developer.apple.com/iphone/">애플측에 아이폰 개발자로 등록</a>절차를 거친 후 SDK를 다운로드해야 합니다. 설치에 성공했다면 아래의 경로에서 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> 시뮬레이터를 찾을 수 있습니다.<br />
+<pre class="command"><code class="command">/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications</code></pre><br />
+
+<p><em>▶ 애플측에 아이폰 개발자로 등록안할거고, 시뮬레이터는 신뢰할 수 없다. 모바일기기에서 직접 확인하자!</em></p>
+
+<h3 id="tip2">2: 작은 화면용 CSS</h3>
+
+PC 또는 맥과 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>의 분명한 차이점은 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>이 훨씬 작은 화면을 가지고 있다는 점입니다. 만약 이미 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91+', '데스크탑 ')">데스크탑</span> 브라우저에서 잘 작동하는 웹사이트가 있다면 모바일 사파리로의 가장 간단한 최적화 방법은 아래와 같은 전용 스타일시트를 추가하는 것입니다. <br />
+<pre class="html"><code class="html">&lt;!--[if !IE]&gt;--&gt;
+&lt;link  
+   rel="stylesheet"  
+   href="small-screen.css"  
+   type="text/css"  
+   media="only screen and (max-device-width: 480px)"  
+/&gt;
+&lt;!--&lt;![endif]--&gt;</code></pre><br />
+이 <code>&lt;link&gt;</code> 요소는 최대 너비가 480픽셀인 기기를 타깃으로 지정한 <a href="http://reference.sitepoint.com/css/mediaqueries">media query</a>를 사용하여 스타일시트를 로드합니다. 이 크기는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>을 가로로 보았을 때의 크기입니다. IE 조건부 코멘트는 IE 버전 5.5 또는 이하 버전이 여기에 해당하며 이 브라우저들은 media query를 지원하지 않기 때문에 우회하도록 하기 위한 것입니다. 몇가지 예제를 살펴봅시다.<br />
+ <br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/small-screen-css.html">예제 1</a>에는 두가지 색상을 가진 박스가 작성되어 있습니다. 하나는 빨간색 박스이고 다른하나는 파란색 박스입니다. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/common.css">common.css</a>에는 모든 브라우저를 위한 파란색 박스 스타일이 포함되어 있습니다. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/small-screen.css">small-screen.css</a>는 모바일 사파리에만 적용되는 빨간색 박스 스타일이 포함되어 있습니다. 예제를 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서 실행하면 빨간색 박스를 볼 수 있고 데스크탑에서는 파란색 박스를 볼 수 있을 것입니다.<br />
+ <br />
+만약 하나의 스타일시트만 사용하고 싶다면, 아래와 같이 <code>@media</code> 블럭을 사용하여 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>만을 위한 스타일을 추가 할 수 있습니다.<br />
+<pre class="css"><code class="css">@media only screen and (max-device-width: 480px) {
+  #test-block { 
+    background: red;
+  }
+}</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/small-screen-css-inline.html">예제 2</a>에서는 인라인 스타일 예제를 보여주고 있습니다. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/onestyleforall.css">onestyleforall.css</a> 스타일시트에서 <code>@media</code> 블럭 안에 박스의 배경을 빨간색으로 지정하는 코드를 발견할 수 있습니다.<br />
+<br />
+
+<p>▶ 기기 해상도와는 다르다. GalaxyS 기기 해상도는 480*800 이지만.. 웹화면은 320px으로 표현한다?</p>
+<p><em>▶ 화면 너비별 스타일시트는 <code>@media only screen and (max-device-width: 480px){}</code> 적용하고.. 기기별은 자바스크립트 userAgent 사용하자!</em></p>
+
+
+<h3 id="tip3">3: 뷰<span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%8F%AC%ED%8A%B8+', '포트 ')">포트</span> <code>&lt;meta&gt;</code> 요소</h3>
+
+모바일 사파리는 기본으로 큰 화면을 가진 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91+', '데스크탑 ')">데스크탑</span> <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80+', '브라우저 ')">브라우저</span> 처럼 페이지를 렌더링 합니다. 이를테면 너비가 980픽셀인 페이지를 작은 화면에 맞추기 위해서 컨텐츠의 스케일을 줄이고 있는 것입니다. 결과적으로 사용자에게는 아주 작고 읽기 어려운 문자들로 가득찬 페이지를 제공하게 되며 관심있는 부분을 보기 위해 확대해야 합니다. 웹페이지 자체에는 문제가 없어 보이지만 당신이 웹 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션을 설계하는 입장에서는 이러한 일을 받아들이기가 쉽지 않을  것입니다.<br />
+ <br />
+다행히도 이것은 아래와 같이 <code>&lt;meta&gt;</code> 요소에 <code>viewport</code> 속성을 사용하여 바로 잡을 수 있습니다.<br />
+<pre class="html"><code class="html">&lt;meta name="viewport" content="width=device-width" /&gt;</code></pre><br />
+이는 너비가 980픽셀을 축소하여 그려지는 대신에 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>의 가로 크기를 사용할 수 있도록 합니다. 다음 두 예제를 통하여 직접 비교할 수 있습니다.<br />
+ <br />
+1. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/no-viewport.html">예제 3</a>에서는 <code>&lt;meta&gt;</code> 요소에 <code>viewport</code> 속성을 사용하지 않은 기본 단락입니다. 여기에 사용된 문자는 거의 보이지 않습니다.<br />
+2. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/viewport.html">예제 4</a>에서는 <code>&lt;meta&gt;</code> 요소에 <code>viewport</code> 속성을 포함하고 있습니다. 기기의 가로 크기는 320픽셀로 문자를 보기가 더욱 편해졌습니다.<br />
+<br />
+<p style="white-space: nowrap;"><img src="http://firejune.com/attach/1214/091214020512460088/1715-02-viewport.thumb.png" width="332" height="233" alt="" /><img src="http://firejune.com/attach/1214/091214020512460088/1715-01-no-viewport.thumb.png" width="317" height="233" alt="" /></p><br />
+또 다른 방법으로는 원하는 값으로 화면이 축소되도록 기기의 가로 크기를 <code>device-width</code>에 지정하는 것입니다. 예를 들어, 당신의 블로그가 800 x 600<span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%94%BD%EC%85%80+', '픽셀 ')">픽셀</span> 화면에 맞는 가로 750<span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%94%BD%EC%85%80+', '픽셀 ')">픽셀</span> 레이아웃으로 고정되어있다고 가정해 봅시다. <a href="http://www.sitepoint.com/examples/iphone-development-12tips/fixed750.html">예제 5</a>에서는 부가적인 빈공간을 없애기 위해, 화면영역 <code>&lt;meta&gt;</code>요소를 사용하여 가로 크기를 780픽셀로 지정하였습니다.<br />
+<pre class="html"><code class="html">&lt;meta name="viewport" content="width=780" /&gt;</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/fixed750-viewport.html">예제 6</a>에서는 이 <code>&lt;meta&gt;</code> 요소에 <code>viewport</code> 속성을 가진 고정 레이아웃을 볼 수 있습니다.<br />
+ <br />
+<code>&lt;meta&gt;</code> 요소의 <code>viewport</code> 속성 내용은 여러개의 콤마로 구분하여 기본 스케일 값, 줌 레벨, 스케일링 가능 여부 등을 기입할 수 있습니다. 일반적인 값들은 다음과 같습니다.<br />
+<pre class="html"><code class="html">&lt;meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /&gt;</code></pre><br />
+모바일 사파리의 가로는 기기의 최대 가로 크기로 지정되었고 줌 레벨을 1로 지정하여 사용자가 컨텐츠를 확대/축소하는 것을 방지하고 있습니다. 마치 모바일 사파리에 최적화된 웹사이트처럼 보이게 할 수 있는 것이죠.<br />
+ <br />
+
+<p><em>▶ &lt;meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" /&gt; 사용하니.. iOS4.x 가로모드에서 확대됨. GalaxyS 는 scale 고정.<br />
+▶▶ &lt;meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no" /&gt; 사용하자! (iOS4.x, GalaxyS 둘다 scale 고정)<br />
+</em></p>
+
+<h3 id="tip4">4: 기울기(Orientation) 변화</h3>
+
+당신의 웹 페이지 또는 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션들은 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>의 기울기에 따라 세로형과 가로형 이 두가지 방향으로 모드를 전환해 가며 볼 수 있습니다. 모바일 사파리에서는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8', '자바스크립트')">자바스크립트</span>를 사용하여 <code>window.orientation</code> 프로퍼티에 접근 할 수 있으며 아래와 같은 값을 가지고 있습니다.<br />
+ <br />
+
+<ul class="square">
+  <li>0 : 일반적인 세로 화면(홈 버튼이 아래에 있음)</li>
+  <li> -90 : 시계 방향으로 회전된 가로 화면(홈 버튼이 좌측에 있음)</li>
+  <li> 90 : 시계 반대 방향으로 회전된 가로 화면(홈 버튼이 우측에 있음)</li>
+  <li>180 : 180도 뒤집힌 화면(홈 버튼이 위에 있음)</li>
+</ul>
+<br />
+ 사용자가 기기를 회전할 때 이벤트를 발생시키기 위해서 <code>orientationchange</code>를 사용할 수 있습니다. 다음은 가로/세로 방향이 변할때마다 <code>alert</code>을 실행하는 예제입니다.<br />
+<pre class="javascript"><code class="javascript">window.onorientationchange = function() {
+  alert(window.orientation);
+}</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/orientation-change.html">예제 7</a>에서는 위 코드가 어떻게 작동하는지 볼 수 있습니다. <code>alert</code>이 실행되기 위해서는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>을 회전시켜야 합니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> 시뮬레이터에서는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4+', '하드웨어 ')">하드웨어</span> 메뉴에서 기기를 회전하는 메뉴를 찾을 수 있습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-05-orientation-3up.thumb.png" width="380" height="266" alt="" /><br />
+<br />
+
+<p><em>▶ 사용해보자! 다른 모바일 기기는?  갤럭시S 인터넷 브라우저에서 동작함.</em></p>
+<pre class="javascript"><code class="javascript">window.onorientationchange=function(){//가로보기전환시첫줄로보냄
+	switch(window.orientation){
+	case 0:break;
+	case -90:tk1.c1.ul.css('top',0);tk1.c1.ul.ih=tk1.c1.ul.innerHeight();tk1.c1.row=Math.ceil(tk1.c1.ul.ih/tk1.c1.ih);break;
+	case 90:tk1.c1.ul.css('top',0);tk1.c1.ul.ih=tk1.c1.ul.innerHeight();tk1.c1.row=Math.ceil(tk1.c1.ul.ih/tk1.c1.ih);break;
+	}
+}</code></pre><br />
+
+<h3 id="tip5">5: 스타일시트의 기울기 명세</h3>
+
+기울기에 대하여 조금 더 알아봅시다. 때때로 방향에 따라서 컨텐츠가 가진 스타일을 별도로 지정할 필요가 있을 지도 모릅니다. 이를 위해서는 아래와 같은 세가지 간단한 단계가 필요합니다.<br />
+<br />
+1. 마크업에서 <code>&lt;body&gt;</code> 요소에 클래스를 추가합니다.(예: portrait와 landscape)<br />
+2. 스타일시트에 <code>body.portrait</code>와 <code>body.landscape</code>에 관련된 서로 다른 스타일을 지정합니다.<br />
+3. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8', '자바스크립트')">자바스크립트</span>를 사용하여 회전이 발생할때마다 <code>&lt;body&gt;</code> 요소의 <span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%81%B4%EB%9E%98%EC%8A%A4+', '클래스 ')">클래스</span> 값을 변경합니다.<br />
+ <br />
+첫번째 단계는 아래처럼 기본 클래스를 추가하는 것입니다.<br />
+<pre class="html"><code class="html">&lt;body class="portrait"&gt;</code></pre><br />
+그리고 스타일을 추가 합니다.<br />
+<pre class="css"><code class="css">body.portrait p {
+   color: red;
+}
+
+body.landscape p {
+   color: blue;
+}</code></pre><br />
+끝으로 다음과 같은 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8', '자바스크립트')">자바스크립트</span> 코드들이 필요합니다.<br />
+ <br />
+1. 최초 <span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%81%B4%EB%9E%98%EC%8A%A4+', '클래스 ')">클래스</span> 이름을 정의하기 위한 'load' 이벤트 리스너 추가<br />
+2. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>의 회전을 감지하기 위한 'orientationchange' 이벤트 리스너<br />
+3. 'orientationchange' 이벤트가 발생할때마다 클래스명을 바꿔주는 함수<br />
+ <br />
+아래 코드는 위 이벤트 리스너들 할당한 것입니다.<br />
+<pre class="javascript"><code class="javascript">window.addEventListener('load', setOrientation, false);
+window.addEventListener('orientationchange', setOrientation, false);</code></pre><br />
+다음은 <code>&lt;body&gt;</code> 요소에 클래스명을 변경하기 위한 <code>setOrientation</code> 함수입니다.<br />
+<pre class="javascript"><code class="javascript">function setOrientation() {
+  var orient = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
+  var cl = document.body.className;
+  cl = cl.replace(/portrait|landscape/, orient);
+  document.body.className = cl;
+}</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/orientation-styles.html">예제 8</a>은 방향에 따라 지정된 스타일이 보여지고 있습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-99-orientationchanges.thumb.png" width="375" height="239" alt="" /><br />
+<br />
+
+<p><em>▶ 가로/세로 화면 구분할 때 사용하자! 다른 모바일기기도 잘 될까?</em></p>
+
+<h3 id="tip6">6: 툴바 감추기</h3>
+
+최초 모<span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%8C%8C%EC%9D%BC+', '파일 ')">파일</span> 사파리에 페이지가 로드되기 시작하면 URL 툴바가 보이고 페이지를 아래로 스크롤하면 URL 툴바는 사라지는 것을 알 수 있습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-08-all-toolbars.thumb.png" width="350" height="326" alt="" /><br />
+<br />
+만약 모바일 사파리에 최적화된 웹 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션을 만들고 싶다면 페이지 로드가 완료 된 후 곧장 툴바를 없애고 싶을 것입니다. 이 문제를 해결하기 위해서는 <code>window.scrollTo</code>메서드를 사용하여 1<span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%94%BD%EC%85%80+', '픽셀 ')">픽셀</span> 아래로 페이지를 스크롤하여 해결할 수 있습니다.<br />
+<pre class="javascript"><code class="javascript">window.addEventListener('load', function(){
+  setTimeout(scrollTo, 0, 0, 1);
+}, false);</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/hide-toolbars.html">예제 9</a>는 아래처럼 보이게 됩니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-07-hidden-toolbars.thumb.png" width="350" height="331" alt="" /><br />
+<br />
+페이지가 너무 짧아서 스크롤 할 내용이 없다면 어떻게 해야죠? 이럴땐 <code>&lt;meta&gt;</code>요소를 추가하세요. <code>viewport</code> 속성에 높이 값을 지정하여 페이지가 스크롤 될 수 있게 합니다.<br />
+<pre class="html"><code class="html">&lt;meta name="viewport" content="height=device-height,width=device-width" /&gt;</code></pre><br />
+
+<p><em>▶ 이 페이지에 적용해보니 잘 동작한다. 사용해보자!</em></p>
+<script>/*<![CDATA[*/
+window.addEventListener('load',function(){setTimeout(scrollTo, 0, 0,1);},false);
+/*]]>*/</script>
+
+<h3 id="tip7">7: 둥근 모서리들</h3>
+
+특정한 박스를 둥글게 만들어야 한다면 데스크탑용 브라우저에서 작업했던 방식으로 할 수도 있습니다. 하지만 단지 사파리 브라우저만을 위한 것이라면 <code>-webkit-border-radius</code> CSS속성을 사용할 수 있고 비슷한 방법으로 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%8F%AD%EC%8A%A4', ' 파이어폭스')">파이어폭스</span>에서도 <code>-moz-border-radius</code>를 사용할 수 있습니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=+%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%8F%AD%EC%8A%A4', ' 파이어폭스')">파이어폭스</span>나 사파리에 border-radius CSS 속성을 사용하고 IE나 오페라일 때에는 보통 사각형으로 보이게 할 수도 있겠습니다.<br />
+<pre class="css"><code class="css">.box {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   background: #ddd;
+   border: 1px solid #aaa;
+}</code></pre> <br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/rounded.html">예제 10</a>번에서는 이 CSS속성들을 이용하여 <code>&lt;div&gt;</code>요소의 가장자리를 둥글게 만들었습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-06-roundedcorners.thumb.png" width="350" height="301" alt="" /><br />
+<br />
+
+<p><em>▶ <code>border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;</code> 이렇게 사용하자!</em></p>
+
+<h3 id="tip8">8: 터치 이벤트</h3>
+
+<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>은 마우스가 아닌 손가락으로 제어합니다. 터치하고 탭하기 위해 여러개 손가락을 사용할 수도 있습니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%A7%88%EC%9A%B0%EC%8A%A4+', '마우스 ')">마우스</span> 이벤트 대신에 다음과 같은 터치 이벤트를 사용할 수 있습니다.<br />
+ <br />
+<ul class="square"><li><code>touchstart</code></li><li><code>touchend</code></li><li><code>touchmove</code></li><li><code>touchcancel</code> (시스템이 터치한 것을 취소하는 경우)</li></ul><br />
+ 위와 같은 이벤트를 사용할 때 리스너는 <code>event</code> 객체를 전달 받습니다. event 객체는 다음과 같은 중요한 프로퍼티를 가지고 있습니다.<br />
+ <br />
+<ul class="square"><li><code>touches</code> : 복수로 화면에 터치되는 각 손가락들에 대한 터치 이벤트 모음들. 이 객체들은 페이지에 터치되는 좌표들의 값을 가지고 있습니다.</li><li><code>targetTouches</code> : 터치할 때 발생합니다. 그러나 전체 페이지가 아닌 타깃 요소에만 반응합니다.</li></ul><br />
+ 다음은 터치를 이용한 드래그와 드랍에 대한 간단한 예제입니다. 빈 페이지에 놓여진 박스에 손가락을 올려놓고 드래그 되도록 할 것입니다. 다음 코드는 <code>touchmove</code> 이벤트를 등록하여 손가락으로 움직일 때마다 박스의 포지션을 업데이트 합니다.<br />
+<pre class="javascript"><code class="javascript"> window.addEventListener('load', function() {
+ 
+  var b = document.getElementById('box'),
+      xbox = b.offsetWidth  / 2, // half the box width
+      ybox = b.offsetHeight / 2, // half the box height
+      bstyle = b.style; // cached access to the style object
+ 
+  b.addEventListener('touchmove', function(event) {
+    event.preventDefault(); // the default behaviour is scrolling
+    bstyle.left =  event.targetTouches[0].pageX - xbox + 'px';
+    bstyle.top  =  event.targetTouches[0].pageY - ybox + 'px';
+  }, false);
+     
+}, false);</code></pre><br />
+<code>touchmove</code> 이벤트 리스너는 최초 손가락 움직임에는 반응하지 않습니다. 이것은 모바일 사파리의 페이지를 스크롤 컨트롤과 중복되기 때문입니다. <code>event.targetTouches</code>는 타깃 <code>&lt;div&gt;</code> 요소 위에 있는 각 손가락에 대한 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%8D%B0%EC%9D%B4%ED%84%B0+', '데이터 ')">데이터</span> 목록들을 가지고 있습니다. 우리는 그중 하나에 대한 것만 필요하므로 <code>event.targetTouches[0].</code>를 사용합니다. <code>pageX</code>는 손가락 위치의 x 좌표값입니다. 손가락이 박스의 중간에 위치할 수 있게 하기 위해 <code>&lt;div&gt;</code>의 가로 크기의 반을 x 좌표값에서 뺐습니다.<br />
+ <br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/drag.html">예제 11</a>번은 위 코드로 작성되었습니다.<br />
+<br />
+
+<p><em>▶ 사용해보자! 다른 모바일 기기는?  갤럭시S 인터넷 브라우저에서 동작함.</em></p>
+
+<h3 id="tip9">9: 제스처들</h3>
+
+<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에는 손가락 하나 이상의 동작에 대한 제스쳐가 있습니다. 스케일링(줌-인과 줌-아웃) 그리고 회전 입니다. 기기에 터치하고 있는 각 손가락에 대한 정보를 가지고 있는 <code>touches</code>와 <code>targetTouches</code> 이벤트에 관하여 우리는 이미 배웠습니다. 줌과 팬(파노라마)과 같은 제스쳐를 다루기 위해서도 위와 같은 이벤트들을 사용할 수 있지만, 조금 더 편리한 제스처 이벤트 들이 있습니다. 다음을 살펴 봅니다.<br />
+ <br />
+<ul class="square"><li><code>gesturestart</code></li><li><code>gestureend</code></li><li><code>gesturechange</code></li></ul><br />
+다음 예제에서 <code>gesturechange</code> 이벤트에 반응하고 WebKit 전용 CSS 스타일 프로퍼티인 <code>webkitTransform</code>을 사용하여 div를 스케일링도 해보고 회전도 시켜볼 것입니다. 마찬가지로 이벤트 리스너는 이벤트 객체를 넘겨 받습니다. 이벤트 객체는 다음과 같은 프로퍼티를 가지고 있습니다.<br />
+ <br />
+<ul class="square"><li><code>event.scale</code> : 값 1은 스케일링이 전혀 없습니다. 값이 1보다 작을 때는 줌-아웃(<code>&lt;div&gt;</code> 요소를 작게 만듦)이며 줌-인일때 1보다 값이 큽니다.</li><li><code>event.rotate</code> - 이것은 회전 각도입니다.</li></ul><br />
+아래 코드는 이전에 살펴봤던 터치 앤 드래그 코드와 매우 흡사합니다.<br />
+<pre class="javascript"><code class="javascript">window.addEventListener('load', function() {
+  var b = document.getElementById('box'),
+      bstyle = b.style;
+  b.addEventListener('gesturechange', function(event) {
+    event.preventDefault();
+    bstyle.webkitTransform = 'scale(' + event.scale + ') ' +
+                             'rotate('+ event.rotation + 'deg)';
+  }, false);
+}, false);</code></pre><br />
+<a href="http://www.sitepoint.com/examples/iphone-development-12tips/gesture.html">예제 12번</a>은 위 코드에 대한 액션을 보여줍니다. <code>&lt;div&gt;</code>요소를 스케일링하고 회전할 수 있습니다.<br />
+<br />
+만약에 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> 시뮬레이터로 이 예제를 확인 하는 경우, 옵션키를 활성화 하면 손가락 모양의 두 회색 점이 나타날 것입니다. 마우스를 드래그하여 그 점들을 좁히거나 늘릴 수 있습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/1715-09-gestures.thumb.png" width="150" height="288" alt="" /><br />
+<br />
+
+<p><em>▶ 사용해보자! 다른 모바일 기기는? 갤럭시S2 인터넷 브라우저에서 동작 안함.</em></p>
+
+<h3 id="tip10">10: 특수한 링크들</h3>
+
+<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서 전화번호가 나온 페이지를 조회하다가 이 전화번호를 일일이 타이핑하지 않고 클릭만으로 전화가 걸린다면 얼마나 좋을까요? 모바일 사파리에서는 이것이 가능합니다. 전화번호 링크를 생성하기를 원한다면 <code>tel:</code> 스키마를 사용할 수 있습니다.<br />
+<pre class="html"><code class="html">&lt;a href="tel:12345678900"&gt;Call me&lt;/a&gt;</code></pre><br />
+SMS 문자도 문제없습니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> <span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%85%8D%EC%8A%A4%ED%8A%B8+', '텍스트 ')">텍스트</span> 메세지 어플에 연결되는 <code>sms:</code> 스키마를 사용하세요.<br />
+<pre class="html"><code class="html">&lt;a href="sms:12345678900"&gt;Send me a text&lt;/a&gt;</code></pre><br />
+다음은 특별한 URI 스키마를 사용하지는 않지만 때때로 어떠한 링크들은 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서는 특별한 액션을 취하기도 합니다.<br />
+ 
+<ul class="square">
+  <li>아이튠즈 스토어 링크는 아이튠즈와 연결됩니다.</li>
+  <li>구글맵 링크는 지도 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션과 연결됩니다.</li>
+  <li>유튜브 링크는 유튜브 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션과 연결됩니다.</li>
+  <li>이메일 주소 링크는 메일 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션에 연결됩니다.</li>
+</ul>
+<br />
+
+<p><em>▶ tel: 은 되는데.. sms: 는 iPod 에서 안됨. iPhone 에서 사용해보자! 다른 모바일 기기는?</em></p>
+
+<h3 id="tip11">11: 홈 아이콘</h3>
+
+기쁘게도 어떠한 방문자가 당신의 사이트를 홈스크린(<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>의 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션 실행 화면)으로 등록하고 싶어할 지도 모릅니다. 일반적으로 당신의 사이트를 홈스크린으로 추가하면, <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>은 당신의 사이트를 스크린샷해서 아이콘처럼 사용할 것입니다. 하지만 이보다는 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에 최적화된 개인 아이콘을 제공하는 것이 더 좋지 않을까요?<br />
+ <br />
+그렇게 하기 위해서, 57x57픽셀의 PNG 파일을 만들고 apple-touch-icon.png라고 이름 짓습니다. 그리고 패비콘과 마찬가지로 웹서버의 root에 그 이미지를 넣으면 됩니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>은 자동으로 이미지를 글로시하게 효과를 주고 라운드 박스로 만들기 때문에 일부러 제작할 필요까지는 없습니다.<br />
+<br />
+<img src="http://firejune.com/attach/1214/091214020512460088/145126.png" width="157" height="84" alt="" /><br />
+<br />
+<code>&lt;link&gt;</code> 요소를 사용하여 그 아이콘의 <span class='key1' onclick="Keyword.open('/kview.php?kd=%ED%8C%8C%EC%9D%BC+', '파일 ')">파일</span> 이름이나 위치를 변경할 수도 있습니다. <span class='key1' onclick="Keyword.open('/kview.php?kd=+CD', ' CD')">CD</span>N처럼 다른 웹서버에서 이미지를 호스트하는 경우라면 <code>&lt;link&gt;</code> 요소에 아이콘의 위치를 지정하기 위해 다음과 같이 작성하세요.<br />
+<pre class="html"><code class="html">&lt;link rel="apple-touch-icon" href="http://www.example.com/my-filename.png" /&gt;</code></pre><br />
+
+<p><em>▶▶ 만들어보니 잘된다! 다른 모바일 기기는?</em></p>
+
+<pre class="html"><code class="html">&lt;link rel="apple-touch-icon-precomposed" href="/img/main/ic_home.png" /&gt;&lt;!-- 안드로이드 --&gt;
+&lt;link rel="apple-touch-icon" href="/img/main/ic_home.png" /&gt;&lt;!-- 아이폰 --&gt;</code></pre><br />
+
+<h3 id="tip12">12: 디버깅: 소스 보기와 콘솔</h3>
+
+<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서 어떻게 소스를 볼 수 있을까요? 불행하게도 모바일 사파리만으로는 불가능합니다. 하지만 다행스럽게도 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF', ' 북마클릿')">북마클릿</span>은 모바일 사파리에서도 사용할 수 있기 때문에 소스를 조회하는 기능을 가진 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF', ' 북마클릿')">북마클릿</span>을 사용 할 수 있습니다.<br />
+ <br />
+<span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8', '자바스크립트')">자바스크립트</span>로 <code>document.documentElement.innerHTML</code>를 사용하여 페이지의 소스를 출력할 수 있고 이러한 내용을 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF', ' 북마클릿')">북마클릿</span>으로 만들어 새 창으로 소스를 볼 수 있습니다. <a href="http://iphonewebdev.com/examples">iPHoneWebDev에서는 이미 이런 소스보기 관련 북마클릿를 여럿 제공</a>하고 있으며 이 밖에도 모바일 사파리의 디스플레이를 최적화 하는데 도움을 주는 다른 것들도 많습니다. 이 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF', ' 북마클릿')">북마클릿</span>을 사용하기 위해서는 데스크탑용 사파리에서 즐겨찾기에 추가하고 아이튠즈로 동기화하면 됩니다.<br />
+<br />
+모바일 사파리는 디버깅 콘솔을 가지고 있습니다. 환경설정 &gt; 사파리 &gt; 개발자용 &gt; 디<span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%B2%84%EA%B7%B8', '버그')">버그</span> <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%BD%98%EC%86%94+', '콘솔 ')">콘솔</span> 옵션을 활성화하면 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span>에서 디버깅 콘솔을 작동시킬 수 있습니다. 자 이제 디<span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%B2%84%EA%B7%B8', '버그')">버그</span> 콘솔이 사파리 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80+', '브라우저 ')">브라우저</span> URL 툴바 아래에 나타날 것입니다. 페이지에 대한 에러를 보여주고 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8', '자바스크립트')">자바스크립트</span>에서 디<span class='key1' onclick="Keyword.open('/kview.php?kd=%EB%B2%84%EA%B7%B8', '버그')">버그</span> 메세지를 작성하기 위해 콘솔객체가 사용될 겻입니다.<br />
+<pre class="javascript"><code class="javascript">console.log('Something');
+console.error('Oops');
+console.warning('Beware!');</code></pre><br />
+이 것을 끝으로 흥분되고 도전할 만한 새로운 <span class='key1' onclick="Keyword.open('/kview.php?kd=%EC%95%84%EC%9D%B4%ED%8F%B0', '아이폰')">아이폰</span> 웹 <span class='key1' onclick="Keyword.open('/kview.php?kd=+%EC%95%A0%ED%94%8C', ' 애플')">애플</span>리케이션 개발에 조금이나마 도음이 되셨으면 좋겠습니다. 당신만의 특별한 아이디어로 승부하여 이루고자 하는 것들을 모두 이뤄내시길 바랍니다.
+</section>
+
+<p><em>▶ 환경설정 - 사파리 - 개발자용 - 디버그 콘솔 옵션 활성화하면 HTML, Javascript, CSS 오류 볼 수 있다. (예) 371번째 줄의 HTML 오류<br />
+▶ 본문 위 메뉴 [정보] - 기타 - 책갈피를 다음과 동기화: Safari 해보니 PC와 iPod 책갈피 합쳐서 동기화 확인. 소스보기는 브라우저 화면에 라인 번호 없이 보여주므로 효용성 떨어짐.</em></p>
+
+<pre class="javascript"><code class="javascript">javascript:var%20sourceWindow%3Dwindow.open%28%27about%3Ablank%27%29%3B%0Avar%20newDoc%3DsourceWindow.document%3B%0AnewDoc.open%28%29%3B%0AnewDoc.write%28%27%3Chtml%3E%3Chead%3E%3Ctitle%3ESource%20of%20%27%2Bdocument.location.href%2B%27%3C/title%3E%3Cmeta%20name%3D%22viewport%22%20id%3D%22viewport%22%20content%3D%22initial-scale%3D1.0%3B%20user-scalable%3D0%3B%20maximum-scale%3D0.6667%3B%20width%3D480%22/%3E%3Cscript%3Efunction%20do_onload%28%29%7BsetTimeout%28function%28%29%7Bwindow.scrollTo%280,1%29%3B%7D,100%29%3B%7Dif%28navigator.userAgent.indexOf%28%22iPhone%22%29!%3D-1%29window.onload%3Ddo_onload%3B%3C/script%3E%3C/head%3E%3Cbody%3E%3C/body%3E%3C/html%3E%27%29%3B%0AnewDoc.close%28%29%3B%0Avar%20pre%3DnewDoc.body.appendChild%28newDoc.createElement%28%22pre%22%29%29%3B%0Apre.appendChild%28newDoc.createTextNode%28document.documentElement.innerHTML%29%29%3B</code></pre><br />
+
+
+
+</body>
+</html>

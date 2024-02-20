@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Grid Each content-box inline-block padding Gap 2% | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/lib.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/_css/_grid_each_content-box_inline-block_padding_gap2pct.css" /><!-- ☆(Added) -->
+<style type="text/css">/*<![CDATA[*/
+
+/* ◇◆ _Demo Page_ ◇◆◇◆◇ */
+.column .sample{display:block;padding:1em;background:#def;text-align:center;
+	min-height:0; /* [IE7]fix */
+}
+/* [~IE8] selectivizr.js 폴리필로 nth-child(2n-1) 동작하려면.. 외부파일.css 이어야 한다.  */
+.column:nth-child(2n-1) .sample{background:#dec;}
+
+
+/*]]>*/</style>
+
+<!-- ☆(take) -->
+<script src="../../share/js/iscroll-min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../../share/js/jquery-1.11.1.min.js"></script>
+<script src="../../share/js/jquery.easing.1.3.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="../../share/js/selectivizr.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<script src="../../share/js/jquery.backgroundSize.js"></script>
+<![endif]-->
+<!-- ☆(make) -->
+<script src="../../share/js/jq.js"></script>
+<script>/*<![CDATA[*/
+(function(){
+	$(function(){
+
+	});
+}());
+/*]]>*/</script>
+<!-- /html_head -->
+</head>
+<body style="background:#eee;">
+<!-- container -->
+<div id="container" style="max-width:1200px;margin:0 auto;padding:0 2.5%;background:#fff;">
+
+
+
+
+
+<h1 class="hb1 h1">12 Grid <em class="em1">Each</em> content-box <em class="em2">inline-block</em> padding <em class="em3">Gap 2%</em> RWD</h1>
+
+<p><em class="em">[~IE8] 반응형은 온라인에서 확인하세요!!</em></p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+<!-- <h2 id="Prepare">Prepare</h2> -->
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">Compatible</strong>
+	<ol class="bo1 num00">
+	<li>[IE7+](O)<br /></li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">Reference</strong>
+	<ol class="bo1 num00">
+	<li><a href="http://selectivizr.com/">selectivizr-min.js</a>
+		)) <a href="http://html5please.com/#selector">When you sunset IE6~8 support, you can use:</a>
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<h3 class="hb1 h3">Source Code</h3>
+
+<!-- panel -->
+<div class="panel clearfix">
+<strong class="h1">CSS</strong>
+<pre>
+<code>
+소스보기 하세요.
+</code>
+</pre>
+</div>
+<!-- /panel -->
+
+<br />
+
+<!-- panel -->
+<div class="panel clearfix">
+<strong class="h1">HTML</strong>
+<pre><code>&lt;!-- each-grid --&gt;
+&lt;div class="<b class="em0">each-grid</b> <b class="em1">small-6-6 medium-5-7 large-4-8 xlarge-3-9</b>"&gt;
+	&lt;div class="column"&gt;…&lt;/div&gt;
+	&lt;div class="column"&gt;…&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- /each-grid --&gt;
+</code></pre>
+</div>
+<!-- /panel -->
+
+
+<br />
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Demo">Demo</h2>
+
+<!-- overflow-x:hidden --><!-- ★☆ToEdit) 수평스크롤바 감추려 overflow-x:hidden; 하였다. 상황에 따라 넣든지 하세요. -->
+<div style="overflow-x:hidden">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Basic</h3>
+
+
+<h4 class="hb1 h4">class="each-grid medium-6-6"</h4>
+<div class="each-grid medium-6-6">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+
+
+<h4 class="hb1 h4">class="each-grid medium-5-7"</h4>
+<!-- each-grid -->
+<div class="each-grid medium-5-7">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+
+
+<h4 class="hb1 h4">class="each-grid medium-4-8"</h4>
+<!-- each-grid -->
+<div class="each-grid medium-4-8">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+
+
+<h4 class="hb1 h4">class="each-grid medium-3-9"</h4>
+<!-- each-grid -->
+<div class="each-grid medium-3-9">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+
+
+<h4 class="hb1 h4">class="each-grid medium-3-9"</h4>
+<!-- each-grid -->
+<div class="each-grid collapse medium-3-9">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Advanced</h3>
+
+
+<h4 class="hb1 h4">Nested ))) class="each-grid medium-4-8"</h4>
+<!-- each-grid -->
+<div class="each-grid medium-4-8">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><!-- <div class="sample">02</div> -->
+		<!-- each-grid -->
+		<div class="each-grid medium-4-8">
+			<div class="column"><div class="sample">02-01</div></div>
+			<div class="column"><div class="sample">02-02</div></div>
+			<div class="column"><div class="sample">02-03</div></div>
+			<div class="column"><div class="sample">02-04</div></div>
+		</div>
+		<!-- /each-grid -->
+	</div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+
+
+<h4 class="hb1 h4">Multi ))) class="each-grid small-6-6 medium-5-7 large-4-8 xlarge-3-9"</h4>
+<!-- each-grid -->
+<div class="each-grid small-6-6 medium-5-7 large-4-8 xlarge-3-9">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div>	</div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+</div>
+<!-- /each-grid -->
+<!-- each-grid -->
+<div class="each-grid medium-5-7 large-4-8 xlarge-3-9">
+	<div class="column">
+		<p class="hb1 h3 hb0 mgb0"><!-- ☆다른컬럼과 마진값 맞춘다. -->
+			<img src="http://googledrive.com/host/0Bx7ByxJ4rV96WHlsWWRwd05NMmc/+m/_lib/_img.ex/brothers-457237_1280.jpg" alt="★대체텍스트필수" />
+		</p>
+	</div>
+	<div class="column">
+		<h3 class="hb1 h3">How we hire</h3>
+		<p>There’s no one kind of Googler, so we’re always looking for people who can bring new perspectives and life experiences to our teams. If you’re looking for a place that values your curiosity, passion, and desire to learn, if you’re seeking colleagues who are big thinkers eager to take on fresh challenges as a team, then you’re a future Googler.</p>
+		<h4 class="hb1 h4">Does Google still ask brainteasers in job interviews? </h4>
+		<p>Nope. Our data showed that brainteaser questions didn’t predict how well someone would do on the job so we no longer ask them. Instead, we do work sample tests and ask structured interview questions.</p>
+	</div>
+</div>
+<!-- /each-grid -->
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+</div>
+<!-- /overflow-x:hidden -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small class="fwn"><strong>History</strong>
+: 20160802~
+20160802.
+20160802.
+</small></p>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

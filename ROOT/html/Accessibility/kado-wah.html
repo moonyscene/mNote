@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'KADO-WAH (웹 접근성 자동 평가 프로그램) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>KADO-WAH 2.0 (웹 접근성 자동 평가 프로그램)</h1>
+
+<p>
+v2009.11.06
+v2009.04.10
+v2008.10.16
+</p>
+
+<p>
+<strong>한국정보문화진흥원(<abbr title="Korea Agency Digital Opportunity&Promotion">KADO</abbr>) 에서 제작한 Web Accessibility Helper(WAH)</strong>
+</p>
+<p>
+웹 페이지의 접근성 준수여부를 평가하고 접근성의 오류들을 바로 잡아주는 수정 과정을 통해서 웹 개발자와 콘텐츠 제작자들에게 장애인들이 웹페이지 접근이 용이한 웹 사이트를 만들 수 있도록 도와줍니다.
+</p>
+
+<ul class="bu">
+<li>2004.12. KADO-WAH 최초개발</li>
+<li>2006.09. KADO-WAH 2.0 배포
+	<ul class="bu">
+	<li>① 웹 콘텐츠 접근성 지침 세부항목별 준수율 여부 제공</li>
+	<li>② 개발자 및 관리자가 원본소스 수정을 위한 FTP 업·다운로드 기능 추가제공</li>
+	<li>③ 한 화면(레이아웃)에 검사된 소스, 체크항목 리스트 및 체크항목별 오류사항 수정방법을 동시에 제공</li>
+	</ul>
+</li>
+<li>2009.12. 차기버전 배포예정.</li>
+</ul>
+
+<p>
+<a href="http://www.wah.or.kr/Achive/Kadowah.asp" class="button">KADO-WAH 2.0 (patch1포함) 프로그램 다운로드</a>
+</p>
+<dfn>
+<strong>평가 마법사</strong>로 전체 평가할 때마다 결과가 조금씩 다르므로 적어도 2번 이상 평가 및 오류 수정을 반복합니다.<br />
+1회 평가시 "파라미터가 다른 동일한 파일의 URL 반복 제한" 항목을 "1번 반복.."으로 설정하여 검사하고 오류 수정합니다.<br />
+2회 이후에는 "10번 반복.."으로 설정 후 검사하여 오류 수정합니다.<br />
+<strong>오류 수정 후 최종본</strong>은 반드시 "<em>URL 반복 제한 : 10번 반복</em>..", "<em>최대 페이지 수 제한 : 없음</em>" 으로 평가해주세요.<br />
+</dfn>
+<strong><em>※ 툴버그</em></strong><br />
+* 웹 사이트 주소가 http://project.정보행동.co.kr:9100/ 형태로 포트번호가 있으면, 평가 마법사를 사용할 수 없다. (한페이지 검사만 가능하다.)<br />
+* ActiveX 가 포함되어 있을 때.. ActiveX 를 제거한 뒤 검사해보세요.<br />
+
+
+<h3>평가 환경 설정 및 평가 마법사 실행</h3>
+
+<!-- box3 -->
+<div class="box3">
+<h4><strong>메뉴 [웹 접근성 평가]-[평가 환경 설정]</strong></h4>
+<ul class="bu">
+<li>[한 페이지 검사 환경 설정]탭
+	<ul class="bu">
+	<li>검사항목 : 인터넷 웹 콘텐츠 접근성 지침 1.0</li>
+	<li>표시항목 : 오류</li>
+	</ul>
+</li>
+<li>[전체 환경 설정]탭
+	<ul class="bu">
+	<li>연결 시간 제한 30초</li>
+	<li><em>파라미터가 다른 동일한 파일의 URL 반복 제한 : 10번 반복 후 더 이상 같은 파일을 검사하지 않음.</em></li>
+	<li><em>접근성 오류 로그 파일 남김</em></li>
+	<li>플래시 파일 평가하기</li>
+	</ul>
+</li>
+</ul>
+
+<h4><strong>메뉴 [웹 접근성 평가]-[평가 마법사]</strong></h4>
+<ol class="bu">
+<li>[홈페이지 위치 선택]
+	<ul class="bu">
+	<li>웹 사이트 주소 : http://정보행동.co.kr/</li>
+	</ul>
+</li>
+<li>[HTTP 열기 제한 설정]
+	<ul class="bu">
+	<li>상위 폴더 평가 제외 : 안함</li>
+	<li>하위 폴더 깊이 제한 : 없음</li>
+	<li><em>최대 페이지 수 제한 : 없음</em></li>
+	</ul>
+</li>
+<li>[지침 및 표시 선택] : 평가 환경 설정 항목 그대로</li>
+<li>[설정완료] : [마침]버튼을 클릭하면 자동평가가 진행~</li>
+</ol>
+</div>
+<!-- //box3 -->
+
+<dfn>
+<ul class="bu">
+<h4><strong>자동평가가 끝나면</strong>.. <em>자동검사 항목 통계 보고서</em> 를 볼 수 있다.<br /></h4>
+<ul class="bu">
+<li>자동 검사 오류 항목에 대한 통계 및 막대 그래프를 볼 수 있습니다.<br /></li>
+<li>자동 검사는 웹접근성 지침 13개 중 4개(KADO-WAH Rule 14개)만 가능합니다.<br />
+※ 자세한 설명은.. [도움말]-[KADO-WAH 2.0 도움말]-[KADO-WAH Rule]</li>
+<li>[파일]-[다른 이름으로 저장] - 파일형식을 "웹 페이지 보관 파일(*.mht)"로 저장하여 작업 전후의 근거를 남길 수 있습니다.</li>
+</ul>
+
+<h4><strong>페이지별 평가 결과를 보려면</strong>.. [좌측 폴더 목록]에서 원하는 페이지 더블 클릭 후 아래의 탭 선택.</h4>
+<ul class="bu">
+<li>체크항목 : 검사한 페이지의 HTML 소스와 연동 되는 검사 보고서입니다. 즉, 문제 항목을 더블 클릭하면 문제의 소스를 바로 볼 수 있습니다.</li>
+<li><em>보고서</em> : 웹 콘텐츠 접근성 평가 보고서</li>
+<li>미리보기 : 웹브라우저를 통해 확인</li>
+<li><em>로그보기</em> : 평가 마법사 로그</li>
+<li>오류수정 : 기능 제대로 동작 안함.</li>
+</ul>
+
+<h4><em>평가 마법사 로그</em>는..</h4>
+<ul class="bu">
+<li>1페이지 평가 화면에서만 볼 수 있습니다. 로그 내용은 어느 페이지에서 보시든 자동검사 전체 페이지에 대한 로그입니다.</li>
+<li>[평가 환경 설정] 에서 "접근성 오류 로그 파일 남김"을 설정하여야 텍스트 로그파일이 생성됩니다.<br /></li>
+<li>로그파일이 저장 되는 위치는 프로그램이 설치된 폴더 하위의 Log 폴더입니다.<br />
+일반적으로 C:/Program Files/KADO-WAH/Log/domain.go.kr_20081016_102002.txt 형태로 저장됩니다.<br />
+KADO-WAH [로그 보기] 내용을 모두 복사하여 텍스트 파일(*.txt)로 저장하셔도 됩니다.<br />
+</li>
+<li>로그파일 내용은 검사한 파일명, 참조된 외부파일 목록, [Rule 번호 오류 일람] 으로 구성되어 있습니다.<br /></li>
+<li><em>[Rule 번호 오류 일람] 은 오류, 경고, 수동검사 항목을 모두 포함한 내용이므로, <a href="#table1">[표1]의 Rule</a> 만 수정하면 됩니다.</em><br /></li>
+</ul>
+</dfn>
+
+
+<h3 id="KADO-WAH-">자동 검사 항목(오류)</h3>
+
+<h5>한국형 웹 콘텐츠 접근성 지침 13개 중 4개만 자동 검사가 가능합니다.</h5>
+<p>
+[지침1] 1-1 텍스트 아닌 콘텐츠(non-text contents)의 인식:<br />
+[지침5] 2-2 프레임의 사용 제한:<br />
+[지침6] 2-3 깜박거리는 객체 사용 제한:<br />
+[지침7] 2-4 키보드로만 운용 가능:<br />
+</p>
+<p>
+※ 나머지 9개 지침은 모두 수동 검사 항목(경고, 수동)으로 수동으로 직접 검사해야 합니다.<br />
+※ 실제로 웹접근성 실태조사나 품질마크 심사에서의 KADO-WAH를 활용한 자동평가는<br />
+　&nbsp;지침1(대체콘텐츠), 지침5(프레임) 평가결과만 점검하고 있습니다.
+</p>
+
+<h6 id="table1">[표1] KADO-WAH Rule</h6>
+
+<table class="t3" summary="자동 검사 오류 항목"><caption></caption>
+<colgroup><col span="2" class="tac"><col span="2"></colgroup>
+<thead>
+<th scope="col">항목</th>
+<th scope="col">Rule</th>
+<th scope="col">내용</th>
+<th scope="col">보고</th>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">1</th>
+<td>이미지에 대한 대체 텍스트(alt="X" 또는 longdesc="X")가 없습니다.</td>
+<td><xmp class="xmp"><img> 요소에 alt 또는 longdesc 속성이 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">5</th>
+<td>이미지맵에 대한 대체 텍스트가 없습니다.</td>
+<td><xmp class="xmp"><area> 요소에 alt 속성이 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">6</th>
+<td>이미지버튼에 대한 대체 텍스트(alt="X")가 없습니다.</td>
+<td><xmp class="xmp"><input type="image">인 태그에 alt 속성이 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">7</th>
+<td>애플릿에 대한 대체 텍스트가 없습니다.</td>
+<td><xmp class="xmp"><applet> 요소에 alt 속성 또는 대체 텍스트가 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">9</th>
+<td>개체(&lt;object&gt;)에 포함된 이미지에 대한 대체 텍스트가 없습니다.</td>
+<td><xmp class="xmp">
+<object>
+요소에 설명문이 없을 때
+</object>
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">1-1</th>
+<th scope="row">14</th>
+<td>하나 이상의 이미지 맵 링크에 해당 텍스트가 없습니다.</td>
+<td><xmp class="xmp"><area href=""> 요소에 alt 속성이 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">2-2</th>
+<th scope="row">13</th>
+<td>프레임셋 내에 &lt;noframes&gt;를 사용하십시오.</td>
+<td><xmp class="xmp"><frameset> ~ </frameset> 내부에 <noframes>가 없을 때 </xmp></td>
+</tr>
+<tr>
+<th scope="row">2-2</th>
+<th scope="row">63</th>
+<td>프레임에 제목이 없습니다.</td>
+<td><xmp class="xmp"><frame>, <iframe>, <frameset>의 경우 title 속성이 없을 때 </xmp></td>
+</tr>
+<tr>
+<th scope="row">2-2</th>
+<th scope="row">64</th>
+<td>프레임 제목이 비어 있습니다. <em>*주1)</em></td>
+<td><xmp class="xmp"><frame>, <iframe>, <frameset>의 경우 title 속성만 있고 내용이 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">2-2</th>
+<th scope="row">65</th>
+<td>&lt;noframes&gt;에 제목이 없습니다.</td>
+<td><xmp class="xmp"><noframes> 태그에 title 속성이 없을 때 </xmp></td>
+</tr>
+<tr>
+<th scope="row">2-2</th>
+<th scope="row">67</th>
+<td>&lt;noframes&gt;에 FRAMESET 콘텐츠를 설명하는 대체 페이지에 대한 링크가 있어야 합니다.</td>
+<td><xmp class="xmp"><noframes> ~ </noframes> 내에서 <a> 태그가 없을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">2-3</th>
+<th scope="row">48</th>
+<td>&lt;blink&gt;를 사용하지 마십시오.</td>
+<td><xmp class="xmp"><blink> ~ </blink> 요소가 있을 때</xmp></td>
+</tr>
+<tr>
+<th scope="row">2-3</th>
+<th scope="row">106</th>
+<td>marquee 태그로 생성된 움직이는 텍스트를 사용하지 마십시오.</td>
+<td><xmp class="xmp"><marquee>~</marquee> 태그가  있을 때 </xmp></td>
+</tr>
+<tr>
+<th scope="row">2-4</th>
+<th scope="row">56</th>
+<td>이벤트 처리기가 장치 독립적인지 확인하십시오.</td>
+<td><xmp class="xmp">상응하는 키보드 이벤트 처리기가 없을 때
+onmousedown="" onkeydown=""
+onmouseup="" onkeyup=""
+onclick="" onkeypress=""
+onmouseover="" onfocus=""
+onmouseout="" onblur=""
+</xmp></td>
+</tr>
+</tbody>
+</table>
+<em>*주1)</em> KADO-WAH에서 오류 항목으로 보고는 안되지만 작업 필요함(수동검사).<br />
+<p>
+※ KADO-WAH 보고서의 항목 2.3 깜박거리는 객체 사용 제한: 준수율.. 은 어떻게 보고될까?<br />
+KADO-WAH Rule  47  48  49  106 에 의하면, &lt;script&gt;, &lt;applet&gt;, &lt;marquee&gt;, &lt;blink&gt; 등의 요소가 있으면 보고됩니다,<br />
+2009.02.09 테스트해보니..<br />
+&lt;script&gt; 는 body 요소 안에 존재할 때 페이지당 개수와 상관없이 "준수율(1/1, 100%)" 로 나온다.<br />
+&lt;applet&gt; 은 있더라도 보고 안되고,<br />
+&lt;marquee&gt; 는 "준수율(0/개수, 0%)" 로 보고 되며 <br />
+&lt;blink&gt; 는 "준수율 2/(개수+2)" 로 나옴.<br />
+여러 요소가 섞여 있으면 준수율이 불규칙하므로 준수하지 못한 개수만 생각하여 해결해나가야 한다.<br />
+</p>
+
+<!-- 자동검사오류항목 -->
+<div class="" style="display: none;">
+
+<h5>항목 1.1 텍스트 아닌 콘텐츠(non-text contents)의 인식</h4>
+
+<dl>
+<dt><em>KADO-WAH Rule No.1</em> 이미지에 대한 대체 텍스트(alt="X" 또는 longdesc="X")가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><img> 요소에 alt 또는 longdesc 속성이 없을 때 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.5</em> 이미지맵에 대한 대체 텍스트가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><area> 요소에 alt 속성이 없는 경우 발생합니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.6</em> 이미지버튼에 대한 대체 텍스트(alt="X")가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><input type="image">인 태그에 alt 속성이 없을 경우 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.7</em> 애플릿에 대한 대체 텍스트가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><applet> 요소에 alt 속성 또는 대체 텍스트가 없을 경우 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.9</em> 개체(&lt;object&gt;)에 포함된 이미지에 대한 대체 텍스트가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><object> 요소에 설명문이 없을 때 발생합니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.14</em> 하나 이상의 이미지 맵 링크에 해당 텍스트가 없습니다.</dt>
+<dd>
+<xmp class="xmp"><area href=""> 요소에 alt 속성이 없는 경우 발생합니다.</xmp>
+</dd>
+</dl>
+
+<h5>항목 2.2 프레임의 사용 제한</h4>
+
+<dl>
+<dt><em>KADO-WAH Rule No.13</em> 프레임셋 내에 &lt;noframes&gt;를 사용하십시오.</dt>
+<dd>
+<xmp class="xmp"><frameset> ~ </frameset> 내부에 <noframes>가 없으면 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.63</em> 프레임에 제목이 없습니다.</dt>
+<dd>
+<xmp class="xmp"><frame>, <iframe>, <frameset>의 경우 title 속성이 없으면 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.64</em> 프레임 제목이 비어 있습니다.</dt>
+<dd>
+<xmp class="xmp"><frame>, <iframe>, <frameset>의 경우 title 속성이 있으나 그 내용이 비어 있으면 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.65</em> &lt;noframes&gt;에 제목이 없습니다.</dt>
+<dd>
+<xmp class="xmp"><noframes> 태그에 title 속성이 없으면 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.67</em> &lt;noframes&gt;에 FRAMESET 콘텐츠를 설명하는 대체 페이지에 대한 링크가 있어야 합니다.</dt>
+<dd>
+<xmp class="xmp"><noframes> ~ </noframes> 내에서 <a> 태그가 발견되지 않을 때 보고됩니다.</xmp>
+</dd>
+</dl>
+
+<h5>항목 2.3 깜박거리는 객체 사용 제한</h4>
+
+<dl>
+<dt><em>KADO-WAH Rule No.48</em> &lt;blink&gt;를 사용하지 마십시오.</dt>
+<dd>
+<xmp class="xmp"><blink> ~ </blink> 요소가 있으면 보고됩니다.</xmp>
+</dd>
+<dt><em>KADO-WAH Rule No.106</em> marquee 태그로 생성된 움직이는 텍스트를 사용하지 마십시오.</dt>
+<dd>
+<xmp class="xmp"><marquee>~</marquee> 태그가  있으면 보고됩니다.</xmp>
+</dd>
+</dl>
+
+<h5>항목 2.4 키보드로만 운용 가능</h4>
+
+<dl>
+<dt><em>KADO-WAH Rule No.56</em> 이벤트 처리기가 장치 독립적인지 확인하십시오.</dt>
+<dd>
+<xmp class="xmp">마우스 이벤트 처리기가 있을 경우 그에 상응하는 키보드 이벤트 처리기가 없으면 보고됩니다.
+* 마우스와 키보드 이벤트 처리기 대응 *
+onmousedown="" onkeydown=""
+onmouseup="" onkeyup=""
+onclick="" onkeypress=""
+onmouseover="" onfocus=""
+onmouseout="" onblur=""
+</xmp>
+</dd>
+</dl>
+
+
+</div>
+<!-- //자동검사오류항목 -->
+
+
+<h2>KADO-WAH 2.0 오류 항목</h2>
+
+<h3>한국형 웹 콘텐츠 접근성 지침 1.0</h3>
+<xmp class="xmp">
+* 항목 1.1 텍스트 아닌 콘텐츠(non-text contents)의 인식 : alt="" 속성 반드시
+<img src="/img/new_notice_01.gif" width="450" height="97" alt="공지사항: 대한민국 전자정부 단일 창구 안내" />
+<img src="" alt="" />
+<area alt="" />
+<input type="image" alt="" />
+<object>대체콘텐츠</object>
+
+* 항목 2.2 프레임의 사용 제한 : <iframe title="">, <frame title="">
+
+* 항목 2.3 깜박거리는 객체 사용 제한 : <marquee>, <blink> 사용금지
+
+* 항목 2.4 키보드로만 운용 가능 : 마우스 이벤트핸들러 사용시 대응되는 이벤트 추가
+onclick="" onkeypress=""
+onmouseover="" onfocus=""
+onmouseout="" onblur=""
+</xmp>
+
+<h3>W3C 웹 콘텐츠 접근성 지침 1.0</h3>
+
+<xmp class="xmp">
+* 항목 4.3 문서의 주 사용 언어를 지정해 준다. [중요도 3]
+<html lang="ko">
+
+* 항목 13.2 각 페이지와 사이트에는 메타데이터(metadata)를 제공함으로써 의미있는/의미론적(semantic) 정보를 부여한다. [중요도 2]
+<meta name="author" content="정보통신부" />
+<meta name="keywords" content="정보통신부, 정통부, 정보, 통신, Ministry of Information and Communication" />
+<meta name="description" content="정보통신부: U-Korea 실현과 함께하는 행복한 U-Life" />
+</xmp>
+
+<h3>미 재활법 508조</h3>
+<xmp class="xmp">
+ - 위 지침과 대부분 중복
+</xmp>
+
+<dfn>
+KADO-WAH 검사시 "텍스트 아닌 콘텐츠의 인식", "키보드로만 운용 가능" 오류 항목은 기존 멀티게시판 소스에서 발생할 수 있음.<br />
+(기존 DB의 코드, 한글 링크주소 등에 의해 유효성 error 가 발생할 수 있으나, 그로 인해 접근성이 떨어진다고는 볼 수 없음.)
+</dfn>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

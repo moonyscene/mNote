@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'SVG | mNote',
+	page: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+
+/* svg */
+svg{background:#eee url(../../img/lib/b0grid10.png);}
+
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">SVG </h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Ex">Ex</a></li>
+<li><a href="#Usage">Usage</a></li>
+<li><a href="#Tutorial">SVG 튜토리얼</a>
+	<ol class="bo">
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/Introduction" target="_blank" rel="noopener" title="새 창" class="a1">소개</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/시작하기" target="_blank" rel="noopener" title="새 창" class="a1">시작하기</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/위치" target="_blank" rel="noopener" title="새 창" class="a1">위치</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/기본_도형" target="_blank" rel="noopener" title="새 창" class="a1">기본 형태</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/Paths" target="_blank" rel="noopener" title="새 창" class="a1">패스</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">채우기 및 선 그리기</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">그라디언트</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/Patterns" target="_blank" rel="noopener" title="새 창" class="a1">패턴</a></li>
+	<li><a href="https://translate.google.com/translate?hl=ko&sl=en&u=https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text&prev=search" target="_blank" rel="noopener" title="새 창" class="a1">텍스트</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">기본 변형</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">클리핑 및 마스킹</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">SVG 안의 다른 컨텐츠</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">필터 효과</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">SVG 폰트</a></li>
+	<li><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/SVG_Image_Tag" target="_blank" rel="noopener" title="새 창" class="a1">SVG 이미지 태그</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">SVG를 위한 도구들</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">SVG와 CSS</a></li>
+	</ol>
+</li>
+<li><a>SVG 발전</a>
+	<ol class="bo">
+	<li>Scripting SVG with JavaScript</li>
+	<li>SVG filters tutorial</li>
+	<li>Animations with SMIL in SVG</li>
+	<li>Creating fonts in SVG</li>
+	</ol>
+</li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Ex">Ex</h2>
+
+
+<h3 class="hb1 h3">전환효과</h3>
+
+
+<svg id="effect1" width="320" height="240">
+  <defs>
+    <mask id="Mask1">
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+	  <rect x="0" y="0" width="10%" height="100%" fill="#fff" />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="#eee" />
+  <image xlink:href="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1001.jpg" x="0" y="0" mask="url(#Mask1)" />
+</svg>
+
+
+<script>/*<![CDATA[*/
+	/** ◇◆ 전환효과. 20200103. MoonYoungshin.
+	 */
+	(function(){
+		var $my = $('#effect1 mask rect');
+		var num = $my.length; //console.log(num);
+
+		$my.each(function(){
+			var $my = $(this);
+			//console.log($my.index());
+			$my.attr({
+					x: (($my.index()/num) *100) + '%',
+					y:'-100%',
+					width: ((1/num)*100) + '%'
+				});
+			$my.css({opacity:'0'});
+			setTimeout(function(){
+				$my.attr({y:'0'});
+				$my.animate({opacity:'1'}, 1000, function(){});
+			}, (($my.index()+1) * (1000/10)) );
+			
+		});
+	})();
+
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Usage">Usage</h2>
+
+
+<!-- w1svg2a1 -->
+<div class="w1svg2a1" style="width:50%;">
+	<svg id="svg2" viewBox="9 80 800 400">
+		<style type="text/css">
+			.st0{fill:#444;stroke:#000;stroke-miterlimit:10;}
+			.st1{fill:#fff;}
+		</style>
+		<rect id="background" x="9" y="80" class="st0" width="800" height="400"/>
+
+		<path id="circle" class="st1" d="M490.1,280.649c0,44.459-36.041,80.5-80.5,80.5s-80.5-36.041-80.5-80.5s36.041-80.5,80.5-80.5
+			S490.1,236.19,490.1,280.649z"/>
+		
+		<path id="hippo" class="st1" d="M148.802,244.876c2.737-36.735,16.107-69.079,40.099-97.061
+			c27.038-31.596,60.924-47.386,101.629-47.386c15.481,0,38.483,2.447,69.024,7.287c30.541,4.886,53.533,7.278,69.033,7.278
+			c23.693,0,57.868,8.847,102.526,26.477c7.914,3.009,17.471,11.239,28.701,24.59c6.381,7.886,16.256,19.769,29.616,35.568
+			c3.036,2.139,6.998,5.316,11.865,9.595c4.859,4.223,8.194,6.063,9.997,5.456c0.616-1.84,2.149-4.4,4.578-7.735
+			c1.214-1.225,1.962-1.832,2.261-1.832c0.935,0.607,1.831,1.215,2.747,1.832c0.906,0.616,1.205,2.419,0.906,5.456
+			c-0.616,5.474-0.906,7.138-0.906,4.998c-0.327,3.056-0.757,5.008-1.373,5.952c-3.952,6.671-5.485,11.847-4.55,15.472
+			c0.916,3.325,3.765,8.669,8.642,15.958c4.868,7.287,7.586,12.761,8.193,16.405c-0.299,2.728-0.43,7.119-0.43,13.211l-4.568,11.379
+			c0,8.512,9.865,23.114,29.616,43.78c9.436,4.223,14.117,18.826,14.117,43.714c0,19.47-16.089,29.167-48.273,29.167
+			c-4.26,0-8.81-0.13-13.678-0.467c-3.335-1.196-8.203-2.56-14.575-4.074c-7.586-0.934-12.761-3.494-15.48-7.773
+			c-4.877-6.95-12.781-13.509-23.711-19.581c-1.823-0.878-4.485-4.223-7.979-10.016c-3.503-5.774-6.615-9.418-9.333-10.949
+			c-2.719-1.495-6.68-1.813-11.856-0.878c-8.81,1.494-13.677,2.261-14.574,2.261c-2.139,0-5.25-0.598-9.343-1.831
+			c-4.11-1.215-7.054-1.831-8.893-1.831c-2.112,9.735-2.589,19.152-1.364,28.252c0.298,2.448,1.831,4.428,4.559,5.923
+			c4.27,3.046,6.531,4.709,6.849,5.045c2.718,2.111,5.615,5.605,8.642,10.445c0.616,1.849-0.523,4.952-3.419,9.342
+			c-2.887,4.41-5.223,7.008-7.063,7.736c-1.813,0.785-5.765,1.178-11.847,1.178c-8.82,0-12.295,0.131-10.464,0.43
+			c-12.145-1.831-18.984-2.878-20.516-3.158c-7.587-1.532-14.126-3.943-19.582-7.305c-2.756-1.813-5.913-10.333-9.557-25.524
+			c-3.681-16.406-6.717-26.272-9.137-29.635c-0.598-0.896-1.355-1.326-2.261-1.326c-1.533,0-4.045,1.494-7.53,4.559
+			c-3.494,2.99-5.858,4.652-7.054,5.008c-4.242,17.9-6.4,26.402-6.4,25.468c0,7.007,1.972,12.892,5.924,17.77
+			c3.943,4.858,8.063,9.567,12.323,14.107c5.157,5.774,7.736,10.782,7.736,15.042c0,2.41-0.748,4.521-2.28,6.372
+			c-6.381,7.885-17.022,11.847-31.905,11.847c-16.713,0-27.644-2.28-32.792-6.839c-6.699-5.774-10.949-11.865-12.762-18.199
+			c-0.298-1.533-1.055-6.091-2.28-13.678c-0.607-4.578-1.98-7.287-4.082-8.184c-6.101-0.916-13.687-2.578-22.778-5.007
+			c-1.841-1.215-3.811-4.26-5.942-9.118c-3.933-9.399-6.83-15.789-8.661-19.134c-9.128-4.56-23.702-9.698-43.761-15.453
+			c-0.916,1.831-1.345,4.373-1.345,7.718c3.335,4.26,8.343,10.8,15.032,19.581c5.466,7.288,8.203,14.295,8.203,20.965
+			c0,12.781-8.203,19.134-24.609,19.134c-12.453,0-20.955-0.878-25.523-2.709c-6.671-2.728-12.295-9.136-16.854-19.134
+			c-7.596-16.742-11.847-26.159-12.762-28.27c-4.868-11.231-8.204-21.133-10.006-29.653c-1.233-6.055-3.064-15.35-5.485-27.804
+			c-2.121-10.296-5.456-18.358-10.015-24.132C155.332,279.36,147.578,260.665,148.802,244.876z"/>
+
+		<path id="elephant" class="st1" d="M446.47,99.669c12.095,0,23.828,7.003,35.234,20.993c11.378,13.989,17.971,20.993,19.755,20.993
+			h17.116c36.996,0,65.654,18.517,85.956,55.547c5.35,10.365,13.524,25.586,24.584,45.697c11.01,20.144,23.856,35.008,38.464,44.628
+			c16.366,10.694,32.917,16.59,49.644,17.631c7.819,0.361,16.394-1.073,25.657-4.298c8.186-3.58,16.36-7.172,24.54-10.754
+			l5.344,11.859c-26.337,20.215-51.436,30.64-75.297,31.363c-25.619,0.712-53.231-5.514-82.764-18.643
+			c25.263,29.205,47,47.005,65.161,53.385l-4.271,4.304c-32.041-5.7-61.607-22.099-88.655-49.147l-21.365,12.769
+			c0,1.434-1.33,2.94-4.002,4.534c-2.672,1.599-3.85,2.908-3.493,3.981c1.434,4.627,8.743,15.998,21.906,34.062
+			c13.174,18.129,19.755,27.711,19.755,28.751c0,3.197-4.101,6.384-12.286,9.586c-8.18,3.193-12.621,6.746-13.333,10.655
+			c-0.722,3.198,0.329,7.107,3.198,11.707c2.83,4.627,4.264,7.43,4.264,8.53c0,7.08-6.23,11.509-18.67,13.305
+			c-2.163,0.329-8.936,0.526-20.313,0.526c-21.348,0-36.668-4.796-45.927-14.345c-7.468-8.146-13.365-23.046-17.636-44.656
+			c-1.434-7.43-3.909-20.729-7.468-39.898c-36.307,9.253-73.698,13.886-112.166,13.886c-23.505,0-48.96-1.764-76.38-5.344
+			c4.637,11.76,11.223,31.357,19.798,58.766c-17.806-2.502-39.186-6.055-64.093-10.688c-11.055,16.721-20.506,24.742-28.329,24.026
+			c-13.886-1.046-33.837-7.989-59.818-20.795c-6.416-3.198-9.614-8.021-9.614-14.438c0-6.395,4.993-18.161,14.959-35.245
+			c9.949-17.077,15.293-29.008,16.009-35.786c0.718-6.072-1.035-14.405-5.311-25.103c-5.344-13.891-8.378-22.941-9.09-27.245h2.146
+			l-4.276-12.818c-16.393,17.8-31.351,30.804-44.88,38.989c-15.682,9.61-34.199,15.868-55.548,18.671
+			c-4.27-4.238-7.106-6.379-8.541-6.379c26.341-11.41,52.355-29.375,77.973-53.959c1.079-1.073,7.825-5.858,20.314-14.438
+			c7.101-4.621,11.371-10.101,12.811-16.518c8.887-35.595,27.048-60.732,54.463-75.335c22.427-11.739,53.953-17.603,94.53-17.603
+			c18.518,0,36.154,1.238,52.876,3.717c7.829,2.146,20.307,4.66,37.391,7.491c1.434-14.17,6.422-26.752,14.963-37.741
+			C421.377,106.059,432.947,99.669,446.47,99.669z"/>
+
+		<path id="star" class="st1" d="M409.6,198.066l26.833,54.369l60,8.719l-43.417,42.321l10.249,59.758L409.6,335.019
+			l-53.666,28.214l10.249-59.758l-43.417-42.321l60-8.719L409.6,198.066z"/>
+	</svg>
+	<input type="range" id="slider" />
+</div>
+<!-- /w1svg2a1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Tutorial"><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial" target="_blank" rel="noopener" title="새 창" class="a1">SVG 튜토리얼 (( MDN</a></h2>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">소개</h3>
+
+<a href="https://caniuse.com/#feat=svg" target="_blank" rel="noopener" title="새 창" class="a1">Can I use SVG</a>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">시작하기</h3>
+
+
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+	 viewBox="0 0 300 200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="100%" height="100%" fill="#c80" />
+
+  <circle cx="150" cy="100" r="80" fill="#4a0" />
+
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+</svg>
+
+<xmp class="xmp">
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+	 viewBox="0 0 300 200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="100%" height="100%" fill="#c80" />
+
+  <circle cx="150" cy="100" r="80" fill="#4a0" />
+
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+</svg>
+</xmp>
+
+<xmp class="xmp">
+<object data="image.svg" type="image/svg+xml" />
+</xmp>
+
+<xmp class="xmp">
+<iframe src="image.svg"></iframe>
+</xmp>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">위치</h3>
+
+
+<svg width="200" height="200" viewBox="0 0 100 100">
+  <rect x="0" y="0" width="100" height="100" />
+</svg>
+
+<xmp class="xmp">
+<svg width="200" height="200" viewBox="0 0 100 100">
+  <rect x="0" y="0" width="100" height="100" />
+</svg>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">기본 형태</h3>
+
+<svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+  <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+
+  <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/>
+  <ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+
+  <line x1="10" x2="50" y1="110" y2="150" stroke="orange" stroke-width="5"/>
+  <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+      stroke="orange" fill="transparent" stroke-width="5"/>
+
+  <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+      stroke="green" fill="transparent" stroke-width="5"/>
+
+  <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+</svg>
+
+<xmp class="xmp">
+<svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+  <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+
+  <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/>
+  <ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+
+  <line x1="10" x2="50" y1="110" y2="150" stroke="orange" stroke-width="5"/>
+  <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+      stroke="orange" fill="transparent" stroke-width="5"/>
+
+  <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+      stroke="green" fill="transparent" stroke-width="5"/>
+
+  <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Rectangles 사각형</h4>
+
+<dl class="fixed1auto1">
+<dt>x</dt>
+<dd>사각형의 좌측 상단의 x 값을 의미한다.</dd>
+<dt>y</dt>
+<dd>사각형의 좌측 상단의 y 값을 의미한다.</dd>
+<dt>width</dt>
+<dd>사각형의 폭을 나타낸다.</dd>
+<dt>height</dt>
+<dd>사각형의 높이를 나타낸다.</dd>
+<dt>rx</dt>
+<dd>사각형의 둥근 꼭짓점의 x 방향으로의 반지름이다.</dd>
+<dt>ry</dt>
+<dd>사각형의 둥근 꼭짓점의 y 방향으로의 반지름이다.</dd>
+</dl>
+
+<h4 class="hb1 h4">Circle 원</h4>
+
+<dl class="fixed1auto1">
+<dt>r</dt>
+<dd>원의 반지름을 의미한다.</dd>
+<dt>cx</dt>
+<dd>원의 중심 중 x 값을 의미한다.</dd>
+<dt>cy</dt>
+<dd>원의 중심 중 y 값을 의미한다. </dd>
+</dl>
+
+<h4 class="hb1 h4">Ellipse 타원</h4>
+
+<dl class="fixed1auto1">
+<dt>rx</dt>
+<dd>타원의 x 방향으로의 반지름의 길이를 의미한다.</dd>
+<dt>ry</dt>
+<dd>타원의 y 방향으로의 반지름의 길이를 의미한다.</dd>
+<dt>cx</dt>
+<dd>타원의 중심 중 x 값을 의미한다.</dd>
+<dt>cy</dt>
+<dd>타원의 중심 중 y 값을 의미한다. </dd>
+</dl>
+
+<h4 class="hb1 h4">Line 선</h4>
+
+<dl class="fixed1auto1">
+<dt>x1</dt>
+<dd>점 1의 x 값이다.</dd>
+<dt>y1</dt>
+<dd>점 1의 y 값이다.</dd>
+<dt>x2 </dt>
+<dd>점 2의 x 값이다.</dd>
+<dt>y2</dt>
+<dd>점 2의 y 값이다. </dd>
+</dl>
+
+<h4 class="hb1 h4">Polyline</h4>
+
+<dl class="fixed1auto1">
+<dt>points</dt>
+<dd>포인트들의 목록, 각 숫자는 공백, 쉼표, EOL 또는 줄 바꿈 문자로 구분된다. 각 포인트는 반드시 x 좌표와 y 좌표를 가지고 있어야 한다. 따라서 포인트 목록 (0,0), (1,1) 및 (2,2)는 "0 0, 1 1, 2 2"라고 쓸 수 있다. </dd>
+</dl>
+
+<h4 class="hb1 h4">Polygon 다각형</h4>
+
+<dl class="fixed1auto1">
+<dt>points</dt>
+<dd>포인트들의 목록, 각 숫자는 공백, 쉼표, EOL 또는 줄 바꿈 문자로 구분된다. 각 포인트는 반드시 x 좌표와 y 좌표를 가지고 있어야 한다. 따라서 포인트 목록 (0,0), (1,1) 및 (2,2)는 "0 0, 1 1, 2 2"라고 쓸 수 있다. 그러면 (2,2)에서 (0,0)으로 최종 직선이 그려져서 다각형이 완성된다. </dd>
+</dl>
+
+<h4 class="hb1 h4">Path</h4>
+
+<p>
+	Path 는 아마 SVG에서 사용할 수 있는 가장 일반적인 형태일 것이다. path 요소를 사용해서 당신은 사각형(둥근 모서리가 있거나 없는), 원, 타원, 폴리라인 및 다각형을 그릴 수 있다. 기본적으로 다른 모든 종류의 모양, 베지에 곡선, 2차원 곡선 등이 가능하다. 
+</p>
+
+<dl class="fixed1auto1">
+<dt>d</dt>
+<dd>패스를 그리는 방법에 대한 포인트 및 기타 정보 목록. 자세한 내용은 경로 섹션을 참조하십시오.</dd>
+</dl>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">패스</h3>
+
+<p>
+	패스의 모양은 d 속성 하나로 정의된다(basic shapes 참조). "d" 속성은 여러 개의 명령어와 그 파라미터들로 이루어진다.<br />
+	각각 명령은 특정 알파벳으로 시작한다. 예를 들면 현재 그려지는 위치를 XY 좌표계의 (10, 10)으로 이동할 때 "Move To" 명령을 사용하게 되는데, 이 명령은 알파벳 M으로 호출한다. SVG 처리기가 이 문자를 읽게 되면 다른 위치로 이동하라는 명령으로 이해하게 된다. 즉, (10, 10)으로 이동하려면 명령어 "M 10 10"을 쓰면 된다. 이후에 처리기는 다음 명령어를 읽기 시작한다.<br />
+	모든 명령어는 2가지 변형이 존재하는데, 알파벳이 대문자일 경우(예를 들면 대문자 M), 뒤따르는 좌표는 페이지의 절대 좌표를 참조하며, 소문자 알파벳(m)일 경우 마지막 위치에 대한 상대적 좌표로 참조된다.<br />
+	"d" 속성의 좌표는 절대 단위가 붙지 않으며, 패스의 위치나 형태가 어떻게 변형될 수 있는지는 나중에 배우도록 한다.<br />
+</p>
+
+<dl class="fixed1auto1">
+<dt>M</dt>
+<dd>Move To (위치 이동)<br />
+<dt>M x y</dt>
+<dd>절대위치</dd>
+<dt>m dx dy</dt>
+<dd>상대위치</dd>
+</dd>
+<dt>L</dt>
+<dd>Line To (선 그리기)<br />
+<dt>L x y</dt>
+<dd>(혹은 l dx dy) 선 긋기</dd>
+<dt>H x </dt>
+<dd>(혹은 h dx) 가로선</dd>
+<dt>V y</dt>
+<dd>(혹은 v dy) 세로선</dd>
+</dd>
+<dt>Z</dt>
+<dd>(혹은 z) Close Path(패스 닫기)</dd>
+</dl>
+
+
+<h4 class="hb1 h4">선(Line) 명령어</h4>
+
+<svg width="100" height="100">
+
+  <path d="M10 10"/>
+
+  <!-- 점 -->
+  <circle cx="10" cy="10" r="2" fill="red"/>
+
+</svg>
+
+<xmp class="xmp">
+<svg width="100" height="100">
+
+  <path d="M10 10"/>
+
+  <!-- 점 -->
+  <circle cx="10" cy="10" r="2" fill="red"/>
+
+</svg>
+</xmp>
+
+
+<h5 class="hb1 h5">사각형을 그려볼 텐데(<rect>를 이용해 쉽게 그릴 수도 있다), 시작점부터 가로, 세로선도 함께 사용되었다.</h5>
+
+
+<svg width="100" height="100">
+  
+  <path d="M10 10 H 90 V 90 H 10 L 10 10"/>
+
+  <!-- 점 -->
+  <circle cx="10" cy="10" r="2" fill="red"/>
+  <circle cx="90" cy="90" r="2" fill="red"/>
+  <circle cx="90" cy="10" r="2" fill="red"/>
+  <circle cx="10" cy="90" r="2" fill="red"/>
+
+</svg>
+
+<xmp class="xmp">
+<svg width="100" height="100">
+  
+  <path d="M10 10 H 90 V 90 H 10 L 10 10"/>
+
+  <!-- 점 -->
+  <circle cx="10" cy="10" r="2" fill="red"/>
+  <circle cx="90" cy="90" r="2" fill="red"/>
+  <circle cx="90" cy="10" r="2" fill="red"/>
+  <circle cx="10" cy="90" r="2" fill="red"/>
+
+</svg>
+</xmp>
+
+<h5 class="hb1 h5">Z</h5>
+
+<svg width="100" height="100">
+	<path d="M10 10 H 90 V 90 H 10 Z"/>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="100">
+	<path d="M10 10 H 90 V 90 H 10 Z"/>
+</svg>
+</xmp>
+
+<h5 class="hb1 h5">상대좌표</h5>
+
+<svg width="100" height="100">
+	<path d="M10 10 h 80 v 80 h -80 Z"/>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="100">
+	<path d="M10 10 h 80 v 80 h -80 Z"/>
+</svg>
+</xmp>
+
+
+<h4 class="hb1 h4">곡선 (Curve) 명령어</h4>
+
+<ul class="bu">
+<li>부드러운 곡선을 그릴 수 있는 세 가지 명령어가 있다.</li>
+<li>이 중 두 가지는 '베지어 곡선'이며, 나머지 하나는 원의 조각인 '호'이다.</li>
+<li>베지어 곡선의 종류는 무한하지만, 패스 엘리먼트에서는 가장 간단한 두 종류만을 지원한다.</li>
+<li>하나는 '<b class="em1">C</b>'라고 부르는 <em class="em5">3차(Cubic) 베지어 곡선</em>이고, 다른 하나는 '<b class="em1">Q</b>'로 사용되는 <em class="em5">2차(Quadratic) 베지어 곡선</em>이다</li>
+</ul>
+
+
+<h5 class="hb1 h5">베지어 곡선</h5>
+
+<h6 class="hb1 h6">3차(Cubic) 베지어 곡선</h6>
+
+
+<xmp class="xmp">
+C x1 y1, x2 y2, x y (혹은 c dx1 dy1, dx2 dy2, dx dy)
+</xmp>
+
+<p>
+마지막으로 지정된 좌표 (x, y)는 곡선의 끝점이다.<br />
+나머지 두 개는 제어점이며, 첫 번째 제어점은 (x1, y1), 두 번째 제어점은 (x2, y2)이다.<br />
+제어점은 기본적으로 시작점과 끝점에서 곡선의 방향을 기술한다.<br />
+베지어 함수는 각 제어점의 방향을 이용해 부드러운 곡선을 만드는 기능을 한다.<br />
+</p>
+
+
+<svg width="190" height="160">
+  <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
+  <path d="M70 10 C 70 20, 120 20, 120 10" stroke="black" fill="transparent"/>
+  <path d="M130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent"/>
+  <path d="M10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent"/>
+  <path d="M70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent"/>
+  <path d="M130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent"/>
+  <path d="M10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent"/>
+  <path d="M70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent"/>
+  <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent"/>
+</svg>
+
+<img src="https://media.prod.mdn.mozit.cloud/attachments/2015/04/13/10401/a61fd651f6f1d366edae32b3dc134762/Cubic_Bezier_Curves_with_grid.png"
+	alt="베지어 곡선 가이드 그림 (회색은 10px 간격 그리드, 빨간색은 베지어 곡선과 제어점 표시)" />
+
+<xmp class="xmp">
+<svg width="190" height="160">
+  <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
+  <path d="M70 10 C 70 20, 120 20, 120 10" stroke="black" fill="transparent"/>
+  <path d="M130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent"/>
+  <path d="M10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent"/>
+  <path d="M70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent"/>
+  <path d="M130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent"/>
+  <path d="M10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent"/>
+  <path d="M70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent"/>
+  <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent"/>
+</svg>
+</xmp>
+
+<p>
+	여러 베지어 곡선을 연결하여 확장된 곡선 형태를 만들 수도 있다.<br />
+	한 선의 제어점을 다른 선의 제어점과 반대 방향으로 그어서 완만한 경사를 만들어야 할 때가 많은데,<br />
+	이 경우에는 <em class="em5">간단한 형태의 3차 베지어 곡선 명령어</em>인 '<b class="em1">S</b>' (혹은 's')를 사용해서 구현할 수 있다.<br />
+</p>
+
+<xmp class="xmp">
+S x2 y2, x y (혹은 s dx2 dy2, dx dy)
+</xmp>
+
+<p>
+	S는 위와 같은 형태의 곡선을 그리지만,<br />
+	다른 S나 C 명령어 다음에 올 경우 첫 번째 제어점은 이전에 사용했던 제어점을 뒤집은 것으로 간주된다.<br />
+	S 명령어가 다른 S나 C 명령어 다음에 오지 않을 경우에는 현재 커서 위치가 첫 번째 제어점으로 사용되며,<br />
+	이 경우에 그려지는 결과는 Q 명령어로 같은 파라미터를 사용해서 그린 결과와 같게 된다.<br />
+	아래에 이 명령어의 예제가 있으며, 왼쪽의 미리보기에서 패스에 명시적으로 표시된 제어점은 빨간색, 생략된 제어점은 파란색으로 표시한다.<br />
+</p>
+
+<svg width="190" height="160">
+  <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" stroke="black" fill="transparent"/>
+</svg>
+
+<img src="https://media.prod.mdn.mozit.cloud/attachments/2015/04/13/10405/c5cac40f8129c68c1fb742ab8c9eda52/ShortCut_Cubic_Bezier_with_grid.png"
+	alt="S 베지어 곡선 가이드 그림 (명시적으로 표시된 제어점은 빨간색, 생략된 제어점은 파란색으로 표시)" />
+
+<xmp class="xmp">
+<svg width="190" height="160">
+  <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" stroke="black" fill="transparent"/>
+</svg>
+</xmp>
+
+<h6 class="hb1 h6">2차(Quadratic) 베지어 곡선</h6>
+
+<p>
+	3차 베지어 곡선보다 간단한 다른 형태의 곡선은 'Q'라고 부르는 2차 베지어 곡선이며,<br />
+	하나의 제어점이 시작점과 끝점의 방향을 모두 결정한다.<br />
+	이 명령어는 매개변수로 제어점과 곡선의 끝점 2개를 받는다.<br />
+</p>
+
+<xmp class="xmp">
+Q x1 y1, x y (혹은 q dx1 dy1, dx dy)
+</xmp>
+
+
+<svg width="190" height="160">
+  <path d="M10 80 Q 95 10 180 80" stroke="black" fill="transparent"/>
+</svg>
+
+<img src="https://media.prod.mdn.mozit.cloud/attachments/2015/04/13/10403/1d1bae3afddee907a9b086761373bd92/Quadratic_Bezier_with_grid.png"
+	alt="Q 베지어 곡선 가이드 그림 (회색은 10px 간격 그리드, 빨간색은 베지어 곡선과 제어점 표시)" />
+
+<xmp class="xmp">
+<svg width="190" height="160">
+  <path d="M10 80 Q 95 10 180 80" stroke="black" fill="transparent"/>
+</svg>
+</xmp>
+
+<p>
+	3차 베지어 곡선과 같이 <em class="em5">2차 베지어 곡선을 연결하는 단축 명령어</em>가 있으며, <b class="em1">T</b>라고 부른다.
+</p>
+
+<xmp class="xmp">
+T x y (혹은 t dx dy)
+</xmp>
+
+<p>
+	이 축약 명령어는 이전에 사용한 제어점으로부터 새로운 제어점을 만들어낸다. 즉, 처음에 제어점 하나만을 기술하면 끝점만을 계속 이어서 꽤 복잡한 도형을 만들 수 있다.
+</p>
+
+<div class="panel0 bg-warning">
+Q나 T 명령어 다음에 올 때만 적용된다. 그렇지 않을 경우 제어점은 시작점의 좌표로 간주되며, 직선만 그릴 수 있게 된다.
+</div>
+
+<svg width="190" height="160">
+  <path d="M10 80 Q 52.5 10, 95 80 T 180 80" stroke="black" fill="transparent"/>
+</svg>
+
+<img src="https://mdn.mozillademos.org/files/10407/Shortcut_Quadratic_Bezier_with_grid.png"
+	alt="Q 베지어 곡선 가이드 그림 (회색은 10px 간격 그리드, 빨간색은 베지어 곡선과 제어점 표시, 생략된 제어점은 파란색으로 표시)" />
+
+<xmp class="xmp">
+<svg width="190" height="160">
+  <path d="M10 80 Q 52.5 10, 95 80 T 180 80" stroke="black" fill="transparent"/>
+</svg>
+</xmp>
+
+<p>
+	두 종류의 곡선이 비슷한 결과를 만들어내긴 하지만, 3차 곡선의 경우 모양을 더 자유롭게 수정할 수 있다.<br />
+	둘 중 어느 것이 좋은지는 그때그때 다르며, 선 모양이 얼마나 대칭적인지에 따라 달라진다.<br />
+</p>
+
+
+<h5 class="hb1 h5">원호</h5>
+
+<p>
+	SVG로 그릴 수 있는 다른 형태의 곡선으로는 A라고 부르는 호(arc)가 있다.<br />
+	호는 원이나 타원의 일부분을 말한다.<br />
+	x, y축 반지름이 주어졌을 때, (두 점이 충분히 가깝다고 가정할 때) 두 점을 연결할 수 있는 타원은 2개가 있으며,<br />
+	각각의 타원에서 두 점을 잇는 경로 또한 2개씩 있기 때문에 어떤 상황에서든 네 종류의 호를 그릴 수 있다.<br />
+	이러한 성질 때문에 호 명령어는 꽤 많은 파라미터를 받는다:<br />
+</p>
+
+<xmp class="xmp">
+A rx ry x축-회전각 큰-호-플래그 쓸기-방향-플래그 x y
+a rx ry x축-회전각 큰-호-플래그 쓸기-방향-플래그 dx dy
+</xmp>
+
+
+<svg width="320" height="320">
+  <path d="M10 315
+           L 110 215
+           A 30 50 0 0 1 162.55 162.45
+           L 172.55 152.45
+           A 30 50 -45 0 1 215.1 109.9
+           L 315 10" stroke="black" fill="green" stroke-width="2" fill-opacity="0.5"/>
+</svg>
+
+<img src="https://mdn.mozillademos.org/files/10409/SVGArcs_XAxisRotation_with_grid.png"
+	alt="★대체텍스트필수" />
+
+<xmp class="xmp">
+<svg width="320" height="320">
+  <path d="M10 315
+           L 110 215
+           A 30 50 0 0 1 162.55 162.45
+           L 172.55 152.45
+           A 30 50 -45 0 1 215.1 109.9
+           L 315 10" stroke="black" fill="green" stroke-width="2" fill-opacity="0.5"/>
+</svg>
+</xmp>
+
+<svg width="325" height="325">
+  <path d="M80 80
+           A 45 45, 0, 0, 0, 125 125
+           L 125 80 Z" fill="green"/>
+  <path d="M230 80
+           A 45 45, 0, 1, 0, 275 125
+           L 275 80 Z" fill="red"/>
+  <path d="M80 230
+           A 45 45, 0, 0, 1, 125 275
+           L 125 230 Z" fill="purple"/>
+  <path d="M230 230
+           A 45 45, 0, 1, 1, 275 275
+           L 275 230 Z" fill="blue"/>
+</svg>
+
+<img src="https://developer.mozilla.org/@api/deki/files/345/=SVGArcs_Flags.png"
+	alt="★대체텍스트필수" />
+
+<xmp class="xmp">
+<svg width="325" height="325">
+  <path d="M80 80
+           A 45 45, 0, 0, 0, 125 125
+           L 125 80 Z" fill="green"/>
+  <path d="M230 80
+           A 45 45, 0, 1, 0, 275 125
+           L 275 80 Z" fill="red"/>
+  <path d="M80 230
+           A 45 45, 0, 0, 1, 125 275
+           L 125 230 Z" fill="purple"/>
+  <path d="M230 230
+           A 45 45, 0, 1, 1, 275 275
+           L 275 230 Z" fill="blue"/>
+</svg>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">채우기 및 선 그리기 <small class="fwn">Fills and Strokes</small></h3>
+
+
+<h4 class="hb1 h4">Fill and Stroke Attributes</h4>
+
+
+<h5 class="hb1 h5">Painting</h5>
+
+<svg width="160" height="140">
+	<rect x="10" y="10" width="100" height="100"
+		stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+</svg>
+<xmp class="xmp">
+<svg width="160" height="140">
+	<rect x="10" y="10" width="100" height="100"
+		stroke="blue" fill="purple" fill-opacity="0.5" stroke-opacity="0.8"/>
+</svg>
+</xmp>
+
+
+<h5 class="hb1 h5">Stroke</h5>
+
+<svg width="160" height="140">
+  <line x1="40" x2="120" y1="20" y2="20" stroke="black" stroke-width="20" stroke-linecap="butt"/>
+  <line x1="40" x2="120" y1="60" y2="60" stroke="green" stroke-width="20" stroke-linecap="square"/>
+  <line x1="40" x2="120" y1="100" y2="100" stroke="orangered" stroke-width="20" stroke-linecap="round"/>
+</svg>
+<xmp class="xmp">
+<svg width="160" height="140">
+  <line x1="40" x2="120" y1="20" y2="20" stroke="black" stroke-width="20" stroke-linecap="butt"/>
+  <line x1="40" x2="120" y1="60" y2="60" stroke="green" stroke-width="20" stroke-linecap="square"/>
+  <line x1="40" x2="120" y1="100" y2="100" stroke="orangered" stroke-width="20" stroke-linecap="round"/>
+</svg>
+</xmp>
+
+<svg width="160" height="280">
+  <polyline points="40 60 80 20 120 60" stroke="black" stroke-width="20"
+      stroke-linecap="butt" fill="none" stroke-linejoin="miter"/>
+  <polyline points="40 140 80 100 120 140" stroke="orangered" stroke-width="20"
+      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+  <polyline points="40 220 80 180 120 220" stroke="green" stroke-width="20"
+      stroke-linecap="square" fill="none" stroke-linejoin="bevel"/>
+</svg>
+<xmp class="xmp">
+<svg width="160" height="280">
+  <polyline points="40 60 80 20 120 60" stroke="black" stroke-width="20"
+      stroke-linecap="butt" fill="none" stroke-linejoin="miter"/>
+  <polyline points="40 140 80 100 120 140" stroke="orangered" stroke-width="20"
+      stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+  <polyline points="40 220 80 180 120 220" stroke="green" stroke-width="20"
+      stroke-linecap="square" fill="none" stroke-linejoin="bevel"/>
+</svg>
+</xmp>
+
+<svg width="200" height="150">
+  <path d="M 10 75 Q 50 10 100 75 T 190 75" stroke="black"
+    stroke-linecap="round" stroke-dasharray="5,10,5" fill="none"/>
+  <path d="M 10 75 L 190 75" stroke="red"
+    stroke-linecap="round" stroke-width="1" stroke-dasharray="5,5" fill="none"/>
+</svg>
+<xmp class="xmp">
+<svg width="200" height="150">
+  <path d="M 10 75 Q 50 10 100 75 T 190 75" stroke="black"
+    stroke-linecap="round" stroke-dasharray="5,10,5" fill="none"/>
+  <path d="M 10 75 L 190 75" stroke="red"
+    stroke-linecap="round" stroke-width="1" stroke-dasharray="5,5" fill="none"/>
+</svg>
+</xmp>
+
+
+<h4 class="hb1 h4">Using CSS</h4>
+
+
+<h5 class="hb1 h5">inline stylesheet</h5>
+
+<svg width="100" height="100">
+	<rect x="10" y="10" width="80" height="80" style="stroke: black; fill: red;"/>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="100">
+	<rect x="10" y="10" width="80" height="80" style="stroke: black; fill: red;"/>
+</svg>
+</xmp>
+
+
+<h5 class="hb1 h5">defs</h5>
+
+<p>
+	또는 포함하는 특수 스타일 섹션으로 이동할 수 있습니다.
+	HTML에서와 같이 이러한 섹션을 &lt;head&gt; 섹션에 넣는 대신 &lt;defs&gt;라는 영역에 포함됩니다.
+	&lt;defs&gt;는 정의를 나타내며 SVG에서 직접 나타나지 않지만 다른 요소에서 사용되는 요소를 만들 수 있습니다.
+</p>
+
+<svg width="100" height="100">
+  <defs>
+    <style type="text/css"><![CDATA[
+		#MyRect {
+			stroke: black;
+			fill: red;
+		}
+		#MyRect:hover {
+			stroke: black;
+			fill: blue;
+		}
+    ]]></style>
+  </defs>
+  <rect x="10" y="10" width="80" height="80" id="MyRect"/>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="100">
+  <defs>
+    <style type="text/css"><![CDATA[
+		#MyRect {
+			stroke: black;
+			fill: red;
+		}
+		#MyRect:hover {
+			stroke: black;
+			fill: blue;
+		}
+    ]]></style>
+  </defs>
+  <rect x="10" y="10" width="80" height="80" id="MyRect"/>
+</svg>
+</xmp>
+
+
+<h5 class="hb1 h5">external stylesheet</h5>
+
+<xmp class="xmp">
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+
+<svg width="200" height="150" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect height="10" width="10" id="MyRect"/>
+</svg>
+</xmp>
+
+<h6 class="hb1 h6">style.css</h6>
+<xmp class="xmp">
+#MyRect {
+  fill: red;
+  stroke: black;
+}
+</xmp>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">그라디언트 <small class="fwn">Gradients in SVG</small></h3>
+
+
+<h4 class="hb1 h4">Linear Gradient</h4>
+
+<h5 class="hb1 h5">Basic example</h5>
+
+<svg width="120" height="240">
+  <defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" stop-opacity="0"/>
+        <stop offset="100%" stop-color="blue"/>
+      </linearGradient>
+      <style type="text/css"><![CDATA[
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: red; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+      ]]></style>
+  </defs>
+ 
+  <rect id="rect1" x="10" y="10" rx="15" ry="15" width="100" height="100"/>
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#Gradient2)"/>
+  
+</svg>
+<xmp class="xmp">
+<svg width="120" height="240">
+  <defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" stop-opacity="0"/>
+        <stop offset="100%" stop-color="blue"/>
+      </linearGradient>
+      <style type="text/css"><![CDATA[
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: red; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+      ]]></style>
+  </defs>
+ 
+  <rect id="rect1" x="10" y="10" rx="15" ry="15" width="100" height="100"/>
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#Gradient2)"/>
+  
+</svg>
+</xmp>
+
+
+<h4 class="hb1 h4">Radial Gradient</h4>
+
+<h5 class="hb1 h5">Basic example</h5>
+
+<svg width="120" height="240">
+  <defs>
+      <radialGradient id="RadialGradient1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="RadialGradient2" cx="0.25" cy="0.25" r="0.25">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+  </defs>
+ 
+  <rect x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient1)"/> 
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient2)"/> 
+  
+</svg>
+
+<xmp class="xmp">
+<svg width="120" height="240">
+  <defs>
+      <radialGradient id="RadialGradient1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="RadialGradient2" cx="0.25" cy="0.25" r="0.25">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+  </defs>
+ 
+  <rect x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient1)"/> 
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient2)"/> 
+  
+</svg>
+</xmp>
+
+~~ 이하생략 ~~
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">패턴 <small class="fwn">Patterns</small></h3>
+
+<svg width="200" height="200">
+  <defs>
+    <linearGradient id="Pattern1Gradient1">
+      <stop offset="5%" stop-color="white"/>
+      <stop offset="95%" stop-color="blue"/>
+    </linearGradient>
+    <linearGradient id="Pattern1Gradient2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="5%" stop-color="red"/>
+      <stop offset="95%" stop-color="orange"/>
+    </linearGradient>
+
+    <pattern id="Pattern" x="0" y="0" width=".25" height=".25">
+      <rect x="0" y="0" width="50" height="50" fill="skyblue"/>
+      <rect x="0" y="0" width="25" height="25" fill="url(#Pattern1Gradient2)"/>
+      <circle cx="25" cy="25" r="20" fill="url(#Pattern1Gradient1)" fill-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect fill="url(#Pattern)" stroke="black" width="200" height="200"/>
+</svg>
+
+<xmp class="xmp">
+<svg width="200" height="200">
+  <defs>
+    <linearGradient id="Pattern1Gradient1">
+      <stop offset="5%" stop-color="white"/>
+      <stop offset="95%" stop-color="blue"/>
+    </linearGradient>
+    <linearGradient id="Pattern1Gradient2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="5%" stop-color="red"/>
+      <stop offset="95%" stop-color="orange"/>
+    </linearGradient>
+
+    <pattern id="Pattern" x="0" y="0" width=".25" height=".25">
+      <rect x="0" y="0" width="50" height="50" fill="skyblue"/>
+      <rect x="0" y="0" width="25" height="25" fill="url(#Pattern1Gradient2)"/>
+      <circle cx="25" cy="25" r="20" fill="url(#Pattern1Gradient1)" fill-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect fill="url(#Pattern)" stroke="black" width="200" height="200"/>
+</svg>
+</xmp>
+
+~~ 이하생략 ~~
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">텍스트</h3>
+
+
+<h4 class="hb1 h4">Basics</h4>
+
+<xmp class="xmp">
+<text x="10" y="10">Hello World!</text>
+</xmp>
+
+
+<h4 class="hb1 h4">Setting font properties</h4>
+
+<dl class="fixed1auto1">
+<dt>font-family</dt>
+<dd>font-family</dd>
+<dt>font-style</dt>
+<dd>font-style</dd>
+<dt>font-weight</dt>
+<dd>font-weight</dd>
+<dt>font-variant</dt>
+<dd>font-variant</dd>
+<dt>font-stretch</dt>
+<dd>font-stretch</dd>
+<dt>font-size</dt>
+<dd>font-size</dd>
+<dt>font-size-adjust</dt>
+<dd>font-size-adjust</dd>
+<dt>kerning</dt>
+<dd>kerning</dd>
+<dt>letter-spacing</dt>
+<dd>letter-spacing</dd>
+<dt>word-spacing</dt>
+<dd>word-spacing</dd>
+<dt>text-decoration</dt>
+<dd>text-decoration</dd>
+</dl>
+
+<h4 class="hb1 h4">Other text-related elements</h4>
+
+<h5 class="hb1 h5">tspan</h5>
+
+<svg width="300" height="200">
+	<text y="50%" font-size="2em">
+		This is <tspan font-weight="bold" fill="red">bold and red</tspan>
+	</text>
+</svg>
+
+
+<h5 class="hb1 h5">textPath</h5>
+
+<svg width="300" height="200">
+	<path id="my_path" d="M 20,20 C 80,60 100,40 120,20" fill="transparent" />
+	<text font-size="2em">
+	  <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#my_path">
+		A curve.
+	  </textPath>
+	</text>
+</svg>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">기본 변형 <small class="fwn">Basic Transformations</small></h3>
+
+<dl class="fixed1auto1">
+<dt>&lt;g&gt;</dt>
+<dd>이 도우미를 사용하면 전체 요소 집합에 속성을 할당</dd>
+</dl>
+
+<br />
+
+<svg width="100" height="50">
+    <g fill="red">
+        <rect x="0" y="0" width="10" height="10" />
+        <rect x="20" y="0" width="10" height="10" />
+    </g>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="50">
+    <g fill="red">
+        <rect x="0" y="0" width="10" height="10" />
+        <rect x="20" y="0" width="10" height="10" />
+    </g>
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Translation</h4>
+
+<svg width="100" height="50">
+    <rect x="0" y="0" width="10" height="10" transform="translate(30,40)" />
+</svg>
+<xmp class="xmp">
+<svg width="100" height="50">
+    <rect x="0" y="0" width="10" height="10" transform="translate(30,40)" />
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Rotation</h4>
+
+<svg width="31" height="31">
+    <rect x="12" y="-10" width="20" height="20" transform="rotate(45)" />
+</svg>
+<xmp class="xmp">
+<svg width="31" height="31">
+    <rect x="12" y="-10" width="20" height="20" transform="rotate(45)" />
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Multiple transformations</h4>
+
+<svg width="100" height="50">
+    <rect x="0" y="0" width="10" height="10" transform="translate(30,20) rotate(45)" />
+</svg>
+<xmp class="xmp">
+<svg width="100" height="50">
+    <rect x="0" y="0" width="10" height="10" transform="translate(30,20) rotate(45)" />
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Skewing, Scaling, Complex transformations with matrix()</h4>
+
+skewX() and skewY()<br />
+scale()<br />
+matrix(a, b, c, d, e, f)<br />
+<br />
+
+<svg width="200" height="200" viewBox="-40 0 150 100">
+  <g fill="grey"
+     transform="rotate(-10 50 100)
+                translate(-36 45.5)
+                skewX(40)
+                scale(1 0.5)">
+    <path id="heart" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
+  </g>
+ 
+  <use xlink:href="#heart" fill="none" stroke="red"/>
+</svg>
+<xmp class="xmp">
+<svg width="200" height="200" viewBox="-40 0 150 100">
+  <g fill="grey"
+     transform="rotate(-10 50 100)
+                translate(-36 45.5)
+                skewX(40)
+                scale(1 0.5)">
+    <path id="heart" d="M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z" />
+  </g>
+ 
+  <use xlink:href="#heart" fill="none" stroke="red"/>
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Effects on Coordinate Systems</h4>
+
+<svg width="200" height="200">
+    <g transform="scale(2)">
+        <rect width="50" height="50" />
+    </g>
+</svg>
+<xmp class="xmp">
+<svg width="100" height="100">
+    <g transform="scale(2)">
+        <rect width="50" height="50" />
+    </g>
+</svg>
+</xmp>
+
+
+<h4 class="hb1 h4">Embedding SVG in SVG</h4>
+
+
+<svg width="200" height="200">
+  <svg width="100" height="100" viewBox="25 25 50 50">
+	<rect width="50" height="50" fill="#04a" />
+	<circle cx="25" cy="25" r="25" fill="#4a0" />
+  </svg>
+</svg> 
+<svg width="200" height="200">
+  <svg width="100" height="100" viewBox="50 50 100 100">
+	<rect width="100" height="100" fill="#04a" />
+	<circle cx="100" cy="100" r="50" fill="#4a0" />
+  </svg>
+</svg> 
+<svg width="200" height="200">
+  <svg width="100" height="100" viewBox="50 50 200 200">
+	<rect width="100" height="100" fill="#04a" />
+	<circle cx="100" cy="100" r="50" fill="#4a0" />
+  </svg>
+</svg>
+
+<br />
+
+<svg width="300" height="300" viewBox="0 0 300 300">
+	<rect width="100" height="100" fill="#04a" />
+	<circle cx="50" cy="50" r="50" fill="#4a0" />
+</svg>
+<svg width="300" height="300" viewBox="50 50 50 50">
+	<rect width="100" height="100" fill="#04a" />
+	<circle cx="50" cy="50" r="50" fill="#4a0" />
+</svg>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">클리핑 및 마스킹 <small class="fwn">Clipping and masking</small></h3>
+
+
+<h4 class="hb1 h4">Creating clips</h4>
+
+<svg>
+  <defs>
+    <clipPath id="cut-off-bottom">
+      <rect x="0" y="0" width="200" height="100" />
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="100" clip-path="url(#cut-off-bottom)" />
+</svg>
+<xmp class="xmp">
+<svg>
+  <defs>
+    <clipPath id="cut-off-bottom">
+      <rect x="0" y="0" width="200" height="100" />
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="100" clip-path="url(#cut-off-bottom)" />
+</svg>
+</xmp>
+
+<h4 class="hb1 h4">Masking</h4>
+
+<svg width="200" height="200">
+  <defs>
+    <linearGradient id="Gradient">
+      <stop offset="0" stop-color="black" />
+      <stop offset="1" stop-color="white" />
+    </linearGradient>
+    <mask id="Mask">
+      <rect x="0" y="0" width="200" height="200" fill="url(#Gradient)"  />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="green" />
+  <rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask)" />
+</svg>
+<xmp class="xmp">
+<svg width="200" height="200">
+  <defs>
+    <linearGradient id="Gradient">
+      <stop offset="0" stop-color="black" />
+      <stop offset="1" stop-color="white" />
+    </linearGradient>
+    <mask id="Mask">
+      <rect x="0" y="0" width="200" height="200" fill="url(#Gradient)"  />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="green" />
+  <rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask)" />
+</svg>
+</xmp>
+
+<svg width="200" height="200">
+  <defs>
+    <mask id="Mask1">
+	  <circle cx="100" cy="100" r="100" fill="#fff" />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask1)" />
+</svg>
+<xmp class="xmp">
+<svg width="200" height="200">
+  <defs>
+    <mask id="Mask1">
+	  <circle cx="100" cy="100" r="100" fill="#fff" />
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask1)" />
+</svg>
+</xmp>
+
+
+<h4 class="hb1 h4">Transparency with opacity</h4>
+
+<svg width="300" height="200">
+	<rect x="0" y="0" width="100" height="100" opacity=".5" />
+</svg>
+
+
+<svg width="200" height="200">
+  <rect x="0" y="0" width="200" height="200" fill="blue" />
+  <circle cx="100" cy="100" r="50" stroke="yellow" stroke-width="40" stroke-opacity=".5" fill="red" />
+</svg>
+
+
+<h4 class="hb1 h4">Using well-known CSS techniques</h4>
+
+CSS <br />
+display: none;<br />
+visibility<br />
+clip<br />
+모든 SVG 요소는 display: inline; 입니다.<br />
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">SVG 안의 다른 컨텐츠 <small class="fwn">Other content in SVG</small></h3>
+
+
+<h4 class="hb1 h4">Embedding raster images</h4>
+
+<svg width="200" height="200">
+  <image xlink:href="https://developer.mozilla.org/static/img/favicon144.png"
+	x="74" y="-74" width="128" height="146" transform="rotate(45)" />
+</svg>
+
+
+<h4 class="hb1 h4">Embedding arbitrary XML</h4>
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <style>
+    div.embed1 {
+      color: white;
+      font: 18px serif;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
+ 
+  <polygon points="5,5 195,10 185,185 10,195" />
+
+  <!-- Common use case: embed HTML text into SVG -->
+  <foreignObject x="20" y="20" width="160" height="160">
+    <!--
+      In the context of SVG embedded in an HTML document, the XHTML 
+      namespace could be omitted, but it is mandatory in the 
+      context of an SVG document
+    -->
+    <div class="embed1" xmlns="http://www.w3.org/1999/xhtml">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
+      porta vel dui convallis, rutrum imperdiet eros. Aliquam
+      erat volutpat.
+    </div>
+  </foreignObject>
+</svg>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">필터 효과 <small class="fwn">Filter effects</small></h3>
+
+<h4 class="hb1 h4">Example</h4>
+
+<svg width="250" viewBox="0 0 200 85">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                          specularExponent="20" lighting-color="#bbbbbb"  
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
+                   k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+
+      <!-- merge offsetBlur + litPaint -->
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="litPaint"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+
+<br />
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <!-- Graphic elements -->
+  <g>
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter1" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter1)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter2" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+	  <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter2)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter3" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                          specularExponent="20" lighting-color="#bbbbbb"  
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter3)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter4" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                          specularExponent="20" lighting-color="#bbbbbb"  
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter4)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter5" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                          specularExponent="20" lighting-color="#bbbbbb"  
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
+                   k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter5)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+<svg width="125" viewBox="0 0 200 85" style="background:#888;">
+  <defs>
+    <!-- Filter declaration -->
+    <filter id="MyFilter6" filterUnits="userSpaceOnUse"
+            x="0" y="0"
+            width="200" height="120">
+
+      <!-- offsetBlur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+
+      <!-- litPaint -->
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                          specularExponent="20" lighting-color="#bbbbbb"  
+                          result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
+                   k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+
+      <!-- merge offsetBlur + litPaint -->
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="litPaint"/>
+      </feMerge>
+
+    </filter>
+  </defs>
+  <!-- Graphic elements -->
+  <g filter="url(#MyFilter6)">
+      <path fill="none" stroke="#D90000" stroke-width="10" 
+            d="M50,66 c-50,0 -50,-60 0,-60 h100 c50,0 50,60 0,60z" />
+      <path fill="#D90000" 
+            d="M60,56 c-30,0 -30,-40 0,-40 h80 c30,0 30,40 0,40z" />
+      <g fill="#FFFFFF" stroke="black" font-size="45" font-family="Verdana" >
+        <text x="52" y="52">SVG</text>
+      </g>
+  </g>
+</svg>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">SVG 폰트 <small class="fwn">SVG fonts</small></h3>
+
+
+<h4 class="hb1 h4">Defining a font</h4>
+
+<h4 class="hb1 h4">Referencing a font</h4>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">SVG 이미지 태그 <small class="fwn">SVG Image tag</small></h3>
+
+
+<svg width="320" height="240">
+	<image xlink:href="http://www.iacts.co.kr/+m/_lib/_img.ex/w320a1/w320a1001.jpg" x="0" y="0"/>
+</svg>
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">SVG를 위한 도구들 <small class="fwn">Tools for SVG</small></h3>
+
+
+<h4 class="hb1 h4">Browser support</h4>
+
+<h4 class="hb1 h4"><a href="http://www.inkscape.org/" target="_blank" rel="noopener" title="새 창" class="a1">Inkscape</a></h4>
+
+<h4 class="hb1 h4"><a href="http://www.adobe.com/products/illustrator/" target="_blank" rel="noopener" title="새 창" class="a1">Adobe Illustrator</a></h4>
+
+<h4 class="hb1 h4"><a href="http://xmlgraphics.apache.org/batik/" target="_blank" rel="noopener" title="새 창" class="a1">Apache Batik</a></h4>
+<h4 class="hb1 h4"><a href="http://raphaeljs.com/" target="_blank" rel="noopener" title="새 창" class="a1">Raphael JS</a></h4>
+<h4 class="hb1 h4"><a href="http://snapsvg.io/" target="_blank" rel="noopener" title="새 창" class="a1">Snap.svg</a></h4>
+<h4 class="hb1 h4"><a href="http://www.google.com/google-d-s/drawings/" target="_blank" rel="noopener" title="새 창" class="a1">Google Docs</a></h4>
+<h4 class="hb1 h4"><a href="http://jsxgraph.uni-bayreuth.de/wp/" target="_blank" rel="noopener" title="새 창" class="a1">Science</a></h4>
+<h4 class="hb1 h4"><a href="http://www.w3.org/Graphics/SVG/WG/wiki/Implementations" target="_blank" rel="noopener" title="새 창" class="a1">More tools!</a></h4>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">SVG와 CSS <small class="fwn">SVG and CSS</small></h3>
+
+<h4 class="hb1 h4">Example</h4>
+
+<svg width="600px" height="600px" viewBox="-300 -300 600 600"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <title>SVG demonstration</title>
+  <desc>Mozilla CSS Getting Started - SVG demonstration</desc>
+
+  <defs>
+    <radialGradient id="fade" cx="0" cy="0" r="200"
+        gradientUnits="userSpaceOnUse">
+      <stop id="fade-stop-1" offset="33%"/>
+      <stop id="fade-stop-2" offset="95%"/>
+    </radialGradient>
+
+    <style type="text/css"><![CDATA[
+		/*** SVG demonstration ***/
+
+		/* page */
+		svg {
+		  background-color: beige;
+		}
+
+		#heading {
+		  font-size: 24px;
+		  font-weight: bold;
+		}
+
+		#caption {
+		  font-size: 12px;
+		}
+
+		/* flower */
+		#flower:hover {
+		  cursor: crosshair;
+		}
+
+		/* gradient */
+		#fade-stop-1 {
+		  stop-color: blue;
+		}
+
+		#fade-stop-2 {
+		  stop-color: white;
+		}
+
+		/* petals */
+		.segment-fill {
+		  fill: var(--segment-fill-fill);
+		  stroke: var(--segment-fill-stroke);
+		  stroke-width: var(--segment-fill-stroke-width);
+		}
+
+		.segment-fill:hover {
+		  fill: var(--segment-fill-fill-hover);
+		  stroke: var(--segment-fill-stroke-hover);
+		}
+
+		.segment-edge {
+		  fill: var(--segment-edge-fill);
+		  stroke: var(--segment-edge-stroke);
+		  stroke-width: var(--segment-edge-stroke-width);
+		}
+
+		.segment-edge:hover {
+			stroke: var(--segment-edge-stroke-hover);
+		}
+
+		/* outer petals */
+		#outer-petals {
+		  opacity: .75;
+		  --segment-fill-fill: azure;
+		  --segment-fill-stroke: lightsteelblue;
+		  --segment-fill-stroke-width: 1;
+		  --segment-edge-fill: none;
+		  --segment-edge-stroke: deepskyblue;
+		  --segment-edge-stroke-width: 3;
+		  --segment-fill-fill-hover: plum;
+		  --segment-fill-stroke-hover: none;
+		  --segment-edge-stroke-hover: slateblue;
+		}
+
+		/*
+		 Non-standard way of styling elements referenced via <use> elements,
+		 supported by some older browsers
+		*/
+		#outer-petals .segment-fill {
+		  fill: azure;
+		  stroke: lightsteelblue;
+		  stroke-width: 1;
+		}
+
+		#outer-petals .segment-edge {
+		  fill: none;
+		  stroke: deepskyblue;
+		  stroke-width: 3;
+		}
+
+		#outer-petals .segment:hover > .segment-fill {
+		  fill: plum;
+		  stroke: none;
+		}
+
+		#outer-petals .segment:hover > .segment-edge {
+		  stroke: slateblue;
+		}
+
+		/* inner petals */
+		#inner-petals {
+		  --segment-fill-fill: yellow;
+		  --segment-fill-stroke: yellow;
+		  --segment-fill-stroke-width: 1;
+		  --segment-edge-fill: none;
+		  --segment-edge-stroke: yellowgreen;
+		  --segment-edge-stroke-width: 9;
+		  --segment-fill-fill-hover: darkseagreen;
+		  --segment-fill-stroke-hover: none;
+		  --segment-edge-stroke-hover: green;
+		}
+
+		/*
+		 Non-standard way of styling elements referenced via <use> elements,
+		 supported by some older browsers
+		*/
+		#inner-petals .segment-fill {
+		  fill: yellow;
+		  stroke: yellow;
+		  stroke-width: 1;
+		}
+
+		#inner-petals .segment-edge {
+		  fill: none;
+		  stroke: yellowgreen;
+		  stroke-width: 9;
+		}
+
+		#inner-petals .segment:hover > .segment-fill {
+		  fill: darkseagreen;
+		  stroke: none;
+		}
+
+		#inner-petals .segment:hover > .segment-edge {
+		  stroke: green;
+		}
+    ]]></style>
+
+  </defs>
+
+  <text id="heading" x="-280" y="-270">SVG demonstration</text>
+  <text  id="caption" x="-280" y="-250">Move your mouse pointer over the flower.</text>
+
+  <g id="flower">
+    <circle id="overlay" cx="0" cy="0" r="200" stroke="none" fill="url(#fade)"/>
+
+    <g id="outer-petals">
+      <g class="quadrant">
+        <g class="segment">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(18)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(36)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(54)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(72)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(90)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(108)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(126)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(144)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(162)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(180)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(198)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(216)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(234)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(252)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(270)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(288)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(306)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(324)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(342)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+    </g>
+
+    <g id="inner-petals" transform="rotate(9) scale(0.33)">
+      <g class="quadrant">
+        <g class="segment">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(18)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(36)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(54)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(72)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(90)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(108)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(126)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(144)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(162)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(180)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(198)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(216)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(234)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(252)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+
+      <g class="quadrant">
+        <g class="segment" transform="rotate(270)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(288)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(306)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(324)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+        <g class="segment" transform="rotate(342)">
+          <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+          <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+
+
+<h4 class="hb1 h4">Simplified structure</h4>
+
+<svg width="600px" height="600px" viewBox="-300 -300 600 600"
+    xmlns="http://www.w3.org/2000/svg">
+
+  <title>SVG demonstration</title>
+  <desc>Mozilla CSS Getting Started - SVG demonstration</desc>
+
+  <defs>
+    <g id="segment" class="segment">
+      <path class="segment-fill" d="M0,0 v-200 a40,40 0 0,0 -62,10 z"/>
+      <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10"/>
+    </g>
+    <g id="quadrant">
+      <use xlink:href="#segment"/>
+      <use xlink:href="#segment" transform="rotate(18)"/>
+      <use xlink:href="#segment" transform="rotate(36)"/>
+      <use xlink:href="#segment" transform="rotate(54)"/>
+      <use xlink:href="#segment" transform="rotate(72)"/>
+    </g>
+    <g id="petals">
+      <use xlink:href="#quadrant"/>
+      <use xlink:href="#quadrant" transform="rotate(90)"/>
+      <use xlink:href="#quadrant" transform="rotate(180)"/>
+      <use xlink:href="#quadrant" transform="rotate(270)"/>
+    </g>
+    <radialGradient id="fade" cx="0" cy="0" r="200"
+        gradientUnits="userSpaceOnUse">
+      <stop id="fade-stop-1" offset="33%"/>
+      <stop id="fade-stop-2" offset="95%"/>
+    </radialGradient>
+  </defs>
+
+  <text id="heading" x="-280" y="-270">SVG demonstration</text>
+  <text  id="caption" x="-280" y="-250">Move your mouse pointer over the flower.</text>
+
+  <g id="flower">
+    <circle id="overlay" cx="0" cy="0" r="200" stroke="none" fill="url(#fade)"/>
+    <use id="outer-petals" xlink:href="#petals"/>
+    <use id="inner-petals" xlink:href="#petals"
+      transform="rotate(9) scale(0.33)"/>
+  </g>
+
+</svg>
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20191231~
+20190102.
+20190103.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

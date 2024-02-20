@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'K-WAH 3.0 (웹접근성 자동평가도구) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+
+<h1>K-WAH Tool (웹접근성 평가도구 &copy;NIA)</h1>
+
+<h2 id="K-WAH4">K-WAH 4.3.1.1</h2>
+
+<pre>
+20130305. &lt;!-- 주석 처리한 링크 --&gt; 도 탐색하는가? 그렇다! 문법에 맞든 안맞든 상관없이..
+</pre>
+
+<h2 id="K-WAH4">K-WAH 4.0</h2>
+
+<pre>
+20120731 ** K-WAH4.0  설치 실행 점검
+http://portal.hc.정보행동.co.kr/ 10:46~11:02 223 페이지 100%준수
+http://yc.go.kr/ 11:08~14:32  52% 에서 1시간 이상 진행되지 않아서 중단함.
+</pre>
+
+
+<h2 id="K-WAH3">K-WAH 3.0</h2>
+
+<p><big><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=5494&page=1&cType=VL&FindTxt=&flag=2&FindCol=0">20120321. <strong><em>더이상 Kwah는 심사도구로 쓰이지 않습니다.</em></strong></a></big></p>
+
+<p>
+<a href="kado-wah.html">KADO-WAH 2.0</a> 가 대대적인 업그레이드를 하여 <a href="http://www.wah.or.kr/Achive/Kadowah.asp">K-WAH 3.0</a> 라는 이름으로 2010-03-16 배포 되었다.
+</p>
+
+<ul class="bu">
+<li><a href="#c1">기본사항</a></li>
+<li><a href="#c2">수동 검사로 판단할 수 있는 것인데도 불구하고 "오류"로 검출되는 몇가지 항목</a></li>
+<li><a href="#c2-2">S/W 자체 오류</a></li>
+<li><a href="#c3">K-WAH 3.0 검사항목 중 유의해야할 것들</a></li>
+<li><a href="#qa">정보화진흥원 문의</a></li>
+</ul>
+
+
+<h3 id="c1">기본사항</h3>
+
+<p><em>주의! [보고서] 종합 보고서와 상세 보고서에는 오류 건수만 표시된다. 경고, 수동 건수는 알려주지 않는다. (- 로 표시됨)</em></p>
+
+<p>
+<h4>※ K-WAH 3.0 평가 환경 설정</h4>
+자동 평가 시간이 너무 오래 걸리므로 보강 작업시에는 빨리 진행할 수 있도록 설정을 조정하더라도..<br />
+** 최종 평가시에는 아래와 같이 설정합니다.<br />
+</p>
+
+<!-- box3 -->
+<div class="box3">
+<ul class="bu">
+<li>평가방법 : 원격 시스템 평가<br /></li>
+<li>최대 깊이 제한 : <del class="dpn">10</del><ins><strong>5</strong></ins> (기본값 5)<br /></li>
+<li>최대 페이지 수 제한 : <strong>1000</strong> (기본값 100)<br /></li>
+<li>다운로드 페이지 연결 시간 제한 : <strong>10초</strong> (기본값 10)<br /></li>
+<li>게시판 반복 검사 제한 : <strong>5</strong> (기본값 5) - <em>1000 페이지 이상이거나 점검 작업중일 때는 1로 설정하자!</em><br /></li>
+<li>검사항목 선택 : <strong>인터넷 웹 콘텐츠 접근성 지침1.0</strong><br /></li>
+<li>검출항목 : 오류항목, 경고항목, 움직이는 이미지 평가여부, 플래시 평가여부 <strong>모두 체크</strong><br /></li>
+</ul>
+</div>
+<!-- //box3 -->
+※ 정보화진흥원 제8회 웹 접근성 품질마크 전문가심사 보고서(2010.5)의 K-WAH 3.0 자동평가 결과(참고자료)는 심사 대상 20개 페이지만 설정하여 검사한 결과를 첨부하였다.
+
+
+<br />
+<h3 id="c2">수동 검사로 판단할 수 있는 것인데도 불구하고 "오류"로 검출되는 몇가지 항목</h3>
+
+<p><!-- <del>2010년 3월 26일(금) 현재. 메일과 게시판 문의에 대한 답변이 없으므로..
+<em>K-WAH 3.0 준수율 95% 이상 항상 나오도록 작업합니다.</em></del> -->
+툴 자체 결함가 있더라도.. <em>K-WAH 3.0 자동평가 결과 모든 항목 준수율 100% 로 만들어 주세요.</em>
+</p>
+
+<table class="t3" summary=""><caption class="blind"></caption>
+<col /><col /><col style="width: 40%;" />
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">오류 - 진짜 오류가 아닌 예</th>
+<th scope="col">작업안내 비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">(1) &lt;title&gt; : 문서의 제목이 없거나 내용이 없이 제공여부</th>
+<td>
+화면 없이 기능 처리만 하는 파일<br />
+*.txt 파일. 예)동영상대본<br />
+이미지 파일<br />
+웹문서가 아닌 첨부 파일(PDF,JPG,PS,..)<br />
+소스 코드는 올바른데 K-WAH 가 깨진 코드로 인식<br />
+</td>
+<td>
+기본 마크업 코드를 제공합니다.<br />
+*.txt 은 *.html 로 수정<br />
+이미지 파일은 html 안에 넣어서 대체텍스트 제공.<br />
+</ul>
+<ins>단, 첨부 파일은 그냥둔다.</ins><br />
+<em>소스 코드가 올바르고 문제 없으면 그대로 둔다.</em><br />
+※ 심사에서는 K-WAH 결과는 참고용이고 실제 코드 검사를 한다.<br />
+<br />
+※기본 마크업 코드<br />
+<xmp class="xmp">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>문서제목</title>
+</head>
+<body>
+<h1>문서제목</h1>
+</body>
+</html>
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">(2) &lt;!doctype&gt; : 해당문서의 선언 제공여부</th>
+<td>
+上同
+</td>
+<td>
+上同
+</td>
+</tr>
+<tr>
+<th scope="row">(3) &lt;a&gt; : 링크의 값이 없거나 #만 존재여부</th>
+<td>
+뒤로, 인쇄 기능.<br />
+예)&lt;a href="#" onclick="window.print(); ..
+</td>
+<td>
+* 단기적으로.. 기능에 영향을 받는 범위나 전체 문서를 담고 있는 #container 로 제공하자.<br />
+<xmp class="xmp">
+<a href="#body" onclick="window.print(); return false;" title="본문 인쇄">인쇄</a>
+<a href="#container" onclick="history.go(-1); return false;" title="이전 페이지로 이동">뒤로</a>
+<a href="#container" title="페이지 상단으로 이동">위로</a>
+</xmp>
+<br />
+<ins>또는 href="?" 로 코딩하자.</ins><br />
+<xmp class="xmp">
+<a href="?" onclick="history.go(-1); return false;" title="이전 페이지로 이동">뒤로</a>
+</xmp>
+<br />
+* 장기적으로 .. 이런 경우 링크 없이 기능만 필요하면 a 요소 대신 <strong>button</strong> 요소를 사용하자.<br />
+<xmp class="xmp">
+<button type="button" onclick="window.print(); return false;" class="button">본문인쇄</button>
+</xmp>
+<br />
+※ 20120201. 버튼을 이미지로 구현하는 아래 코드는 [IE6,7,8]만 호환.<br />
+&lt;button type="button" onclick="window.print();return false;" style="display:inline-block;margin:0;padding:0;border:0;background:transparent;"&gt;&lt;img src="/img/btn.gif" alt="본문인쇄" /&gt;&lt;/button&gt; 
+<br />
+style="width:이미지너비px;hieght:이미지높이px;" 추가하면 <em>[IE6,7,8,SF,CR,OP]만 호환</em>.<br />
+[FF]는 style="margin:-2px 0 0 -3px;" 를 추가하여야 하나, <del>마땅한 Hack 이 없으므로 JS 로 처리해야한다.</del><br />
+<ins>버튼 크기에 따라 margin 값을 다르게 줘야한다. FF 핵 발견!!<br />
+button::-moz-focus-inner{padding:0;border:0;}/* FF 버튼(button/input) extra padding 제거 */</ins>
+</td>
+</tr>
+<tr>
+<th scope="row">(4) &lt;form&gt; : 비어있는 action 제공여부</th>
+<td>
+동적으로 action 을 제공해야 하는 경우
+</td>
+<td>디폴트 uri 혹은 <!-- <del>action="#"</del> --> <ins>action="?"</ins> 이렇게라도 제공합니다.</td>
+</tr>
+<tr>
+<th scope="row">(5) &lt;form&gt; : submit(전송버튼) 제공여부</th>
+<td>
+&lt;form&gt; 안에 &lt;input type="hidden" /&gt; 요소만 있어<br />
+화면 표시 없이(사용자 요청 없이) 처리해야 할 경우<br />
+<em>로그인 후에 전송버튼이 활성되는 경우</em><br />
+</td>
+<td>
+&lt;input type="submit" value="submit" class="dpn" /&gt; 이렇게 라도 제공해야 되나? <del>보류!!</del><br />
+<ins>가능하다면 submit(전송버튼) 을 제공합니다.</ins>
+</td>
+</tr>
+<tr>
+<th scope="row">(6) &lt;a&gt; : 스킵내비게이션 존재여부</th>
+<td>
+달력만 있는 페이지는 스킵 내비게이션이 없어도 되는데..<br />
+링크가 15개 이상 존재하는 페이지에 스킵내비게이션이 없으면 무조건 오류로 판정.
+</td>
+<td>
+간단하게 넣어서 툴이 오류로 검출안하게 해주시면 됩니다.<br />
+그렇다고 필요없는 곳까지 넣지는 마세요.
+</td>
+</tr>
+<tr>
+<td>(7) &lt;input&gt; : 요소에 레이블 또는 title 제공여부<br />
+&lt;select&gt; : 요소에 레이블 또는 title 제공여부<br />
+</td>
+<td>
+&lt;input type="reset" /&gt; 에서는 필요없는데도 오류로 판정.<br />
+select 에서는 label 연결 또는 title 속성이 없더라도 의미상 label 이 될만한 텍스트를 첫 째 option 에 넣으면, 스크린리더에서 읽어주는데도 오류로 판정.<br />
+</td>
+<td>
+<!-- <ins>&lt;input type="reset" /&gt; 는 필요없으니 삭제한다.</ins> -->
+<ins>&lt;input type="reset" /&gt; 꼭 필요한 것 외에는 삭제한다.</ins>
+<a href="#qa1">K-WAH룰 개선예정</a><br />
+select 요소에 label 요소 연결하거나  title 속성을 제공한다.<br />
+</td>
+</tr>
+<tr>
+<td><ins>(8) 모든태그 : 올바른 tabindex 사용여부</ins><br />
+</td>
+<td>키보드 순서가 올바른 경우
+</td>
+<td>시원한 답변 들을 수 없어 이제 문의하는거 귀찮다. <ins>그냥 놔두자!</ins>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="c2-2">S/W 툴 자체 결함</h4>
+<ul class="bu">
+<li>서식에서 id="문자열" 과 비교하여 for="다르더라도문자열포함하면" 오류로 검출되지 않는다.<br />
+<xmp class="xmp"><label for="xAAA2">선택옵션</label><select id="AAA">..중략..</select></xmp>
+또한, title="" 속성이 있으면 for 연결이 올바르지 않더라도 오류로 검출되지 않는다.<br />
+<xmp class="xmp"><label for="xABC2">선택옵션</label><select id="AAA" title="선택옵션">..중략..</select></xmp>
+<em>id 와 for 연결이 올바른지 소스 코드 확인이 반드시 필요하다!</em>
+</li>
+<li>public.wonju.go.kr 돌려보니 오류가 있는데도 종합보고서 그래프에는 미준수율0% 로 나오는 경우도 있음.<br />
+해결책) 99.x% 준수율일 경우 그렇게 나오므로, 상세 보고서를 반드시 확인하자.
+</li>
+<li>평가마법사 웹 사이트 주소의 기본문서가 다른 페이지로 즉시 Redirect 하면 자동평가 안되는 경우도 있음.<br />
+예) lifelong.jinju.go.kr 여기는 자동평가 안되다가 한달 뒤에 해보니 됩니다.<br />
+해결책) 몰라.
+</li>
+<li>평가마법사 웹 사이트 주소가 http://yc.go.kr/main/ 일 경우.. 파일보고서의 파일명에 / 가 중복됨<br />
+예) <em>http://yc.go.kr/main/</em>/program/publicboard/inBoardDoc.asp!<br />
+해결책) yc.go.kr/main 마지막에 / 안나오게 이렇게만 기입하자.
+</li>
+<li>파일보고서의 파일명에 파라미터 값을 넘기는 ? 를 ! 로 잘못 표시함.<br />
+예) http://www.tongyeong.go.kr//program/incsilboard/lstSilBoard.asp<em>!</em>Bod01Code=1<br />
+해결책) ! 를 ? 로 변환한 후 주소를 사용하자.
+</li>
+<li><!--  --> 주석문 안의 마크업도 오류 검사함. 시간나면 여러 경우 점검해보시길..<br />
+<xmp class="xmp">
+<!-- 검색 - ->
+<select name="SType" id="SType" onchange="">
+<option value="HsV_Title"<%=isIFAB(SType="HsV_Title"," selected=""selected""","")%>>제목</option>
+</select>
+<input type="text" name="SString" id="SString" value="<%= SString %>" class="text" />
+<a onclick="lstHouseVacant_Search();" class="button">검색</a-->
+</xmp>
+
+</li>
+</ul>
+
+
+<br />
+<h3 id="c3">K-WAH 3.0 검사항목 중 유의해야할 것들</h3>
+
+<table class="t3" summary=""><caption class="blind"></caption>
+<col /><col /><col style="width: 40%;" />
+<thead>
+<tr>
+<th scope="col">구분</th>
+<th scope="col">비고. K-WAH 3.0 Rule 설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Rule No.17</th>
+<td>
+현재 대부분의 브라우저는 onclick 이벤트에 대해서 onkeypress를 동시에 지원해주므로 현실적으로는 onkeypress를 명시할 필요가 없습니다.<br />
+(오류)
+&lt;a&gt;, &lt;button&gt;, &lt;input&gt; 요소의 마우스 이벤트에 대한 키보드 이벤트가 존재하지 않을 경우 보고 됩니다.<br />
+- onmouseover에 대한 대응 키보드 이벤트 onfocus 사용 안된 경우<br />
+- onmouseout에 대한 대응 키보드 이벤트 onblur 사용 안된 경우<br />
+- onmouseup에 대한 대응 키보드 이벤트 onkeyup 사용 안 된 경우<br />
+- onmousedown에 대한 대응 키보드 이벤트 onkeydown 사용 안된 경우<br />
+- ondbclick이 사용된 경우<br />
+</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td>
+object 요소의 대체콘텐츠가 태그로 시작되지 않으면 오류로 표시 확인필요
+</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td>
+웹사이트 주소에 port 가 사용되거나 특정 ActiveX 사용시 평가 마법사 안되는 s/w 오류 확인필요
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.4</th>
+<td>
+(오류) &lt;applet&gt; 요소에 alt 속성이 없을 경우 보고됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.28</th>
+<td>
+(경고)
+&lt;table&gt;을 사용한 경우 자식요소를 포함하지 않는 최하위 &lt;table&gt;만을 검출한 다음 summary 속성이 없거나 &lt;caption /&gt; 요소가 발견되지 않으면 보고 됩니다. 
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.35</th>
+<td>
+(오류)
+다음 세가지 조건 중 하나라도 만족하지 못하면 보고됩니다.<br />
+    &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소의 id와 동일한 값을 지닌 &lt;label for="" /&gt;요소가 없을 경우<br />
+    &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소의 title이 없을 경우<br />
+    &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; 요소의 자식요소가 제공되지 않은 경우<br />
+(* &lt;input&gt; 요소의 type 이 submit, image, button 인 컨트롤은 제외)<br />
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.37</th>
+<td>
+(경고)
+&lt;object /&gt; 요소가 &lt;param /&gt; 이외 다른 형식의 HTML 요소나 텍스트를 자식으로 포함하지 않은 경우 보고 됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.38</th>
+<td>
+(오류) 
+&lt;a&gt; 요소의 href 속성값에 "javascript :" 슈도 프로토콜(pseudo-protocol)을 사용한 경우 보고 됩니다.<br />
+또는 &lt;a&gt; 요소의 href에 값이 없거나 href=“#” 값만 존재하는 경우 보고 됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.39</th>
+<td>
+(오류) 
+&lt;form&gt; 요소에 action 속성이 비어있을 경우 보고 됩니다.
+또는 &lt;form&gt; 요소에 action속성값이 " javascript:"로 시작 되면 보고 됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.40</th>
+<td>
+(오류)
+&lt;form&gt;요소에 &lt;input type="submit"&gt;이나 &lt;input type="image"&gt;, &lt;button type="submit"&gt;이 없는 경우 보고 됩니다.
+</td>
+</tr>
+<tr>
+<th scope="row">Rule No.41</th>
+<td>
+(오류)
+실제로는 다른 링크인데 &lt;a&gt; 요소의 title 속성 값과 합친 링크의 텍스트가 동일하면 보고됩니다.<br />
+또는 실제로는 다른 링크인데 &lt;a&gt; 요소의 하위 요소인 &lt;img&gt;의 alt 속성값이 동일하면 보고됩니다.
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<h3 id="qa">정보화진흥원 문의</h3>
+
+<pre id="qa1">
+==> 최초질문.
+----
+당연하다고 판단되는 것도 아닐 경우가 있어 확인차 질문드립니다.
+k-WAH3.0 에서 
+input type="reset" 요소에도 input 요소에 레이블 또는 title 제공여부 항목이 적용되어 
+title 속성이 없으면 오류로 나오는데요..
+정보화진흥원 웹 접근성 품질마크 전문가 심사시 당연히 점검툴 자체 오류로 판단하고 
+<em>input type="reset" 요소에 title 속성이 없더라도 적합 판정을 내리시는거 맞으시죠?</em>
+----
+
+--> 중간에 답변을 회피해서 여러번 재문의 끝에 받은 최종답변.
+답변자: 정보화진흥원 문준기.
+----
+문의하신 부분은 버튼이기 때문에 레이블은 없어도 될 것 같습니다.(개인적인 생각)
+타이틀은 어떤 엘리먼트라도 옵션이 될 수 있습니다.
+룰은 전문가들이 참여하여 제작했기에 추후 K-WAH의 기능 개선시
+<em>이부분에 대해 재검토할 예정입니다.
+현재는 오류로 표시하므로 기능개선시 개선하도록 하겠습니다.</em>
+----
+</pre>
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+2012.08.01. K-WAH4.0
+2012.02.01. button 요소 호환 정리.
+2010.11.04. S/W 자체 결함 등 추가.
+2010.11.04.
+2010.10.08.
+2010.08.05.
+2010.07.09.
+2010.06.24.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

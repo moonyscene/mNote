@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - 웹 접근성 misc.(+FAQ) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>웹 접근성 misc.(+FAQ)</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#misc">misc.</a></li>
+<li><a href="#Mobile">Mobile</a></li>
+<li><a href="#Process">Process</a></li>
+<li><a href="#Note">Note</a></li>
+<li><a href="#FAQ">FAQ</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+
+<h2 id="misc">misc.</h2>
+
+<p>아래는 실과별 게시판에 올린 내용인데.. 다시 FAQ 와 합치는거 고려중...</p>
+
+<ol class="bo num">
+<li class="n01">
+<strong>레이어 팝업</strong>에 대해.. 재정리하겠습니다.
+<pre>
+아래 내용 참고하시고.. 
+https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=7642&page=1&cType=&FindTxt=%EB%A0%88%EC%9D%B4%EC%96%B4+%ED%8C%9D%EC%97%85&flag=2&FindCol=1 
+앞으로 다음과 같이 제작하면 되겠네요.. 
+1) 논리적 순서대로 키보드 초점이 이동하면 된다. 
+ (body 태그 안 제일 먼저 마크업하지 말고, 가려진 콘텐츠 바로 전에 두는게 맞겠음.) 
+2) 콘텐츠를 가려도 되지만 가려진 콘텐츠 보다 레이어 팝업이 먼저 포커싱되어야 한다. 
+3) 레이어 팝업 닫기 클릭하면, 아래 가려진 콘텐츠로 초점이 이동하면 된다. 
+4) 위 조건들이 만족되지 않으면, 다른 콘텐츠를 가리지 않도록 제작한다.
+</pre>
+</li>
+<li><strong>scope="colgroup" , scope="rowgroup" 올바른 사용법</strong>
+<pre>
+-- 
+https://www.wah.or.kr:444/Consulting/consultList_view.asp?seq=8758&page=1&cType=&FindTxt=&flag=2&FindCol=0 
+http://mctenshi.tumblr.com/post/55085282427/scope 
+ -- 
+결론! 우리가 일반적으로 만드는 표들은.. 
+scope="col" , scope="row" 만 그대로 사용하시면 됩니다. 
+잘못된 평가로 인해서.. 고생했네요.;;
+</pre>
+</li>
+<li><strong>[수정권장] 표 caption 요소 class="dpn" 을 "blind" 로 변경 방법 (내용보강)</strong>
+<pre>
+-- 웹 접근성 품질마크 지적사항 -- 
+http://iacts.co.kr/repair/repair_document.asp?idx=132489&page=1&searchString= 
+ 07_경상남도_함양군_대표홈페이지_전문가평가보고서.pdf - 26페이지. 
+
+ [수정권장] 
+- 표에 대한 제목을 적절히 제공하고 있으나, 제목을 나타내는 &lt;caption&gt;요소에 대하여 display:none;을 적용한 유형으로, 
+보조기술 등이 해당 정보를 인식할 수 없는 유형임. 
+- &lt;caption&gt;요소를 사용하고, 디자인상 화면에서 숨겨야 하는 경우는, 
+hidden속성을 이용하는 등의 대안적인 방법을 강구하여 보조기술 등이 접근하여 인식할 수 있도록 제공하는 것이 바람직함. 
+- 웹 사이트 내 &lt;caption&gt;요소에 대하여 display:none;을 적용한 모든 표 해당 
+
+== 수정 내역 == 
+
+ [HTML] 
+ &lt;caption class="dpn"&gt;..&lt;/caption&gt; 을 &lt;caption class="blind"&gt;..&lt;/caption&gt; 로 변경합니다. 
+
+ [CSS] 
+ /share/css/all.css 의 /* Base */ 부분에.. 
+-- 아래 코드가 없으면 추가 -- 
+.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;} 
+ caption.blind{position:relative;} 
+ *+html .blind{height:0;} 
+
+-- 설명 -- 
+
+** form 의 제목인 legend 요소에 class="blind" 적용 시 내용이 보이는 오류.. 
+해결1) <em>font-size:0;line-height:0;</em> 를 넣어두었습니다. 
+
+ ** 표의 제목인 caption 요소에 class="blind" 적용 시.. 
+
+-- 이슈1) [IE7]에서 내용 일부가 보이는 오류는? 
+해결1) <em>*+html .blind{height:0;}</em> 추가하여 [IE7] 만 적용되는 핵으로 높이값을 0으로 지정. 
+해결2) 핵 없이 &lt;caption&gt;&lt;span class="blind"&gt;..&lt;/span&gt;&lt;/caption&gt; 이렇게 하셔도 됩니다. 
+
+-- 이슈2) [CR] 등 표준브라우저에서.. &lt;col style="width:속성값" /&gt; 안된다는거는? 
+해결1) <em>caption.blind{position:relative;}</em> 추가하여 해결함. 
+해결2) 핵 없이 &lt;caption&gt;&lt;span class="blind"&gt;..&lt;/span&gt;&lt;/caption&gt; 이렇게 하셔도 됩니다. 
+
+-- 이슈3) [IE6]에서 텍스트 끄트머리가 살짝 보여요? 
+해결1) [IE6] 화면 디자인도 맞추고 싶다면 * html .blind{height:0;} 도 추가하세요. 
+
+※ 아래 링크도 참고하세요. "시각장애인을 위한 숨김 콘텐츠 사용 방법" 
+http://blog.naver.com/PostView.nhn?blogId=butygal&logNo=50082618912&parentCategoryNo=41&viewDate=¤tPage=1&listtype=0&from=postList 
+ ----
+</pre>
+
+</li>
+</ol>
+
+
+
+
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+
+<h2 id="Mobile">Mobile</h2>
+
+<h3><a href="http://www.wah.or.kr/Board/brd_view.asp?page=1&brd_sn=4&brd_idx=696">모바일 애플리케이션 접근성 지침 &lt; 행정안전부고시 제2011-38호, 2011. 9. 22. &gt;</a></h3>
+<pre>
+제2장 <strong>모바일 애플리케이션 접근성 준수사항</strong> ··················· 3
+	제6조 (대체 텍스트) ·······························································································3
+	제7조 (초점) ·············································································································3
+	제8조 (운영체제 접근성 기능 지원) ···································································3
+	제9조 (누르기 동작 지원) ·····················································································4
+	제10조 (색에 무관한 인식) ···················································································4
+	제11조 (명도 대비) ·································································································4
+	제12조 (자막, 수화 등의 제공) ············································································5
+제3장 <strong>모바일 애플리케이션 접근성 권고사항</strong> ··················· 5
+	제13조 (기본 사용자 인터페이스 컴포넌트) ·····················································5
+	제14조 (컨트롤간 충분한 간격) ···········································································5
+	제15조 (알림 기능) ·································································································6
+	제16조 (범용 폰트 이용) ·······················································································6
+	제17조 (사용자 인터페이스의 일관성) ·······························································6
+	제18조 (깜빡거림의 사용 제한) ···········································································6
+	제19조 (배경음 사용 금지) ···················································································7
+	제20조 (장애인 등 사용자 평가) ·········································································7
+</pre>
+
+<div class="box1">
+<ul class="bu">
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?page=1&brd_sn=4&brd_idx=719">모바일 애플리케이션(iOS) 접근성 점검 매뉴얼 1.0</a></li>
+<li><a href="http://www.wah.or.kr/Board/brd_view.asp?page=1&brd_sn=4&brd_idx=806">모바일 애플리케이션(안드로이드) 접근성 점검 매뉴얼 1.0</a></li>
+</ul>
+</div><!-- /box1 -->
+
+
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+
+<h2 id="Process">Process</h2>
+
+<pre class="box3">
+#대표포털.웹접근성점검.txt
+----
+0) 메인+공통+서브, 1차 첫6p, 조직도, 청사안내도, 오시는 길, 게시판(목록,내용,작성,수정,삭제), 다운로드, 표, 달력, 동영상, eBook, VR
+1) 자동 점검 Markup Valid (http://validator.w3.org/), WA마크 자가진단 (http://accessibility.kr/nia/check.php).
+2) 수동 점검 IE8 : 키보드, 초점, 응답시간, 정지 기능, 반복 영역 건너뛰기, 선형화, 오류 정정.
+3) N-WAX : 대체 텍스트. W3C Validation, 표, 주언어, 링크 텍스트, 사용자 요구에 따른 실행, 레이블
+4) 자동 점검 K-WAH : 100p - 1000p - 100p
+5) 모든 웹페이지 : 메뉴 순으로 수동 점검. 약 230p
+-) "텍스트 콘텐츠의 명도 대비" 점검 제외 ==>@디자이너
+----
+</pre>
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+
+<h2 id="Note">Note</h2>
+
+<ol>
+<li><a href="http://www.wah.or.kr/Example/wcag_desc.asp?cate=23">웹 접근성 연구소 > 개발자 아카이브 > 웹 콘텐츠 제작기법 > 대체 텍스트 제공 > 약도</a><br />
+<div class="cont">
+alt="○○○ 약도 자세한 내용 본문 참조"<br />
+alt="우정사업본부 약도 : 1.지하철 1호선 종각역하차 6번출구로 나와서 광화문방면 300m도보후 도착  2.지하철 5호선 광화문역하차, 연결지하도 광화문우체국 방면출구에 있습니다"<br />
+<strong>[m] 오류!</strong> 제목표시줄에 분류가 가능함에도 불구하고.. 상위 페이지 제목을 보여준다.<br />
+<strong>[m] 참조!</strong> 현재 위치 정보는 본문 제목까지만.. 본문 탭은 표시하지 않고 있다.<br />
+</div>
+</li>
+<li>20120604. <a href="http://www.wah.or.kr/Consulting/consultList.asp?cType=&page=1&flag=2&FindCol=1&FindTxt=object&x=21&y=9">object</a> 의 title 속성이 경우에 따라서 웹 접근성 향상에 도움을 줄 수 있습니다. <strong>[m]</strong> 필수 제공은 아니라는 뜻.
+</li>
+<li>20120323. a 와 tabindex="0" 섞여 있어도 키보드 운용은 코딩 순에 따른다. [IE6,7,8,FF,SF,CR,OP] Test OK</li>
+<li>20110810. <a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4837&page=1&cType=&FindTxt=&flag=2&FindCol=0">K-WAH3.0 [1]&lt;a href="#null"&gt; [2]submit버튼 [3] 마크업 유효성 통과?</a>
+- [1],[2]는 크게 신경쓰지지말고, [3]은 문제 없지만..
+</li>
+<li>20110810. <a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4780&page=1&cType=&FindTxt=&flag=2&FindCol=0">관련 사이트도 검사 대상인지 궁금합니다.</a> - 위성사이트의 경우 평가대상에서 제외가 됩니다. -m- 평가한다고 하더만..
+</li>
+</ol>
+
+<h3>20110801 ** 웹 접근성 품질마크 사이트 서식 디자인, 스크립트 벤치마킹</h3>
+<pre>
+http://www.wah.or.kr/Certification/condition.asp?page=1&search=
+인증기간 2011.4.19~2012.4.18 인 50개 site 전부 확인
+
+▶▶ 47개 사이트 브라우저 기본 모양 사용함. (input type="text" 는 css 적용)
+
+#횡성군 문화관광 http://tour.hsg.go.kr/tour
+내가 만든거
+
+#경기도용인교육지원청 http://www.goeyi.kr/
+내가 만든 자바스크립트  displayOnly() 함수 도용!
+action 값이 같아서 이럴 필요 없는데..
+
+#연천군 http://www.iyc21.net/
+내가 만든 기법 noscript 일 때 css 적용 없이 콘텐츠 나열 방법 도용!
+action 값이 다르므로 이렇게 하는 수밖에..
+<!-- 
+-- 기타 --
+#방송통신고e스쿨 http://cyber.hs.kr/
+배경이미지 1.5MB ㅋ.. 우리보다 더 한곳도 있다.
+
+==>@방문준 대리에게 전달함.
+시간나면 겹치는 플래시 확인해보라고 함.
+ -->
+</pre>
+<h3>/웹접근성 순회교육자료_20110518/</h3>
+<pre>
+* 웹접근성 개요 및 현황_MOPAS발표.pdf
+- 특이사항 없음.
+
+* 웹접근성 실태조사_품질마크소개.pdf 
+- p32) 흐르는 콘텐츠의 제어: 꼭 버튼이 아니더라도 제어 가능한가?
+- p33) 데이터테이블에 해당하면 제목셀과 내용셀을 구분하고, Caption과 Summary를 제공
+- p36) 웹접근성 품질마크 향후 개선 방향 심사에 관련된 내용에 대해 Task Force 팀을 구성하여 하반기 중에 개선내용 공지 후 하반기 접수 예정
+의견접수: wah@nia.or.kr
+</pre>
+<h3>한국형웹콘텐츠접근성지침2.0_201105NIA.pdf</h3>
+<pre>
+- p46) ※ 3개 보다 많은 건너뛰기 링크는 도리어 불편함을 증가시키므로 주의해야 함
+- p55) ※ 출처: 공식언어코드(ISO 630) 목록 http://www.loc.gov/standards/iso639-2/php/code_list.php
+- p58) 닉네임 입력 박스를 클릭하면 자동으로 새 창이 발생하는 경우 (X) ==> 대안 제시는 없나?
+- p61) 선형화가 잘못된 사례 ==> 이유 설명?
+- p64) 입력서식에는 대응하는 레이블을 제공해야 한다. ==> title 속성으로 제공 허용하는지?
+- p70) W3C 마크업 유효성 검사 ==> Errors 를 다 수정하라는 말인지?
+- p71) ※ 신기술의 정확한 구현방법
+1.자체적인 접근성을지원하고, 화면낭독프로그램의 API를 이용하되, API 동작을설정(on-off)할수있도록함 ==> ?
+2.자체적인 접근성을지원하고, 대체수단을 제공함
+- p74) < 자체적인 접근성 준수 검검 방법 >
+※ 플러그인을 설치하고 화면낭독프로그램 등 보조기술을 사용할 때에 키보드의 이상현상, 보조기술의 이상현상이 발생하면 해당 플러그인은 자체적인 접근성을 만족하지 않는 것으로 분류함
+</pre>
+
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+
+<h2 id="FAQ">WA FAQ</h2>
+
+<!-- box4 -->
+<div class="box4">
+웹접근성은 <a href="http://www.wah.or.kr/kwcag/index.asp">지침</a>, <a href="http://www.wah.or.kr/Example/index.asp">제작기법</a>, <a href="http://www.wah.or.kr/Guide/valuation.asp">가이드라인</a>으로 판단하기 어려운 문제들이 많습니다.
+웹접근성 이슈에 대한 공식적인 견해로 인식되는
+<a href="http://www.wah.or.kr/Consulting/consultList.asp?cType=US">웹접근성 연구소 전문가 상담</a><sup><em>*1)</em></sup>과 그외 블로거들의 글들 중 링크와 인상적인 구절을 옮겨놓았습니다.<br />
+<em>*1)</em> 게시판 전문에  "KADO의 공식적인 입장과 상이할 수 있습니다."라고 책임을 피해가고 있네요.TT<br />
+웹 접근성 품질마크 심사에서 이슈가 되는 문제들에 대해서도 정리하고 있습니다.
+</div>
+<!-- //box4 -->
+
+<br />
+<ol class="bu">
+<li><a href="#d1">시간 제약이 있는 콘텐츠는 '정지, 이전, 다음' 기능이 필수 입니다.</a></li>
+<li><a href="#d2">웹 접근성을 고려한 게시판 제작 기법 - NARADESIGN:BLOG</a></li>
+<li><a href="#d3">선택서식이 여러개가 구성되어 상호작용을 해야하는 경우</a> - 15번과 異견.</li>
+<li><a href="#d4">longdesc와 숨은문자는 모두 적절하고 Character Entity는 되도록 지켜야</a></li>
+<li><a href="#d5">KADO-WAH 도구의 오류. onkeypress 관련 오류는 무시 하세요.</a></li>
+<li><a href="#d6">달력은 데이터 테이블이 맞습니다.</a></li>
+<li><a href="#d7">지리정보 이미지 영역은 예외</a></li>
+<li><a href="#d8">iframe 으로 제공되는 타 사이트 콘텐츠도 접근성 평가에 포함</a></li>
+<li><a href="#d9">label for="" 연결, title="" , select 첫번째 oprtion 제목 방법 모두 인정</a></li>
+<li><a href="#d10">화면 확대 기능을 제공하지 않아도 됩니다.</a></li>
+<li><a href="../Report/제6회 웹 접근성 품질마크 전문가심사 보고서 분석.html">제6회 웹 접근성 품질마크 전문가심사 보고서 2009.9 (한국정보화진흥원) 평가의견/준수예시 요약</a></li>
+<li><a href="#d12">테이블을 이용한 레이아웃 구성으로는 논리적인 구조를 작성하기 어렵습니다.</a> - 16번과 異견.</li>
+<li><a href="#d13">웹 에디터에 의한 관리자 등록 글들은 모두 심사 대상에 포함됩니다.</a></li>
+<li><a href="#d14">웹 접근성 평가시 모든 자바스크립트를 완전히 배제하고 평가하지는 않습니다.</a></li>
+<li><a href="#d15">자바스크립트로만 구현 가능한 기능은 심사 대상이 아니다?</a> - 3번과 異견.</li>
+<li><a href="#d16"><em>레이아웃용 테이블을 사용하더라도 감점되지 않습니다.</em></a> - 12번과 異견.</li>
+<li><a href="#d17">프레임에 적절한 title 을 작성해 두었다면 문제가 되지 않습니다. 웹 접근성 품질마크 인증 기준에 호환성은 없다.</a></li>
+<li><a href="#d18">자바스크립트 방식의 모달 창이 웹 접근성에 부적합한 것이 아니라 웹 접근성을 구현하는데 좀더 힘든 것이다</a></li>
+<li><a href="#d19">달력프로그램</a></li>
+<li>▼▼ 20111004~ NIA 웹 접근성 품질마크 14회~ 심사 기준 (KWCAG2.0) ▼▼</li>
+<li><a href="#d21">20111012. 자막 파일 / 스킵내비게이션 감춤 / 본문 언어명시 누락 / -- 이런 경우 감점 없다.</a></li>
+<li><a href="#d22">20111007. 일단 문장으로 구성된 본문 콘텐츠만 명도대비에 해당이 됩니다.</a></li>
+</ol>
+<br />
+
+<h5 class="box" id="d22"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=5026&page=2&cType=&FindTxt=&flag=2&FindCol=0">20111012. 일단 문장으로 구성된 본문 콘텐츠만 명도대비에 해당이 됩니다.</a></h5>
+<div class="box1">
+
+</div>
+
+<h5 class="box" id="d21"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=5003&page=3&cType=&FindTxt=&flag=2&FindCol=0">20111007. 자막 파일 / 스킵내비게이션 감춤 / 본문 언어명시 누락 / -- 이런 경우 감점 없다.</a></h5>
+<div class="box1">
+<p>1. 파일로 제공할 경우에 사용자가 해당 파일을 열 수 없는 상황일 수 있으므로, 좋지는 않습니다. 감점은 하지 않으나, 가능하면 화면에서 확인할 수 있도록 원고를 제공해주시길 권고드립니다. </p>
+<p>2. 주로 보이지 않게 작업을 많이 하고 있지만, 화면상에 노출되는 것이 여러면에서 접근성이 좋습니다. 하지만, 화면 표시 여부로 평가하지 않습니다. </p>
+<p>3. html 요소에 문서 전체의 기본 언어 표시가 기본입니다. 더불어 페이지 중간에 언어가 바뀔 때 변경된 언어를 lang 속성으로 명시해주는 것을 권장하고 있습니다. </p>
+</div>
+
+
+<h5 class="box" id="d19"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4534&page=1&cType=US&FindTxt=&flag=2&FindCol=0">20110428. 달력 프로그램</a></h5>
+<div class="box1">
+<p>1. 날짜에 마우스 오버<br />
+a. 키보드로도 동일한 기능을 수행할 수 있도록 제공되어야 합니다.<br />
+b. 자바스크립트가 구동이 안되는 환경에서도 행사 내용을 볼 수 있도록 되어야 합니다.<br />
+이 경우에는 행사 내용을 볼 수 있는 페이지로 이동이 되도록 하시면 됩니다.<br />
+</p>
+<p>2. 레이어 팝업<br />
+a. 키보드의 탭키를 이용하여 레이어팝업에 접근할 수 있어야 합니다.<br />
+b. 레이어 팝업까지 가는 과정 또한 논리적인 순서로 이루어져야 합니다.<br />
+c. 레이어 팝업에서 focus가 나갈시 자동으로 닫히거나, 혹은 닫기 버튼이 제공되어 키보드만으로 레이어 팝업을 닫을 수 있도록 제공되어야 합니다.<br />
+</p>
+<p>3. 롤링<br />
+a. 자바스크립트가 구동이 안되는 환경에서는, 행사내용이 나오는 페이지로 이동을 시키게 되면.. 컨텐츠 제공에 있어서는 문제가 없습니다.<br />
+b. 자동으로 롤링이 되는것이라면, 사용자가 직접 롤링을 제어할 수 있도록 컨트롤러를 제공해야 합니다. (정지, 재생, 뒤로, 앞으로)<br />
+</p>
+</div>
+
+<h5 class="box" id="d18"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4438&page=1&cType=&FindTxt=&flag=2&FindCol=0">20110408. 자바스크립트 방식의 모달 창이 웹 접근성에 부적합한 것이 아니라 웹 접근성을 구현하는데 좀더 힘든 것이다.</a></h5>
+<div class="box1">
+결론적으로 자바스크립트 방식의 모달 창이 웹 접근성에 부적합한 것이 아니라 웹 접근성을 구현하는데 좀더 힘든 것이다라고 봅니다. 이 방식이 사용자에겐 긍정적인 경험을 제공하는 측면도 있으니, 웹 접근성 이슈를 잘 챙겨서 개발하는 것이 중요하겠습니다.<br />
+</div>
+
+<h5 class="box" id="d17"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=2371&page=1&cType=US&FindTxt=%ED%94%84%EB%A0%88%EC%9E%84&flag=2&FindCol=1">20100222. 프레임에 적절한 title 을 작성해 두었다면 문제가 되지 않습니다.  웹 접근성 품질마크 인증 기준에 호환성은 없다.</a></h5>
+<div class="box1">
+프레임 사용시 프레임에 적절한 title 을 작성해 두었다면 프레임의 개수는 전혀 문제가 되지 않습니다.<br />
+다만 URL을 감출 목적으로 빈 프레임을 사용하는 경우 문서의 제목이 웹 브라우저의 title bar 부분에 노출되지 않기 때문에 이런 경우는 다음 지표에서 감점 됩니다.<br />
+현재의 <em>웹 접근성 품질마크 인증 기준으로는 브라우저 호환성 문제를 사실상 평가하지 않는다.</em><br />
+</div>
+
+<h5 class="box" id="d16"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=3907&page=1&cType=US&FindTxt=%ED%85%8C%EC%9D%B4%EB%B8%94&flag=2&FindCol=1">20101202. 레이아웃용 테이블을 사용하더라도 감점되지 않습니다.</a></h5>
+<div class="box1">
+웹 접근성이 코딩을 얼마나 잘 하는지 정도를 체크하는 것은 아니므로 레이아웃용 테이블을 사용하더라도 감점되지 않습니다. 
+다만, 레이아웃용 테이블로 인해 논리적 순서를 구현하지 못한다면, 이것은 감점 요인이 됩니다. 
+</div>
+
+<h5 class="box" id="d15"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=4191&page=1&cType=&FindTxt=%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8&flag=2&FindCol=1">자바스크립트로만 구현 가능한 기능은 심사 대상이 아니다?</a></h5>
+<div class="box1">
+검색기능에 있어 검색조건으로 select box를 여러 개 두고 있는 경우? 웹 접근성에서는 해당 콘텐츠에 접근할 수 있는지 또는 해당 기능을 사용할 수 있느지 여부가 중요합니다. 검색 조건이 자바스크립트에 의해 연결되어 있는 기능은 자바스크립트로만 구현 가능한 기능입니다. 이런 기능은 당연히 자바스크립트로 구현해야 겠지요.
+</div>
+
+<h5 class="box" id="d14"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=2022&page=1?cType=&FindTxt=정지수">웹 접근성 평가시 모든 자바스크립트를 완전히 배제하고 평가하지는 않습니다.</a></h5>
+<div class="box1">
+자바스크립트를 제거한 상태에서도 모든 기능을 사용할 수 있으면 가장 좋지만 웹 접근성 평가시 모든 자바스크립트를 완전히 배제하고 평가하지는 않습니다. <em>'링크, 서식, 버튼, 페이지 제목'을 자바스크립트에 완전히 의존한 경우만 평가에 영향을 미칩니다. 자바스크립트에 의존할 수 밖에 없는 기능은 자바스크립트에 의존하더라도 허용하고 있습니다.</em>
+</div>
+
+<h5 class="box" id="d13"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=2603&page=1&cType=VL&FindTxt=">웹 에디터에 의한 관리자 등록 글들은 모두 심사 대상에 포함됩니다.</a></h5>
+<div class="box1">
+웹 에디터에 의한 관리자 등록 글들은 모두 심사 대상에 포함됩니다.
+</div>
+
+<h5 class="box" id="d12"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=283&page=3&cType=VL&FindTxt=%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83">테이블을 이용한 레이아웃 구성으로는 논리적인 구조를 작성하기 어렵습니다.</a></h5>
+<div class="box1">
+table을 이용하여 레이아웃을 구성하는 한 품질마크 인증제도를 통과하거나 웹 접근성을 확보할 수 있다고 장담할 수 없습니다. 십중팔구는 논리적인 구조를 검사하는 과정에서 탈락 됩니다.
+</div>
+
+<h5 class="box dpn" id="d11"><a href="../Report/제6회 웹 접근성 품질마크 전문가심사 보고서 분석.html">제6회 웹 접근성 품질마크 전문가심사 보고서 2009.9 (한국정보화진흥원) 평가의견/준수예시 요약</a></h5>
+
+<h5 class="box" id="d10"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=1463&page=3&cType=&FindTxt=">화면 확대 기능을 제공하지 않아도 됩니다.</a></h5>
+<div class="box1">
+현존하는 모든 브라우저들(IE6 제외)이 브라우저 자체적으로 화면 확대 기능을 내장하고 있기 때문에 웹 사이트 제작자는 별도의 화면 확대 기능을 제공할 필요가 없고 그런 지침 또한 존재하지 않습니다. 제공하지 않아도 됩니다. 
+</div>
+
+<h5 class="box" id="d9">label for="" 연결, title="" , select 첫번째 oprtion 제목 방법 모두 인정</h5>
+<div class="box1">
+<a href="http://www.wah.or.kr/Consulting/consultList.asp?cType=VL">Site 웹 접근성 연구소 > 자문서비스 > 온라인 자문서비스 > 온라인 자문서비스 > 웹 접근성 평가</a> 게시판에 질문글 올림.<br />
+
+<pre>
+<strong>[질문] 품질마크 심사에서는 label 연결 외의 방법은 인정하지 않나요?</strong>
+
+센스리더 최신버전 Power 1.5, Pro 이상 버전에서는
+<xmp class="xmp">
+(1) label 의 for 속성과 폼 컨트롤 id 값을 연결하거나
+(2) 폼 컨트롤에 title 속성을 넣거나
+(3) select 에서는 label 연결 또는 title 속성 없이 아래처럼 해줘도
+<select>
+<option value="1">실과 바로가기</option>
+<option value="2">총무과</option>
+<option value="3">인사과</option>
+</select>
+음성출력을 "실과 바로가기 콤보상자" 라고 해줍니다.
+</xmp>
+그리고, 여러 전문가들이 label 대신 title 을 사용할 수도 있다고 안내하고 있습니다.
+
+그런데, 품질마크 전문가 심사 지적사항을 보면..
+
+o 서식제어레이블
+글쓰기 페이지 (12/12)
+자유게시판글쓰기 (9/9)
+실명인증(3/4)
+통합검색결과(1/2)
+게시판내 검색 (1/2) * 6
+
+와 같이 자동 툴로 돌렸는지..
+label 연결 여부의 숫자만 알려줄 때가 있습니다.
+title 속성만 지정한 경우 이렇게 지적이 되는데
+이걸 반드시 label 연결로 수정해야 할지 판단하기가 어렵습니다.
+(title 만으로도 스크린리더 이용이 가능하므로..)
+
+그래서, 명확한 기준이 무엇인지 질문드립니다.
+위 3가지 경우에서..
+(1)만 허용하나요? (2),(3) 도 적합 판정을 받을 수 있나요?
+
+<strong style="font-size: 2em;">참고 : <a href="http://html.nhndesign.com/accessibility_sensereader_review/#section7">센스리더 최신버전 리뷰 7. selectbox - NHN -</a></strong>
+
+</pre>
+<p>
+<strong>[답변] by 정찬명</strong><br />
+제목: 1~3번 모두 인정하는 방법입니다
+(1)~(2) 번은 적절한 방법 입니다. 
+(3) 번은 상황에 따라 다릅니다. 예를 들어주신 것과 같이 의미상 label 이 될만한 텍스트를 첫 번째 option에 넣으면 괜찮다고 판단하지만 첫 번째 option이 '총무과'가 된다면 이것이 무엇인지 레이블링 되지 않았으므로 label 또는 title이 필요하게 됩니다.
+</p>
+<p>
+<strong>[향후 작업 방안]</strong><br />
+<em>label 외 방법의 접근성 작업이 지적되면 적극적으로 이의를 제기하자!</em>
+</p>
+</div>
+
+<h5 class="box" id="d8">iframe 으로 제공되는 타 사이트 콘텐츠도 접근성 평가에 포함</h5>
+<div class="box1">
+<strong>[질문]</strong> iframe 의 타 사이트 콘텐츠는 저희가 작업할 수가 없습니다.<br />
+이럴 경우 품질마크 심사 범위에서 제외되는거 아닌가요?<br />
+iframe 으로 하면 안된다면 단순히 해당 사이트로의 링크로 처리하면 괜찮은건가요?<br />
+라는 질문에..
+<p>
+<strong>[답변] by 한국정보문화진흥원 웹 접근성 품질마크 담당자</strong><br />
+비록 iframe부분의 내용이 해당기관에서 만들어진 내용이 아니라고 할지라도 외부(장애인 사용자)에서 보기에는 그 사실을 알기 어려우며,
+해당기관에서 제공하는 사이트에 접근이 어려운 것은 해당기관의 사이트에 문제가 있는 것을 판단하게 될 것 입니다.
+해당 사이트에서 제공하는 내용은 해당기관에서 모두 책임을 지는 것이 옳으며
+iframe내의 부분에 대해서는 어려우시게지만 원소스를 제공한 기관에 연락을 하여 협조를 구해 주시길 부탁드립니다.
+</p>
+<p>
+<strong>[향후 작업 방안]</strong><br />
+<em>기존 내용 그대로 개편일지라도, iframe 의 타 사이트 정보는 링크로 수정하여 사용자가 다른 사이트의 정보라는 사실을 알 수 있게 한다.</em>
+</p>
+<p>
+* 작업예 : <a href="http://www.sacheon.go.kr/03administration/06_06.asp">사천시 정보목록검색</a> 은 <a href="http://open.go.kr/pa/jsp/keys/RetrieveItgDocListFrameF.laf?prodGvrnCd=5340000">iframe src</a> 로 제공되는 것을 <a href="http://www.open.go.kr/pa/RetrieveItgSrchF.laf?menuFlag=21">행안부 정보공개시스템의 "정보찾기"</a>로 바로 링크시켰다. 다행히 링크된 페이지는 접근성 개편이 되어 있었고, 예전에 배포된걸로 짐작되는 기존 iframe src 는 개편에서 누락되어 있어서 문제가 된 것이었다. <em>이후 2009.09.28. 웹 접근성 품질마크 획득함.</em>
+</p>
+</div>
+
+<h5 class="box" id="d7"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=1146&page=2?cType=&FindTxt=">지리정보 이미지 영역은 예외</a></h5>
+<div class="box1">
+지리정보 이미지는 이것을 아무리 텍스트로 변환해도 시각이 없는 사람에게 의미있게 전달할 수 없는 데이터 입니다.<br />
+따라서 <em>지리정보 이미지 영역은 웹 접근성 준수 범위에 포함되지 않고 설사 포함된다고 해도 적절한 대안이 없습니다.</em><br />
+그러나 지리정보 영역을 제외한 텍스트 형식의 부가 정보들(예:지리정보 검색목록 따위)은 당연히 포함이 됩니다.
+</div>
+
+<h5 class="box" id="d6"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=1063&page=1?cType=VL&FindTxt=">달력은 데이터 테이블이 맞습니다.</a></h5>
+<div class="box1">
+물론 달력은 헤더가 요일을 나타내고 일자가 데이터가 되는 형식의 데이터 테이블이 맞습니다.
+</div>
+
+<h5 class="box" id="d5"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=1064&page=1?cType=VL&FindTxt=">KADO-WAH 도구의 오류. onkeypress 관련 오류는 무시 하세요.</a></h5>
+<div class="box1">
+KADO-WAH 2.0 도구는 낡고 오류가 있는 프로그램으로써 지나치게 의존할 필요가 없습니다. 전문가 심사에서는 대체 텍스트 준수율을 기계적으로 검사할 때 참조할 뿐 다른 항목은 전혀 참조하지 않으므로 신경쓰지 않으셔도 됩니다.
+</div>
+
+<h5 class="box" id="d4"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=126&page=3&cType=&FindTxt=longdesc">longdesc와 숨은문자는 모두 적절하고 Character Entity는 되도록 지켜야</a></h5>
+<div class="box1">
+이미지 대체를 위하여 longdesc를 사용하는 방법은 표준에서 장려하는 방법이나 현재 사용하신 방법도 그리 나쁜 방법은 아니라고 생각합니다. 한동안은 국산 화면낭독기가 longdesc 속성을 인식하지 못해서 현실적으로 장려하지 않기도 했으나 최근 이 문제가 개선되어 longdesc 속성을 표준에 따라 인식하고 화면낭독기는 longdesc가 포함된 이미지를 '설명있음 이미지'라고 읽어줍니다. 화면낭독기 사용자가 해당 이미지에서 'alt+Enter' 키를 사용하면 longdesc에서 지정한 파일(*.html, *.txt)을 새 창으로 열어서 읽어주게 됩니다. 웹 접근성 품질마크 인증심사에서는 longdesc를 사용하거나 숨은 텍스트 형식으로 제공하거나 대체 텍스트가 제공만 된다면 감점하지 않습니다. 한편 대체 텍스트를 title 속성에 제공하는 것은 바람직하지 않은 문법으로써 권장하지 않습니다. 
+</div>
+
+<h5 class="box" id="d3"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=779&page=3&cType=&FindTxt=">선택서식이 여러개가 구성되어 상호작용을 해야하는 경우</a></h5>
+<div class="box1">
+- 기본적으로 모든 옵션을 노출해주거나<br />
+- 한서식을 선택하고 전송 버튼을 눌러 submit을 발생시켜 서버측과 통신을 하여 결과값을 리턴해서 다음서식 값을 변경 시키거나 해야합니다.<br />
+</div>
+
+<h5 class="box" id="d2"><a href="http://naradesign.net/wp/2008/11/14/257/">웹 접근성을 고려한 게시판 제작 기법 - NARADESIGN:BLOG</a></h5>
+<div class="box1">
+1.4. 숨은 제목(h*, caption, legend)을 제공하기.<br />
+1.5. <em>label이 생략된 input은 title 속성을 사용하기</em>.<br />
+1.7. ‘리치 텍스트 에디터’를 제공할 때 ‘플레인 텍스트 에디터’를 함께 제공하기.<br />
+1.9. CSS를 지원하지 않는 Form Control 요소를 장식하지 않기<br />
+</div>
+
+<h5 class="box" id="d1"><a href="http://www.wah.or.kr/Consulting/consultList_view.asp?seq=297&page=8&cType=US&FindTxt=">시간 제약이 있는 콘텐츠는 '정지, 이전, 다음' 기능이 필수 입니다.</a></h5>
+<div class="box1">
+<blockquote><div>한편 '정지' 기능은 굳이 버튼으로 표시하지 않아도 됩니다. 마우스 오버 또는 키보드의 포커스 맺힘에 정지 기능을 부여하는 경우 '정지' 버튼을 제공한 것과 동등하게 기능을 제공한 것으로 판단 합니다..</div></blockquote>
+라고 하였으나, 심사에서는 정지 기능을 버튼으로 제공하는 것을 요구하고 있다.<br />
+하지만, 다음 자료에서는 또 다른 의견이 혼란을 주고 있음<br />
+/웹접근성 순회교육자료_20110518/웹접근성 실태조사_품질마크소개.pdf 32p<br />
+흐르는 콘텐츠의 제어: 꼭 버튼이 아니더라도 제어 가능한가?<br />
+</div>
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120604. object 요소의 title 속성.
+20111013. NIA 웹 접근성 품질마크 14회~ 심사 기준 (KWCAG2.0).
+20110802. 서식 분석 추가.
+20110530. 정지버튼 관련 최근 자료 추가.
+20110502
+20100503
+20090911
+20090824
+<a href="wafaq.20090820.html">20090820</a>
+20090724
+20090716
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

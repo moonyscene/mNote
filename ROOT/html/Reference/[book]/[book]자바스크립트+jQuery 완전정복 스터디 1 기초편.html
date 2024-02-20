@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]자바스크립트+jQuery 완전정복 스터디 1 기초편 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">[book]자바스크립트+jQuery 완전정복 스터디 1 기초편 <small></small></h1>
+| <a >View</a>
+| <a >Demo</a>
+| <a >Exam</a>
+| <a >Errata</a>
+| <a >[PDF]</a>
+| <a >추가정보</a>
+<br />
+| Read 000p/00h = 00.0/h
+<br />
+Legend: <strong>Read</strong> <em>Remember</em> <b>Question</b> <i>Answer</i>
+
+
+<h2 class="hb1 h2" id="Summary">Summary</h2>
+
+
+
+<ol class="ol1">
+<li><strong class="h1">p111) 문자와 숫자 변환</strong><br />
+** 문자 )) 숫자
+<xmp class="xmp">
+parseInt(문자열숫자); // 정수
+Number(문자열숫자); // 정수, 실수
+parseFloat(문자열숫자); // 실수
+</xmp>
+** 숫자 )) 문자
+<xmp class="xmp">
+숫자.toString(); // 명시적 방법
+숫자.toFixed(); // 명시적 방법
+String(숫자); // 명시적 방법
+var result = 숫자 + ""; // 암시적 방법
+</xmp>
+</li>
+<li><strong class="h1">p234) 위치값 구하기</strong><br />
+<xmp class="xmp">
+for (var i = 0; i < length; i++){
+	var x = 100 + ( (i % 3) * 200);
+	var y = 100 + (parseInt(i / 3) * 200);
+}
+</xmp>
+</li>
+<li><strong class="h1">p354)</strong><br />
+<xmp class="xmp">
+function() fn1(){}
+</xmp>
+<xmp class="xmp">
+var fn2 = function(){}
+var myclass = {
+	test: function(){}
+}
+function MyClass(){
+	this.test = function(){}
+}
+function MyClass(){}
+MyClass.prototype.test = function(){}
+</xmp>
+<xmp class="xmp">
+var hello = new Function("name", "document.write(name + '')");
+hello("myshin");
+</xmp>
+<xmp class="xmp">
+(function(name){
+	document.write(name + "님 안녕");
+})("myshin");
+</xmp>
+</li>
+<li><strong class="h1">p445) 50 에서 100 사이 랜덤 숫자 출력</strong><br />
+<xmp class="xmp">
+var value = parseInt(Math.random() * 50) + 50;
+</xmp>
+</li>
+</ol>
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20160516~
+20160701.
+20160516.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

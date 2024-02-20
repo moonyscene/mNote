@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Design Scrollbar | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/lib.css" />
+
+<style type="text/css">/*<![CDATA[*/
+/* ◇◆ _Demo Page_ ◇◆◇◆◇ */
+body{background:#eee;}
+#container{max-width:1200px;margin:0 auto;padding:0 2.5%;background:#fff;}
+.column .wrap1{display:block;
+	padding:.166em;
+	border:1px solid #000;
+	background:#def;
+	text-align:center;
+	min-height:0; /* [IE7]fix */
+}
+/*]]>*/</style>
+
+<script src="../../share/js/iscroll-min.js"></script>
+<script src="../../share/js/hammer.min.js"></script> <!-- ◇◆ 20170427 -->
+<script src="../../share/js/jquery-1.12.4.min.js"></script><!-- 20161018 -->
+<script src="../../share/js/jquery.easing.1.3.js"></script>
+<!--[if lt IE 9]>
+<script src="../../share/js/html5shiv.min.js"></script>
+<script src="../../share/js/selectivizr.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<script src="../../share/js/jquery.backgroundSize.js"></script>
+<![endif]-->
+<!-- Do not edit! -->
+<script src="../../share/js/script_base.js"></script>
+<script src="../../share/js/script_gesture1.js"></script>
+<script src="../../share/js/script_scroll1section1.js"></script>
+<!-- /Do not edit! -->
+<script src="../../share/js/script.js"></script><!-- 실행호출 -->
+
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">Design Scrollbar</h1>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">.scroll1wrap1all1 (iscroll-min.js) 이용</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Test01</h3>
+<p>스크롤 영역 내부로 초점 이동하니.. 스크롤바 트랙이 초점에 따라 이동되는 결함 발생</p>
+
+<!-- scroll1wrap1all1 : {setDesktop: true} -->
+<div class="scroll1wrap1all1 skin1">
+<!-- scroll1cont -->
+<div class="scroll1cont">
+
+	<!-- menu1t1p1 -->
+	<div class="menu1t1p1">
+	<div class="wrap1">
+		<ul>
+		<li><a href="#?">01</a></li>
+		<li><a href="#?">02</a></li>
+		<li><a href="#?">03</a></li>
+		<li><a href="#?">04</a></li>
+		<li><a href="#?">05</a></li>
+		<li><a href="#?">06</a></li>
+		<li><a href="#?">07</a></li>
+		<li><a href="#?">08</a></li>
+		<li><a href="#?">09</a></li>
+		<li><a href="#?">10</a></li>
+		<li><a href="#?">11</a></li>
+		<li><a href="#?">12</a></li>
+		</ul>
+	</div>
+	</div>
+	<!-- /menu1t1p1 -->
+
+</div>
+<!-- /scroll1cont -->
+</div>
+<!-- /scroll1wrap1all1 -->
+
+<style type="text/css">/*<![CDATA[*/
+.menu1t1p1 ul{list-style:none;margin:0;padding:0;font-size:0;white-space:nowrap;}
+.menu1t1p1 li{display:inline-block;
+	margin:0 13px 13px 0;
+	padding:0;
+}
+.menu1t1p1 li a{display:block;width:230px;height:140px;
+	background:#2b3e60;
+	color:#fff;
+	font-size:18px;
+}
+/* Scrollbar Redesign [JS] created */
+[class*='scroll1wrap'].myscroll.skin1{
+	padding:0 0 12px;
+}
+[class*='scroll1wrap'].skin1 .iScrollHorizontalScrollbar{
+	left:0 !important;right:0 !important;top:auto !important;bottom:5px !important;
+	height:1px !important;
+	border-radius:0 !important;
+	background:#777;
+	overflow:visible !important;
+}
+[class*='scroll1wrap'].skin1 .iScrollIndicator{
+	top:-5px !important;
+	bottom:auto !important;
+	border:0 !important;
+	height:11px !important;
+	border-radius:3px !important;
+	background:#777 !important;
+	opacity:1;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Test02) <em class="em4">:after</em> )))OK!</h3>
+<p>스크롤 영역 내부로 초점 이동하니.. 스크롤바 트랙이 초점에 따라 이동되는 결함 <em class="em">해결!</em></p>
+
+<!-- scroll1wrap1all1 : {setDesktop: true} -->
+<div class="scroll1wrap1all1 skin2">
+<!-- scroll1cont -->
+<div class="scroll1cont">
+
+	<!-- menu1t1p1 -->
+	<div class="menu1t1p1">
+	<div class="wrap1">
+		<ul>
+		<li><a href="#?">01</a></li>
+		<li><a href="#?">02</a></li>
+		<li><a href="#?">03</a></li>
+		<li><a href="#?">04</a></li>
+		<li><a href="#?">05</a></li>
+		<li><a href="#?">06</a></li>
+		<li><a href="#?">07</a></li>
+		<li><a href="#?">08</a></li>
+		<li><a href="#?">09</a></li>
+		<li><a href="#?">10</a></li>
+		<li><a href="#?">11</a></li>
+		<li><a href="#?">12</a></li>
+		</ul>
+	</div>
+	</div>
+	<!-- /menu1t1p1 -->
+
+</div>
+<!-- /scroll1cont -->
+</div>
+<!-- /scroll1wrap1all1 -->
+
+<style type="text/css">/*<![CDATA[*/
+.menu1t1p1 ul{list-style:none;margin:0;padding:0;font-size:0;
+	white-space:nowrap;
+}
+.menu1t1p1 li{display:inline-block;
+	margin:0 13px 13px 0;
+	padding:0;
+	white-space:normal;
+}
+.menu1t1p1 li a{display:block;width:230px;height:140px;
+	background:#2b3e60;
+	color:#fff;
+	font-size:18px;
+}
+/* Scrollbar Redesign [JS] created */
+[class*='scroll1wrap'].myscroll.skin2{
+	padding:0 0 12px;
+}
+[class*='scroll1wrap'].myscroll.skin2:after{content:'';display:block;
+	position:absolute;
+	left:0 !important;
+	right:-999% !important; /* ☆ */
+	bottom:5px !important;
+	height:1px !important;
+	border-radius:0 !important;
+	background:#777;
+	overflow:visible !important;
+}
+[class*='scroll1wrap'].skin2 .iScrollHorizontalScrollbar{
+	bottom:0 !important;
+	height:11px !important;
+	border-radius:0 !important;
+	background:none;
+	overflow:visible !important;
+}
+[class*='scroll1wrap'].skin2 .iScrollIndicator{
+	border:0 !important;
+	height:11px !important;
+	border-radius:3px !important;
+	background:#777 !important;
+	opacity:1;
+}
+/*]]>*/</style>
+
+
+
+
+
+<br />
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<hr class="show" />
+<p><small class="fwn"><strong>History</strong>
+: 20170607~
+20170608.
+20170616.
+</small></p>
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

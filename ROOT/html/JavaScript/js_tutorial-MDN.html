@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'JS Tutorial - MDN | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">JS Tutorial - MDN</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Task">Task</a></li>
+<li><a href="#ToDo">ToDo</a></li>
+<li><a href="#Unfinished">Unfinished</a></li>
+<li><a href="#Finished">Finished</a></li>
+</menu> -->
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+
+<ul>
+<li><a href="#Re-enterJavaScript" target="_blank" title="새 창">JavaScript 재입문하기 (JS ​튜토리얼)</a> - MDN</li>
+<li><a href="#OOPJS" target="_blank" title="새 창">객체지향 자바스크립트 소개</a> - MDN</li>
+</ul>
+
+</div>
+<!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="OOPJS"><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" title="새 창">객체지향 자바스크립트 소개 - MDN</a></h2>
+
+<pre class="mg0">
+<strong class="em6 fsL">자바스크립트 리뷰(JavaScript review)</strong>
+
+<strong class="em6 fsL">객체지향 프로그래밍(Object-oriented programming)</strong>
+추상화
+modularity, polymorphism, encapsulation
+객체지향 프로그래밍은 함수들의 집합 혹은 단순한 컴퓨터의 명령어들의 목록 이라는 기존의 프로그래밍에 대한 전통적인 관점에 반하여,
+관계성있는 객체들의 집합이라는 관점으로 접근하는 소프트웨어 디자인으로 볼 수 있다.
+객체지향적인 코드는 개발을 보다 단순하게 했고, 시간이 흐른 뒤에도 보다 쉽게 이해할 수 있도록 했으며,
+복잡한 상황이나 절차들을 덜 모듈화된 프로그래밍 방법들보다 더 직접적으로 분석하고, 코딩하고, 이해할 수 있도록 만들었다.
+
+<strong class="em6 fsL">용어(Terminology)</strong>
+<b class="em8">Class</b> 클래스
+객체의 특성을 정의
+<b class="em8">Object</b> 오브젝트
+Class의 인스턴스
+<b class="em8">Property</b> 프로퍼티
+객체의 특성(예: 색깔)
+<b class="em8">Method</b> 메서드
+객체의 능력(예: 걷기)
+<b class="em8">Constructor</b> 컨스트럭터 (생성자)
+인스턴스화 되는 시점에서 호출되는 메서드
+<b class="em8">Inheritance</b> 상속
+클래스는 다른 클래스로부터 특성들을 상속받을 수 있다.
+<b class="em8">Encapsulation</b> 캡슐화
+클래스는 해당 객체의 특성들만을 정의할 수 있고, 메서드는 그 메서드가 어떻게 실행되는지만 정의할 수 있다. (외부 접근 불가)
+<b class="em8">Abstraction</b> 추상화
+복잡한 상속, 메서드, 객체의 속성의 결합은 반드시 현실 세계를 시뮬레이션할 수 있어야 한다.
+<b class="em8">Polymorphism</b> 다형성
+다른 클래스들이 같은 메서드나 속성으로 정의될 수 있다.
+객체지향 프로그래밍에 대한 보다 확장된 설명은 Object-oriented programming를 참고하면 된다.
+
+<strong class="em6 fsL">프로토타입기반 프로그래밍(Prototype-based programming)</strong>
+프로토타입 기반 프로그래밍은 클래스가 존재하지 않는 객체지향 프로그래밍의 한가지 스타일로,
+동작 재사용(behavior reuse, 클래스기반 언어에서는 상속이라고함)은 프로토타입으로서 존재하는 객체를 데코레이팅하는 과정을 통해 수행된다.
+
+<strong class="em6 fsL">자바스크립트 객체지향 프로그래밍(JavaScript Object Oriented Programming)</strong>
+
+<strong class="em5 fsM">Core Objects</strong>
+Math, Object, Array, String과 같은 객체가 있다.
+자바스크립트의 모든 객체는 Object 객체의 인스턴스이므로 Object의 모든 속성과 메서드를 상속받는다.
+
+<strong class="em5 fsM">Custom Objects</strong>
+
+<strong class="em4 fsm">The Class</strong>
+자바스크립트에서는 function을 class로서 사용한다.
+<code class="xmp">
+function Person() { }
+</code>
+
+<strong class="em4 fsm">The Object (Class Instance)</strong>
+<code class="xmp">
+function Person() { }
+var person1 = new Person();
+var person2 = new Person();
+</code>
+
+<strong class="em4 fsm">The Constructor</strong>
+생성자는 인스턴스화되는 순간(객체 인스턴스가 생성되는 순간) 호출된다. 생성자는 해당 클래스의 메서드이다.
+자바스크립트에서는 함수 자체가 그 객체의 생성자 역할을 하기 때문에 특별히 생성자 메서드를 정의할 필요가 없다.
+클래스 안에 선언된 모든 내역은 인스턴스화되는 그 시간에 실행된다.
+생성자는 주로 객체의 속성을 설정하거나 사용하기 위해 객체를 준비시키는 메서드를 호출할 때 주로 사용된다.
+<code class="xmp">
+function Person() {
+  alert('Person instantiated');
+}
+
+var person1 = new Person();
+var person2 = new Person();
+</code>
+
+<strong class="em4 fsm">The Property (object attribute)</strong>
+<code class="xmp">
+function Person(gender) {
+  this.gender = gender;
+  alert('Person instantiated');
+}
+
+var person1 = new Person('Male');
+var person2 = new Person('Female');
+
+//display the person1 gender
+alert('person1 is a ' + person1.gender); // person1 is a Male
+</code>
+
+<strong class="em4 fsm">메서드(The methods)</strong>
+<code class="xmp">
+function Person(gender) {
+  this.gender = gender;
+  alert('Person instantiated');
+}
+
+Person.prototype.sayHello = function()
+{
+  alert ('hello');
+};
+
+var person1 = new Person('Male');
+var person2 = new Person('Female');
+
+// call the Person sayHello method.
+person1.sayHello(); // hello
+</code>
+
+<strong class="em4 fsm">상속(Inheritance)</strong>
+	상속은 하나 이상의 클래스를 특별한 버전의 클래스로 생성하는 하나의 방법이다. (다만 자바스크립트는 오직 하나의 클래스를 상속받는 것만 지원한다.) 
+	아래의 예제에서는, Student라는 클래스를 Person 클래스의 자식 클래스로 정의한다.
+	그 후에 우리는 sayHello() 메서드를 재정의하고 sayGoodBye() 메서드를 추가한다.
+
+<code class="xmp">
+// define the Person Class
+function Person() {}
+
+Person.prototype.walk = function(){
+  alert ('I am walking!');
+};
+Person.prototype.sayHello = function(){
+  alert ('hello');
+};
+
+// define the Student class
+function Student() {
+  // Call the parent constructor
+  Person.call(this);
+}
+
+// inherit Person
+Student.prototype = new Person();
+
+// correct the constructor pointer because it points to Person
+Student.prototype.constructor = Student;
+ 
+// replace the sayHello method
+Student.prototype.sayHello = function(){
+  alert('hi, I am a student');
+}
+
+// add sayGoodBye method
+Student.prototype.sayGoodBye = function(){
+  alert('goodBye');
+}
+
+var student1 = new Student();
+student1.sayHello();
+student1.walk();
+student1.sayGoodBye();
+
+// check inheritance
+alert(student1 instanceof Person); // true 
+alert(student1 instanceof Student); // true
+</code>
+
+최신 브라우저에서는 Object.create 메서드를 사용해서 상속을 수행할 수도 있다.
+<code class="xmp">
+Student.prototype = Object.create(Person.prototype);
+</code>
+
+<strong class="em4 fsm">캡슐화(Encapsulation)</strong>
+	이전의 예제에서, Student 클래스는 Person 클래스의 walk() 메서드가 어떻게 실행되는지에 대해 알 필요가 없고,
+	walk() 메서드를 사용하는데에도 전혀 문제가 없다.
+	또 Student 클래스에서는 walk() 메서드의 내용을 바꾸려는게 아니라면 walk() 메서드를 특별히 정의할 필요도 없다.
+	자식 클래스는 부모 클래스의 모든 메서드를 상속받고, 상속받은 메서드중 일부를 수정하고 싶은 경우에만 해당 메서드를 정의하는 것을 우리는 캡슐화(encapsulation)이라고 부른다.
+
+<strong class="em4 fsm">추상화(Abstraction)</strong>
+	추상화는 작업 문제의 현재 부분을 모델링할 수 있도록 하는 매커니즘이다.
+	추상화는 상속(specialization, 추상의 수준을 낮추는 것)과 합성으로 구현할 수 있다.
+	자바스크립트는 상속에 의해 특별화(specialization)를, 클래스들의 인스턴스를 다른 객체의 속성값이 되게 함으로써 <b class="em4 fsm">합성</b>을 구현한다.	
+	
+	자바스크립트 Function 클래스는 Object 클래스를 상속받고(이는 모델의 특별화를 보여준다),
+	Function.prototype 속성은 Object의 인스턴스이다(이는 합성을 보여준다).
+
+<code class="xmp">
+var foo = function(){};
+alert( 'foo is a Function: ' + (foo instanceof Function) );
+alert( 'foo.prototype is an Object: ' + (foo.prototype instanceof Object) );
+</code>
+
+<strong class="em4 fsm">다형성(Polymorphism)</strong>
+	모든 메서드와 속성들은 prototype 속성에 선언되어 있고, 클래스가 다르다면 같은 이름의 메서드도 선언할 수 있다.
+	메서드들은 메서드가 선언된 클래스로 그 실행 영역이 한정된다.
+	물론 이건 두 개의 클래스들이 서로 부모-자식 관계가 아닐때에만 성립한다.
+	즉 다시 말해 부모-자식 관계의 상속 관계로 하나가 다른 하나에게서 상속받지 않았을 때에만 성립한다.
+
+<strong class="em6 fsL">Notes</strong>
+	객체지향 프로그래밍을 구현하는데 있어서 자바스크립트는 매우 유연하기 때문에,
+	이 글에서 선보인 테크닉들은 자바스크립트에서 객체지향을 구현하는 유일한 방법들 중 일부일 뿐이다.
+	또, 여기에서 선보인 테크닉들은 어떤 hack도 사용하지 않았고 또한 다른 언어의 객체 이론 구현물들을 모방하지도 않았다.
+	자바스크립트의 객체지향 프로그래밍에 있어서 다른 보다 깊이있는 테크닉들이 많이 있지만,
+	소개하는 글이라는 이 글의 특성상 다루지 않기로 한다.
+
+<strong class="em6 fsL">References</strong>
+
+<strong class="em6 fsL">Original Document Information</strong>
+</pre>
+
+<div class="brclear clearfix"></div>
+<hr class="line0 dott" />
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Re-enterJavaScript"><a href="https://developer.mozilla.org/ko/docs/A_re-introduction_to_JavaScript" target="_blank" title="새 창">JavaScript 재입문하기 (JS ​튜토리얼) - MDN</a></h2>
+
+<pre class="mg0">
+<strong class="em6 fsL">소개</strong>
+	역사
+		1995년 Netscape의 엔지니어 Brendan Eich에 의해 만들어졌고,
+		1996년 Netscape 2와 함께 처음 릴리즈. LiveScript )) JavaScript
+			Microsoft는 몇달 후 IE3와 함께 JavaScript와 대부분이 호환되는 JScript로 불리는 언어를 발표합니다
+		1997년 ECMAScript
+		1999년 ECMAScript edition 3 [IE8+]
+		2009년 ECMAScript edition 5 [IE9+]
+		2015년 ECMAScript edition 6 [Modern Browser][EG15+] <a href="http://kangax.github.io/compat-table/es6/" target="_blank" title="새 창">ES6 호환성 테이블(ECMAScript 6 compatibility table)</a>
+		2016년 ECMAScript edition 7
+		2017년 ECMAScript edition 8
+<strong class="em6 fsL">개요</strong>
+	JavaScript는 클래스 대신 객체 프로토 타입을 사용하여 객체 지향 프로그래밍을 지원합니다 (프로토 타입 상속 및 ES2015 Classes)
+	JavaScript는 함수형 프로그래밍도 지원합니다. 함수는 객체이며, 함수는 실행 가능한 코드를 유지하고 다른 객체와 마찬가지로 전달 될 수 있습니다.
+	타입
+		수 (Number)
+		문자열 (String)
+		부울 (Boolean)
+		함수 (Function)
+		객체 (Object)
+		기호 (Symbol) (ES2015에 새롭게 추가)
+
+		)))
+
+		수 (Number)
+		문자열 (String)
+		부울 (Boolean)
+		기호 (Symbol)
+		객체 (Object)
+			함수 (Function)
+			배열 (Array)
+			날짜 (Date)
+			정규식 (RegExp)
+			수학 (Math)
+		널 (Null)
+		정의되지 않음 (Undefined)
+
+		그리고, 몇 가지 오류 (Error) 타입이 있다.
+<strong class="em6 fsL">수 (Numbers)</strong>
+	parseInt()
+	parseFloat()
+	단항 연산자 +
+	NaN
+	isNaN()
+	Infinity 와 -Infinity
+	isFinite()
+<strong class="em6 fsL">문자열 (Strings)</strong>
+	length
+	charAt(0)
+	replace()
+	toUpperCase()
+<strong class="em6 fsL">이외의 타입들</strong>
+	null
+	undefined
+	true 와 false
+		false, 0, 빈 문자열 (""), 수가 아님을 뜻하는 NaN, null, 와 undefined은 모두 false가 됩니다.
+		다른 모든 값은 true가 됩니다.
+	Boolean()
+	부울 연산자는 && (논리적와, 그리고), || (논리적또는), 그리고 ! (논리적부정)이 지원됩니다.
+
+<strong class="em6 fsL">변수 (Variables)</strong>
+	JavaScript에서 새로운 변수는 let, const, var 키워드로 선언됩니다.
+	<code>let</code>을 사용하면 블록 유효 범위 변수를 선언 할 수 있습니다. 선언 된 변수는 변수가 포함 된 함수 블록에서 사용할 수 있습니다.
+	<code>const</code>는 값이 변경되지 않는 변수를 선언 할 수 있게 합니다. 변수는 변수가 선언 된 함수 블록에서 사용할 수 있습니다.
+	<code>var</code>
+		var로 선언한 변수의 유효 범위
+
+<strong class="em6 fsL">연산자 (Operators)</strong>
+	+, -, *, /, %(나머지 연산자), =(값 할당), +=, -=, ++, --
+	<, >, <= 와 >=
+	== 와 ===, != 와 !==
+
+<strong class="em6 fsL">제어 구조</strong>
+	조건문 <code>if</code> 와 <code>else</code>
+	<code>while</code> 반복문과 <code>do-while</code> 반복문
+	<code>for</code> 반복문
+	<code>&&</code> 와 <code>||</code> 연산자는 첫번째 식을 평가한 결과에 따라서 두번째 식을 평가를 실행하는 단축평가(short-circuit) 논리를 사용합니다.
+	삼중 연산자
+	<code>switch</code> 문 <code>case default break</code>
+
+<strong class="em6 fsL">객체 (Objects)</strong>
+	JavaScript 객체는 간단히 이름-값 쌍(name-value pairs)의 모임입니다.
+	빈 객체를 생성하는데 두가지 방법
+		생성자 구문 <code>var obj = new Object();</code>
+		객체 리터럴 구문 <code>var obj = {};</code>
+
+<strong class="em6 fsL">배열 (Arrays)</strong>
+	JavaScript에서 배열은 실제로는 객체의 특별한 타입입니다.
+	length
+	배열을 생성하는 방법
+		생성자 구문 <code>var a = new Array();</code>
+		배열 리터럴 <code>var a = ["dog", "cat", "hen"];</code>
+	array.length 는 배열에 들어있는 항목의 수를 반드시 반영하지는 않는다는 점을 주의하시기 바랍니다.
+	배열을 반복문으로 처리
+		undefined, 0, '' 과 같은 "거짓으로 취급되는" 값이 포함되지 않은 경우
+		거짓 값이 포함된 경우는 i, j를 사용하는 코드
+	for...in 루프
+		Array.prototype에 새로운 속성을 추가한 경우, 이 루프에 의해 그 속성도 반복된다는 점을 주의하시기 바랍니다:
+	배열 객체 메소드
+		a.<code>toString</code>(), a.<code>toLocaleString</code>(), a.<code>concat</code>(item, ..), a.<code>join</code>(sep),
+		a.<code>pop</code>(), a.<code>push</code>(item, ..), a.<code>reverse</code>(), a.<code>shift</code>(), a.<code>slice</code>(start, end),
+		a.<code>sort</code>(cmpfn), a.<code>splice</code>(start, delcount, [item]..), a.<code>unshift</code>([item]..)
+
+<strong class="em6 fsL">함수 (Functions)</strong>
+	<code class="dpib pd10px-rv">function add(x, y) {
+		var total = x + y;
+		return total;
+	}</code>
+	배열과 비슷한 객체 <code>arguments</code>
+	<code>apply()</code>
+		<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" title="새 창">※MDN</a>
+		<a href="http://www.florakid.com/florakid_lib/sub/javascript/apply_call_method.html" target="_blank" title="새 창">함수의 apply(), call() 메서드</a> bind()
+	익명 함수
+		var avg = function() {} 이것은 의미적으로 function avg() {} 형식과 같다
+		C 의 블록 유효 범위를 적용 시킨 것 처럼 지역 변수를 "숨기는" 요령
+	재귀 함수
+		브라우저 DOM 등에서 얻을 수 있는 트리 구조를 다루는데 유용합니다.
+		<code>arguments.callee</code> 익명 함수도 재귀적으로 부를 수 있게 해줍니다
+		
+		<code class="dpib pd10px-rv">var charsInBody = (function(elm) {
+			if (elm.nodeType == 3) { // TEXT_NODE
+				return elm.nodeValue.length;
+			}
+			var count = 0;
+			for (var i = 0, child; child = elm.childNodes[i]; i++) {
+				count += arguments.callee(child);
+			}
+			return count;
+		})(document.body);</code>
+
+<strong class="em6 fsL">사용자 정의 객체</strong>
+	<code>this</code>
+	<code>new</code>
+		new 에 의해 불리도록 디자인된 함수는 constructor 함수라고 불립니다. 보통 실제에서는 이러한 함수의 첫자를 대문자로 써서 new로 불릴 constructor 함수임을 나타냅니다.
+
+		<code class="dpib pd10px-rv">function Person(first, last) {
+			this.first = first;
+			this.last = last;
+			this.fullName = function() {
+				return this.first + ' ' + this.last;
+			}
+			this.fullNameReversed = function() {
+				return this.last + ', ' + this.first;
+			}
+		}
+		var s = new Person("Simon", "Willison");</code>
+
+		<code class="dpib pd10px-rv">function personFullName() {
+			return this.first + ' ' + this.last;
+		}
+		function personFullNameReversed() {
+			return this.last + ', ' + this.first;
+		}
+		function Person(first, last) {
+			this.first = first;
+			this.last = last;
+			this.fullName = personFullName;
+			this.fullNameReversed = personFullNameReversed;
+		}</code>
+
+	<code>prototype</code>
+		prototype chain
+		<code class="dpib pd10px-rv">function Person(first, last) {
+			this.first = first;
+			this.last = last;
+		}
+		Person.prototype.fullName = function() {
+			return this.first + ' ' + this.last;
+		}
+		Person.prototype.fullNameReversed = function() {
+			return this.last + ', ' + this.first;
+		}</code>
+
+		JavaScript 내장 객체의 prototype에 메소드 추가도 가능하다.
+
+<strong class="em6 fsL">내장 함수</strong>
+	어떤 함수가 사용하는 다른 몇개의 함수가 작성한 코드의 다른 부분에는 별로 유용하지 않는 코드라면,
+	이런 유틸리티 함수를 해당 함수를 불러서 사용하는 함수의 내부에 내장되도록 할 수 있습니다.
+	전역 범위에 들어 있는 함수의 수를 낮게 유지합니다. (이렇게 하는 것은 항상 좋다고 볼 수 있습니다.)
+
+<strong class="em6 fsL">클로져 (Closures)</strong>
+	클로져 (글자 그대로 한국어로 해석하면 닫힌 주머니)
+
+	<code class="dpib pd10px-rv">function makeAdder(a) {
+		return function(b) {
+			return a + b;
+		}
+	}
+	x = makeAdder(5);
+	y = makeAdder(20);
+	x(6)
+	?
+	y(7)
+	?</code>
+
+	범위 객체
+	가비지 컬렉터
+
+	클로져는 함수와 함수에 의해 생성되는 범위 객체를 함께 지칭하는 용어입니다.
+
+<strong class="em6 fsL">메모리 누출</strong>
+	클로져의 부작용은 Internet Explorer에서 심각하지는 않지만 쉽게 메모리 누출이 된다는 것
+	클로져 메모리 누출 피하는 가장 간단한 방법
+
+		<code class="dpib pd10px-rv">function addHandler() {
+			var el = document.getElementById('el');
+			el.onclick = function() {
+				this.style.backgroundColor = 'red';
+			}
+			el = null;
+		}</code>
+
+	놀랍게도, 클로져에 의해 발생된 순환 참조를 고리를 끊기 위한 한 요령은 또다른 클로져를 추가하는 것입니다
+
+		<code class="dpib pd10px-rv">function addHandler() {
+			var clickHandler = function() {
+				this.style.backgroundColor = 'red';
+			}
+			(function() {
+				var el = document.getElementById('el');
+				el.onclick = clickHandler;
+			})();
+		}</code>
+
+	클로져를 피할 수 있는 또다른 좋은 요령은
+	window.onunload 이벤트가 발생하는 동안 순환 참조를 끊는 것입니다.
+	많은 이벤트 라이브러리가 이렇게 동작합니다. 
+
+</pre>
+
+<div class="brclear clearfix"></div>
+<hr class="line0 dott" />
+
+
+<pre class="mg0">
+<code class="xmp">
++ '42';   // 42
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+// myVarVariable는 여기에서 사용 할 수 *있습니다*
+
+for (var myVarVariable = 0; myVarVariable < 5; myVarVariable++) {
+  // myVarVariable는 함수 전체에서 사용 할 수 있습니다.
+}
+
+// myVarVariable는 여기에서 사용 할 수 *있습니다*
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+obj.for = "Simon"; // 구문 오류, for 가 예약된 단어(키워드)이기 때문에
+obj["for"] = "Simon"; // 정상 동작
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+> var a = ["dog", "cat", "hen"];
+> a[100] = "fox";
+> a.length
+101
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+for (var i = 0, len = a.length; i < len; i++) {
+    // a[i] 로 뭔가를 수행
+}
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+for (var i = 0, item; item = a[i]; i++) {
+    // item 으로 뭔가를 수행
+}
+</code>
+</pre>
+
+<pre class="mg0">
+<code class="xmp">
+a[a.length] = item; // a.push(item); 와 같음
+</code>
+</pre>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20183019~
+20180319.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

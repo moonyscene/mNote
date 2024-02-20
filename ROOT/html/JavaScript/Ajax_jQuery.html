@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - Ajax with jQuery | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Ajax with <a href="http://api.jquery.com/">jQuery</a></h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#Low-Level">Low-Level Interface</a></li>
+<li><a href="#ShorthandMethods">Shorthand Methods</a></li>
+<li><a href="#EventHandlers">Global Ajax Event Handlers</a></li>
+<li><a href="#Miscellaneous">Miscellaneous</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="Low-Level">Low-Level Interface</h2>
+
+<dl class="bu">
+<dt>jQuery.ajax()</dt>
+<dd>Perform an asynchronous HTTP (Ajax) request.</dd>
+<dt>jQuery.ajaxPrefilter()</dt>
+<dd>Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().</dd>
+<dt>jQuery.ajaxSetup()</dt>
+<dd>Set default values for future Ajax requests.</dd>
+</dl>
+
+<xmp class="xmp">
+$.ajaxSetup({
+  url: 'ping.php'
+});
+</xmp>
+<xmp class="xmp">
+$.ajax({
+  // url not set here; uses ping.php
+  data: {'name': 'Dan'}
+});
+</xmp>
+<pre class="prettyprint"><code class="example">$.ajaxSetup({
+   url: "/xmlhttp/",
+   global: false,
+   type: "POST"
+
+ });
+ $.ajax({ data: myData });</code></pre>
+
+<h2 id="ShorthandMethods">Shorthand Methods</h2>
+
+<dl class="bu">
+<dt>jQuery.get()</dt>
+<dd>Load data from the server using a HTTP GET request.</dd>
+<dt>jQuery.getJSON()</dt>
+<dd>Load JSON-encoded data from the server using a GET HTTP request.</dd>
+<dt>jQuery.getScript()</dt>
+<dd>Load a JavaScript file from the server using a GET HTTP request, then execute it.</dd>
+<dt>.load()</dt>
+<dd>Load data from the server and place the returned HTML into the matched element.</dd>
+<dt>jQuery.post()</dt>
+<dd>Load data from the server using a HTTP POST request.</dd>
+</dl>
+
+<h2 id="EventHandlers">Global Ajax Event Handlers</h2>
+
+<dl class="bu">
+<dt>.ajaxComplete()</dt>
+<dd>Register a handler to be called when Ajax requests complete. This is an Ajax Event.</dd>
+<dt>.ajaxError()</dt>
+<dd>Register a handler to be called when Ajax requests complete with an error. This is an Ajax Event.</dd>
+<dt>.ajaxSend()</dt>
+<dd>Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.</dd>
+<dt>.ajaxStart()</dt>
+<dd>Register a handler to be called when the first Ajax request begins. This is an Ajax Event.</dd>
+<dt>.ajaxStop()</dt>
+<dd>Register a handler to be called when all Ajax requests have completed. This is an Ajax Event.</dd>
+<dt>.ajaxSuccess()</dt>
+<dd>Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.</dd>
+</dl>
+
+<h2 id="Miscellaneous">Miscellaneous</h2>
+
+<dl class="bu">
+<dt>jQuery.param()</dt>
+<dd>Collection Manipulation, Forms Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request. </dd>
+<dt>.serialize()</dt>
+<dd>Forms Encode a set of form elements as a string for submission.</dd>
+<dt>.serializeArray()</dt>
+<dd>Forms Encode a set of form elements as an array of names and values.</dd>
+</dl>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120502.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹접근성 실태조사 + 품질마크 대비 보완 작업 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>웹접근성 실태조사 + 품질마크 대비 보완 작업 : <em>완료 D+30일</em> <strong>[대외비]</strong></h1>
+
+<p>
+- Update : 
+v2008.12.24
+v2008.10.06
+v2008.10.02
+v2008.09.30
+v2008.09.26
+v2008.09.25
+v2008.09.23
+v2008.09.22
+</p>
+
+<p>
+2008.12.24 <a href="http://itnews.inews24.com/php/news_view.php?g_serial=381625&g_menu=020200">KADO, '웹 접근성 품질마크' 인증 사이트 발표</a>
+|
+<a href="http://www.iabf.or.kr/Lab/Certification/Cites.asp">웹 접근성 품질마크 인증사이트 현황</a>
+</p>
+
+<!-- box4 -->
+<div class="box4">
+
+<ul class="bu">
+<li><strong>수신</strong> : 전직원(경영지원 제외)</li>
+<li><strong>제목</strong> : 2008년 장애인 웹 접근성 실태조사 대비 보완 작업 요청</li>
+<li><strong>일정</strong> : 2008.09.22(월)~09.29(월)PM18:00 기간내 작업자별로 1일 내외 작업</li>
+<li><strong>관련근거</strong> :
+	<ul class="bu">
+	<li><a href="../Reference/080825 실태조사 기본계획(최종).hwp">080825 실태조사 기본계획(최종).hwp</a> - 심사기간(2008.10~2008.12)</li>
+	<li><a href="http://www.iabf.or.kr/Lab/News/NoticeView.asp?board=notice&bseq=140">080917 제4회 웹 접근성 품질마크 인증제도 시행 안내</a> - 심사기간(2008.10.07 ~ 11.28)</li>
+	</ul>
+</li>
+<li><strong>참고자료</strong> : <em>웹 접근성 작업을 위해 반드시 숙지해야할 내용입니다.</em> 
+	<ul class="bu">
+	<li><a href="../Accessibility/accessibility_validation.html">웹 접근성 작업 안내</a></li>
+	<li><a href="http://www.iabf.or.kr/Lab/Certification/품질마크가이드.zip">품질마크가이드.hwp 제4장. 웹 접근성 세부 인증기준 해설 및 예시</a></li>
+	<li><a href="http://www.iabf.or.kr/Lab/Pds/PdsView.asp?board=dataroom&pg=3&bseq=89&md=&sf=&ss=">웹 접근성을 고려한 콘텐츠 제작 기법(2004.12).pdf</a></li>
+	</ul>
+</li>
+<li><strong>기타</strong> : 웹접근성보완작업 FTP정보는 개별 문의시 작업자에게만 별도로 알려드릴 예정입니다.</li>
+</ul>
+
+</div>
+<!-- //box4 -->
+
+<h2>2008년 웹 접근성 실태조사(10月~12月) + 4회 품질마크(10月~11月) 대비 보완 작업</h2>
+
+
+<p>
+<em>※ 주의 : 접근성 보완 작업과 유지보수 작업이 겹치지 않도록 작업자는 서로 협의바랍니다..</em>
+
+</p>
+
+
+
+<h3>작업 대상 범위</h3>
+
+<ul class="bu">
+<li><strong>웹사이트</strong> : <a href="#table1">[표1]</a> 웹접근성 프로젝트중 2008년 실태조사에 포함된 기관들 (20개 중 <ins>진주, 양산, 해양대 포함! 밀양, 창원 제외! 창녕, 사천 일시 보류!</ins>)</li>
+<li><strong>실작업자</strong> : <a href="#table1">[표1]</a> 디자인코더, 프로그래머 (홍실장, 박실장 검토 후 작업자 확정하였음.)</li>
+<li><strong>웹페이지</strong> : <a href="#work_outline">작업 요강</a>의 중점적으로 점검 보완할 페이지를 기준으로 아래 <a href="#work_site">사이트별 작업 방법</a> 별로 차별을 두어 작업한다.</li>
+</li>
+</ul>
+
+
+<h3 id="work_site">사이트별 작업 방법</h3>
+
+<!-- box4 -->
+<div class="box4">
+
+<br />
+<h4>자동 평가 대비</h4>
+<p>
+모든 사이트 본청 <a href="../Accessibility/accessibility_kado-wah.html">KADO-Wah 검사</a> 100% 준수율 나오게 수정한다.<br />
+DB 내용으로 인하여 100%가 안될시 95%만은 넘도록 조치하자.<br />
+본청 하위 폴더에 존재하는 마이크로 사이트로 인하여 100% 안나오면 (마산은 약45%)<br />
+하위 도메인으로 변경 등의 대책을 클라이언트에 제시하자!!<br />
+</p>
+
+<h4>전문가 평가 대비</h4>
+<ol>
+<li><strong><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">2008 제3회 웹 접근성 품질마크 평가보고서</a> 있는곳</strong> : 심사의견 지적사항이 있는 페이지만 작업</a><br />
+	<ul class="bu">
+	<li>대상	- 진주, 함양, 함안, 김해, 칠곡, 거제, 통영, 하동, 부산<br /></li>
+	</ul>
+</li>
+<li><strong>2007년 90점이상이지만 품질마크 신청안한곳</strong> : 아래 <a href="#work_outline">작업 요강</a>의 "중점적으로 점검 보완할 페이지" 들에 대해 "본청 메인과 접근성 준수율 낮은 항목 집중 보완"만 작업<br />
+	<ul class="bu">
+	<li>대상1 - 영천</li>
+	<li>대상2 - 해양대 (2008년 웹접근성 실태조사 대상에 새로 포함)</li>
+	</ul>
+</li>
+<li><strong>2007년 실태조사 결과 없는 시군</strong> : <a href="../qm/+웹접근성품질보강/2008.09.4째주.웹접근성실태조사+품질마크대비/">웹접근성보완체크_김해시_문영신.20080929.xls</a> 의 50여가지 작업 대상 콘텐츠는 반드시 작업해야하고,<br /> 나머지 페이지도 안된 부분이 있다면 보완해주십시오.
+<br />
+	<ul class="bu">
+	<li>대상1 (2008년 새로 개편한 곳) - 횡성, 진해, 강서, 창녕, 사천<br /></li>
+	<li>대상2 (저번 작업에서 제외한 곳) - 마산, 양산</li>
+	</ul>
+</li>
+</ol>
+
+<h4>제출 과제 <em>~2008년 09월 29일(월) 오후6시까지</em> <span class="">(창녕, 사천은 런칭일 확정 후 보완 예정)</span></h4>
+
+<p>
+아래 파일을 받아서 해당 기관 및 작업자별로 수정 작성하여 저(문영신)에게 보내주시면 됩니다.
+</p>
+<ul class="bu">
+<li>모든 작업 대상 기관 : 
+	<ul class="bu">
+	<li><a href="../qm/+웹접근성품질보강/2008.09.4째주.웹접근성실태조사+품질마크대비/">김해본청KADO-Wah보고서.20080922.mht</a> 파일처럼 저장.<br />
+	KADO-Wah 검사 후 [파일]-[다른 이름으로 저장] 실행하여 파일형식을 "웹 페이지 보관 파일(*.mht)로 저장해주세요.<br />
+	(10번 반복 후 더 이상 같은 파일을 검사하지 않음, 최대 페이지 수 제한 : 5000 페이지로 평가 마법사 실행해주세요.)<br />
+	</li>
+	<li><a href="../qm/+웹접근성품질보강/2008.09.4째주.웹접근성실태조사+품질마크대비/">김해본청KADO-Wah로그.20080922.txt</a> 파일처럼 저장.<br />
+	로그보기 내용 모두 복사하여 텍스트 파일(*.txt) 로 저장해주세요.</li>
+	<li><a href="../qm/+웹접근성품질보강/2008.09.4째주.웹접근성실태조사+품질마크대비/" style="font-size: 1.17em;">웹접근성보완작업_기관명_작업자.20080929.txt</a> 파일 수정 작성.</li>
+	</ul>
+</li>
+<li>2007년 실태조사 결과 없는 시군(횡성, 진해, 강서, 마산, 양산, <strong>창녕, 사천</strong>) : 다음 엑셀 파일을 추가로 제출한다.<br />
+	<ul class="bu">
+	<li><a href="../qm/+웹접근성품질보강/2008.09.4째주.웹접근성실태조사+품질마크대비/" style="font-size: 1.17em;">웹접근성보완체크_김해시_문영신.20080929.xls</a> 파일 수정 작성.</li>
+	</ul>
+</li>
+</ul>
+
+
+</div>
+<!-- //box4 -->
+
+<h3 id="work_outline">작업 요강</h3>
+<h5>목표 : 웹접근성 13개 항목별 <em>준수율 95%이상!</em> 26개 지표 모두 <em>품질마크 적합 판정!</em> 받도록 보강.</h5>
+<p>
+
+
+<h4>중점적으로 점검 보완할 페이지</h4>
+<ul class="bu">
+<li>본청 및 본청과 같은 도메인에 포함된 페이지 : 메인, 회원로그인관련, 행정정보(조직도, 역점시책 등), 플래시(오시는길, 청사안내 등), ..<br />(통계연보, eBook, 접근성 낮은 마이크로 사이트 등이 같은 도메인이라면 하위 도메인으로 분리 필요함)</li>
+<li>다른 도메인이라도.. 부가 애플리케이션, 사용자 참여, 접속 빈도가 높은 페이지 : 동영상 갤러리, 시장에게 바란다 글쓰기, 문화관광 관광지 등</li>
+<li>불이익 모면을 위해 방문하는 페이지 : 신고센터, 교통과태료 등</li>
+<li>단, 접근성 프로젝트의 과업범위를 벗어나는 것은 작업에서 제외하지만, 실태조사 혹은 품질마크에 영향을 미치는 부분이라면 클라이언트에 알려서 숙지하도록 해야함.<br />예: 영천시 문화관광 , 김해시 커뮤티니(회원로그인)
+</ul>
+
+</p>
+<h6>※ 분석 자료 ※</h6>
+<dfn>
+<ul class="bu">
+<li>2007 제2회 웹접근성 품질마크 사전심사 부적합 판정 심사의견 [김해][함안][진주] (단, 진주는 전문가심사 평가보고서)<br /></li>
+<li>2007 웹접근성 실태조사 결과 준수율 90% 이하 항목 지표 (진주, 함양, 함안, 김해, 칠곡, 거제, 통영, 영천 분석)<br /></li>
+<li>2008 제3회 웹접근성 품질마크 전문가심사 평가보고서 (김해, 통영, 부산, 진주, 거제, 하동 분석)<br /></li>
+</ul>
+</dfn>
+
+
+<h4>본청 메인과 접근성 준수율 낮은 항목 집중 보완</h4>
+
+<!-- box4 -->
+<div class="box4">
+
+<ul class="bu">
+<li><strong>본청 메인 페이지는..</strong>
+	<ul class="bu">
+	<li><a href="accessibility_validation.html">웹 접근성 작업 참고</a>에 따라 모든 접근성 항목을 보완한다.</li>
+	<li>유지보수로 변경된 콘텐츠.. 이미지홍보(팝업존), 팝업 창 등을 반드시 점검한다.</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp1-1-2">1-1-2. <em>대체 텍스트</em>의 내용은 <em>적절하게 제공</em>되어야 한다.</a></strong>
+	<ul class="bu">
+	<li>[김해] 날씨(플래시 대체텍스트), 역점시책(많은 내용을 담고 있는 이미지), 아이디/비번찾기(의미 있는 이미지, 의미 없는 이미지)</li>
+	<li>[함안] 기본현황(전문 이미지), 조직도</li>
+	<li>"시의회 심벌" 등을 불필요한 표현이라고 심사하는 경우도 있었으나, 향후에는 감점하지 않으므로 그대로 둔다.</li>
+	<li>오시는 길 약도에 대한 설명글이 없다면 클라이언트에게 요청하고, 그래도 받을 수 없다면 약도를 보고 나름 창작해서 대체텍스트를 넣자!</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp1-2-1">1-2-1. <em>동영상</em> 등의 시청각 멀티미디어 콘텐츠에는 동기화된 <em>자막이 제공</em>되어야 한다.</a></strong>
+	<ul class="bu">
+	<li>[함안] 동영상 갤러리(원고 전문) - 문화관광 도메인이 달라도 점검함.</li>
+	<li>영상 내용과 동일한 내용의 텍스트 콘텐츠를 제공하여도 된다.</li>
+	<li>동영상 내용 요약만 있으면 점수 차감된다.</li>
+	<li>동영상 원고 자료가 없더라도, 비동기 자막(원고)을 제공할 공간은 마련해둔다.(접근성 작업을 했다는 근거를 마련)</li>
+	<li>원고를 구할 수 없으면, 해당 동영상으로 가는 링크를 주석처리하는 등의 대책을 클라이언트와 협의하자!</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp1-3-1">1-3-1. 색상으로 표현된 정보는 <em>색상을 배제하여도 원하는 내용을 전달</em>할 수 있어야 한다.</a></strong>
+	<ul class="bu">
+	<li>[진주] 회원가입(필수입력사항)</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp1-3-2">1-3-2. 전경색과 배경색은 <em>충분한 대비</em>를 가지고 있어야 한다.</a></strong>
+	<ul class="bu">
+	<li>[진주] 하단 영역의 이미지 텍스트, 롤오버 이미지 텍스트, 로그인 영역 배경색과 폰트색, 조직도, 회원가입 폼의 작성안내 문구 등</li>
+	<li>충분한 대비? 배경색이 흰색(#FFF) 일경우 전경색은 #777 보다 짙은색이어야 한다.</li>
+	<li>전체적으로 이미지 텍스트 색상..<br />
+		<ul class="bu">
+		<li>이미지 텍스트 일경우 안티알리아싱 효과로 뿌옇게 보이므로 더욱 많은 대비의 색을 적용하여야 한다.</li>
+		</ul>
+	</li>
+	<li>2008년까지는 이전 기준 그대로 적용하므로, 객관적 평가 방법이 나오기전에는 감점에 주의해야 한다.<br />
+	주메뉴, 좌메뉴, 본문 메뉴, 하단 정보, 사이트맵 등에서 지적된 사례가 있으므로, <a href="../Reference/Fujitsu%20ColorSelector%20for%20Korean.zip"><em>Fujitsu ColorSelecto</em>r</a>로 검사하여 이상이 없도록 하자.</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp1-3-3">1-3-3. 텍스트는 쉽게 읽을 수 있도록 <em>충분한 크기</em>로 제공되어야 한다.</a></strong>
+	<ul class="bu">
+	<li>폰트크기 11px 이하는 사용을 자제한다.</li>
+	<li>2008년까지는 이전 기준 그대로 적용하므로, 객관적 평가 방법이 나오기전에는 감점에 주의해야 한다.<br />
+	하단 정보, 메뉴, 버튼(more, go 버튼 포함), 각 페이지 요약 설명 등에서 지적된 사례가 있으므로 <em>12px이상으로 수정</em>하고,<br />
+	디자인을 저하시킬 우려가 있는 경우, 작업량이 아주 많은 경우에는 보류하고 내역을 남겨놓자!</li>
+	<li><em>IE6 브라우저에서 텍스트크기 확대축소가 가능</em>해야한다. body { font-size: 75%; } 만 12px로 하여도 품질마크 심사시 지적되었다.<br />
+		<ul class="bu">
+			<li>글자크기로 계속적인 민원이 문제가 된다면, 홈페이지 이용안내 혹은 날개메뉴 등에..<br />
+		<a href="http://www.mic.go.kr/">http://www.mic.go.kr/ 의 우측 "글자가 작거나 크게 보이세요?"</a> 와 같이 사용법을 넣는 방법을 고려해보십시오.<br />
+		</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp2-6-2">2-6-2. <em>팝업창</em>을 불필요하게 사용하지 않아야 한다.</a></strong>
+	<ul class="bu">
+	<li>[김해] 회원가입, 아이디/비번찾기 (팝업창 사전경고, 대체 텍스트)</li>
+	<li>[함안] 회원가입, 아이디 중복확인 (팝업창 사전경고, 대체 텍스트)</li>
+	<li>[진주] 민원안내, 시장인사말 동영상보기 버튼, 메인페이지 로딩시 (팝업창 사전경고, 대체 텍스트)</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp3-1-1">3-1. 데이터 테이블의 구성</a></strong> <em class="program">* 프로그램</em><br />
+	<ul class="bu">
+	<li>멀티게시판에서 코드의 table 요소에서 <em>summary 속성을 보완</em>한다.<br />
+		(예) summary="목록" 처럼 부실한 요약 설명을 아래 예들을 참고하여 수정한다.<br />
+		summary="공지사항 목록"<br />
+		summary="공지사항 게시물 목록을 볼 수 있고 제목 링크를 통해서 게시물 상세 내용으로 이동합니다."<br />
+		summary="각 게시물의 번호, 제목, 파일, 작성자, 작성일, 조회를 볼 수 있고 제목 링크를 통해서 게시물 상세 내용으로 이동합니다."<br />
+	</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp3-2-1">3-2-1. 의미에 맞는 적절한 HTML태그를 사용하여야 한다.</a></strong>
+	<ul class="bu">
+	<li>[함안] 전체 프레임 사용이 문제(항상 동일한 제목이 제목표시줄에 표시됨)</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp3-2-3">3-2-3. 레이아웃 테이블 작성에 테이블의 구조 정보를 정의하는 태그를 사용하지 않아야 한다.</a></strong>
+	<ul class="bu">
+	<li>[진주] 교통 과태료 (레이아웃용 중첩 table 에 tbody 를 사용해서 지적됨. thead, tfoot, caption, th 등도 사용하면 안됨)</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp3-3-1">3-3-1. 각 서식 제어 요소를 설명하는 <em>label</em>을 사용하여야 한다.</a></strong> <em class="program">* 프로그램</em>
+	<ul class="bu">
+	<li>[김해] 회원가입</li>
+	<li>[진주] 로그인, 실명인증, 글쓰기, 검색, 회원가입(체크박스 등)</li>
+	<li>정보수정, 아이디 찾기, 비밀번호 찾기, 우편번호 찾기 등 회원 로그인 관련 모든 페이지 꼼꼼하게 체크해서 수정해야 합니다.</li>
+	<li>텍스트 입력상자 중에 label 을 붙일 곳이 없는 경우(예: 아이디 글자를 입력란안에 배경 처리)에도 <em>&lt;label for="id" class="dpn"&gt;아이디&lt;/label&gt;</em> 를 넣어주세요.<br />
+	※ 여기서 class="dpn" 은 스타일시트에 .dpn { display: none !important; } 로 정의해 놓았음.<br />
+	없는 경우 같은 기능의 class 를 사용하거나 css 파일에 만들어 놓으시길 바랍니다.<br />
+	인라인스타일로 직접  display: none; 하면 스크린리더에서 읽지 않으므로 이렇게 class 로 지정해야 합니다.</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp3-3-2">3-3-2. <em>키보드만으로도</em> 온라인 서식 입력 및 서식 간 이동이 가능하여야 한다.</a></strong> <em class="program">* 프로그램</em>
+	<ul class="bu">
+	<li>[진주] 실명확인(주민번호 앞자리 입력후 뒷자리로 자동 포커스되면 안됨)</li>
+	<li>전진 이동 뿐만 아니라 <em>후진 이동</em>(입력 후 그 전 서식을 수정)도 반드시 가능하도록 한다.</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp4-1-1">4-1-1. 스크립트, 애플릿, 플러그인 등 <em>부가 어플리케이션</em>에 의한 콘텐츠는 <em>자체적인 접근성</em>을 지니고 있어야 한다.</a></strong>
+	<ul class="bu">
+	<li>[진주] 로그인, 회원가입, ID찾기, 비밀번호 찾기를 하기위해 Active-X를 설치해야만 하는 문제</li>
+	<li>flash 콘텐츠가 순서에 맞게 키보드로 이동할 수 있어야 한다.<br />
+	※ 플래시로 구현한 내비게이션은 플래시 기술을 제작한 Adobe에서 제공하는 접근할 수 있는 플래시(<a href="http://www.adobe.com/resources/accessibility/best_practices/best_practices_acc_flash.pdf">Best Practices for Accessiblel Flash Design</a>) 방법을 이용해서, 대체 텍스트와 이동 순서를 보장해야 함.</li>
+	<li><a href="../wa/★웹접근성품질마크/2008%20제3회%20평가결과/">제3회 웹 접근성 품질마크 전문가심사 평가보고서</a> 부산광역시 경우를 보면..<br />
+	"웹 사이트에서 제공하는 동영상이 MS Windows에서만 이용할 수 있는 wma 파일로 제공하고 있음" 이라는 심사의견이 있으나, 다른 부분에서의 지적 사항이 없어서 준수율 90%로 적합 판정을 받음.</li>
+	</ul>
+</li>
+<li><strong><a href="accessibility_validation.html#gp4-1-2">4-1-2. 부가 애플리케이션이 작동하지 않을 경우에도 동일한 내용을 전달할 수 있는 <em>대체 콘텐츠</em>를 제공하여야 한다.</a></strong> <em class="program">* 프로그램</em>
+	<ul class="bu">
+	<li>[김해] 토론방(뷰 링크를 자바스크립트에 의존적으로 구현)</li>
+	<li>[진주] 메인 탭안의 리스트 링크, 실명인증 확인 버튼, 게시판 입력 후 등록확인 버튼 등 (javascript 에 의존한 콘텐츠 링크 및 서비스)</li>
+	<li><a href="../Markup/flash.html">플래시</a>, <a href="../Markup/movie.html">동영상</a> 등 <em>object 요소를 페이지에 직접 코딩</em>(javascript에 의존하지 않도록)하고 대체콘텐츠를 보완한다.</li>
+	<li><em>javascript 없이도 서식 이용이 가능하도록 수정한다.</em></li>
+	<li>ActiveX 가 있을 경우 IE이외의 브라우저는 ActiveX 없이도 해당 과제를 수행할 수 있도록 수정한다.(작업이 불가능할 경우만 보류).</li>
+	<li>서식 이용 단계별 페이지 (ActiveX 설치 안내 등..) 에서도 대체텍스트 등 접근성을 보강한다.</li>
+<!-- 	<li><em>통합검색</em>(select 와 javascript 로 구현된)을 <a href="http://hsg.go.kr/">횡성</a>처럼 수정한다.</li> -->
+	<li><em>SmartNet</em> 도 alt, label, 자바스크립트 제거시 고려 작업 등 접근성을 보강한다.</li>
+	<li><a href="../wa/★웹접근성품질마크/2008%20제3회%20평가결과/">제3회 웹 접근성 품질마크 전문가심사 평가보고서</a> 진주시의 경우를 보면..<br />
+	"보안 프로그램으로 인해 특정 플랫폼, 브라우저 이외에는 기능을 이용할 수 없음" 이라는 심사의견이 있으나, 다른 부분에서의 지적 사항이 없어서 준수율 90%로 적합 판정을 받음.
+</li>
+	</ul>
+</li>
+</ul>
+
+</div>
+<!-- //box4 -->
+
+
+
+
+
+
+</ul>
+</dfn>
+
+
+
+
+
+
+<table id="table1" class="t3" summary="작업대상 사이트별 디자인코딩, 프로그램 담당자와 비고를 보여주는 테이블" ><caption><h3>[표1] 웹접근성 프로젝트 작업대상</h3></caption>
+<colgroup style="white-space: nowrap;"><col><col style="font-weight: bold;"><col><col><col style="background: #ffe;"><col style="background: #efe;"><col style="background: #eff;"><col><col><col style="white-space: normal;"></colgroup>
+<thead>
+<th scope="col">No.<br />[런칭일]</th>
+<th scope="col">본청</th>
+<th scope="col">2007<br />실태조사<br />결과</th>
+<th scope="col">제3회<br />품질마크<br />결과</th>
+<th scope="col">제4회<br />품질마크<br />신청</th>
+<th scope="col">디자인<br />코더</th>
+<th scope="col">프로<br />그래머</th>
+<th scope="col">확인</th>
+<th scope="col">KADO-Wah<br />보고서로그<br />대체콘텐츠</th>
+<th scope="col">비고</th>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01<br />07.06.13</th>
+<td><a href="http://jinju.go.kr/">진주시</a><br />php</td>
+<td>95.1<br /><a href="../wa/★웹접근성실태조사/2007년 결과/">결과</a></td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td>황지영完了</td>
+<td><!-- <del>김태영</del><br /> -->정대석</td>
+<td></td>
+<td>준수율98%</td>
+<td>
+<!-- * 미결 : 보안모듈, 로그아웃, 민원사무편람, 토론, 동영상 일부, 관련사이트 바로가기, 통합검색<br />
+* 과업X : 검색 -->
+페이지 수 제한 없이 KADO-Wah 재점검 완료.
+</td>
+</tr>
+<tr>
+<th scope="row">02<br />07.10.15</th>
+<td><a href="http://www.hygn.go.kr/">함양군</a><br />asp</td>
+<td>98.2<br /><a href="../wa/★웹접근성실태조사/2007년 결과/">결과</a></td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td><del>정유진</del><br />문영신完了</td>
+<td><!-- <del>남태형</del><br /> -->구자민</td>
+<td></td>
+<td>준수율100%</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">03<br />07.11.01</th>
+<td><a href="http://www.haman.go.kr/">함안군</a><br />asp</td>
+<td>97.0<br /><a href="../wa/★웹접근성실태조사/2007년 결과/">결과</a></td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td>방문준完了</td>
+<td>이녕길完了</td>
+<td></td>
+<td>준수율100%</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">04<br />07.11.01</th>
+<td><a href="http://gimhae.go.kr/">김해시</a><br />jsp</td>
+<td>94.7<br /><a href="../wa/★웹접근성실태조사/2007년 결과/">결과</a></td>
+<td>부적합<br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td>申請<br />11/5 지적사항수정<br />11/28 지적사항수정<br /><em>우수기관</em><br />
+<a href="../wa/★웹접근성품질마크/2008 제4회 평가결과/">보고서</a>
+</td>
+<td>문영신完了</td>
+<td><!-- <del>김수진</del><br /> -->박태공完了<br />(김상두)</td>
+<td></td>
+<td>준수율100%</td>
+<td>
+<!-- * 미결 : 보안모듈, 주정차 금지구역, 통합검색, 메일 보안<br />
+* 과업X : 검색, 차량과태료 조회 -->
+유지보수게시판에 작업결과 글남김<br />
+회원 로그인 접근성 비용은 허주사가 나라비전에 알아본다함.<br />
+2008년 11월 28
+</td>
+</tr>
+<tr>
+<th scope="row">05<br />07.11.13</th>
+<td><a href="http://www.chilgok.go.kr/">칠곡군</a><br />php</td>
+<td>96.1<br /><a href="../wa/★웹접근성실태조사/2007년 결과/">결과</a></td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td>김기리完了</td>
+<td>정대석</td>
+<td></td>
+<td>不可</td>
+<td><!-- ~2/22 완료 예정 --></td>
+</tr>
+<tr>
+<th scope="row">06<br />07.11.15</th>
+<td><a href="http://www.geoje.go.kr/">거제시</a><br />jsp</td>
+<td>94.7<br />책자</td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td>황지영完了</td>
+<td><!-- 김수진 -->배선옥完了<br />(김상두)</td>
+<td></td>
+<td>준수율100%</td>
+<td>
+<!-- * 미결 : 로그인, 민원사무편람, 알림마당, 사용자참여프로그램, 구인구직, 인구와세대,  통합검색<br />
+* 과업X : 검색, 민원상담(eminwon.), 실명인증(name.siren24.com) -->
+페이지 수 제한 없이 KADO-Wah 재점검 완료.
+</td>
+</tr>
+<tr>
+<th scope="row">07<br />07.12.03</th>
+<td><a href="http://www.tongyeong.go.kr/">통영시</a><br />asp</td>
+<td>97.3<br />책자</td>
+<td>부적합<br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td>申請<br />12/2 지적사항수정<br /><em>우수기관</em><br />
+</td>
+<td>이영석完了</td>
+<td>남태형完了</td>
+<td></td>
+<td>준수율99%</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">08<br />07.11.99</th>
+<td><a href="http://www.yc.go.kr/">영천시</a><br />asp</td>
+<td>95.2<br />책자</td>
+<td>신청안함</td>
+<td>申請안함?</td>
+<td>문영신完了</td>
+<td><!-- <del>김태영</del><br /> -->남태형完了</td>
+<td></td>
+<td>준수율100%</td>
+<td>
+<!-- * 불가 : 실명인증, 통합게시판 일부<br />
+* 과업X : 검색 -->
+<a href="http://www.정보행동.co.kr/repair/repair_document.asp?idx=49088&page=1">글자크기 수정 보류(클라이언트 의견)</a>
+</td>
+</tr>
+<tr>
+<th scope="row">09<br />07.12.27</th>
+<td style="background: #eee;"><a href="http://www.masan.go.kr/">마산시</a><br />jsp</td>
+<td>개편전<br />80.5</td>
+<td>부적합<br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td>申請<br />부적합<br />
+<a href="../wa/★웹접근성품질마크/2008 제4회 평가결과/">보고서</a></td>
+<td>이미숙完了</td>
+<td><!-- 송영수 -->박태공完了<br />(배대훈)</td>
+<td></td>
+<td>준수율61%</td>
+<td><em>작업포함</em><br />
+2007년접근성과업아닌거 하위도메인 주소로 변경 권유함.
+</td>
+</tr>
+<tr>
+<th scope="row">10<br />08.02.05</th>
+<td><a href="http://www.hadong.go.kr/">하동군</a><br />asp</td>
+<td>개편전<br />77.1</td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td><del>이옥희</del><br />방문준完了</td>
+<td><!-- <del>남태형</del><br /> -->구자민</td>
+<td></td>
+<td>준수율100%</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">11<br />08.04.20</th>
+<td><a href="http://www.busan.go.kr/">부산시</a><br />jsp</td>
+<td>개편전<br />95.9</td>
+<td><em>우수기관</em><br /><a href="../wa/★웹접근성품질마크/2008 제3회 평가결과/">보고서</a></td>
+<td></td>
+<td><!-- <del>박진호</del><br /> --><del>방문준</del><br />김주희完了</td>
+<td><!-- <del>박태공</del><br /> -->김봉규</td>
+<td></td>
+<td>준수율100%</td>
+<td><!-- 키보드 운용만 99% --></td>
+</tr>
+<tr>
+<th scope="row">12<br />08.04.07</th>
+<td style="background: #eee;"><a href="http://www.yangsan.go.kr/">양산시</a><br />php</td>
+<td>개편전<br />85.3</td>
+<td>신청?</td>
+<td>申請<br />부적합<br />
+<a href="../wa/★웹접근성품질마크/2008 제4회 평가결과/">보고서</a>
+</td>
+<td><del>김기리</del><br />황지영完了</td>
+<td><!-- <del>김수진</del><br /> -->정대석</td>
+<td></td>
+<td>준수율99%</td>
+<td><em>작업포함</em><br />
+페이지 수 제한 없이 KADO-Wah 재점검 완료.</td>
+</tr>
+<tr>
+<th scope="row">13<br />08.08.01</th>
+<td><a href="http://www. hsg.go.kr/">횡성군</a><br />asp</td>
+<td>개편전<br />78.4</td>
+<td>n/a</td>
+<td>申請<br /><em>우수기관</em></td>
+<td>김기리完了</td>
+<td>남태형完了</td>
+<td></td>
+<td>준수율100%</td>
+<td>
+<a href="http://www.hsg.go.kr/program/movie/lstMovie.asp?SType=&SString=&cate=default&page=1">동영상</a> 자막 원고 부실한거 파악하여 <a href="http://www.정보행동.co.kr/repair/repair_document.asp?idx=49398&page=1">자료 요청 및 대처 권유</a><br />
+색상 대비 부메뉴만 수정, 주메뉴는 문제 있으나 일단 보류.
+</td>
+</tr>
+<tr>
+<th scope="row">14<br />08.09.16</th>
+<td><a href="http://www.jinhae.go.kr/">진해시</a><br />asp</td>
+<td>개편전<br />91.1</td>
+<td>n/a</td>
+<td>申請<br />부적합<br />
+<a href="../wa/★웹접근성품질마크/2008 제4회 평가결과/">보고서</a></td>
+<td>방문준完了</td>
+<td>구자민</td>
+<td></td>
+<td>준수율100%</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">15<br />08.10.15</th>
+<td><a href="http://www.gangseo.go.kr/">강서구</a><br />asp</td>
+<td>개편전<br />70.5</td>
+<td>n/a<br /></td>
+<td><em>우수기관</em></td>
+<td>박미진</td>
+<td>이녕길完了</td>
+<td></td>
+<td></td>
+<td>10/10까지 접근성 작업완료예정.<br /> 단, 제4회 품질마크 신청시 10/7까지 완료 요망.</td>
+</tr>
+<tr>
+<th scope="row">16<br />08.10.28</th>
+<td><a href="http://www.sacheon.go.kr/">창녕군</a><br />asp</td>
+<td>개편전<br />81.0</td>
+<td>n/a</td>
+<td></td>
+<td>김호정</td>
+<td>남태형</td>
+<td></td>
+<td></td>
+<td>런칭일 확정 후 보완 작업 예정</td>
+</tr>
+<tr>
+<th scope="row">17<br />08.12예정</th>
+<td><a href="http://www.sacheon.go.kr/">사천시</a><br />asp</td>
+<td>개편전<br />79.4</td>
+<td>n/a</td>
+<td></td>
+<td>이미숙</td>
+<td>이녕길未決</td>
+<td></td>
+<td></td>
+<td>런칭일 확정 후 보완 작업 예정</td>
+</tr>
+<tr>
+<th colspan="99"><strong>2007년 6월(접근성 실태조사 체크리스트 배포) 이전 구축 사이트</strong></th>
+</tr>
+<tr>
+<th scope="row">18<br />07.10.99</th>
+<td><a href="http://www.hhu.ac.kr/">해양대</a><br />jsp</td>
+<td>n/a</td>
+<td>n/a</td>
+<td></td>
+<td>이옥희完了</td>
+<td><!-- 김봉규 -->박태공完了<br />(김상두)</td>
+<td></td>
+<td>준수율100%</td>
+<td>2007 웹 접근성 사용자 평가 [(사)한국장애인인권포럼] 91점 10위</td>
+</tr>
+<tr>
+<th scope="row">19<br />07.02.27</th>
+<td style="background: #eee;"><a href="http://www.changwon.go.kr/">밀양시</a><br />php</td>
+<td>92.9<br />책자</td>
+<td></td>
+<td></td>
+<td>문영신</td>
+<td>정대석</td>
+<td></td>
+<td></td>
+<td>제외 (하자보수 끝났고 유지보수 타업체)</td>
+</tr>
+<tr>
+<th scope="row">20<br />06.09.01</th>
+<td style="background: #eee;"><a href="http://www.changwon.go.kr/">창원시</a><br />jsp</td>
+<td>90.9<br />책자</td>
+<td></td>
+<td></td>
+<td>문영신</td>
+<td>김봉규</td>
+<td></td>
+<td></td>
+<td>제외 (하자보수 끝났고 유지보수 타업체)</td>
+</tr>
+</tbody>
+<tfoot>
+<tr style="background: #f7f7f7;">
+<th scope="row" style="background: #f7f7f7;">비고</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+
+<p>
+※ 完了는 작업결과 제출을 의미함. 미결, 불가 사항이 없는 것은 아님.
+</p>
+<hr />
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

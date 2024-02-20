@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>mLib Index</title>
+<script type="text/javascript">/*<![CDATA[*/
+var _$ = {
+	nowPage: {
+		title: 'mTemplate', // 메인인덱스
+		pageType: 'normal'
+	}
+};
+/*]]>*/</script>
+<style type="text/css">/*<![CDATA[*/
+
+.grid1{margin-bottom:-1px;border-top:1px solid #679;border-bottom:1px solid #79a;overflow:hidden;}
+.grid1>*{padding:0 !important;}
+.grid1>*>.column{position:relative;min-height:0;}
+.grid1>*>.column:after{content:'';position:absolute;left:0;top:-10px;display:block;width:9999%;border-top:1px solid #eee;}
+.grid1>*>.column>.hb1{margin-top:.333em;}
+.grid1>*>.column>.hb1:after{content:'';position:absolute;left:-8%;top:-1em;display:block;height:9999%;border-left:1px solid #eee;}
+
+/*]]>*/</style>
+<script type="text/javascript" src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>mLib Index <small class="fwn">RWD</small></h1>
+
+<p>Best Practice Library</p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu class="col-4">
+<li><a href="#Styles">Styles</a>
+	<menu>
+	<li><a href="#Grid">Grid</a></li>
+	<li><a href="#BaseStyles">Base Styles</a></li>
+	<li><a href="#Typography">Typography</a></li>
+	<li><a href="#Lists">Lists</a></li>
+	<li><a href="#Tables">Tables</a></li>
+	<li><a href="#Links">Links</a></li>
+	<li><a href="#Buttons">Buttons</a></li>
+	<li><a href="#Forms">Forms</a></li>
+	<li><a href="#Code">Code</a></li>
+	<li><a href="#Utilities">Utilities</a></li>
+	<li><a href="#Misc">Misc</a></li>
+	<li><a href="#MediaQueries">Media Queries</a></li>
+	<li><a href="#Images">Images</a></li>
+	<li><a href="#ResponsiveUtilities">Responsive Utilities</a></li>
+	</menu>
+</li>
+<li><a href="#Components">Components</a>
+	<menu>
+	<li><a href="#Menu">Menu</a></li>
+	<li><a href="#Selectmenu">Selectmenu</a></li>
+	<li><a href="#Jumbotron">Jumbotron</a></li>
+	<li><a href="#DefinitionList">Definition List</a></li>
+	<li><a href="#Panel">Panel</a></li>
+	<li><a href="#Pagination">Pagination</a></li>
+	<!-- <li><a href="#SearchForm">Search Form</a></li> -->
+	<li><a href="#BBSList">BBS List</a></li>
+	<li><a href="#BBSGallery">BBS Gallery</a></li>
+	<li><a href="#BBSFocus">BBS Focus</a></li>
+	<li><a href="#BBSView">BBS View 뷰</a></li>
+	<li><a href="#Login">Login</a></li>
+	<li><a href="#Calendar">Calendar</a></li>
+	<li><a href="#Chart">Chart</a></li>
+	<li><a href="#Popup">Popup</a></li>
+	<li><a href="#ETC">ETC</a></li>
+	</menu>
+</li>
+<li><a href="#eXamples">eXamples</a>
+	<menu>
+	<li><a href="#exForms">Forms 폼</a></li>
+	<li><a href="#exViews">Views 뷰</a></li>
+	<li><a href="#exLists">Lists 목록</a></li>
+	</menu>
+</li>
+<li><a href="#Task">Task</a></li>
+</menu>
+
+<menu class="col-1">
+<li><a href="#Link">Link</a></li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+<h2 id="Styles">Styles
+<small class="fwn em1">: grid.css * base.css * lib.css</small>
+</h2>
+
+<!-- panel1 -->
+<div class="panel1 warning">
+<p><em class="em2">lib.css 도 <b class="em">base.css</b> 에서 상속된 값을 사용한다는 것을 명심하세요!</em></p>
+공통)) mc-images 이전 것들도 발견 시에 적용한다.<br />
+mjQ) h3 h4 목차 자동 생성
+mjQ) 클릭 대상으로 부드러운 스크롤<br />
+mjQ) 스크롤 해도 사이드 보이기<br />
+
+<strong class="h1 em2">Grid System 4가지! ))</strong>
+<p>
+row-grid (차등.갭3%)
+form-grid (차등.갭1%)
+block-grid (균등.갭2%)
+menu-grid (균등+차등.갭3px)
+</p>
+<p>
+width 100/12 계산값으로 고정하고, 갭에 변화를 주려고..
+.grid>.cloumn>.wrap 형태로 컬럼 내부에 1번 더 감싸게 되면
+갭이 % 값이면 컬럼 폭 % 에 따라 추가 계산 필요하여 더 복잡해진다.
+갭이 px 값이면 괜찮으며, menu-grid 이 코드를 봐라.
+</p>
+</div>
+<!-- /panel1 -->
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- grid1 -->
+<div class="grid1">
+<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 xlarge-block-grid-4">
+<li class="column">
+
+<h3 class="hb1 h3" id="Grid">Grid</h3>
+<strong class="h1">grid.css</strong> : grid_row + grid_block
+<ol class="ol1 bo1 num00">
+<li><a href="../Demo/grid_row_content-box_margin.html" target="_blank" title="새 창">grid_row_content-box_margin</a></li>
+<li><a href="../Demo/grid_block_content-box_margin.html" target="_blank" title="새 창">grid_block_content-box_margin</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="BaseStyles">Base Styles</h3>
+<strong class="h1">base.css</strong> : ※normalize.css )) Advance
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-base/index.html" target="_blank" title="새 창">mc-base</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Typography">Typography</h3>
+<strong class="h1">lib.css</strong> :  base.css )) Overwrite
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-typography/index.html" target="_blank" title="새 창">mc-typography</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Lists">Lists</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-lists/index.html" target="_blank" title="새 창">mc-lists</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Tables">Tables</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-tables/index.html" target="_blank" title="새 창">mc-tables</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Links">Links</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-links/index.html" target="_blank" title="새 창">mc - Links</a>
+*)))?
+</li>
+<li><a href="../../demo/mc-menu1group1/index.html" target="_blank" title="새 창">mc-menu1group1</a><br />
+<em class="em">menu-grid (균등+차등.갭3px)</em>
+</li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Buttons">Buttons</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-buttons/index.html" target="_blank" title="새 창">mc-buttons</a><br />
+폰트아이콘 <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank" title="새 창">fortawesome</a>
+</li>
+<li><a href="../../demo/mc-button1group1/index.html" target="_blank" title="새 창">mc-button1group1</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Forms">Forms</h3>
+<strong class="h1">grid.css <span class="sep">|</span> lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-forms/index.html" target="_blank" title="새 창">mc-forms</a><br />
+<em class="em">form-group</em>
+</li>
+<li><a href="../../demo/mc-search1/index.html" target="_blank" title="새 창">mc-search1</a><br />
+<em class="em">form-grid (차등.갭1%)</em>
+</li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Code">Code</h3>
+<strong class="h1">base.css</strong>
+Spacing, Form and Button, ...
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-base/index.html" target="_blank" title="새 창">mc-base</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Utilities">Utilities</h3>
+<strong class="h1">base.css</strong>
+Clearing … Property …
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-base/index.html" target="_blank" title="새 창">mc-base</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="Misc">Misc</h3>
+<strong class="h1">base.css</strong> <span class="sep">|</span> <strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-misc/index.html" target="_blank" title="새 창">mc-misc</a></li>
+</ol>
+
+</li>
+<li class="column">
+
+<h3 class="hb1 h3" id="MediaQueries">Media Queries</h3>
+<strong class="h1">base.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-base/index.html" target="_blank" title="새 창">mc-base</a></li>
+</ol>
+
+</li>
+</ul>
+</div>
+<!-- /grid1 -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<!-- grid1 -->
+<div class="grid1">
+<div class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 xlarge-block-grid-4">
+<div class="column">
+
+<h3 class="hb1 h3" id="Images">Images</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-images/index.html" target="_blank" title="새 창">mc-images</a></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="ResponsiveUtilities">Responsive Utilities</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-showhide/index.html" target="_blank" title="새 창">mc-showhide</a></li>
+<li><a href="../../demo/mc-flex1wrap1/index.html" target="_blank" title="새 창">mc-flex1wrap1</a><br />
+<b class="em">유연한 이미지, 동영상..</b>
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+
+
+</div>
+<div class="column">
+
+
+
+</div>
+</div>
+</div>
+<!-- /grid1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Components">Components
+<small class="fwn em1">: lib.css <del>* board.css</del> <ins>* lib1cp1.css * style.css</ins></small>
+<small class="fwn">(with <em class="em">jq.js</em>)</small>
+</h2>
+
+<p>)))(Real Project) lib1cp.css * board.css</p>
+
+<!-- grid1 -->
+<div class="grid1"><div class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 xlarge-block-grid-4">
+
+<div class="column">
+
+<h3 class="hb1 h3" id="Menu">Menu</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mj-menu-vertical-align-middle/index.html" target="_blank" title="새 창"><b class="em">mj</b>-menu-vertical-align-middle</a></li>
+<li><a href="../../demo/mj-menu-equal-width-auto/index.html" target="_blank" title="새 창"><b class="em">mj</b>-menu-equal-width-auto</a></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Selectmenu">Selectmenu</h3>
+<strong class="h1">base.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mj-selectmenu/index.html" target="_blank" title="새 창"><b class="em">mj</b>-selectmenu</a><br />
+목록선택메뉴
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Jumbotron">Jumbotron</h3>
+<strong class="h1">lib1cp1.css <span class="sep">|</span> style.css</strong>(ex, .. )
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-jumbotron1/index.html" target="_blank" title="새 창">mc-jumbotron1</a><br />
+점보트론(※부트스트랩)
+예약완료
+</li>
+<li><a href="../../demo/mc-jumbotron1done1/index.html" target="_blank" title="새 창">mc-jumbotron1done1</a><br />
+신청 완료`정보패널`목록`버튼
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="DefinitionList">Definition List</h3>
+<strong class="h1">lib1cp1.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-dl1/index.html" target="_blank" title="새 창">mc-dl1</a><br />
+정의 목록
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Panel">Panel</h3>
+<strong class="h1">lib.css <span class="sep">|</span> lib1cp1.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-panel1/index.html" target="_blank" title="새 창">mc-panel1</a><br />
+패널, 판자
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Pagination">Pagination</h3>
+<strong class="h1">lib.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-pagination1/index.html" target="_blank" title="새 창">mc-pagination1</a><br />
+페이지 수 매기기 ★☆할일
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="BBSList">BBS List 목록. <small class="fwn">단1</small></h3>
+<strong class="h1">style.css <span class="sep">|</span> lib.css</strong>(pagination, .. )<br />
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-list1f1t3/index.html" target="_blank" title="새 창">mc-list1f1t3</a><br />
+그림1틀比가변`글3 (뉴스)<br />
+</li>
+<li><a href="../../demo/mc-list1f1t2b2/index.html" target="_blank" title="새 창">mc-list1f1t2b2</a><br />
+그림1틀比고정`글2`버튼2 (문화시설)<br />
+</li>
+<li><a href="../../demo/mc-list1t3b1/index.html" target="_blank" title="새 창">mc-list1t3b1</a><br />
+글3`버튼1 (오픈API)<br />
+</li>
+<li><a href="../../demo/mc-list1t2i1/index.html" target="_blank" title="새 창">mc-list1t2i1</a><br />
+글2`아이콘1 (일반,참여,응원,바란다,신고센터)<br />
+</li>
+<li><a href="../../demo/mc-list1t2/index.html" target="_blank" title="새 창">mc-list1t2</a><br />
+글2 (말과글)<br />
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="BBSGallery">BBS Gallery 화랑. <small class="fwn">단2~ li>a>*</small></h3>
+<strong class="h1">style.css <span class="sep">|</span> lib.css</strong>(pagination, .. )<br />
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-gallery1photo1/index.html" target="_blank" title="새 창">mc-gallery1photo1</a><br />
+틀比가변`글2`말줄임(gradient)<br />
+틀比고정추가<br />
+</li>
+<li><a href="../../demo/mc-gallery1video1/index.html" target="_blank" title="새 창"><del>mc-gallery1video1</del></a><br />
+틀比고정`글2`플레이
+</li>
+<li><a href="../../demo/mc-gallery1f1p1t2play1/index.html" target="_blank" title="새 창">mc-gallery1f1p1t2play1</a><br />
+틀比고정`글2`플레이`말줄임(gradient)
+: 비디오, 설문
+</li>
+<li><a href="../../demo/mc-gallery1ebook1/index.html" target="_blank" title="새 창">mc-gallery1ebook1</a><br />
+틀比가변`글1`버튼2`변환중
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="BBSFocus">BBS Focus</h3>
+<strong class="h1">style.css <span class="sep">|</span> lib.css</strong>(pagination, .. )<br />
+변형
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-focus1job1/index.html" target="_blank" title="새 창">mc-focus1job1</a><br />
+block-grid + 
+: 구인구직
+</li>
+<li><a href="../../demo/mc-focus1staff1/index.html" target="_blank" title="새 창">mc-focus1staff1</a><br />
+block-grid
+: 부서직원
+</li>
+<li><a href="../../demo/mc-focus1applybuy1/index.html" target="_blank" title="새 창">mc-focus1applybuy1</a><br />
+block-grid
+: 구입신청
+</li>
+</li>
+<li><del><a href="../../demo/mc-focus1news1/index.html" target="_blank" title="새 창">mc-focus1news1</a></del><br />
+has Grid
+: 뉴스
+</li>
+<li><a href="../../demo/mc-focus1speciality1/index.html" target="_blank" title="새 창">mc-focus1speciality1</a><br />
+has Grid
+: 특산물
+</li>
+</ol>
+
+<em class="em2">★ has Grid ))) row-grid 바꿔보자!</em>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="BBSView">BBS View 뷰</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mj-view1pic1info1tab1/index.html" target="_blank" title="새 창"><b class="em">mj</b>-view1pic1info1tab1</a><br />
+<!-- <small class="fwn">with Picture Gallery Info Tab</small><br /> -->
+그림뷰갤러리1`정보1`탭<br />
+예약달력`셀링크`라이트박스<br />
+</li>
+<li><a href="../../demo/mc-applybuy1view1/index.html" target="_blank" title="새 창">mc-applybuy1view1</a><br />
+포커스1`표`금액..
+</li>
+</ol>
+
+<h4 class="hb1 h4">div.bbs1view1 +</h4>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-view1reply1sns1comment1/index.html" target="_blank" title="새 창">mc-view1reply1sns1comment1</a><br />
+뷰1(제목.정보.첨부.내용)`답변1`소셜1`댓글1..
+</li>
+<li><a href="../../demo/mc-view1pic1/index.html" target="_blank" title="새 창">mc-view1pic1</a><br />
+뷰1(..)`그림뷰갤러리1
+</li>
+<li><a href="../../demo/mc-view1pic1scroll1/index.html" target="_blank" title="새 창">mc-view1pic1scroll1</a><br />
+뷰1(..)`그림뷰갤러리1`스크롤1
+</li>
+<li><a href="../../demo/mc-view1video1scroll1/index.html" target="_blank" title="새 창">mc-view1video1scroll1</a><br />
+뷰1(..)`동영상갤러리1`스크롤1
+</li>
+<li><a href="../../demo/mc-view1table1/index.html" target="_blank" title="새 창">mc-view1table1</a><br />
+뷰1(..)`데이터 테이블1
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Login">Login</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-login1/index.html" target="_blank" title="새 창">mc-login1</a><br />
+로그인 선택 (휴대폰`공공아이핀`Design)
+</li>
+<li><a href="../../demo/mc-login2/index.html" target="_blank" title="새 창">mc-login2</a><br />
+로그인 선택 (휴대폰`공공아이핀)
+</li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Calendar">Calendar</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-calendar1weekly1/index.html" target="_blank" title="새 창">mc-calendar1weekly1</a><br />
+주간달력`예약확인취소버튼..
+</li>
+<li><a href="../../demo/mc-calendar1accordion1/index.html" target="_blank" title="새 창"><del>mc-calendar1accordion1</del></a><br />
+달력`일정목록내용(아코디언)
+</li>
+<li><a href="../../demo/mc-calendar1list1/index.html" target="_blank" title="새 창">mc-calendar1list1</a><br />
+달력`일정목록`내용(아코디언)<br />
+스크롤이동 <b class="label1 em6">js</b><br />
+</li>
+<li>인라인 달력 (거창군.문화센터) <i class="ic1 fa fa-clock-o cv9 fsM">&#xf017;</i></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Chart">Chart</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-chart1flow1/index.html" target="_blank" title="새 창">mc-chart1flow1</a><br />
+민원사무편람.내용(흐름도)(세로중앙)
+</li>
+<li><a href="../../demo/mc-chart1map1/index.html" target="_blank" title="새 창">mc-chart1map1</a><br />
+실시간 강우량 (맵차트) 
+</li>
+<li><a href="../../demo/mc-chart1graph1bar1/index.html" target="_blank" title="새 창">mc-chart1graph1bar1</a><br />
+강우량 그래프 (막대그래프)
+</li>
+<li><a href="../../demo/mc-chart1period1/index.html" target="_blank" title="새 창">mc-chart1period1</a><br />
+배란일 계산 (<!-- 날짜선택 -->달력API`기간도표)
+</li>
+</ol>
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="Popup">Popup</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-popup1zipcode1/index.html" target="_blank" onclick="window.open(this.href,'','location=0,directories=0,resizable=1,status=0,toolbar=0,menubar=0,scrollbars=1,width=430,height=500,left=' + ((screen.availWidth-430)/2) + ',top=' + ((screen.availHeight-500)/2) + ''); return false;" title="새 창">mc-popup1zipcode1</a><br />
+우편번호 조회 (도로명|지번)
+</li>
+</li>
+</ol>
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="ETC">ETC</h3>
+<strong class="h1">style.css</strong>
+<ol class="ol1 bo1 num00">
+<li><a href="../../demo/mc-poll1partin1/index.html" target="_blank" title="새 창">mc-poll1partin1</a><br />
+뷰1(..)`설문참여1<br />
+div.poll1partin1 + <em class="em">(( div.bbs1view1</em><br />
+</li>
+<li><a href="../../demo/mc-poll1result1/index.html" target="_blank" title="새 창">mc-poll1result1</a><br />
+뷰1(..)`설문결과1(그래프)<br />
+</li>
+<li><a href="../../demo/mc-sns1/index.html" target="_blank" title="새 창">mc-sns1</a><br />
+앵커2`그림1`글3<br />
+</li>
+<li><a href="../../demo/mc-sns1blog1/index.html" target="_blank" title="새 창">mc-sns1blog1</a><br />
+앵커1`년월일`글2<br />
+</li>
+</ol>
+
+</div>
+
+</div></div>
+<!-- /grid1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="eXamples">eXamples
+<small class="fwn em1">: lib.css * lib1cp1.css * <del>style.css</del></small>
+</h2>
+
+<p><em class="em">정의된 CSS 와 부품 스타일을 조합하여 만든 예제들입니다.</em></p>
+
+<!-- grid1 -->
+<div class="grid1"><div class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+
+<div class="column">
+
+<h3 class="hb1 h3" id="exForms">Forms 폼</h3>
+
+<em class="em">write1 범주로 묶자.</em><br />
+
+<ol class="ol1 bo1 num00">
+<li>작성 <a href="../../demo/mx-forms/index.html" target="_blank" title="새 창">mx-forms</a></li>
+<li>예약 <a href="../../demo/mx-reservation1write1/index.html" target="_blank" title="새 창">mx-reservation1write1</a></li>
+<li>계산 <a href="../../demo/mx-calculate1fee1/index.html" target="_blank" title="새 창">mx-calculate1fee1</a></li>
+<li>신청 <a href="../../demo/mx-applybuy1/index.html" target="_blank" title="새 창">mx-applybuy1</a><br />
+메뉴활성. 라이트박스
+</li>
+<li>신청.완료 <a href="../../demo/mx-applybuy1ok1/index.html" target="_blank" title="새 창">mx-applybuy1ok1</a></li>
+<li>신청.인증 <a href="../../demo/mx-applybuy1login1/index.html" target="_blank" title="새 창">mx-applybuy1login1</a></li>
+<li>약관동의 <a href="../../demo/mx-agree1/index.html" target="_blank" title="새 창">mx-agree1</a></li>
+<li>조회..지번 <a href="../../demo/mx-ask1lotnumber1/index.html" target="_blank" title="새 창">mx-ask1lotnumber1</a></li>
+<li>조회..도로명 <a href="../../demo/mx-ask1street1/index.html" target="_blank" title="새 창">mx-ask1street1</a></li>
+<li>조회.지가 <a href="../../demo/mx-ask1price1land1/index.html" target="_blank" title="새 창">mx-ask1price1land1</a></li>
+<li>조회.주택가 <a href="../../demo/mx-ask1price1house1/index.html" target="_blank" title="새 창">mx-ask1price1house1</a></li>
+<li>조회.실거래가 <a href="../../demo/mx-ask1price1land1real1/index.html" target="_blank" title="새 창">mx-ask1price1land1real1</a></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="exViews">Views 뷰</h3>
+<ol class="ol1 bo1 num00">
+<li>구인 <a href="../../demo/mx-view1job1offer1/index.html" target="_blank" title="새 창">mx-view1job1offer1</a></li>
+<li>구직 <a href="../../demo/mx-view1job1hunting1/index.html" target="_blank" title="새 창">mx-view1job1hunting1</a></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="exLists">Lists 목록</h3>
+<ol class="ol1 bo1 num00">
+<li>지명유래 <a href="../../demo/mx-list1toponym1/index.html" target="_blank" title="새 창">mx-list1toponym1</a></li>
+<li>민원사무편람(표) <a href="../../demo/mx-list1handbook1/index.html" target="_blank" title="새 창">mx-list1handbook1</a></li>
+</ol>
+
+</div>
+<div class="column">
+
+<h3 class="hb1 h3" id="exETC">ETC</h3>
+<ol class="ol1 bo1 num00">
+<li></li>
+</ol>
+
+</div>
+
+</div></div>
+<!-- /grid1 -->
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Task">Task</h2>
+
+<!-- <p>작업중인거.. 위에서 바로 하는데 이게 필요할까?</p> -->
+<p>작업할거</p>
+<ol class="ol1 bo1 num00">
+<li><a href="https://www.shinhancard.com/conts/person/main.jsp" target="_blank" title="새 창">마우스 오버해야 이전 다음 보이도록</a></li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Link">Link Reference</h2>
+
+<p>Reference</p>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+| 20150508~
+20150730.
+20150709.
+20150619. 20150618. 20150602. 20150520. 20150512.
+</p>
+
+
+
+
+
+<script type="text/javascript" src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

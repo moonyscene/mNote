@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript">/*<![CDATA[*/
+var $meta = {
+	title: 'mLab | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script type="text/javascript" src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>mLab Index</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Grid">Grid</a></li>
+<li><a href="#CSS">CSS</a></li>
+<li><a href="#JavaScript">JavaScript</a></li>
+<li><a href="#Misc">Misc</a></li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- row-grid -->
+<div class="row-grid"><div class="row-grid">
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-3 column">
+
+<h2 class="hb1 h2" id="Grid">Grid</h2>
+<ol class="bo1 num00">
+<li><a href="../Demo/grid_row_border-box.html" target="_blank" title="새 창">Grid Row border-box</a> [IE9~]</li>
+<li><a href="../Demo/grid_row_content-box.html" target="_blank" title="새 창">Grid Row content-box</a> [IE7~] <b class="em">))) mLib</b></li>
+<li><a href="../Demo/grid_block_border-box.html" target="_blank" title="새 창">Grid Block border-box</a> [IE9~]</li>
+<li><a href="../Demo/grid_block_content-box.html" target="_blank" title="새 창">Grid Block content-box</a> [IE7~] <b class="em">))) mLib</b></li>
+</ol>
+
+
+<!-- box1 -->
+<div class="box1">
+<strong class="h1">more</strong>
+<ol class="bo1 num00">
+<li><a href="http://susy.oddbird.net/" target="_blank" title="새 창">http://susy.oddbird.net/</a></li>
+</ol>
+</div>
+<!-- /box1 -->
+
+
+</div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-3 column">
+
+<h2 class="hb1 h2" id="CSS">CSS</h2>
+<ol class="bo1 num00">
+<li>Media Queries</li>
+<li>Grid</li>
+<li>Base Styles</li>
+<li>Typography</li>
+<li>Links</li>
+<li>Buttons</li>
+<li>Forms</li>
+<li>Lists</li>
+<li>Code</li>
+<li>Tables</li>
+<li>Spacing</li>
+<li>Utilities</li>
+<li>Clearing</li>
+</ol>
+
+
+</div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-3 column">
+
+<h2 class="hb1 h2" id="JavaScript">JavaScript</h2>
+<ol class="bo1 num00">
+<li></li>
+</ol>
+
+
+</div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-3 column">
+<h2 class="hb1 h2" id="Misc">Misc (API…)</h2>
+<ol class="bo1 num00">
+<li><a href="../Demo/grid.html">에뮬레이션 모드 경고창</a></li>
+</ol>
+
+
+</div>
+
+</div></div>
+<!-- /row-grid -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+<h2 id="Lib">Skeleton + Bootstrap + Foundation</h2>
+
+
+<script type="text/javascript">/*<![CDATA[*/
+$(function(){
+	var i = 0;
+	$('table.autoNum th[scope=row]').each(function(){
+		i = (++i < 10)? '0' + i: i;
+		$(this).prepend('<b class="num em1">' + i + '</b>');
+		$('.num ',this).css({margin: '0 .4em 0 -.4em'});
+	});
+});
+/*]]>*/</script>
+
+<table class="t3 w100 autoNum">
+<caption><strong class="h1">Lib Naming)</strong> <small>Skeleton + Bootstrap + Foundation</small></caption>
+<col style="width:12em;" /><col style="width:80em;" /><col />
+<thead>
+<tr>
+<th scope="col">Key</th>
+<th scope="col">Value</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><a href="?" target="_blank" title="새 창">Media Queries</a></th>
+<td>
+@media (max-device-width: 480px) and (orientation: landscape) {}<br />
+@media (min-width: 400px) {}<br />
+@media (min-width: 480px) {}<br />
+@media (min-width: 550px) {}<br />
+<em class="em">@media (min-width: 640px) {}</em><br />
+@media (min-width: 750px) {}<br />
+@media (min-width: 768px) {}<br />
+@media (min-width: 992px) {}<br />
+<em class="em">@media (min-width: 1000px) {}</em><br />
+@media (min-width: 1025px) {}<br />
+<em class="em">@media (min-width: 1200px) {}</em><br />
+@media (min-width: 1441px) {}<br />
+@media (min-width: 1921px) {}<br />
+</td>
+<td>
+Foundation
+</td>
+</tr>
+<tr>
+<th scope="row">Grid</th>
+<td>
+<b class="">grid_row-border-box.css</b><br />
+<b class="">grid_block_content-box.css</b><br />
+</td>
+<td>
+Foundation
+</td>
+</tr>
+<tr>
+<th scope="row">Base Styles</th>
+<td>
+html{}<br />
+body{}<br />
+</td>
+<td>
+Foundation
+</td>
+</tr>
+<tr>
+<th scope="row">Typography</th>
+<td>h1~h6{}</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Links</th>
+<td>a{} a:hover{}</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Buttons</th>
+<td>
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {}<br />
+.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,<br />
+.button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {}<br />
+.button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {}<br />
+…
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Forms</th>
+<td>
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {}<br />
+label, legend {}<br />
+fieldset {}<br />
+input[type="checkbox"], input[type="radio"] {}<br />
+label > .label-body {}<br />
+…
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Lists</th>
+<td>
+ul {}<br />
+ol {}<br />
+ol, ul {}<br />
+ul ul, ul ol, ol ol, ol ul {}<br />
+li {}
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Code</th>
+<td>
+code {}<br />
+pre > code {}<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Tables</th>
+<td>
+th, td {}<br />
+th:first-child, td:first-child {}<br />
+th:last-child, td:last-child {}<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Spacing</th>
+<td>
+button, .button {}<br />
+input, textarea, select, fieldset {}<br />
+pre, blockquote, dl, figure, table, p, ul, ol, form {}<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Utilities</th>
+<td>
+.u-full-width {}<br />
+.u-max-full-width {}<br />
+.u-pull-right {}<br />
+.u-pull-left {}<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Clearing</th>
+<td>
+.container:after, .row:after, .u-cf {}<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Misc</th>
+<td>
+hr {}
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Link">Link</h2>
+
+<ol class="bo1 num00">
+
+</ol>
+
+
+
+
+
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150428.
+20150420. 20150417. 20150415.
+</p>
+
+
+
+
+
+<script type="text/javascript" src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

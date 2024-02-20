@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'JS misc. | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">JS miscellany</h1>
+
+
+
+<script>/*<![CDATA[*/
+/* all.20110221.MoonYoungShin. */
+$(function(){
+	var stitle=$('h2');
+	for(var i=0;i<stitle.length;i++){
+		stitle[i].attr;
+		$('stitle').attr('id','n'+$('stitle').attr('id'));
+	}
+});
+/*]]>*/</script>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Link"><strong>Link</strong></a></li>
+<li><a href="#Code">JS Code Sample</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="../../html/JavaScript/Objects.html"><b class="em5">Objects</b></a>오브젝트</li>
+<li><a href="../../html/JavaScript/DOM.html">DOM</a> +BOM</li>
+<li><a href="../../html/JavaScript/compatibility.html">Compatibility</a> 호환</li>
+<li><a href="../../html/JavaScript/Function.html">Function <em>*</em></a> 함수</li>
+<li><a href="../../html/JavaScript/Event.html">Event</a> 이벤트</li>
+<li><a href="../../html/JavaScript/Dimensions.html"><b class="em7">Dimensions</b></a> 크기 | 위치</li>
+<li><a href="../../html/JavaScript/Effect.html">Effect <em>*</em></a> 효과</li>
+<li><a href="../../html/JavaScript/cookie+storage.html">Cookie, Storage, SQL DB</a> 저장소</li>
+<li><a href="../../html/JavaScript/Ajax.html">Ajax | XML, JSON, HTML</a> 비동기 | 데이터</li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<p class="pd1em-rv bg-alert">
+	Fininshed1) 20170321. 드물게 참조하는 콘텐츠 링크 좌메뉴에서 여기 메뉴로 이동
+</p>
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:58%;padding:2% 2% 2% 0;">
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Code">JS Code Sample</h2>
+
+<ol class="bo num">
+<li><a href="#Node"><strong>Node</strong></a> 노드</li>
+<li><a href="#Style"><strong>Style</strong></a> 스타일</li>
+<li><a href="#Attribute"><strong>Attribute</strong></a> 속성</li>
+<li><a href="#Event"><strong>Event</strong></a> 이벤트</li>
+<li><a href="#Position"><strong>Position</strong></a> 위치</li>
+<li><a href="#Size"><strong>Size</strong></a> 크기</li>
+<li><a href="#Effect"><strong>Effect</strong></a> 효과</li>
+
+<li><a href="#daynight">낮밤구분</a></li>
+<li><a href="#console">[IE] console.log()</a></li>
+<li><a href="#rotate">순환 계산 tabIndex = (tabIndex+1)%2;</a></li>
+<li><a href="#lteIE7">IE7 이하 분기</a> navigator.appName, navigator.userAgent</li>
+<li><a href="#CreateTextFile">파일 생성</a> CreateTextFile</li>
+<li><a href="#h3copy">주소복사</a>  m1) m2)</li>
+<li><a href="#h3close">window.close(); 확인창 없이 창닫기</a></li>
+<li><a href="#h3speed">Speed</a></li>
+<li><a href="#h3displayTerm">displayTerm</a></li>
+<li><a href="#h3Random">Random</a></li>
+
+<li><a href="#h3Accesibility">Accessibility</a></li>
+<li><a href="#h3Compatibility">Compatibility</a></li>
+<li><a href="#h3Test">Test</a></li>
+</ol>
+
+
+
+<hr class="line1t dott" />
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Node">Node</h3>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Style">Style</h3>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Attribute">Attribute</h3>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Event">Event</h3>
+<ol>
+<li><a href="http://okjungsoo.tistory.com/490">event.preventDefault(); 자바스크립트에서 이벤트 취소와 전달 취소 </a></li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Position">Position. 요소의 위치</h3>
+<xmp class="xmp">
+function findPos(obj) {//<body>로부터의위치
+	var curleft=curtop=0;
+	if(obj.offsetParent){
+		while(obj.offsetParent){
+			curleft+=obj.offsetLeft;
+			curtop+=obj.offsetTop;
+			obj=obj.offsetParent;
+		}
+	return [curleft,curtop];
+	}
+}
+</xmp>
+익스플로러에서는 position: relative; 인 요소에 이 함수가 완벽하게 동작하지 않는다. <a href="http://www.quirksmode.org/js/findpos.html">※참조</a><br />
+클라이언트측 이미지맵에서는 원하는 결과를 얻기 힘들다.<br />
+IE8,7,6은 map기준으로 area 위치값을, FF,Op는 body기준으로 map이미지 위치값을 돌려준다.<br />
+(GC,Sf에서 area는 키보드 tab 으로 접근이 안되네요.)
+그래서, 그냥 map이미지위치에보여주도록함. <a href="#">(예)</a><br />
+
+<h3 class="hb1 h3" id="h3Size">Size</h3>
+<a href="?"></a>
+
+<h3 class="hb1 h3" id="daynight">낮밤구분</h3>
+
+<pre class="mg0">
+<code class="xmp">
+(function(){/* 낮밤구분.20120628.MoonYoungShin. */
+	var now = new Date();
+	now.el = document.body;
+	now.hrs = now.getHours();
+	now.daynight = (now.hrs>=6 && now.hrs<18)? "day" : "night";
+	if(now.el) now.el.className = now.el.className+" "+now.daynight;
+})();
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="console">[IE] console.log("") 이용</h3>
+
+<pre class="mg0">
+<code class="xmp">
+if(window.console==undefined){console={log:function(){}};}
+console.log("[개발자도구]-[콘솔] 확인. {m} IE8 없음. IE9 이상 개발자도구에 있나봐~");
+</code>
+</pre>
+
+
+<p>cite: <a href="http://promisej7.tistory.com/440">[Javascript] 인터넷 익스플로러(Internet Explorer)에서 로그 사용하기</a></p>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="rotate">순환 계산. tabIndex = (tabIndex+1)%2; 이것만 활용하자</h3>
+<xmp class="xmp">
+var tabIndex=1; // 시작이 1번이므로 2번으로 첨 옮긴다.
+function rollTab(speed){
+	setInterval(changeImage(),speed);
+}
+
+function changeImage(){		
+	tabIndex = (tabIndex+1)%2;
+	if(tabIndex==0){
+		document.getElementById("main_image2").style.display="none";
+		document.getElementById("main_image1").style.display="";
+	}else{
+		document.getElementById("main_image2").style.display="";
+		document.getElementById("main_image1").style.display="none";
+	}
+}
+rollTab(3300);
+</xmp>
+
+<p>cite: 某 개발자 코드</p>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="lteIE7">IE7 이하 분기 navigator.appName, navigator.userAgent</h3>
+<xmp class="xmp">
+/* Internet Explorer version. m20130115. */
+function getIEVer(){// Returns the version of Internet Explorer or a -1 for other browsers.
+	var rv = -1;
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		if(re.exec(ua) != null) rv = parseFloat( RegExp.$1 );
+	}
+	return rv;
+}
+/* //ex)
+function onLoad(){
+	var version = getIEVer();
+	if(version <= 7 && version > -1){
+		// Code to run in Internet Explorer 7 or earlier.
+	}
+} */
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="CreateTextFile">CreateTextFile</h3>
+<xmp class="xmp">
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+fso.CreateTextFile("M:\\01_01.html");
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3copy">주소 복사 copyClipboard(location.href,'주소');</h3>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">현재 url 주소</h4>
+<xmp class="xmp">
+<!--[if IE]>
+<a href="?" onclick="copyClipboard(location.href,'주소');return false;"><img src="/img/inc/bt1uricopy.gif" width="60" height="21" alt="주소복사" /></a>
+<script>/*<![CDATA[*/
+function copyClipboard(v,t){
+	if(document.all){
+		if(window.clipboardData.setData("Text",v))alert(t+"가(이) 복사되었습니다.\n\nCtrl+V 로 붙여넣기 하십시오.");}
+		else{alert('브라우저가 지원하지 않습니다. 수동으로 복사하십시오.');}
+	}
+}
+/*]]>*/</script>
+<![endif]-->
+</xmp>
+<p>[m] 다른 브라우저까지 되야지 호환될텐데..</p>
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">RSS 주소</h4>
+
+<pre class="xmp">
+<code>function copyRssLink(vurl) { 
+	var IE = (document.all) ? true : false; 
+	var URL = vurl; 
+	if (IE) { 
+		window.clipboardData.setData( 'Text', URL); 
+		alert( '주소가 복사되었습니다.' ); 
+	} else { 
+		temp = prompt( "RSS 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", URL ); 
+	} 
+} 
+</code></pre>
+<xmp class="xmp">
+<a href="http://www.hc.go.kr/rss/B1009.xml" onclick="copyRssLink(this.href);return false;" title="대표포털>군정소식>새소식 RSS주소복사"><img src="/img/sub/06/btn_rss.gif" alt="RSS" /></a>
+</xmp>
+<p>| R1) <a href="http://msdn.microsoft.com/ko-kr/library/ie/ms535220(v=vs.85).aspx">clipboardData object (Internet Explorer)</a></p>
+ 
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3close">window.close(); 확인창 없이 창닫기</h3>
+<xmp class="xmp">
+window.open('about:blank','_self');
+opener=window;
+window.close();
+</xmp>
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h4 class="hb1 h4">Mail Link Maker</h4>
+
+<xmp class="xmp">
+location.href="mailto:<%=mail_id%>@<%=mail_site%>";
+window.open('about:blank','_self');opener=window;window.close();
+</xmp>
+<p>[IE][FF] 만 바르게 동작하고, [SF][CR][OP] 는 window.close 이전의 동작(location.href) 이 실행되지 않아 아래와 같이 처리하였다.</p>
+<xmp class="xmp">
+var ua=window.navigator.userAgent;
+if(/Opera/.test(ua)==true){window.open('mailto:<%=mail_id%>@<%=mail_site%>','_self');}
+else{location.href="mailto:<%=mail_id%>@<%=mail_site%>";}
+setTimeout("window.open('about:blank','_self');opener=window;window.close();",0);
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3speed">Speed</h3>
+
+<ul class="bu">
+<li><a href="/s.html">js</a></li>
+<li><a href="/s.jsp">jsp</a> - 과제: 수행전후 js 시간함수차 0! 시간함수 jsp로 하면?</li>
+</ul>
+
+<pre>
+* for문 10만번 수행 속도 (로컬,원격무관)
+Intel Core2 CPU 1.86GHz
+IE8 0.015~0.032초
+SF5 0.015~0.016초
+FF4 0.012~0.014초
+OP 0.016~0.024초
+CR 0.017~0.026초
+속도 빠름 - 느림 순서 : FF4 > SF5 > OP11 > CR11 > IE8
+iPot Tiuch 2세대 Safari 0.09~0.10초
+
+* for문 100만번 수행 속도 (로컬,원격무관)
+Intel Core2 CPU 1.86GHz IE8 0.29~0.32초
+iPot Tiuch 2세대 Safari 0.9~1.0초
+
+* for문 10만번 Intel Core2 CPU 1.86GHz IE8
+수식 없을때//0~0.015초
+n3=n3+i;//0.015~0.032초
+n3=n3+i;n3=n3+i;//0.045~0.064초
+n3=n3+i;n3=n3+i;n3=n3+i;//0.077~0.094초
+n3=n3+i;n3=n3+i;n3=n3+i;n3=n3+i;//0.094~0.11초
+n3=n3+i+i;//0.030~0.047초
+n3=n3+i+i+i+i+i+i+i+i+i+i;//0.061~0.079초
+n3=n3+i+i+i+i+i+i+i+i+i+i;n3=n3+i+i+i+i+i+i+i+i+i+i;//0.140~0.156초
+</pre>
+
+<p><em>※ 결론: 반복 10만번 이하, 대입 연산자 최소, 연산항 최소 사용 한다.</em></p>
+
+<xmp class="xmp">
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>Script Test',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">body{margin:10px;}</style>
+<script>
+function fn1(){var n1=n2=n3=0;
+	e1=document.getElementById("contentsBlock");
+	n1=getNow();
+	for(var i=0;i<100000;i++){
+		n3=n3+i;
+	}
+	n2=getNow();
+	e1.innerHTML=n2+"-"+n1+"="+(n2-n1)+"<br />"+i;
+}
+function getNow(){var now=new Date();
+	now.t=""+(now.getSeconds()+now.getMilliseconds()*0.001);
+	return now.t;
+}
+</script>
+</head>
+<body>
+
+<div id="contentsBlock"></div>
+<script>fn1();</script>
+
+</body>
+</html>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3displayTerm">displayTerm</h3>
+<xmp class="xmp">
+<div id="TempNotice" style="padding:5px;background:#ff9;">시스템 점검으로 인해 오늘(3/31) 오후 8~9시까지 서비스가 일시 중단되오니 양해하여 주시기 바랍니다.</div>
+<script>
+function displayTerm(id,t1,t2){var now=new Date();
+	function digit2(n){var n=(n<10)?("0"+n):n;return n;}
+	now.y=now.getFullYear();	now.m=digit2(now.getMonth()+1);now.d=digit2(now.getDate());
+	now.h=digit2(now.getHours());now.min=digit2(now.getMinutes());now.sec=digit2(now.getSeconds());now.msec=now.getMilliseconds();
+	now.w="일월화수목금토".substr(now.getDay(),1);
+	now.full=now.y+"년"+(now.m+1)+"월"+now.d+"일"+"("+now.w+")"+((now.h<10)?("0"+now.h):now.h)+":"+((now.min<10)?("0"+now.min):now.min);//2011.03.31(목)17:49
+	now.t=""+now.y+now.m+now.d+now.h+now.min;
+	//alert(now.t+" "+t1+" "+t2+" "+now.m);alert(now.t>=t1);alert(now.t<=t2);
+	var obj=document.getElementById(id);
+	if((now.t>=t1)&&(now.t<=t2)){obj.style.display="block";}else{obj.style.display="none";}
+}displayTerm('TempNotice','201101010000','201103312130');
+</script>
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3Random">Random</h3>
+<xmp class="xmp">
+function randomRange(n1,n2){//지정범위정수랜덤출력
+  return Math.floor((Math.random()*(n2-n1+1))+n1);
+}
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3Accesibility">Accesibility</h3>
+
+<p><a href="http://www.wah.or.kr/RIA/Js/js_desc02.asp">우리나라의 화면 낭독 프로그램이 JavaScript를 충분히 지원하지 못하고 있으므로, JavaScript를 이용한 웹 콘텐츠 구현 기술은 신기술로 분류될 수 있다. 만일 우리나라에서 구입 가능한 화면 낭독 프로그램이 JavaScript를 충분히 지원하게 된다면 JavaScript는 더 이상 신기술로 분류되지 않을 것이다.</a></p>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3Compatibility">Compatibility</h3>
+
+<table border="1" class="t3" summary=""><caption class="tar">Compatibility.2010.07.16.</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Element</th>
+<th scope="col">IE6</th>
+<th scope="col">IE7</th>
+<th scope="col">IE8</th>
+<th scope="col">FF</th>
+<th scope="col">SF</th>
+<th scope="col">CR</th>
+<th scope="col">OP</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">&lt;html&gt;</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">&lt;body&gt;</th>
+<td>document.body</td>
+<td>좌동</td>
+<td>좌동</td>
+<td>좌동</td>
+<td>좌동</td>
+<td>좌동</td>
+<td>좌동</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">&lt;head&gt;</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">&lt;style&gt;</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<hr />
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="h3Test">테스트용</h3>
+<xmp class="xmp">
+<div id="test" style="z-index: 999; position: absolute; left: -80px; top: -20px; width: 300px; height: 20px; background: #ff0;"></div>
+<script>
+function inputTest(){
+	var mtest = document.getElementById("test");
+	mtest.innerHTML ="  picPR.order "+ picPR.order +"  picprOver "+ picprOver +"  picPR.prcon.inner.move "+ picPR.prcon.inner.move;
+}
+mrepeat = setInterval(inputTest(),100);
+</script>
+</xmp>
+
+
+
+
+
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:38%;padding:2% 0 2% 2%;">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Code">Mini Tip</h2>
+<ol class="bo num">
+<li><strong>닫기{display:none;}</strong>하면 콘텐츠 안의 커서는?<br />
+<em>[IE] 부모 요소로 간다.</em> <b>[IE외] 바로 다음으로 간다.</b></li>
+<li>[CR] 탭이 지나갈 수 있어야 $('#zoom1').<strong>focus()</strong>; 이런식으로 초점을 줄 수 있다. 그래서..<br />
+$('#zoom1').attr({tabindex: 0}).focus(); 이렇게 하니 초점 표시 잘된다.<br />
+그런데, [IE7] 는 .attr({tabindex: 0}) 실행 시 브라우저 다운되는 현상 발생!<br />
+결론) 초점은 탭인덱스 지나갈 수 있는 곳에 주자!!<br />
+</li>
+</ol>
+
+<hr class="show" />
+
+<h2 class="hb1 h2" id="Link">Link</h2>
+<ol class="num">
+<li><a href="http://www.json.org/">http://www.json.org/</a></li>
+<li>압축 : Paker 온라인버전<a href="http://dean.edwards.name/packer/">http://dean.edwards.name/packer/</a><br />
+20130816. jQuery 개발 소스 압축해보니.. 에러 발생하여 못쓰겠더라.<br />
+</li>
+<li>배포 : JSAN(JavaScript Archive Network) <a href="http://openjsan.org/">http://openjsan.org/</a></li>
+</ol>
+
+
+</div>
+<!-- /contentsBlock -->
+
+
+
+
+<div class="brclear clearfix"></div>
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20091026 ~
+20181128.
+20180126.
+20140114.
+20130816. 20130618.
+20120115.
+20110325.
+20100804. 20100716.
+20091104. 20091026.
+</p>
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript Common Rule | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Javascript Common Rule</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#s3">JS Coding Convention</a></li>
+<li><a href="#s1">자바스크립트 개발, 적용시 유의점</a></li>
+<li><a href="#s2">자바스크립트 공통 규정</a></li>
+<li><a href="https://contribute.jquery.org/style-guide/js/" target="_blank">jQuery JavaScript Style Guide</a></li>
+<li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Semicolons%20-%20Semicolons#Naming" target="_blank">Google JavaScript Style Guide</a></li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="s3">JS Coding Convention</h2>
+
+<h3>자바스크립트 코딩 규약. ~20120605.</h3>
+
+<ol class="bo num">
+<li><em>길더라도 의미 있는 명명 규칙</em>, 코드 압축은 기계에 맡긴다.</li>
+<li>전역 선언은 단 한번사용하고 네임스페이스를 이용한다.</li>
+<li>2번이 이상 사용되는 것은 변수를 사용한다.</li>
+<li>변수 선언은 함수 초기에 객체 리터럴로 한다.</li>
+</ol>
+
+<h3>JavaScript Patterns 2장 기초</h3>
+
+<p><cite>cite: <a href="http://www.jspatterns.com/book/">http://www.jspatterns.com/book/</a></cite></p>
+
+<h4>2.1 유지보수 가능한 코드 작성</h4>
+<ul class="bu">
+<li>읽기 쉽고 일관적이고 예측 가능하고 한 사람이 작성한 것처럼 보이고 문서화</li>
+</ul>
+<h4>2.2 전역 변수 최소화</h4>
+<ul class="bu">
+<li>전역 변수의 문제점 : 전역 변수를 최초화한다. 애플리케이션 당 전역 변수가 한 개만 존재하는 것이 가장 이상적이다.</li>
+<li>var 선언을 빼먹었을 때의 부작용</li>
+<li>전역 객체에 대한 접근<br />
+<pre>
+<code class="xmp">
+var global = (function(){
+	return this;
+}());
+</code>
+</pre>
+</li>
+<li>단일 var 패턴 : 함수 내 var 선언을 한 번만 사용한다.<br />
+<pre>
+<code class="xmp">
+function func(){
+	var a = 1,
+		b = 2,
+		sum = a + b,
+		myobject = {},
+		i,
+		j;
+	//함수본문..
+}
+</code>
+</pre>
+
+</li>
+<li>호이스팅(hoisting): 분산된 var 선언의 문제점</li>
+</ul>
+<h4>2.3 for 루프</h4>
+<ul class="bu">
+<li>배열.length 한 번만 접근하기<br />
+<pre>
+<code class="xmp">
+function looper() {
+	var 1 = 0,
+		max,
+		myarray = [];
+	//...
+	for (i = 0, max = myarray.length; i < max; i++) {
+		//...
+	}
+}
+</code>
+</pre>
+<p>※ JSLint 는 i++ 를 지적하고 i=i+1 또는 j+=1 를 권장한다.</p>
+</li>
+<li>max 변수 줄이고, 0과 비교하여 빠르게<br />
+<pre>
+<code class="xmp">
+var i, myarray = [];
+for (i = myarray.length; i--;){
+	//...
+}
+</code>
+</pre>
+</li>
+<li>while 루프 사용<br />
+<pre>
+<code class="xmp">
+var myarray = [],
+	i = myarray.length;
+while(i--){
+	//...
+}
+</code>
+</pre>
+</li>
+</ul>
+
+<h4>2.4 for-in 루프</h4>
+<ul class="bu">
+<li>배열이 아닌 객체를 순회할 때만 사용</li>
+<li>객체의 프로퍼티를 순회할 때는 프로토타입 체인을 따라 상속되는 프로퍼티들은 걸러내기 위해 <em>hasOwnProperty()</em> 메서드를 사용<br />
+<pre>
+<code class="xmp">
+var main = {
+	hands: 2,
+	legs: 2,
+	heads: 1
+};
+for(var i in man){
+	if(man.hasOwnProperty(i)){
+		console.log(i, ":", main[i]);
+	}
+}
+</code>
+</pre>
+</li>
+</ul>
+
+<h4>2.5 내장 생성자 프로토타입 확장하기 / 확장하지 않기</h4>
+
+<ul class="bu">
+<li>예측을 벗어나거나 혼동을 일으키지 않으려면.. 내장 생성자 프로토타입을 확장하지 않는 것이 최선이다.</li>
+</ul>
+
+<h4>2.6 switch 패턴</h4>
+
+<ul class="bu">
+<li>switch 문의 가독성 견고성 향상<br />
+<pre>
+<code class="xmp">
+var inspect_me = 0,
+     result = '';
+switch (inspect_me) {
+case 0:
+	result = "zero";
+	break;
+case 1
+	result = "one";
+	break;
+default:
+	result = "unknown";
+}
+</code>
+</pre>
+</li>
+</ul>
+
+<h4>2.7 암묵적 타입캐스팅 피하기</h4>
+<ul class="bu">
+<li>암묵적 타입캐스팅으로 인한 혼동을 막기 위해서 === (완전항등연산자) 와 !== 연산자를 사용</li>
+<li>eval() 피하기 : 코드를 사전에 알 수 있다면 (즉 런타임에 결정되는 게 아니라면) eval() 을 쓸 필요가 없다.<br />
+<pre>
+<code class="xmp">
+//안티패턴
+var property="name";
+alert(eval("obj."+property));
+//권장패턴
+var property = "name";
+alert(obj[property]);
+</code>
+</pre>
+</li>
+<li><em><b>setInterval()</b>, <b>setTimeout()</b>, <b>Function() 생성자</b>에 문자열 사용을 자제한다.</em><br />
+<pre>
+<code class="xmp">
+//안티패턴
+setTimeout("myFunc()", 1000);
+setTimeout("myFunc(1, 2, 3)", 1000);
+//권장패턴
+setTimeout(myFunc, 1000);
+setTimeout(function() {
+	myFunc(1, 2, 3);
+}, 1000);
+</code>
+</pre>
+</li>
+<li>자동으로 전역 변수가 되지 못하도록 막기 위해 즉시실행 함수로 감싸는 방법<br />
+<pre>
+<code class="xmp">
+(function(){
+	//...
+}());
+</code>
+</pre>
+</li>
+</ul>
+
+<h4>2.8 parseInt()를 통한 숫자 변환</h4>
+
+<ul class="bu">
+<li>두 번째 매개변수인 기수를 생략해서는 안된다.<br />
+<pre>
+<code class="xmp">
+var month = "06";
+month = parseInt(month, 10); //10진수를 생략하면 "06" 은 8진수로 간주된다.
+</code>
+</pre>
+</li>
+<li>문자열을 숫자로 변환하는 또다른 방법. parseInt() 보다 빠르지만.. "06 hello" 이런거는 안됨.
+<pre>
+<code class="xmp">
++"06" //결과값은 6 이다.
+Number("08") //8
+</code>
+</pre>
+</li>
+</ul>
+
+<h4>2.9 코딩 규칙</h4>
+<ul class="bu">
+<li>들여쓰기 : 탭 또는 스페이스(대개 4개). <strong>[m]</strong> 탭(스페이스2개)</li>
+<li>중괄호와 세미콜론은 반드시 사용.</li>
+<li>여는 중괄호의 위치<br />
+<pre>
+<code class="xmp">
+function func(){
+	return{
+		name: "Batman"
+	};
+}
+</code>
+</pre>
+</li>
+<li>공백 : , ; : 뒤 { 앞 function 뒤 = 연산자 앞뒤 }{ 사이에 사용 <strong>[m]</strong> , ; 필수, 연산자 앞뒤는 피연산자가 공백을 포함하면 필수.</li>
+</ul>
+<h4>2.10 명명 규칙</h4>
+<p><em>규칙의 실제 내용보다는 규칙을 가지고 있다는 사실과 그것을 일관되게 따르는 것이 중요하다.</em></p>
+<ul class="bu">
+<li>생성자를 대문자로 시작하기 : 함수와 메서드 이름은 소문자로 시작</li>
+<li>단어 구분 :<br />
+생성자는 대문자 낙타 표기법 MyConstruvtor()<br />
+함수와 메서드는 소문자 낙타 표기법 myFunc(), 메서드 el.getMethod(),<br />
+변수명은 소문자 밑줄 소문자 first_name <strong>[m]</strong> 의미 파악이 된다면 firstname 으로 해도 무방<br />
+</li>
+<li>그 외의 명명 패턴 :
+상수는 대문자 var PI=3.14, MAX_WIDTH=800;<br />
+_비공개메서드(), _protected프로퍼티, __private프로퍼티,<br />
+변형패턴들.. name_, getSize_(), __proto__, __parent__<br />
+</li>
+</ul>
+<h4>2.11 주석 작성</h4>
+
+<ul class="bu">
+<li>모든 함수의 매개변수와 반환 값</li>
+<li>특이하고 흥미로운 알고리즘이나 기법</li>
+<li>뻔한 내용에 과도하게 주석을 달 필요 없다.</li>
+<li>주석을 최신 버전으로 유지</li>
+</ul>
+
+<h4>2.12 API 문서 작성</h4>
+<ul class="bu">
+<li>YUIDoc 예제</li>
+</ul>
+
+<h4>2.13 독자를 위한 문서 작성</h4>
+<ul class="bu">
+<li>초안, 교정. 하나는 버릴 계획을 세워라. 두 번째 해결책이 항상 더 낫다.</li>
+</ul>
+
+<h4>2.14 동료 리뷰</h4>
+<ul class="bu">
+<li>CVS SVN, Git 소스 관리 시스템 활용</li>
+</ul>
+
+<h4>2.15 출시 단계의 압축</h4>
+<ul class="bu">
+<li>YUICompressor, ClosureCompiler</li>
+<li>코드 압축은 도구가 할 일. 압축된 코드 작성은 잘못 된 생각. 서술적인 변수명을 사용하고 공백과 들여쓰기, 주석 등을 일관되게 써야 한다.</li>
+</ul>
+
+<h4>2.16 JSLint 실행</h4>
+<ul class="bu">
+<li>JSLint 를 텍스트 편집기에 통합시키면 파일을 저장할 때마다 JSLint를 실행해보는 습관을 들일 수 있어 대단히 좋다.</li>
+</ul>
+
+<h4>2.17 요약</h4>
+<p>위에 요약해났지롱~</p>
+
+
+<h2 id="s1">자바스크립트 개발, 적용시 유의점</h2>
+<h3>자바스크립트 적용 및 개발시 다음 사항을 반드시 준수하여야 한다.</h3>
+<!-- box4 -->
+<div class="box4">
+<ul class="bu">
+<li><strong>웹접근성에 문제가 없어야 한다.</strong><br />
+	<ul class="bu">
+	<li>모든 기능을 키보드로 이용할 수 있어야 한다.</li>
+	<li>마크업 언어로 구현할 수 있는 기능(링크,서식,버튼,페이지 제목)을 자바스크립트로만 구현하지 말아야 한다.</li>
+	<li>자바스크립트가 작동하지 않아도 사용할 수 있어야 한다.</li>
+	</ul>
+</li>
+<li>크로스 브라우징 - 최근IE(6,7,8) 및 FF,GC,Sf,Op최신버전</li>
+<li><em>상위 호환을 위하여 표준 방식으로 스크립트를 구현하여야 한다.</em>
+	<ul class="bu">
+	<li>document.all 사용금지 → document.getElementById 사용권장.</li>
+	<li>브라우저명 탐지 사용금지 → 객체 탐지 사용권장.</li>
+	</ul>
+</li>
+</ul>
+</div>
+<!-- /box4 -->
+<p>
+<em>※ 외부 사이트에서 자바스크립트를 가져올 때 위 사항을 모두 준수한 함수만 사용하여여 한다.</em>
+</p>
+
+<h3>Unobtrusive JavaScript (주제넘지 않은, 겸손한 자바스크립트)</h3>
+<cite>출처 : http://blog.javarouka.me/2011/11/unobtrusive-javascript.html
+<p>HTML문서가 해석될 때 스크립트가 관여하는 부분을 최소화하며, 혹시 동작하지 않더라도, 어느정도의 기본 기능은 제공해야 하며 앞으로 발전 방향에 무리가 없을 정도로 사용하는 자바스크립트를 말한다고 볼 수 있다.</p>
+<div class="box3">
+<ul class="bu">
+<li>Graceful degradation (우아한 낮춤)</li>
+<li>Progressive enhancement (점진적 향상)</li>
+</ul>
+</div><!-- /box3 -->
+
+
+
+<h2 id="s2">자바스크립트 공통 규정</h2>
+
+<dl class="bu">
+
+<dt>script 태그의 속성에 을 항상 명시해주고, language="Javascript" 라는 속성은 삭제한다.</dt>
+<dd>
+<xmp class="xmp">
+<script language="Javascript"></script> (X)
+<script language="Javascript"></script> (X)
+<script></script> (O)
+</xmp>
+</dd>
+
+<dt>external Javascript, embeded Javascript 는 head, body 태그 안 어디에 와도 상관없다.</dt>
+<dd>
+<xmp class="xmp">
+<head>
+<script src="/share/js/all.js"></script>
+</head>
+<body>
+<script>getflash("/flash/visual.swf",865,100,"transparent","TL","noscale");</script><noscript><p></p></noscript>
+</body>
+</xmp>
+<p><em class="em">객체 호출, 지연 시간 등에 따라 적절한 곳에 배치한다.</em></p>
+</dd>
+<dt>자바스크립트가 콘텐츠를 담고 있지 않으면 noscript 태그는 사용하지 않아도 된다.</dt>
+<dd>
+<xmp class="xmp">
+<head> 안에서는 <script></script> 만 쓰고, (head 태그 안에 noscript 가 있으면 HTML4.01 strict Error)
+<body> 안에서는 <script></script><noscript><p>JavaScript</p></noscript> 형태로 쓴다.
+</xmp>
+</dd>
+
+</dl>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<small><strong>History</strong>
+20150421.
+20140224.
+20131206.
+20120605.
+20090709.
+</small>
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

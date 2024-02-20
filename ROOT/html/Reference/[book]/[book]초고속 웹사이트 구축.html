@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]초고속 웹사이트 구축 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<script>/*<![CDATA[*/
+jQuery(function( $ ){
+	$(".scrollToMenu a").click(function(event){            
+		event.preventDefault();
+		$('html, body').animate({scrollTop:$(this.hash).offset().top}, 500);
+		$(this.hash).attr({tabindex:0}).css({outline:0}).focus();
+	});
+
+	var v={};
+	v.a = $('.wing1').offset().top;
+	$(window).on('scroll', function(){
+		v.b = $('body').scrollTop();
+		if(v.b < v.a){
+			$('.wing1').stop().animate({top:(v.a-v.b)}, 500);
+		}
+	});
+
+});
+/*]]>*/</script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>[book]초고속 웹사이트 구축</h1>
+| <a href="http://www.yes24.com/24/goods/3768154?scode=032&OzSrank=1">View</a>
+| <del>Demo</del>
+| <a >Exam</a>
+| <a>Errata</a>
+| <a href="ftp://icf.bofh.ru/pub/docs/linux-support/programming/%5BO%60Reilly%5D%20-%20Even%20Faster%20Websites%20-%20%5BSouders%5D.pdf">[PDF] Even Faster Web Sites</a>
+<br />
+| Read 000p/000h = 00.0/h
+<br />
+Legend: <strong>Read</strong> <em>Remember</em> <b>Question</b> <i>Answer</i>
+
+<hr class="dotted" /><div class="brclear"></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBox wing1" style="position:fixed;right:1.5%;float:right;width:30em;margin:0 0 0 1%;"><!-- contentsBox -->
+
+<pre class="box1 bgf before-1 mgtb0 scrollToMenu"><!-- box1 -->
+<a href="#chapter01" class="dba">01장 Ajax의 성능 제대로 이해하기</a>
+<a href="#chapter02" class="dba">02장 빠른 웹 응용프로그램 만들기</a>
+<a href="#chapter03" class="dba">03장 초반 다운로드를 분산시키기</a>
+<a href="#chapter04" class="dba">04장 블로킹 없이 스크립트 로드하기</a>
+<a href="#chapter05" class="dba">05장 비동기 스크립트와 결합시키기</a>
+<a href="#chapter06" class="dba">06장 인라인 스크립트를 올바르게 배치하기</a>
+<a href="#chapter07" class="dba">07장 효율적인 자바스크립트 작성</a>
+<a href="#chapter08" class="dba">08장 코멧을 이용한 확장</a>
+<a href="#chapter09" class="dba">09장 Gzip을 넘어서</a>
+<a href="#chapter10" class="dba">10장 이미지의 최적화</a>
+<a href="#chapter11" class="dba">11장 도메인의 공유</a>
+<a href="#chapter12" class="dba">12장 플러시를 통해서 문서 먼저 내리기</a>
+<a href="#chapter13" class="dba">13장 아이프레임의 자제</a>
+<a href="#chapter14" class="dba">14장 CSS 선택자의 단순화</a>
+<a href="#appendix" class="dba">부록 성능 관리 도구</a>
+<!-- /box1 --></pre>
+
+<!-- /contentsBox --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBox" style="margin:0 32em 0 0;"><!-- contentsBox -->
+
+<h2 id="Overview">Overview : Summary</h2>
+
+<pre>
+<h3 id="chapter01">01장 Ajax의 성능 제대로 이해하기</h3>
+
+<a href="?">Trade-offs: 얻는 것이 있으면 잃는 것이 있다</a>
+최적화의 원칙
+Ajax
+브라우저
+Wow!(우와!)
+자바스크립트
+요약
+
+<h3 id="chapter02">02장 빠른 웹 응용프로그램 만들기</h3>
+
+그럼 대체 얼마나 빨라야 빠른 것일까?
+지연 시간 측정
+- 지연 시간이 길어져 문제가 될 때
+스레드 사용
+빠른 응답 속도를 보장하는 방법
+- Web Workers
+- Gears
+- 타이머
+- 메모리 사용이 응답 시간에 미치는 영향
+- 가상 메모리
+- 메모리 문제 해결하기
+요약
+
+<h3 id="chapter03">03장 초반 다운로드를 분산시키기</h3>
+
+그 외 모든 것들
+쪼갬으로 인해 얻는 이득
+어디를 쪼개면 될까
+미정의 심볼과 경쟁 상태
+사례 연구: Google 캘린더
+
+<h3 id="chapter04">04장 블로킹 없이 스크립트 로드하기</h3>
+
+스크립트 블록
+스크립트를 사이좋게 만드는 방법
+- XHR Eval
+- XHR Injection
+- Iframe 안의 스크립트
+- 스크립트 DOM Element
+- 스크립트 지연
+- document.write 스크립트 태그
+브라우저의 작업 중 표시
+순서대로 실행되도록(또는 실행되지 않도록) 하기
+지금까지의 결과를 정리해보면
+그럼 최종 승자는?
+
+<h3 id="chapter05">05장 비동기 스크립트와 결합시키기</h3>
+
+코드 예제: menu.js
+경쟁 상태
+비동기 방식으로 순서 보존하기
+- 제1 기법: 하드 코딩된 콜백
+- 제2 기법: Window Onload
+- 제3 기법: 타이머
+- 제4 기법: 스크립트 Onload
+- 제5 기법: 나쁜 스크립트 Tags
+여러 외부 스크립트
+- 관리 XHR
+- DOM Element와 Doc Write
+일반적인 해결책
+- 단일 스크립트
+- 복수의 스크립트
+비동기 로딩의 실제 사용 예
+- Google Analytics와 Dojo
+- YUI Loader 도구
+
+<h3 id="chapter06">06장 인라인 스크립트를 올바르게 배치하기</h3>
+
+인라인 스크립트 블로킹
+- 인라인 스크립트를 맨 밑으로 옮겨라
+- 스크립트의 실행을 비동기적으로 시작하라
+- 스크립트 지연 사용하기
+CSS와 자바스크립트의 순서 보존하기
+위험: 인라인 스크립트 바로 다음에 오는 스타일시트
+- 인라인 스크립트가 블로킹되는 경우는 거의 없다
+- 인라인 스크립트는 스타일시트로 인해 블로킹된다
+- 실제로도 일어난다
+
+<h3 id="chapter07">07장 효율적인 자바스크립트 작성</h3>
+
+유효 범위 관리
+- 지역 변수 사용하기
+- 유효 범위 체인의 증가
+효율적인 데이터 접근
+실행 경로 제어
+- 빠른 조건문
+- 빠른 반복문
+문자열 최적화
+- 문자열의 연결
+- 문자열들의 공백 제거
+오랜 시간 동작되는 스크립트를 피하라
+- 타이머를 이용하여 유연하게 만들기
+- 유연한 작업을 위한 타이머의 패턴
+요약
+
+<h3 id="chapter08">08장 코멧을 이용한 확장</h3>
+
+코멧 구현하기
+전송기술
+- 폴링
+- 롱 폴링
+- 포에버 프레임
+- XHR 스트리밍
+- 미래의 전송기술
+크로스 도메인
+추가적인 고려사항
+- 커넥션 관리
+- 성능 측정
+- 프로토콜
+요약
+
+<h3 id="chapter09">09장 Gzip을 넘어서</h3>
+
+무엇이 문제인가?
+원인은 무엇인가?
+- 빠른 검토
+- 범인
+- 범인의 실체
+이러한 사용자를 어떻게 도울 수 있을까?
+- 압축되지 않은 크기의 최소화
+- 사용자를 가르쳐라
+- Gzip 지원의 직접적인 감지
+
+<h3 id="chapter10">10장 이미지의 최적화</h3>
+
+이미지 최적화를 단순화하기 위한 두 단계
+이미지 포맷들
+- 배경지식
+- 이미지 타입들의 특징
+- PNG에 대해서
+자동화된 무손실의 이미지 최적화
+- PNG 크러싱
+- JPEG의 메타데이터 제거
+- GIF에서 PNG로 변환하기
+- GIF 애니메이션의 최적화
+- Smush.it
+- 큰 이미지를 위한 JPEG의 로딩기능
+알파 투명: AlphaImageLoader를 피해라
+- 알파 투명의 효과
+- AlphaImageLoader
+- AlphaImageLoader의 문제
+- 단계적인 PNG8의 알파 투명도
+자르기(Sprite)의 최적화
+- 사용자 스프라이트와 모듈 스프라이트와의 비교
+- CSS 스프라이트의 최적화
+다른 이미지의 최적화
+- 확장 가능한 이미지를 피해라
+- 애플리케이션에서 생성된 이미지들
+- 파비콘
+- 애플 터치 아이콘
+요약
+
+<h3 id="chapter11">11장 도메인의 공유</h3>
+
+크리티컬 경로
+도메인 공유는 무엇인가?
+HTTP/1.0의 다운로드
+도메인 공유의 동작
+- IP주소와 호스트이름
+- 도메인의 개수
+- 리소스를 어떻게 나누어야 하는가?
+- 새로운 브라우저들
+
+<h3 id="chapter12">12장 플러시를 통해서 문서 먼저 내리기</h3>
+
+헤더의 플러시
+출력 버퍼링
+청크 인코딩
+Flush와 Gzip
+다른 중개자들
+플러시 동작 중 발생되는 도메인 블로킹
+브라우저: 마지막 장애물
+PHP 외의 플러시 작업
+플러시 체크리스트
+
+<h3 id="chapter13">13장 아이프레임의 자제</h3>
+
+가장 비싼 DOM 개체
+Onload 이벤트를 지연시키는 아이프레임
+아이프레임과 동시 다운로드
+- 아이프레임 이전의 스크립트
+- 스타일시트 앞에 있는 아이프레임
+- 스타일시트 뒤에 있는 아이프레임
+호스트이름에 할당되는 커넥잼
+- 아이프레임 안에서의 커넥션 공유
+- 새 창과 탭을 통한 커넥션 공유
+아이프레임의 비용에 대한 요약
+
+<h3 id="chapter14">14장 CSS 선택자의 단순화</h3>
+
+선택자의 타입
+- ID 선택자
+- 클래스 선택자
+- 타입 선택자
+- 이웃 선택자
+- 자식 선택자
+- 하위 선택자
+- 전체 선택자
+- 속성 선택자
+- 유사 클래스 선택자
+CSS 선택자의 효율적인 사용
+- 오른쪽 먼저
+- 효율적인 CSS 선택자의 사용
+CSS 선택자의 성능
+- 복잡한 선택자의 성능 이슈
+- 피해야 하는 CSS 선택자
+- 리플로우 시간
+실 사이트에서의 CSS 선택자
+
+<h3 id="appendix">부록 성능 관리 도구</h3>
+
+패킷 분석 도구
+- HttpWatch
+- 파이어버그 넷 패널
+- AOL 페이지테스트
+- VRTA
+- IBM 페이지 디테일러
+- Web Inspector 리소스 패널
+- 피들러
+- 찰스
+- 와이어샤크
+웹 개발 도구
+- 파이어버그
+- Web Inspector
+- 인터넷 익스플로러 디벨로퍼 툴바
+성능 분석 도구
+- YSlow
+- AOL 페이지테스트
+- VRTA
+- neXpert
+기타 도구들
+- 햄머헤드
+- Smush.it
+- Cuzillion
+- UA 프로파일러
+
+</pre>
+
+<!-- /contentsBox --></div>
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140401.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

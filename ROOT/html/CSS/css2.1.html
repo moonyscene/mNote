@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS 2.1 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">
+	tt { color: #06c !important; }
+
+	[data-step='1']>td:first-child{background:#cde;}
+	[data-step='2']>td:first-child{background:#dec;}
+	[data-step='3']>td:first-child{background:#ecd;}
+	[data-step='4']>td:first-child{background:#dce;}
+</style>
+<meta name="author" content="myshin" />
+<link rel="stylesheet" type="text/css" href="../share/css/all.css" />
+<script src="../share/js/all.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">CSS 2.1</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Property">Property</a></li>
+<li><a href="http://www.w3.org/TR/CSS2/selector.html#pattern-matching" target="_blank">Selector</a> - W3C -</li>
+<li><a href="css2.1_property.html" target="_blank">Property</a> - W3C -</li>
+<li><a href="http://www.tutorialspoint.com/css/css_references.htm">CSS2 Reference Guide</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<h2 class="hb1 h2" id="Property">CSS 2.1 Properties 94</h2>
+
+<p>[IE6+] 호환되면 O 로 표시한다.</p>
+
+
+
+
+
+<table class="t3" id="CSS3Properties">
+	<caption>
+		<strong class="h1">CSS 2.1 style attributes and their values (aural Media group 제외)</strong>
+		<span class="fr">
+			Vendor Prefix :<em>　-webkit-　-moz-　-o-　-ms-　</em>
+			.R.20140307.~
+		</span>
+	</caption>
+	<col style="width:1em;" />
+	<col style="width:15em;white-space:nowrap;" />
+	<col style="width:0;" />
+	<col style="width:0;" />
+	<col style="width:0;" />
+	<col style="width:0;" />
+	<col style="width:0;" />
+	<col style="width:0;" />
+	<col style="" />
+	<col style="" />
+	<thead>
+	<tr>
+	<th scope="col" rowspan="2"><input type="checkbox" value="" class="checkbox" /></th>
+	<th scope="col" rowspan="2">Properties<br /><b>[IE]OK</b></th>
+	<th scope="col" colspan="5">Browser Support</th>
+	<th scope="col" rowspan="2">예비</th>
+	<th scope="col" rowspan="2">Values</th>
+	<th scope="col" rowspan="2">Note</th>
+	</tr>
+	<tr>
+	<th scope="col">CR</th>
+	<th scope="col">SF</th>
+	<th scope="col">FF</th>
+	<th scope="col">OP</th>
+	<th scope="col">IE</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ 
+	<i>background-color</i>
+	 || 
+	<i>background-image</i>
+	 || 
+	<i>background-repeat</i>
+	 || 
+	<i>background-attachment</i>
+	 || 
+	<i>background-position</i>
+	 ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background-attachment</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>scroll | fixed</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>color</i> | transparent</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background-image</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>url(
+	<i>url</i>
+	)| <em>none</em></td>
+	<td title="Note">
+	
+	)) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image" target="_blank">
+			background-image | MDN
+		</a>
+	
+	</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background-position</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ [ <i>percentage</i> | <i>length</i> ]{1,2} | [ [top | center | bottom ] || [ left | center | right ] ] ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">background-repeat</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>repeat | repeat-x | repeat-y | no-repeat</td>
+	<td title="Note">
+		)) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat" target="_blank">
+				background-repeat | MDN
+			</a>	
+	</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ border-width || border-style || border-color ]</td>
+	<td title="Note">
+	<em class="em">border:1px solid;</em> ))) border-color 지정하지 않으면 color 속성값으로 된다.
+
+	</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-collapse</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>collapse | separate</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>color</i>{1,4} | transparent</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-spacing</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length length</i>?</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ]{1,4}</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-top</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ 
+	<i>border-top-width</i>
+	 || 
+	<i>border-style</i>
+	 || [ <i>color</i> | transparent ] ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-right</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-bottom</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-left</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-top-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>color</i> | transparent</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-right-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-bottom-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-left-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-top-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-right-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-bottom-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-left-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-top-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>thin | medium | thick | <i>length</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-right-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-bottom-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-left-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">border-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ thin | medium | thick | <i>length</i> ]{1,4}</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">bottom</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="" class="checkbox" /></td>
+	<th scope="row"><strong class="em1">caption-side</strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>top | bottom</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">clear</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>none | left | right | both</td>
+	<td title="Note"></td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="" class="checkbox" /></td>
+	<th scope="row"><strong class="em1">clip</strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ rect( [ <i>length</i> | auto ]{4} )] | auto</td>
+	<td title="Note">
+	rect (top, right, bottom, left)
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>color</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5" class="a1">
+	<td><input type="checkbox" value="" checked="" class="checkbox" /></td>
+	<th scope="row"><strong class="em1">content</strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>[ <i>string</i> | url(<i>url</i>) | <i>counter</i> | attr(<i>attribute-name</i>) | open-quote | close-quote | no-open-quote | no-close-quote ]+ | normal</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5" class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><a href="http://www.w3schools.com/cssref/pr_gen_counter-increment.asp"><b class="em2">counter-increment</b></a></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>[ <i>identifier integer</i>? ]+ | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5" class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><a href="http://www.w3schools.com/cssref/pr_gen_counter-reset.asp"><b class="em2">counter-reset</b></a></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>[ <i>identifier integer</i>? ]+ | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">cursor</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ [ url(
+	<i>url</i>
+	) ,]* [ auto | crosshair | default | pointer | progress | move | e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize | text | wait | help ] ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="http://www.w3schools.com/cssref/pr_text_direction.asp">direction</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>ltr | rtl</td>
+	<td title="Note">text-align:left; text-align:right; 처럼 보여주던데..</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">display</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>inline | block | inline-block | list-item | run-in | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="http://www.w3schools.com/cssref/pr_tab_empty-cells.asp">empty-cells</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>show | hide</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">float</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>left | right | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ [
+	<i>font-style</i>
+	||
+	<i>font-variant</i>
+	||
+	<i>font-weight</i>
+	]? 
+	<i>font-size</i>
+	[/
+	<i>line-height</i>
+	]? 
+	<i>font-family</i>
+	]|caption|icon|menu|message-box|small-caption|status-bar</td>
+	<td title="Note">
+
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font-family</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[[ <i>family-name</i> | serif | sans-serif | monospace | cursive | fantasy ],]+</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font-size</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>
+		<div style="font-size:16px;">
+			<span style="font-size:xx-small;">| xx-small</span><br />
+			<span style="font-size:x-small;">| x-small</span><br />
+			<span style="font-size:small;">| small</span><br />
+			<span style="font-size:medium;">| medium</span><br />
+			<span style="font-size:large;">| large</span><br />
+			<span style="font-size:x-large;">| x-large</span><br />
+			<span style="font-size:xx-large;">| xx-large</span><br />
+			<span style="font-size:smaller;">| smaller</span><br />
+			<span style="font-size:larger;">| larger</span><br />
+			| <i>length</i><br />
+			| <i>percentage</i><br />
+		</div>
+	</td>
+	<td title="Note">
+		)) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size" target="_blank">
+			font-size | MDN
+		</a>	
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><em>normal</em> | italic | oblique</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font-variant</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>
+		| normal
+		| <em class="em">small-caps</em>
+	</td>
+	<td title="Note">
+		small-caps; 소문자를 대문자로 만든다. 단 크기는 일반 대문자에 비해 더 작다.<br />
+		ABCDEFG<br />
+		<span style="font-variant:small-caps;">abcdefg</span><br />
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">font-weight</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">height</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">left</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">letter-spacing</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>normal | <i>length</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">line-height</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><em>normal</em> | <i>number</i> | <i>length</i> | <i>percentage</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">list-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ 
+	<i>list-style-type</i>
+	 || 
+	<i>list-style-position</i>
+	 || 
+	<i>list-style-image</i>
+	 ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">list-style-image</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>url(
+	<i>url</i>
+	) | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">list-style-position</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>inside | outside</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">list-style-type</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>disc | circle | square | decimal | decimal-leading-zero | lower-roman | upper-roman | lower-greek | lower-alpha | lower-latin | upper-alpha | upper-latin | hebrew | armenian | georgian | cjk-ideographic | hiragana | katakana | hiragana-iroha | katakana-iroha | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">margin</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[ <i>length</i> | <i>percentage</i> | auto ]{1,4}</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">margin-top</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">margin-right</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">margin-bottom</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">margin-left</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1">marker-offset</strong></th>
+	<td title="CR">X</td>
+	<td title="SF">X</td>
+	<td title="FF">X</td>
+	<td title="OP">X</td>
+	<td title="IE">X</td>
+	<td></td>
+	<td><i>length</i> | auto</td>
+	<td title="Note">
+		CSS2 속성(O)<br /> )) CSS2.1, CSS3 속성(X)
+	</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">max-height</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">max-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">min-height</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">min-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2" class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1">outline</strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>[ 
+	<i>outline-color</i>
+	 || 
+	<i>outline-style</i>
+	 || 
+	<i>outline-width</i>
+	 ]</td>
+	<td title="Note">
+	border 와 다른점. 영역을 차지하지 않는다. 상좌하우 별도 속성 없다.
+	</td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">outline-color</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>color</i> | invert</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">outline-style</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">outline-width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>thin | medium | thick | <i>length</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">overflow</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>visible | hidden | scroll | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">padding</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>[<i>length</i> | <i>percentage</i>]{1,4}</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">padding-top</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">padding-right</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">padding-bottom</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">padding-left</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td></td>
+	<td title="Note"></td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="http://www.w3schools.com/cssref/pr_print_pageba.asp">page-break-after</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">4</td>
+	<td></td>
+	<td>auto | always | avoid | left | right</td>
+	<td title="Note">
+	always : Always insert a page break after each Selector (when printing)
+	</td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="http://www.w3schools.com/cssref/pr_print_pagebb.asp">page-break-before</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">4</td>
+	<td></td>
+	<td>auto | always | avoid | left | right</td>
+	<td title="Note">
+	always : Always insert a page break before each Selector (when printing)
+	</td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="http://www.w3schools.com/cssref/pr_print_pagebi.asp">page-break-inside</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>avoid | auto</td>
+	<td title="Note">
+	avoid : Avoid page break inside paragraphs, across pages (when printing)
+	</td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">position</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>static | relative | absolute | fixed</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="https://www.w3schools.com/cssref/pr_gen_quotes.asp">quotes</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">8</td>
+	<td></td>
+	<td>[<i>string string</i>]+ | none</td>
+	<td title="Note">
+	 q{quotes: "«" "»";}
+	</td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">right</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2" class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="https://www.w3schools.com/cssref/pr_tab_table-layout.asp">table-layout</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">5</td>
+	<td></td>
+	<td>auto | fixed</td>
+	<td title="Note">
+	fixed 는 td{white-space:nowrap} 시 <em class="em">셀선을 벗어날 수 있으니 주의!</em>
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">text-align</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>left | right | center | justify</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">text-decoration</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>none | [ underline || overline || line-through || blink ]</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">text-indent</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr class="a1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="https://www.w3schools.com/cssref/pr_text_text-transform.asp">text-transform</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">4</td>
+	<td></td>
+	<td>capitalize | uppercase | lowercase | none</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">top</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="5">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><strong class="em1"><a href="https://www.w3schools.com/cssref/pr_text_unicode-bidi.asp">unicode-bidi</a></strong></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">5.5</td>
+	<td></td>
+	<td>normal | embed | bidi-override</td>
+	<td title="Note">
+	all major	UA 지원한다는데.. 변화없던데..
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">vertical-align</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>baseline | sub | super | top | text-top | middle | bottom | text-bottom | <i>percentage</i> | <i>length</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row"><b class="em0">visibility</b></th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>visible | hidden | <em class="em">collapse</em></td>
+	<td title="Note">
+		collapse 값은 table 요소에 사용하며 행이나 열을 감춘다.
+		))<a href="https://developer.mozilla.org/ko/docs/Web/CSS/visibility" target="_blank" rel="noopener" title="새 창" class="a1">visibility | MDN</a>
+	</td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">white-space</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>normal | pre | nowrap | <em>pre-wrap</em> | <em>pre-line</em></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="2">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">width</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td><i>length</i> | <i>percentage</i> | auto</td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="1">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">word-spacing</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>normal | <i>length</i></td>
+	<td title="Note"></td>
+	</tr>
+	<tr data-step="3">
+	<td><input type="checkbox" value="" checked="checked" class="checkbox" /></td>
+	<th scope="row">z-index</th>
+	<td title="CR">O</td>
+	<td title="SF">O</td>
+	<td title="FF">O</td>
+	<td title="OP">O</td>
+	<td title="IE">O</td>
+	<td></td>
+	<td>auto | <i>integer</i></td>
+	<td title="Note"></td>
+	</tr>
+	</tbody>
+</table>
+
+<p>
+<cite>Properties List takes from [book] JavaScript: The Definitive Guide, 5th Edition - O'Reilly 2006</cite>
+</p>
+
+
+
+<h2 class="hb1 h2" id="Link">Reference Link</h2>
+
+
+<ol class="bo">
+<li>W3C CSS 2.1 Full property table: <a href="http://www.w3.org/TR/CSS2/propidx.html">http://www.w3.org/TR/CSS2/propidx.html</a></li>
+<li>W3C CSS 2.1 selector syntax: <a href="http://www.w3.org/TR/CSS2/selector.html#pattern-matching">http://www.w3.org/TR/CSS2/selector.html#pattern-matching</a></li>
+<li><a href="http://www.cssbasics.com/">http://www.cssbasics.com/</a>  [m] 기초 속성 설명</li>
+<li><a href="http://lesliefranke.com/files/reference/csscheatsheet.html">http://lesliefranke.com/files/reference/csscheatsheet.html</a> - Cheat Sheet - [m] 기본 속성만 1장 정리</li>
+</ol>
+
+<ol class="bo">
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms531207.aspx">CSS Attributes: Index</a> - MSDN - [m]-ms-scrollbar-face-color ..</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/CSS">https://developer.mozilla.org/en-US/docs/CSS</a> [m] Reference / Tutorial /  CSS3 Demos</li>
+</ol>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20120822~
+20200211. (( PoiemaWeb
+20191030. 호환 정리
+20190517. 호환 정리
+20170615.
+20160804. Step1~5.
+20160729. border..
+20150504. 글강조
+20141106. Default style sheet for HTML 4 링크 다른 곳으로 보냄 
+20140718. 20140317.20140307.
+20130409. 20130405. 20130404. 20130403.
+20130402. HTML4 표시.
+20130329. 20130327.
+20120822.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

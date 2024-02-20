@@ -1,0 +1,339 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>List 리스트, 목록, Paragraph 문단</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+html{height:100%;overflow-y:scroll;}
+body{height:100%;margin:20px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+/* List, Paragraph */
+menu,
+ul,
+ol,
+dl{margin-left:0;padding:0 0 0 2.2em;font-size:1em;text-align:left;}
+menu menu,
+ul ul,
+ol ol,
+dl dl{margin:.5em 0;}
+ol{list-style:decimal-leading-zero;}
+dt,dd{margin:.5em 0;padding:0;}
+dt{font-weight:bold;}
+dt:before{content:"ㅁ";display:inline-block;margin:0 .2em 0 -1.2em;font-weight:normal;}
+.bu1 p,
+.bu1 menu,
+.bu1 ul,
+.bu1 ol,
+.bu1 dl{list-style:none;margin:.5em 0;padding:0;}
+.bu1 p,
+.bu1 li,
+.bu1 dt{padding:0 0 0 1.2em;background:url(../img/inc/li1bg.png) no-repeat 0 2px;}
+.bu1 dt:before{content:"";display:none;}
+.bu1 dd{padding:0 0 0 1.2em;}
+.bu1 li li,
+.bu1 dl dl dt{background-image:url(../img/inc/li2bg.png);}
+.bu1 li li li,
+.bu1 dl dl dl dt{background-image:url(../img/inc/li3bg.png);}
+.bu1 li li li li,
+.bu1 dl dl dl dl dt{background-image:url(../img/inc/li4bg.png);}
+.bu2 p,
+.bu2 li,
+.bu2 dt{background-image:url(../img/inc/li2bg.png) !important;}
+.bu2 li li,
+.bu2 dl dl dt{background-image:url(../img/inc/li3bg.png) !important;}
+.bu2 li li li,
+.bu2 dl dl dl dt{background-image:url(../img/inc/li4bg.png) !important;}
+.bu3 p,
+.bu3 li,
+.bu2 dt{background-image:url(../img/inc/li3bg.png) !important;}
+.bu3 li li,
+.bu2 dl dl dt{background-image:url(../img/inc/li4bg.png) !important;}
+.bu4 p,
+.bu4 li,
+.bu2 dt{background-image:url(../img/inc/li4bg.png) !important;}
+.num1 ol{margin:.5em 0 .5em -2.1em;}
+.num1 li{list-style:none;padding:0 0 2px 2.2em;background:url() no-repeat 0 4px;}
+.num1 .n01{background-image:url(../img/num/n01.gif);}
+.num1 .n02{background-image:url(../img/num/n02.gif);}
+.num1 .n03{background-image:url(../img/num/n03.gif);}
+.num1 .n04{background-image:url(../img/num/n04.gif);}
+.num1 .n05{background-image:url(../img/num/n05.gif);}
+.num1 .n06{background-image:url(../img/num/n06.gif);}
+.num1 .n07{background-image:url(../img/num/n07.gif);}
+.num1 .n08{background-image:url(../img/num/n08.gif);}
+.num1 .n09{background-image:url(../img/num/n09.gif);}
+.num1 .n10{background-image:url(../img/num/n10.gif);}
+.num1 .n11{background-image:url(../img/num/n11.gif);}
+.num1 .n12{background-image:url(../img/num/n12.gif);}
+.num1 .n13{background-image:url(../img/num/n13.gif);}
+.num1 .n14{background-image:url(../img/num/n14.gif);}
+.num1 .n15{background-image:url(../img/num/n15.gif);}
+.num1 .n16{background-image:url(../img/num/n16.gif);}
+.num1 .n17{background-image:url(../img/num/n17.gif);}
+.num1 .n18{background-image:url(../img/num/n18.gif);}
+.num1 .n19{background-image:url(../img/num/n19.gif);}
+.num1 .n20{background-image:url(../img/num/n20.gif);}
+
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+
+/*]]>*/</script>
+</head>
+<body>
+<h1>List 리스트, 목록, Paragraph 문단</h1>
+
+<!-- <ol class="num">
+<li>
+</li>
+</ol> -->
+
+<h2>텍스트 목록(menu,ul,ol,dl dt,p) 과 문단(p)</h2>
+
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;background:#f7f7f7;">
+<h3>목록 기본 좌 여백 최소</h3>
+<ul>
+<li>비 순차 목록 1차
+	<ul>
+	<li>비 순차 목록 2차
+		<ul>
+		<li>비 순차 목록 3차
+			<ul>
+			<li>비 순차 목록 4차</li>
+			<li>비 순차 목록 4차</li>
+			</ul>
+		</li>
+		<li>비 순차 목록 3차</li>
+		</ul>
+	</li>
+	<li>비 순차 목록 2차</li>
+	</ul>
+</li>
+<li>비 순차 목록 1차</li>
+</ul>
+<ol>
+<li>순차 목록 1차
+	<ol>
+	<li>순차 목록 2차
+		<ol>
+		<li>순차 목록 3차
+			<ol>
+			<li>순차 목록 4차</li>
+			<li>순차 목록 4차</li>
+			</ol>
+		</li>
+		<li>순차 목록 3차</li>
+		</ol>
+	</li>
+	<li>순차 목록 2차</li>
+	</ol>
+</li>
+<li>순차 목록 1차</li>
+</ol>
+<dl>
+<dt>정의 목록 용어 Definition Term</dt>
+<dd>정의 목록 설명 Definition Description.
+	<dl>
+	<dt>메타 데이터 meta data</dt>
+	<dd>웹 검색 엔진이나 사이트 관리에 유용한 정보
+		<dl>
+		<dt>키워드 keyword</dt>
+		<dd>검색 엔진이 문서를 내용에 따라 분류하는 데 사용됩니다.
+			<dl>
+			<dt>디스크립션 description</dt>
+			<dd>문서의 내용을 간단하게 설명하는 데 사용합니다.</dd>
+			</dl>
+		</dd>
+		</dl>
+	</dd>
+	</dl>
+</dd>
+</dl>
+</div>
+<!-- /contentsBlock -->
+
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;height:300px;overflow:auto;">
+<h3>비 순차 목록 불릿 1,2,3,4차</h3>
+<!-- bu1 -->
+<div class="bu1">
+<ul>
+<li>비 순차 목록 1차</li>
+<li>비 순차 목록 1차
+	<ul>
+	<li>비 순차 목록 2차</li>
+	<li>비 순차 목록 2차
+		<ul>
+		<li>비 순차 목록 3차</li>
+		<li>비 순차 목록 3차
+			<ul>
+			<li>비 순차 목록 4차</li>
+			<li>비 순차 목록 4차</li>
+			</ul>
+		</li>
+		<li>비 순차 목록 3차</li>
+		</ul>
+	</li>
+	<li>비 순차 목록 2차</li>
+	</ul>
+</li>
+<li>비 순차 목록 1차</li>
+</ul>
+</div>
+<!-- /bu1 -->
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;height:300px;overflow:auto;">
+<h3>순차 목록 불릿 1,2,3,4차</h3>
+<!-- bu1 -->
+<div class="bu1">
+<ol>
+<li>순차 목록 1차</li>
+<li>순차 목록 1차
+	<ol>
+	<li>순차 목록 2차</li>
+	<li>순차 목록 2차
+		<ol>
+		<li>순차 목록 3차</li>
+		<li>순차 목록 3차
+			<ol>
+			<li>순차 목록 4차</li>
+			<li>순차 목록 4차</li>
+			</ol>
+		</li>
+		<li>순차 목록 3차</li>
+		</ol>
+	</li>
+	<li>순차 목록 2차</li>
+	</ol>
+</li>
+<li>순차 목록 1차</li>
+</ol>
+</div>
+<!-- /bu1 -->
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;height:300px;overflow:auto;">
+<h3>순차 목록 배경 숫자</h3>
+<!-- num1 -->
+<div class="num1">
+<ol>
+<li class="n01">순차 목록 1차</li>
+<li class="n02">순차 목록 1차</li>
+<li class="n03">순차 목록 1차</li>
+<li class="n04">순차 목록 1차</li>
+<li class="n05">순차 목록 1차</li>
+<li class="n06">순차 목록 1차</li>
+<li class="n07">순차 목록 1차</li>
+<li class="n08">순차 목록 1차</li>
+<li class="n09">순차 목록 1차</li>
+<li class="n10">순차 목록 1차</li>
+<li class="n11">순차 목록 1차</li>
+<li class="n12">순차 목록 1차</li>
+<li class="n13">순차 목록 1차</li>
+<li class="n14">순차 목록 1차</li>
+<li class="n15">순차 목록 1차</li>
+<li class="n16">순차 목록 1차</li>
+<li class="n17">순차 목록 1차</li>
+<li class="n18">순차 목록 1차</li>
+<li class="n19">순차 목록 1차</li>
+<li class="n20">순차 목록 1차</li>
+</ol>
+</div>
+<!-- /num1 -->
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;height:300px;overflow:auto;">
+<h3>정의 목록 불릿 1,2,3,4차</h3>
+<!-- bu1 -->
+<div class="bu1">
+<dl>
+<dt>정의 목록 용어 Definition Term</dt>
+<dd>정의 목록 설명 Definition Description.
+정의 목록(definition list)은, 항목이 용어(term)와 설명(description) 두 부분으로 구성되어있다는 것 이외에는, 다른 두 종류의 목록과 거의 같다.
+용어는 DT 엘레멘트로 지정 되는데 인라인(inline) 내용 만을 가질 수 있고, 내용(description)은 DD 엘레멘트로 지정 되는데 블럭레벨(block-level)의 내용을 가질 수 있다.
+	<dl>
+	<dt>메타 데이터 meta data</dt>
+	<dd>웹 검색 엔진이나 사이트 관리에 유용한 정보로 메타 데이터를 지정하면 문서 헤더에 메타 태그가 삽입됩니다.
+		<dl>
+		<dt>키워드 keyword</dt>
+		<dd>검색 엔진이 문서를 내용에 따라 분류하는 데 사용됩니다.
+			<dl>
+			<dt>디스크립션 description</dt>
+			<dd>설명 메타 태그는 문서의 내용을 간단하게 설명하는 데 사용합니다.</dd>
+			</dl>
+		</dd>
+		</dl>
+	</dd>
+	</dl>
+</dd>
+</dl>
+</div>
+<!-- /bu1 -->
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;height:300px;overflow:auto;">
+
+<h3>문단 불릿 1,2,3,4</h3>
+
+<!-- bu1 -->
+<div class="bu1">
+<p>P 엘레멘트는 문단(paragraph)을 나타낸다. 이것은 P 차체 및 블럭레벨 엘레멘트를 포함 할 수 없다. 제작자는 내용이 없는 빈 P 엘레멘트를 사용하지 않는 것이 좋다. 사용도구는 빈 P 엘레멘트를 무시하여야 한다.</p>
+
+<!-- bu2 -->
+<div class="bu2">
+<p>P 엘레멘트는 문단(paragraph)을 나타낸다. 이것은 P 차체 및 블럭레벨 엘레멘트를 포함 할 수 없다. 제작자는 내용이 없는 빈 P 엘레멘트를 사용하지 않는 것이 좋다. 사용도구는 빈 P 엘레멘트를 무시하여야 한다.</p>
+<div class="bu3">
+<p>P 엘레멘트는 문단(paragraph)을 나타낸다. 이것은 P 차체 및 블럭레벨 엘레멘트를 포함 할 수 없다. 제작자는 내용이 없는 빈 P 엘레멘트를 사용하지 않는 것이 좋다. 사용도구는 빈 P 엘레멘트를 무시하여야 한다.</p>
+</div>
+<div class="bu4">
+<p>P 엘레멘트는 문단(paragraph)을 나타낸다. 이것은 P 차체 및 블럭레벨 엘레멘트를 포함 할 수 없다. 제작자는 내용이 없는 빈 P 엘레멘트를 사용하지 않는 것이 좋다. 사용도구는 빈 P 엘레멘트를 무시하여야 한다.</p>
+</div>
+<!-- /contentsBlock -->
+</div>
+<!-- /bu2 -->
+</div>
+<!-- /bu1 -->
+
+</div>
+<!-- /contentsBlock -->
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:left;width:25%;">
+
+</div>
+<!-- /contentsBlock -->
+
+
+
+
+
+<br />
+<hr class="clear" />
+<p>Revision. 20120816.</p>
+
+</body>
+</html>

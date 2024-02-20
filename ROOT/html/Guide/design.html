@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Guide - Design | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>디자인(Designer)에게 바란다</h1>
+
+<ul class="bu">
+<li><a href="http://photoshopetiquette.com/">The Photoshop Etiquette Manifesto for Web Designers</a> 웹디자이너를 위한 포토샵 에티켓</li>
+</ul>
+
+<!-- <pre>
+(>>>>@PJT 디자이너들
+시안 디자인을 여러 사람에게 받다보니.. PSD 정리가 안되어 넘어오는 경우가 많습니다.
+디자인 커팅 작업이 원활하게 될 수 있도록 아래 내용(최신버전)을 다시 한번 숙지해주시기 바랍니다.
+* 디자이너에게 바란다 URL
+* 템플릿 코딩 전 체크리스트 URL
+<b>!주의! 그리드 계획, 포토샵 (비)활성 레이어 색 지정, 레이어 정리, 불필요한 레이어 삭제, ..</b>
+)
+※ 디자이너9명*작업량10분 = 전체작업량90분 ==> 작업량90분/코더2명 = 작업량45분(코더1명)
+※ 디자이너4명*작업량10분 = 전체작업량40분 ==> 작업량40분/코더1명 = 작업량40분(코더1명)
+</pre> -->
+
+<h2>디자인 PSD → 코딩 전달시 요청사항</h2>
+
+<p>
+<strong>항상! <em>다음 작업자<small>와</small> 유지보수 편의<small>를</small> 고려</em><small>하면서</small> 작업<small>해주시기 바랍니다.</small></strong>
+</p>
+
+<!-- box4 -->
+<div class="box4">
+
+<ol class="bo1 num00">
+<li>PSD 파일명에 버전과 작업자 이름 등을 표시해주세요!
+<div class="box2">
+<strong><b>(갑.프로젝트명_)사이트명_웹문서명_<em>(반응형구분)</em>_<i class="ic">20140320(최종본)</i>_<i class="ic">디자이너</i>.psd</b></strong>
+</div>
+	<ul class="bu1">
+	<li>(예1) 기본 형태<br />
+	영천_문화관광_Sub(보현산천문대)_20101012_황진이.psd<br />
+	</li>
+	<li>(예2) 반응형, 디자이너 이관.<br />
+	남해군_열린군수실_Main_Desktop_성춘향_20140813_향단이.수정.psd<br />
+	남해군_열린군수실_Main_Tablet_성춘향_20140813_향단이.수정.psd<br />
+	남해군_열린군수실_Main_Smartphone_성춘향_20140813_향단이.수정.psd<br />
+	</li>
+	<li>(예3) 반응형. 중단점에 따른 구분 <i class="ic1">-- 가장 큰 화면은 _Sub@3_ 처럼 중단점을 넣지 않고, 기본 형태 _Sub_ 로 표시하였음.</i><br />
+	울회사.웹사이트.리뉴얼_Sub_1024~_20140813(최종본)_성춘향.psd<br />  
+	울회사.웹사이트.리뉴얼_Sub@1_320~768_20140813(최종본)_성춘향.psd<br />
+	울회사.웹사이트.리뉴얼_Sub@2_768~1024_20140813(최종본)_성춘향.psd<br />
+	<em class="em1">또한 중단점 표시는 웹 이미지 파일명을 만들 때 그대로 적용한다.</em><br />
+	menu2s.png<br />
+	menu2s@1.png<br />
+	menu2s@2.png<br />
+	</li>
+	</ul>
+</li>
+<li> "디자인 포토샵 파일(*.psd)", "콘텐츠 구조 엑셀 파일(*.xls)"이 <em>확정된 최종본인지 확인</em>하고 넘겨주세요.</li>
+<li>온/오프 상태, 탭메뉴, <strong>로그인 후</strong> 등 상황에 따라 달라지는 이미지는 <em>+on +off 별로 Layer Set|Group </em>을 만들어 주십시오.<br />
+Layer Set|Group 명명 방법은 [+이름] 을 권장합니다. [예] <a href="../img/ex)TabOnOff_myshin.png">ex)TabOnOff_myshin.png</a> [<a href="../img/ex)TabOnOff_myshin.psd">psd소스</a>]
+</li>
+<li>상단메뉴, 좌메뉴의 하위메뉴도 상황별로 디자인 추가 변경 있다면 별도 Layer Set|Group으로 만들어주세요.</li>
+<li>Layer Set|Group 만들 때 콘텐츠 구역별로 잘 묶어서 주시고, 가급적 <em>레이어 이름</em>을 남겨주세요.<br />
+	<ul>
+	<li>테이블 레이아웃은 디자인 위주로 자르지만, CSS 레이아웃은 콘텐츠별로 자르므로 Layer Set|Group 숨김, 보임을 자주하게 됩니다.<br />
+	레이어 정리가 안되어 있을 경우(나쁜예: head 와 body의 텍스트를 하나의 Layer Set|Group 안에 두는 경우) 커팅 작업이 곤란합니다.</li>
+	<li>불릿은 bu 혹은 ㅇ, 라인은 line 혹은 ---- 등등 간단하게라도 붙이는 습관을 가져주세요.<br />(시간 많이 안걸립니다. - 수정할 때, UI코딩시, 유지보수시 편리)</li>
+	<li>필히, <em>전체 배경 디자인은 별도 Layer Set|Group</em>[+bg]으로 구분하시고,<br />
+	영역별 Layer Set|Group 안에서도 배경[+bg]과 콘텐츠[+c] 로 크게 2개의 Layer Set|Group 으로 나눠주시면 배경만 커팅해야 할 경우 작업이 수월합니다.</li>
+	</ul>
+</li>
+<li><em>연관된 레이어는 바로 인접한곳에 위치</em>하도록 해주세요.<br />
+나쁜예 : 텍스트를 꾸미는 불릿 레이어가  텍스트 레이어와 인접해있지 않고 사이에 다른 레이어들이 어지럽게 섞여있는 경우.
+</li>
+<li>이미지 <em>메뉴는 크기 또는 간격이 일정</em>하게 제작해주세요.</li>
+<li><em>온·오프(활성·비활성) 이미지 크기를 동일</em>하게 만들어주세요. (가로형은 너비, 세로형은 높이가 필히 같아야 함)</li>
+<li><strong>그리드</strong> 계획에 맞춰 주세요. (<b>가이드라인</b> 사용시 1px씩 어긋나지 않게 정확하게 표시해주세요.)<br />
+<em>※주의</em>: 포토샵 작업시 확대 배율이 100% 의 배수가 아닐 경우 가이드가 1px 중간에 만들어지는 오류.</li>
+<li>여러 페이지에 걸쳐서 <em>같은 형태의 디자인일 경우 psd 파일 1개</em>로 처리해주세요. <a href="https://www.정보행동.co.kr:446/sub/solution.asp">(예) 정보행동 - 개발솔루션</a><br />
+서브 페이지 UI(head, sidebar, foot 영역), 메인 페이지 디자인은 각각 psd 파일 1개로 해결할 수 있도록 해주세요.<br />
+주메뉴, 푸터 등 메인과 서브 <strong><em>공통 템플릿 디자인은 서브 템플릿 디자인 psd 파일에 모두 완전하게 넣어주세요.</em></strong> (일반적으로 서브 코딩이 먼저 진행됨)
+</li>
+<li>플래시 링크와 비플래시 링크가 <del>가급적</del> 겹치지 않도록 작업해주세요. <a href="http://wmasan.changwon.go.kr/">(나쁜예) 통합전(구)마산시</a></li>
+<li><del>서브</del> <ins>플래시</ins> 비쥬얼 위에 메뉴를 만들지 마세요. <a href="http://wmasan.changwon.go.kr/">(나쁜예) 통합전(구)마산시</a></li>
+<li>디자인시 색상 대비에 좀 더 신경을 써주세요.<br />
+<!-- <a href="../Accessibility/accessibility_validation.html#checklist8">웹 접근성 작업 참고 에서 "1-3-2. 전경색과 배경색은 충분한 대비를 가지고 있어야 한다."</a> 부분 참고 -->
+<a href="http://www.wah.or.kr/_Upload/pds/2008-676-한국형%20웹%20콘텐츠%20접근성%20지침%202.0_ttas.pdf">한국형 웹 콘텐츠 접근성 지침 2.0</a>
+부록 Ⅲ 한국형 웹 콘텐츠 접근성 지침 2.0 검사항목(22개) 사례<br />
+⑤ (텍스트 콘텐츠의 명도 대비) 텍스트 콘텐츠와 배경 간의 <em class="em1">명도 대비는 4.5대 1 이상</em>이어야 한다.
+부분 <!-- (55페이지) --> 참고
+</li>
+<li>PSD 파일이 너무 커서 컴퓨터가 버벅거립니다.(<del>10M</del> <ins>20M</ins>이하를 원하는데, 20M가 넘는 경우도 많군요.)<br />
+<b>미사용 레이어를 삭제</b>하고, 추후 수정이 필요없는 것들은 머지시켜서 용량 좀 줄여주시면 안될까요?<br />
+(색)조정 레이어, 투명도 사용, 레이어 마스크, 폴더 등을 많이 사용하면 용량이 엄청 늘어납니다.<br />
+</li>
+<li><em>비쥬얼이 크면,</em> 메인과 서브 전체 디자인 PSD 에는 대표 비쥬얼만 남겨두시고,<br />
+<em>서브페이지별 비쥬얼, 메인 비쥬얼 <!-- 플래시 --> 장면별 디자인은 별도 PSD 파일로 만들어주세요.</em><br />
+</li>
+<li>페이지 레아아웃 백그라운드에 그라데이션, 그림자가 없으면 안될까요?<br />
+코딩시 쓸데 없는 코드들을 많이 생성시키고, 페이지 전체 렌더링 속도가 엄청 무거워집니다.<br />
+그림자가 필요할 경우.. 광원, 광량을 일정하게 하여 전체적인 z좌표가 flat하게 해주세요.<br />
+</li>
+<li><del>이미지를 <em>투명 png-24 파일로 저장해야 하는 경우가 없도록 디자인</em>해주십시오. <a href="http://wmasan.changwon.go.kr/">(나쁜예) 통합전(구)마산시</a></del><br />
+<del>IE6,7에서 버그가 있어서 비표준코드를 생성해야하고 코드가 복잡해집니다. 단, IE6,7 호환을 고려하지 않는 웹사이트에는 사용하셔도 됩니다.</del><br />
+<em>플래시 내비게이션은 만들지 않으니, 디자인 발상을 다르게 해주시기 바랍니다.</em><br />
+</li>
+</li>
+<li>좌메뉴 등 이미지가 아닌 텍스트 정보는 <em>포토샵에서 자간을 100의 배수</em>(css에서 letter-spacing 1px의 배수)로만 지정해주세요.<br />
+포토샵에서 Character 패널의 kerning 을 0 또는 Metrics 로 설정하세요. (Optical 은 사용하지 마세요.)
+
+</li>
+<li>메뉴 영역, 제목 영역 등 모든 콘텐츠와 배경은 <em>예상할 수 있는 모든 경우를(가장 짧은 것과 가장 긴 것을) 고려하여 디자인</em>해주세요.</li>
+<li>여러 사이즈(원본, 섬네일 등)로 서비스 되는(DB에 저장되는) 이미지는 가로 세로 비율을 맞춰주세요.<br />
+(모니터 화면, 디카의 일반적인 사이즈인 4:3 비율을 권장합니다.)<br />
+디자인하기 전에 기존 DB 이미지를 그대로 사용할 것인지, 수정해서 다시 등록할것인지 파악한 후에 디자인해주세요.<br />
+</li>
+<li>여러 페이지(서브와 메인 등)에서 같은 콘텐츠가 다른 위치에서 보여질 때 가능하면 디자인을 맞춰주세요.
+<a href="http://www.gayaddeul.com/">(나쁜예) 메인과 서브의 "금주의 추천농장"</a></li>
+<li>외국어 디자인시 텍스트 콘텐츠는 해당 언어 OS 범용 폰트로 만들어주세요.<br />
+국문: 돋움, 굴림, ..<br />
+영문: Tahoma, Arial, Verdana, ..<br />
+일문: "MS UI Gothic", "MS Gothic"<br />
+중문: Simsun, SimHei, "MS Song"<br />
+</li>
+<li><em>웹사이트 화면에 기능이 필요한 경우, 디자인 전에 자바스크립트 개발자와 반드시 상의해주세요.</em></li>
+<li>포토샵 텍스트 레이어의 정렬 속성을 디자인의 정렬과 동일하게 해주세요. 그렇게 해주시면 변경이 용이하겠죠.</li>
+<li><b class="em5 fsL">화면 해상도</b>. 와이드 모니터를 생각한다면 배경은 간단한 패턴만 사용했으면 합니다.<br />
+사진 배경으로 할 수 밖에 없다면 <del>1680px</del> <ins>1920px</ins> 이상도 고려했으면 합니다.<br />
+<!-- <del>표본은 적지만 참고하시길..<a href="http://weblog2-001.cafe24.com/env/?cont=envDim">(참고) 모니터 해상도 통계</a></del> -->
+<del>※ <a href="http://trend.logger.co.kr/trendForward.tsp">InternetTrend - 분석리포트</a> - 방문자 환경 - 화면해상도</del>
+<ins>))) <a href="http://gs.statcounter.com/#browser_version_partially_combined-KR-monthly-201509-201609" target="_blank" title="새 창">gs.statcounter.com</a></ins>
+
+</li>
+<li><em>중앙 배치 디자인은 좌·우 배경(여백)의 가로 길이를 동일하게 해주세요.</em>
+그렇지 않으면 이미지 커팅할 때 디자인 보정 작업까지 해야합니다.
+
+<table border="1" summary="" style="width: 50%;"><caption>전체폭 2000px = 좌500px + 웹사이트1000px + 우500px</caption>
+<col style="width: 25%;" /><col style="width: 50%;" /><col style="width: 25%;" />
+<tr>
+<td class="tac">좌<br />500px</td>
+<td class="tac">웹사이트<br />1000px</td>
+<td class="tac">우<br />500px</td>
+</tr>
+</table>
+
+</li>
+<li>탭 이미지 등 활성, 비활성 상태를 가지는 이미지는 상황에 따라 2가지 디자인만으로도 가능하게 해주세요.<br />
+3가지 이상의 상태를 가지면 자바스크립트 개발 공정이 추가됩니다.
+</li>
+<li>벡터는 비트맵으로 변환해주시는 것이 이미지 커팅 작업에 좋습니다.<br />
+벡터 도형 만들 때 <em>경계면에 얼룩</em>이 발생하지 않도록 해주세요.
+</li>
+<li>텍스트 레이어는 살려주시는게 좋겠습니다.</li>
+<li>
+<strong>포토샵 - 레이어 팔레트 - 눈표시</strong>로 확인해야하는 것은 알기쉽게 <b><em class="em1">Layer (Set|Group) Properties - Color</em></b> 를 지정해주세요.<br />
+(ex) 기본, 선택 상황별, 이벤트별 활성/비활성 콘텐츠, ..<br />
+(ex) 전체메뉴, 바로가기 여닫기, 섹션별 비쥬얼 콘텐츠, ..<br />
+(Tip) 콘텐츠 단위로 이미지 커팅하므로 Layer Set|Group 숨김, 보임을 자주 사용.<br />
+(Tip) 미사용 레이어는 삭제.<br />
+</li>
+<li>line-height 를 font-size+3px 이상되게 디자인해주세요.<br />
+font-size:12px; 의 최소 line-height:15px;<br />
+font-size:11px; 의 최소 line-height:14px;<br />
+</li>
+<li>포토샵의 텍스트 문단 너비 보다 크게 표현하는 브라우저가 있으므로, 여백을 두고 여유 있게 디자인 바랍니다.<br />
+반응형 웹에서는 더욱 유념하시기 바랍니다.<br />
+</li>
+<li>레이어 겹침 효과 Normal 이외(Multiply, Overlay 등)를 적용하려면 만들 때 콘텐츠가 겹치지 않도록 해주세요.</li>
+<li>Layer Set|Group 4단계 이상 깊이는 지양해주세요. (최대 4단계 허용)<br /> 예) 1단계-전체레이아웃, 2단계-단위콘텐츠, 3단계-각요소. 4단계-각요소의 디자인묶음?
+<!-- box2 -->
+<div class="box2">
+<pre class="mg0">
+/+head/
+/+body/
+/+body/+최근게시물(공지..)/+headline/
+/+body/+최근게시물(공지..)/+control/
+/+body/+최근게시물(공지..)/+list/
+/+body/+최근게시물(공지..)/+bg/
+/+foot/
+/+visual/
+/+bg/
+</pre>
+</div><!-- /box2 -->
+</li>
+<li><em class="em1">WSG, 가이드를 정해서 디자인</em> 해주시기 바랍니다.<br />
+나쁜예) 글꼴, 버튼, 표, 라인, 그림자, 양각, 음각 스타일이 추가 페이지 디자인 하면서 달라진다.</li>
+<li>로테이션 콘텐츠의 제어 버튼 디자인은 [정지][재생][이전][다음] 순으로 통일해주세요. 같은 페이지에서 순서를 다르게 하지 마세요.</li>
+</ol>
+
+</div>
+<!-- //box4 -->
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong><br />
+20161011. 화면 해상도 갱신<br />
+20140813. PSD 파일명. 반응형 예 추가<br />
+…<br />
+20140704. 내용 검토 후 일부 수정<br />
+20140701. 제어 버튼 디자인<br />
+20140603. WSG<br />
+20140320. 파일명.네이밍.반응형 보강<br />
+20131024. 최근 디자이너 습관 반영.
+20130710. line-height, 텍스트 문단 너비.
+20130524. line-height, 텍스트 문단 너비.
+20130417. 디자인 파일명 정리.<br />
+20120720. 눈표시.. Layer (Set|Group) Properties - Color 추가.
+20120522. .<br />
+20110225. 화면해상도 참조 링크 변경.
+20110121. DB 이미지 가로 세로 비율 등 보완.
+20110118. 플래시 관련 내용 보완 등.<br />
+20101122. 내용 검토 후 문구 일부 수정.
+20101111. 파일명 명명법 추가.
+20100722. 중앙 배치, 3가지 상태 이미지 금지 권고 추가.<br />
+20090520. 웹사이트 화면에 기능이 필요한 경우 추가.<br />
+20081014.
+20080902. 초안작성
+</p>
+<hr />
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

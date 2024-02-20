@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'accordion 마우스오버이미지확장',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+#m2{display:block;position:relative;left:0;top:0;width:270px;height:119px;}
+#m2 *{list-style:none;margin:0;padding:0;border:0;background:transparent;font-size:1em;line-height:1.25;letter-spacing:0;vertical-align:top;}
+#m2 ul{width:100%;height:100%;overflow:hidden;background:url(m2.jpg) no-repeat;}
+#m2 ul li{display:inline;}
+#m2 ul li:hover{border:1px solid #f00;}
+#m2 ul li a{display:inline;float:left;height:119px;overflow:hidden;text-indent:-9999px;background:url();}
+#m2 ul li.m1 a{width:188px;}
+#m2 ul li.m2 a{width:40px;}
+#m2 ul li.m3 a{width:42px;}
+#m2 ul.m1{background-position:0 0;}
+#m2 ul.m2{background-position:0 -120px;}
+#m2 ul.m3{background-position:0 -240px;}
+#m2 ul.m2 li.m1 a{width:43px;}
+#m2 ul.m2 li.m2 a{width:185px;}
+#m2 ul.m2 li.m3 a{width:42px;}
+#m2 ul.m3 li.m1 a{width:43px;}
+#m2 ul.m3 li.m2 a{width:40px;}
+#m2 ul.m3 li.m3 a{width:187px;}
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+/* 활동링크.20110222.MoonYoungShin. ex)initKineticLink("m2"); */
+function initKineticLink(id){
+	var e=document.getElementById(id);e.a=e.getElementsByTagName("A");
+	for(var i=0;i<e.a.length;i++){e.a[i].onmouseover=e.a[i].onfocus=function(){this.parentNode.parentNode.className=this.parentNode.className};}
+}
+/*]]>*/</script>
+</head>
+<body>
+<h1>accordion 마우스오버이미지확장</h1>
+
+<!-- m2 -->
+<div id="m2">
+<ul>
+<li class="m1"><a href='/sub/03_06_01.jsp'>블루시티투어. 해양관광 휴양도시 거제블루시티 투어와 함께~</a></li>
+<li class="m2"><a href='/sub/03_01_01.jsp'>8경 8품 8미. 아름다운 거제, 특별한 지역특산품, 향토전통음식을 소개합니다.</a></li>
+<li class="m3"><a href='/sub/03_02.jsp'>체험여행. 함께해서 더 즐거운 특별한 체험을 경험해보세요.</a></li>
+</ul>
+</div>
+<!-- //m2 -->
+<script>initKineticLink("m2");</script>
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+@charset "utf-8";
+/*! Web Font @font-face Style Sheets v0.270 © 20150303~. 20191001. 20191004. MoonYoungshin[myshin@naver.com]
+ * ★ NoEdit! ★ Only CSS Creator can modify.
+ * Note) 표제를 위한 볼드타입과 본문을 위한 가독성 좋은 폰트, 이렇게 최대 2개의 폰트만 선언하는 것이 좋다.
+ * 실무 적용 가능한 템플릿 코드를 만들었다.
+ * 20190213. 본고딕(깨끗버전IE9+) 으로 수정!
+ * 20191001. 본고딕 600 ((( NotoSansKR-Medium
+ * 20191004. Lato 600
+ * 20191010. Noto Serif 600
+ * 20191129. 폴더 파일 정리 | [IE9+] woff2, woff 만 남김
+ * 20200205. [FF]bugFix) Open Sans 하위세트 사용안함. 'Open Sans' ))) 'OpenSans'
+ * 20200504. [IE]bugFix) Noto Serif 갱신
+ * 20200521. 정리) 한글글꼴명 먼저. 네트워크 웹폰트명 공백여부 로컬폰트명과 다르게.
+ */
+
+/** Compatible! [IE8+]
+ */
+
+/** Table of contents ))
+ | @import
+ | @font-face
+ ))) Korean
+ | 'NanumGothic'
+ | 'NanumBarunGothic'
+ | 'NanumSquare'
+ | 'NanumMyeongjo'
+ | 'Noto Sans KR'
+ | 'Noto Serif'
+ | 'SpoqaHanSans'
+ | 'Infinity Sans'
+ ))) english
+ | 'Lato'
+ | 'godoRounded R'
+ | 'Open Sans'
+ | 'Roboto'
+ ))) 추가
+ | 'GimhaeGaya'
+ | 'S-Core Dream'
+ */
+
+
+/* ◇◆ Web Font ◆◆◆ */
+
+
+/* @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css); */
+/* @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); */
+/* @import url(//fonts.googleapis.com/css?family=Lato); */
+/* @import url(//fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap); */
+
+
+/* ◇◆ @font-face ◇◆ */
+
+
+/* Sample ))) Best Practice */
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	/* [~IE8]은 format() 속성을 해석 못하고 문자열로 인식하므로, .eot 뒤에 물음표(?)를 추가하여 이후 구문을 쿼리문으로 만들어 해결한다. */
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'), /* [~IE8], [IE9+] */
+				url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.woff) format('woff'); /* 모던 브라우저 */
+}
+
+/* 위와 같이 [IE8호환성보기모드]는 물음표(?)를 추가해도 format() 이 있거나 url() 이 한 번 더 사용된 경우 인식하지 못하므로,
+ * 아래와 같이 src 를 별도로 정의해 준다.
+ */
+
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: normal;
+	src: url(../../font/NanumGothic-Regular.eot); /* [~IE8], [IE8호환성보기모드]. format('embedded-opentype') 속성이 없으므로 표준 브라우저가 eot 폰트를 내려받아야 하지만 영리하게도 그러지 않는다. */
+	src: local('☺'), /* [~IE8]은 local() 을 인식하지 못하므로, 이 속성 이후 폰트는 요청하지 않는다. */
+		/* 사용자 로컬에 폰트가 잘못 설치되면, 원하는 화면을 보여줄 수 없으므로 local() 속성을 대부분 사용하지 않는다. */
+		local('나눔고딕'),
+		local('NanumGothic'),
+		local('Nanum Gothic'),
+		url(../../font/NanumGothic-Regular.woff2) format('woff2'), /* [Edge], [CR][FF][OP] */
+		url(../../font/NanumGothic-Regular.woff) format('woff'); /* [IE9+][IE11에뮬레이션], 모던 브라우저 */
+	unicode-range: U+0030-0039, U+002E, /* 0123456789. */
+											U+003?, /* 0123456789:;<=>? */
+											U+000-5FF, /* Latin */
+											U+0041-005A, U+0061-007A, /* A-Za-z */
+											U+AC00-D7AF, /* Korean */
+											U+3000-9FFF, U+FF??; /* Japanese */
+}
+
+
+/* NanumGothic */
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-weight: 400;
+	src:
+		url(../../font/NanumGothic/400.woff2) format('woff2'),url(../../font/NanumGothic/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-weight: 700;
+	src:
+		url(../../font/NanumGothic/700.woff2) format('woff2'),url(../../font/NanumGothic/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-weight: 800;
+	src: 
+		url(../../font/NanumGothic/800.woff2) format('woff2'),url(../../font/NanumGothic/800.woff) format('woff');
+}
+
+
+/* NanumBarunGothic */
+ @font-face {
+	font-family: 'Nanum Barun Gothic';
+	font-weight: 200;
+	src: 
+		url(../../font/NanumBarunGothic/200.woff2) format('woff2'),url(../../font/NanumBarunGothic/200.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic';
+	font-weight: 300;
+	src: 
+		url(../../font/NanumBarunGothic/300.woff2) format('woff2'),url(../../font/NanumBarunGothic/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic';
+	font-weight: 400;
+	src: 
+		url(../../font/NanumBarunGothic/400.woff2) format('woff2'),url(../../font/NanumBarunGothic/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic';
+	font-weight: 700;
+	src: 
+		url(../../font/NanumBarunGothic/700.woff2) format('woff2'),url(../../font/NanumBarunGothic/700.woff) format('woff');
+}
+
+
+/* NanumSquare (漢字없다) */
+@font-face {
+	font-family: 'Nanum Square';
+	font-weight: 300;
+	src: 
+		url(../../font/NanumSquare/300.woff) format('woff2'),url(../../font/NanumSquare/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Square';
+	font-weight: 400;
+	src: 
+		url(../../font/NanumSquare/400.woff2) format('woff2'),url(../../font/NanumSquare/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Square';
+	font-weight: 700;
+	src: 
+		url(../../font/NanumSquare/700.woff2) format('woff2'),url(../../font/NanumSquare/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Square';
+	font-weight: 800;
+	src: 
+		url(../../font/NanumSquare/800.woff) format('woff2'),url(../../font/NanumSquare/800.woff) format('woff');
+}
+
+
+/* NanumMyeongjo */
+@font-face {
+	font-family: 'Nanum Myeongjo';
+	font-style: normal;
+	font-weight: 400;
+	src: local('NanumMyeongjo'),
+		url(../../font/NanumMyeongjo/400.woff2) format('woff2'),url(../../font/NanumMyeongjo/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Myeongjo';
+	font-style: normal;
+	font-weight: 700;
+	src: local('NanumMyeongjo Bold'), local('NanumMyeongjoBold'),
+		url(../../font/NanumMyeongjo/700.woff2) format('woff2'),url(../../font/NanumMyeongjo/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'Nanum Myeongjo';
+	font-style: normal;
+	font-weight: 800;
+	src: local('NanumMyeongjo ExtraBold'), local('NanumMyeongjoExtraBold'),
+		url(../../font/NanumMyeongjo/800.woff2) format('woff2'),url(../../font/NanumMyeongjo/800.woff) format('woff');
+}
+
+
+/* Noto Sans KR. 20191129. (선명(O).경량(O))
+ */
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 100;
+	src: local('Noto Sans KR Thin'),local('NotoSansKR-Thin'),
+		url(../../font/NotoSans/100.woff2) format('woff2'),url(../../font/NotoSans/100.woff) format('woff');
+}
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 300;
+	src: local('Noto Sans KR Light'),local('NotoSansKR-Light'),
+		url(../../font/NotoSans/300.woff2) format('woff2'),url(../../font/NotoSans/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 400;
+	src: local('Noto Sans KR Regular'),local('NotoSansKR-Regular'),
+		url(../../font/NotoSans/400.woff2) format('woff2'),url(../../font/NotoSans/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 500;
+	src: local('Noto Sans KR Medium'),local('NotoSansKR-Medium'),
+		url(../../font/NotoSans/500.woff2) format('woff2'),url(../../font/NotoSans/500.woff) format('woff');
+}
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 700;
+	src: local('Noto Sans KR Bold'),local('NotoSansKR-Bold'),
+		url(../../font/NotoSans/700.woff2) format('woff2'),url(../../font/NotoSans/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'NotoSans';
+	font-weight: 900;
+	src: local('Noto Sans KR Black'),local('NotoSansKR-Black'),
+		url(../../font/NotoSans/900.woff2) format('woff2'),url(../../font/NotoSans/900.woff) format('woff');
+}
+
+
+/* Noto Serif 20200504
+ * (( 'Noto Serif KR' https://google-webfonts-helper.herokuapp.com/fonts/noto-serif-kr?subsets=korean,latin
+ */
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 200;
+	src: local('Noto Serif KR ExtraLight'), local('NotoSerifKR-ExtraLight'),
+		url('../../font/NotoSerif/200.woff2') format('woff2'),url('../../font/NotoSerif/200.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 300;
+	src: local('Noto Serif KR Light'), local('NotoSerifKR-Light'),
+		url('../../font/NotoSerif/300.woff2') format('woff2'),url('../../font/NotoSerif/300.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 400;
+	src: local('Noto Serif'), local('NotoSerifKR-Regular'),
+		url('../../font/NotoSerif/400.woff2') format('woff2'),url('../../font/NotoSerif/400.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 500;
+	src: local('Noto Serif KR Medium'), local('NotoSerifKR-Medium'),
+		url('../../font/NotoSerif/500.woff2') format('woff2'),url('../../font/NotoSerif/500.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 600;
+	src: local('Noto Serif KR SemiBold'), local('NotoSerifKR-SemiBold'),
+		url('../../font/NotoSerif/600.woff2') format('woff2'),url('../../font/NotoSerif/600.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 700;
+	src: local('Noto Serif KR Bold'), local('NotoSerifKR-Bold'),
+		url('../../font/NotoSerif/700.woff2') format('woff2'),url('../../font/NotoSerif/700.woff') format('woff');
+}
+@font-face {
+	font-family: 'NotoSerif';
+	font-weight: 900;
+	src: local('Noto Serif KR Black'), local('NotoSerifKR-Black'),
+		url('../../font/NotoSerif/900.woff2') format('woff2'),url('../../font/NotoSerif/900.woff') format('woff');
+}
+
+
+/* SpoqaHanSans
+ * Bold < 17px 뭉쳐보임
+ */
+@font-face {
+	font-family: 'Spoqa Han Sans';
+	font-weight: 100;
+	src: 
+		url(../../font/Spoqa/100.woff2) format('woff2'),url(../../font/Spoqa/100.woff) format('woff');
+}
+@font-face {
+	font-family: 'Spoqa Han Sans';
+	font-weight: 300;
+	src: 
+		url(../../font/Spoqa/300.woff2) format('woff2'),url(../../font/Spoqa/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'Spoqa Han Sans';
+	font-weight: 400;
+	src: 
+		url(../../font/Spoqa/400.woff2) format('woff2'),url(../../font/Spoqa/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Spoqa Han Sans';
+	font-weight: 700;
+	src: 
+		url(../../font/Spoqa/700.woff2) format('woff2'),url(../../font/Spoqa/700.woff) format('woff');
+}
+
+
+/* Infinity Sans. 20191129.
+ * 로컬 희박하니 폰트명 = font-family 웹폰트명
+ */
+@font-face {
+	font-family: 'Infinity Sans';
+	font-weight: 400;
+	src: local('Infinity Sans Regular'),local('InfinitySans-Regular'),
+		url(../../font/InfinitySans/400.woff2) format('woff2'),url(../../font/InfinitySans/400.woff) format('woff')
+}
+@font-face {
+	font-family: 'Infinity Sans';
+	font-weight: 700;
+	src: local('Infinity Sans Bold'),local('InfinitySans-Bold'),
+		url(../../font/InfinitySans/700.woff2) format('woff2'),url(../../font/InfinitySans/700.woff) format('woff')
+}
+@font-face {
+	font-family: 'Infinity Sans WM';
+	font-weight: 400;
+	src: local('Infinity Sans WM Regular'),local('InfinitySansWM-Regular'),
+		url(../../font/InfinitySans/wm-400.woff2) format('woff2'),url(../../font/InfinitySans/wm-400.woff) format('woff')
+}
+@font-face {
+	font-family: 'Infinity Sans WM';
+	font-weight: 700;
+	src: local('Infinity Sans WM Bold'),local('InfinitySansWM-Bold'),
+		url(../../font/InfinitySans/wm-700.woff2) format('woff2'),url(../../font/InfinitySans/wm-700.woff) format('woff')
+}
+@font-face {
+	font-family: 'Infinity Sans Cond';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Infinity Sans Cond'),local('Infinity Sans Cond Bold'),local('InfinitySansCond-Bold'),
+		url(../../font/InfinitySans/cond-700.woff2) format('woff2'),url(../../font/InfinitySans/cond-700.woff) format('woff')
+}
+
+
+/* Lato 20191129.
+ * 숫자,영문
+ * [CR][IE11]alert) 줄간이 위로 쏠려 사용 곤란. 20200521 확인.
+ */
+@font-face {
+	font-family: 'Lato';
+	font-weight: 400;
+	src: local('Lato Regular'), local('Lato-Regular'),
+		url(../../font/Lato/400.woff2) format('woff2'), url(../../font/Lato/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Lato';
+	font-weight: 600;
+	src: local('Lato Semibold'), local('Lato-Semibold'),
+		url(../../font/Lato/600.woff2) format('woff2'), url(../../font/Lato/600.woff) format('woff');
+}
+@font-face {
+	font-family: 'Lato';
+	font-weight: 900;
+	src: local('LatoLatin Black'), local('LatoLatin-Black'),
+		url(../../font/Lato/900.woff2) format('woff2'), url(../../font/Lato/900.woff) format('woff');
+}
+
+
+/* godoRounded R */
+@font-face {
+	font-family: 'godoRounded R';
+	font-weight: normal;
+	src: 	url(../../font/godoRounded/400.woff2) format('woff2'), url(../../font/godoRounded/400.woff) format('woff');
+}
+
+
+/* Open Sans 20200205
+ * 유니코드범위 0123456789.A-Za-z
+		unicode-range: U+0030-0039, U+002E, U+0041-005A, U+0061-007A;
+		)) [FF]bugFix) Open Sans 하위세트 사용안함
+ */
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 300;
+	font-style: normal;
+	src: url(../../font/OpenSans/300.woff2) format('woff2'), url(../../font/OpenSans/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 300;
+	font-style: italic;
+	src: url(../../font/OpenSans/300Italic.woff2) format('woff2'), url(../../font/OpenSans/300Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 400;
+	font-style: normal;
+	src: url(../../font/OpenSans/400.woff2) format('woff2'), url(../../font/OpenSans/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 400;
+	font-style: italic;
+	src: url(../../font/OpenSans/400Italic.woff2) format('woff2'), url(../../font/OpenSans/400Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 600;
+	font-style: normal;
+	src: url(../../font/OpenSans/600.woff2) format('woff2'), url(../../font/OpenSans/600.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 600;
+	font-style: italic;
+	src: url(../../font/OpenSans/600Italic.woff2) format('woff2'), url(../../font/OpenSans/600Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 700;
+	font-style: normal;
+	src: url(../../font/OpenSans/700.woff2) format('woff2'), url(../../font/OpenSans/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 700;
+	font-style: italic;
+	src: url(../../font/OpenSans/700Italic.woff2) format('woff2'), url(../../font/OpenSans/700Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 800;
+	font-style: normal;
+	src: url(../../font/OpenSans/800.woff2) format('woff2'), url(../../font/OpenSans/800.woff) format('woff');
+}
+@font-face {
+	font-family: 'OpenSans';
+	font-weight: 800;
+	font-style: italic;
+	src: url(../../font/OpenSans/800Italic.woff2) format('woff2'), url(../../font/OpenSans/800Italic.woff) format('woff');
+}
+
+
+/* Roboto. 20191129.
+ * 예) .ffrb { font-family: 'Roboto'; }
+ */
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 100;
+	src: local('Roboto Thin'),local('Roboto-Thin'),
+		url(../../font/Roboto/100.woff2) format('woff2'),url(../../font/Roboto/100.woff) format('woff');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 300;
+	src: local('Roboto Light'),local('Roboto-Light'),
+		url(../../font/Roboto/300.woff2) format('woff2'),url(../../font/Roboto/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 400;
+	src: local('Roboto Regular'),local('Roboto-Regular'),
+		url(../../font/Roboto/400.woff2) format('woff2'),url(../../font/Roboto/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 500;
+	src: local('Roboto Medium'),local('Roboto-Medium'),
+		url(../../font/Roboto/500.woff2) format('woff2'),url(../../font/Roboto/500.woff) format('woff');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 700;
+	src: local('Roboto Bold'),local('Roboto-Bold'),
+		url(../../font/Roboto/700.woff2) format('woff2'),url(../../font/Roboto/700.woff) format('woff');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 900;
+	src: local('Roboto Black'),local('Roboto-Black'),
+		url(../../font/Roboto/900.woff2) format('woff2'),url(../../font/Roboto/900.woff) format('woff');
+}
+
+
+/* ◇◆	(@m) 사용하고 싶지 않아! */
+
+
+/* 김해가야체 */
+@font-face {
+	font-family: 'GimhaeGaya';
+	font-weight: 400;
+	src: local('GimhaeGaya'), local('GimhaeGaya Regula'),
+		url(../../font/GimhaeGaya/400.woff2) format('woff2'),url(../../font/GimhaeGaya/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'GimhaeGaya';
+	font-weight: 700;
+	src: local('GimhaeGaya Bold'),
+		url(../../font/GimhaeGaya/700.woff2) format('woff2'),url(../../font/GimhaeGaya/700.woff) format('woff');
+}
+
+
+/* S-Core Dream (한글) */
+@font-face {
+	font-family: 'S-Core Dream';
+	font-weight: 300;
+	src: local('S-Core Dream 3 Light'),
+			 url(../../font/SCDream/300.woff2) format('woff2'),url(../../font/SCDream/300.woff) format('woff');
+}
+@font-face {
+	font-family: 'S-Core Dream';
+	font-weight: 400;
+	src: local('S-Core Dream 4 Regular'),
+			 url(../../font/SCDream/400.woff2) format('woff2'),url(../../font/SCDream/400.woff) format('woff');
+}
+@font-face {
+	font-family: 'S-Core Dream';
+	font-weight: 600;
+	src: local('S-Core Dream 6 Bold'),
+			 url(../../font/SCDream/600.woff2) format('woff2'),url(../../font/SCDream/600.woff) format('woff');
+}
+@font-face {
+	font-family: 'S-Core Dream';
+	font-weight: 700;
+	src: local('S-Core Dream 7 ExtraBold'),
+			 url(../../font/SCDream/700.woff2) format('woff2'),url(../../font/SCDream/700.woff) format('woff');
+}
+
+
+/* ◇◆ CSS font-family 20200521 ◇◆ */
+
+
+.ff-demo{ /* ★☆ToEdit) ☆ TEST */
+	font-family:
+		'Apple SD Gothic Neo', /* 맥 漢字 [iOS 5.1+][OS X Mountain Lion](20120308~) */
+		'Lato Regular','Lato-Regular',Lato,
+		'Open Sans', /* 숫자, 영문 ☆ 자간 확인요	*/
+		'Microsoft JhengHei', /* 漢字(繁體), 숫자, 영문 (한자 없는 한글 폰트 앞에 선언. 이거 없으면 한자 안보임) [(Windows)SF5.1.7(~2012)]fix) */
+		 /* 한글 */
+		/* '나눔고딕',NanumGothic,'Nanum Gothic', */
+		'맑은 고딕','Malgun Gothic',
+		'돋움',Dotum,
+		/* 위 폰트 모두 없다면 */
+		AppleGothic,
+		Helvetica,'Helvetica Neue', /* 숫자, 영문 */
+		Arial,
+		sans-serif; /* 기본 폰트 적용 ( [Windows7~]맑은고딕(한글, 숫자, 영문) ) */
+}
+
+.ffmg{
+	font-family:
+		'맑은 고딕','Malgun Gothic',
+		'Open Sans',
+		'Microsoft JhengHei',
+		'돋움',Dotum,
+		sans-serif;
+}
+
+.ffng{
+	font-family:
+		'나눔고딕',NanumGothic,'Nanum Gothic',
+		'Open Sans',
+		'Microsoft JhengHei',
+		'맑은 고딕','Malgun Gothic',
+		sans-serif;
+}
+
+.ffnbg{
+	font-family:
+		'나눔바른고딕',NanumBarunGothic,'Nanum Barun Gothic',
+		'Open Sans',
+		'Microsoft JhengHei',
+		'맑은 고딕','Malgun Gothic',
+		sans-serif;
+}
+
+/* '나눔스퀘어' 처럼 한자없는 한글폰트는 'Microsoft JhengHei' 폰트가 먼저 선언되어야 한자가 보인다. [IE8+][모던UA](O)
+ * 하지만, 모바일 [삼성인터넷6.2.01.12] 에서는 한자가 공백으로 보이므로..
+ * 모바일은 {font-family:sans-serif;} 로 다시 정의하여 모바일UA 기본폰트로 바꿔줘야 한다.
+ * '스포카한산스' 는 한자가 없으면 이후 선언된 폰트로 한자를 보여준다.
+ */
+
+.ffns{
+	font-family:
+		'Microsoft JhengHei', /* 한자 */
+		'나눔스퀘어',NanumSquare,'Nanum Square', /* 숫자,영문,한글 */
+		sans-serif;
+}
+
+.ffnm{
+	font-family:
+		'나눔명조',NanumMyeongjo,'Nanum Myeongjo',
+		serif;
+}
+
+.ffnsk,
+.ffnss{
+	font-family:
+		'본고딕','Noto Sans CJK KR','Noto Sans KR','Noto Sans',NotoSans,
+		'Microsoft JhengHei',
+		sans-serif;
+}
+.ffnsf{
+	font-family:
+		'본명조','Noto Serif CJK KR','Noto Serif KR','Noto Serif',NotoSerif,
+		serif;
+}
+
+.ffshs{
+	font-family:
+		'스포카한산스',SpoqaHanSans,'Spoqa Han Sans', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+
+.ffis{
+	font-family:
+		'Infinity Sans', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+.ffisw{
+	font-family:
+		'Infinity Sans WM', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+.ffisc{
+	font-family:
+		'Infinity Sans Cond', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+
+.fflt{
+	font-family:
+		'Lato', /* 숫자,영문 */
+		'Microsoft JhengHei', /* 한자 */
+		'맑은 고딕','Malgun Gothic', /* 한글 */
+		sans-serif;
+}
+
+.ffrb{
+	font-family:
+		'Roboto', /* 숫자,영문 */
+		'Microsoft JhengHei',
+		'맑은 고딕','Malgun Gothic',
+		sans-serif;
+}
+
+.ffgdrR{
+	font-weight: normal;
+	font-family:
+		'godoRounded R', /* 숫자,영문 */
+		'Microsoft JhengHei',
+		'맑은 고딕','Malgun Gothic',
+		sans-serif;
+	line-height:.75;
+}
+
+.ffgy{
+	font-family:
+		'GimhaeGaya', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+.ffgyR{
+	font-weight:400;
+	font-family:
+		'GimhaeGaya Regular', 'GimhaeGaya',
+		'Microsoft JhengHei',
+		sans-serif;
+}
+.ffgyB{
+	font-weight:600;
+	font-family:
+		'GimhaeGaya Bold', 'GimhaeGaya',
+		'Microsoft JhengHei',
+		sans-serif;
+}
+
+.ffscd{
+	font-family:
+		'S-Core Dream', /* 숫자,영문,한글 */
+		'Microsoft JhengHei',
+		sans-serif;
+}
+
+
+@media only screen and (min-resolution: 125dpi){ /* [mobile] ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* UA 기본폰트 */
+[lang|='ko'],
+[lang|='ko']>*{
+	font-family:sans-serif;
+}
+
+/* [class], */ /* ☆ 이거하면 위에서 클래스로 정의한 모든 폰트를 기본으로 되돌린다. */
+.ffng{
+	font-family:sans-serif;
+}
+
+
+}/* /[mobile] */

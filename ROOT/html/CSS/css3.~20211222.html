@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS 3 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">CSS 3</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Property">Property</a>
+	<ul>
+	<li><a href="#Available_CSS3Properties">사용가능 (O)</a></li>
+	<li><a href="#UsingHold_CSS3Properties">사용보류 (X)</a></li>
+	</ul>
+</li>
+<li><a href="#Selector">Selector</a></li>
+<li><a>Lab</a>
+	<ul>
+	<li><a href="grid_Layout.html" target="_blank" title="새 창">grid Layout</a> <b class="em">((~))</b></li>
+	<li><a href="flexbox.html" target="_blank" title="새 창">flexbox</a></li>
+	<li><a href="shape.html">shape</a></li>
+	<li><a href="animation.html">animation</a></li>
+	<li><a href="DefensiveCSS.html">Defensive CSS</a></li>
+	<li><a href="#CSS3Multi-columnLayout">CSS3 Multi-column Layout</a></li>
+	</ul>
+</li>
+<li><a href="#Generator">Generator</a>
+</li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+
+
+<!-- 
+다단. 20160315. 20160425. [IE10+][CR.FF.OP](O)
+	속성불가)
+		height:400px;
+		max-height:400px;
+	과제1) 화면 세로 넘지 않는 방법?
+	과제2) 단별 너비 다르게 지정?
+ -->
+<!-- panel1 -->
+<div class="panel1" id="CSS3Multi-columnLayout">
+	<strong class="h1"><a href="https://developer.mozilla.org/ko/docs/CSS3_Columns" target="_blank" rel="noopener" title="새 창" class="a1">CSS3 Multi-column Layout</a></strong>
+	<div class="body" style="columns: 2; column-gap: 2.5em; column-rule: 1px dotted #ddd;">
+		<ol style="margin:0 0 0 -1.25em;">
+		<li title="고정공지">용도. 바쁨.. 고속 필기하고.. 한가함.. 옮겨 정리하자!</li>
+		<li title="고정공지">코드는 이유있고 설명할 수 있는 거로 만들자!</li>
+		<li>20170113~. 익숙할 때까지 이력 남기다가 정착하면.. 생략하자! EditPlus 백업 활용하자!</li>
+		<li>~20170113. 나는 스트레스인데.. 다른 사람들은 아니었다.</li>
+		</ol>
+	</div>
+</div>
+<!-- /panel1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Property">CSS3 Properties</h2>
+
+
+
+<p><em>※ 브라우저 지원은 계속 변하므로 효과 구현 시점에 테스트 바랍니다.</em><br />
+※ IE 지원 부실하더라도 Chrome, Safari 지원되면 <!-- 모바일에서 --> 활용해보자!<br /></p>
+<!-- box3 -->
+<div class="box3 pd15em">
+<b><strong>속성 전부 샘플 코드!!</strong> 과제) 브라우저 호환 추가 정리. 속성 ABC 순으로.. 할까?</b><br />
+<pre style="columns:4;column-gap:3em;column-rule:1px dotted #ddd;">
+@font-face
+<a href="#animation">animation</a>
+appearance [UA](X) )) <a href="https://www.w3schools.com/cssref/css3_pr_appearance.asp" target="_blank" title="새 창">※</a>
+backface-visibility )) <a href="https://www.w3schools.com/cssref/css3_pr_backface-visibility.asp" target="_blank" title="새 창">※</a>
+((Multiple Backgrounds))
+<em class="em3">background-clip</em>
+<em class="em3">background-origin</em>
+<i class="em1">background-size</i>
+background gradient
+<i class="em1">border-image</i>
+border-radius
+box<!-- | box-align | box-direction | box-flex | box-ordinal-group | box-orient | box-pack --> (대체됨))) <a href="flexbox.html" target="_blank" title="새 창"><b class="em5">flex</b></a>
+box-shadow
+<i class="em1">box-sizing</i>
+Colors값 rgba() hsla()
+<a href="#columns"><b class="em3">columns</b></a>
+<del>marquee<!-- | marquee-direction | marquee-play-count | marquee-speed | marquee-style --></del> (삭제됨))) <a href="http://www.quackit.com/css/codes/marquees/" target="_blank" title="CSS marquees [새 창]"><b class="em4">※</b></a>
+<b>opacity</b>
+outline-offset [IE](X)
+<b>overflow-x
+overflow-y</b>
+<b class="em2">perspective</b>
+perspective-origin
+resize [IE](X)
+
+text-overflow
+text-shadow
+
+<b class="em1">transform</b> 2D 3D
+transform-origin
+transform-style
+<b class="em1">transition</b>
+transition-property
+transition-duration
+transition-timing-function
+transition-delay
+<b>word-break
+word-wrap</b>
+</pre>
+</div>
+<!-- /box3 -->
+
+
+
+<div class="brclear"></div>
+<hr class="line1t mgt2em" />
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<table id="Available_CSS3Properties" class="t3 tlf tt2pdlr0 tt3pdlr0 tt4pdlr0 tt5pdlr0 tt6pdlr0 tttac">
+<caption>
+	<div class="dpt w100">
+		<div class="dptc vam">
+			<h3 class="hb1 h3 mgtD">
+				사용가능 CSS3 Properties 22 or more
+				<span class="mgl05em fwn fs12px">v.20130426. ~20190405. 20211221.</span>
+			</h3>
+		</div>
+		<div class="dptc tar vam">
+		</div>
+	</div>
+	<div class="dpt w100 mgt075em mgb075em">
+		<div class="dptc  fwn tal vab">
+			Task) <em class="em">IE 지원 버전 순으로 재배치하자!</em><br />
+			Task) <em class="em">Browser Support 속성명 아래로 보내기!</em><br />
+		</div>
+		<div class="dptc tar vab">
+			Vendor Prefix : <em>-webkit-　-moz-　-o-　-ms-</em>
+		</div>
+	</div>
+</caption>
+<col style="width:12em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:0;" />
+<col style="" />
+<col style="" />
+<thead class="tt1pdlr0 tt1tac"><!--  ☆셀병합으로 스타일 결함 해결 -->
+<tr>
+<th scope="col" rowspan="2">Properties<br /><b>[IE]OK</b></th>
+<th scope="col" colspan="5">Browser Support</th>
+<th scope="col" rowspan="2"><!-- 예비 --></th>
+<th scope="col" rowspan="2">Code</th>
+<th scope="col" rowspan="2">Note</th>
+</tr>
+<tr>
+<th scope="col">CR</th>
+<th scope="col">SF</th>
+<th scope="col">FF</th>
+<th scope="col">EG</th>
+<th scope="col">IE</th>
+</tr>
+</thead>
+<tbody class=" tt1tal tt8tal tt9tal">
+<tr id="flex"><!-- ◇◆◇◆ -->
+<th scope="row"><a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank" title="새 창"><b class="em1">flex</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">11</td>
+<td></td>
+<td>
+<pre>
+<strong class="h1 bg-info">(( Flex Container ))</strong>
+<b class="em9">display: flex;</b> /* 유연한 배치: 블록 */
+  | inline-flex |
+<em class="em2">flex-direction:</em> row; /* 방향: 좌에서 우로 (기본값) */
+  | row-reverse | column | column-reverse |
+<em class="em2">flex-wrap:</em> nowrap; /* 행넘김: 단일라인 좌에서 우 (기본값) */
+  | wrap  | wrap-reverse |
+<b class="em2">flex-flow: row nowrap;</b> /* 단축속성: flex-directio flex-wrap */
+  | row-reverse wrap |
+<em class="em2">justify-content:</em> flex-start; /* 수평정렬: 수평 좌정렬 (기본값) */
+  | flex-end | center | space-between | space-around |
+<em class="em2">align-items:</em> stretch; /* 수직높이정렬: 부모 높이로 (기본값) */
+  | flex-start | flex-end | center | baseline |
+<em class="em2">align-content:</em> space-stretch; /* 수직위치: 꽉차게 (기본값) */
+  | flex-start | flex-end | center | space-between | space-around |
+<strong class="h1 bg-info">(( Flex Items ))</strong>
+<em class="em2">order:</em> 2;  /* 항목 순서 */
+  | 1 | 2 | 3 | …
+<em class="em2">flex-grow:</em> 0; /* 항목 공간 확장: 0 (기본값)  */
+  | 0 | 1 | 2 | …
+<em class="em2">flex-shrink:</em> 1; /* 항목 공간 축소: 1 (기본값)  */
+  | 1 | 2 | 3 | …
+<em class="em2">flex-basis:</em> auto; /* 항목 초기 크기: (기본값)  */
+  | 6em  | 33.333% | 80px | 6pt |
+<b class="em2">flex: 0 1 auto;</b> /* 단축속성: flex-grow flex-shrink flex-basis */
+  | 1 30px | 2 2 | auto |none |
+<em class="em2">align-self:</em> stretch; /* 항목별 정렬: 부모 높이로 (기본값)  */
+  | flex-start | flex-end | center | baseline | initial | inherit |
+</pre>
+</td>
+<td>
+<pre class="mg0">
+
+</pre>
+</td>
+</tr>
+<tr id="columns"><!-- ◇◆◇◆ -->
+<th scope="row"><a href="https://www.w3schools.com/css/css3_multiple_columns.asp" target="_blank" title="새 창"><b class="em1">columns</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+<pre>
+<b class="em9">columns: 2 12em;</b> /* 단 수 너비; 단축 순서 무관 */
+column-count: 2; /* 단 수 */
+column-width: 100px;  /* 너비 */
+column-gap: 2em; /* 단 간격  */
+column-rule: 1px dotted #ddd; /* 괘선 단축 속성 순서 무관 */
+column-rule-width: 1px; /* 괘선 두께 */
+column-rule-style: solid; /* 괘선 모양 */
+column-rule-color: #eee; /* 괘선 색상; */
+<em class="em2">column-span: all;</em> /* <em class="em">병합) 자손 블럭 요소에 정의</em> */
+</pre>
+</td>
+<td>
+<pre class="mg0">
+20170425.현재.
+column-span [FF](X)
+▶ <a href="https://developer.mozilla.org/ko/docs/CSS3_Columns" target="_blank" title="새 창">CSS 다단 레이아웃 사용</a> - MDN
+▶ <a href="http://tcpschool.com/css/css3_expand_multicolumn" target="_blank" title="새 창">다중 칼럼(multi-column) 레이아웃</a> - TCPschool
+</pre>
+<div style="columns: 2 12em; column-gap: 2em; column-rule: 1px dotted #ddd;">
+	<h6 class="hb1 h6" style="column-span: all;">My name is Yeongshin. I live in Buasn, Korea</h6> 
+	<div><em style="column-span: all;">My name is Yeongshin. I live in Buasn, Korea</em></div>
+	My name is Yeongshin. I live in Buasn, Korea and work as a UI Developer at Web Agency. Previously, I was at home in Busan. In my free time I created a set of CSS3 Shapes, Animations and designed my own book. I make Hybird Web too.
+</div>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_shadows.asp" target="_blank" title="새 창"><b class="em2">text-shadow</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+text-shadow: 5px 5px 0 #ccc;<br />
+
+<pre class="mg0">
+<code class="xmp">
+filter:progid:DXImageTransform.Microsoft.<em>dropshadow</em>(OffX=5,OffY=5,Color=#ccc,Positive=true);
+</code>
+</pre>
+
+<code>text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;</code><br />
+</td>
+<td>
+text-shadow: X좌표, Y좌표, blur값, 그림자색;<br />
+blur값 생략 가능 기본값 0<br />
+[IE6~9] filter: 적용. hasLayout(블럭)만 가능. blur값 설정불가.
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b>text-overflow</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">5</td>
+<td></td>
+<td>
+.ellipsis1{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	overflow:hidden;
+}
+</td>
+<td>
+	word-wrap:break-word; 하면 안됨<br />
+	)) 	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank">
+		text-overflow | MDN
+	</a>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b>word-wrap</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">5</td>
+<td></td>
+<td>
+word-wrap:break-word;
+</td>
+<td></td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b>@font-face</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+@font-face{ font-family: ngttf; src: url(NanumGothic.ttf);}<br />
+@font-face{ font-family: ngeot; src: url(NanumGothic.<em>eot</em>);} /IE8이하/<br />
+*{ font-family: NanumGothic,"나눔고딕",ngttf,ngeot; }<br />
+</td>
+<td>
+<a href="http://naradesign.net/ouif/css3/img/NanumGothic.ttf">NanumGothic.ttf</a><br />
+<a href="http://naradesign.net/ouif/css3/img/NanumGothic.eot">NanumGothic.eot</a>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b>opacity</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+opacity: 0.5;
+<del>filter: <em>alpha</em>(opacity=50);</del>
+</td>
+<td>
+0.0 ~ 1.0의 값을 입력하며 0.0은 투명, 1.0은 불투명.
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_colors.asp" target="_blank" title="새 창"><b class="em0">Colors</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+background: <b class="em4">rgba</b>(0, 0, 0, .5);<br />
+color: <b class="em4">rgba</b>(255, 255, 255, .8);<br />
+background: <b class="em4">hsla</b>(0, 100%, 100%, 1);<br />
+color: <b class="em4">hsla</b>(255, 255, 255, 1);<br />
+</td>
+<td>
+
+<div style="background: rgba(0, 0, 0, .5); color: rgba(255, 255, 255, .8);">
+background: rgba(0, 0, 0, .5);
+color: rgba(255, 255, 255, .8);
+</div>
+
+<div style="background: hsla(200, 100%, 50%, 1); color: hsla(0, 100%, 100%, .8);">
+background: hsla(200, 100%, 50%, 1); color: hsla(0, 100%, 100%, .8);
+</div>
+
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><strong>box-sizing</strong></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE"><strong class="h1">8+</strong></td>
+<td></td>
+<td>
+box-sizing: border-box;<br />
+<em>-moz-box-sizing</em>: border-box;<br />
+<br />
+box-sizing: content-box;<br />
+box-sizing: padding-box;<br />
+box-sizing: inherit;<br />
+</td>
+<td>
+padding, border 가 width 값에 포함된다.<br />(구IE 쿼크모드 렌더링 방식)
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b>box-shadow</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+box-shadow: 10px 10px 10px #eee;<br />
+
+<pre class="mg0">
+<code class="xmp">
+filter:progid:DXImageTransform.Microsoft.<em>Shadow</em>(color=#eee,direction=135,strength=20);
+</code>
+</pre>
+
+<em>background:</em> #fff;<br />
+.shadow1{box-shadow:0 1px 3px 0 rgba(0, 0, 0, .1);<br />
+
+<pre class="mg0">
+<code class="xmp">
+filter:progid:DXImageTransform.Microsoft.<em class="em">Shadow</em>(color=#e6e6e6,direction=180,strength=3);}
+</code>
+</pre>
+
+.shadow1inset{box-shadow:inset 0 1px 3px 0 rgba(0, 0, 0, .1);}<br />
+
+<code>box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);</code><br />
+</td>
+<td>
+[Inset]: | Inset -- 외부그림자 || 내부그림자<br />
+Horizontal Length: px<br />
+Vertical Length: px<br />
+Blur Radius: px -- 값 생략 가능 기본값 0<br />
+Spread: px<br />
+Shadow Color: Hex 또는 RGBA<br />
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="https://www.w3schools.com/cssref/css3_pr_border-radius.asp" target="_blank" title="새 창">border-radius</a>
+<a href="https://developer.mozilla.org/ko/docs/Web/CSS/border-radius" target="_blank" title="새 창">※</a>
+
+</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+border-radius: 10px;<br />
+border-radius: 30px 0;<br />
+border-radius: 5px 30px 30px 5px;<br />
+<pre class="mgb0">
+<em class="em">border-radius: 10px 20px 30px 40px / 5px 10px 15px 20px;</em>
+</pre>
+<blockquote cite=""><div>
+border-top-left-radius: 10px 5px;<br />
+border-top-right-radius: 20px 10px;<br />
+border-bottom-right-radius: 30px 15px;<br />
+border-bottom-left-radius: 40px 20px;<br />
+</div></blockquote>
+
+</td>
+<td>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_border_images.asp" target="_blank" title="새 창"><b class="em1">border-image</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">11</td>
+<td></td>
+<td>
+</td>
+<td>
+<pre>
+))) <a href="http://webdir.tistory.com/341" target="_blank" title="새 창">CSS 테두리속성(Border Property)</a> border-image
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_backgrounds.asp" target="_blank" title="새 창"><span class="wsnm"><b class="em2">Multiple Backgrounds</b></span></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+background:<br />
+url(bg.gif) no-repeat left top,<br />
+url(bg.gif) no-repeat right top,<br />
+url(bg.gif) no-repeat left bottom,<br />
+<i class="em1">#fff</i> url(bg.gif) no-repeat right bottom;<br />
+</td>
+<td>
+	배경 이미지 사용 횟수 무한대<br />
+	)) <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background" target="_blank">
+		background | MDN
+	</a>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/cssref/css3_pr_background-clip.asp" target="_blank" title="새 창"><span class="wsnm"><b class="em3">background-clip</b></span></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+| border-box
+| padding-box
+| content-box
+| initial
+| inherit
+</td>
+<td>
+배경의 그림 영역을 지정합니다.<br />
+※<a href="http://jsunnylab.tistory.com/30" target="_blank" title="새 창">CSS3 background-origin 과 background-clip</a><br />
+※<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip" target="_blank" title="새 창">background-clip</a> - MDN
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/cssref/css3_pr_background-origin.asp" target="_blank" title="새 창"><span class="wsnm"><b class="em3">background-origin</b></span></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+| padding-box
+| border-box
+| content-box
+| initial
+| inherit
+</td>
+<td>
+배경 그림의 기준 위치를 지정합니다.<br />
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><strong class="h1"><i class="em1">background-size</i></strong></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">9</td>
+<td></td>
+<td>
+<pre>
+background-size: cover
+background-size: contain /* = 100% auto */ or /* = auto 100% */
+
+background-size: 50%
+background-size: 3em
+background-size: 12px
+background-size: auto
+
+background-size: 50% auto
+background-size: 3em 25%
+background-size: auto 6px
+background-size: auto auto
+
+background-size: auto, auto
+background-size: 50%, 25%, 25%
+background-size: 6px, auto, contain
+
+background-size: inherit
+</pre>
+</td>
+<td>
+<pre>
+[IE11] background-size:100%; 하면 background-size:100% auto; 로 표현된다. background-size:100% 100%; 로 하도록 하자!
+▶ <a href="https://developer.mozilla.org/de/docs/CSS/background-size">Syntax</a>
+▶ <a href="http://www.onextrapixel.com/2012/03/02/using-css-background-size-responsively/">cover .vs. contain</a>
+<b>[~IE8] adding support</b>
+▶ <a href="http://louisremi.github.io/jquery.backgroundSize.js/demo/" target="_blank"><em class="em1">jquery.backgroundSize.js</em></a> [m]20140918 [IE7,8]OK
+<xmp class="xmp">
+$('.bsContain').css({backgroundSize: 'contain'});
+$('.bsCover').css({backgroundSize: 'cover'});
+</xmp>
+※주의!
+background-size: cover; /* only keywords(<em class="">cover contain</em>). doesn't work with lengths(%, px) */
+<em class="em1">background-postion: center center;</em> /* only keywords(center left right top bottom). */
+<em class="">[IE7] background-postion:center; 값이 1개만 있으면.. left 값만 center 로 인식하고 top 값은 0 가 된다.</em>
+★Task!) <a href="http://louisremi.github.io/jquery.backgroundSize.js/jquery.backgroundSize.js" target="_blank">jquery.backgroundSize.js fiile</a>
+소스코드 * Limitations 보면.. "background-position (only percentages and keywords)" 라는 내용이 있는데도. [~IE8] 에서 올바로 안된다.<br />
+해결책 알아보자!
+▶ <a href="https://github.com/louisremi/background-size-polyfill" target="_blank">backgroundsize.min.htc</a>
+only[IE8]
+.selector{
+    background-size: cover; /* 또는 contain 가능. %, px 는 불가 */
+    -ms-behavior: url(/share/js/backgroundsize.min.htc);
+}
+
+
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_gradients.asp" target="_blank" title="새 창"><b class="em3">gradient</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+<!-- background: #eee; /* Old browsers */
+background: <em>-webkit-gradient</em>(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#fff)); /* Chrome,Safari4+ */
+background: <em>-webkit-linear-gradient</em>(top, #eee 0%, #fff 100%); /* Chrome10+,Safari5.1+ */
+background: <em>-moz-linear-gradient</em>(top, #eee 0%, #fff 100%); /* FF3.6+ */
+background: <em>-o-linear-gradient</em>(top, #eee 0%, #fff 100%); /* Opera 11.10+ */
+background: <em>-ms-linear-gradient</em>(top, #eee 0%, #fff 100%); /* IE10+ */
+background: linear-gradient(to bottom, #eee 0%, #fff 100%); /* W3C */ -->
+<pre>
+background: <em class="em">linear-gradient</em>(to bottom, #eee 0%, #fff 100%);
+background: <em class="em">radial-gradient</em>(green 5%, blue 25%, white 50%);
+background: radial-gradient(<em class="em">circle</em>, green 5%, blue 25%, white 50%);
+
+background: <em class="em">repeating-linear-gradient</em>(white, yellow 20px, green 40px);
+background: repeating-linear-gradient(<em class="em">45deg</em>, white, white 20px, #997000 20px, #997000 40px);
+background: <em class="em">repeating-radial-gradient</em>(white, white 38px, brown 40px);  
+</pre>
+</td>
+<td>
+이미지가 더 쉽고 유연한 디자인 가능.<br />
+▶ <b class="em0">코드 생성</b> <a href="http://www.colorzilla.com/gradient-editor/" target="_blank" title="새 창">Ultimate CSS Gradient Generator</a><br />
+▶ <a href="https://developer.mozilla.org/ko/docs/Web/CSS/linear-gradient" target="_blank" title="새 창">linear-gradient - CSS | MDN</a><br />
+속성 및 값 선언 방식 모두 다름.<br />
+webkit[SF,CR]은 (타입, X시작점 Y시작점, X종료점 Y종료점, 시작색, 종료색)<br />
+moz[FF]는 (시작점, 시작색, 종료색)<br />
+gradient 미지원 위해 기본 배경색을 지정 필요<br />
+
+<pre class="mg0">
+<code class="xmp wspw">
+filter: progid:DXImageTransform.Microsoft.<em>gradient</em>( startColorstr='#eee', endColorstr='#fff',GradientType=0 ); /* IE6-9 */
+</code>
+</pre>
+
+
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_2dtransforms.asp" target="_blank" title="새 창"><b class="em4">transform 2D</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">
+	10<br />
+	<em class="em">9V</em><br />
+</td>
+<td></td>
+<td>
+<pre>
+<em class="em2">transform-origin</em>: 0 100%; /* 기준점. 기본 값 50%(X축) 50%(Y축)은 생략 가능. */
+<em class="em2">transform</em>: <em class="em2">rotate</em>(90deg); /* 회전 (시계 방향)  */
+<!-- <pre class="mg0">
+<code class="xmp">
+filter:progid:DXImageTransform.Microsoft.<em>Matrix</em>(M11=6.123031769111886e-17, M12=-1, M21=1, M22=6.123031769111886e-17, sizingmethod='auto expand');
+</code>
+</pre> -->
+transform: <em class="em2">skew</em>(23deg); /* 왜곡 */
+transform: skew(13deg, -45deg);
+transform: skewX(-23deg) skewY(45deg);
+
+transform: <em class="em2">scale</em>(0.5); /* 확대축소비율 */
+transform: scale(0.75, 1.5); /* (x값,y값) */
+transform: scaleX(0.5) scaleY(1.5);
+
+transform: <em class="em2">translate</em>(50px); /* 이동 */
+transform: translate(5em, 10em);
+transform: translateX(50px) translateY(50px);
+
+transform: scale(0.5) translate(50px,-2em); /* 다중 변형 : 원하는 순서대로 기입 */
+transform: <em class="em1">matrix(0.67, 0.23, 0, 1, 25px,10px);</em> /* (회전, 왜곡, 비율,이동x,이동y) */
+</pre>
+
+</td>
+<td>
+<pre class="mg0">
+<code class="xmp">
+width:150px;margin:1em 0;padding:.5em;background:#cef; transform: rotate(5deg);
+</code>
+</pre>
+<!-- contentsBlock -->
+<div class="contentsBlock" style="margin:30px 0;">
+
+	<div style="width:150px;margin:1em 0;padding:.5em;background:#cef; transform: rotate(5deg);">
+	<strong class="h1">transform:rotate(10deg);</strong>
+	(IE9.js Test) 회전하면 IE도 CSS3 사용가능?
+	시험결과 filter: 없이 안됨.
+	</div>
+
+	<div style="display:inline-block;margin:1em 0;border:1px solid #ddd;">
+		<div style="width:150px;padding:.5em;background:#cef; transform: scale(0.9);">
+		<strong class="h1">transform: scale(0.9);</strong>
+		</div>
+	</div>
+	
+	<div style="width:150px;margin:1em 0;padding:.5em;background:#bed; transform: skew(10deg);">
+	<strong class="h1">transform: skew(10deg);</strong>
+	</div>
+
+	<div style="width:150px;margin:1em 0;padding:.5em;background:#bed; transform: translate(50px);">
+	<strong class="h1">transform: translate(50px);</strong>
+	</div>
+
+	<div style="width:150px;margin:1em 0;padding:.5em;background:#cef; transform: matrix(0.67, 0.23, 0, 1, 25px,10px);">
+	<strong class="h1">transform: matrix(0.67, 0.23, 0, 1, 25px,10px);</strong>
+	동작 안되는건가?
+	</div>
+
+</div>
+<!-- /contentsBlock -->
+
+</td>
+</tr>
+
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><b class="em5">transform 3D</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+<pre class="mg0">
+<em class="em2">transform</em>: <em class="em2">rotate3d(x,y,z ,angle)</em>;
+transform: rotateX(150deg); /* x축 회전각도 deg */
+transform: rotateY(130deg); /* y축 회전각도 deg */
+transform: <em class="em2">rotateZ</em>(90deg); /* z축 회전각도 deg */
+
+transform: <em class="em2">scale3d</em>(x,y,z);
+transform: scaleX(x);
+transform: scaleY(y);
+transform: <em class="em2">scaleZ</em>(z);
+
+transform: <em class="em2">translate3d</em>(x,y,z);
+transform: translateX(x); /* x축 이동거리 */
+transform: translateY(y); /* y축 이동거리 */
+transform: <em class="em2">translateZ</em>(z); /* z축 이동거리 */
+
+transform: <em class="em1">matrix3d</em> (<em class="em2">n,n,n,n</em>, <em class="em4">n,n,n,n</em>, <em class="em5">n,n,n,n</em>, <em class="em7">n,n,n,n</em>)
+
+transform: perspective(n); /* n 원금감 수치값 */
+perspective: n; /* n 원금감 수치값 */
+</pre>
+</td>
+<td>
+
+<ol class="bo">
+<li><a href="https://desandro.github.io/3dtransforms/" target="_blank" title="새 창">Intro to CSS 3D transforms</a></li>
+<li><a href="https://www.google.co.kr/search?client=opera&q=CSS+transform+3D&sourceid=opera&ie=UTF-8&oe=UTF-8#q=CSS+transform+3D&newwindow=1&safe=active&tbs=lr:lang_1ko&lr=lang_ko" target="_blank" title="새 창">구글링(CSS transform 3D)</a></li>
+<li><a href="http://ds-overdesign.com/transform/matrix3d.html" target="_blank">matrix3d | transform | CSS3 Generator</a></li>
+</ol>
+
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_transitions.asp" target="_blank" title="새 창"><b class="em">transition</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+transition: <em class="em2">변이속성 지속기간	가속작용 지연시간</em>;<br />
+
+transition-property: 변이속성 기본값 all<br />
+transition-duration: 지속기간 단위 s 또는 ms<br />
+transition-timing-function: 가속작용 기본값 ease<br />
+	<blockquote cite=""><div>
+	ease; /* cubic-bezier(<em class="em8">.25, .1, .25,1</em>) */<br />
+	ease-in; /* cubic-bezier(<em class="em8">.42, 0, 1, 1</em>) */<br />
+	ease-out; /* cubic-bezier(<em class="em8">0, 0, .58, 1</em>) */<br />
+	ease-in-out; /* cubic-bezier(<em class="em8">.42, 0, .58, 1</em>) */<br />
+	linear; /* cubic-bezier(<em class="em8">0, 0, 1, 1</em>) */<br />
+	step-start;<br />
+	step-end;<br />
+	steps(4, end);<br />
+	cubic-bezier(1, 0, 0, 1);<br />
+	initial;<br />
+	inherit;<br />
+	<del class="dpib">
+		frames(10);<br />
+		unset;<br />
+	</del>
+	</div></blockquote>
+transition-delay: 지연시간 단위 s 또는 ms<br />
+
+@m))) 매끄럽지 못한 느낌. 프레임 수가 적은가?<br />
+<br />
+(( <b class="em0">단축속성 다중설정</b> ))<br />
+<pre class="mg0">
+<code class="xmp">
+transition:.2s,
+	border-bottom 0s;
+transition:
+	opacity 0s,
+	height .2s,
+	border-bottom .2s .2s;
+</code>
+</pre>
+
+</td>
+<td>
+▶ <a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Using_CSS_transitions" target="_blank" title="새 창">CSS 트랜지션 사용하기</a><br />
+▶ <a title="http://easings.net/" href="http://easings.net/" class="external external-icon">Easing Functions Cheat Sheet</a><br />
+▶ <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank" title="새 창">CSS animated properties</a><br />
+▶ <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions#%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98_%EA%B0%80%EB%8A%A5%ED%95%9C_CSS_%EC%86%8D%EC%84%B1%EC%9D%80" target="_blank" title="새 창"><em class="em">애니메이션 가능한 CSS 속성은?</em></a><br />
+<blockquote cite=""><div>
+	20170719. auto 값 WebKit 에서 안된다. [CR](X).
+</div></blockquote>
+▶ <a href="http://css3generator.com/">css3generator.com</a> - Transitions - Property: 선택 가능 속성은..<br />
+width: height: background: color: outline:<br />
+<strong>[m]Test!</strong><br />
+가능 속성: margin: opacity:<br />
+불가 속성: text-decoration:<br />
+<br />
+
+<a href="?" class="testTransition">&lt;a href="?" class="testTransition"&gt;마우스오버해봐!&lt;/a&gt; </a>
+<style type="text/css">/*<![CDATA[*/
+a{transition:.2s ease-out;}
+a.testTransition:hover,
+a.testTransition:focus{margin:-3px;padding:3px;background:#fe9;color:#000;text-decoration:none;}
+/*]]>*/</style>
+<pre class="mg0">
+<code class="xmp">
+a{transition:.2s ease-out;}
+a:hover,
+a:focus{margin:-3px;padding:3px;background:#fe9;color:#000;text-decoration:none;}
+</code>
+</pre>
+
+
+</td>
+</tr>
+<tr id="animation"><!-- ◇◆◇◆ -->
+<th scope="row"><a href="http://www.w3schools.com/css/css3_animations.asp" target="_blank" title="새 창"><b class="em">animation</b></a></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">10</td>
+<td></td>
+<td>
+▶ <a href="animation.html">20160424~ ))) 문법데모, 모범사례.</a><br />
+
+animation: <em class="em2">모션이름 가속도 동작시간 지연시간 반복횟수 방향지정</em>;
+속성값 순서는 상관없다.<br />
+
+<em class="em2">animation-delay</em>: 지연시간<br />
+	<blockquote cite=""><div>
+	0s; /* 기본값 */
+	.2s;
+	200ms;
+	</div></blockquote>
+<em class="em2">animation-direction</em>: 방향지정<br />
+	<blockquote cite=""><div>
+	normal; /* 기본값 */ 정해진 순서로 진행<br />
+	reverse; 반대 순서로 진행<br />
+	alternate; 정해진 순서로 진행 후 반대 순서로 진행<br />
+	alternate-reverse; 반대 순서로 진행 후 정해진 순서로 진행<br />
+	</div></blockquote>
+<em class="em2">animation-duration</em>: 동작시간<br />
+	<blockquote cite=""><div>
+	0s; /* 기본값 */<br />
+	.2s;<br />
+	200ms;<br />
+	</div></blockquote>
+<em class="em2">animation-iteration-count</em>: 반복횟수<br />
+	<blockquote cite=""><div>
+	1; /* 기본값 */<br />
+	2.3;<br />
+	infinite;<br />
+	</div></blockquote>
+<em class="em2">animation-name</em>: 모션이름<br />
+	<blockquote cite=""><div>
+	@keyframes 모션이름{ 중간상태 기술 }<br />
+	</div></blockquote>
+<em class="em2">animation-play-state</em>: 재생상태<br />
+	<blockquote cite=""><div>
+	running; /* 기본값 */<br />
+	paused;<br />
+	</div></blockquote>
+<em class="em2">animation-timing-function</em>: 가속도<br />
+	<blockquote cite=""><div>
+		initial;<br />
+		inherit;<br />
+		linear; <em class="em4">cubic-bezier(0, 0, 1, 1)</em><br />
+		ease; /* 기본값 */ <em class="em4">cubic-bezier(0.25, 0.1, 0.25, 1)</em><br />
+		ease-in; <em class="em4">cubic-bezier(0.42, 0, 1, 1)</em><br />
+		ease-out; <em class="em4">cubic-bezier(0, 0, 0.58, 1)</em><br />
+		ease-in-out; <em class="em4">cubic-bezier(0.42, 0, 0.58, 1)</em><br />
+		cubic-bezier(n,n,n,n);<br />
+		step-start; <em class="em4">steps(1,start)</em> 시작 시 값 변경 발생<br />
+		step-end; <em class="em4">steps(1,end)</em> 종료 시 값 변경 발생<br />
+		steps(int,start|end); int 단계로 나누어서 변화.<br />
+		두 개의 매개 변수가있는 스테핑 함수를 지정합니다.<br />
+		첫 번째 매개 변수는 함수의 간격 수를 지정합니다.<br />
+		양의 정수 (0보다 큼) 여야합니다.<br />
+		선택적인 두 번째 매개 변수는 "start"또는 "end"값이며 간격 내에서 값 변경이 발생하는 지점을 지정합니다.<br />
+		두 번째 매개 변수가 생략되면 "end"값이 제공됩니다.<br />
+	</div></blockquote>
+<em class="em2">animation-fill-mode</em>: 
+	동작 실행 전과 후 스타일 적용 방법 지정.<br />
+	동작 미실행 시(대기 또는 종료) 요소의 스타일을 지정.<br />
+	<blockquote cite=""><div>
+	none; /* 기본값 */ 동작 실행 후 상태 지정 않음. (:: backwards)<br />
+	forwards; 동작 실행 후 종료 시점에 그대로 있음.<br />
+	backwards; 동작 실행 후 시작 시점으로 즉시 되돌림.<br />
+	both; 애니메이션의 앞 뒤 결과를 조합하여 설정. (:: forwards)<br />
+	</div></blockquote>
+	)) <a href="https://poiemaweb.com/css3-animation#8-animation-fill-mode" target="_blank">
+		animation-fill-mode | PoiemaWeb
+	</a>
+
+
+<dl class="fixed1auto1 tp1 dtw5em lhD">
+<dt>none</dt>
+<dd>
+	대기 : 대기 스타일<br />
+	종료 : 대기 스타일<br />
+</dd>
+<dt>forwards</dt>
+<dd>
+	대기 : 대기 스타일<br />
+	종료 : 종료 프레임 스타일<br />
+</dd>
+<dt>backwards</dt>
+<dd>
+	대기 : 시작 프레임 스타일<br />
+	종료 : 대기 스타일<br />
+</dd>
+<dt>both</dt>
+<dd>
+	대기 : 시작 프레임 스타일<br />
+	종료 : 종료 프레임 스타일<br />
+</dd>
+</dl>
+
+
+</td>
+<td>
+▶ <a href="http://www.w3schools.com/css/css3_animations.asp">w3schools ) CSS3 Animations</a><br />
+▶ <a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation" target="_blank" title="새 창">MDN ) CSS ) animation</a><br />
+▶ <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" title="새 창">MDN ) CSS 애니메이션 사용하기</a><br />
+▶ <a href="http://caniuse.com/#search=keyframes" target="_blank" title="새 창">Can I use ) keyframes</a><br />
+(( Known issues ))<br />
+<blockquote cite=""><div>
+<em class="em">IE10과 IE11은 미디어 쿼리 내에서 CSS 키 프레임 블록을 지원하지 않습니다.</em> 미디어 쿼리 정의 외부에서 정의되어야합니다.<br />
+</div></blockquote>
+<br />
+20160731. @keyframes 내부의 0{} .. 100%{} 유효성검사오류<br />
+<br />
+
+<pre class="mg0">
+<code class="xmp">
+.kf1tX1{
+  animation:kf1tX1 ease 2s .5s infinite alternate;
+}
+@keyframes kf1tX1{
+  0{transform:translateX(0);}
+  100%{transform:translateX(300px);}
+}
+a[class*='kf1']:hover,
+a[class*='kf1']:focus{
+  animation-play-state:paused;
+}
+</code>
+</pre>
+
+((( 마우스 오버해봐요! )))
+<a href="?" class="kf1tX1" style="display:inline-block;margin:.333em 0;background:#efd;">display:inline-block;</a><br />
+
+<style type="text/css">/*<![CDATA[*/
+.kf1tX1{
+	animation:kf1tX1 ease 2s .5s infinite alternate;
+}
+@keyframes kf1tX1{
+	0{transform:translateX(0);}
+	100%{transform:translateX(200px);}
+}
+a[class*='kf1']:hover,
+a[class*='kf1']:focus{
+	animation-play-state:paused;
+}
+/*]]>*/</style>
+
+<!-- <a href="?" class="kf1r360d" style="display:block;margin:.333em 0;background:#def;">display:block;</a><br /> -->
+<a href="?" class="kf1r360d" style="display:inline-block;margin:.333em 0;background:#def;">display:inline-block;</a><br />
+<!-- <a href="?" class="kf1r360d" style="float:left;margin:.333em 0;background:#def;">float:left;</a><br /> -->
+<div class="brclear clearfix"></div>
+
+<style type="text/css">/*<![CDATA[*/
+.kf1r360d{
+	animation:kf1r360d ease 2s;
+	animation-fill-mode:forwards;
+}
+@keyframes kf1r360d{
+	from{transform:rotate(0deg);}
+	to{transform:rotate(180deg);}
+}
+/*]]>*/</style>
+
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="col" colspan="9" style="background:#def;">
+	20211221~
+</th>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b><a href="http://caniuse.com/#search=filter" target="_blank" title="새 창">filter</a></b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+<pre class="mg0">
+<code class="xmp">
+.filter-blur6px{
+  -ms-filter: blur(6px);
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  filter: blur(6px);
+}
+</code>
+</pre>
+
+<a href="http://caniuse.com/#search=filter" target="_blank" title="새 창">** 안되는 브라우저 **</a><br />
+[IE11이하][Edge13미만]<br />
+[CR18.0미만]<br />
+[SF9.1미만]<br />
+[FF35.0미만]<br />
+[OP15.0미만]<br />
+[iOS6.1미만]<br />
+[Android4.4미만]<br />
+</td>
+<td>
+** 이미지를 코딩만으로 블러처리하는 것 **<br />
+** 벤더프리픽스 넣으면 아래 브라우저 최신버전에서 가능함.<br />
+[CR][FF][OP][SF][iOS][Android]<br />
+[Edge13+] 부분지원<br />
+<br />
+** IE 전용 비표준 CSS 사용하면..<br />
+[IE8,9] 가능하지만, 일부 안되는 경우도 있음<br />
+[IE10,11] 는 불가합니다.<br />
+
+<ol class="bo">
+<li><a href="https://www.w3schools.com/cssref/css3_pr_filter.asp" target="_blank" title="새 창">))) CSS Images ) <b class="em6">Image Filters</b></a> - w3schools</li>
+<li><a href="http://www.w3schools.com/css/css3_images.asp" target="_blank" title="새 창">))) CSS의 필터 속성</a> - w3schools</li>
+</ol>
+
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-behavior</b></th>
+<td title="CR">O</td>
+<td title="SF">X</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+<em class="em2">scroll-behavior</em>: 방향지정<br />
+	<blockquote cite=""><div>
+	auto; /* 기본값 */<br />
+	smooth; 부드럽게 이동<br />
+	</div></blockquote>
+</td>
+<td>
+	(( <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior" target="_blank" rel="noopener" title="새 창" class="a1">scroll-behavior</a>
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>overscroll-behavior</b></th>
+<td title="CR">O</td>
+<td title="SF">X</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">V</td>
+<td></td>
+<td>
+	<em class="em2">overscroll-behavior-x</em>: <br />
+	<em class="em2">overscroll-behavior-y</em>: <br />
+	<blockquote cite=""><div>
+	auto; /* 기본값 */ 스크롤링 체인 동작<br />
+	contain; 스크롤링 체인 동작 안함<br />
+	none; 스크롤링 체인 동작 안함<br />
+	</div></blockquote>
+</td>
+<td>
+	((<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior" target="_blank" rel="noopener" title="새 창" class="a1">overscroll-behavior</a><br />
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-snap-type</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">O</td>
+<td></td>
+<td>
+	snap position을 지정할 수 있는 축을 결정하는 Scroll Snap Axis, 스냅의 엄격도를 지정하는 Scroll Snap Strictness 를 함께 선언합니다.<br />
+	<b class="em0">scroll snap axis</b><br />
+	<blockquote cite=""><div>
+	x: 수평(가로) 축으로 snap position 지정<br />
+	y: 수직(세로) 축으로 snap position 지정<br />
+	block: snap area의 block 축으로 지정<br />
+	inline: inline 축으로 지정<br />
+	both: 두 축의 위치를 개별적으로 스냅. 잠재적으로 각 축의 다른 요소에 스냅이 가능.<br />
+	</div></blockquote>
+	<b class="em0">scroll snap strictness</b><br />
+	<blockquote cite=""><div>
+	none: 스냅하지 않음.<br />
+	proximity: snap position 설정에 맞춰 스냅, 미지정이면 UA 에 따름<br />
+	mandatory: 항상 스냅.<br />
+	</div></blockquote>
+	엄격도는 지정하지 않을 경우 proximity로 설정된다<br />
+</td>
+<td>
+	((<a href="https://wit.nts-corp.com/2018/08/28/5317" target="_blank" rel="noopener" title="새 창" class="a1">CSS Scroll snap points 알아보기</a><br />
+	scroll-snap-type: x proximity;
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-snap-align</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+	scroll-snap-type에서 지정한 축을 기준으로 snap area의 정렬<br />
+	<blockquote cite=""><div>
+	none: snap position을 지정하지 않음<br />
+	start: 축을 기준으로 snap area의 시작 부분에 맞춰 정렬<br />
+	end: snap area의 끝에 맞춰 정렬<br />
+	center: snap area의 가운데에 맞춰 정렬<br />
+	</div></blockquote>
+</td>
+<td>
+	scroll-snap-align: center;
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-snap-stop</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">X</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+	scroll-snap-stop CSS 속성은 스크롤 컨테이너가 가능한 스냅 위치를 "통과"할 수 있는지 여부를 정의합니다.
+	<blockquote cite=""><div>
+	scroll-snap-stop: normal;<br />
+	scroll-snap-stop: always;<br />
+	</div></blockquote>
+</td>
+<td></td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-padding</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+	Scroll Container에 선언하여 해당 뷰포트의 padding이 적용.<br />
+	snapport가 조정되어 스크롤 할 수 있는 영역이 줄어든다.<br />
+	레이아웃, 스크롤 원점, 요소의 위치에는 영향 없다.<br />
+</td>
+<td>
+	scroll-snap-type:y mandatory;<br />
+	scroll-padding: 50px;<br />
+</td>
+</tr>
+<tr><!-- ◇◆ -->
+<th scope="row"><b>scroll-margin</b></th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+	스냅 타겟이 되는 snap area에 지정하며,<br />
+	scroll-padding과 동일하게 실제 보이는 요소에 영향 없다.<br />
+</td>
+<td>
+	.snap-area:nth-of-type(2) { scroll-margin: 100px; }<br />
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+
+
+<table id="UsingHold_CSS3Properties" class="t3 tlf tt2pdlr0 tt3pdlr0 tt4pdlr0 tt5pdlr0 tt6pdlr0 tt2tac tt3tac tt4tac tt5tac tt6tac">
+<caption>
+	<div class="dpt w100">
+		<div class="dptc vam">
+			<h3 class="hb1 h3 mgtbD">
+				사용보류 CSS3 Properties
+				<span class="mgl05em fwn fs12px">r.20160901~20190405. 20211221.</span>
+			</h3>
+		</div>
+		<div class="dptc tar vam">
+			Vendor Prefix : <em>-webkit-　-moz-　-o-　-ms-</em>
+		</div>
+	</div>
+</caption>
+<col style="width:10em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:2em;" />
+<col style="width:0%;" />
+<col style="" />
+<col style="" />
+<thead class="tt1pdlr0 tt1tac"><!--  ☆셀병합으로 스타일 결함 해결 -->
+<tr>
+<th scope="col" rowspan="2">Properties<br /><b>[IE]	No</b></th>
+<th scope="col" colspan="5">Browser Support</th>
+<th scope="col" rowspan="2"><!-- 예비 --></th>
+<th scope="col" rowspan="2">Code</th>
+<th scope="col" rowspan="2">Note</th>
+</tr>
+<tr>
+<th scope="col">CR</th>
+<th scope="col">SF</th>
+<th scope="col">FF</th>
+<th scope="col">EG</th>
+<th scope="col">IE</th>
+</tr>
+</thead>
+<tbody>
+<tr><!-- ◇◆ -->
+<th scope="row"><b><a href="https://caniuse.com/#search=mask" target="_blank" title="새 창">mask</a></b></th>
+<td title="CR">V</td>
+<td title="SF">V</td>
+<td title="FF">O</td>
+<td title="EG">V</td>
+<td title="IE">X</td>
+<td></td>
+<td>
+
+<xmp class="xmp">
+<img src="pic.jpg" class="mask-box" />
+<style>
+.mask-box {
+  -webkit-mask-image: url(../resources/mask.png);
+}
+</style>
+</xmp>
+
+</td>
+<td>
+
+<ol class="bo">
+<li><a href="https://developer.mozilla.org/ko/docs/Web/CSS/mask" target="_blank" title="새 창">))) CSS ) <b class="em6">mask</b></a> - MDN</li>
+</ol>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Selector">CSS3 Selectors 42</h2>
+
+
+<table class="t3 tt2pdlr0 tt3pdlr0 tt4pdlr0 tt5pdlr0 tt6pdlr0 tttac">
+<caption>
+	<div class="h1">
+		<strong>C</strong>: Chrome 5,  <strong>S</strong>: Safari 4, <strong>F</strong>: Firefox 3.6, <strong>O</strong>: Opera 10.5,
+		<strong>IE</strong>: Internet Explorer 9~, 8, 7, 6
+	</div>
+</caption>
+<col style="width:10em;" /><col span="5" style="width:2em;" /><col />
+<thead class="lhD">
+<tr>
+<th colspan="9" scope="col" class="tal">CSS level</th>
+</tr>
+<tr>
+<th scope="col">Selectors</th>
+<th scope="col">CR<br /></th>
+<th scope="col">SF<br /></th>
+<th scope="col">FF<br /></th>
+<th scope="col">OP<br /></th>
+<th scope="col">IE<br /></th>
+<th scope="col">Note <!-- Meaning --></th>
+</tr>
+</thead>
+<tbody class=" tt1tal tt7tal">
+<tr>
+<th colspan="9" scope="col"><strong class="h1 fsXL">CSS 3</strong></th>
+</tr>
+
+<tr>
+<th scope="row">[attr operator value i]</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td><span class="dpib no pdl0375em pdr0375em">[IE11](X)</span><br />
+	괄호를 닫기 전에 i (혹은 I)를 붙여주면 값의 대소문자를 구분하지 않습니다. (ASCII 범위 내에 존재하는 문자에 한해서 적용됩니다.)<br />
+	/* 아래는 대소문자를 구분하지 않습니다. "email", "EMAIL", "eMaIL" 모두 조건을 만족합니다. */<br />
+	<code>input[type="email" i] {border-color: blue;}</code><br />
+</td>
+</tr>
+<tr>
+<th scope="row">E[attr^='val']</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 속성값 val로 <em class="em">시작하는</em> E 요소를 선택(공백으로 분리된 값이 일치해야 한다)<br />
+<em class="em">jquery-1.12.4.min.js 에서 따옴표 없이 E[attr=val] 이렇게 하면 에러 발생하니 주의한다.</em><br />
+<code>div[id^='side']{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E[attr$='val']</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 속성값 val로 <em class="em">끝나는</em> E 요소를 선택(공백으로 분리된 값이 일치해야 한다)
+<code>a[href$='.gif']{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em">E[attr*='val']</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 값에 속성값 val이 <em class="em">포함</em>되는 E 요소를 선택(공백으로 분리된 값과 정확하게 일치하지 않아도 선택)<br />
+<code>input[type*='text']{}</code><br />
+<code>[class*='column'] + [class*='column']:last-child</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th scope="row">E:root</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>문서의 <em>최상위 요소(html)를 선택</em>
+<code>:root{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E:nth-child(n)<br />
+E:nth-child(odd)<br />
+E:nth-child(even)<br />
+</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>앞으로부터 지정된 순서와 일치하는 요소가 E 라면 선택(E 아닌 요소의 순서가  계산에 포함됨)<br />
+<ins class="">n에는 음이 아닌 정수(0, 1, 2, 3, ···)가 차례대로 대입됩니다.</ins><br />
+<code>ul li:nth-child(7){}</code><br />
+<code>ul li:nth-child(2n-1){}</code> 와 <code>ul li:nth-child(odd){}</code> 는 같다.<br />
+<code>ul li:nth-child(2n){}</code> 와 <code>ul li:nth-child(even){}</code> 는 같다.<br />
+<pre class="mg0">
+<code class="xmp">
+li:nth-child(-n+6){color:red;} /* 1~6번째 선택 */
+li:nth-child(n+7):nth-child(-n+11){color:green;} /* 7~11번째 선택 */
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th scope="row">E:nth-last-child(n)</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>뒤로부터 지정된 순서와 일치하는 요소가 E 라면 선택(E 아닌 요소의 순서가  계산에 포함됨)
+<code>ul li:nth-last-child(3){}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E:nth-of-type(n)</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소 중 앞으로부터 순서가 일치하는 E 요소를 선택(E 요소의 순서만  계산에 포함됨)
+<code>div.guide p:nth-of-type(3){}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E:nth-last-of-type(n)</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소 중 끝으로부터 순서가 일치하는 E 요소를 선택(E 요소의 순서만  계산에 포함됨)
+<code>div.guide p:nth-last-of-type(3){}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E:last-child</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>마지막에 등장하는 요소가 E 라면 선택(E 아닌 요소의 순서가  계산에 포함됨)
+<code>div.guide p:last-child{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E:first-of-type</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소 중 첫 번째 E를 선택(E 요소의 순서만  계산에 포함됨)
+<code>div.guide p:first-of-type{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row">E:last-of-type</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소 중 마지막 E를 선택(E 요소의 순서만  계산에 포함됨)
+<code>div.guide p:last-of-type{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:only-child</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소가 유일한 자식이면 선택(E 아닌 요소가 하나라도 포함되면 선택 안함)
+<code>div.guide p:only-child{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:only-of-type</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E 요소가 유일한 타입이면 선택(E 아닌 요소가 포함되어도 E 타입이 유일하면 선택)
+<code>div.guide p:only-of-type{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:empty</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>텍스트 및 공백을 포함하여 자식 요소가 없는 E를 선택
+<code>div.guide p:empty{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em8">E:target</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>E의 URI가 요청되면 선택(따라서 E는 ID가 지정되어 있어야 한다)<br />
+URI에 앵커링크가 지정되어 있는 링크에 액티브 하였을 때 스타일을 적용시킨다.<br />
+※ 앵커링크 : http://d.net/#guide6 식의 fragement식별자로 URI가 끝나는 링크.<br />
+<code>*:target{}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:enabled</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>사용 가능한 폼 콘트롤(input, textarea, select, button) E를 선택</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:disabled</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>사용 불가능한 폼 콘트롤(input, textarea, select, button)  E를 선택</td>
+</tr>
+<tr>
+<th scope="row"><b class="em2">E:checked</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>
+	선택된 폼 콘트롤을 선택<br />
+	input.attr('checked') = true ( input checked="checked" ) 선택이 아니고,<br />
+	<code>input.prop('checked') = true</code> 를 선택한다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em3">E:not(s)</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>S가 아닌 E 요소를 선택
+<code>input:not([type="text"]){}
+*:not(div){}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E~F</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>E 요소가 앞에 존재하면 <em>F를 선택</em>(E가 F보다 먼저 등장하지 않으면 선택 안함)
+<code>.focus1 li a img~.text{width:66%}
+</code>
+</td>
+</tr>
+<tr>
+<th scope="row">
+	<b class="em4">E:valid</b><br />
+	<b class="em4">E:invalid</b><br />
+</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="no">10</td>
+<td>
+	pattern 검증이 valid 또는 invalid 한 E(폼요소)를 선택
+	)) <a href="https://caniuse.com/#feat=form-validation" target="_blank">Browser Support</a>
+<xmp class="xmp">
+<label>특수문자를 포함하지 않는 4자리 문자 또는 숫자
+	<input type="text" value="ab1!"
+		pattern="[a-zA-Z0-9]{4}" required>
+</label>
+<label>핸드폰 번호 형식
+	<input type="text" value="010-1111-2222"
+		pattern="^\d{3}-\d{3,4}-\d{4}$" required>
+</label>
+</xmp>
+</td>
+</tr>
+
+<tr>
+<th scope="row">
+	<b class="em4">::selection</b>
+</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">9</td>
+<td>
+	드래그한 콘텐츠를 선택<br />
+	)) <a href="https://www.caniuse.com/#search=css%20selection" target="_blank">
+		In Safari ::selection styles do not work in combination with CSS multi-column.
+	</a>
+</td>
+</tr>
+
+<tr>
+<th colspan="9" scope="col"><strong class="h1 fsXL">CSS 2</strong></th>
+</tr>
+<tr>
+<th scope="row">*</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>모든 요소를 선택
+<code>*{} div#wrapper form *{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E[attr]</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes some">7<br />◇<br /><i class="em">◆</i></td>
+<td>속성명 attr 이 포함된 E 요소를 선택
+<code>p[rel]{}</code><br />
+<b>[m]</b> <i class="em1">[~IE8] 안됨? .vs. 잘됨?</i><br />
+(X) th[rowspan]<br />
+(O) *[title], a[href]<br />
+<em class="em">(X) #mayor1 .wrap1>div[style]>img[style]</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row">E[attr='val']</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 값이 정확하게 속성값 val과 일치하는 E 요소를 선택
+<code>input[type='text']{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em5">E[attr~='val']</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 값에 속성값 val이 포함되는 요소를 선택(공백으로 분리된 값이 일치해야 한다)<br />
+	<code>p[class~='key']{}</code><br />
+	클래스가 "key"인 요소들을 선택한다. ("keyed", "monkey", "buckeye"등은 선택하지 않는다).<br />
+	기능적으로는 .key와 동일하다.<br />
+	<small class="em">attr이라는 이름의 속성값이 단어로 구성되어 있으며 사이 사이에 공백이 들어가 있을 때, 그 단어 중 하나가 'val'라는 단어이면 이 요소를 선택합니다.</em>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em5">E[attr|='val']</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>속성명 attr 의 속성값 val 또는 'val-' 으로 시작되는 E 요소를 선택<br />
+<code>a[lang|='ko']{}</code><br />
+<b class="">[m]</b> lang="ko" 또는 lang="ko-KR" 선택. <em>Need to Test</em><br />
+	<code>[lang|=es]</code><br />
+	lang 속성이 es인, 즉 스페인어인 요소들을 선택한다. 여기에는 "es" 와 "es-MX" 등이 포함되지만 "eu-ES" (Basque임)는 포함되지 않는다.<br />
+	<em class="em">attr이라는 속성값을 가지고 있으며, 그 속성값이 정확히 'val'이거나 'val'로 시작하면서 "-"(U+002D) 문자가 곧바로 뒤에 따라 붙으면 이 요소를 선택합니다.
+	이 선택자는 언어 서브코드가 일치하는지 확인하고자 할 때 사용할 수 있습니다.</em>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E:first-child</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>첫 번째  등장하는 요소가 E 라면 선택(E 아닌 요소의 순서가  계산에 포함됨)
+<code>div.guide p:first-child{}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em1">E:lang(ko)</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">8</td>
+<td>E 요소의 lang 속성값이 "ko" 로 지정된 요소를 선택<br />
+<code>p:lang(ko)</code><br />
+<b class="">@m))</b> <em class="em"><code>html[lang="ko"]</code></em> 를 사용하면 <b class="em1">[IE7~]</b> 호환 가능하다.
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em1">E::before</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">8</td>
+<td>E 요소의 시작 지점에 생성된 요소를 선택<br />
+요소의 포함 된 내용 앞에 내용을 생성시킨다. <em>Test IE7?</em><br />
+<code>p:before{content:".";}</code><br />
+<code>h3:before, .hb1.h3:before{content:'';display:block;float:left;width:0;height:0;margin:.2em .1em 0 .6em;border:.4em solid transparent;border-left-color:#f80;overflow:hidden;text-indent:100%;}</code><br />
+</td>
+</tr>
+<tr>
+<th scope="row"><b class="em1">E::after</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">8</td>
+<td>E 요소의 끝 지점에 생성된 요소를 선택<br />
+요소의 포함 된 내용 뒤에 내용을 생성시킨다.
+<code>#container:after{content:".";}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E&gt;F</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>E 요소의 자식인 <em>F 요소를 선택</em> (<i class="em1">E F 와의 차이</i> : E와 F 사이에 다른 요소가 존재하면 선택 안함)
+<code>#container:after{content:".";}</code>
+</td>
+</tr>
+<tr>
+<th scope="row"><b>E+F</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>E 요소를 뒤따르는 <em>F 요소를 선택</em> (<i class="em1">E~F 와의 차이</i> : E와 F 사이에 다른 요소가 존재하면 선택 안함)
+<code>.focus1 li a img+.text{width:66%}</code><br />
+[m] <em class="em1">[IE7] 은 사이에 주석문 &lt;!--  --&gt; 도 허용안함.</em> [IE8~] 허용함.
+</td>
+</tr>
+<tr>
+<th colspan="9" scope="col"><strong class="h1 fsXL">CSS 1</strong></th>
+</tr>
+<tr>
+<th scope="row">E</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>E 요소를 선택</td>
+</tr>
+<tr>
+<th scope="row">E:link</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td><em class="">방문하지 않은</em> 앵커 E를 선택</td>
+</tr>
+<tr>
+<th scope="row">E:visited</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td><em class="">방문한</em> 앵커 E를 선택</td>
+</tr>
+<tr>
+<th scope="row">E:hover</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>E 요소에 마우스가 올라가 있는 동안 E를 선택</td>
+</tr>
+<tr>
+<th scope="row">E:active</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>E 요소에 마우스 클릭 또는 키보드 엔터가 눌린 동안 E를 선택</td>
+</tr>
+<tr>
+<th scope="row"><b class="em1">E:focus</b></th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">8</td>
+<td>E 요소에 포커스가 머물러 있는 동안 E를 선택</td>
+</tr>
+<tr>
+<th scope="row">E::first-line</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>
+	E (block) 요소의 첫 번째 라인을 선택<br />
+</td>
+</tr>
+<tr>
+<th scope="row">E::first-letter</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">7</td>
+<td>E (block) 요소의 첫 번째 문자를 선택</td>
+</tr>
+<tr>
+<th scope="row">.class</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>클래스 이름이 class로 지정된  요소 선택</td>
+</tr>
+<tr>
+<th scope="row">#id</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>아이디 이름이 id로 지정된 요소 선택</td>
+</tr>
+<tr>
+<th scope="row">E F</th>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">O</td>
+<td class="yes">6</td>
+<td>E 요소의 자손인 <em>F 요소를 선택</em></td>
+</tr>
+</tbody>
+</table>
+
+<ol class="bo">
+<li><del><a href="http://html.nhncorp.com/html_guide/?compatibility">HTML5 & CSS3 reference - CSS3 New Properties & Selectors</a></del></li>
+<li><cite>cite: <a href="http://naradesign.net/wp/2010/06/17/1343/">42 CSS3 Selectors(+Meaning) & Browser Support.</a> - NARADESIGN:BLOG -</cite> + [m] 예제 추가!</li>
+<li>※ <a href="https://developer.mozilla.org/ko/docs/Web/CSS/시작하기/설렉터" target="_blank" title="새 창">(CSS 안내서) 선택자</a> - MDN</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors" target="_blank" title="새 창">속성 선택자</a> - MDN</li>
+</ol>
+
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>/*<![CDATA[*/
+	jQuery(function($){
+		$('tbody th').css('white-space','nowrap');
+		$('.no').css({'background':'#f50','color':'white'});
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Generator">Generator</h2>
+
+
+<ol class="bu0 even-grid evenmix-1234">
+	<li class="column"><a href="http://ds-overdesign.com" target="_blank"><strong class="big">CSS3 Generator</strong></a><br />
+		<input type="range" class="mg0" />
+		<blockquote cite="" class="mg0"><div>
+			text-shadow<br />
+			box-shadow<br />
+			translate<br />
+			scale<br />
+			rotate<br />
+			rotate3d<br />
+			skew<br />
+			matrix<br />
+			matrix3d<br />
+			filter<br />
+			Bubble<br />
+			Rain<br />
+		</div></blockquote>
+	</li>
+	<li class="column"><a href="http://css3generator.com/"><strong class="big">CSS3 Generator</strong></a><br />
+		<input type="text" class="mg0" style="border:1px solid #ccc;" />
+		<blockquote cite="" class="mg0"><div>
+			border-radius<br />
+			box-shadow<br />
+			text-shadow<br />
+			rgba()<br />
+			@font-face<br />
+			Multiple Columns<br />
+			box resize<br />
+			box-sizing<br />
+			outline<br />
+			transition<br />
+			transform<br />
+			flex<br />
+		</div></blockquote>
+	</li>
+	<li class="column"><a href="http://css3gen.com/" target="_blank"><strong class="big">css3gen.com</strong></a>
+		<blockquote cite="" class="mg0"><div>
+			Button<br />
+			Gradient<br />
+			Border Radius<br />
+			Text Shadow<br />
+			Box Shadow<br />
+			Transform<br />
+			Background<br />
+			Animation<br />
+		</div></blockquote>		
+	</li>
+	<li class="column"><a href="http://cssmatic.com/" target="_blank"><strong class="big">cssmatic.com</strong></a>
+		<blockquote cite="" class="mg0"><div>
+			Gradient Generator<br />
+			Border Radius<br />
+			Noise Texture<br />
+			Box Shadow<br />
+		</div></blockquote>	
+	</li>
+	<li class="column"><a href="http://www.colorzilla.com/gradient-editor/" target="_blank"><strong class="big">Gradient Generator</strong></a></li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Reference Link</h2>
+
+
+<ol class="bo">
+<li><a href="https://tympanus.net/codrops/css_reference/" target="_blank" rel="noopener" title="새 창">CSS Reference</a> - <b class="em0">Codrops</b> -</li>
+<li><a href="http://www.w3schools.com/cssref/css3_browsersupport.asp"><strong class="em1">CSS3 Browser Support Reference</strong></a> - <b class="em0">w3schools</b> - [m]속성별 ★ <!-- 벤더 프리픽스 포함 --></li>
+<li>CSS3 Selectors support
+	<ol class="bo mg0">
+	<li><a href="http://www.quirksmode.org/css/contents.html">CSS - Contents and compatibility</a> - PPK - [m] </li>
+	<li><a href="http://caniuse.com/css-sel3">Can I use CSS3 selectors</a></li>
+	<li><a href="http://kimblim.dk/css-tests/selectors/">CSS Selectors and Pseudo Selectors and browser support</a></li>
+	</ol>
+</li>
+<li><a href="https://desandro.github.io/3dtransforms/" target="_blank" title="새 창">Intro to CSS <b class="em1">3D transforms</b></a> <i class="label1">*</i></li>
+<li><a href="http://daumui.tistory.com/44" target="_blank" title="새 창"><b class="em2">Flexible Box</b></a> - 다음 웹표준 Darum</li>
+<li>
+	<a href="https://studiomeal.com/archives/197" target="_blank" rel="noopener" title="새 창">
+		이번에야말로 CSS Flex를 익혀보자
+	</a>
+	- 1분코딩 - 
+</li>
+<li>
+	<a href="https://studiomeal.com/archives/533" target="_blank" rel="noopener" title="새 창">
+		이번에야말로 CSS Grid를 익혀보자
+	</a>
+	- 1분코딩 - 
+</li>
+</ol>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+| 20101213~
+20211221. 호환 점검 및 수정 [OP]))[EG]
+20211221. Defensive CSS
+20211216. ::first-letter 보완
+20211215. E:checked 수정
+20201216.
+20201215. animation-timing-function
+20201110. 정리
+20201106. grid Layout
+20200211. (( PoiemaWeb
+20200131. animation
+20191128. transform 2D transform 3D transition animation
+20190808. [IE9~]호환 선택자 강조
+20190412.
+20190502.
+20190405. [IE]셀 통합
+20181017. 사용보류 CSS
+20180607. background-clip 보강
+20180425. :nth-child 보강
+20180418. 속성선택자 보강
+20180406. mask
+20180319. multi column
+20171027. border-image
+20170731. animation
+20170720. 
+20170717. transition 애니메이션 가능한 CSS 속성은?
+20170425.
+20170424.
+20170331.
+20170320.
+20170309.
+20170213. animation
+20170209. flexbox
+20161014. filter: 호환.
+20161010. Flexible Box.
+20160804.
+20160623. (odd) (even) 추가.
+20160516.
+20160202. 속성선택자
+20151218. nth-child
+20151104.
+20150515.
+20150417.
+20150319. a:link, E[attr]
+20150116. background-size
+--
+20140918. background-size
+20140605. Gradient Generator
+20140404.
+20140326. Link 상으로.
+20130718. 그림자 속성값 정리함.
+20130605. type 오타 수정.
+20130426. CSS3 Properties 브라우저 지원, 테스트.
+20130411. 20130409. 20130327. 20130308. 20120413.
+20111025.
+20101227.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

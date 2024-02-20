@@ -1,0 +1,154 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>플래시 [미리보기 샘플]</title>
+<meta name="author" content="myshin" />
+<link rel="stylesheet" type="text/css" href="../share/css/all.css" />
+<script src="../share/js/all.js"></script>
+</head>
+<body>
+<h1>플래시 [미리보기 샘플]</h1>
+
+<table class="t3">
+<tr>
+<td><strong>[A1] 조건주석문 적용</strong><br />
+transparent 모드,<br /> 두번째 object 다음에 모든 param 코드 위치<br />
+<em>Cr 무비 보이지 않는 오류</em><br />
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="200" height="150">
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<!--<![endif]-->
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="transparent" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+Flash Transparent
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+
+</td>
+<td><strong>[A2] 조건주석문 적용</strong><br />
+transparent 모드,<br /> 첫번째 object 다음에 &lt;param name="movie" ..&gt; 위치<br />
+<em>Op, Cr 투명 오류</em><br />
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<!--<![endif]-->
+<param name="wmode" value="transparent" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+Flash Transparent
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+
+</td>
+<td><strong>[A3] 조건주석문 적용</strong><br />
+transparent 모드,<br /> 첫번째 object 다음에 모든 param 코드 위치<br />
+<em>FF, Sf, Fl 투명 오류</em><br />
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="transparent" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<!--<![endif]-->
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+Flash Transparent
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+
+</td>
+<td><strong>[A4] 조건주석문 적용</strong><br /> <em>★사용권장(opaque 모드로)</em><br />
+transparent 모드,<br />
+첫번째 object 다음에 모든 param 코드 위치<br />
+두번째 object 다음에 &lt;param name="movie" ..&gt; 제외한 나머지 param 중복 코딩<br />
+두번째 object 를 width="100%" height="100%" 하면 FF, Sf, Fl 에서 오류 발생하니 width, height 도 똑같이 중복해서 적어준다!<br />
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="transparent" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<!--<![endif]-->
+<param name="wmode" value="transparent" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+Flash Transparent
+</div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+
+</td>
+</tr>
+<tr>
+<td><strong>[B1] 웹표준 object</strong><br />
+window 모드<br />
+
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="window" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+대체 콘텐츠
+</div>
+</object>
+
+</td>
+<td><strong>[B2] 웹표준 object</strong> <em>★사용권장</em><br />
+opaque 모드<br />
+
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="opaque" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+대체 콘텐츠
+</div>
+</object>
+
+</td>
+<td><strong>[B3] 웹표준 object</strong><br />
+transparent 모드<br />
+
+<object type="application/x-shockwave-flash" data="http://work.정보행동.co.kr/+m/ex.swf" width="200" height="150">
+<param name="movie" value="http://work.정보행동.co.kr/+m/ex.swf" />
+<param name="wmode" value="transparent" />
+<p>
+이 콘텐츠를 보려면 <a href="http://www.adobe.com/kr/products/flashplayer/">Flash Player</a>(무료)가 필요합니다.
+</p>
+<div>
+대체 콘텐츠
+</div>
+</object>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

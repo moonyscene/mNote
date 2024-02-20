@@ -1,0 +1,176 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>Select Menu Layer Select Menu Layer 셀렉트 메뉴 레이어, 선택 상자, 콤보 박스, Pull-Down Menus, 목록 상자, 여닫기 mselect1</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+/* [js] initmSelect('selectId','optionId');*/
+.mselect{z-index:10;position:relative;width:180px;line-height:1.26;}
+.mselect *{list-style:none;margin:0;padding:0;border:0;background:transparent;text-decoration:none !important;}
+.mselect h3{display:inline;font-size:1em !important;}
+.mselect h3 a/* js */{display:block;position:relative;height:15px;padding:3px 24px 2px 0;border:1px solid #bbb;background:#fff url(../img/inc/combobg.png) no-repeat 100% 0;color:#333 !important;font-weight:normal;text-decoration:none;}
+.mselect h3 a span/* js */{padding:0 2px 0 6px;background:#fff;}
+.mselect .moption{position:absolute;left:0;top:0;width:178px;padding-top:21px;border:1px solid #bbb;background:url(../img/inc/combobg.png) no-repeat 100% 0;}
+.mselect .moption ul{width:100%;padding:1px 0 5px;border-top:1px dotted #bbb;overflow:auto;}
+.mselect .moption ul li{display:inline;}
+.mselect .moption ul li a{display:block;height:15px;padding:1px 6px 1px;background:#fff;color:#000;text-decoration:none;white-space:nowrap;}
+.mselect .moption ul li a:hover,
+.mselect .moption ul li a:focus{background:#666;color:#fff;}
+.mselect .moption ul li.on a{color:#f00;}
+#mselect1{z-index:12;}
+#mselect2{z-index:11;}
+#mselect3{z-index:10;}
+
+
+/*]]>*/</style>
+<script>/*<![CDATA[*/
+/* 선택메뉴 #20120830. MoonYoungShin. 마지막 목록에서 탭후진 시 접히는 문제 해결!!
+<select><option>유사동작. CSS장식가능. 이동버튼 불필요. 목록 click 하면 감춤. 페이지내링크이동방지
+ex)
+<div id="selectId" class="mselect">
+<h3>관련 사이트 바로가기</h3>
+<div id="optionId" class="moption">
+<ul>
+<li><a href="http://naver.com" onclick="window.open(this.href);return false;">네이버 [새 창]</a></li>
+<li><a href="http://naver.com">네이버</a></li>
+</ul>
+</div>
+</div>
+ex)initmSelect("selectId","optionId");
+*/
+var _mselect=new Array();
+function initmSelect(selectId,optionId){
+	var selectEl=document.getElementById(selectId);
+	_mselect[_mselect.length]=selectEl;
+	selectEl.first=selectEl.getElementsByTagName("*")[0];/* <h3 /> */
+	if(selectEl.first.tagName!="A") selectEl.first.innerHTML='<a href="#'+optionId+'"><span>'+selectEl.first.innerHTML+'</span></a>';
+	selectEl.option=document.getElementById(optionId);
+	selectEl.option.innerHTML=selectEl.option.innerHTML+'<a href="#'+selectId+'" style="position:absolute;left:-9999px;">Close</a>'//20120830.
+	selectEl.Aarr=selectEl.getElementsByTagName("a");
+	_selectClick=0;
+	var hideOption=function(){for(i=0;i<_mselect.length;i++){_mselect[i].option.style.visibility="hidden";}}
+	var showOption=function(){hideOption();selectEl.option.style.visibility="visible";}
+	hideOption();
+	selectEl.Aarr[0].onclick=function(){//20120830.
+		if(selectEl.option.style.visibility=="hidden"){showOption();}
+		else if(selectEl.option.style.visibility=="visible"){hideOption();}
+		_selectClick=1;
+		return false;
+	}
+	selectEl.Aarr[selectEl.Aarr.length-1].onfocus=function(){//20120201.현재페이지내링크면href로이동안함
+		hideOption();
+		selectEl.Aarr[0].focus();
+	}
+	for(var i=1;i<=selectEl.Aarr.length-1;i++){//i=0은<h3 />자식<a />이므로제외
+		if(typeof selectEl.Aarr[i].onclick=="function"){selectEl.Aarr[i].oldClick=selectEl.Aarr[i].onclick;}
+		selectEl.Aarr[i].onclick=function(){
+			selectEl.Aarr[0].innerHTML="<span>"+this.innerHTML+"</span>";//선택된태그를표시
+			if(this.oldClick){this.oldClick();hideOption();return false;}
+			var hrefuri=this.href;hrefuri=hrefuri.replace(hrefuri.substring(0,hrefuri.indexOf("#")),'');
+			if(/#/.test(hrefuri))return false;//페이지내링크이동방지
+		}
+	}
+	selectEl.option.onclick=function(){hideOption();}
+	document.onclick=function(){
+		if(_selectClick==0)hideOption();_selectClick=0;
+	}
+}
+/*]]>*/</script>
+</head>
+<body>
+<h1>제목 클릭하면 메뉴 보임. 메뉴 클릭 및 외부 클릭하면 감춤, 활성 제목 뷰 mselect1</h1>
+
+<!-- <ol class="num">
+<li>
+</li>
+</ol> -->
+
+<h2>제목 클릭하면 메뉴 보임. 메뉴 클릭 및 외부 클릭하면 감춤, 활성 제목 뷰</h2>
+
+<p>* initmSelect 마지막 목록에서 탭후진[Shift-Tab] 하면 접히는 문제 해결!!</p>
+
+<!-- mselect1 -->
+<div id="mselect1" class="mselect" style="margin: 0 0 .5em 0;">
+<h3>관련 사이트 바로가기</h3>
+<!-- moption1 -->
+<div id="moption1" class="moption">
+<ul>
+<li><a href="http://naver.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">네이버[새 창]</a></li>
+<li><a href="http://naver.com">네이버</a></li>
+<li><a href="#n3">바로가기 링크3</a></li>
+<li><a href="#n4">바로가기 링크4</a></li>
+<li><a href="#n5">바로가기 링크5</a></li>
+<li><a href="#n6">바로가기 링크6</a></li>
+<li><a href="#n7">바로가기 링크7명은 아주 길단다</a></li>
+<li><a href="http://yahoo.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">야후[새 창]</a></li>
+</ul>
+</div>
+<!-- /moption1 -->
+</div>
+<script>initmSelect("mselect1","moption1");</script>
+<!-- /mselect1 -->
+
+<!-- mselect2 -->
+<div id="mselect2" class="mselect" style="margin: 0 0 .5em 0;">
+<h3>관련 사이트 바로가기</h3>
+<div id="moption2" class="moption">
+<ul>
+<li><a href="http://naver.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">네이버[새 창]</a></li>
+<li><a href="http://naver.com">네이버</a></li>
+<li><a href="#n3">바로가기 링크3</a></li>
+<li><a href="#n4">바로가기 링크4</a></li>
+<li><a href="#n5">바로가기 링크5</a></li>
+<li><a href="#n6">바로가기 링크6</a></li>
+<li><a href="#n7">바로가기 링크7</a></li>
+<li><a href="http://yahoo.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">야후[새 창]</a></li>
+</ul>
+</div>
+</div>
+<script>initmSelect("mselect2","moption2");</script>
+<!-- /mselect2 -->
+
+<!-- mselect3 -->
+<div id="mselect3" class="mselect" style="margin: 0 0 .5em 0;">
+<h3>패밀리 사이트 바로가기</h3>
+<div id="moption3" class="moption">
+<ul>
+<li><a href="http://naver.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">네이버[새 창]</a></li>
+<li><a href="http://naver.com">네이버</a></li>
+<li><a href="#n3">바로가기 링크3</a></li>
+<li><a href="#n4">바로가기 링크4</a></li>
+<li><a href="#n5">바로가기 링크5</a></li>
+<li><a href="#n6">바로가기 링크6</a></li>
+<li><a href="#n7">바로가기 링크7</a></li>
+<li><a href="http://yahoo.com" onclick="window.open(this.href); return false;" target="_blank" title="새 창">야후[새 창]</a></li>
+</ul>
+</div>
+</div>
+<script>initmSelect("mselect3","moption3");</script>
+<!-- /mselect3 -->
+
+<p><a href="?">구글</a> 은 blur 이벤트에 닫히지 않는다. 키보드 운용시 다시 역주행해서 제목까지 찾아가야 한다.<br /></p>
+
+
+
+
+<br />
+<hr />
+<p>Revision. 20120830.</p>
+
+</body>
+</html>

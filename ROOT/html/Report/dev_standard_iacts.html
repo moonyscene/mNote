@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹사이트 표준 개발 가이드 for 정보행동',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css" title="myshin_css">
+body { margin: 20px; }
+</style>
+</head>
+<body>
+<div id="head"><!-- /share/inc/head.html --></div>
+
+
+
+
+
+<h1>웹사이트 표준 개발 가이드 for 정보행동</h1>
+
+<p>v2009.02.19</p>
+<!-- box1 -->
+<div class="box1">
+프로젝트 : 웹사이트 표준 개발 가이드 for 정보행동<br />
+사업기간 : 2010.02.24 ~ 2010.03.31<br />
+</div>
+<!-- //box1 -->
+
+<h2>웹사이트 표준 개발 가이드 for 정보행동</h2>
+
+<ul class="bu">
+<li>문서번호 : 사업코드-관리코드-문서구분코드.20100224</li>
+<li>문서버전 : 1.0</li>
+<li>제정일자 : 2010. 02. 24</li>
+<li>개정일자 : 2010. 03. 31</li>
+</ul>
+
+<p class="tac"><address>myshin</address></p>
+
+<!-- box1 -->
+<div class="box1">
+<div class="fl">웹사이트 표준 개발 가이드</div>
+<div class="fr">ver1.0</div>
+<div class="clb"></div>
+
+
+<h3 class="init tac">개정 이력</h3>
+
+<table class="t3 w100" summary=""><caption class="dpn"></caption>
+<thead>
+<tr>
+<th scope="col">개정번호</th>
+<th scope="col">개정내역</th>
+<th scope="col">개정자</th>
+<th scope="col">시행일. 비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">1.0</th>
+<td>신규제정</td>
+<td>문영신</td>
+<td>2010.02.23. 내용 신규 작성</td>
+</tr>
+<tr>
+<th scope="row">1.x</th>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="fl">사업코드-관리코드-문서구분코드.20100224</div>
+<div class="fr">(주)정보행동</div>
+<div class="clb"></div>
+</div>
+<!-- //box1 -->
+
+<h3>목차</h3>
+<!-- box2 -->
+<div class="box2">
+<pre>
+0부
+<a href="#">개요</a>
+<a href="#">고려사항</a>
+|
+웹 접근성
+브라우저 호환성
+웹 표준
+웹 최적화
+
+2부
+명명 규칙
+코딩 규칙
+공통 작업
+공통 템플릿
+콘텐츠 라이브러리
+
+3부
+참고 자료
+FAQ
+</pre>
+</div>
+<!-- //box2 -->
+
+
+<h3 id="a1">1. 명명 규칙</h3>
+
+
+<h4 id="a1-1">1-1. 공통 코드 정의</h4>
+
+<table class="t3" style="width: 40%;" summary="사업 코드"><caption>사업 코드</caption>
+<col style="width: 40%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>개발 프로젝트 명</th>
+<th>코드</th>
+<th>영문 Full Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">홈페이지 고도화 사업</th>
+<td>ADH</td>
+<td>Advanced Homepage</td>
+</tr>
+</tbody>
+</table>
+
+<table class="t3" style="width: 40%;" summary="사업 관리 코드"><caption>사업 관리 코드</caption>
+<col style="width: 40%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>단계 구분</th>
+<th>코드</th>
+<th>영문 Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">착수 단계</th>
+<td>STP</td>
+<td>Start Phase</td>
+</tr>
+<tr>
+<th scope="row">분석 단계</th>
+<td>ASP</td>
+<td>Analysis Phase</td>
+</tr>
+<tr>
+<th scope="row">설계 단계</th>
+<td>DSP</td>
+<td>Design Phase</td>
+</tr>
+<tr>
+<th scope="row">개발 단계</th>
+<td>DMP</td>
+<td>Development Phase</td>
+</tr>
+<tr>
+<th scope="row">시험 단계</th>
+<td>TTP</td>
+<td>Test Phase</td>
+</tr>
+<tr>
+<th scope="row">이행 단계</th>
+<td>IMP</td>
+<td>Implementation Phase</td>
+</tr>
+<tr>
+<th scope="row">공통 관리</th>
+<td>COM</td>
+<td>Common Phase</td>
+</tr>
+</tbody>
+</table>
+
+<table class="t3" style="width: 40%;" summary="문서 종류 구분 코드"><caption>문서 종류 구분 코드</caption>
+<col style="width: 40%;" /><col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>문서 종류</th>
+<th>코드</th>
+<th>영문 Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">산출물</th>
+<td>OP</td>
+<td>Output</td>
+</tr>
+<tr>
+<th scope="row">보고서</th>
+<td>RP</td>
+<td>Report</td>
+</tr>
+<tr>
+<th scope="row">매뉴얼</th>
+<td>MN</td>
+<td>Manual</td>
+</tr>
+<tr>
+<th scope="row">회의록</th>
+<td>MT</td>
+<td>Minutes</td>
+</tr>
+<tr>
+<th scope="row">가이드라인</th>
+<td>GL</td>
+<td>Guideline</td>
+</tr>
+<tr>
+<th scope="row">체크리스트</th>
+<td>CK</td>
+<td>Checklist</td>
+</tr>
+<tr>
+<th scope="row">템플릿</th>
+<td>TL</td>
+<td>Template</td>
+</tr>
+<tr>
+<th scope="row">기타</th>
+<td>OT</td>
+<td>Other</td>
+</tr>
+</tbody>
+</table>
+
+<table class="t3" style="width: 40%;" summary="사이트별 업무 코드 Naming 규칙"><caption>사이트별 업무 코드 Naming 규칙</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th>코드</th>
+<th>정의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">P, PO</th>
+<td>Portal Template 적용된 Site</td>
+</tr>
+<tr>
+<th scope="row">S, SB</th>
+<td>공통 Template 적용된 Site</td>
+</tr>
+<tr>
+<th scope="row">N, NA</th>
+<td>Navigation 만 공통 적용된 Site</td>
+</tr>
+<tr>
+<th scope="row">L, LO</th>
+<td>공통 로그인 Template 적용된 Site</td>
+</tr>
+<tr>
+<th scope="row">A, AC</th>
+<td>접근성 작업만 된 Site</td>
+</tr>
+</tbody>
+</table>
+
+<table class="t3" style="width: 40%;" summary="사이트별 업무 코드 1"><caption>사이트별 업무 코드 1</caption>
+<col /><col style="width: 20%;" />
+<thead>
+<tr>
+<th>사이트 명</th>
+<th>코드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">국문(대표)</th>
+<td>KOR</td>
+</tr>
+<tr>
+<th scope="row">영문</th>
+<td>ENG</td>
+</tr>
+<tr>
+<th scope="row">중문</th>
+<td>CHN</td>
+</tr>
+<tr>
+<th scope="row">일문</th>
+<td>JPN</td>
+</tr>
+<tr>
+<th scope="row"></th>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="a1-2">1-2. 문서 Naming Rule</h4>
+
+<table class="t3" summary=""><caption></caption>
+<colgroup><col class="tac" /><col /><col span="2" class="tac" /></colgroup>
+<thead>
+<tr>
+<th>단계</th>
+<th>산출물 종류</th>
+<th>문서번호</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" rowspan="6">착수(STP)</th>
+<th scope="row">프로젝트 계획서</th>
+<td>ADH-STP-OP-YYMMDD(프로젝트계획서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">동료검토 게획서</th>
+<td>ADH-STP-OP-YYMMDD(동료검토계획서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">위험관리 계획서</th>
+<td>ADH-STP-OP-YYMMDD(위험관리계획서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">품질보증 계획서</th>
+<td>ADH-STP-OP-YYMMDD(품질보증계획서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">형상관리 계획서</th>
+<td>ADH-STP-OP-YYMMDD(형상관리계획서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">인력프로필</th>
+<td>ADH-STP-OP-YYMMDD(인력프로필)_v1.0</td>
+</tr>
+<tr>
+<th scope="row" rowspan="3">분석(ASP)</th>
+<th scope="row">요구사항정의서</th>
+<td>ADH-ASP-OP-YYMMDD(요구사항정의서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">표준화 진단 보고서</th>
+<td>ADH-ASP-RP-YYMMDD(표준화 진단 보고서)_v1.0</td>
+</tr>
+<tr>
+<th scope="row">개선 가이드 라인</th>
+<td>ADH-ASP-GL-YYMMDD(웹접근성표준화가이드라인)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="4">설계(DSP)</th>
+<th scope="row">개발 표준 정의서</th>
+<td>ADH-DSP-OP-YYMMDD(개발표준정의서)_</td>
+</tr>
+<tr>
+<th scope="row">화면설계서</th>
+<td>ADH-DSP-OP-YYMMDD(화면설계서)_</td>
+</tr>
+<tr>
+<th scope="row">단위 TEST 계획서</th>
+<td>ADH-DSP-OP-YYMMDD(단위테스트계획서)</td>
+</tr>
+<tr>
+<th scope="row">이행계획서</th>
+<td>ADH-DSP-OP-YYMMDD(이행계획서)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="5">구현(DMP)</th>
+<th scope="row">프로그램 목록(통합관리자)</th>
+<td>ADH-DMP-OP-YYMMDD(프로그램목록-통합관리자)</td>
+</tr>
+<tr>
+<th scope="row">단위 TEST 결과서</th>
+<td>ADH-DMP-OP-YYMMDD(단위테스트결과서)</td>
+</tr>
+<tr>
+<th scope="row">통합 TEST 계획서</th>
+<td>ADH-DMP-OP-YYMMDD(통합테스트결과서)</td>
+</tr>
+<tr>
+<th scope="row">결함 목록</th>
+<td>ADH-DMP-RP-YYMMDD(결함목록)</td>
+</tr>
+<tr>
+<th scope="row">KADO-WHA 결과 보고서</th>
+<td>ADH-DMP-RP-YYMMDD(KADO-WHA 결과보고서)</td>
+</tr>
+<tr>
+<th scope="row" rowspan="7">이행(IMP)</th>
+<th scope="row">통합 TEST 결과서</th>
+<td>ADH-IMP-OP-YYMMDD(통합테스트결과서)</td>
+</tr>
+<tr>
+<th scope="row">사용자 매뉴얼</th>
+<td>ADH-IMP-MN-YYMMDD(사용자매뉴얼)</td>
+</tr>
+<tr>
+<th scope="row">운영자 매뉴얼</th>
+<td>ADH-IMP-MN-YYMMDD(운영자매뉴얼)</td>
+</tr>
+<tr>
+<th scope="row">인수 TEST 결과서</th>
+<td>ADH-DMP-MN-YYMMDD(인수테스트결과서)</td>
+</tr>
+<tr>
+<th scope="row">결함 목록</th>
+<td>ADH-DMP-OP-YYMMDD(결함목록)</td>
+</tr>
+<tr>
+<th scope="row">KADO-WHA 결과 보고서</th>
+<td>ADH-DMP-RP-YYMMDD(프로젝트완료보고서)</td>
+</tr>
+<tr>
+<th scope="row">프로젝트 완료 보고서</th>
+<td>ADH-DMP-RP-YYMMDD(KADO-WHA 결과보고서)</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="a1-3">1-3. 프로그램 Naming Rule</h4>
+
+<h5 class="bu">HTML</h5>
+<ul class="bu">
+<li>화면명 : U+업무코드+구분번호(3 or 5).html</li>
+<li>적용예 : UHPKOR01004_02_01_01.html</li>
+<li>표기법 : 영문 대문자로만 표기</li>
+</ul>
+
+<h5 class="bu">JSP</h5>
+<ul class="bu">
+<li>소스파일명 : J+업무코드+구분번호(3 or 5).jsp</li>
+<li>적용예 : JHPKOR01004_02_01_01.jsp</li>
+<li>표기법 : 영문 대문자로만 표기</li>
+</ul>
+
+<h5 class="bu">Script</h5>
+<ul class="bu">
+<li>스크립트명 : 기능명(의미있는이름)+.js</li>
+<li>적용예 : common.js</li>
+<li>표기법 : 영문 소문자로만 표기</li>
+</ul>
+
+<h5 class="bu">XML</h5>
+<ul class="bu">
+<li>스크립트명 : 의미있는이름+.xml</li>
+<li>적용예 : user_files.xml</li>
+<li>표기법 : 전체 영어 소문자로 표기, 복합어일 경우 단어 사이를 "_"로 구분</li>
+<li>BLD는 JSP명과 파일명(구분코드 J 제외)을 동일하게 하고 확장자를 달리하여 소문자로 표기.</li>
+</ul>
+
+<dl>
+<dt><strong>구분코드(5자리)</strong></dt>
+<dd>기본적으로 모든 업무시스템에서는 3자리 번호체계를 사용<br />
+01+001 : 2자리(1 Level 메뉴) + 3자리(Serial)
+</dd>
+<dt><strong>업무코드</strong></dt>
+<dd>기 정의된 사이트 별 업무 코드를 사용한다.</dd>
+</dl>
+
+<h5>적용 예시 (KRX 국문 웹사이트)</h5>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<tbody>
+<tr>
+<th scope="col">HTML</th>
+<th scope="col">UHPKOR01001.html</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">JSP</th>
+<td>JHPKOR01001.jsp</td>
+</tr>
+<tr>
+<th scope="row">XML</th>
+<td>hpkor01001.xml<br />(동일 jsp에 두개 이상의 xml인 경우 _XX 로 처리)</td>
+</tr>
+<tr>
+<th scope="row">Popup</th>
+<td>적용명_P01.jsp(html) 로 표기<br />
+적용예 UHPPKO00100_P01.html<br />
+　　　&nbsp;JHPPKO00100_P01.jsp<br />
+　　　&nbsp;hppko00100_p01.xml</td>
+</tr>
+</tbody>
+</table>
+
+<h5 class="bu">DataBase</h5>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">DB01</th>
+<th scope="col">Table명</th>
+<th scope="col">TB+업무코드_명칭(21자리이내)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">DB02</th>
+<td>View명</td>
+<td>VW+업무코드_명칭+일련번호(2자리)</td>
+</tr>
+<tr>
+<th scope="row">DB03</th>
+<td>Partition Table Segment명</td>
+<td>업무코드_명칭</td>
+</tr>
+<tr>
+<th scope="row">DB04</th>
+<td>Lob Segment명</td>
+<td>LS+업무코드_명칭+일련번호(2자리)</td>
+</tr>
+<tr>
+<th scope="row">DB05</th>
+<td>Sequence명</td>
+<td>SQ+업무코드_명칭+일련번호(2자리)</td>
+</tr>
+<tr>
+<th scope="row">DB06</th>
+<td>Materialized View명</td>
+<td>MV+업무코드_명칭+일련번호(2자리)</td>
+</tr>
+<tr>
+<th scope="row">DB07</th>
+<td>Cluster명</td>
+<td>CL+업무코드_명칭+일련번호(2자리)</td>
+</tr>
+<tr>
+<th scope="row">DB08</th>
+<td>Index명</td>
+<td>Table명+일련번호(2자리)</td>
+</tr>
+</tbody>
+</table>
+
+
+<dl class="bu">
+<dt>예외 사항</dt>
+<dd>MySQL로 이관 대상 Table 중 TBHP로 시작하는 기존 명명 규칙에 준하는 table을 제외하고 나머지 table에 대해서 Table명을 아래와 같이 정의한다.<br />TBHP_사이트별업무코드_명칭</dd>
+<dt>준수 사항</dt>
+<dd>
+<ol>
+<li>MySQL에 사용되는 Table 및 Colume는 기본적으로 Meta에 등록된 단어 및 용어를 준수하여 생성하도록 한다.</li>
+<li>필요한 경우에는 Meta에 용어 등록을 요청하여 사용하도록 한다.</li>
+</ol>
+</dd>
+</dl>
+
+
+<h3 id="a2">2. 코딩 표준 정의서</h3>
+
+
+<h4 id="a2-1">2-1. 개요</h4>
+
+<h5>(1) 목적</h5>
+<p>코딩표준정의는 프로젝트 개발 JSP, XML, JS 표준을 정의하고 체계적인 SOURCE 관리 활동을 수행하기 위함 목적으로 한다.</p>
+
+<h5>(2) 적용 범위</h5>
+<p>HTML, JSP, XML 페이지</p>
+
+<h5>(3) 참조 문서 (별첨)</h5>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<tbody>
+<tr>
+<th scope="row">JSP 표준</th>
+<td>adm_menu.jsp</td>
+</tr>
+<tr>
+<th scope="row">XML 표준</th>
+<td>adm_menucon_1.xml</td>
+</tr>
+<tr>
+<th scope="row">표준 JS</th>
+<td>akc.js</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="a2-2">2-2. 공통</h4>
+<h5>(1)  폰트</h5>
+<ul class="bu">
+<li>글꼴 : 굴림 , 글꼴 스타일 : 보통,  크기 : 10</li>
+</ul>
+<h5>(2) 탭 설정</h5>
+<ul class="bu">
+<li>탭은 스페이스 4 칸으로 설정해서 작업한다.</li>
+</ul>
+<h5>(3) 기타</h5>
+<ul class="bu">
+<li>Eclipse Editor 에서 작업함을 기준으로 한다.( JSP 페이지는 텍스트편집기 사용해도 무관.)</li>
+<li>소스관리는 SVN로 한다.</li>
+<li>각 각의 파일의 명명규칙은 ADH-COM-GL-091208(표준명명규칙정의서)_v1.0을 기준으로 한다.</li>
+</ul>
+
+<h4 id="a2-3">2-3. JSP</h4>
+<h5>(1) 표제란</h5>
+<xmp class="xmp">
+/*===============================================================
+Program ID      : main.jsp (프로그램 ID 기술)
+Program Name    : KRX관리자모드 > default_main (메뉴 기술 > 프로그램 명 기술)
+Version         	: V1.0 (Version 기술)
+Designer Name   :             (디자이너 기술)
+Developer Name  : 홍길동 (개발자 기술)
+Create Date     : 2009.12.16 (개발 일자 기술)
+Reversion History   : (일자,버전,개발자, 내용을 기술한다.)
+Date            Ver     Name        Description
+2009.12.16      V1.0    홍길동     Initial Version
+===============================================================*/
+</xmp>
+<h5>(2) Contents / HTML</h5>
+<p>page contentType, include file, page impor, useBean 등은 페이지 상단에 기술하여 준다.</p>
+<xmp class="xmp">
+(예)
+<%@ page contentType="text/html;charset=utf-8"%>
+<%@ include file="/inc/common/common.jsp"%>
+<%@ page import="anyframe.util.DateTime" %>
+<%@ page import="exkrx.util.Format" %>
+<%@ page import="exkrx.util.*" %>
+<%@ page import="java.util.*,java.text.*,java.net.*"%>
+</xmp>
+<jsp:useBean id="interact" class="anyframe.data.InteractionBean" scope="request" />
+
+<ul class="bu">
+<li>코딩이 필요한 부분은 useBean 아래에 기술한다.  각 항목의 설명이 필요할 경우 주석을 붙여준다.</li>
+</ul>
+<xmp class="xmp">
+(예)
+<%
+
+// 1Depth directory name
+String drtname = (String)request.getAttribute("anytemplet.body_url");
+drtname = drtname.substring(1,4);
+
+HttpAttributes attr = HttpAttributes.getInstance(request);
+DataSet input = attr.getDataSet();
+DataSet output	= null;		//전체메뉴목록 DataSet
+DataSet output1	= null;		//전체부서목록 DataSet
+DataSet output2 = null;		//부서별 메뉴목록 DataSet
+
+
+/* 전체 프로그램 메뉴목록 */
+input.put("gubun",	"all");
+output = interact.execute("/adm/adm_menucon_1", input);
+int record = output.getCount("agm_seq");
+
+
+/* 전체 부서목록 */
+input.put("gubun",	"dept");
+output1 = interact.execute("/adm/adm_menucon_1", input);
+int record1 = output1.getCount("dept_cd");
+
+
+/* 부서별 메뉴목록 */
+String dept_cd	= input.getText("dept_cd");
+if(dept_cd.equals("")) {
+dept_cd = "****";
+}
+input.put("dept_cd",	dept_cd);
+input.put("gubun",		"menu");
+output2 = interact.execute("/adm/adm_menucon_1", input);
+int record2 = output2.getCount("seq");
+
+%>
+</xmp>
+
+<ul class="bu">
+<li>HTML 코딩은 HTML 표준에 맞춘다. html, head,link, script ...순으로 작성한다.</li>
+<li>script 는 include 되는 내용을 상단에 일괄적으로 기술한다.</li>
+<li>각 페이지당 쓰이는 script 는  script 태크안에 작성하고, 각 함수의 주석을 작성한다.( 가능한 자세히 기술한다. script 는 주석 tag로 감싼다.<!---->)</li>
+<li>줄 맞춤은 탭(스페이스4칸)으로 조정한다.</li>
+<li>form 태크 아래에 페이지에 쓰이는 hidden type을 정리한다.</li>
+<li>html 페이지의 Title영역, Table영역, 기타 화면 부분은 주석으로 시작과 끝을 기술한다.</li>
+<li>html은  표준에 따라 소문자로 작성하도록 한다.</li>
+</ul>
+
+<xmp class="xmp">
+(예)
+<!-- Title Start -->
+<table cellspacing="0" cellpadding="0" border="0" class="titlearea">
+<tr valign="bottom" style="padding-bottom:4px">
+<td class="tl_text"><img src="/images/cm/bu/title_bu.gif" align="absmiddle" class="buma01">부서별 메뉴설정</td>
+<td align="right">관리자모드 > 부서별 메뉴설정</td>
+</tr>
+</tbody>
+</table>
+<!-- Title End -->
+</xmp>
+
+<ul class="bu">
+<li>Sample code: adm_menucon.jsp 참조</li>
+</ul>
+
+<h4 id="a2-4">2-4. XML</h4>
+
+<h5>(1) 표제란</h5>
+<xmp class="xmp">
+<!--
+/*===============================================================
+Program ID      : adm_menucon_1.xml (프로그램 ID 기술)
+Program Name    : KRX관리자모드 > 관리자 프로그램 메뉴관리 (메뉴 기술 > 프로그램 명 기술)
+Version         : V1.0 (Version 기술)
+Designer Name   :             (디자이너 기술)
+Developer Name  : 홍길동 (개발자 기술)
+Create Date     : 2009.12.16  (개발 일자 기술)
+Reversion History   : (일자,버전,개발자, 내용을 기술한다.)
+Date            Ver     Name        Description
+2009.12.16      V1.0    홍길동      Initial Version
+===============================================================*/
+-->
+</xmp>
+<h5>(2) contents</h5>
+
+<ul class="bu">
+<li>줄 맞춤은 탭(스페이스4칸)으로 조정한다.</li>
+<li>description 부분에 메뉴와 프로그램 명을 기술한다.</li>
+</ul>
+
+<xmp class="xmp">
+(예)
+<description>
+KRX관리자모드 > 관리자 프로그램 메뉴관리 > 전체 프로그램 메뉴목록
+</description>
+</xmp>
+
+<ul class="bu">
+<li>Script 부분에는 로직을 기술하고, 비즈니스 로직과 주석을 기술한다.</li>
+<li>주석은 가능하면 많이 기술한다.</li>
+</ul>
+
+<xmp class="xmp">
+<script language='java' import="anyframe.util.*">
+<![CDATA[
+
+String gubun	= input.getText("gubun");
+String dept_cd	= input.getText("dept_cd");
+String agm_grp	= input.getText("agm_grp");
+
+String strQuery1 = "";
+if(!(agm_grp.equals(""))) {
+strQuery1 = "and a.bat_progm_id = '"+agm_grp+"'";
+
+// 응시관리/합력관리 메뉴 보안 강화를 위해 임시로 메뉴 접근자 제한함. [2008-09-23 인사팀 요청 사항.]
+// 접근허용자 : 인력개발부 - 부장님
+//                    인사팀 - 이삼희 팀장, 이부연 과장, 이은진, 정상현
+// 접근거부자 : 070910, 950461 ==> 2명은 접근제한함
+// 현재 채용메뉴는 인력개발부와 인사팀만 접근 가능하므로
+// 아래와 같이 처리함.
+String emp_cd	= input.getText("emp_cd");
+if(emp_cd != null && (emp_cd.equals("070910") || emp_cd.equals("950461"))) {
+strQuery1 += " AND (A.PROGM_SEQ != 101 AND A.PROGM_SEQ != 2005) ";
+}
+
+}
+
+input.put("dept_cd",	dept_cd);
+
+if(gubun.equals("all")) {
+executeSQL("qry1", connection, input, output);
+} else if(gubun.equals("dept")) {
+executeSQL("qry2", connection, input, output);
+} else if(gubun.equals("menu")) {
+input.put("strQuery1",	strQuery1);
+executeSQL("qry3", connection, input, output);
+}
+
+]]>
+</script>
+</xmp>
+
+<ul class="bu">
+<li>Sample code: adm_menucon_1.xml 참조</li>
+</ul>
+
+<h4 id="a2-5">2-5. JS</h4>
+
+<ul class="bu">
+<li>기존에 쓰이던 js에 함수 추가 시, history 에 상세한 내용을 기술한다.</li>
+<li>주석은 가능한 많이 기술한다.</li>
+<li>줄 맞춤은 탭(스페이스4칸)으로 조정한다.</li>
+<li>Sample code : akc.js참조</li>
+</ul>
+
+<h4 id="a2-6">2-6. HTML</h4>
+
+
+<h3 id="a3">3. page 공통작업 표준 개발 가이드</h3>
+
+
+<h4 id="a3-1">3-1. setpagewidth</h4>
+
+<h5>(1) 목적</h5>
+<ul class="bu">
+<li>setpagewidth 를 이용하기 위해 관련 JS를 설명하고 page coding시에 이를 준수하여 Client Browser 크기에 따라 화면을 크게 또는 작게 볼 수 있는 기능을 추가 하도록 한다.</li>
+</ul>
+
+<h5>(2) 적용 범위</h5>
+<ul class="bu">
+<li>본 프로젝트 개발 범위인 전체 30개 사이트 중 25개 사이트 (접근성 처리 작업만 진행하는 사이트는 제외함)에 대해서 적용하도록 한다.</li>
+</ul>
+
+<h5>(3) 공통 JS</h5>
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 1%;" /><col />
+<tbody>
+<tr class="vat">
+<th scope="row"><xmp class="xmp">
+A
+
+
+
+B
+C
+D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E
+</xmp></th>
+<td><xmp class="xmp">
+<script type='text/javascript' src="/js/jquery.js"></script>
+<script type='text/javascript'>
+// liquid <> fixed
+function setPageWidth(){
+varcurrentWidth = jQuery('#page').css('width');
+if(currentWidth=="100%") newWidth = "1000px" else if (currentWidth=="1000px") newWidth = "100%" else newWidth = "1000px"
+jQuery("#page").animate({width: newWidth}, {duration:333, complete:function(){
+try{
+myGrid.resizing();
+}catch(e){}
+}}).fadeIn("slow");
+jQuery.cookie('pageWidth', newWidth);
+}
+// cookie functions
+jQuery.cookie = function(name, value, options) {
+if (typeof value != 'undefined') {
+options = options || {};
+if(value === null) {
+value = ''
+options = jQuery.extend({}, options);
+options.expires = -1;
+}
+var expires = ''
+if(options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+vardate;
+if (typeof options.expires == 'number') {
+    date = newDate();
+    date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+} else {
+    date = options.expires;
+}
+expires = '; expires=' + date.toUTCString();
+varpath = options.path ? '; path=' + (options.path) : ''
+var domain = options.domain ? '; domain=' + (options.domain) : ''
+varsecure = options.secure ? '; secure' : ''
+document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+} else {
+varcookieValue = null
+if(document.cookie && document.cookie != '') {
+varcookies = document.cookie.split(';');
+for (var i = 0; i < cookies.length; i++) {
+    varcookie = jQuery.trim(cookies[i]);
+    if(cookie.substring(0, name.length + 1) == (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break
+    }
+}
+}
+return cookieValue;
+}
+}
+
+// fixes for IE-7 cleartype bug on fade in/out
+jQuery.fn.fadeIn = function(speed, callback) {
+return this.animate({opacity: 'show'}, speed, function() {
+if(jQuery.browser.msie){ this.style.removeAttribute('filter');}
+if(jQuery.isFunction(callback)){ callback();}
+});
+}
+
+jQuery.fn.fadeOut = function(speed, callback) {
+return this.animate({opacity: 'hide'}, speed, function() {
+if(jQuery.browser.msie) this.style.removeAttribute('filter');
+if(jQuery.isFunction(callback)) callback();
+});
+}
+
+jQuery.fn.fadeTo = function(speed,to,callback) {
+return this.animate({opacity: to}, speed, function() {
+if(to == 1 && jQuery.browser.msie) this.style.removeAttribute('filter');
+if(jQuery.isFunction(callback)) callback();
+});
+}
+/* <![CDATA[ */
+jQuery(document).ready(function(){
+// body .safari class
+if(jQuery.browser.safari) jQuery('body').addClass('safari');
+
+// layout controls
+jQuery("#layoutcontrol a").click(function() {
+switch (jQuery(this).attr("class")) {
+case 'setLiquid'	: setPageWidth(); break
+}
+return false
+});
+
+// set the page width from cookie
+varpage_width = jQuery.cookie('pageWidth');
+if(page_width)
+{
+jQuery('#page').css('width', page_width);
+}
+});
+
+/* ]]> */
+</script>
+</xmp></td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 1%;" /><col />
+<tbody>
+<tr>
+<th scope="row">A</th>
+<td><xmp class="xmp">
+<script type='text/javascript' src="/js/jquery.js"></script>
+- jQuery.js 불러오기
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">B</th>
+<td><xmp class="xmp">
+var currentWidth = jQuery('#page').css('width');
+- page : 전체를 감싸고 있는 DIV 혹은 TABLE의 ID (보통 CSS에서 wrap
+으로 표현함)
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">C</th>
+<td><xmp class="xmp">
+if(currentWidth=="100%") newWidth = "1000px"; else if
+(currentWidth=="1000px") newWidth = "100%"; else newWidth = "1000px";
+- 100% / 1000px : 변하게 될 사이즈 지정
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">D</th>
+<td><xmp class="xmp">
+jQuery("#page").animate({width: newWidth}, {duration:333,
+complete:function(){
+try{
+myGrid.resizing();
+}catch(e){}
+}}).fadeIn("slow");
+- myGrid.resizing(); -> Grid의 사이즈가 변경됬을 때 Col width도 같이
+늘어나게 하기 위한 스크립트.
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">E</th>
+<td><xmp class="xmp">
+jQuery("#layoutcontrol a").click(function() { … });
+- layoutcontrol : layoutcontrol 이라는 ID를 가진 DIV/TABLE 안에 A
+태그를 눌렀을 경우 실행
+</xmp></td>
+</tr>
+</tbody>
+</table>
+
+<h6>※ 주의 사항</h6>
+<ul class="bu">
+<li>사이즈가 변경될 DIV나 TABLE은 반드시 % 로 처리가 되어야 한다.<br />(브라우저 사이즈를 사용자가 변경할 수도 있기 때문)</li>
+<li>GRID의 BORDER는 익스플로러의 특성상 OutSolid가 되어 BORDER-SIZE가 1PX일 경우 양 옆으로 1PX씩 2PX가 더 길어진다. 만약 스크롤이 생긴다면 이는 그 때문이다.</li>
+<li>HTML(STATIC PAGE) / BBS(공통게시판)<br />- 별도로 생성할 스크립트는 없으나 Content는 %로 제작되어야 한다.</li>
+</ul>
+
+<h5>(4) 공통 CSS</h5>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 1%;" /><col />
+<tbody>
+<tr>
+<th scope="row"><xmp class="xmp">
+A
+B
+C
+D
+</xmp>
+</th>
+<td><xmp class="xmp">
+전체소스
+</xmp></td>
+</tr>
+</tbody>
+</table>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 1%;" /><col />
+<tbody>
+<tr>
+<th scope="row">A</th>
+<td><xmp class="xmp">
+전체를 덮고있는 &lt;div id="wrap"&gt; 에 대한 width css 는 100%로 해준다.
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">B</th>
+<td><xmp class="xmp">
+페이지 사이즈를 결정하는 &lt;div id="page"&gt; 에 대해서는 전체 넓이는 pixel 단위로 지정해준다.<br />
+(sidebar_layout pixel과 page pixel을 더한 값이 전체 페이지 값이 된다.)
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">C</th>
+<td><xmp class="xmp">
+topmenubar 처럼 page 아래에 있는 width css 값은 100%로 하고 min-width를 전체 넓이 pixel로 정해준다.
+</xmp></td>
+</tr>
+<tr>
+<th scope="row">D</th>
+<td><xmp class="xmp">
+content 역시 min-width를 지정해주고 width는 가변이 가능하도록 100% 또는 auto를 준다.
+</xmp></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="a3-2">3-2. Grid</h4>
+
+<p>생략</p>
+
+<h4 id="a3-3">3-3. Chart</h4>
+
+<p>생략</p>
+
+<h3 id="a4">4. 웹 접근성 가이드</h3>
+
+
+<h4 id="a4-1">4-1. 웹 접근성 개발시 참고 자료</h4>
+
+<h5>적용  자료</h5>
+<p>웹 접근성 향상을 위한 국가 표준 기술 가이드 라인 (한국정보문화진흥원, 2009.03) 18개 지표의 기술 구현 방법을 적용하여 개발하고 해당 사항이 없을 경우 아래 참고 자료를 활용한다.</p>
+
+<h5>참고 자료</h5>
+<ul class="bu">
+<li>인터넷 웹 콘텐츠 접근성 지침 (KWCAG1.0) (한국정보통신기술협회, 2005.12)</li>
+<li>웹 접근성을 고려한 콘텐츠 제작 기법 (한국정보문화진흥원, 2004.12)</li>
+<li>웹 접근성 연구소 http://wah.or.kr/ - 개발자 아카이브 - 웹 콘텐츠 제작기법 </li>
+</ul>
+
+<h4 id="a4-2">4-2. 웹 접근성 기술 가이드 라인 18개 지표 및 내용</h4>
+
+<h5 class="box">(1) 이미지의 의미나 목적을 이해할 수 있도록 적절한 대체 텍스트를 제공해야 한다.</h5>
+<p>※ 의미가 있는 이미지의 경우 대체 텍스트를 의미나 기능이 동일하게 제공<br />
+※ 의미가 없는 이미지의 경우 대체 텍스트를 blank(alt="")로 제공<br /></p>
+<ul class="bu">
+<li>대체텍스트에 부연 설명이 필요하면 title 속성을, 구조적 태그가 필요하면 longdesc 속성을 이용할 수 있다.</li>
+<li>점검 : KADO-WAH 2.0 자동 평가 + 수동 점검 (소스 확인) 필요</li>
+</ul>
+
+<h5 class="box">(2) 배경 이미지가 의미를 갖는 경우, 배경 이미지의 의미를 이해할 수 있도록 대체 콘텐츠를 제공해야 한다.</h5>
+<ul class="bu">
+<li>이미지 대체(Image Replacement) 기법을 사용하여 동등한 정보를 제공할 경우에는 준수한 것으로 판단</li>
+<li>점검 : CSS 제거 후 소스 확인 (파이어폭스 [보기]-[문서 스타일]-[스타일 제거] 등)</li>
+</ul>
+
+<h5 class="box">(3) 동영상, 음성 등 멀티미디어 콘텐츠를 이해할 수 있도록 대체 수단(자막, 원고 또는 수화)을 제공해야 한다.</h5>
+<p>* 실시간 방송의 경우는 평가에서 예외로 함</p>
+<ul class="bu">
+<li>요약 정보만 제공하는 경우는 부적합</li>
+</ul>
+
+<h5 class="box">(4) 색상을 배제하여도 원하는 내용을 전달할 수 있도록, 색상 이외에도 명암이나 패턴 등으로 콘텐츠 구분이 가능해야 한다.</h5>
+<ul class="bu">
+<li>점검 : 흑백 프린터 및 모니터로 출력할 경우 콘텐츠를 구분하지 못하면 위반</li>
+</ul>
+
+<h5 class="box">(5) 서버측 이미지 맵을 제공할 경우, 해당 내용 및 기능을 사용할 수 있는 대체 콘텐츠를 제공해야 한다.</h5>
+<p>* 지리정보시스템(GIS)은 평가에서 예외로 한다.</p>
+<ul class="bu">
+<li>클라이언트측 이미지 맵(Client-side Image Map)의 경우 영역별로 태체 텍스트를 적절하게 제공해야 함.</li>
+<li>서버측 이미지 맵에 사용된 링크 목록이 키보드로 접근 가능한 대체 링크로 제공된 경우 접근성이 있다고 판단함.</li>
+</ul>
+
+<h5 class="box">(6) 프레임을 제공할 경우, 프레임의 내용을 이해할 수 있도록 적절한 제목(title 속성)을 제공해야 한다.</h5>
+<ul class="bu">
+<li>점검 : KADO-WAH 2.0 자동 평가 + 수동 점검 (소스에서 frame 과 iframe 요소를 찾아서 확인) 필요</li>
+</ul>
+
+<h5 class="box">(7) 깜빡이는 콘텐츠를 제공할 경우, 사전에 경고하고 깜빡임을 회피할 수 있는 수단을 제공해야 한다.</h5>
+<p>※ 깜박임 기준: 초당 3~49번을 깜박이는 콘텐츠</p>
+<ul class="bu">
+<li>메인 페이지에서 깜빡임이 있는 경우에는 사전에 경고할 수 없으므로 준수하지 못한 것으로 파악</li>
+<li>동영상/멀티미디어 콘텐츠를 정지된 상태에서 제공</li>
+<li>점검 : 깜박이는 콘텐츠 여부를 자동평가도구(Flickering and photosensitive Epilepsy)를 활용하여 판단 (움직이는 GIF만 가능)</li>
+</ul>
+
+<h5 class="box">(8) 모든 기능을 키보드로 이용할 수 있어야 한다.</h5>
+<ul class="bu">
+<li>점검 : 실제 키보드를 이용하여 앞·뒤로 탭 이동이 가능하고 웹 페이지 내용을 모두 볼 수 있으며, 서식 이용이 가능하고 기능이 제대로 작동하는지 확인</li>
+<li>링크 이미지의 테두리를 숨기기 위해 onfocus="this.blur()" 를 사용한 경우 키보드 포커스가 되지 않으므로 준수하지 못한 것으로 판단</li>
+</ul>
+
+<h5 class="box">(9) 반복되는 링크를 건너뛸 수 있도록 건너뛰기 링크(skip navigation)를 제공해야 한다.</h5>
+<ul class="bu">
+<li>점검  : CSS 제거 또는 (X)HTML 코드로 판단</li>
+</ul>
+
+<h5 class="box">(10) 시간 제한이 있는 콘텐츠를 제공할 경우, 시간 제어 기능을 제공해야 한다.</h5>
+<p>※ 예외 : 경매, 실시간 게임 등과 같이 시간제한이 필수적인 콘텐츠</p>
+<ul class="bu">
+<li>점검 : 자동 갱신 콘텐츠는 사용자가 이를 제어하고 (지나간)콘텐츠를 확인할 수 있는 수단을 제공하면 준수한 것으로 판단</li>
+<li>포커스시 멈추고 이전, 다음 콘텐츠를 보는 기능이 있으면 된다.</li>
+</ul>
+
+<h5 class="box">(11) 새 창(팝업창 포함)을 제공할 경우, 사용자에게 사전에 알려야 한다.</h5>
+<ul class="bu">
+<li>모든 팝업창은 사용자의 입력으로 발생하여야 하며, title="새 창" 등을 사용하여 사용자에게 알린다.</li>
+<li>점검 : 메인 페이지 등에 접속 시 자동으로 뜨는 팝업창이 있는지 확인하고 새 창이 뜨는 링크일 경우 소스 코드 확인</li>
+</ul>
+
+<h5 class="box">(12) 데이터 테이블을 제공할 경우, 테이블의 내용을 이해할 수 있는 정보(제목, 요약정보 등)를 제공해야 한다.</h5>
+<ul class="bu">
+<li>데이터 테이블의 내용을 이해할 수 있도록 제목(summary 속성, &lt;caption&gt; 태그, &lt;h1&gt;~&lt;h6&gt; 태그)중 하나 이상 제공한다.</li>
+</ul>
+
+<h5 class="box">(13) 데이터 테이블을 제공할 경우, 제목 셀과 내용 셀을 구분할 수 있어야 한다.</h5>
+<ul class="bu">
+<li>제목 셀(&lt;th&gt;)과 내용 셀(&lt;td&gt;)을 구분할 수 있는 태그 제공</li>
+<li>&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; 등 행단위 구분을 위한 태그 제공</li>
+<li>모든 헤더 셀에 scope="col" 또는 scope="row" 속성을 사용하여 해당 행 또는 열의 헤더 구분을 권장</li>
+</ul>
+
+<h5 class="box">(14) 해당 페이지를 잘 이해할 수 있도록 페이지 제목(&lt;title&gt;)을 제공해야 한다.</h5>
+<ul class="bu">
+<li>&lt;title&gt;이 페이지를 구분할 수 있게 간단 명료하게 표현한다.</li>
+<li>페이지 제목을 자바스크립트로 구현하거나, URL을 고정하기 위해 의미없는 프레임을 사용한 경우는 부적합</li>
+</ul>
+
+<h5 class="box">(15) 콘텐츠는 논리적인 순서로 구성되어야 한다.</h5>
+<ul class="bu">
+<li>점검 : 콘텐츠 배치 순서, Tab 이동 순서, 서식(form)의 이동 순서 확인</li>
+</ul>
+
+<h5 class="box">(16) 온라인 서식을 제공할 경우, 레이블(&lt;label&gt;)을 제공해야 한다.</h5>
+<ul class="bu">
+<li><label> 태그의 for 속성과 서식의 id 속성이 동일하여야 함</li>
+<li>필드를 여러 개로 나누어 입력하는 경우 입력란을 구분할 수 있도록 title 속성을 제공</li>
+</ul>
+
+<h5 class="box">(17) 애플릿, 플러그인(ActiveX, 플래시) 등 부가 애플리케이션이 제공하는 경우, 해당 애플리케이션이 자체적인 접근성을 준수하거나 또는 사용자가 대체 콘텐츠를 선택하여 이용할 수 있어야 한다.</h5>
+<ul class="bu">
+<li>부가 애플리케이션을 제공할 경우에는 해당 애플리케이션을 최신 보조기술 수준에서 사용할 수 있도록 a)자체적인 접근성, b)대체콘텐츠 제공 중 한 개를 충족하여 제공해야 한다.<br />※ 예외사항 : 공인인증서, 보안결재의 경우에는 접근성을 보장하는 애플리케이션이 2008년 12월말 기준으로 국내에 존재하지 않으므로 예외로 처리(단, 접근성 보장 애플리케이션이 등장할 경우까지만 예외로 인정) </li>
+<li>플래시로 구현된 내비게이션의 메뉴 이동 순서가 올바르지 않으면 자체적 접근성 미준수로 판단<br />※ 플래시로 구현한 내비게이션은 플래시 기술을 제작한 Adobe에서 제공하는 접근할 수 있는 플래시(Best Practices for Accessiblel Flash Design : http://www.adobe.com/resources/accessibility/best_practices/best_practices_acc_flash.pdf) 방법을 이용해서, 대체 텍스트와 이동 순서를 보장해야 함.</li>
+<li>점검 : ActiveX의 보안프로그램 등의 애플리케이션 이용시 키보드 이용보장, 서식에 대한 레이블 제공, 이미지에 대한 대체 정보 제공 등 자체적인 접근성 지침의 준수 여부를 확인</li>
+<li>플러그인을 사용하지 않을 때, 기능을 사용할 수 있는 대체 콘텐츠가 존재하면 준수한 것으로 판단</li>
+<li>점검  : 오페라 - [도구]-[빠른 설정]-[플러그인 사용] 체크 해제.</li>
+<li>사이트 전체를 플래시로 만들었지만 동등한 내용의 접근할 수 있는 대체 콘텐츠를 제공하고 있으면 준수한 것으로 판단</li>
+</ul>
+
+<h5 class="box">(18) 마크업 언어로 구현할 수 있는 기능(링크, 서식, 버튼, 페이지 제목)을 자바스크립트로만 구현하지 말아야 한다.</h5>
+<ul class="bu">
+<li>링크의 값을 올바르게 제공하지 않고 자바스크립트로 제공한 경우 준수하지 못한 것으로 판단</li>
+<li>점검 : 파이어폭스의 부가기능 Web Developer 설치 후 Web Developer 도구모음에서 [차단]-[JavaScript 사용안함]-[모든 JavaScript] 체크</li>
+</ul>
+
+
+<h4 id="a4-3">4-3. 기타 웹 콘텐츠 접근성 가이드</h4>
+
+<p>
+웹 접근성 기술 가이드 라인 18개 지표(2009.03.xx) 와 <strong>한국형 웹 콘텐츠 접근성 지침 2.0(2009.12.23)</strong> 22개 검사항목을 비교하여,<br />
+새롭게 추가되거나 수정된 8개 항목((1)~(8))과 중요하다고 판단되는 텍스트 크기에 관한 내용((9))을 추가하였다.<br />
+개정된 지침에서는 "마크업 언어로 구현할 수 있는 기능(링크, 서식, 버튼, 페이지 제목)을 자바스크립트로만 구현하지 말아야 한다." 라는 내용이 제외되었는데..<br />
+<em>2010.03에 발표한 웹 접근성 품질마크 심사 기준을 예의 주시하자!</em>
+</p>
+
+<h5 class="box">(1) (명확한 지시사항 제공) 지시사항은 모양, 크기, 위치, 방향, 색, 소리 등에 관계없이 인식될 수 있어야 한다.</h5>
+<ul class="bu">
+<li>“윈도우를 닫으려면 왼쪽 상단에 있는 동그란 빨간 버튼을 클릭” 한다는 지시문의 경우 구체적인 설명이 부족하여 이를 이용하지 못할 우려가 있음.</li>
+<li>“왼쪽 상단의 첫 번째 동그란 빨간 버튼인 창 닫기 버튼을 선택하시면, 윈도를 종료하실 수 있습니다.” 처럼 지시사항에 대한 명시적인 설명을 제공하여 해결할 수 있다.</li>
+</ul>
+
+<h5 class="box">(2) (텍스트 콘텐츠의 명도 대비) 텍스트 콘텐츠와 배경 간의 명도 대비는 4.5대 1 이상이어야 한다.</h5>
+<ul class="bu">
+<li>모든 전경 글꼴과 배경 색은 최소한 4.5:1 의 명암 대비를 만족해야 한다.</li>
+<li>만약 일반적인 크기의 글꼴(약12~14px) 보다 크거나 굵다면 명암 대비는 조금 더 완화된 기준을 적용해도 됩니다. 큰 문자 18px 이상 또는 14px 굵은 글꼴에 한하여 3:1 수준의 명암 대비를 갖추어야 합니다. 작은 문자에 대해서는 더 엄격한 명암 대비를 적용하는 것이 좋습니다.<br />※ 흰색 배경에 글꼴의 크기가 12px 이라면 #777777 색상을 적용 했을 때 '4.48:1' 수준의 명암 대비를 갖게 되어 충분하지 않다. 흰색 배경이고 글꼴 크기가 12px 이라면 적어도 #767676 색이 적용되어야 '4.5:1' 이상의 충분한 명암 대비가 나온다.</li>
+</ul>
+<!-- box1 -->
+<div class="box1">
+<h6>명도 대비 평가 도구</h6>
+1) <a href="http://www.snook.ca/technical/colour_contrast/colour.html">http://www.snook.ca/technical/colour_contrast/colour.html</a><br />
+2) <a href="http://juicystudio.com/services/luminositycontrastratio.php">http://juicystudio.com/services/luminositycontrastratio.php</a><br />
+</div>
+<!-- //box1 -->
+
+<h5 class="box">(3) (배경음 사용 금지) 자동으로 재생되는 배경음을 사용하지 않아야 한다.</h5>
+<ul class="bu">
+<li>자동으로 배경 음악이 생성되면 화면낭독 프로그램 이용자 등에게 불편을 줌.</li>
+<li>정지된 상태의 동영상을 제공하고, 사용자가 재생 여부를 판단해야 함.</li>
+</ul>
+
+<h5 class="box">(4) (적절한 링크 텍스트) 링크 텍스트는 용도나 목적을 이해할 수 있도록 제공해야 한다.</h5>
+<ul class="bu">
+<li>‘보다 자세한 내용을 보시려면 &lt;a href="here.html"&gt;여기&lt;/a&gt;를 클릭하세요.’ 는 링크 텍스트 만으로는 용도와 목적을 이해할 수 없으므로, ‘보다 자세한 &lt;a href="guide.html"&gt;사이트 이용 방법&lt;/a&gt;을 확인하세요.’ 처럼 적절한 링크 텍스트를 제공해야 한다.</li>
+</ul>
+
+<h5 class="box">(5) (기본 언어 표시) 주로 사용하는 언어를 명시해야 한다.</h5>
+<ul class="bu">
+<li>웹 페이지에서 주로 사용하는 언어를 명확히 명시해야 한다.</li>
+<li>XHTML 1.0 표준에서의 언어표시(한국어)</li>
+</ul>
+
+<xmp class="xmp">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+</xmp>
+
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 25%;" /><col style="width: 25%;" /><col style="width: 25%;" /><col style="width: 25%;" />
+<thead>
+<tr>
+<th scope="col">언어</th>
+<th scope="col">언어 코드</th>
+<th scope="col">언어</th>
+<th scope="col">언어 코드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">영어(English)</th>
+<td>en</td>
+<th scope="row">한국어(Korean)</th>
+<td>ko</td>
+</tr>
+<tr>
+<th scope="row">중국어(Chinese)</th>
+<td>zh</td>
+<th scope="row">일본어(Japanese)</th>
+<td>ja</td>
+</tr>
+</tbody>
+</table>
+
+<h5 class="box">(6) (사용자 요구에 따른 실행) 사용자가 의도하지 않은 기능(새 창, 초점 변화 등)은 실행되지 않아야 한다.</h5>
+<ul class="bu">
+<li>웹 사용자의 의도와 관계없이 초점을 받았을 때 의도하지 않는 기능이 실행되지 않아야 한다.</li>
+<li>사용자의 제어 없이 새 창(팝업 창)을 제공하지 않아야 한다.</li>
+</ul>
+
+<h5 class="box">(7) (오류 정정) 입력 오류를 정정할 수 있는 방법을 제공해야 한다.</h5>
+<ul class="bu">
+<li>오류 발생 시 사용자가 오류를 쉽게 정정할 수 있는 방법을 제공해야 한다.</li>
+<li>사용자의 실수로 반드시 입력해야 하는 ‘아이디’를 입력하지 않은 경우, 사용자가 실수한 부문을 알려주어('아이디를 입력하세요‘) 이를 해결할 수 있도록 도와주는 기능 제공</li>
+</ul>
+
+<h5 class="box">(8) (마크업 오류 방지) 마크업 언어의 요소는 열고 닫음, 중첩 관계 및 속성 선언에 오류가 없어야 한다.</h5>
+<ul class="bu">
+<li><a href="#a5">웹 표준 가이드를 참조하세요.</a></li>
+</ul>
+
+<h5 class="box">(9) 텍스트는 쉽게 읽을 수 있도록 충분한 크기로 제공되어야 한다.</h5>
+<ul class="bu">
+<li>글꼴크기 11px 이하는 사용을 자제한다.</li>
+<li>특히 메뉴, 링크, 제목 등 주요 정보를 제공하는 텍스트는 더욱 엄격하게 가독성을 고려하여 제공되어야 한다.</li>
+</ul>
+
+
+<h3 id="a5">5. 웹 표준 가이드</h3>
+
+
+<h4 id="a5-1">5-1. 웹 표준 개발시 참고 자료</h4>
+
+<h5>웹 표준 적용 규격</h5>
+<p>구조/표현/동작을 분리하여 개발한다.</p>
+<ul class="bu">
+<li>구조 (Structure) - W3C XHTML 1.0 (<a href="http://www.w3.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a>)</li>
+<li>표현 (Presentation) - W3C CSS 2.1 (<a href="http://www.w3.org/TR/CSS2/">http://www.w3.org/TR/CSS2/</a>)</li>
+<li>동작 (Behavior) - W3C DOM 2, 3, <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf">ECMAScript-262</a></li>
+</ul>
+
+<h5>참고 자료</h5>
+<ul class="bu">
+<li><a href="http://www.mozilla.or.kr/ko/docs/web-developer/standard/">실전 웹 표준 가이드 (한국소프트웨어진흥원, 2005.12)</a></li>
+<li><a href="http://www.mopas.go.kr/gpms/ns/mogaha/user/userlayout/bulletin/userBtView.action?userBtBean.ctxCd=1007&userBtBean.ctxType=21010005&userBtBean.bbsSeq=1034999">전자정부 웹 호환성 준수지침 (행정안전부, 2009.08.)</a></li>
+</ul>
+
+<h4 id="a5-2">5-2. 웹 표준 점검</h4>
+
+<ul class="bu">
+<li>(X)HTML 유효성 검사 (<a href="http://validator.w3.org/">http://validator.w3.org/</a>) - error 확인 후 수정</li>
+<li>CSS 유효성 검사 (<a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a>) - error 확인 후 수정</li>
+<li>JavaScript 오류 발생 여부 점검 - 브라우저 부가기능 이용<br />
+	<ul class="bu">
+	<li><a href="http://www.microsoft.com/korea/windows/downloads/ie/getitnow.mspx">인터넷 익스플로러 8</a> [도구]-[개발자 도구]</li>
+	<li><a href="http://www.mozilla.or.kr/ko/">파이어폭스</a> 부가 기능 <a href="https://addons.mozilla.org/ko/firefox/addon/60">Web Developer</a></li>
+	</ul>
+</li>
+</ul>
+
+<h4 id="a5-3">5-3. 웹 호환성 점검</h4>
+
+<p>다양한 브라우저(IE6,7,8, 파이어폭스, 사파리)에서 동등한 레이아웃 및 기능 구현 여부를 확인한다. 웹 페이지가 모든 브라우저에서 완전히 똑같아 보일 필요는 없다. 하지만 모든 콘텐츠와 기능은 현재 보편적으로 사용되는 브라우저에서 이용 가능하여야 한다.</p>
+
+<h4 id="a5-4">5-4. 웹 표준 Markup 준수 가이드</h4>
+
+<h5 class="box">(1) DOCTYPE 과 ENCODING 을 적어주자.</h5>
+<xmp class="xmp">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Webpage Title</title>
+</head>
+<body>
+</body>
+</html>
+</xmp>
+<h5 class="box">(2) 불량한, 폐기된 태그 및 속성은 사용하지 않는다.</h5>
+(X) 불량 태그
+<xmp class="xmp">
+<applet> <basefont> <center> <dir> <font> <isindex> <menu> <s> <strike> <u>
+</xmp>
+(X) 폐기 태그
+<xmp class="xmp">
+<listing> <plaintext> <xmp class="xmp">
+</xmp>
+HTML에서 표현을 지정하는 속성들은 CSS를 사용하여야 한다.
+
+<h5 class="box">(3) img 태그에는 alt="" 속성을 반드시 넣자.</h5>
+
+<h5 class="box">(4) 블럭 요소 vs 인라인 요소</h5>
+<xmp class="xmp">
+<body> 에는 block 요소만 가능
+block 요소 안에는 block 요소,  inline 요소 둘다 가능
+inline 요소 안에는 inline 요소만 가능
+<p> 안에는 block 요소가 불가
+<blockquote> 는 block 요소만 가능
+<ul>,<ol> 안에는 오직 <li> 만 가능
+<li> 안에는 뭐든지 가능
+</xmp>
+
+<h5 class="box">(5) 문서들이 잘 구성(well-formed)되어야 한다.</h5>
+(X) 잘못된 적용
+<xmp class="xmp">
+<p>여기에 강조 된 <em>문단이 있다.</p></em>
+<ul>
+<li>1차 목록 제목</li>
+	<ul>
+	<li>2차 목록 제목</li>
+	</ul>
+</ul>
+</xmp>
+(O) 올바른 적용
+<xmp class="xmp">
+<p>여기에 강조 된 <em>문단</em>이 있다.</p>
+<ul>
+<li>1차 목록 제목
+	<ul>
+	<li>2차 목록 제목</li>
+	</ul>
+</li>
+</ul>
+</xmp>
+
+<h5 class="box">(6) embeded CSS 는 오직 head 태그 안에만 위치할 수 있다.</h5>
+<xmp class="xmp">
+<head>
+<style type="text/css">
+</style>
+</head>
+</xmp>
+
+<h5 class="box">(7) script 태그의 속성에 을 항상 명시해주고, language="Javascript" 속성은 삭제한다.</h5>
+<xmp class="xmp">
+<script></script>
+</xmp>
+
+<p><strong>[ XHTML 1.0 표준 문법 ]</strong></p>
+
+<h5 class="box">(8) 모든 태그이름, 속성이름은 소문자로</h5>
+<xmp class="xmp">
+<img src="/img/b.gif" width="180" height="40" alt="" />
+</xmp>
+
+<h5 class="box">(9) 모든 시작 태그들은 종료 태그 필요함. 빈(Empty) 태그 끝에는 공백/></h5>
+<xmp class="xmp">
+<area /> <br /> <col> <frame /> <hr /> <img /> <input /> <link /> <meta /> <param />
+</xmp>
+
+<h5 class="box">(10) 태그의 속성 값들은 꼭 따옴표(" 또는 ')를 사용해야 한다.</h5>
+<xmp class="xmp">
+<img src="/img/b.gif" width="180" height="40" alt="" />
+</xmp>
+
+<h5 class="box">(11) 속성은 속성이름="값" 처럼 짝으로 항상 완전하게 기술되어야 한다.</h5>
+<xmp class="xmp">
+<input type="radio" value="라디오단추" checked="checked" />
+<option value="선택상자" selected="selected"></option>
+</xmp>
+
+<h5 class="box">(12) ampersand(&amp;), less-than sign(&lt;) 은 Name Code(Number Code) 형태로 사용해야 한다.</h5>
+<xmp class="xmp">
+& → &amp;
+< → &lt;
+</xmp>
+
+<h5 class="box">(13) 주석문 안에는 -(hyphen)이 여러개 올 수 없다.</h5>
+(X) 잘못된 적용
+<xmp class="xmp">
+<!-- 주석문 ---------- -->
+</xmp>
+
+<p><strong>[ 기타 Markup, CSS 코딩 ] (Markup Valid 무관)</strong></p>
+
+<h5 class="box">(14) (X)HTML 문서의 언어를 지정한다.</h5>
+<xmp class="xmp">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+</xmp>
+
+<h5 class="box">(15) href 속성에 자바스크립트가 올 수 없고 javascript: 라고 표기하지 말자.</h5>
+(X) 잘못된 적용
+<xmp class="xmp">
+href="javascript:exFunction('1');" onclick="javascript:exFunction('1');
+</xmp>
+(O) 올바른 적용
+<xmp class="xmp">
+<a  href="http://domain.com/" onclick="window.open(this.href); return false;" title="새 창" >사이트 바로가기</a>
+</xmp>
+
+<h5 class="box">(16) CSS 속성의 16진수 색상값 앞에는 #을 반드시 붙인다.</h5>
+<xmp class="xmp">
+border: 1px solid #ddd; background: #fff; color: #000;
+</xmp>
+
+<h5 class="box">(17) CSS 속성의 숫자값 뒤에는 반드시 단위를 붙인다.</h5>
+<xmp class="xmp">
+width: 300px; height: 30px; border: 1px solid #777; margin: 0; padding: 0; font-size: 0.92em;
+</xmp>
+
+
+<h4 id="a5-5">5-5. 웹 표준 CSS 준수 가이드</h4>
+
+<!-- box1 -->
+<div class="box1">
+※ 범례: <em>(X) 허용 안함, (△) 예외 허용, (O) 적극 권장</em>.
+</div>
+<!-- //box1 -->
+
+<h5 class="box">(1) 문서의 구조와 표현을 분리합니다</h5>
+<ul class="bu">
+<li>문서의 마크업 언어(XHTML)와 화면 표시(CSS)언어를 본래의 목적에 맞게 최대한 분리합니다.</li>
+<li>의미 구조를 마크업 하는 경우 HTML 요소와 속성을 이용 합니다. 표현을 위한 HTML 요소와 속성은 사용하지 않습니다.
+<!-- code -->
+<code>
+&lt;b align="center"&gt;...&lt;/b&gt; <em>(X) 화면표시를 위한 HTML 요소와 속성이 사용되어 유지보수 이점 감소</em><br />
+&lt;applet&gt; &lt;basefont&gt; &lt;center&gt; &lt;dir&gt; &lt;font&gt; &lt;isindex&gt; &lt;menu&gt; &lt;s&gt; &lt;strike&gt; &lt;u&gt; &lt;xmp&gt; <em>(X) HTML 4.01 부터 폐기된 요소들</em><br />
+&lt;h1&gt;KRX&lt;/h1&gt; <em>(O) 의미가 부여된 바른 마크업</em><br />
+</code>
+<!-- //code -->
+</li>
+<li>문서의 표현에 관한 속성은 외부(External) CSS문서에서 정의 합니다.</li>
+<li>HTML문서 Head에 CSS를 삽입하는 Internal 방식과 HTML요소에 직접 기술하는 Inline 방식은 되도록 사용하지 않습니다.
+<!-- code -->
+<code>
+&lt;div style="width: 100px;"&gt;...&lt;/div&gt; <em>(△) Inline 형식으로 기술하여 유지보수가 어려움</em><br />
+&lt;style type="text/css"&gt;...&lt;/style&gt; <em>(△) Internal 형식으로 기술하여 유지보수가 어려움</em><br />
+&lt;style type="text/css"&gt;@import url("default.css")&lt;/style&gt; <em>(X) IE 브라우저에서 이미지보다 CSS를 늦게 로드하는 결함이 있음</em><br />
+&lt;link href="default.css" rel="stylesheet" type="text/css" /&gt; <em>(O) External 형식으로 기술하여 유지보수가 쉬움</em><br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(2) 다양한 브라우저의 호환을 지원합니다</h5>
+<ul class="bu">
+<li>제작된 모든 문서는 아래 명시된 브라우저에서의 호환을 지원하여야 합니다.
+<!-- code -->
+<code>
+<ul class="bu">
+<li>Internet Explorer 6.x, 7.x, 8.x</li>
+<li>Firefox 최신 버전</li>
+<li>Safari 최신 버전</li>
+</ul>
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(3) CSS 파일의 생성</h5>
+<ul class="bu">
+<li>CSS 파일의 수는 최소한으로 유지합니다.</li>
+<li>메뉴 섹션(또는 카테고리)별로 파일을 분리하는 것이 효율적이라고 판단되는 경우 default.css와 함께 섹션별로 *.css파일을 추가하는 것이 가능합니다.
+<!-- code -->
+<code>
+/inc/css/<strong>default.css</strong> 공용 스타일 - 기본, 배치, 콘텐츠 유형별(제목, 목록, 테이블,..), 개별 조합 스타일<br />
+/inc/css/<strong>kor/default.css </strong>업무코드 kor 웹사이트의 전역 스타일<br />
+/inc/css/<strong>kor/main.css</strong> 업무코드 kor 웹사이트의 초기화면 스타일<br />
+/inc/css/<strong>kor/*.css</strong> 업무코드 웹사이트의 지역(섹션, 카테고리) 스타일 - CSS 파일명은 섹션 영문명을 따른다.<br />
+/inc/css/<strong>kor/popup.css</strong> 업무코드 kor 웹사이트에서 팝업 등 새로운 페이지 유형인 경우 별도로 분리<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(4) 외부 CSS 불러오기</h5>
+<ul class="bu">
+<li>외부 CSS 파일을 HTML 문서로 불러오는 방법으로 link와 import가 있습니다. link방식만을 사용합니다.</li>
+<li>import방식은 Internet Explorer 브라우저에서 image요소보다 CSS를 늦게 렌더링하는 결함이 있으므로 사용하지 않습니다.</li>
+<li>미디어 타입을 지정하지 않는 경우 기본값이 'all' 이 되므로 별도의 미디어 타입은 지정하지 않습니다.
+<!-- code -->
+<code>
+<em>(O) HTML 문서에서 CSS 파일을 불러올 때 HTML 헤더에 표시할 내용</em><br />
+&lt;link href="default.css" rel="stylesheet" type="text/css" /&gt;<br />
+<br />
+<em>(X) Internet Explorer 브라우저에서 image보다 CSS를 늦게 파싱하는 결함이 있으므로 사용하지 않음</em><br />
+&lt;style type="text/css"&gt;<br />
+@import url("default.css");<br />
+&lt;/style&gt;<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(5) 문자셋(charset)의 선언</h5>
+<ul class="bu">
+<li>External 형식의 CSS 문서에는 (X)HTML 문자셋과 동일하게 문자셋 정보를 utf-8 로 명시합니다.</li>
+<li>문자셋 선언은 문서의 첫 줄에 공백없이 삽입되어야 합니다.</li>
+<li>문자셋 선언을 생략하는 것이 문법적으로 오류는 아니지만 원활한 유지보수를 위하여 반드시 포함시킵니다.
+<!-- code -->
+<code>
+@charset "utf-8";
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(6) 작성자, 작성일 표기 (표제란)</h5>
+<ul class="bu">
+<li>작성자 및 작성일 정보를 아래와 같이 주석을 이용하여 표기합니다.</li>
+<li>최초 저자는 이 표기를 생략할 수 없으며 유지보수만을 담당하게 되었더라도 되도록 기입하는 것이 좋습니다.
+<!-- code -->
+<code>
+/* Default CSS ==================<br />
+= Developer Name: 전우치<br />
+= Create Date: 2009.12.17<br />
+= Reversion History: (일자,개발자,내용 기술)<br />
+= Date.Name Description =<br />
+2009.12.18.전우치 IE Fix 추가<br />
+============================= */<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(7) CSS 선택자 선언 순서</h5>
+<ul class="bu">
+<li>그 쓰임새가 전역적인 것으로 부터 시작하여 지역적인 것 순으로 아래와 같이 선언 합니다.
+<!-- code -->
+<code>
+<strong>Tag</strong> : HTML Tag의 초기화를 선언합니다. *, html, body, a, img, hr 와 같은 요소들이 정의됩니다.<br />
+<strong>Layout</strong> : 레이아웃을 선언합니다. #container, #head, #wrap, #side, #body, #foot, .. 과 같은 레이아웃이 정의됩니다.<br />이어서 전역에서 지역 순으로 자손 스타일을 선언합니다. 권장되는 순서는 #head, #foot, #side, #body, .. 입니다.<br />
+<strong>Class</strong> : 공용 class 를 선언합니다. .hide, .dpn .. 와 같은 빈번하게 사용되는 스타일이 정의됩니다.<br />
+<strong>Content</strong> : 공통 템플릿, 공용 class 를 제외한 내용 페이지의 본문 콘텐츠 스타일이 정의됩니다.<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(8) default.css 코드 표본</h5>
+<ul class="bu">
+<li>아래 CSS 코드 표본을 이용하여 작성하되 불필요한 코드는 삭제 합니다.
+<!-- code -->
+<code><pre>@charset "utf-8";
+/* Default CSS ==================
+= Developer Name: 전우치
+= Create Date: 2009.12.17
+= Reversion History: (일자,개발자,내용 기술)
+= Date.Name. Description =
+2009.12.18.전우치. IE Fix 추가
+============================= */
+
+/* Tag ========== */
+html, body { margin: 0; padding: 0; background: #fff; }
+body { color: #333; font-size: 75%; line-height: 1.5; font-style: normal; font-family: Dotum,Gulim,sans-serif; }
+a, a:link { color: #06c; text-decoration: none; }
+a:visited { color: #369; }
+a:hover, a:active, a:focus { color: #480; }
+img { margin: 0; border: 0; }
+hr { display: none; }
+
+/* Layout ========== */
+body {  }
+#container {  }
+#head {  }
+#wrap {  }
+ #side {  }
+  #body {  }
+   #body_head {  }
+   #body_content {  }
+   #body_foot {  }
+#foot {  }
+#head *, #side *, #foot *, body.main *
+{ list-style: none; margin: 0; padding: 0; line-height: 1.25; letter-spacing: -1px; vertical-align: top; }
+
+/* head */
+/* foot */
+/* side */
+/* body */
+
+/* Class ========== */
+.hide { position: absolute; width: 0; height: 0; font-size: 0; line-height: 0; text-indent: -9999px; overflow: hidden; visibility: hidden; }
+.dpn { display: none !important; }
+
+/* Content ========== */
+</pre></code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(9) CSS 속성 선언 순서</h5>
+<ul class="bu">
+<li>그 쓰임새가 레이아웃과 관련이 높은 것으로 부터 시작하여 레이아웃과 무관한 것 순으로 아래와 같이 선언 합니다. 이 순서는 화면의 렌더링 효율보다는 유지보수의 이점 때문에 제안되었으며 권장하는 수준 입니다. 아래 제시된 속성들과 짝을 이루는 연관 속성들은 함께 기술합니다. 예를 들면 position 속성과 left, right , top, bottom 속성은 서로 연관된 속성이므로 position 다음에 기술합니다.
+<table class="t3" summary=""><caption class="dpn"></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">속성</th>
+<th scope="col">연관 속성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">display</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">list-style</th>
+<td>list-style-type list-style-position list-style-image</td>
+</tr>
+<tr>
+<th scope="row">position</th>
+<td>left right top bottom</td>
+</tr>
+<tr>
+<th scope="row">float</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">clear</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">width</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">height</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">margin</th>
+<td>top right bottom left</td>
+</tr>
+<tr>
+<th scope="row">padding</th>
+<td>top right bottom left</td>
+</tr>
+<tr>
+<th scope="row">border</th>
+<td>border-width border-style border-color</td>
+</tr>
+<tr>
+<th scope="row">background</th>
+<td>background-color background-image background-repeat background-attachment background-position</td>
+</tr>
+<tr>
+<th scope="row">color</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th scope="row">font</th>
+<td>font-style font-variant font-weight font-size line-height font-family</td>
+</tr>
+<tr>
+<th scope="row">...</th>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+여기에 명시하지 않은 속성 중 배치와 관련된 것은 display 속성 인근에 선언하고, 글꼴 또는 문단과 관련된 것은 font 뒤에 기술하는 것을 권장합니다.
+</li>
+</ul>
+
+<h5 class="box">(10) 지역 초기화를 위한 CSS 코드 참조</h5>
+<ul class="bu">
+<li>공통 선택자 * 를 이용하여 margin, padding 등이 전역적으로 초기화 선언되지 않은 문서에 새 스타일을 안전하게 추가하는 방법을 설명하고 있습니다. 공통선택자를 이용하여 margin, padding등이 초기화되지 않은 상태로 작성된 오랜 문서에 뒤늦게 공통선택자를 이용하여 전역 초기화를 시도하게 되면 기존의 화면 그리드에 변화가 생기므로 새 스타일이 추가되는 지역에 한하여 부분적으로만 초기화를 시도하여야 합니다. 아래 참조 코드는 공통 선택자를 부분적으로만 초기화시켜서 기존의 스타일에 영향을 미치지 않도록 안전하게 초기화 코드를 작성하는 방법입니다.
+<!-- code -->
+<code>
+.attach * { margin: 0; padding: 0; font-family: dotum; }
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(11) 미디어 타입별 CSS 코드의 작성</h5>
+<ul class="bu">
+<li>각종 미디어(프린터, 모바일, 보조공학기기 등)에 대응하는 별도의 CSS 코드를 작성할 수 있습니다. 별도의 미디어에 대응하는 CSS 문서를 따로 생성한뒤 link 또는 import 요소에 미디어 타입을 지정할 수 있으나 이렇게 미디어 타입별로 CSS 파일을 분리하는 것보다는 하나의 파일에 여러가지 미디어 대응 코드를 한꺼번에 모두 작성하는 것이 좋습니다. 한편 W3C 표준에 의하면 CSS가 다양한 미디어에 대응이 가능하도록 스펙이 정의되어 있지만 현실적으로 이것을 가장 안전하게 사용할 수 있는 경우는 인쇄장치 뿐입니다.</li>
+<li>아래는 W3C의 CSS 2.0 에 명시되어 있는 미디어 타입의 종류 입니다.
+<!-- code -->
+<code>
+all (모든 출력 장치)<br />
+aural (음성 출력)<br />
+braille (점자 출력)<br />
+handheld (포켓, 모바일)<br />
+print (인쇄)<br />
+projection (투사 장치)<br />
+screen (스크린, 모니터)<br />
+tty (전신 타자기, Tele Type Writer)<br />
+tv (텔레비전, Television)<br />
+</code>
+<!-- //code -->
+</li>
+<li>인쇄장치에 대응하기 위한 별도의 CSS 코드를 작성하려면 default.css 문서의 끝부분에 다음과 같은 형식으로 기술합니다.
+<!-- code -->
+<code>
+@media print {<br />
+#head,<br />
+#side,<br />
+#foot { display: none !important; }<br />
+}<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(12) CSS 주석 가이드</h5>
+<ul class="bu">
+<li>CSS코드는 의미있는 형태로 그룹핑 하고 필요한 경우 그룹핑 된 코드 더미 첫 줄에만 주석으로 설명합니다.</li>
+<li>주석에 사용되는 언어는 한글이든 영문이든 무방하며 가능한 직관적인 단어를 선택합니다.</li>
+<li>주석과 관련된 버그를 피하기 위하여 주석 기호와 코멘트 사이에는 빈 공간을 두어야 합니다.
+<!-- code -->
+<code>
+/*head*/ <em>(X)</em><br />
+/* head */ <em>(O)</em><br />
+</code>
+<!-- //code -->
+</li>
+<li>주석 안쪽에는 코드를 설명하는 문장 외에 다른 기호등을 넣지 않습니다.
+<!-- code -->
+<code>
+/** head **/ <em>(X)</em><br />
+/*- head -*/ <em>(X)</em><br />
+/*--- head ---*/ <em>(X)</em><br />
+/* head */ <em>(O)</em><br />
+</code>
+<!-- //code -->
+</li>
+<li>단, CSS코드의 최상위 분류인 Tag, Layout, Class,.. 는 ========== 기호를 사용하여 시각적으로 분리하는 것을 허용합니다.
+<!-- code -->
+<code>
+/* Layout ========== */
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(13) CSS 코드의 정렬</h5>
+<ul class="bu">
+<li>선택자 기준으로 개행하고, 속성 단위로는 개행하지 않습니다. 들여쓰기를 하지 않습니다.
+<!-- code -->
+<code>
+<em>(O)</em><br />
+#selector1 { property: value; property2: value; }<br />
+#selector2 { property: value; }<br />
+#selector3,<br />
+#selector4,<br />
+#selector5 { property: value; }<br />
+<br />
+<em>(X) 속성 단위로 개행하지 않습니다</em><br />
+#selector1 {<br />
+  property: value;<br />
+}<br />
+#selector2 {<br />
+  property: value;<br />
+}<br />
+<br />
+<em>(X) 선택자 단위로 개행되어야 합니다</em><br />
+#selector1, #selector2, #selector3 {<br />
+  property: value;<br />
+}<br />
+<br />
+<em>(X) 들여쓰기를 하지 않습니다</em><br />
+#selector1 { property: value; }<br />
+    #selector2 { property: value; }<br />
+        #selector3 { property: value; }<br />
+</code>
+<!-- //code -->
+</li>
+<li>단, 화면 배치의 근간을 이루는 #wrap, #side, #body 의 종속 관계는 들여쓰기를 허용합니다.</li>
+<li>CSS 코드의 정돈을 위하여 코드의 그룹간 행(line) 간격은 1행 이상 비우지 않습니다.</li>
+<li>그룹 안에서 의미있는 객체를 구분하기 위하여 1행씩 빈 행을 만드는 것은 허용 됩니다.
+<!-- code -->
+<code>
+<em>(O)</em><br />
+/* 그룹1 */<br />
+#selector1 { property: value; }<br />
+#selector2 { property: value; }<br />
+<br />
+/* 그룹2 */<br />
+#selector3 { property: value; }<br />
+#selector4 { property: value; }<br />
+<br />
+<em>(X)</em><br />
+/* 그룹1 */<br />
+#selector1 { property: value; }<br />
+#selector2 { property: value; }<br />
+<br />
+<br />
+/* 그룹2 */<br />
+#selector3 { property: value; }<br />
+#selector4 { property: value; }<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(14) 브라우저 Hack의 사용</h5>
+<ul class="bu">
+<li>CSS Hack 은 Hack 의 도움 없이는 불가능할 경우 최후의 수단으로만 사용합니다.</li>
+<li>W3C CSS Validation Pass를 체크하여 오류가 발생하는 CSS Hack 은 사용하지 않습니다.</li>
+<li>다음은 문법적으로 유효한 CSS Hack 입니다.
+<!-- code -->
+<code>
+* html #selector { property: value; }<em>/* IE4~6, Mac IE4~5 */</em><br />
+*:first-child+html #selector { property: value; }<em>/* Only IE7 */</em><br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+<h5 class="box">(15) z-index 적용 가이드</h5>
+<ul class="bu">
+<li>z-index의 증감이 필요한 경우 가능하다면 10 단위로 증감하고 10을 초과하지 않는 범위에서 지정하는 것을 권장합니다.</li>
+<li>10 단위로 z-index를 증감하는 것은 또 다른 z-index값의 출현에 유연하게 대처하기 위함입니다.</li>
+<li>예외상황이 발생하는 경우 반드시 가이드에 따를 필요는 없습니다.
+<!-- code -->
+<code>
+<em>(X) 두 번째 선택자에 필요 이상의 값이 들어감</em><br />
+#selector1 { z-index: 10; }<br />
+#selector2 { z-index: 100; }<br />
+<br />
+<em>(O) 필요한 값만큼만 증가됨</em><br />
+#selector1 { z-index: 10; }<br />
+#selector2 { z-index: 20; }<br />
+</code>
+<!-- //code -->
+</li>
+</ul>
+
+
+
+
+
+
+<br /><br /><br />
+</body>
+</html>

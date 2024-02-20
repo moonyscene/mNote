@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - Best Practice | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1 class="hb1 h1">JavaScript Best Practice : jQuery Plugin</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ul>
+<li><a href="#jQueryPlugin">jQuery Plugin</a></li>
+<li><a href="OOP.html">OOP TabCont</a> TODO ))) </li>
+</ul>
+</div>
+<!-- /mtab1 -->
+
+
+<h2 class="hb1 h2" id="jQueryPlugin">jQuery Plugin</h2>
+
+<h3 class="hb1 h3">Framework</h3>
+
+<!-- panel1 -->
+<div class="panel2">
+<pre class="mg0">
+<em class="em1">$.fn.jQmPrevNext3 = function(options){</em>
+	<em class="em1">if(!this) return false;</em>
+	<em class="em1">var config = {</em>
+		<em class="em4">// Property</em>
+		<em class="em4">// DOM Selectors</em>
+	};
+	<em class="em1">$.extend(config, options);</em>
+	<em class="em1">return this.each(function(){</em>
+		<em class="em1">var $this = $(this);</em>
+		<em class="em4">// DOM 객체</em>
+		<em class="em4">// 프로퍼티</em>
+		<em class="em4">$this.getValue = function(){</em>
+			<em class="em4">// 값 계산</em>
+		}
+		<em class="em5">//$this.getValue(); // 첫실행</em>
+		<em class="em4">$this.setActive = function(){ // 활성값 설정 (반응형)</em> }
+		<em class="em4">$this.action1 = function(effect){ // 동작 (위치와 활성..)</em>
+			…
+			<em class="em5">$this.setActive();</em>
+		}
+		<em class="em4">$this.doReset = function(){ // 초기화</em>
+			<em class="em5">$this.getValue(); // 여기서만 호출한다.</em>
+			$this.doDirect();
+		}
+		<em class="em3">// 단위 기능 //</em>
+		<em class="em4">$this.doPrev = function(effect){ // 이전 기능</em> }
+		<em class="em4">$this.doNext = function(effect){ // 다음 기능</em> }
+		<em class="em4">$this.doDirect = function(effect){ // 직접 기능</em> }
+		<em class="em3">// 자동순환 //</em>
+		<em class="em4">$this.autoAction = function(){ // 자동 동작</em> }
+		$this.timer1 = setInterval($this.autoAction, config.interval); // 자동 가동
+		$this.restartInterval = function(timer){ // 자동 재가동 }
+		<em class="em4">$this.doStop = function(){ // 정지 기능</em> }
+		<em class="em4">$this.doPlay = function(){ // 재생 기능</em> }
+		<em class="em4">$this.autoOnOff = function(){ // auto play, stop 상태 표시</em> }
+		<em class="em3">// 이벤트 할당 //</em>
+		<em class="em4">$this.$bprev.on('click', function(e){ // 이전 클릭</em> }
+		<em class="em4">$this.$bnext.on('click', function(e){ // 다음 클릭</em> }
+		<em class="em4">$this.$mPageNum.on('click', '>' + config.m, function(e){ // 직접 클릭. 미래 존재 요소에 이벤트 연결</em> }
+		<em class="em4">$this.$bstop.on('click', function(e){ // 정지 클릭</em> }
+		<em class="em4">$this.$bplay.on('click', function(e){ // 재생 클릭</em> }
+		<em class="em3">// 반응형 // 사라짐 방지</em>
+		$(window).on('load resize', function(e){
+			setTimeout(function(){
+				<em class="em5">$this.doReset();</em>
+			}, 50);
+		});
+		<em class="em3">// 접근성 //</em>
+		<em class="em3">// 제스처 //</em>
+	});
+} /* /$.fn.jQmPrevNext3 */
+</pre>
+</div>
+<!-- /panel1 -->
+
+
+<h3 class="hb1 h3">Overall Code</h3>
+
+<pre class="mg0">
+<code class="xmp">
+/** ◇◆ <b class="em0">jQmPrevNext3. v0.5.4. 20170927 ~ 20180622. 20181116.</b> MoonYoungShin.
+ * 이전다음 쪽. 자동순환. 자동순번. 가로배치 가로전환. 아이템폭 고정(또는 반응형).
+ * jQmPrevNext1 복제 후 개발
+ * 맨끝쪽이면 뷰와 아이템 우단을 맞춘다.
+ * 초기 활성 아이템 옵션 추가.
+ * 20180330. 맨끝 마진 상계
+ * ~20180518. CSS transition 키보드 접근성 확인 
+ * 20180521. DOM 인스턴스 생성을 $this.getValue 안으로 넣어 $(window).on('load resize') 로 값 구하도록 개선
+ * Use) $('#ocard1').jQmPrevNext3();
+ //$('#ocard1').jQmPrevNext3({interval: 12000, gesture: true, threshold: 10});
+ * Task) To Advance!
+ */
+<em class="em1">$.fn.jQmPrevNext3 = function(options){</em>
+	<em class="em1">if(!this) return false;</em>
+	<em class="em1">var config = {</em>
+		<em class="em4">// Property</em>
+		interval: 120000, // 간격 밀리초
+		autoFlag: true, // true: 정지 버튼 클릭 안한 상태, false: 클릭한 상태
+		gesture: false, // true: 터치이벤트할당
+		threshold: 10, // 터치 무브가 값px 이상이면 동작
+		onItem: 1, // 초기 활성 아이템
+
+		<em class="em4">// DOM Selectors</em>
+		mView : '.mView', // 뷰
+		mCont : '.mView .mCont', // 내용물 묶음
+		mItem : '.mView .mContC', // 내용물 개별 단위콘텐츠 (아이템)
+		bprev : '.mControl .prev', // 이전
+		bnext : '.mControl .next', // 다음
+		bstop : '.mControl .stop', // 정지
+		bplay : '.mControl .play', // 재생
+		mPageNum: '.mPageNum', // 자동 쪽순 매김 묶음
+		pageOn: '.mPage .on', // 현재페이지
+		pageTotal: '.mPage .total', // 전체페이지
+		m: '.m' // 메뉴 아이템. 쪽순은 .mPageNum>.m 이다.
+	};
+	<em class="em1">$.extend(config, options);</em>
+	<em class="em1">return this.each(function(){</em>
+		<em class="em1">var $this = $(this);</em>
+
+		<em class="em4">// DOM 객체</em>
+		$this.$v = $(config.mView, $this);
+		$this.$c = $(config.mCont, $this); // 주의) $(config.mCont, $this.$v) 이러면 결함소지.
+		$this.$cc = $(config.mItem, $this);
+		$this.$bprev = $(config.bprev, $this);
+		$this.$bnext = $(config.bnext, $this);
+		$this.$bstop = $(config.bstop, $this);
+		$this.$bplay = $(config.bplay, $this);
+		$this.$mPageNum = $(config.mPageNum, $this); // 쪽순 매기기 래퍼
+		$this.$mpn = {}; // 쪽순 매기기 아이템
+		$this.$pageOn = $(config.pageOn, $this); // 현재페이지
+		$this.$pageTotal = $(config.pageTotal, $this); // 전체페이지
+
+		<em class="em4">// 프로퍼티</em>
+		$this.cTotal = $this.$cc.length; // 내용물 개별 개수.
+		$this.onPage = 1; // 현재 활성 페이지
+		$this.cLeft = 0; // 내용물 묶음 좌단 위치값
+
+		// 값 구하기 20181116
+		<em class="em4">$this.getValue = function(){</em>
+
+			$this.vw = Math.round( $this.$v.innerWidth() ); // 뷰 너비.
+			$this.cw = Math.round( $this.$c.outerWidth() ); // 내용물 묶음 너비 (불필요함)
+			$this.ccw = Math.round( $this.$cc.outerWidth(true) ); // 내용물 1개 너비 margin 포함
+
+			<em class="em4">// 값 계산</em>
+			// items per Page
+			$this.ipp = Math.floor( $this.vw / $this.ccw );
+			if( $this.ipp == 0 ){
+				$this.ipp = 1;
+			}
+
+			// 전체페이지 계산
+			$this.allPage = Math.ceil( $this.cTotal / $this.ipp );
+			$this.data({'total-page': $this.allPage}); // JS 에서 이용
+			$this.attr({'data-total-page': $this.allPage}); // CSS 에서 선택자로 이용
+
+			$this.$v.css({
+				//width: ( $this.ccw * $this.ipp ) + 'px', // 내용물 개별 너비 * 뷰 내용물 아이템 수
+			});
+
+			// 소수점 오차 해결 후 값
+			//$this.vw = Math.round( $this.$v.outerWidth() );
+			//$this.cw = Math.round( $this.$c.outerWidth() );
+			//$this.ccw = Math.round( $this.$cc.outerWidth() );
+
+			// 페이지 너비. $this.vw 보다 작거나 같다.
+			$this.pw = $this.ccw * $this.ipp;
+
+			// 초기 활성 ( 아이템.on ) 고려.
+			// 단, 내용물 묶음 위치가 페이지 기본 위치와 다르면 혼란을 줄 수 있다. (1 아이템씩 탐색한다면 괜찮다.)
+			$this.$cc.eq( config.onItem - 1 ).addClass('on');
+			$this.$cc_on = $this.$cc.filter('.on');
+			if( !!$this.$cc_on.length ){ // 초기 활성 아이템 있으면
+				$this.onPage = 1 + Math.floor( $this.$cc_on.position().left / $this.pw );
+			}
+
+			// 쪽순 매기기
+			$this.$mPageNum.empty(); // 내부를 비운다
+			for(var i=1; i <= $this.allPage; i++){
+				$this.$mPageNum.append('<a href="#?" class="m m' + i + '" title="' + i + '쪽 보기"><i class="ic1"></i> <span class="t1 blind">' + i + '</span></a>');
+			}
+			$this.$mpn = $(config.mPageNum + '>' + config.m, $this); // 쪽순 아이템. 미래에 DOM 만들어지면 DOM 객체 만든다.
+		}
+		<em class="em5">//$this.getValue(); // 첫실행</em>
+
+		<em class="em4">$this.setActive = function(){ // 활성값 설정 (반응형)</em>
+			$this.$mpn.eq($this.onPage-1).addClass('on').siblings().removeClass('on'); // 쪽수 활성
+			$this.$pageOn.text($this.onPage); // 현재페이지
+			$this.$pageTotal.text($this.allPage); // 전체페이지
+		}
+
+		<em class="em4">$this.action1 = function(effect){ // 동작 (위치와 활성..)</em>
+			if( !!$this.$cc_on.length ){ // 초기 활성 있으면
+				$this.$c.css({'left': -$this.$cc_on.position().left + 'px' });
+				$this.$cc_on.removeClass('on');
+				$this.$cc_on = $this.$cc.filter('.on');
+			}else{
+				$this.$c.css({'left': $this.cLeft + 'px' });
+			}
+			<em class="em5">$this.setActive();</em>
+		}
+
+		<em class="em4">$this.doReset = function(){ // 초기화</em>
+			<em class="em5">$this.getValue(); // 여기서만 호출한다.</em>
+			$this.doDirect();
+		}
+
+		<em class="em3">// 단위 기능 //</em>
+		<em class="em4">$this.doPrev = function(effect){ // 이전 기능</em>
+			// (내용물 묶음 위치가 페이지 기본 위치) 또는 (마지막 페이지) 라면.. 활성페이지-1 하지만..
+			// 아니라면.. 활성페이지 그대로 내용물 묶음 위치를 페이지 기본 위치로 보낸다.
+			if( !( $this.$c.position().left % $this.pw ) || ($this.onPage == $this.allPage) ){
+				$this.onPage--;
+			}
+			if($this.onPage <= 0){ //
+				$this.onPage = $this.allPage;
+			}
+			<em class="em5">$this.doDirect();</em>
+		}
+		<em class="em4">$this.doNext = function(effect){ // 다음 기능</em>
+			$this.onPage++;
+			if($this.onPage > $this.allPage){ //
+				$this.onPage = 1;
+			}
+			<em class="em5">$this.doDirect();</em>
+		}
+		<em class="em4">$this.doDirect = function(effect){ // 직접 기능</em>
+			if($this.onPage != $this.allPage){
+				$this.cLeft = -$this.pw * ($this.onPage - 1);
+			}else{ // 맨끝쪽이면 뷰와 아이템 우단을 맞춘다.
+				// 20180330. 맨끝 마진 상계
+				$this.cLeft = $this.vw - ( $this.ccw * ($this.cTotal-1) + Math.round( $this.$cc.last().outerWidth(true) ) );
+			}
+			<em class="em5">$this.action1();</em>
+		}
+
+		<em class="em3">// 자동순환 //</em>
+		<em class="em4">$this.autoAction = function(){ // 자동 동작</em>
+			if(config.autoFlag){
+				$this.doNext();
+			}
+		}
+		$this.timer1 = setInterval($this.autoAction, config.interval); // 자동 가동
+		$this.restartInterval = function(timer){ // 자동 재가동
+			if(timer){
+				clearInterval(timer);
+			}
+			$this.timer1 = setInterval($this.autoAction, config.interval);
+		}
+
+		<em class="em4">$this.doStop = function(){ // 정지 기능</em>
+			config.autoFlag = false;
+			<em class="em5">$this.autoOnOff();</em>
+			clearInterval($this.timer1);
+		}
+
+		<em class="em4">$this.doPlay = function(){ // 재생 기능</em>
+			config.autoFlag = true;
+			<em class="em5">$this.autoOnOff();</em>
+			$this.restartInterval($this.timer1);
+		}
+
+		<em class="em4">$this.autoOnOff = function(){ // auto play, stop 상태 표시</em>
+			if(config.autoFlag){
+				$this.$bplay.removeClass('on').addClass('on');
+				$this.$bstop.removeClass('on')
+			}else{
+				$this.$bplay.removeClass('on')
+				$this.$bstop.removeClass('on').addClass('on');
+			}
+		};
+		<em class="em5">$this.autoOnOff(); // 첫실행</em>
+
+		<em class="em3">// 이벤트 할당 //</em>
+		<em class="em4">$this.$bprev.on('click', function(e){ // 이전 클릭</em>
+			e.preventDefault();
+			$this.doPrev();
+		});
+
+		<em class="em4">$this.$bnext.on('click', function(e){ // 다음 클릭</em>
+			e.preventDefault();
+			$this.doNext();
+		});
+
+		<em class="em4">$this.$mPageNum.on('click', '>' + config.m, function(e){ // 직접 클릭. 미래 존재 요소에 이벤트 연결</em>
+			e.preventDefault();
+			$this.onPage = $(this).index() + 1;
+			$this.doDirect();
+		});
+
+		<em class="em4">$this.$bstop.on('click', function(e){ // 정지 클릭</em>
+			e.preventDefault();
+			$this.doStop();
+		});
+
+		<em class="em4">$this.$bplay.on('click', function(e){ // 재생 클릭</em>
+			e.preventDefault();
+			$this.doPlay();
+		});
+
+		<em class="em3">// 반응형 // 사라짐 방지</em>
+		$(window).on('load resize', function(e){
+			setTimeout(function(){
+				<em class="em5">$this.doReset();</em>
+			}, 50);
+		});
+
+		<em class="em3">// 접근성 //</em>
+		//$this.find('button, a').addBack().on('focusin mouseenter click', function(e){
+		<em class="em4">$this.find('button, a').addBack().on('focusin mouseenter', function(e){ // 오버</em> 20170126
+			clearInterval($this.timer1);
+		});
+		<em class="em4">$this.find('button, a').addBack().on('focusout mouseleave', function(e){ // 아웃</em>
+			$this.$v.removeClass('mj-keyboard-in'); // ~20180518
+			if(config.autoFlag && !$(':focus', $this.$cc).length){ // 20170126. autoFlag 참이고 단위콘텐츠 내부에 초점 없으면
+				$this.restartInterval($this.timer1);
+			}
+		});
+
+		// 마우스 'click' 하면 'mousedown' 'focusin' 'mouseup' 이벤트도 발생한다.
+		// 'focusin' 이벤트에 뷰 영역 밖의 초점을 표시하기 위해 요소 위치를 변경하는 동작을 바인딩한 경우..
+		// 'mousedown' 위치와 다른 곳에서 'mouseup' 동작되어 'click'의 기본 동작 (a 요소는 href 로 이동) 이 안된다.
+		// 결함 해결 위해.. 'mousedown'에 의한 'focusin'인지 구분하여 분기한다.
+		$this.isMousedown = 0;
+		$this.$c.find('a').on('mousedown', function(e){
+			$this.isMousedown = 1;
+		});
+		$this.$c.find('a').on('focusin', function(e){ // 앵커 포커스시 (키보드 탭, 마우스 다운, 클릭)
+			// 키보드 운용시 페이지 계산해서 찾아감.
+			$this.onPage = Math.floor( $(this).parent().position().left / $this.pw ) + 1;
+			if(!$this.isMousedown){
+				$this.$v.addClass('mj-keyboard-in'); // ~20180518 ★☆ CSS 내용물 묶음 transition:0s; 속성 필요
+				$this.doDirect();
+			}
+		});
+		$('window').on('mouseup', function(){
+			$this.isMousedown = 0;
+		});
+
+		<em class="em3">// 제스처 //</em>. 20170629.
+		if(!config.gesture) return false;
+		($this.gesture1 = function(){
+			var o = {
+				sx: 0, // start x
+				sy: 0, // start y
+				dx: 0, // distance x
+				dy: 0, // distance y
+				ex: 0, // end x
+				ey: 0, // end y
+				sl: 0, // start left
+				st: 0, // start top
+				threshold: config.threshold // 반응 기준값
+			};
+			<em class="em4">$this.$v.on('touchstart touchmove touchend mousedown mousemove mouseup', function(e){</em>
+				 // $(this) 좌상단에서의 터치 이벤트 상대 위치 x, y
+				$this.offsetLeft = ($(this).offset().left < 0)? 0: $(this).offset().left; // 뷰가 화면 보다 클 때 보정
+				$this.offsetTop = ($(this).offset().top < 0)? 0: $(this).offset().top;
+				if(e.originalEvent.touches || e.originalEvent.changedTouches){ // 터치 있으면
+					var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0]; // 싱글 터치
+					touch.length = e.originalEvent.touches.length || e.originalEvent.changedTouches.length;
+				}else{
+					var e = e || window.event;
+				}
+				var x = (e.pageX || touch.pageX) - $this.offsetLeft;
+				var y = (e.pageY || touch.pageY) - $this.offsetTop;
+				if(x < $(this).width() && x > 0 && y < $(this).height() && y > 0){ // $(this) 범위 안이면 동작
+					if(e.type == 'touchstart' || e.type == 'mousedown'){
+						$this.onGesture = 1;
+						o.sx = x; o.sy = y; // 터치 시작 위치 기억
+						o.dx = 0; o.dy = 0; // 터치 이동 거리 초기화
+						clearInterval($this.timer1); // 자동 정지
+					}
+					if(e.type == 'touchmove' || e.type == 'mousemove'){
+						if($this.onGesture){
+							o.dx = x-o.sx; o.dy = y-o.sy; // 터치 이동 거리 계산
+							if(Math.abs(o.dx) > Math.abs(o.dy)){ // 가로 이동 크면 동작
+								e.preventDefault();
+							}else{
+								$this.onGesture = 0;
+							}
+						}
+					}
+					if(e.type == 'touchend' || e.type == 'mouseup'){
+						//e.preventDefault(); // 20150414. a 링크 위해 주석처리.
+						$this.onGesture = 0;
+						o.ex = x; o.ey = y; // 터치 종료 위치 기억
+						<em class="em4">if(Math.abs(o.dx) > Math.abs(o.dy)){ // 가로 이동 크면 동작</em>
+							if((o.ex-o.sx) > o.threshold){
+								<em class="em5">$this.doPrev();</em>
+							}
+							else if((o.ex-o.sx) < -o.threshold){
+								<em class="em5">$this.doNext();</em>
+							}
+							else{
+								// 원래 그대로
+							}
+						}
+						$this.restartInterval($this.timer1);
+					}
+				}else{ // $(this) 범위 밖이면 원위치
+					if($this.onGesture){ // 터치중
+						// 원래 그대로
+						$this.onGesture = 0;
+					}
+				}
+				$('a', this).on('click', function(){
+					<em class="em3">if(Math.abs(o.dx) > 2){ // 2px 초과 드래그하면.. 링크 이동 안함.</em>
+						return false;
+					}else{
+						return;
+					}
+				});
+			});
+		})();
+	});
+} /* /$.fn.jQmPrevNext3 */
+</code>
+</pre>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<small class="fwn">
+<strong>History</strong>
+: 20181115.~
+20181120.
+</small>
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

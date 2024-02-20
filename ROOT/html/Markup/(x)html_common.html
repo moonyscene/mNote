@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '(X)HTML Common Rule | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>(X)HTML Common Rule</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<!-- <li><a href="#Link">Link</a></li> -->
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<dl class="bu">
+<dt>코딩은 위지윅 방식이 아닌 Text-Editor를 이용한 하드코딩을 기본으로 한다.</dt>
+<dt>Cross Browsing을 원칙으로 한다.</dt>
+<dd>
+<strong>기본사항 </strong>- 제작 되는 모든 웹페이지는 아래 해당 웹브라우져 버전에서 호환되도록 제작 한다. <br />
+Internet Explorer : 6.0(win2000) / IE6 sp2(winXP) / <strong>IE7, IE8</strong><br />
+IE외 브라우저 최신 정식버전 : Mozilla Firefox, Google Chrome<br /><br />
+<strong>주요페이지</strong> - 기본사항은 물론 아래사항까지 포함한다.<br />
+Safari, Opera<br /><br />
+<strong>하위 호환성?</strong> - 상위 호환성 및 표준을 따른다면, 아래사항은 일정 부분 포기할 수 밖에 없다.<br />
+IE5.5, 6.0(win98).
+</dd>
+
+
+<dt>문서 제작시 기본(default) 문서는 아래 내용을 참조한다.
+<cite><a href="../Guide/webpublish.html#htmlbasic">웹사이트 코딩 핵심 - HTML 문서 기본 구조</a></cite>
+
+</dt>
+<dd>
+<xmp class="xmp">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '사이트명 - 문서제목</title>
+<meta name="author" content="저작자">
+<meta name="keywords" content="문서제목, 키워드, 키워드, 저작자">
+<meta name="description" content="문서설명을 서술한다. 또는 제목">
+<link rel="stylesheet" type="text/css" href="/share/css/all.css" />
+<script src="/share/js/all.js"></script>
+</head>
+<body>
+
+<h1>문서제목</h1>
+
+</body>
+</html>
+</xmp>
+
+※ 기본언어 지정
+<xmp class="xmp">
+국문 lang="ko"
+영문 lang="en"
+일문 lang="ja"
+중문 lang="zh"
+</xmp>
+
+※ 문자코드
+<xmp class="xmp">
+국문 charset="utf-8"
+영문 charset="iso-8859-1"
+일문 charset="shift-jis"
+중문 charset="gb2312"
+유니 charset="utf-8" (다국어혼용가능)
+</xmp>
+
+※ 기본 글꼴 CSS (주관적 - 자간이 좁아서 선호함)
+<xmp class="xmp">
+국문 font-family:"돋움",Dotum,sans-serif;
+영문 font-family:Tahoma,sans-serif;
+일문 font-family:sans-serif,"MS UI Gothic";
+중문 font-family:sans-serif,SimSun;
+</xmp>
+국문은 12px 은 돋움 혹은 굴림, 다른 크기(11px, 14px, 16px, 18px, 20px, 24px)는 무조건 돋움을 사용하고 있습니다.<br />
+영문 글꼴은 가로가 길어지므로 메뉴에는 11px 크기 사용을 권장합니다.<br />
+
+
+</dd>
+
+<dt>각 태그의 어트리뷰트 속성들에 값들은 항상 "(따옴표)로 묶는다.</dt>
+<dd>
+<xmp class="xmp">
+td class=a (X)
+td class="a" (O)
+a href=a (X)
+a href="a" (O)
+div id=a (X)
+div id="a" (O)
+table cellpadding=0 cellspacing=0 (X)
+table cellpadding="0" cellspacing="0" (O)
+</xmp>
+</dd>
+
+
+<dt>style적용시 사용되는 모든 수치 (width, height) pixel에는 수치를 알려주는 px값을 달아준다. (0은 단위가 없어도됨)</dt>
+<dd>
+<xmp class="xmp">
+<td style="height:15"> (X)
+<td style="height:15px;"> (O)
+.class { margin: 10 5 0 5; } (X)
+.class { margin: 10px 5px 0 5px; } (O)
+</xmp>
+</dd>
+
+
+<dt>font 태그는 쓰지 않는다. font 태그 대신에 span 태그를 사용</dt>
+<dd>
+<xmp class="xmp">
+<font class="a">, <font style="b"> (X)
+<span class="a">, <span style="b"> (O)
+
+<font color=#eee> (X)
+<span style="color: #eee;"> (O)
+</xmp>
+</dd>
+
+
+<dt>color 는 16진 컬러코드로 작성하는 것을 기본으로 하고 컬러코드 앞에 '#'를 명시한다 </dt>
+<dd>
+<xmp class="xmp">
+color: eee; , color: fff; (X)
+color: #eee; , color: #fff; (O)
+</xmp>
+</dd>
+
+
+<dt>font-family 선언시 한글 폰트값속성들은 한글로 기재한다. </dt>
+<dd>
+<xmp class="xmp">
+font-family: gulim; (X)
+font-family: 굴림; (O)
+font-family: dotum; (X)
+font-family: 돋움; (O)
+</xmp>
+</dd>
+
+
+<dt>전역(global) 글꼴을 정하는 경우font-family 선언시 "돋움" 혹은 "굴림" 이라는 한글을 사용자 환경에서 인식하지 못하는 경우를 대비한다.</dt>
+<dd>
+<xmp class="xmp">
+font-family: 굴림; (X)
+font-family: AppleGothic,굴림,gulim,sans-serif; (O)
+</xmp>
+</dd>
+
+
+<dt>폰트가 가변되는 경우에 Font-stylesheet 속성중 line-height의 경우는 사이즈단위를 상대값으로 지정한다</dt>
+<dd>
+<xmp class="xmp">
+line-height: 18px; (X)
+line-height: 1.5; (O) /@ font-size: 12px; 일 경우 줄간격 18px @/
+</xmp>
+<dfn>
+line-height: ; 에는 em 단위나 % 단위를 붙이지 않는다.
+</dfn>
+</dd>
+
+
+<dt>img src="" 태그 사용시 해당 이미지의 사이즈와 alt="" 어트리뷰트 표기를 원칙으로 하며 "border=0" 값은 css선언으로 대체한다.</dt>
+<dd>
+<xmp class="xmp">
+<img src="/img/all/b.gif" border="0"> (X)
+<img src="/img/all/b.gif" width="1" height="1" alt="" /> (O)
+</xmp>
+</dd>
+<dd>alt=""는 의미없는 이미지의 경우(주로 레이아웃 등의 디자인 효과를 위해 생기는 이미지) 는 null값 (alt="")으로 두고 제목, 로고, 버튼과 같이 의미전달을 위한 이미지일 경우는 alt에 적당한 값을 표기한다</dd>
+<dt> link 가 포함된 이미지 태그에 border=0 값을 넣지 않기 위해서는 아래와 같은 스타일 시트를 상단에 정의해준다 </dt>
+<dd>
+<xmp class="xmp">
+<style type="text/css">
+img { border: 0; }
+</style>
+</xmp>
+</dd>
+
+
+<dt>StyleSheet의 경우는 link css 형태로 처리한다</dt>
+<dd>
+<xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="/share/css/all.css" media="all" />
+</xmp>
+* 단 td 나 body, img등에 지정되는 global css의 경우는 페이지 내에 Embed 형태로 처리한다.
+</dd>
+
+
+<dt>style 태그를 Embed 형태로 처리시 type="text/css" 을 항상 명시한다.</dt>
+<dd>
+<xmp class="xmp">
+<style type="text/css">
+img { border: 0; }
+</style>
+</xmp>
+<dfn>
+* style 태그는 항상 head 태그 안에 와야 한다.
+</dfn>
+</dd>
+
+
+<dt>script 태그에는  language="" 속성을 사용하지 말고 를 명시한다.</dt>
+<dd>
+<xmp class="xmp">
+<script language="javascript" src="*"></script> (X)
+<script language="javascript"> (X)
+getflash("/flash/visual.swf",865,100,"transparent","TL","noscale");
+</script>
+
+<script src="/inc/js/getflash.js"></script><noscript></noscript> (O)
+<script> (O)
+getflash("/flash/visual.swf",865,100,"transparent","TL","noscale");
+</script><noscript><p></p></noscript>
+</xmp>
+<dfn>
+* script 태그는 head 태그 안에 넣는 것을 기본으로 하고, 필요에 따라 코드 중간에 추가해도 된다.
+</dfn>
+</dd>
+
+
+<dt>a link 안에 불필요한 font태그 혹은 span태그를 사용을 지양한다. </dt>
+<dd>
+<xmp class="xmp">
+<a href="#"><font></font></a> (X)
+<a href="#" class=""></a> or <a href="#" style=""></a> (O)
+</xmp>
+</dd>
+
+
+<dt>Anchor style 설정시 순서는 link, visited, hover, active의 순으로 나열한다. </dt>
+<dd>
+<xmp class="xmp">
+a:link { color: #000; }
+a:visited { color: #111; }
+a:hover { color:#222; }
+a:active { color:#333; }
+</xmp>
+* hover와 active는 항상 마지막에 위치시켜야 한다.
+</dd>
+
+
+<dt>style을 중복으로 지정하지 않는다. </dt>
+<dd>
+<xmp class="xmp">
+<td style="font-size:20px" style="color:red">myshin</td> (X)
+<td style="font-size: 20px; color: red;">myshin</td> (O)
+</xmp>
+</dd>
+
+<dt>주석 사용시 <em class="em">하이폰(-)을 2개 이상 넣지 않으며</em>, 하이폰과 하이폰다음에 위치하는 주석내용 사이는 좌우로 한칸이상의 공백(space)을 유지한다 </dt>
+<dd>
+<xmp class="xmp">
+<!----incorrect comment-----> (X)
+<!-- correct comment --> (O)
+</xmp>
+Test) 20150320. HTML5
+<xmp class="xmp">
+<!--correct comment--> (O)
+<!--correctcomment--> (O)
+<!---correct comment--> (O)
+<!-- incorrect comment---> (X)
+<!-- incorrect comment ---> (X)
+<!-- incorrect -- comment --> (X)
+</xmp>
+</dd>
+
+<dt>주석은 최대한 간결히 필요한 것만 달아놓는다. tag와 마찬가지로 주석역시 시작주석과 끝 주석을 함께 표기한다.</dt>
+<dd>
+<xmp class="xmp">
+<!-- 주석이름 -->
+<table> ~ </table>
+<!-- //주석이름 -->
+</xmp>
+</dd>
+</dl>
+
+
+</div>
+</div>
+
+
+
+
+
+<hr />
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20141210. .lst1 으로 수정.
+20141024. id, class Naming Rule 추가 정리
+20140926. id, class Naming Rule 섹션으로 격상
+20140801. 탭메뉴 추가. 네이밍 추가
+20140326. CSS 선택자 개선 전략 추가 등..
+20140218.
+20130416. 속성 선택자 수정.
+20130318. CSS Naming 정리.
+20120316.
+20110111.
+20090220.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Web Standard | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>Web Standard</h1>
+
+<div class="mtab1">
+<menu>
+<li><a href="#n1">웹 표준 개요</a></li>
+<li><a href="#n2">고려사항 및 검사도구</a></li>
+<li><a href="#n3">HTML 4.01 Strict</a></li>
+<li><a href="#n4">XHTML 1.0 Strict</a></li>
+<li><a href="#n5">Markup Coding Hint (Valid 무관)</a></li>
+<li><a href="#n6">CSS</a></li>
+<li><a href="#n7">Javascript</a></li>
+<li><a href="#n8">웹 표준 misc. inValid, Valid</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+<hr />
+
+<h2 id="n1">웹 표준 개요</h2>
+
+<ul class="bu">
+<li>목적 : 다양한 사용자 계층, OS, 기기, 브라우저 호환성을 위하여<br /></li>
+<li>효과 : HTML 코드는 반으로! 코딩과 유지보수 효율성은 2배로!<br /></li>
+<li>방법 : 구조/표현/동작(기능)을 분리하고 문법, 의미에 맞추어!<br />
+	<ul class="bu">
+	<li>구조 (Structure) - HTML 4.01, XHTML 1.0, HTML 5, Semantic Web<br /></li>
+	<li>표현 (Presentation) - CSS 2.1, CSS 3 : (external CSS, embeded CSS)<br /></li>
+	<li>동작 (Behavior) - DOM, ECMAScript : (external JavaScript)<!-- , 서브 측 개발 --><br /></li>
+	</ul>
+</li>
+</ul>
+
+<dl class="bu">
+<dt>표현용 태그, 속성을 스타일시트로</dt>
+<dd>
+<xmp class="xmp">
+<basefont> <center> <dir> <font> <isindex> <menu> <s> <strike> <u> → CSS
+<applet> → <object>
+align="center"  → text-align: center;
+color="#000" → color: #000;
+bgcolor="#fff" → background: #fff;
+</xmp>
+</dd>
+
+<dt>table 레이이아웃을 div 레이아웃으로</dt>
+<dd>
+<xmp class="xmp">
+배치용 <table> → <div> + CSS
+</xmp>
+</dd>
+</dl>
+
+<!-- box4 -->
+<div class="box4">
+<b>표준은 절대적 지표가 아니다! 시간이 지나면서 변한다!</b> 기술은 끊임없이 발전하기 때문에 어떤 한가지 표준이 그 분야의 절대적인 표준이 될 수 없다. 현재의 표준이 미래에는 유효하지 않을 수 있다.
+</div>
+<!-- /box4 -->
+<hr />
+
+
+<h2 id="n2">고려사항 및 검사도구</h2>
+
+<!-- box2 -->
+<div class="box1">
+'12년 행정기관 홈페이지 웹호환성 준수 수준 진단 계획 (2012.08)<br />
+<a href="http://www.mopas.go.kr/gpms/ns/mogaha/user/userlayout/bulletin/userBtView.action?userBtBean.bbsSeq=1039800&userBtBean.ctxCd=1037&userBtBean.ctxType=21010005">「전자정부서비스 호환성 준수지침」개정(안) (2012.08)</a><br />
+</div><!-- /box1 -->
+
+<h3>웹 표준 문법 준수</h3>
+
+<em>* 프로젝트에서 별도 규정을 정하지 않을 경우.. 기본적으로 <del class="">HTML 4.01 Transitional</del> <ins class="">XHTML 1.0 Transitional</ins> 로 한다.</em><br />
+(리뉴얼 하지 않는 자료나 DB에 올린 자료에는 중지된(deprecated) 요소들도 있기 때문)<br />
+
+표준 문법 선언 (DTD)
+
+문자 코드는 utf-8
+
+웹페이지의 문자를 부호화하는 방식은 UTF-8 을 사용하는 것을 윈칙으로 한다.
+기술적 제약 및 서비스 특성으로 인해 다른 방식을 사용하는 경우에는 UTF-8 에 준하는 수준으로 한글을 처리할 수 있도록 조치하여야 한다.
+
+
+
+<h4>(X)HTML 유효성 검사 (Markup Valid)</h4>
+
+<p><a tabindex="0" href="http://validator.w3.org/">http://validator.w3.org/</a> 에서 검사. <em>error 확인 후 수정.</em><br />
+녹색바 : This Page Is Valid ..!<br /></p>
+
+<h4>CSS 유효성 검사 (CSS Valid)</h4>
+
+<p><a tabindex="0" href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a> 에서 검사. <em>error 확인 후 수정.</em><br />
+<!-- <del>단, hack 혹은 IE전용 스타일시트로 나오는 오류는 무시하고 나머지는 수정</del><br /> -->
+녹색바 : Congratulations! No Error Found.<br /></p>
+
+<h3>웹 호환성 확보 (Cross Browsing)</h3>
+
+<ul class="bu">
+<li><em>Internet Explorer [IE6(디자인제외), IE7, IE8, IE9, (IE10)] </em></li>
+<li><em>Firefox[FF], Chrome[CR], Safari[SF], Opera[OP] 최신버전 검사</em></li>
+<li>Mozilla, Nescape - FF와 같은 게코(Gecko) 엔진을 사용하여 웹페이지를 렌더링하므로 검사 생략.</li>
+<!-- <li><del>Safari - 2007.6 현재 XP or Vista 용으로 3 Beta 가 나왔으나 오류가 많아서 검사 생략.</del></li> -->
+<li>Lynx(링스) - 텍스트 브라우저 : 시각장애인에게 유용하긴 하나 사용자 거의 없어 검사 생략</li>
+</ul>
+
+<h4>▶ <a href="?">Web Compatibility</a></h4>
+
+<h3>개발자 도구</h3>
+
+<p>스타일시시트 제거시 컨텐츠가 논리적 순서로 선형화되어 나오는지 확인<br />
+자바스크립트 제거시 확인 <br />
+플러그인 제거시 확인<br />
+표준브라우저(CR, FF, ..) 는 자바스크립트 오류의 정확한 위치를 찾을 수 있다. (IE는 이상해~)<br />
+</p>
+
+
+<table border="1" class="t3" summary=""><caption>Browser Tool</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Browser</th>
+<th scope="col">Menu / Command</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">IE</th>
+<td>개발자 도구 [F12]</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">FF</th>
+<td>
+부가기능 Web Developer<br />
+부가기능 Firebug [F12]<br />
+개발자 도구 모음 [Shift+F2]<br />
+</td>
+<td>Disable CSS, Disable JavaScript, JavaScript Console ([도구]-[오류정보]), ..</td>
+</tr>
+<tr>
+<th scope="row">CR</th>
+<td>
+소스 보기 [Ctrl+U]<br />
+개발자 도구 [Ctrl+Shift+I]<br />
+자바스크립트 콘솔 [Ctrl+Shift+J]<br />
+[F12] 도 가능
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">SF</th>
+<td>웹 속성 보기 [Ctrl+Alt+I]<br />
+오류 콘솔 보기 [Ctrl+Alt+C]<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">OP</th>
+<td>빠른 설정 [F12]</td>
+<td>플러그인 사용</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<hr />
+
+<h2 id="n3">HTML 4.01 Strict</h2>
+
+<dl class="bu">
+
+
+<dt>DOCTYPE 과 ENCODING 을 적어주자.</dt>
+<dd>
+
+&lt;!DOCTYPE&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt; &lt;title&gt; &lt;body&gt; 는 웹문서에 필수
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>WebpageTitle</title>
+</head>
+<body>
+</body>
+</html>
+</xmp>
+* Quirk(변덕, 비표준, 하위 호환)모드
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+</xmp>
+* Standard(표준)모드
+<xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ko">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ko">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR">
+</xmp>
+* ENCODING
+<xmp class="xmp">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="content-type" content="text/html; charset=shift-jis" />
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+</xmp>
+* lang="언어코드" 로 웹페이지에서 사용할 기본 언어를 지정합니다. 
+<xmp class="xmp">
+<html lang="ko">
+<html lang="en">
+<html lang="ja">
+<html lang="zh">
+</xmp>
+※ 참고) 언어별 스타일 글꼴지정, 아래 예에서 마지막 글꼴이 IE 기본폰트입니다.
+
+<pre class="xmp">
+<code>font-family: '돋움', Dotum, '굴림', Gulim;
+font-family: Tahoma, Arial;
+font-family: "MS UI Gothic", MS Gothic;
+font-family: Simsun, SimHei, MS Song;
+</code></pre>
+
+
+</dd>
+
+<dt>불량한, 폐기된 태그 및 속성은 사용하지 않는다.</dt>
+<dd>
+<xmp class="xmp">
+불량 태그 : applet, basefont, center, dir, font, isindex, menu, s, strike, u.
+폐기 태그 : listing, plaintext, xmp. 이들 모두는 그 대신 pre 엘레멘트를 사용하여야 한다.
+</xmp>
+HTML 문서에서 표현을 지정하는 대부분의 속성들(예: 색상, 정렬, 폰트, 그래픽 등)은 불량한 것이되어, 스타일시트(style sheet)를 사용하여야 한다.<br />
+<a href="http://trio.co.kr/webrefer/html/index/attributes.html">HTML 4 속성(attribute) 색인</a>에서 어느 속성들이 불량한 것이 되었는가를 알려준다.
+</dd>
+
+<dt>img 태그에는 alt="" 를 반드시 넣자.</dt>
+<dd>
+<xmp class="xmp">
+<img src="/img/b.gif" alt="">
+</xmp>
+</dd>
+
+
+<dt>블럭 요소 vs 인라인 요소</dt>
+<dd>
+<xmp class="xmp">
+* <body> 에는 block 요소만 가능
+* block 요소 안에는 block 요소,  inline 요소 둘다 가능
+* inline 요소 안에는 inline 요소만 가능
+* <p> 안에는 block 요소가 불가
+* <blockquote> 는 block 요소만 가능
+* <ul>,<ol> 안에는 오직 <li> 만 가능
+* <li> 안에는 뭐든지 가능
+</xmp>
+
+<!-- box1 -->
+<div class="box1">
+<strong>인라인, 블록, ..</strong>
+<ul class="bu">
+<li>인라인 요소<br />
+a  abbr  acronym  b  basefont  bdo  big  br  cite  code  dfn  em  font  i  img  input  kbd  label  q  s  samp  select  small  span  strike  strong  sub  sup  textarea  tt  u  var
+</li>
+<li>블록 요소<br />
+address  blockquote  center  dir  div  dl  fieldset  form  h1  h2  h3  h4  h5  h6  hr  isindex  menu  noframes  noscript  ol  p  pre  table  ul
+</li>
+<li>다른 블록 요소들을 포함할 수 있기 때문에 블록 요소로 간주되는 요소<br />
+dd  dt  frameset  li  tbody  td  tfoot  th  thead  tr
+</li>
+<li>블록 요소 또는 인라인 요소 모두로 쓰일 수 있다. 만일 인라인 요소로 사용되었을 때는 블록 요소를 포함할 수 없다.<br />
+applet  button  del  iframe  ins  map  object  script
+</li>
+</ul>
+<strong>태그 금지사항</strong>
+<ul class="bu">
+<li>a 태그 :  다른 a 태그들을 포함 할 수 없다. </li>
+<li>pre 태그 : img, object, big, small, sub 또는 sup 태그들을 포함 할 수 없다. </li>
+<li>button 태그 : input, select, textarea, label, button, form, fieldset, iframe 또는 isindex 태그들을 포함 할 수 없다. </li>
+<li>label 태그 : 다른 label 태그들을 포함 할 수 없다. </li>
+<li>form 태그: 다른 form 태그들을 포함 할 수 없다. </li>
+</ul>
+</div><!-- /box1 -->
+
+</dd>
+
+<dt>문서들이 잘 구성(well-formed)되어야 한다.</dt>
+<dd>
+<xmp class="xmp">
+<p>여기에 강조 된 <em>문단이 있다.</p></em> (X)
+<p>여기에 강조 된 <em>문단</em>이 있다.</p> (O)
+[목록태그의 올바른 마크업]
+(X틀린예)
+<ul>
+<li>1차 목록 제목</li>
+	<ul>
+	<li>2차 목록 제목</li>
+	</ul>
+</ul>
+(O맞는예)
+<ul>
+<li>1차 목록 제목
+	<ul>
+	<li>2차 목록 제목</li>
+	</ul>
+</li>
+</ul>
+</xmp>
+<!-- <dfn>* a 태그 중첩, img (Empty 태그) 중첩은 예외. ??</dfn> -->
+</dd>
+
+
+<dt>embeded CSS 는 오직 head 태그 안에만 위치할 수 있다.</dt>
+<dd>
+<xmp class="xmp">
+<head>
+<style type="text/css">
+</style>
+</head>
+</xmp>
+</dd>
+
+
+<dt>script 태그의 속성에 을 항상 명시해주고, language="Javascript" 속성은 삭제한다.</dt>
+<dd>
+<xmp class="xmp">
+<script language="Javascript"></script> (X)
+<script language="Javascript"></script> (X)
+<script></script> (O)
+</xmp>
+</dd>
+
+</dl>
+
+<hr />
+
+<h2 id="n4">XHTML 1.0 Strict</h2>
+
+
+<dl class="bu">
+<dt>모든 태그이름, 속성이름은 소문자로</dt>
+<dd>
+<xmp class="xmp">
+<img src="/img/b.gif" width="180" height="40" alt="" />
+</xmp>
+</dd>
+</dl>
+
+<dl class="bu">
+<dt>모든 시작 태그들은 종료 태그를 가져야 함. 빈(Empty) 태그 끝에는 공백/></dt>
+<dd>
+<xmp class="xmp">
+<area /> <br /> <col> <frame /> <hr /> <img /> <input /> <link /> <meta /> <param /> ..
+</xmp>
+</dd>
+</dl>
+
+<dl class="bu">
+<dt>태그의 속성 값들은 꼭 따옴표(" 또는 ')를 사용해야만 한다.</dt>
+<dd>
+<xmp class="xmp">
+<img src=/img/b.gif width=180 height=40 alt= /> (X)
+<img src="/img/b.gif" width="180" height="40" alt="" /> (O)
+</xmp>
+</dd>
+</dl>
+
+
+<dl class="bu">
+<dt>속성은 속성이름="값" 처럼 짝으로 항상 완전하게 기술되어야 한다.</dt>
+<dd>
+<xmp class="xmp">
+<input type="radio" value="라디오단추" checked="checked" />
+<option value="선택상자" selected="selected"></option>
+</xmp>
+<p>※ 관련 속성 : checked, compact, declare, defer, disabled, ismap, multiple, noresize, noshade, nowrap, readonly, selected</p>
+</dd>
+</dl>
+
+
+<dl class="bu">
+<dt>ampersand(&amp;), less-than sign(&lt;) 은 Name Code(Number Code) 형태로 사용해야 한다.</dt>
+<dd>
+<xmp class="xmp">
+& → &amp;
+< → &lt;
+> → &gt;
+" → &quot;
+</xmp>
+<p>※ 제어구문의 &(and)는 당연히 아니므로 찾아바꾸기 할 때 주의한다.</p>
+</dd>
+
+
+<dt>&lt;!--  -->주석문 안에는 -(hyphen)이 여러개(-----) 올 수 없다.</dt>
+<dd>
+<xmp class="xmp">
+<!-- 주석문 ---------- --> (X)
+</xmp>
+</dd>
+
+</dl>
+
+
+
+<h2>XHTML - HTML 호환성</h2>
+
+<p>
+<a tabindex="0" href="http://trio.co.kr/webrefer/xhtml/overview.html#guidelines">XHTML™ 1.0 :  Appendix C. HTML Compatibility Guidelines </a> 를 참고하시오.
+</p>
+
+
+<hr />
+
+
+<h2 id="n5">etc Markup Coding Hint (Markup Valid 무관)</h2>
+
+
+<dl class="bu">
+
+<dt>html 문서의 언어를 지정한다. xmlns="" xml:lang="" lang=""</dt>
+<dd>
+<xmp class="xmp">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+</xmp>
+</dd>
+
+<dt>href 속성에 자바스크립트가 올 수 없고, javascript: 라고 표기하지 말자.</dt>
+<dd>
+<xmp class="xmp">
+ href="javascript:exFunction('1');" onclick="javascript:exFunction('1'); (X)
+ onclick="exFunction('1');" (O)
+</xmp>
+</dd>
+
+</dl>
+
+
+<hr />
+
+
+<h2 id="n6">CSS Coding Hint</h2>
+
+<dl class="bu">
+<dt>색상코드는 #을 반드시 붙여주세요.</dt>
+<dd>
+<xmp class="xmp">
+border: 1px solid #ddd; background: #fff; color: #000;
+</xmp>
+</dd>
+
+<dt>숫자값에는 반드시 단위를 넣어주세요.</dt>
+<dd>
+<xmp class="xmp">
+px : Pixels. (화면 해상도에 대한 상대 크기)
+% : Percentage. (자기가 속해 있는 상위 Tag의 크기 또는 상속받은 값에 대한 100분율 상대 단위)
+em : The height of the element's font. (지정되거나 상속 받은 font 크기의 상대 크기) - 현재 글꼴의 대문자 M 너비에 대한 상대 크기
+px : The height of the letter "x". (소문자 "x"의 높이에 대한 상대 크기)
+예) 100% = 1em
+</xmp>
+</dd>
+</dl>
+
+<h2 id="n7">Javascript Coding Hint</h2>
+<p>마크업 안 자바스크립트 코드, 주석처리 유효성 테스트하니 에러 발생시키지 않음.
+하지만, 에러가 검출되기도 하는데.. DOMScript 등으로 해결 가능하다.</p>
+
+
+<h2 id="n8">웹 표준 misc. inValid, Valid</h2>
+
+<h3>W3C Markup Validator Result</h3>
+
+
+<h4 id="html4slash">HTML 4.01 Transitional, Strict</h4>
+<xmp class="xmp">
+* Error : <meta /> <link /> <col /> <area /> <frame /> <base />
+* Warning : <img /> <input /> <param /> <br /> <hr />
+</xmp>
+<p>
+현재 HTML 4.01 에서도 앞으로의 상위 호환성을 위해 &lt; /&gt; 를 권장하였습니다.<br />
+(오류, 경고 여부는 웹 접근성, 호환성 측면에서는 중요하지 않았기에 일단 무시하였습니다.)<br />
+Validator 를 통과하려면 위에서 Error 부분은 &lt; &gt; 로 하셔야 합니다.<br />
+XHTML 1.0 으로 변경하고 엄격히 준수하실거면 모두 &lt; /&gt; 형태로 하시면 됩니다.<br />
+</p>
+
+
+<h4>XHTML 1.0 Transitional, Strict : <em>Errors</em></h4>
+
+<ol class="num">
+<li>XHTML 1.0 Transitional : <strong>블럭 요소를 자식으로 가질 수 없는 요소들</strong>
+<xmp class="xmp">
+<address><div></div></address>
+<caption><div></div></caption>
+<dt><div></div></dt>
+<h3><div></div></h3>
+<legend><div></div></legend>
+<pre><div></div></pre>
+</xmp>
+<li>XHTML 1.0 Strict : <strong>인라인 요소를 자식으로 가질 수 없는 요소들</strong>
+<xmp class="xmp">
+<blockquote><span></span></blockquote>
+</xmp>
+※ XHTML 1.0 Transitional 에서는 Valid
+</li>
+<li>&lt;a onfocus=""onclick=""&gt; 이렇게 <em>속성 사이에 공백</em>이 없으니, 연이은 오류 발생</li>
+</ol>
+
+
+<h3>W3C Validator 툴 자체 오류</h3>
+
+<h4>Markup : <a href="http://validator.w3.org/">http://validator.w3.org/</a></h4>
+
+<ol class="bo num">
+<li>
+[Validate by URI] 탭 Address: http://www.cs.go.kr/program/publicpoll/pollView.asp?Poll_Gro_Code=25 기입하고 [Check] 클릭
+<pre class="xmp">
+<code>Line 1, Column 1: no document type declaration; implying "\&lt;!DOCTYPE HTML SYSTEM\&gt;"
+\&lt;html\&gt;\&lt;script lang=javascript\&gt;
+</code></pre>
+일부 서버에서 *.asp?v=25 형태의 URI 사용 시 발생한다. (<a href="http://accessibility.kr/nia/check.php">웹 접근성 품질마크 자가진단 서비스</a> 도 문제 발생한다.)<br />
+자바스크립트, 개발 언어 코드와 무관하다. 코드 전혀 없는 페이지도 마찬가지이므로, 서버 보안 설정이 의심된다.<br />
+이런 평가 결과 받으면 이의 제기 필요!<br />
+해결1) [Validate by Direct Input] 탭 선택하여.. 웹페이지 소스를 직접 붙여서 검사한 결과를 첨부한다.<br />
+해결2) get 대신 post 방식으로 값을 넘긴다.
+----
+
+</li>
+<li></li>
+</ol>
+
+
+<h4>CSS : <a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a></h4>
+
+<table border="1" class="t3" summary=""><caption></caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">Code</th>
+<th scope="col">Error Bug</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">{font:.92em/1.28 tahoma;}</th>
+<td>잘못 된 값 : font / 는 올바른 font-family 값이 아닙니다 : 0.92em / 1.28 tahoma </td>
+<td>/1.28 때문</td>
+</tr><tr>
+<th scope="row">{text-overflow:ellipsis;}</th>
+<td>해석 오류 [empty string]</td>
+<td>text-overflow:ellipsis; 때문</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20131122.
+20131120. W3C Validator 툴 자체 오류
+20130404. 20130401. 20130131. 20130115.
+20120614. 20120614. 20120530. 툴 자체 오류들 20120521. 20111221. 20090224.
+20090220.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

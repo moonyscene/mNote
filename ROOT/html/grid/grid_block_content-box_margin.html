@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Grid Block content-box margin | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/_css/_grid_block_content-box_margin.css" /><!-- ☆(Added) -->
+
+<style type="text/css">/*<![CDATA[*/
+
+/* ◇◆ _Demo Page_ ◇◆◇◆◇ */
+
+.block-test1{width:480px;}
+.block-test1 *{list-style:none;margin:0;padding:0;}
+.block-test1 li{display:inline-block /* ☆ [IE7]bugFix */;float:left;width:33.333%;height:4em;background:#ed0;text-align:center;}
+*+html .block-test1 li{display:inline;float:none;vertical-align:top;} /* ☆ [IE7]bugFix */
+.block-test1 li:first-child{height:6em;background:#bde;}
+.block-test1 li:first-child+li{height:6em;background:#ecd;}
+.block-test1 li:first-child+li+li{background:#ada;}
+.block-test1 li:first-child+li+li+li{clear:both;height:4em;background:#dce;}
+.block-test1 li:first-child+li+li+li+li{background:#adc;}
+
+/* Panel */
+.panel{margin-bottom:1.25em;padding:1.25em;border:1px solid #ddd;border-radius:3px;background:#fcfcfc;}
+.panel>:first-child{margin-top:0;}
+.panel>:last-child{margin-bottom:0;}
+
+/*]]>*/</style>
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<![endif]-->
+<!-- ☆(take) -->
+<script src="../../share/js/jquery-1.11.1.min.js"></script>
+<script src="../../share/js/selectivizr-min.js"></script><!-- ☆(Added) -->
+<!-- ☆(make) -->
+<script src="../../share/js/all.js"></script>
+<script src="../../share/js/jq.js"></script>
+<!-- /html_head -->
+</head>
+<body style="background:#eee;">
+<!-- container -->
+<div id="container" style="max-width:1200px;margin:0 auto;background:#fff;">
+
+
+
+
+
+<h1>12 Grid Block content-box margin RWD</h1>
+
+<p><em class="em">[~IE8] 반응형은 온라인에서 확인하세요!!</em></p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+<!-- <h2 id="Prepare">Prepare</h2> -->
+
+<h3 class="hb1 h3">PreTask1) [IE7] float float clear float ))) OK!</h3>
+
+<!-- block-test1 -->
+<div class="block-test1">
+<ul class="clearfix">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+</ul>
+</div>
+<!-- /block-test1 -->
+
+
+<br />
+
+<!-- panel -->
+<div class="panel">
+<strong class="h1">Compatible</strong>
+<ol class="bo1 num00">
+<li>[IE9](O) ))<br /></li>
+<li>[IE8](X) + <a href="https://github.com/scottjehl/Respond">respond.min.js</a> + <a href="?">selectivizr-min.js</a> )) <em class="em">Bug))</em><br />
+	<ol class="bo1 num00">
+	<li><em class="em"> :nth-child() 가능하지만 미디어쿼리 안에서는 안된다. 또한 :nth-child(), 복수 선택자 {} 사용하면 다른 선택자도 무시된다.</em><br />
+	how1) li:first-child+li ))) [IE7+]모두 적용되지만.. Ajax 로 계속 추가되는 경우 문제 발생한다.<br />
+	how1-1) Ajax 추가되는 분량만큼 ul 로 묶는다. ))) 목록 분리로 다른 이슈가 생길 수 있다.<br />
+	how2) li.m1~li.m반복패턴끝수 까지 매직넘버 순환시켜서 스타일 적용한다.<br />
+	how2-1) 미디어쿼리 안해서 [IE9+] :nth-child(){clear:none;} 사용하려면, li[class*="m"], li.m1 스타일과 분리해서 적용해야 한다.<br />
+	</li>
+	</ol>
+</li>
+<li>[IE7](X) + respond.min.js + selectivizr-min.js + <a href="?">boxsizing.htc</a> ))) <em class="em">BugFix)) 엄청난 오류 해결!</em><br />
+	<ol class="bo1 num00">
+	<li>"ie7 float float clear float" 앞 요소보다 키작은 float 요소 clear 하면 뒤 요소가 앞 요소 옆에 붙는 오류 ))) display:inline; 으로 해결!</li>
+	<li>% Roundup 오류 ))) margin-right:-1px; 으로 해결!</li>
+	</ol>
+</li>
+<li>[~IE6](X)<br /></li>
+</ol>
+
+
+</div>
+<!-- /panel -->
+
+<!-- panel -->
+<div class="panel">
+<strong class="h1">Reference</strong>
+<ol class="bo1 num00">
+<li><a href="http://selectivizr.com/">selectivizr-min.js</a> 
+)) <a href="http://html5please.com/#selector">When you sunset IE6~8 support, you can use:</a>
+</li>
+</ol>
+</div>
+<!-- /panel -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Demo">Demo</h2>
+
+<!-- overflow-x:hidden --><!-- ★☆ToEdit) 수평스크롤바 감추려 overflow-x:hidden; 하였다. 상황에 따라 넣든지 하세요. -->
+<div style="overflow-x:hidden">
+
+
+<h3 class="hb1 h4">Basic</h3>
+
+<ul class="small-block-grid-3">
+<li class="column m1"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg" alt="★대체텍스트" /></li>
+<li class="column m2"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg" alt="★대체텍스트" /></li>
+<li class="column m3"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg" alt="★대체텍스트" /></li>
+</ul>
+
+<h3 class="hb1 h3">Advanced</h3>
+
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<li class="column m1"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/comet-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m2"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/earth-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m3"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/launch-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m4"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/satelite-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m5"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/space-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m6"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m7"><a href="?"><img class="thumb" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Steve_Ballmer_-_MIX_2008.jpg/220px-Steve_Ballmer_-_MIX_2008.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m8"><a href="?"><img class="thumb" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Steve_Ballmer_-_MIX_2008.jpg/1280px-Steve_Ballmer_-_MIX_2008.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m9"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m10"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m11"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m12"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m1"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/comet-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m2"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/earth-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m3"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/launch-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m4"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/satelite-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m5"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/space-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m6"><a href="?"><img class="thumb" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk-th.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m7"><a href="?"><img class="thumb" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Steve_Ballmer_-_MIX_2008.jpg/220px-Steve_Ballmer_-_MIX_2008.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m8"><a href="?"><img class="thumb" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Steve_Ballmer_-_MIX_2008.jpg/1280px-Steve_Ballmer_-_MIX_2008.jpg" alt="★대체텍스트" /></a></li>
+<li class="column m9"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m10"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m11"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+<li class="column m12"><a href="?"><img class="thumb" src="../../img/lib/noimage.png" alt="(…이미지 준비중…)" /></a></li>
+</ul>
+
+
+</div>
+<!-- /overflow-x:hidden -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small class="fwn"><strong>History</strong>
+: 20150619~
+20150622.
+20150619.
+</small></p>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Markup - HTML5 Template | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</title>
+<script src="http://html.nhndesign.com/js/default.js"></script>
+<style type="text/css">/*<![CDATA[*/
+@charset "utf-8";
+@import url(/share/css/style.css);
+/* HTML Reset */
+body,table,pre,input,select,textarea,button{font-style:normal;font-family:"나눔고딕","맑은고딕","돋움",Dotum,sans-serif}
+address,cite,em,i,var{font-style:normal}
+header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption{display:block;margin:0;padding:0;}
+label,button,input[type=submit],input[type=reset],input[type=button]{cursor:pointer;overflow:visible}
+body{margin:0;font-size:87.5%;word-wrap:break-word}
+hr{display:none}
+input.text,
+textarea.text{padding:.1em;border:1px solid #ccc}
+img{border:0}
+acronym,abbr{cursor:help}
+/* Base */
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#06c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus,
+a:visited:hover,a:visited:active,a:visited:focus{color:#09c;text-decoration:underline;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+li img{vertical-align:top;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.skip{z-index:9999;position:relative;left:0;top:0;margin:0}
+.skip a{display:block;width:0;height:0;overflow:hidden;white-space:nowrap}
+.skip a:focus{width:auto;height:auto;padding:5px 10px;background:#ffd;color:#000;font-size:inherit;line-height:normal}
+
+/* [IE]bugFix */
+* html .png24{tmp:expression(setPng24(this));}
+
+/* Layout */
+html{overflow-y:scroll;}
+body{margin:0;background:#f9fcff url(/img/inc/bg.gif) repeat-x;font-size:75%;line-height:1.5;word-wrap:break-word;}
+#wrap{position:relative;width:100%;min-width:1000px;margin:0 auto;overflow:hidden;}
+	#header{z-index:40;position:relative;width:1000px;height:100px;margin:0 auto;background:#e3e9ef;}
+	#visual{z-index:10;position:relative;width:1000px;height:0;margin:0 auto;}
+		#visual figure{position:absolute;left:0;top:0;width:1000px;height:120px;background:#def;}
+	#container{z-index:20;position:relative;width:1000px;margin:0 auto;} #container:after{content:"";display:block;clear:both}
+		#spot{}
+		#side{float:left;width:250px;min-height:200px;height:auto !important;height:200px;background:#f3f6f9;}
+		#content1{float:left;width:750px;margin:120px 0 0 0;background:#fff;}
+		#content1:after{content:"";display:block;clear:both}
+			#path1{width:100%;}
+			.section1{padding:20px;}
+			#meta1{padding:20px;}
+			#comment1{}
+	#footer{z-index:30;clear:both;position:relative;width:1000px;height:140px;margin:0 auto;background:#f3f6f9;}
+
+#bg2top{z-index:-1;position:absolute;left:0;top:0;width:100%;min-width:1000px;height:0;margin:0 auto;}
+	#bg2top *{position:absolute;left:0;top:0;width:100%;height:1000px;background:url(/* /img/inc/bg2top.jpg */) no-repeat 50% 0;}
+#bg2mid{z-index:-1;position:relative;left:0;top:0;width:100%;min-width:1000px;height:0;margin:0 auto;}
+	#bg2mid *{position:absolute;left:0;bottom:0;width:100%;height:200px;background:url(/* /img/inc/bg2mid.gif */) repeat-x 50% 100%;}
+#bg2btm{z-index:-1;position:relative;left:0;top:0;width:100%;min-width:1000px;height:0;margin:0 auto;}
+	#bg2btm *{position:absolute;left:0;bottom:0;width:100%;height:200px;background:url(/* /img/inc/bg2btm.gif */) repeat-x 50% 100%;}
+
+#skipnavigation{position:absolute;width:100%;}
+#skipnavigation a:focus{width:100%;}
+
+/* initialize */
+#header *, #visual *, #side *, #footer *, .mainbody *, *.init
+{list-style:none;margin:0;padding:0;border:0;background:transparent;font-size:1em;line-height:1.167;text-decoration:none;}
+
+
+/* Content = Entry */
+.content img{border:0;max-width:100%;height:auto}
+.content sup,
+.content sub{font-weight:normal;font-style:normal}
+.content blockquote{position:relative;margin-left:0;margin-right:0;padding:0 0 0 1em;border-left:3px solid #ccc}
+.content q{background-color:#eee}
+.content cite{font-style:normal;color:#000}
+.content code{font-family:"Lucida Console", Monaco, monospace;background-color:#fff5d9;white-space:pre-wrap}
+.content table{border:1px solid #ccc;border-right:0;border-bottom:0;margin-bottom:15px;border-spacing:0}
+.content caption{text-align:left;font-weight:bold;padding:0 0 .5em 0}
+.content table th,
+.content table td{border:1px solid #ccc;border-left:0;border-top:0;text-align:left;vertical-align:top;padding:2px 5px}
+.content table th{background:#f4f4f4}
+/* @media */
+@media(max-width:799px){}/* Mobile */ 
+@media(min-width:800px){}/* Desktop */
+@media only all and (max-width:980px){
+	#nav,	#content,#aside{float:none;width:auto}
+}
+@media print{
+body{margin:0;background:#fff}
+#wrap,#content{width:auto !important}
+#head,#spot,#nav,#path,#meta,#comment,#aside,#footer{display:none !important}
+}
+/*]]>*/</style>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../share/js/all.js"></script>
+</head>
+<body><!-- $20120928.MoonYoungshin. DW2.SD-0013 (CSS Naming rule 2.0 for mobile web optimization) -->
+
+<div id="bg2top" class="bg"><div></div></div>
+<!-- wrap -->
+<div id="wrap">
+
+<noscript><p>JavaScript is off. Please enable to view full site.</p></noscript>
+<nav id="skipnavigation" class="skip">
+<a href="#content1">본문 바로가기</a>
+<a href="#topmenu">주 메뉴 바로가기</a>
+<a href="#sidemenu">부 메뉴 바로가기</a>
+</nav>
+
+<!-- header -->
+<header id="header">
+
+	<h1 id="logo">
+	<a href="/">Global Brand Name</a>
+	<a href="/Website/" class="h1t1">Website Name</a>
+	</h1>
+
+	<p class="desc">Markup, CSS, Javascript, Web Standards, Web Accessibility, Usability, UX</p>
+
+	<h2 class="blind">상단 메뉴</h2>
+
+	<!-- gnb -->
+	<nav id="gnb">
+	<nav id="gn1">링크면 nav</nav>
+	<div id="gn2">정보면 div</div>
+	<div id="serach1">통합검색</div>
+	</nav>
+	<!-- /gnb -->
+
+	<!-- lnb -->
+	<nav id="lnb">
+	<div id="topmenu"><h3 class="blind">주 메뉴</h3><menu id="top1m"><li></li></menu></div>
+	<div id="allmenu"><h3>전체 메뉴</h3><menu><li></li></menu></div>
+	</nav>
+	<!-- /lnb -->
+
+</header>
+<!-- /header -->
+
+<!-- visual -->
+<div id="visual"><figure></figure></div>
+<!-- /visual -->
+
+<!-- container -->
+<div id="container">
+
+	<div id="spot"></div>
+
+	<!-- side -->
+	<div id="side">
+
+		<!-- account -->
+		<div id="account">
+		</div>
+		<!-- /account -->
+
+		<!-- snb -->
+		<nav id="snb">
+		<div id="sidemenu"><h3>부 메뉴</h3><menu  id="side2m"><li></li></menu></div>
+		</nav>
+		<!-- /snb -->
+
+		<nav id="sn1">링크면 nav</nav>
+		<div id="sn2">정보면 div</div>
+
+	<hr />
+	</div>
+	<!-- /side -->
+
+	<!-- content1 -->
+	<section id="content1">
+
+		<nav id="path1"><b class="blind">현재 위치</b></nav>
+
+		<!-- section1 -->
+		<section class="section1">
+
+		<!-- <hgroup id="body_title"><h1><b>이차제목(2depth Heading)</b></h1></hgroup> -->
+		<hgroup class="h1"><h1><b>이차제목(2depth Heading)</b> <span class="sep">_</span> <b>삼차제목(3depth Heading) Template Coding Memo</b></h1></hgroup>
+
+		<div class="intro1">
+		<p>전문(preamble)은 독립적인 article, 주요 section 이 아니므로 단순 블록&lt;div&gt;를 사용하였다.</p>
+		</div>
+
+		<nav class="cnb1"></nav>
+
+		<!-- article1 -->
+		<article class="article1">
+
+		<hgroup><h2>Issue</h2></hgroup>
+
+		<ol>
+		<li></li>
+		</ol>
+		<h2>Todo</h2>
+		<ol>
+		<li><a href="/">메인</a></li>
+		</ol>
+		<h2>Finished</h2>
+		<h3>Template  <span class="">* 기획서, 화면설계, 디자인 적용한 것</span></h3>
+		<ol>
+		<li><a href="/sub/news_all.jsp">뉴스 목록</a></li>
+		<li><a href="/sub/news_view.jsp">뉴스 내용</a></li>
+		</ol>
+		<h4>Contents</h4>
+		<h3>Sample  <span class="">* 샘플일 뿐! <!-- (WSG는 없었다) --></span></h3>
+		<ol>
+		<li><a href="/_lib/board/">게시판</a></li>
+		<li><a href="/_lib/sub/">콘텐츠</a></li>
+		</ol>
+
+		<!-- aside1 -->
+		<aside class="aside1">
+		곁가지(aside)는 배치용 메뉴가 아니라 페이지의 기본 컨텐츠와 관련이 있다. 컨텐츠를 둘러싸고 있는 요소에 관한 추가 정보를 제공한다.
+		</aside>
+		<!-- /aside1 -->
+
+		</article>
+		<!-- /article1 -->
+
+		</section>
+		<!-- /section1 -->
+
+		<div id="meta1"><!-- 주요 section 이 아니므로 단순 블록 div 를 사용하였다. -->
+		<dl>
+		<dt class="manager">담당자</dt>
+		<dd class="manager">관리부서 : 종합민원실 &nbsp;|&nbsp; 민원담당담당자 : 강화숙 <span class="phone" title="전화">(☎ 930-3192)</span></dd>
+		<dt class="update">최종수정일</dt>
+		<dd class="update">2012.12.32</span></dd>
+		</dl>
+		</div>
+
+		<div id="comment1"><!-- 주요 section 이 아니므로 단순 블록 div 를 사용하였다. -->
+		<div id="satisfaction"></div>
+		</div>
+
+	</section>
+	<!-- /content1 -->
+
+</div>
+<!-- /container -->
+
+<!-- footer -->
+<footer id="footer">
+	<hr />
+
+	<h2 class="blind">하단 정보</h2>
+
+	<div id="fn1"><b class="blind">사이트 안내 및 정책 :</b></div>
+	
+	<div id="authorinfo"><b class="blind">작성자 정보 (연락처 및 저작권) :</b>
+	<p class="foot_logo"></p>
+	<address></address>
+	<p class="nophishing"></p>
+	<address class="copyright">&copy; 20121232</address>
+	</div>
+
+</footer>
+<!-- /footer -->
+
+<div id="bg2wrap" class="bg"><div></div></div>
+</div>
+<!-- /wrap -->
+<div id="bg2btm" class="bg"><div></div></div>
+
+</body>
+</html>

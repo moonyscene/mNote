@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var _$ = {
+	nowPage: {
+		id: [0,1,0,0,0],
+		title: 'Response WebDesign FrameWork', // Home | mNote
+		pageType: 'sub',
+		layoutType: 'sub'
+	}
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1 class="hb1 h1">Response WebDesign FrameWork</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Skeleton">Skeleton</a></li>
+<li><a href="#Bootstrap">Bootstrap</a></li>
+<li><a href="#Foundation">Foundation</a></li>
+<li><a href="#LInk">Link</a></li>
+<li><a href="http://responsive.vermilion.com/compare.php" target="_blank" title="새 창">Bootstrap vs. Foundation vs. Skeleton</a></li>
+</menu>
+<menu>
+<li><a href="http://purecss.io/" target="_blank" title="A set of small, responsive CSS modules that you can use in every web project.">Pure</a> [IE9+]</li>
+<li><a href="http://materializecss.com/carousel.html" target="_blank" title="새 창">Materialize</a> [IE10+]</li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">Outline</strong>
+	<ol class="bo1 num00">
+	<li>Making Template Demo.</li>
+	<li>20150409. 적용은 무리다! [~IE8] 언제 사라지지?</li>
+	<li>소스 분석해서 프로젝트에 적용하자!</li>
+	<li>그리드, js 플러그인... 참조하자!</li>
+	<li>IE7 border-box Polyfill<br />
+	<a href="http://stackoverflow.com/questions/2909667/box-sizing-support-in-ie7" target="_blank" title="새 창">box-sizing support in IE7</a> - Stack Overflow -<br />
+	<a href="https://msdn.microsoft.com/en-us/library/ms532147(v=vs.85).aspx" target="_blank" title="새 창">Using DHTML Behaviors</a><br />
+	</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- even-grid evenmix-123 -->
+<div class="even-grid evenmix-123"><div class="even-grid evenmix-123">
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-4 column">
+
+<h2 class="hb1 h2" id="Skeleton">Skeleton</h2>
+
+<strong class="h1">URI</strong> :
+<a href="http://getskeleton.com/" target="_blank" title="새 창"><b class="em">getskeleton.com</b></a>
+| <a href="http://getskeleton.com/#grid" target="_blank" title="새 창">Code grid</a>
+<br />
+
+<strong class="h1">Test</strong> :
+<a href="M:\myshin\web\mNote.v2\__lab.get\Skeleton-2.0.4_@m">/Skeleton-2.0.4_@m/</a>
+<br />
+<strong class="h1">Task</strong> :
+<ol class="bo1 num00">
+<li>세로가 짧은 이미지 처리</li>
+<li>반응형 처리 ))) <a href="http://book.naver.com/bookdb/book_detail.nhn?bid=8303357#" target="_blank" title="새 창">[Book] 실전 예제로 배우는 반응형 웹 디자인</a></li>
+</ol>
+
+<h3 class="hb1 h3">Outline</h3>
+
+<ol class="bo num">
+<li>
+	A dead simple, responsive boilerplate.<br />
+	))) <a href="https://html5boilerplate.com/" target="_blank" title="새 창" title="The web’s most popular front-end template"><b class="em2 big">HTML5 ★ Boilerplate</b></a>
+</li>
+<li>반응형 그리드, 트랜스폼과 트랜지션 같은 CSS3</li>
+<li>포트폴리오 페이지</li>
+<li>Homepage [IE9~]<br />
+<a href="https://github.com/dhg/Skeleton#browser-support" target="_blank" title="새 창">Browser support</a>
+: [IE9~](O)
+</li>
+<li>HTML, CSS, images. 단, <em class="em">JavaScript 없다</em>. )<br />
+normalize.css<br />
+skeleton.css<br />
+</li>
+<li>다른 중단점 그리드 배치 다르게 하려면 CSS 추가해야 한다.</li>
+</ol>
+
+<h3 class="hb1 h3">Demo</h3>
+
+<h4 class="hb1 h4">skeleton.css <small>/* Table of contents */</small></h4>
+
+<!-- panel1 -->
+<div class="panel1">
+	<ol class="bo1 num00">
+	<li><a href="http://getskeleton.com/#grid" target="_blank" title="새 창">Grid</a></li>
+	<li>Base Styles</li>
+	<li><a href="http://getskeleton.com/#typography" target="_blank" title="새 창">Typography</a></li>
+	<li>Links</li>
+	<li><a href="http://getskeleton.com/#buttons" target="_blank" title="새 창">Buttons</a></li>
+	<li><a href="http://getskeleton.com/#forms" target="_blank" title="새 창">Forms</a></li>
+	<li><a href="http://getskeleton.com/#lists" target="_blank" title="새 창">Lists</a></li>
+	<li><a href="http://getskeleton.com/#code" target="_blank" title="새 창">Code</a></li>
+	<li><a href="http://getskeleton.com/#tables" target="_blank" title="새 창">Tables</a></li>
+	<li>Spacing</li>
+	<li><a href="http://getskeleton.com/#utilities" target="_blank" title="새 창">Utilities</a></li>
+	<li>Clearing</li>
+	<li><a href="http://getskeleton.com/#queries" target="_blank" title="새 창">Media Queries</a></li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+
+<h3 class="hb1 h3">Grid</h3>
+
+<h4 class="hb1 h4">HTML</h4>
+
+<strong class="h1"><a href="http://getskeleton.com/#examples" target="_blank" title="새 창">Examples</a></strong>
+
+<b class="em">배치. 고정, 유동 ((absolute) (float))</b><br />
+
+<pre class="mg0">
+<code class="xmp">
+.row.example{ position: relative; }
+  .example-screenshot{ position: absolute; height: 100%; overflow: hidden; }
+  .offset-by-one-half.column{ margin-left: 52%; }
+</code>
+</pre>
+
+<xmp class="xmp">
+<div class="row example">
+  <a class="example-screenshot-wrapper">
+    <!-- 세로 엄청 긴 이미지 -->
+    <img class="example-screenshot" />
+  </a>
+  <div class="one-half offset-by-one-half column">
+    <h6 class="example-header">Demo Landing Page</h6>
+    <p class="example-description">This template is an example of how easy it can be to create a landing page with just the Skeleton grid and a few custom styles. The entire demo is ~150   lines of CSS including comments (most of which is positioning the phones at the top).</p>
+    <a class="button">Demo</a>
+    <a class="button">Source</a>
+  </div>
+</div>
+
+<div class="row example">
+  <div class="example-screenshot-wrapper">
+    <div class="example-screenshot coming-soon"></div>
+  </div>
+  <div class="one-half offset-by-one-half column">
+    <h6 class="example-header">More Coming Soon!</h6>
+    <p class="example-description">More examples will be added to help anyone get started or more familiar with how Skeleton works. The goal is education. If you're more interested in real,   live examples of Skeleton sites, I'll be creating a "Built on Skeleton" list soon!</p>
+  </div>
+</div>
+</xmp>
+
+<h4 class="hb1 h4">CSS</h4>
+
+<h5 class="hb1 h5">Media Queries ) Break Point 6</h5>
+<pre class="mgt0">
+<code class="xmp">
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+
+@media (min-width: 400px) {
+  /* Larger than mobile */
+  .container { width: 85%; padding: 0; }
+}
+@media (min-width: 550px) {
+  /* Larger than phablet (also point when grid becomes active) */
+  .container { width: 80%; }
+}
+@media (min-width: 750px) {
+  /* Larger than tablet */
+}
+@media (min-width: 1000px) {
+  /* Larger than desktop */
+}
+@media (min-width: 1200px) {
+  /* Larger than Desktop HD */
+}
+</code>
+</pre>
+
+<h5 class="hb1 h5">Grid 12 columns</h5>
+<pre class="mgt0">
+<code class="xmp">
+.container:after,
+<em class="em">.row</em>:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+.column,
+.columns { float: left; width: 100%;
+  box-sizing: <em class="em">border-box</em>; }
+
+@media (min-width: 550px) {
+  .column,
+  .columns { margin-left: 4%; }
+  <em class="em">.columns:first-child</em> { margin-left: 0; }
+
+  /* float float ((((4+100)/12)*1)-4)=  */
+  <em class="em">.one.column</em> { width: 4.66666666667%; }
+  /* absolute float (((4+100)/12)*1)=(4.66666666667+4)  */
+  .offset-by-one.column { margin-left: 8.66666666667%; }
+}
+</code>
+</pre>
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-4 column">
+
+<h2 class="hb1 h2" id="Bootstrap">Bootstrap</h2>
+
+<strong class="h1">URI</strong> :
+<a href="http://getbootstrap.com/" target="_blank" title="새 창"><b class="em">getbootstrap.com</b></a>
+| <a href="http://bootstrapk.com/" target="_blank" title="새 창">한글</a><br />
+
+<strong class="h1">Test</strong> :
+<a href="M:\myshin\web\mNote.v2\__lab.get\bootstrap-3.3.2_@m">/bootstrap-3.3.2_@m/</a>
+<br />
+<strong class="h1">Task</strong> :
+<ol class="bo1 num00">
+<li>세로가 짧은 이미지 처리</li>
+<li>반응형 처리 ))) <a href="http://book.naver.com/bookdb/book_detail.nhn?bid=8303357#" target="_blank" title="새 창">[Book] 실전 예제로 배우는 반응형 웹 디자인</a></li>
+</ol>
+
+<h3 class="hb1 h3">Outline</h3>
+
+<ol class="bo num">
+<li>CSS3와 LESS</li>
+<li>제품 출시 사이트</li>
+<li>Homepage [IE9~]<br />
+<a href="http://bootstrapk.com/getting-started/#support" target="_blank" title="새 창">Browser and device support</a>
+: [IE7](▽) [IE8](◇) [IE9~](O)
+</li>
+<li>의도적으로 유효하지 않은 문법함. HTML, CSS</li>
+<li>4.5:1 의 추천 비율 보다 낮은 대비율 있다. 수정이 필요하다.</li>
+<li><a href="http://bootstrapk.com/getting-started/#license-faqs" target="_blank" title="새 창">License FAQs</a>
+MIT 라이센스로 출시되었고 저작권은 트위터에 있습니다.
+</li>
+<li>HTML5, CSS3, JavaScript )<br />
+bootstrap.min.css<br />
+<!-- bootstrap-theme.css<br /> -->
+jquery.min.js<br />
+bootstrap.min.js<br />
+<!-- npm.js<br /> -->
+</li>
+</ol>
+
+<h3 class="hb1 h3">Demo</h3>
+
+<!-- panel1 -->
+<div class="panel1">
+<ol class="bo1 num00">
+<li><a href="http://bootstrapk.com/getting-started/#examples" target="_blank" title="새 창">Examples</a><br />
+	<ol>
+	<li><a href="http://bootstrapk.com/examples/grid/" target="_blank" title="새 창">Bootstrap grid examples</a></li>
+	</ol>
+</li>
+<li><a href="http://bootstrapk.com/css/" target="_blank" title="새 창">CSS</a></li>
+<li><a href="http://bootstrapk.com/components/" target="_blank" title="새 창">Components</a></li>
+<li><a href="http://bootstrapk.com/javascript/" target="_blank" title="새 창">javascript</a></li>
+</ol>
+</div>
+<!-- /panel1 -->
+
+<h4 class="hb1 h4">bootstrap.css</h4>
+
+normalize.css v3.0.2
+https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
+@media print {}
+@font-face { font-family: 'Glyphicons Halflings'; }
+Base Styles
+Heading
+
+<h3 class="hb1 h3">Grid</h3>
+
+<h4 class="hb1 h4">HTML</h4>
+
+<xmp class="xmp">
+<div class="row">
+  <div class="col-xs-2 col-sm-8 col-md-6 col-lg-5">...</div>
+  <div class="col-xs-10 col-sm-4 col-md-6 col-lg-7">...</div>
+</div>
+</xmp>
+
+
+<h4 class="hb1 h4">CSS</h4>
+
+<h5 class="hb1 h5">Media Queries ) Break Point 4</h5>
+<pre class="mgt0">
+<code class="xmp">
+/* <em class="em">-xs-</em> */
+@media (min-width: 768px) { /* <em class="em">-sm-</em> */
+  .container { width: 750px; } /* 9×9 */
+}
+@media (min-width: 992px) { /* <em class="em">-md-</em> */
+  .container { width: 970px; } /* 11×11 */
+}
+@media (min-width: 1200px) { /* <em class="em">-lg-</em> */
+  .container { width: 1170px; } /* 15×15 */
+}
+</code>
+</pre>
+
+<h5 class="hb1 h5">Grid 12 columns</h5>
+
+<pre class="mgt0">
+<code class="xmp">
+*,
+*:before,
+*:after { box-sizing: <em class="em">border-box</em>; }
+
+.container { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+<em class="em">.row</em> { margin-right: -15px; margin-left: -15px; }
+
+<em class="em">.col-xs-1</em>, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-1 { width: 8.33333333%; }
+.col-xs-pull-1 { right: 8.33333333%; }
+.col-xs-push-1 { left: 8.33333333%; }
+.col-xs-offset-1 { margin-left: 8.33333333%; }
+
+@media (min-width: 768px) {
+  .col-sm-1, ...
+}
+@media (min-width: 992px) {
+  .col-md-1, ...
+}
+@media (min-width: 1200px) {
+  .col-lg-1, ...
+}
+
+</code>
+</pre>
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-span-4 column">
+
+<h2 class="hb1 h2" id="Foundation">Foundation</h2>
+
+<strong class="h1">URI</strong> :
+<a href="http://foundation.zurb.com/" target="_blank" title="새 창"><b class="em">foundation.zurb.com</b></a>
+| <a href="http://foundation.zurb.com/docs/" target="_blank" title="새 창">docs</a><br />
+| <a href="http://foundation.zurb.com/docs/components/topbar.html" target="_blank" title="새 창">Top Bar</a><br />
+
+<strong class="h1">Test</strong> :
+<a href="M:\myshin\web\mNote.v2\__lab.get\foundation-5.5.1_@m">/foundation-5.5.1_@m/</a>
+<br />
+<strong class="h1">Task</strong> :
+<ol class="bo1 num00">
+<li>세로가 짧은 이미지 처리</li>
+<li>반응형 처리 ))) <a href="http://book.naver.com/bookdb/book_detail.nhn?bid=8303357#" target="_blank" title="새 창">[Book] 실전 예제로 배우는 반응형 웹 디자인</a></li>
+</ol>
+
+<h3 class="hb1 h3">Outline</h3>
+
+<ol class="bo num">
+<li>CSS 전처리기인 Sass와 SCSS, 컴파스</li>
+<li>비즈니스 웹사이트</li>
+<li>Homepage [IE11~]<br />
+
+<a href="http://foundation.zurb.com/learn/faq.html" target="_blank" title="새 창">Browser support</a><br />
+Foundation 5.5.1 : [IE9~](O)<br />
+Foundation 3.2 : [IE8](O) mobile first 아니다.<br />
+Foundation 4 : [IE6,7](◇)<br />
+*
+<a href="http://foundation.zurb.com/docs/compatibility.html" target="_blank" title="새 창"><strong class="h1">Compatibility</strong> (v5.5.1)</a>
+<a href="http://foundation.zurb.com/docs/v/4.3.2/support.html" target="_blank" title="새 창">v4.3.2</a>
+<a href="http://foundation.zurb.com/docs/v/3.2.5/support.php" target="_blank" title="새 창">v3.2.5</a>
+<a href="http://foundation.zurb.com/docs/v/2.2.1/qa.php" target="_blank" title="새 창">v2.2.1</a>
+</li>
+<li>HTML5, CSS3, JavaScript )<br />
+foundation.css<br />
+modernizr.js<br />
+jquery.js<br />
+foundation.min.js<br />
+$(document).foundation();<br />
+</li>
+<li>인쇄 스타일 고려 없다.</li>
+</ol>
+
+
+<h3 class="hb1 h3">Demo</h3>
+
+<strong class="h1"><a href="http://foundation.zurb.com/docs/" target="_blank" title="새 창">Foundation Documentation</a></strong>
+
+<!-- panel1 -->
+<div class="panel1">
+	<ol class="bo1 num00">
+	<li>Setup 설정<br />
+		<ol>
+		<li><a href="http://foundation.zurb.com/docs/components/kitchen_sink.html" target="_blank" title="새 창">Kitchen sink</a></li>
+		</ol>
+	</li>
+	<li>Structure 구조<br />
+		<ol>
+		<li><a href="http://foundation.zurb.com/docs/components/grid.html" target="_blank" title="새 창">Grid</a></li>
+		<li><a href="http://foundation.zurb.com/docs/components/block_grid.html" target="_blank" title="새 창">Block Grid</a></li>
+		</ol>
+	</li>
+	<li>Navigation 메뉴</li>
+	<li>Media 미디어</li>
+	<li>Forms 양식</li>
+	<li>Buttons 버튼</li>
+	<li>Typography 활판 인쇄술</li>
+	<li>Callouts &amp; Prompts 설명 상자 &amp; 프롬프트</li>
+	<li>Content 콘텐츠</li>
+	<li>Support 지원</li>
+	</ol>
+</div>
+<!-- /panel1 -->
+
+<h3 class="hb1 h3">Grid</h3>
+
+<h4 class="hb1 h4">HTML</h4>
+
+<xmp class="xmp">
+<div class="row">
+  <div class="small-8 medium-6 large-4 columns">...</div>
+  <div class="small-4 medium-6 large-8 columns">...</div>
+</div>
+</xmp>
+
+<h4 class="hb1 h4">CSS</h4>
+
+<h5 class="hb1 h5">Media Queries ) Break Point 6</h5>
+<pre class="mgt0">
+<code class="xmp">
+@media only screen {
+  /* <em class="em">small</em> displays */
+}
+@media only screen and (min-width: 40.063em) {
+  /* <em class="em">medium</em> displays = 40.063 * 16px =  641.008px */
+}
+@media only screen and (min-width: 64.063em) {
+  /* <em class="em">large</em> displays = 40.063 * 16px =  1,025.008px */
+}
+@media only screen and (min-width: 90.063em) {
+  /* <em class="em">xlarge</em> displays = 90.063 * 16px =  1,441.008px */
+}
+@media only screen and (min-width: 120.063em) {
+  /* <em class="em">xxlarge</em> displays = 120.063 * 16px =  1,921.008px */
+}
+</code>
+</pre>
+
+<h5 class="hb1 h5">Grid 12 columns</h5>
+<pre class="mgt0">
+<code class="xmp">
+*,
+*:before,
+*:after { box-sizing: <em class="em">border-box</em>; }
+…
+<em class="em">.row</em> { width: 100%; max-width: 62.5rem; margin: 0 auto; }
+.row:before,
+.row:after { content: " "; display: table; }
+.row:after { clear: both; }
+<em class="em">.row.collapse</em> > .column,
+.row.collapse > .columns { padding-left: 0; padding-right: 0; }
+.row.collapse .row { margin-left: 0; margin-right: 0; }
+<em class="em">.row .row</em> { width: auto; max-width: none; margin: 0 -0.9375rem; }
+…
+<em class="em">.column,
+.columns</em> { float: left; position: relative; width: 100%;
+  padding-left: 0.9375rem; /* <em class="em">15px</em> */
+  padding-right: 0.9375rem; /* 15px */
+}
+…
+.small-push-1 { position: relative; left: 8.33333%; right: auto; }
+.small-pull-1 { position: relative; right: 8.33333%; left: auto; }
+<em class="em">.small-1</em> { width: 8.33333%; }
+.small-offset-1 { margin-left: 8.33333% !important; }
+…
+.column.small-centered,
+.columns.small-centered { float: none; margin-left: auto; margin-right: auto; }
+…
+@media only screen and (min-width: 40.063em) {
+  .medium-1 {} ...
+}
+...
+</code>
+</pre>
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+</div></div>
+<!-- /even-grid evenmix-123 -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<h2 id="Link">Link</h2>
+<ol class="ol1 bo0">
+<li><b class="em">[Book]</b> <a href="http://www.acornpub.co.kr/book/responsive-design-example" target="_blank" title="새 창">실전 예제로 배우는 반응형 웹 디자인 [부트스트랩, 스켈레톤, 파운데이션 반응형 프레임워크]</a></li>
+<li><a href="http://responsive.vermilion.com/" target="_blank" title="새 창">Responsive CSS Framework Comparison (Bootstrap vs. Foundation vs. Skeleton)</a></li>
+<li><a href="https://mirror.enha.kr/wiki/Bootstrap" target="_blank" title="새 창">Bootstrap</a> - 엔하위키 미러</li>
+<li><a href="http://demun.tistory.com/2133" target="_blank" title="새 창">Bootstrap - 홈페이지 개발 및 디자인을 위한 혁명적인 도구</a></li>
+<li><a href="http://www.itworld.co.kr/slideshow/88365?slide=3#stage_slide" target="_blank" title="새 창">멋진 코딩을 위한 6가지 CSS 도구</a></li>
+<li><a href="http://gokgo.tistory.com/96" target="_blank" title="새 창">최고의 반응형 CSS 프레임워크 18선 - 2013년 7월기준</a></li>
+</ol>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20150408 ~
+20171218.
+20160802.
+20160404.
+20150519. 20150519. 20150514. 20150413.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

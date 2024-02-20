@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Tip misc. | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Tip misc.</h1>
+
+
+<div class="mtab1">
+<menu>
+<li><a href="#Tip">Tip</a></li>
+<li><a href="#FragmentaryThoughts">Fragmentary Thoughts</a></li>
+<li><a href="#IdeaHint">Idea Hint</a></li>
+</menu>
+<menu>
+<li><a href="../Tip/png.html">PNG 24bit 8bit</a></li>
+<li><a href="../Tip/select+go.html">&lt;select&gt; [go]</a></li>
+<li><a href="../Tip/printpage.html.html">printpage.html</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Tip">Tip</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Print 배경인쇄</h3>
+<pre>
+[Internet Explorer] 배경색과 이미지를 인쇄하기 위해서는 도구 메뉴의 인터넷 옵션(O)을 클릭하면, 고급 탭의 설정 항목 중에 인쇄에서 배경색 및 이미지 인쇄에 체크를 하면 된다.
+[Firefox3.x] 배경인쇄는 파일(F) 메뉴의 페이지 설정(U)에서 지정할 수 있음.
+[Opera 9.x] 페이지의 배경인쇄는 파일(F) 메뉴의 페이지 설정(T)에서 지정할 수 있음.
+[Safari 3.x] 배경인쇄 옵션을 찾을 수 없어 배경이 전부 인쇄 되지 않으며, 특이하게 흰색 글씨는 회색으로 출력 됨.(좌)
+[Chrome] 인쇄 미리보기 기능이 없으며, 배경이 인쇄되지 않음(우)
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">C:\Windows\System32\drivers\etc\hosts 파일 내용이 권한 때문에 수정이 안되면?</h3>
+<pre>
+다른 폴더에 복제해서 파일 내용 수정한다.
+기존 hosts 파일 이름을 host.-2014MMDD 형태로 백업한다. (파일 이름은 수정되더라.)
+수정한 파일을 C:\Windows\System32\drivers\etc\ 로 복사한다.
+</pre>
+
+<h3 class="hb1 h3"><a href="http://api.mobilis.co.kr/webfonts/">모빌리스 웹폰트 서비스</a> (나눔고딕 웹 폰트 서비스 테스트)</h3>
+
+<xmp class="xmp">
+<script>/*<![CDATA[*/document.writeln('<link rel="stylesheet" href="http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb" />');/*]]>*/</script>
+h1{margin-top:0;padding:0 0 0 20px;background:url(/img/inc/h1bg.gif) no-repeat 0 3px;color:#000;font:bold 1.34em/1.19 'NanumGothicWeb','나눔고딕','돋움';}
+</xmp>
+<pre>
+호환성[IE6,7,8,FF,SF,CR,OP] OK
+그러나 [SF] 에서 아주 안이쁘고, 다른 브라우저에서도 로컬에 설치된 '나눔고딕' 보다 자간이 넓고 이쁘지 않다.
+[SF] 에서 漢子 깨진다. 로컬에 설치된 '나눔고딕' 은 한자 안깨진다. 한자 포함된 글꼴 설치했으니깐..ㅎㅎ
+
+내 결정! 웹폰트 서비스 시범 적용은 안하기로..
+
+>>>@sales@mobilis.co.kr <em>공공기관에서 무료로 사용 가능한가요? >>불가</em>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">HTML 코드 안에서 jQuery 코드 사용</h3>
+
+<xmp class="xmp">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>/*<![CDATA[*/
+/* all.20120525.MoonYoungShin. */
+$(document).ready(function(){});
+$().ready(function(){});
+$(function(){});
+jQuery.noConflict();
+jQuery(function($){});
+jQuery(document).ready(function($){
+//제이쿼리코드는여기에..
+});
+/* /jQuery end */
+var onNavt1=onNavt2=onNavt3="";//전역변수
+/*]]>*/</script>
+
+<script>/*<![CDATA[*/
+(function($){
+	$('p');
+})(jQuery);
+/*]]>*/</script>
+
+<script>/*<![CDATA[*/
+	jQuery('p');
+/*]]>*/</script>
+
+</xmp>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="FragmentaryThoughts">Fragmentary Thoughts</h2>
+
+<dl class="bu">
+<dt>JavaScript API charset?</dt>
+<dd>
+<a href="http://code.jquery.com/jquery-latest.min.js">jquery-latest.min.js</a> UTF-8<br />
+<a href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">jquery.min.js</a> UTF-8<br />
+<a href="http://html5shim.googlecode.com/svn/trunk/html5.js">html5.js</a> ANSI<br />
+<a href="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js">css3-mediaqueries.js</a> ANSI<br />
+<a href="/share/js/respond.min.js">respond.min.js</a> ANSI<br />
+</dd>
+<dt>OS, User Agent &amp Thema</dt>
+<dd>
+<pre>
+Windows XP Pro Scrollbar width : 고전테마 16px, XP테마 17px
+Windows Vista Pro Scrollbar width : Vista테마 17px
+</pre>
+</dd>
+</dl>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="IdeaHint">Idea Hint</h2>
+
+<dl class="bu">
+<dt>20110504. <strong>도큐멘트 타입을 결정하지 못했다면.. <a href="http://www.w3.org/">W3C</a> 소스를 보라!</strong></dt>
+<dd><p><em>HTML 5 를 Desktop Web 실무에 사용하고 싶다면,.. W3C 코드가 바뀔 때까지 기다려라.</em></p>
+XHTML 1.0 을 사용하고 <a href="http://validator.w3.org/check?verbose=1&uri=http%3a%2f%2fwww.w3.org%2f">마크업 유효성 검사 통과</a>하였다.<br />
+그러나, <a href="http://jigsaw.w3.org/css-validator/validator?profile=css2&warning=2&uri=http%3a%2f%2fwww.w3.org%2f">CSS 유효성 검사 결과</a> 오류 22건 발견됨.<br />
+charset=utf-8 을 사용하고, 원웹으로 다양한 크기의 기기에 대응되도록 CSS 를 분리해두었다.<br />
+전체구조는..
+<pre class="box2">
+#w3c_container
+	#w3c_mast
+	#w3c_main
+		#w3c_leftCol
+		#w3c_mainCol
+#w3c_footer
+	#w3c_footer-inner
+#w3c_scripts
+</pre>
+
+<xmp class="xmp">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- Generated from data/head-home.php, ../../smarty/{head.tpl} -->
+<head>
+<title>World Wide Web Consortium (W3C)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="Help" href="/Help/" />
+<link rel="stylesheet" href="/2008/site/css/minimum" type="text/css" media="handheld, all" />
+<style type="text/css" media="print, screen and (min-width: 481px)">
+/*<![CDATA[*/
+@import url("/2008/site/css/advanced");
+/*]]>*/
+</style>
+<link href="/2008/site/css/minimum" rel="stylesheet" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="/2008/site/css/print" type="text/css" media="print" />
+<link rel="shortcut icon" href="/2008/site/images/favicon.ico" type="image/x-icon" />
+<meta name="description" content="The World Wide Web Consortium (W3C) is an international community where Member organizations, a full-time staff, and the public work together to develop Web standards." />
+<link rel="alternate" type="application/atom+xml" title="W3C News" href="/News/atom.xml" />
+</head>
+<body id="www-w3-org" class="w3c_public w3c_home">
+<div id="w3c_container">
+</xmp>
+</dd>
+</dl>
+
+
+
+<hr class="show" />
+<p><strong>History</strong>
+: 20120629~
+20170321.
+20130208.
+20120629. 20120531. 20090514.
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

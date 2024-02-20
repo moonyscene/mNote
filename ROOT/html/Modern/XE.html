@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'XE | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>XE</h1>
+
+<!-- box1 -->
+<div class="box1">
+<em>-- ToDo --</em>
+Making Template Demo
+</div><!-- /box1 -->
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+<li><a href="http://htmldesign.cafe24.com/wordpress/" target="_blank">htmldesign.cafe24.com/wordpress/</a>
+<a href="http://htmldesign.cafe24.com/wordpress/wp-login.php" target="_blank">/wp-login.php</a></li>
+<li><a href="../OpenSource/WordPress_Architecture.html">Architecture</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<br />
+
+<!-- contentsBlock -->
+<div class="contentsBlock fl" style="width:48%;">
+
+<h2 id="Outline">Outline</h2>
+
+<ol class="bo num">
+<li>XE는 회원가입, 게시판, CMS(Content Management System) 기능을 갖춘 오픈소스.<br /></li>
+<li>한국적 취향에 가장 잘 특성화된 프로그램으로 손쉽게 웹사이트, 게시판, 블로그를 만들 수 있다.<br /></li>
+<li>제로보드를 인수(2007년3월14일)한 NHN은 이후 제로보드(zb4.1->zb5)의 개발 및 지원을 중단하고
+제로님(고영수)과 프로젝트 멤버를 구성하여
+핵심 코어(Core) 프로그램과 모듈형 구조라는 새로운 프레임워크(framework)의웹 CMS(Content Management System) 기능을 갖춘 제로보드XE를 개발하고 배포하였습니다.
+이후 제로보드XE는 '보드'의 개념을 벗어나 LGPL 기반 오픈 프로젝트로서 정식 글로벌 CMS 웹빌더라는 의미의 Xpress Engine으로 이름을 변경하고
+현재까지 지속적으로 개발이 진행되는 국내 CMS 점유율 1위의 오픈소스 소프트웨어입니다.</li>
+<li>XE에는 모듈과 비슷한 기능을 가진 위젯, 애드온, 에디터, 레이아웃, 스킨(skin)</li>
+</ol>
+
+<!-- mnote1 -->
+<div class="mnote1 dpib"><small class="">
+※ 가입형 블로그 : 네이버, 야후, 다음, 티스토리<br />
+※ 설치형 블로그 : 텍스트큐브, 워드프레스<br />
+</small></div><!-- /mnote1 -->
+
+
+<h3>Feature</h3>
+<!-- box2 -->
+<div class="box2">
+<ol class="bo num">
+<li>초점 표시 안됨</li>
+<li>게시판 플로그인 기능 한정</li>
+</ol>
+★☆할일 ▶처리내역 ▶●완료 ▶개발자○★할일※참고※
+</div><!-- /box2 -->
+
+
+
+
+<h2 id="Start">Start</h2>
+
+<h3>가입형 워드프레스 시작하기</h3>
+
+<p>시작이 반이다!! 그러나, .. 멈추고 무슨 소리를 하려했는지 기억안남. 아무튼 JavaScript 지원 안되므로 패쓰~</p>
+
+<h3>설치형 워드프레스 시작하기</h3>
+
+<h4>설치와 접속</h4>
+
+<ol class="bo num">
+<li><strong>도메인 구입</strong>. <a href="http://domain.nida.or.kr/jsp/domain/registrationInfo/regAgencyInfo.jsp">도메인 등록 대행자</a>, <a href="http://hosting.kr">hosting.kr</a><br />
+(이후 설명은 domain.kr 을 구입했다고 가정한다)
+</li>
+<li><strong>호스팅 세팅</strong>. <a href="http://www.cafe24.com/">cafe24</a>. DBName / SQL user ID / FTP password</li>
+<li><strong>워드프레스 설치</strong>.<br />
+	<ol>
+	<li><a href="?">http://wordpress.org/</a> 에서 영문버전(오류 확률 낮음) 다운로드.</li>
+	<li>wordpress-3.5.1.zip 압축 풀면 /wordpress/ 폴더 자동 생성된다.</li>
+	<li>FTP 접속. 기본 폴더 (cafe24 는 /www/ 임. 다른 곳은 /public_html/ 등..) 에..<br />
+	/wordpress/ 폴더의 "하위 폴더/파일" 을 모두 업로드 : http://domain.kr/ 가 루트가 된다.<br />
+	/wordpress/ 폴더를 모두 업로드 : http://domain.kr/wordpress/ 가 루트가 된다.<br />
+	</li>
+	<li>Web 접속. .. [Create a Configuration File] 클릭! [Les's go!] 클릭!<br />
+	Database Name : // 입력<br />
+	User Name : // 입력<br />
+	Password : // 입력<br />
+	Database Host : localhost // 수정할 필요 없음.<br />
+	Table Prefix : wp_main // 하나의 계정에 워드프레스 둘 이상 설치한 경우 아니면 그대로 둠.<br />
+	[Submit] 클릭!<br />
+	</li>
+	<li>[Run the install] 클릭! (혹시 mySQL 버전 문제 발생하면 호스팅업체에 문의. mysql 4.x 에서 5.x로 변환신청필요)<br />
+	Site Title : // 입력<br />
+	Username :  // 입력<br />
+	Password, twice : // 입력<br />
+	Your E-mail : // 입력<br />
+	[Install WordPress] 클릭!
+	</li>
+	<li>Success! ▷ wordpress 로그인 아이디와 패스워드 설정 <br />
+	Username : // 입력<br />
+	Password : // 입력<br />
+	[Log In] 클릭!<br />
+	</li>
+	</ol>
+</li>
+<li><strong>워드프레스 접속</strong>.<br />
+로그인하면 메인 Dashboard 화면 된다. 앞으로 모든 작업은 Dashboard 를 통해서 한다.<br />
+웹주소가 domain.kr 이면  로그인 주소는 <em>http://domain.kr/wp-login.php</em> 이다.<br />
+</li>
+</ol>
+
+<h4>테마(스킨) 설정</h4>
+
+<ol class="bo num">
+<li>테마의 종류도 다양하고 유료에서부터 무료까지 선택의 폭도 넓습니다. </li>
+<li>스킨 쇼핑<br />
+1. 워드프레스 공식 테마 사이트 <a href="http://wordpress.org/extend/themes/">http://wordpress.org/extend/themes/</a><br />
+2. 무료 테마 사이트 <a href="http://wordpressthemesbase.com/">http://wordpressthemesbase.com/</a><br />
+3. best of best <a href="http://www.wpthemespot.com/">http://www.wpthemespot.com/</a><br />
+</li>
+해당 테마의 zip 파일을 다운받아서 압축 풀지 않고 그대로 보관
+<li>Dashboard > Appearance > Themes > Install Themes > Upload 클릭!</li>
+<li>ZIP화일을 통째로 선택하여 [Install Now] 클릭!</li>
+<li>Active 클릭하여 테마 설치 완료</li>
+<li>테마 설정 : Dashboard > Appereance 항목 조절</li>
+<li>서로 연동되는 테마가 있다. 예) autofocus pro 테마는 Thematic 0.9.7.7 를 먼저 설치 후 다시 활성화해야 한다.</li>
+</ol>
+
+<h4>플러그인 설치</h4>
+
+<ol class="bo num">
+<li>Dashboard > Plugins 메뉴 선택</li>
+<li>[Add New] 버튼 클릭!</li>
+<li>검색은 |Search| 선택. 플러그인이 있으면 |Upload| 선택</li>
+<li>Install Now 선택... Activate Plugin 선택</li>
+<li>Setting</li>
+</ol>
+
+<h5>플러그인 소개</h5>
+
+<ol class="bo num">
+<li><a href="http://jetpack.me/">http://jetpack.me/</a> 유용한 기능 8가지 (방문자통계, ..)</li>
+<li><a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a> 방문자통계</li>
+</ol>
+
+<h4>구글 애드센스</h4>
+<p>사이즈, 색상 조절 선택 가능</p>
+
+<h5>Way1) 위젯으로 덧붙이기</h5>
+<ol class="bo num">
+<li>Dashboard > Widgets > TEXT 드래그앤드롭</li>
+<li>드롭다운 버튼 클릭</li>
+<li>Title 텍스트상자 : // 입력</li>
+<li>입력상자 : // 구글 애드센스에서 받은 코드 붙임</li>
+</ol>
+
+<h5>Way2) 플러그인으로 포스트에 덧붙이기</h5>
+
+<ol class="bo num">
+<li>Post layout 플러그인 (포스트에 일정하게 무엇인가를 집어 넣고 싶을때 사용)</li>
+<li>Dashboard > Plugins > post layout 검색 > Install now > Activate > Setting</li>
+<li>After the content(포스트 말미), .. 중 선택해서 입력</li>
+</ol>
+
+</div><!-- /contentsBlock -->
+<!-- contentsBlock -->
+<div class="contentsBlock fr" style="width:50%;">
+
+<h2 id="Task">Task</h2>
+
+<h3>ToDo</h3>
+
+<ol class="bo num">
+<li>플러그인 설치<br />
+<a href="http://jetpack.me/">http://jetpack.me/</a> 유용한 기능 8가지 (방문자통계, ..)
+설치는 했는데.. 활성화 하려니.. wordpress.com 로그인이 필요.. by the way.. Site Suspended. 만 계속.. <em>해결 필요!</em><br />
+</li>
+<li>회원관리 (회원가입, 로그인, 회원정보수정)</li>
+<li>일반 웹사이트.. 게시판, 갤러리, 포커스, 목차, 내용, ..</li>
+<li>테마 타입 : 
+블로그, 갤러리, 포트폴리오, 매거진, 비지니스, e커머스(쇼핑몰)<br />
+<a href="http://www.slideshare.net/runpeaceya/wordpress-as-cmscontent-management-system-cms">WordPress as CMS(Content Management System) - CMS로써의 워드프레스</a><br />
+<a href="http://www.slideshare.net/runpeaceya/ss-15417727">워드프레스 기본개념 및 가이드</a><br />
+</li>
+<li>테마 개발</li>
+<li>위젯 개발</li>
+<li>플러그인 개발</li>
+</ol>
+
+
+<h4>[Book] 목차 참조하자..</h4>
+<menu></menu>
+<ul class="bu">
+<li><a href="http://www.yes24.com/24/goods/8584421">웹 퍼블리셔를 위한 워드프레스 입문과 완성: 워드프레스로 한국형 홈페이지 만들기</a><br />
+한국형 게시판,
+</li>
+<li><a href="http://www.yes24.com/24/goods/7760499?CategoryNumber=001001003017017001&Pcode=011">Do it! 워드프레스 웹사이트 만들기</a><br />
+30개의 필수 플러그인, 추천 테마들을 엄선하여 소개..
+</li>
+</ul>
+
+<h3>Finished</h3>
+
+<ol class="bo num">
+<li>주메뉴 2차 Appearance &gt; Menus</li>
+<li>구글 폰트 CDN 사용시 "나눔고딕" [-IE7] 안되는거 해결<br />
+Theme Options &gt; Custom CSS Styles 에 다음 추가<br />
+<pre class="xmp scroll">
+<code>*{font-style:normal;font-family: '나눔고딕','맑은고딕','돋움',Dotum,Arial,Helvetica,sans-serif !important;}
+</code></pre>
+</li>
+</ol>
+
+<h2 id="Link">Link</h2>
+
+<ol class="bo num">
+<li><a href="http://www.xpressengine.com/">XpressEngine 공식 웹사이트</li>
+<li><a href="http://www.xeschool.com/xe/">XE스쿨</a> : XE 시작하기, XE 확장하기, 레이아웃 만들기</li>
+</ol>
+
+
+</div><!-- /contentsBlock -->
+
+
+
+
+
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130416.
+20130408.
+20130405. 20130404. 20130313. 20130312.
+20121025.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

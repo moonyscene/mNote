@@ -1,0 +1,224 @@
+@charset "utf-8";
+/**
+ * @File Name : banner1map1.css
+ * @Description : 현수막 게시대 Layout + Contents
+ * @Modification Information
+ * <pre>
+ * 수정일 | 수정자 | 수정내용
+ * 2020.07.30 | 문영신 | 최초 등록
+ * 2020.08.04 | 문영신 | 요구반영. 결함개선. 고도화.
+ * </pre>
+ * @author 웹표준화실 문영신
+ * @since 2020.05.06
+ *
+ * @Copyright (C) IACTS.CO.KR All rights reserved.
+ */
+
+
+/* ◇◆ Layout[main+sub] ◇◆◇◆◇◆◇◆◇◆ */
+
+
+/* 배치.전체 20200804 */
+html{height:100%;}
+body{height:100%;
+	color:#666;
+	font-size:.8125em;
+	line-height:1.375;
+	letter-spacing:-.0625em;
+}
+#container{
+	position:relative;
+	width:100%;height:100%;
+	min-width:320px;
+	overflow:hidden;
+}
+	#head{
+		position:relative;
+		width:100%;
+		min-height:56px;
+		border-bottom:1px solid #ddd;
+	}
+	#nav1{}
+	#wrap{
+		position:absolute;left:0;right:0;top:57px;bottom:0;
+	}
+		#body{
+			position:absolute;left:0;right:0;top:0;bottom:0;
+			background:#eee;
+			word-wrap:break-word;
+			overflow:hidden;
+		}
+
+
+/* #head */
+
+
+/* 로고 20200804 */
+h1#logo{display:block;
+	position:relative;
+	margin:10px 100px 10px 12px; /* (화면확인) (우요소) (화면확인) (좌요소) */
+	font-size:0;
+	text-align:left;
+	overflow:hidden;
+}
+h1#logo>a{position:relative;
+	z-index:10;
+	white-space:nowrap;
+}
+h1#logo>a>img{
+	width:auto;
+	height:36px;
+}
+h1#logo>a>img+img{
+	width:auto;
+	height:20px;
+	margin:8px 0 0 12px;
+}
+
+
+/* 창 닫기 20200804 */
+a.b1close1{display:inline-block;
+	position:absolute;right:8px;top:8px;
+	width:40px;height:40px;
+	overflow:hidden;text-indent:-9999px;
+}
+a.b1close1 .ic1{display:inline-block;
+	position:absolute;left:50%;top:50%;
+	width:40px;
+	height:40px;
+	margin:-20px;
+	background:url(../../img/inc/ic80a1c1close@2x.png) no-repeat center center / contain;
+}
+
+
+/* #nav1 */
+
+
+/* 주메뉴 20200804 */
+#nav1 a.toggle{display:inline-block;
+	position:absolute;right:58px;top:8px;
+	width:40px;height:40px;
+	background:url(../../img/inc/ic80a1c1bars2@2x.png) no-repeat center center / contain;
+	overflow:hidden;text-indent:-9999px;
+}
+#nav1 a.close{display:inline-block;
+	z-index:110;
+	position:fixed;right:58px;top:8px;
+	width:40px;height:40px;
+	border-radius:9999px;
+	background:url(../../img/inc/ic80a1c1close1@2x.png) no-repeat center center / contain;
+	overflow:hidden;text-indent:-9999px;
+	opacity:.5;
+	transition:.2s;
+}
+#nav1 a.close:hover,
+#nav1 a.close:focus{
+	opacity:1;
+}
+/* ☆ */
+#nav1c{
+	/* display:block !important; */
+	z-index:100;
+	position:fixed;right:0;top:0;bottom:0;
+	width:310px;
+	border-left:1px solid #ddd;
+	background:#fff;
+	overflow:hidden;
+	overflow-y:auto;
+}
+/* ☆ */
+#nav1c.on a.close{
+	right:8px;
+}
+
+
+/* 결과목록 20200804 */
+.result1list1{
+	position:relative;
+}
+.result1list1 .hg1{
+	padding:1.4375em 1em;
+	border-bottom:1px solid #ddd;
+	background:#f7f7f7;
+}
+.result1list1 .cont{
+	margin:0 0 40px;
+}
+.result1list1 .lst1{
+	list-style:none;margin:0;padding:0;
+}
+.result1list1 .li1{}
+.result1list1 .a1{display:block;
+	padding:.625em 1em;
+	border-bottom:1px solid #eee;
+	color:inherit;
+	text-decoration:none;
+	background-size:20px 20px;
+	/* transition:.2s; */
+}
+.result1list1 .a1:hover,
+.result1list1 .a1:focus{
+	background:#fcf7ee;
+}
+.result1list1 .a1 .t1{display:block;
+	margin:0 0 .375em;
+	font-weight:600;
+}
+.result1list1 .a1 .t2{display:block;
+	font-weight:400;
+	font-size:.9375em;
+}
+
+
+/* #body */
+
+
+/* 지도 20200804 */
+.map1{position:relative;width:100%;height:100%;}
+.map1c{position:relative;width:100%;height:100%;background:#deb;}
+
+
+/* ETC */
+
+
+/* ◇◆ StyleName. YYYYMMDD. @Who	 ◇◆ */
+
+
+/* ◇◆ @media print{} ◇◆◇◆◇◆◇◆◇◆◇◆ */
+
+
+@media print{
+	/* 인쇄 이상무 */
+}
+
+
+/* RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */
+@media all and (min-width:768px){/* ◇◆◇◆◇◆◇◆◇◆ */
+
+
+body{font-size:.875em;}
+
+
+} /* /(min-width:768px) */
+@media all and (min-width:1024px){/* ◇◆◇◆◇◆◇◆◇◆ */
+
+
+#wrap{left:310px;}
+#nav1 a.toggle{
+	display:none;
+}
+#nav1c{
+	display:block !important;
+	left:0;
+	right:auto;
+	top:57px;
+	border:0;
+	border-right:1px solid #ddd;
+}
+#nav1 a.close{
+	display:none;
+}
+
+
+} /* /(min-width:1024px) */
+/* /RWD ◇◆◇◆◇◆◇◆◇◆◇◆ */

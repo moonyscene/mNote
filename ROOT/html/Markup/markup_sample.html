@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Markup Sample | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<style type="text/css">/*<![CDATA[*/
+.th1big tr td:first-child{min-width:1em;background:#ffe;visibility:visible;color:#06c;font:bold 1.5em arial;}
+/*]]>*/</style>
+
+
+
+<h1 class="hb1 h1">HTML 4.01 Elements</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="http://www.w3.org/TR/html401/index/elements.html" target="_blank"><b>W3C</b> HTML4.01 Spec - Index of Elements</a></li>
+<li><a href="http://trio.co.kr/webrefer/html/cover.html" target="_blank"><b>Trio</b> - 한글 번역문 HTML 4.01 규격</a></li>
+<li><a href="http://www.w3schools.com/tags/" target="_blank"><b>w3schools</b> - HTML 4.01 / XHTML 1.0 Reference</a></li>
+<li><a href="#HTML">HTML 4.01 Markup Sample Code (XHTML 1.0)</a></li>
+<li><a href="#Reference Link">Reference Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<div class="box1"><!-- contentsBlock -->
+<ol class="bo num">
+<li><em>Task1) 요소별 주요 Tip 정리해보자!</em></li>
+</ol>
+<!-- /contentsBlock --></div>
+
+
+<h2 class="hb1 h2" id="HTML">HTML 4.01 Markup Sample Code (XHTML 1.0)</h2>
+
+
+<table class="tlf t3 th1big">
+	<caption>
+		<strong class="h1">HTML4.01 Markup Tag Full Name, Sample Code</strong>
+		<!-- <span class="summary1 blind">: ★표요약, 구조, 탐색방법</span> -->
+		<span class="fr fwn">( deprecated: 중요도가 떨어져 더이상 사용되지 않고 사라질. HTML4: HTML5 에서 중지됨 )</span>
+	</caption>
+<col style="width:10em;" /><col style="width:10em;" /><col /><col style="width:10em;" />
+<thead>
+<tr>
+<th>Tag Name</th>
+<th>Info Description</th>
+<th>Sample Code (XHTML 1.0)</th>
+<th><!-- Output /  -->Note</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>a</td><td>anchor</td><td><xmp class="xmp">
+<a href="/html/internal.html">웹사이트 내부링크</a>
+<a href="http://outer.kr/" onclick="window.open(this.href); return false;" title="새 창">웹사이트 외부링크</a>
+<a href="#body">웹문서 내부링크</a>
+<a name="body"></a>
+<a id="body"></a>
+</xmp></td><td></td></tr>
+<tr><td>abbr</td><td>abbreviated form (e.g., WWW, HTTP, etc.)</td><td><xmp class="xmp">
+<abbr title="United Nations">U.N.</abbr>
+</xmp></td><td></td></tr>
+<tr><td>acronym</td><td></td><td><xmp class="xmp">
+<acronym title="United Nations International Children's Emergency Fund">UNICEF</acronym>
+</xmp></td><td>HTML4</td></tr>
+<tr><td>address</td><td>information on author</td><td><xmp class="xmp">
+<address>Copyright(c) 저작권자 All rights reserved.</address>
+</xmp></td><td></td></tr>
+<tr><td><del>applet</del></td><td>Java applet</td><td><!-- <applet code="news.class" alt="뉴스보기"></applet> -->
+<xmp class="xmp">
+<object></object>
+</xmp>
+</td><td>deprecated</td></tr>
+<tr><td>area</td><td>client-side image map area</td><td><xmp class="xmp">
+<area alt="English" shape="rect" coords="10,5,66,19" href="/en/" />
+</xmp></td><td></td></tr>
+<tr><td>b</td><td>bold text style</td><td>
+<xmp class="xmp">
+<p>This is normal text - <b>and this is bold text</b>.</p>
+</xmp>
+<code class="xmp">
+.fwb{font-weight:bold !important;}
+</code>
+</td><td></td></tr>
+<tr><td>base</td><td>document base URI</td><td><xmp class="xmp">
+<base href="http://domain.com/" />
+</xmp></td><td></td></tr>
+<tr><td><del>basefont</del></td><td>base font size</td><td>
+<code class="xmp">
+*{font-family:'돋움',Dotum,sans-serif;}
+</code>
+</td><td>deprecated</td></tr>
+<tr><td>bdo</td><td>bidirectional override<br />I18N BiDi over-ride</td><td><xmp class="xmp">
+<bdo dir="rtl">ABCDEFG</bdo>
+</xmp></td><td></td></tr>
+<tr><td>big</td><td>large text style</td><td><xmp class="xmp">
+<big>2px 크게</big>
+</xmp></td><td>HTML4</td></tr>
+<tr><td>blockquote</td><td>long quotation</td><td><xmp class="xmp">
+<blockquote cite="http://domain.com/소나기전문.html">
+<p>
+꽤 오랜 시간이 지났다고 생각됐다.<br />
+그런데도 소녀는 나타나지 않는다.<br />
+발돋움을 했다.<br />
+그러고도 상당한 시간이 지났다고 생각됐다.<br />
+저 쪽 갈밭머리에 갈꽃이 한 옴큼 움직였다.<br />
+소녀가 갈꽃을 안고 있었다.<br />
+그리고, 이제는 천천한 걸음이었다.<br />
+유난히 맑은 가을 햇살이 소녀의 갈꽃머리에서 반짝거렸다.<br />
+소녀 아닌 갈꽃이 들길을 걸어가는 것만 같았다.<br />
+</p>
+</blockquote>
+</xmp></td><td></td></tr>
+<tr><td>body</td><td>document body</td><td><xmp class="xmp">
+<body class="d1n0 d2n0 main">
+</body>
+</xmp></td><td></td></tr>
+<tr><td>br</td><td>forced line break</td><td><xmp class="xmp">
+<br />
+</xmp></td><td></td></tr>
+<tr><td>button</td><td>push button</td><td><xmp class="xmp">
+<button type="submit" value="송신되는데이터초기값" class="button">송신</button>
+<button type="reset" class="button">리셋</button>
+<button type="button" class="button">범용</button>
+</xmp></td><td></td></tr>
+<tr><td>caption</td><td>table caption</td><td><xmp class="xmp">
+<table summary="토론을 위한 자유게시판"><caption>정책토론방</caption>
+</xmp></td><td></td></tr>
+<tr><td><del>center</del></td><td>shorthand for DIV align=center</td><td><code class="xmp">
+.tac{text-align:center !important;}
+</code></td><td>deprecated</td></tr>
+<tr><td>cite</td><td>citation</td><td><xmp class="xmp">
+제가 감명 깊게 읽은 소설은 황순원의 <cite>소나기</cite>입니다.
+</xmp></td><td></td></tr>
+<tr><td>code</td><td>computer code fragment</td><td><xmp class="xmp">
+<pre>
+<code class="java">class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("안녕하세요!");
+  }
+}</code>
+</pre>
+</xmp>
+</td><td></td></tr>
+<tr><td>col</td><td>table column</td><td><xmp class="xmp">
+<table><caption></caption>
+<col style="width: 20%;" /><col span="2" />
+<thead>
+<!-- 중략 -->
+</xmp></td><td></td></tr>
+<tr><td>colgroup</td><td>table column group</td><td><xmp class="xmp">
+<table><caption></caption>
+<colgroup style="width: 50%;"></colgroup>
+<colgroup span="2" style="width: 25%;">
+<col style="background: #ffe;" />
+</colgroup>
+<thead>
+<!-- 중략 -->
+</xmp></td><td></td></tr>
+<tr><td>dd</td><td>definition description</td><td><xmp class="xmp">
+<dl>
+<dt>meta data</dt>
+<dd>
+<p>웹 검색 엔진이나 사이트 관리에 유용한 정보로 메타 데이터를 지정하면 문서 헤더에 메타 태그가 삽입됩니다.</p>
+  <dl>
+  <dt>keyword</dt>
+  <dd>검색 엔진이 문서를 내용에 따라 분류하는 데 사용됩니다.</dd>
+  <dt>description</dt>
+  <dd>설명 메타 태그는 문서의 내용을 간단하게 설명하는 데 사용합니다.</dd>
+  </dl>
+</dd>
+</dl>
+</xmp></td><td></td></tr>
+<tr><td>del</td><td>deleted text</td><td><xmp class="xmp">
+<del>전우치, </del>임꺽정은 절친입니다.</xmp></td><td></td></tr>
+<tr><td>dfn</td><td>instance definition</td><td><xmp class="xmp">
+<p><dfn>외부 스타일 시트</dfn>는 내부 스타일 시트와 달리 별도의 파일에 저장되며, 여러 웹 페이지에 영향을 줄 수 있다.</p>
+</xmp></td><td></td></tr>
+<tr><td><del>dir</del></td><td>directory list</td><td><xmp class="xmp">
+<ul>
+<li>html</li>
+<li>xhtml</li>
+<li>css</li>
+</ul>
+</xmp>
+</td><td>deprecated</td></tr>
+<tr><td>div</td><td>division<br />generic language/style container</td><td><xmp class="xmp">
+<div class="tac">
+<h3>스타일 활용</h3>
+<p>특정 영역에 스타일을 적용하면 보다 쉽게 유지 관리할 수 있습니다.</p>
+</div>
+</xmp></td><td></td></tr>
+<tr><td>dl</td><td>definition list</td><td><xmp class="xmp">
+<dl>
+<dt>인라인 요소</dt>
+<dd>
+<p>요소 앞과 뒤에 줄 바꿈을 하지 않는 요소로 인라인 요소는 문단과 같은 블록 요소 내에서만 존재할 수 있습니다.</p>
+</dd>
+</dl>
+</xmp></td><td></td></tr>
+<tr><td>dt</td><td>definition term</td><td><xmp class="xmp">
+<dl>
+<dt>정의 요소</dt>
+<dd>정의 제목 dt 안에는 인라인 요소만 가능하고, 정의 내용 dd 안에는 블럭과 인라인 둘다 가능하다.</dd>
+</dl>
+</xmp></td><td></td></tr>
+<tr><td>em</td><td>emphasis</td><td><xmp class="xmp">
+My favorite fruit is <em>strawberries</em>.
+</xmp></td><td></td></tr>
+<tr><td>fieldset</td><td>form control group</td><td><xmp class="xmp">
+<form action="example.asp">
+<fieldset><legend>Contact</legend>
+<!-- 중략 -->
+</fieldset>
+</form>
+</xmp></td><td></td></tr>
+<tr><td><del>font</del></td><td>local change to font</td><td>
+<code class="xmp">
+{color:#333;font-size:1em;font-family:'나눔고딕','맑은고딕';}
+</code>
+</td><td>deprecated</td></tr>
+<tr><td>form</td><td>interactive form</td><td><xmp class="xmp">
+<form action="example.asp">
+<fieldset><legend>Contact</legend>
+<label for="name">Name</label><input type="text" id="name" value="" class="text" /><br />
+<label for="phone">Phone</label><input type="text" id="phone" value="" class="text" /><br />
+</fieldset>
+<input type="submit" value="전송" class="button" />
+</form>
+</xmp></td><td></td></tr>
+<tr><td>frame</td><td>subwindow</td><td><xmp class="xmp">
+<frame title="빈 프레임" src="about:blank" name="blank"
+	frameborder="0" marginwidth="0" marginheight="0" noresize="noresize" scrolling="no">
+</xmp></td><td>HTML4</td></tr>
+<tr><td>frameset</td><td>window subdivision</td><td><xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>문서제목 | 사이트명</title>
+<link rel="stylesheet" type="text/css" href="/share/css/print.css" />
+</head>
+<frameset title="사이트명" rows="80,*" border="0">
+<frame title="사이트명 메뉴" src="/share/head.asp" name="sitename_head" />
+<frame title="사이트명 내용" src="/main/" name="sitename_main" />
+<noframes title="사이트명">
+<body>
+<h1>사이트명</h1>
+<p>이 사이트는 프레임 대응환경을 대상으로 디자인되어 있습니다.</p>
+<p>비대응환경의 사용자는 아래 링크를 통해서 보시기 바랍니다.</p>
+<p><a href="/main/">메인 페이지로 가기</a></p>
+</body>
+</noframes>
+</frameset>
+</html>
+</xmp></td><td>HTML4</td></tr>
+<tr><td>h1</td><td>heading1</td><td><xmp class="xmp">
+<h1>제목 1</h1>
+</xmp></td><td></td></tr>
+<tr><td>h2</td><td>heading2</td><td><xmp class="xmp">
+<h2>제목 2</h2>
+</xmp></td><td></td></tr>
+<tr><td>h3</td><td>heading3</td><td><xmp class="xmp">
+<h3>제목 3</h3>
+</xmp></td><td></td></tr>
+<tr><td>h4</td><td>heading4</td><td><xmp class="xmp">
+<h4>제목 4</h4>
+</xmp></td><td></td></tr>
+<tr><td>h5</td><td>heading5</td><td><xmp class="xmp">
+<h5>제목 5</h5>
+</xmp></td><td></td></tr>
+<tr><td>h6</td><td>heading6</td><td><xmp class="xmp">
+<h6>제목 6</h6>
+</xmp></td><td></td></tr>
+<tr><td>head</td><td>document head</td><td><xmp class="xmp">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>사이트명 - 문서제목</title>
+</head>
+</xmp></td><td></td></tr>
+<tr><td>hr</td><td>horizontal rule</td><td><xmp class="xmp">
+<hr />
+</xmp></td><td></td></tr>
+<tr><td>html</td><td>hyper text markup language<br />document root element</td><td><xmp class="xmp">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<!-- 중략 -->
+</html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!-- 중략 -->
+</html>
+</xmp></td><td></td></tr>
+<tr><td>i</td><td>italic text style</td><td>
+<code class="xmp">
+.fsi{font-style:italic !important;}
+</code>
+</td><td></td></tr>
+<tr><td>iframe</td><td>inline frame<br />inline subwindow</td><td><xmp class="xmp">
+<iframe title="프레임제목" name="iframe_side" src="/share/inc/side.html" frameborder="0" scrolling="no">
+<a href="/share/inc/side.html">프레임제목</a>
+</iframe>
+</xmp></td><td></td></tr>
+<tr><td>img</td><td>Embedded image</td><td><xmp class="xmp">
+<img src="/img/c/ex.gif" alt="대체텍스트" width="11" height="11" />
+</xmp></td><td></td></tr>
+<tr><td>input</td><td>form control</td><td><xmp class="xmp">
+<input type="hidden" name="" value="" />
+
+<label for="textA"></label>
+<input type="text" name="textA" id="textA" value="" readonly="readonly" class="text" />
+<label for="pwA"></label>
+<input type="password" name="pwA" id="pwA" value="" class="text" />
+<label for="fileA"></label>
+<input type="file" name="fileA" id="fileA" value="" class="file" />
+
+<input type="radio" name="radioA" id="radioA0" value="" checked="checked" class="radio" />
+<label for="radioA0"></label>
+<input type="radio" name="radioA" id="radioA1" value="" disabled="disabled" class="radio" />
+<label for="radioA1"></label>
+<input type="checkbox" name="checkA" id="checkA0" value="" checked="checked" class="checkbox" />
+<label for="checkA0"></label>
+<input type="checkbox" name="checkA" id="checkA1" value="" checked="checked" class="checkbox" />
+<label for="checkA1"></label>
+
+<input type="button" value="버튼" onclick="" class="button" />
+<input type="image" src="" alt="" class="image" />
+<input type="submit" value="전송" class="button" />
+<input type="reset" value="다시입력" class="button" />
+</xmp></td><td></td></tr>
+<tr><td>ins</td><td>inserted text</td><td><xmp class="xmp">
+<del>홍길동</del><ins>임꺽정</ins>은 절친입니다.
+</xmp></td><td></td></tr>
+<tr><td><del>isindex</del></td><td>input searchable index (?)<br />single line prompt</td><td>
+(X)&lt;isindex prompt="검색 문구를 입력하시오: "&gt;
+<xmp class="xmp">
+<p><label for="f1e0">검색 문구를 입력하시오: </label><input type="text" name="f1e0" id="f1e0" value="" /></p>
+</xmp>
+</td><td>deprecated</td></tr>
+<tr><td>kbd</td><td>keyboard<br />text to be entered by the user</td><td><xmp class="xmp">
+<p>해당 사항이 없을 때에는 <kbd>n/a</kbd>라고 입력하십시오.</p>
+</xmp></td><td></td></tr>
+<tr><td>label</td><td>form field label text</td><td><xmp class="xmp">
+<label for="name">Name</label><input type="text" id="name" value="" class="text" />
+</xmp></td><td></td></tr>
+<tr><td>legend</td><td>fieldset legend</td><td><xmp class="xmp">
+<form action="example.asp">
+<fieldset><legend>Contact</legend>
+<!-- 중략 -->
+</xmp></td><td></td></tr>
+<tr><td>li</td><td>list item</td><td><xmp class="xmp">
+<ol>
+<li><strong>HTML 문서 타입 정의</strong>
+  <ul>
+  <li>HTML 4.01 Transitional</li>
+  <li>XHTML 1.0 Transitional</li>
+  <li>XHTML 1.1</li>
+  </ul>
+</li>
+<li><strong>SGML 문자 엔티티 레퍼런스</strong>
+  <ul>
+  <li>Latin-1 엔티니</li>
+  <li>기호와 그리스 문자</li>
+  <li>기타 특수 문자</li>
+  </ul>
+</li>
+</ol>
+</xmp></td><td></td></tr>
+<tr><td>link</td><td>a media-independent link</td><td><xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="/share/css/all.css" />
+
+<link rel="Prev" href="base.html" title="BASE - Document Base URI" />
+<link rel="Next" href="meta.html" title="META - Metadata" />
+<link rel="Start" href="../" title="HTML 4.01 Reference" />
+<link rel="Copyright" href="/copyright.html" title="Copyright Notice" />
+<link rev="Made" href="mailto:master@domain.com" title="HTML 4.01 Reference Feedback">
+
+<link rel="alternate" href="index_fr.html" hreflang="fr" title="French Version" />
+<link rel="alternate" href="index_ja.html" hreflang="ja" charset="shift-jis" title="Japanese Version" />
+
+<link rev="subsection" href="example.html" />
+</xmp></td><td></td></tr>
+<tr><td>map</td><td>client-side image map</td><td><xmp class="xmp">
+<p><img src="/img/pic.gif" alt="Language" usemap="#picMap1"></p>
+<map name="picMap1" id="picMap1">
+<area shape="rect" coords="0,0,88,88" href="http://www.domain.co.kr" alt="Korea" />
+<area shape="rect" coords="88,0,196,88" href="http://www.domain.com" alt="Global" />
+</map> 
+</xmp></td><td></td></tr>
+<tr><td><del>menu</del><br /><ins>menu</ins></td><td>menu list</td><td>
+<xmp class="xmp">
+<menu>
+<li>20030329현재. ul 처럼 사용하는거 말고는 브라우저에서 지원안한다.</li>
+</menu> 
+</xmp>
+</td><td><del>deprecated</del></td></tr>
+<tr><td>meta</td><td>generic metainformation</td><td><xmp class="xmp">
+<meta name="author" content="메타 데이터" />
+<meta name="description" content="HTML 4.01의 META 요소에 대한 설명입니다." />
+<meta name="keywords" content="메타, 메타데이터, 메타 데이터, meta, meta data" />
+
+<meta http-equiv="expires" content="Sun, 22 Mar 1998 16:18:35 GMT" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta http-equiv="refresh" content="10; http://domain.com/" />
+<meta name="generator" content="EditPlus3" />
+</xmp></td><td></td></tr>
+<tr><td>noframes</td><td>alternate content container for non frame-based rendering</td><td><xmp class="xmp">
+<frameset title="사이트명" rows="*,100">
+  <frameset title="메뉴와내용" cols="40%,*">
+  <frame title="메뉴" name="Menu" src="nav.html" title="Menu">
+  <frame title="내용" name="Content" src="main.html" title="Content">
+  </frameset>
+<frame title="광고" name="Ad" src="ad.html" title="Advertisement">
+<noframes title="사이트명">
+<body>
+<h1>목차</h1>
+<ul>
+<li><a href="/reference/html4.01/">HTML 4.01 Reference</a></li>
+<li><a href="/reference/css2.1/">CSS2.1 Guide</a></li>
+</ul>
+<p><img src="ad.gif" alt="광고: Code Master" /></p>
+</body>
+</noframes>
+</frameset>
+</xmp></td><td>HTML4</td></tr>
+<tr><td>noscript</td><td>alternate content container for non script-based rendering</td><td><xmp class="xmp">
+<script>document.write("<p>조판지시</p>");</script>
+<noscript><p>조판지시</p></noscript>
+</xmp></td><td></td></tr>
+<tr><td>object</td><td>generic embedded object</td><td><xmp class="xmp">
+<object data="mlk.mov" type="video/quicktime" title="마틴의 <I Have a Dream> 연설" width="150" height="150">
+<param name="pluginspage" value="http://quicktime.apple.com/" />
+<param name="autoplay" value="true" />
+  <object data="mlk.wav" type="audio/x-wav" title="Martin Luther King's &quot;I Have a Dream&quot; speech">
+  <param name="autostart" value="true" />
+  <param name="hidden" value="true" />
+  <a href="mlk.htmll">Full text of Martin Luther King's "I Have a Dream" speech</a>
+  </object>
+</object>
+
+<object classid="java:yahtzee.class" codetype="application/java" width="400" height="250"
+	title="my yahtzee game" standby="Get ready to play Yahtzee!">
+Enable Java support to play!
+</object>
+
+<object data="example.gif" title="Nice Photo" />
+
+<object classid="clsid:F08DF954-8592-11D1-B16A-00C0F0283628" id="Slider1" width="200" height="40" border="2">
+<param name="BorderStyle" value="1" />
+<param name="MousePointer" value="0" />
+<param name="Enabled" value="1" />
+<param name="Min" value="0" />
+<param name="Max" value="10" />
+</object>
+</xmp></td><td></td></tr>
+<tr><td>ol</td><td>ordered list</td><td><xmp class="xmp">
+<h3>목차</h3>
+<ol>
+<li>소개</li>
+<li>회사 연혁
+  <ol style="list-style-type: upper-alpha;">
+  <li>드리는 글</li>
+  <li>생산 제품</li>
+  </ol>
+</li>
+<li>서비스 제공</li>
+<li>앞으로의 발전 방향</li>
+<li>결론</li>
+</ol>
+</xmp></td><td></td></tr>
+<tr><td>optgroup</td><td>option group</td><td><xmp class="xmp">
+<p><label for="TVprogram">어떤 tv 프로그램을 주로 시청하세요?</label>
+<select id="TVprogram" title="TV프로그램">
+<optgroup label="드라마">
+<option label="아침">아침 드라마</option>
+<option label="일일">일일 연속극</option>
+<option label="주말">주말 드라마</option>
+<option label="단막극">단막극</option>
+</optgroup>
+<optgroup label="뉴스">
+<option label="7시">7시 저녁 뉴스</option>
+<option label="9시">9시 뉴스</option>
+</optgroup>
+<optgroup label="쇼 프로그램">
+<option label="가요">가요 순위 프로그램</option>
+<option label="코메디">코메디 프로그램</option>
+</optgroup>
+</select>
+</p>
+</xmp></td><td></td></tr>
+<tr><td>option</td><td>selectable choice</td><td><xmp class="xmp">
+<form action="example.php">
+<label for="os">운영 체제</label>
+<select id="os">
+<option value="win7">Windows 7</option>
+<option value="winvi">Windows Vista</option>
+<option value="winxp" selected="selected">Windows XP</option>
+<option value="win2k">Windows 2000</option>
+</select>
+</form>
+</xmp></td><td></td></tr>
+<tr><td>p</td><td>paragraph</td><td><xmp class="xmp">
+<p class="tac">멈춘다는 것은<br /> 무너진다는 것이다</p>
+</xmp></td><td></td></tr>
+<tr><td>param</td><td>parameter<br />named property value</td><td><xmp class="xmp">
+<object classid="java:clock.class" codetype="application/java" width="100" height="100"
+	title="생생한 현재 시간!" standby="지금 몇시인가요?">
+<param name="type" value="analog" />
+<param name="bgcolor" value="white" />
+<param name="fgcolor" value="navy" />
+</object>
+</xmp></td><td></td></tr>
+<tr><td>pre</td><td>preformatted text</td><td><xmp class="xmp">
+<pre>
+ Text in a pre element is displayed in a fixed-width font,
+and it preserves both      spaces and
+line breaks
+</pre>
+</xmp></td><td></td></tr>
+<tr><td>q</td><td>short inline quotation</td><td><xmp class="xmp">
+ <p>미국의 w.s.clark은 <q>소년들이여, <em>야망</em>을 가져라!</q>라는 말을 남겼다.</p>
+</xmp></td><td></td></tr>
+<tr><td><del>s</del></td><td>strike-through text style</td><td>
+<code class="xmp">
+.tdlt{text-decoration:line-through !important;}
+</code>
+</td><td>deprecated</td></tr>
+<tr><td>samp</td><td>sample program output, scripts, etc.</td><td><xmp class="xmp">
+<p>이 경우 HTML Validator가 다음과 같은 에러 메시지를 표시합니다.</p>
+<p><samp>C:\SP\BIN\NSGMLSU.EXE:test.html:4:7:E: element "FOOBAR" undefined</samp></p>
+</xmp></td><td></td></tr>
+<tr><td>script</td><td>script statements</td><td><xmp class="xmp">
+<script src="/share/js/all.js"></script>
+<script src="script.js" charset="utf-8">/*<![CDATA[*/
+//embedded script ignored
+/*]]>*/</script>
+</xmp></td><td></td></tr>
+<tr><td>select</td><td>option selector</td><td><xmp class="xmp">
+<label for="interest">해당 사항을 한 개 이상 선택하세요</label>
+<select id="interest" multiple="multiple" size="4">
+<option>레저</option>
+<option>육아</option>
+<option>여행</option>
+<option>독서</option>
+<option>요리</option>
+</select>
+</xmp></td><td></td></tr>
+<tr><td>small</td><td>small text style</td><td><xmp class="xmp">
+<small>2px작게</small>
+<address><small>Copyright (c) 2010 JangGilsan All rights reserved.</small></address>
+</xmp></td><td>
+</td></tr>
+<tr><td>span</td><td>generic language/style container</td><td><xmp class="xmp">
+<p><span class="em1">단어나 구</span>에 스타일을 적용하기 위해 사용합니다.</p>
+</xmp></td><td></td></tr>
+<tr><td><del>strike</del></td><td>strike-through text</td><td>
+<code class="xmp">
+.tdlt{text-decoration:line-through !important;}
+</code>
+</td><td>deprecated</td></tr>
+<tr><td>strong</td><td>strong emphasis</td><td><xmp class="xmp">
+<p>과거보다는 <strong>현재</strong>가 더 중요하다.</p>
+</xmp></td><td></td></tr>
+<tr><td>style</td><td>style info</td><td><xmp class="xmp">
+<style type="text/css" media="screen">/*<![CDATA[*/
+@import url(/share/css/style.css);
+*{font-size:12px !important;}
+/*]]>*/</style>
+</xmp></td><td></td></tr>
+<tr><td>sub</td><td>subscript</td><td><xmp class="xmp">
+<p><var>x</var> = <var>x<sub>1</sub></var> + <var>x<sub>2</sub></var> + ... + <var>x<sub>n</sub></var></p>
+<p>H<sub>2</sub>O (물)과 C<sub>21</sub>H<sub>27</sub>NO (메타돈)</p>
+</xmp></td><td></td></tr>
+<tr><td>sup</td><td>superscript</td><td><xmp class="xmp">
+이차다항식의 예는 <strong>3<var>x</var><sup>2</sup> + 5<var>x</var> - 7</strong>입니다.
+</xmp></td><td></td></tr>
+<tr><td>table</td><td></td><td><xmp class="xmp">
+<table border="1" summary="도메인 코드별 나라 이름">
+<caption>국가 도메인</caption>
+<thead>
+<tr>
+<th scope="col">도메인 코드</th>
+<th scope="col">나라 이름</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">kr</th>
+<td>Korea, Republic of</td>
+</tr>
+<tr>
+<th scope="row">jp</th>
+<td>Japan</td>
+</tr>
+<tr>
+<th scope="row">cn</th>
+<td>China</td>
+</tr>
+</tbody>
+</table>
+</xmp></td><td></td></tr>
+<tr><td>tbody</td><td>table body</td><td><xmp class="xmp">
+▷ table 요소 참조
+</xmp></td><td></td></tr>
+<tr><td>td</td><td>table data cell</td><td><xmp class="xmp">
+▷ table 요소 참조
+</xmp></td><td></td></tr>
+<tr><td>textarea</td><td>table data cell</td><td><xmp class="xmp">
+<label for="textareaA">내용</label><textarea name="textareaA" id="textareaA" rows="2" cols="20"></textarea>
+</xmp></td><td></td></tr>
+<tr><td>tfoot</td><td>table footer</td><td><xmp class="xmp">
+<table border="1" summary="용돈 가계부. 항목별 금액">
+<caption>용돈 가계부</caption>
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">금액</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th scope="row">합계</th>
+<td>12,000</td>
+</tr>
+</tfoot>
+<tbody class="tar">
+<tr>
+<th scope="row">영화</th>
+<td>7,000</td>
+</tr>
+<tr>
+<th scope="row">점심</th>
+<td>5,000</td>
+</tr>
+</tbody>
+</table>
+</xmp></td><td></td></tr>
+<tr><td>th</td><td>table header cell</td><td><xmp class="xmp">
+▷ table 요소 참조
+</xmp></td><td></td></tr>
+<tr><td>thead</td><td>table header</td><td><xmp class="xmp">
+▷ table 요소 참조
+</xmp></td><td></td></tr>
+<tr><td>title</td><td>document title</td><td><xmp class="xmp">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>문서 제목</title>
+</head>
+</xmp></td><td></td></tr>
+<tr><td>tr</td><td>table row</td><td><xmp class="xmp">
+▷ table 요소 참조
+</xmp></td><td></td></tr>
+<tr><td>tt</td><td>teletype or monospaced text style</td><td><xmp class="xmp">
+이 요소는 <tt>고정폭 글꼴</tt>로 표시할 때 사용합니다.
+</xmp></td><td>HTML4</td></tr>
+<tr><td><del>u</del></td><td>underlined text style</td><td>
+<code class="xmp">
+.tdu{text-decoration:underline !important;}
+</code>
+</td><td>deprecated</td></tr>
+<tr><td>ul</td><td>unordered list</td><td><xmp class="xmp">
+<h3>목차</h3>
+<ul>
+<li>소개</li>
+<li>회사 연혁
+  <ol style="list-style-type: circle;">
+  <li>드리는 글</li>
+  <li>생산 제품</li>
+  </ol>
+</li>
+<li>서비스 제공</li>
+<li>앞으로의 발전 방향</li>
+<li>결론</li>
+</ul>
+</xmp></td><td></td></tr>
+<tr><td>var</td><td>instance of a variable or program argument</td><td><xmp class="xmp">
+<p>HTML의 버전은 <var>x</var>.<var>x</var>와 같은 방식으로 표시된다.</p>
+</xmp></td><td></td></tr>
+</tbody>
+</table>
+
+
+
+<h2 class="hb1 h2" id="ReferenceLink">Reference Link</h2>
+
+<ol class="bo num">
+<li><a href="http://www.w3.org/TR/html401/index/elements.html"><strong>W3C</strong> HTML4.01 Spec - Index of Elements</a></li>
+<li><a href="http://trio.co.kr/webrefer/html/cover.html"><strong>Trio</strong> - 한글 번역문 HTML 4.01 규격</a></li>
+<li><a href="http://www.w3schools.com/tags/"><strong>w3schools</strong> - HTML 4.01 / XHTML 1.0 Reference</a></li>
+</ol>
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20120822~
+20191231. 
+20170308. 
+20140312. 정렬, 링크.
+20130405. 20130404. 20130403. 20130402. HTML4 표시. 20130329. 20130327.
+20120822.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

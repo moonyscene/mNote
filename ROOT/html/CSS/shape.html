@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'CSS Shape | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1>CSS Shape</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Borders">Borders</a>
+	<ul>
+	<li><a href="#Triangle">Triangle</a></li>
+	<li><a href="#Chevron">Chevron</a></li>
+	</ul>
+</li>
+<li><a href="#Backgrounds">Backgrounds</a>
+	<ul>
+	<li><a href="#Triangle">Triangle</a></li>
+	<li><a href="#Chevron">Chevron</a></li>
+	</ul>
+</li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- panel1 -->
+<div class="panel1">
+	<strong class="h1">유의사항</strong>
+	<div class="body1">
+		<ol class="bo">
+		<li>브라우저 호환 [IE8+]?</li>
+		<li>도형 크기 반응형이면 border 등 %값 넣을 수 없는 CSS 따로 정의해줘야한다. ))) 이미지로 만드세요. </li>
+		</ol>
+
+	</div>
+</div>
+<!-- /panel1 -->
+
+
+
+<!-- even-grid -->
+<div class="even-grid float-left gap2pct">
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-12 medium-8 column">
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Plus">X</h2>
+
+<i class="ics1a1x ffc">X</i>알파벳 대문자
+&nbsp;
+<i class="ics1a1x ffc">x</i>알파벳 소문자
+&nbsp;
+<i class="ics1a1x ffc">×</i>특수문자
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ics1a1x{display:inline-block;
+	position:relative;
+	width:1em;
+	background:#000;
+	color:#fff;
+	font-weight:200;
+	font-size:20px;
+	line-height:1;
+	letter-spacing:0;
+	text-align:center;
+	vertical-align:middle;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Plus">
+	Plus, Minus, Stop, Pause, Play, Left, Right, Up, Down, Bars
+	Magnifier (Search), Home
+</h2>
+
+<i class="dpib psr vat ics1plus"></i>
+&nbsp;
+<i class="dpib psr vat ics1minus"></i>
+&nbsp;
+<i class="dpib psr vat ics1stop"></i>
+&nbsp;
+<i class="dpib psr vat ics1pause"></i>
+&nbsp;
+<i class="dpib psr vat ics1play"></i>
+&nbsp;
+<i class="dpib psr vat ics1left"></i>
+&nbsp;
+<i class="dpib psr vat ics1right"></i>
+&nbsp;
+<i class="dpib psr vat ics1up"></i>
+&nbsp;
+<i class="dpib psr vat ics1down"></i>
+&nbsp;
+<i class="dpib psr vat ics1bars"></i>
+&nbsp;
+<i class="dpib psr vat ics1magnifier"></i>
+&nbsp;
+<i class="dpib psr vat ics1home"></i>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ics1plus{position:relative;
+	font-size:10px; /* size */
+	width:.2em;height:1em;
+	margin:0 .4em;
+	background:#000;
+}
+.ics1plus:before{content:'';
+	position:absolute;left:-.4em;top:.4em;
+	width:1em;height:.2em;
+	background:#000;
+}
+.ics1minus{position:relative;
+	font-size:10px; /* size */
+	width:.2em;height:1em;
+	margin:0 .4em;
+	background:transparent;
+}
+.ics1minus:before{content:'';
+	position:absolute;left:-.4em;top:.4em;
+	width:1em;height:.2em;
+	background:#000;
+}
+.ics1stop{position:relative;
+	font-size:10px; /* size */
+	width:.8em;height:.8em;
+	margin:.1em;
+	background:#000;
+}
+.ics1pause{position:relative;
+	font-size:10px; /* size */
+	width:.3em;height:1em;
+	margin:0 .15em;
+	border-left:.2em solid #000;
+	border-right:.2em solid #000;
+	background:transparent;
+}
+.ics1play{position:relative;
+	font-size:10px; /* size */
+	width:0;height:0;
+	margin:0 .2em;
+	border-top:.5em solid transparent;
+	border-bottom:.5em solid transparent;
+	border-left:.6em solid #000;
+}
+.ics1left{position:relative;
+	font-size:10px; /* size */
+	width:0;height:0;
+	margin:0 .2em;
+	border-top:.5em solid transparent;
+	border-bottom:.5em solid transparent;
+	border-right:.6em solid #000;
+}
+.ics1left:before{content:'';
+	float:left;position:absolute;left:0;top:50%;
+	width:0;height:0;
+	margin:-.5em .2em;
+	border-top:.5em solid transparent;
+	border-bottom:.5em solid transparent;
+	border-right:.6em solid #fff;
+}
+.ics1right{position:relative;
+	font-size:10px; /* size */
+	width:0;height:0;
+	margin:0 .2em;
+	border-top:.5em solid transparent;
+	border-bottom:.5em solid transparent;
+	border-left:.6em solid #000;
+}
+.ics1right:before{content:'';
+	float:left;position:absolute;right:0;top:50%;
+	width:0;height:0;
+	margin:-.5em .2em;
+	border-top:.5em solid transparent;
+	border-bottom:.5em solid transparent;
+	border-left:.6em solid #fff;
+}
+.ics1up{position:relative;
+	font-size:10px; /* size */
+	width:0;height:0;
+	margin:.2em 0;
+	border-left:.5em solid transparent;
+	border-right:.5em solid transparent;
+	border-bottom:.6em solid #000;
+}
+.ics1up:before{content:'';
+	float:left;position:absolute;left:50%;top:0;
+	width:0;height:0;
+	margin:.2em -.5em;
+	border-left:.5em solid transparent;
+	border-right:.5em solid transparent;
+	border-bottom:.6em solid #fff;
+}
+.ics1down{position:relative;
+	font-size:10px; /* size */
+	width:0;height:0;
+	margin:.2em 0;
+	border-left:.5em solid transparent;
+	border-right:.5em solid transparent;
+	border-top:.6em solid #000;
+}
+.ics1down:before{content:'';
+	float:left;position:absolute;left:50%;bottom:0;
+	width:0;height:0;
+	margin:.2em -.5em;
+	border-left:.5em solid transparent;
+	border-right:.5em solid transparent;
+	border-top:.6em solid #fff;
+}
+.ics1bars{position:relative;
+	font-size:10px; /* size */
+	width:1em;height:.2em;
+	margin:.4em 0;
+	background:#000;
+}
+.ics1bars:before{content:'';
+	position:absolute;left:0;right:0;top:-.4em;
+	height:.2em;
+	background:#000;
+}
+.ics1bars:after{content:'';
+	position:absolute;left:0;right:0;bottom:-.4em;
+	height:.2em;
+	background:#000;
+}
+.ics1magnifier{display:inline-block;
+	font-size:10px; /* size */
+	position:relative;
+	width:0.8em;height:0.8em;
+	border:0.2em solid #000;
+	border-radius:50%;
+}
+.ics1magnifier:before{content:'';display:inline-block;
+	position:absolute;right:-.4em;bottom:-.2em;
+	width:0.6em;height:0.2em;
+	border-radius:9999px;
+	background:#000;
+	transform:rotate(45deg);
+}
+.ics1home{display:inline-block;
+	font-size:10px; /* size */
+	position:relative;
+	width:.2em;height:.4em;
+	margin-top:.5em;
+	border-left:.4em solid #000;
+	border-right:.4em solid #000;
+	border-top:.1em solid #000;
+}
+.ics1home:before{content:'';
+	position:absolute;left:50%;top:0;
+	width:0;height:0;
+	margin:-.6em -.5em;
+	border-left:.5em solid transparent;
+	border-right:.5em solid transparent;
+	border-bottom:.5em solid #000;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Chevron">Chevron</h3>
+
+
+<div class="dpib psr box1" style="padding:.666em 30px .666em 1em;">
+	<span class="t1">바로하기</span> <i class="ic1 chevron1down"></i>
+</div>
+<div class="dpib psr box1" style="padding:.666em 30px .666em 1em;">
+	<span class="t1">바로하기</span> <i class="ic1 chevron1up"></i>
+</div>
+<div class="dpib psr box1" style="padding:.666em 30px .666em 1em;">
+	<span class="t1">바로하기</span> <i class="ic1 chevron1left"></i>
+</div>
+<div class="dpib psr box1" style="padding:.666em 30px .666em 1em;">
+	<span class="t1">바로하기</span> <i class="ic1 chevron1right"></i>
+</div>
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.chevron1down{ /* chevron ▽ */
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-4px 6px;border:8px solid transparent;border-top-color:#333;
+}
+.ic1.chevron1down:before{content:'';
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-9px -6px;border:6px solid transparent;border-top-color:#fff;
+}
+.ic1.chevron1up{ /* chevron △ */
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-12px 6px;border:8px solid transparent;border-bottom-color:#333;
+}
+.ic1.chevron1up:before{content:'';
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-3px -6px;border:6px solid transparent;border-bottom-color:#fff;
+}
+
+.ic1.chevron1left{ /* chevron ◁ */
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-8px 10px;border:8px solid transparent;border-right-color:#333;
+}
+.ic1.chevron1left:before{content:'';
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-6px -9px;border:6px solid transparent;border-right-color:#fff;
+}
+.ic1.chevron1right{ /* chevron ▷ */
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-8px 0 -8px 10px;border:8px solid transparent;border-left-color:#333;
+}
+.ic1.chevron1right:before{content:'';
+	float:left;position:absolute;right:0;top:50%;width:0;height:0;
+	margin:-6px -3px;border:6px solid transparent;border-left-color:#fff;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="widthheight">width, height</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Square">Square, Rectangle</h3>
+
+<i class="dpib psr vat" style="width:60px;height:60px;background:#08f;"></i>
+&nbsp;
+<i class="dpib psr vat" class="dpib psr" style="width:120px;height:60px;background:#08f;"></i>
+&nbsp;
+<i class="dpib psr vat" style="width:60px;height:120px;background:#08f;"></i>
+&nbsp;
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Borders">Borders</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Triangle">Triangle</h3>
+
+<i class="dpib psr" style="width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:60px solid #f80;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:60px solid #f80;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-right:60px solid #f80;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-left:60px solid #f80;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-top:60px solid #f80;border-right:60px solid transparent;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-top:60px solid #f80;border-left:60px solid transparent;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-bottom:60px solid #f80;border-right:60px solid transparent;"></i>
+&nbsp;
+<i class="dpib psr" style="width:0;height:0;border-bottom:60px solid #f80;border-left:60px solid transparent;"></i>
+&nbsp;
+<br />
+<br />
+
+<div class="dpib psr" style="width:60px;height:60px;background:#eee;">
+	<i class="ic1 triangle1up"></i>
+	<i class="ic1 triangle1down"></i>
+	<i class="ic1 triangle1left"></i>
+	<i class="ic1 triangle1right"></i>
+</div>
+&nbsp; &nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle1up{ /* △ */
+	float:left;position:absolute;left:50%;top:-6px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-bottom-color:#333;
+}
+.ic1.triangle1down{ /* ▽ */
+	float:left;position:absolute;left:50%;bottom:-6px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-top-color:#333;
+}
+.ic1.triangle1left{ /* ◁ */
+	float:left;position:absolute;left:0;bottom:50%;width:0;height:0;margin:-6px;border:6px solid transparent;border-right-color:#333;
+}
+.ic1.triangle1right{ /* ▷ */
+	float:left;position:absolute;right:0;bottom:50%;width:0;height:0;margin:-6px;border:6px solid transparent;border-left-color:#333;
+}
+/*]]>*/</style>
+
+
+<div class="dpib psr" style="width:60px;height:60px;background:#eee;">
+	<i class="ic1 triangle2up"></i>
+	<i class="ic1 triangle2down"></i>
+	<i class="ic1 triangle2left"></i>
+	<i class="ic1 triangle2right"></i>
+</div>
+&nbsp; &nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle2up{ /* △ */
+	float:left;position:absolute;left:50%;top:-12px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-bottom-color:#333;
+}
+.ic1.triangle2down{ /* ▽ */
+	float:left;position:absolute;left:50%;bottom:-12px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-top-color:#333;
+}
+.ic1.triangle2left{ /* ◁ */
+	float:left;position:absolute;left:0;bottom:50%;width:0;height:0;margin:-6px -12px;border:6px solid transparent;border-right-color:#333;
+}
+.ic1.triangle2right{ /* ▷ */
+	float:left;position:absolute;right:0;bottom:50%;width:0;height:0;margin:-6px -12px;border:6px solid transparent;border-left-color:#333;
+}
+/*]]>*/</style>
+
+
+<div class="dpib psr" style="width:60px;height:60px;background:#eee;">
+	<span class="dpib pd1em">Push</span>
+	<i class="ic1 triangle3up"></i>
+	<i class="ic1 triangle3down"></i>
+	<i class="ic1 triangle3left"></i>
+	<i class="ic1 triangle3right"></i>
+</div>
+&nbsp; &nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle3up{ /* △ */
+	float:left;position:absolute;left:50%;top:-6px;
+	width:0;height:0;margin:0 -6px;
+	border:6px solid transparent;border-bottom-color:#06c;border-top:0;
+}
+.ic1.triangle3down{ /* ▽ */
+	float:left;position:absolute;left:50%;bottom:-6px;
+	width:0;height:0;margin:0 -6px;
+	border:6px solid transparent;border-top-color:#06c;border-bottom:0;
+}
+.ic1.triangle3left{ /* ◁ */
+	float:left;position:absolute;left:0;bottom:50%;
+	width:0;height:0;margin:-6px;
+	border:6px solid transparent;border-right-color:#06c;border-left:0;
+}
+.ic1.triangle3right{ /* ▷ */
+	float:left;position:absolute;right:0;bottom:50%;
+	width:0;height:0;margin:-6px;
+	border:6px solid transparent;border-left-color:#06c;border-right:0;
+}
+/*]]>*/</style>
+
+
+<div class="dpib psr" style="width:60px;height:60px;">
+	<i class="ic1 triangle1leftup"></i>
+	<i class="ic1 triangle1rightup"></i>
+	<i class="ic1 triangle1rightdown"></i>
+	<i class="ic1 triangle1leftdown"></i>
+</div>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle1leftup{content:''; /* 좌상 */
+	float:left;position:absolute;left:0;top:0;width:0;height:0;margin:0;border:30px solid transparent;
+	border-left-color:rgba(0,0,0, .5);
+	border-top-width:0;
+}
+.ic1.triangle1rightup{content:''; /* 우상 */
+	float:left;position:absolute;right:0;top:0;width:0;height:0;margin:0;border:30px solid transparent;
+	border-right-color:rgba(0,0,0, .5);
+	border-top-width:0;
+}
+.ic1.triangle1rightdown{content:''; /* 우하 */
+	float:left;position:absolute;right:0;bottom:0;width:0;height:0;margin:0;border:30px solid transparent;
+	border-right-color:rgba(0,0,0, .5);
+	border-bottom-width:0;
+}
+.ic1.triangle1leftdown{content:''; /* 좌하 */
+	float:left;position:absolute;left:0;bottom:0;width:0;height:0;margin:0;border:30px solid transparent;
+	border-left-color:rgba(0,0,0, .5);
+	border-bottom-width:0;
+}
+/*]]>*/</style>
+
+<div class="dpib psr" style="width:60px;height:60px;">
+	<i class="ic1 triangle1left2up1"></i>
+	<i class="ic1 triangle1right1up2"></i>
+	<i class="ic1 triangle1right2down1"></i>
+	<i class="ic1 triangle1left1down2"></i>
+</div>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle1left2up1{content:''; /* 좌상직각삼각 */
+	float:left;position:absolute;left:0;bottom:0;width:0;height:0;
+	border-right:30px solid transparent;
+	border-top:60px solid rgba(255,0,0, .5);
+}
+.ic1.triangle1right1up2{content:''; /* 우상직각삼각 */
+	float:left;position:absolute;left:0;top:0;width:0;height:0;
+	border-left:60px solid transparent;
+	border-top:30px solid rgba(0,255,0, .5);
+}
+.ic1.triangle1right2down1{content:''; /* 우하직각삼각 */
+	float:left;position:absolute;right:0;bottom:0;width:0;height:0;
+	border-left:30px solid transparent;
+	border-bottom:60px solid rgba(0,128,255, .5);
+}
+.ic1.triangle1left1down2{content:''; /* 좌하직각삼각 */
+	float:left;position:absolute;right:0;bottom:0;width:0;height:0;
+	border-right:60px solid transparent;
+	border-bottom:30px solid rgba(128,0,255, .5);
+}
+/*]]>*/</style>
+
+<div class="dpib psr" style="width:60px;height:60px;">
+	<i class="ic1 triangle1left1up2"></i>
+	<i class="ic1 triangle1right2up1"></i>
+	<i class="ic1 triangle1right1down2"></i>
+	<i class="ic1 triangle1left2down1"></i>
+</div>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle1left1up2{content:''; /* 좌상직각삼각 */
+	float:left;position:absolute;left:0;top:0;width:0;height:0;
+	border-right:60px solid transparent;
+	border-top:30px solid rgba(255,0,0, .5);
+}
+.ic1.triangle1right2up1{content:''; /* 우상직각삼각 */
+	float:left;position:absolute;right:0;top:0;width:0;height:0;
+	border-left:30px solid transparent;
+	border-top:60px solid rgba(0,255,0, .5);
+}
+.ic1.triangle1right1down2{content:''; /* 우하직각삼각 */
+	float:left;position:absolute;right:0;bottom:0;width:0;height:0;
+	border-left:60px solid transparent;
+	border-bottom:30px solid rgba(0,128,255, .5);
+}
+.ic1.triangle1left2down1{content:''; /* 좌하직각삼각 */
+	float:left;position:absolute;left:0;bottom:0;width:0;height:0;
+	border-right:30px solid transparent;
+	border-bottom:60px solid rgba(128,0,255, .5);
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Trapezoid">Trapezoid</h3>
+
+<i class="dpib psr" style="width:60px;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:60px solid #8c0;"></i>
+&nbsp;
+<i class="dpib psr" style="width:60px;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:60px solid #8c0;"></i>
+&nbsp;
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Star6points">Star (6-points)</h3>
+
+<i class="dpib psr star-six"></i>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.star-six{position:relative;
+	width:0;height:0;
+	border-left:30px solid transparent;
+	border-right:30px solid transparent;
+	border-bottom:60px solid #80f;
+}
+.star-six:after{position:absolute;content:'';top:20px;left:-30px;
+	width:0;height:0;
+	border-left:30px solid transparent;
+	border-right:30px solid transparent;
+	border-top:60px solid #80f;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Pentagon">Pentagon</h3>
+
+<i class="dpib psr pentagon"></i>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.pentagon{position:relative;
+	width:54px;
+	margin:35px 0 0;
+	border-width:50px 18px 0;
+	border-style:solid;
+	border-color:red transparent;
+}
+.pentagon:before{content:"";
+	position:absolute;left:-18px;top:-85px;
+	height:0;width:0;
+	border-width:0 45px 35px;border-style:solid;border-color:transparent transparent red;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Hexagon">Hexagon</h3>
+
+<i class="dpib psr hexagon"></i>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.hexagon{
+	position:relative;
+	width:100px;
+	height:56px; /* 100/√3 */
+	background:#37c;
+	margin:28px auto; /* height/2 */
+}
+.hexagon:before{content:'';
+	position:absolute;
+	left:0;
+	top:-28px;
+	width:0;
+	height:0;
+	border-left:50px solid transparent;
+	border-right:50px solid transparent;
+	border-bottom:28px solid #37c;
+}
+.hexagon:after{content:'';
+	position:absolute;
+	left:0;
+	bottom:-28px;
+	width:0;
+	height:0;
+	border-left:50px solid transparent;
+	border-right:50px solid transparent;
+	border-top:28px solid #37c;
+}
+/*]]>*/</style>
+
+
+<i class="dpib psr hexagon"><i class="hollow"></i></i>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.hexagon{
+	z-index:0;
+	position:relative;
+	width:100px;
+	height:56px; /* (width/√3) */
+	background:#37c;
+	margin:28px auto; /* (height/2) */
+}
+.hexagon:before{content:'';
+	position:absolute;
+	left:0;
+	top:-28px;
+	width:0;
+	height:0;
+	border-left:50px solid transparent; /* (width/2) */
+	border-right:50px solid transparent;
+	border-bottom:28px solid #37c;
+}
+.hexagon:after{content:'';
+	position:absolute;
+	left:0;
+	bottom:-28px;
+	width:0;
+	height:0;
+	border-left:50px solid transparent;
+	border-right:50px solid transparent;
+	border-top:28px solid #37c;
+}
+.hollow{
+	z-index:10;
+	position:absolute;
+	left:50%;top:50%;
+	width:80px;
+	height:46px; /* (width/√3) */
+	background:#fff;
+	margin:-23px -40px; /* (height/2) (width/2) */
+}
+.hollow:before{content:'';
+	position:absolute;
+	left:0;
+	top:-23px;
+	width:0;
+	height:0;
+	border-left:40px solid transparent; /* (width/2) */
+	border-right:40px solid transparent;
+	border-bottom:23px solid #fff;
+}
+.hollow:after{content:'';
+	position:absolute;
+	left:0;
+	bottom:-23px;
+	width:0;
+	height:0;
+	border-left:40px solid transparent;
+	border-right:40px solid transparent;
+	border-top:23px solid #fff;
+}
+/*]]>*/</style>
+
+
+<p>
+	위 속빈 정육면체는 내부에 흰색 정육면체 추가한거고..<br />
+	진짜 속빈 정육면체는 6개의 요소가 필요하고.. transform:rotate(); 를 심도있게 사용해야 하므로.. 보류.. [IE10+]
+
+</p>
+
+
+
+<div class="brclear clearfix"></div>
+<br />
+<br />
+<hr class="line0 dott" />
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="border-radius">border-radius <em class="em">[IE9+]</em></h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Circle">Circle, Oval</h3>
+
+<i class="dpib psr vat" style="width:60px;height:60px;border-radius:50%;background:#08f;"></i>
+&nbsp;
+<i class="dpib psr vat" style="width:120px;height:60px;border-radius:50%;background:#08f;"></i>
+&nbsp;
+<i class="dpib psr vat" style="width:60px;height:120px;border-radius:50%;background:#08f;"></i>
+&nbsp;
+
+
+<style type="text/css">/*<![CDATA[*/
+.ic1.triangle1up{ /* △ */
+	float:left;position:absolute;left:50%;top:-6px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-bottom-color:#333;
+}
+.ic1.triangle1down{ /* ▽ */
+	float:left;position:absolute;left:50%;bottom:-6px;width:0;height:0;margin:0 -6px;border:6px solid transparent;border-top-color:#333;
+}
+.ic1.triangle1left{ /* ◁ */
+	float:left;position:absolute;left:0;bottom:50%;width:0;height:0;margin:-6px;border:6px solid transparent;border-right-color:#333;
+}
+.ic1.triangle1right{ /* ▷ */
+	float:left;position:absolute;right:0;bottom:50%;width:0;height:0;margin:-6px;border:6px solid transparent;border-left-color:#333;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="transform">transform <em class="em">[IE10+]</em></h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Trapezoid">Parallelogram</h3>
+
+<i class="dpib psr" style="width:60px;height:60px;transform:skew(20deg);background:#f08;"></i>
+<i class="dpib psr" style="width:30px;"></i>
+<i class="dpib psr" style="width:60px;height:60px;transform:skew(-20deg);background:#f08;"></i>
+&nbsp;&nbsp;
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Star5points">Star (5-points)</h3>
+
+<i class="dpib psr star-five"></i>
+
+
+<style type="text/css">/*<![CDATA[*/
+.star-five{display:block;position:relative;width:0;height:0;
+	margin:50px 0;
+	border-bottom:70px solid red;border-right:100px solid transparent;border-left:100px solid transparent;
+	-moz-transform:rotate(35deg);-webkit-transform:rotate(35deg);-ms-transform:rotate(35deg);-o-transform:rotate(35deg);
+}
+.star-five:before{content:'';display:block;position:absolute;left:-65px;top:-45px;height:0;width:0;
+	border-right:30px solid transparent;border-bottom:80px solid red;border-left:30px solid transparent;
+	-webkit-transform:rotate(-35deg);-moz-transform:rotate(-35deg);-ms-transform:rotate(-35deg);-o-transform:rotate(-35deg);
+}
+.star-five:after{content:'';display:block;position:absolute;left:-105px;top:3px;width:0;height:0;
+	border-right:100px solid transparent;border-bottom:70px solid red;border-left:100px solid transparent;
+	-webkit-transform:rotate(-70deg);-moz-transform:rotate(-70deg);-ms-transform:rotate(-70deg);-o-transform:rotate(-70deg);
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Backgrounds">Backgrounds</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Squared">Squared</h3>
+
+<em class="em vat">[IE10+](O)</em>
+<div class="dpib psr vat bg-squared1" style="width:100px;height:100px;"></div>
+&nbsp;
+<em class="em vat">[IE](X)</em>
+<div class="dpib psr vat bg-squared2" style="width:100px;height:100px;"></div>
+&nbsp;
+
+<style type="text/css">/*<![CDATA[*/
+.bg-squared1{
+	border:1px solid #808080;
+	border-color:rgba(0,0,0, .5);
+	background: linear-gradient(-0deg, #000, transparent 1px), linear-gradient(-90deg, #000, transparent 1px);
+	background-size:10px 10px
+}
+.bg-squared2{
+	border:1px solid #ff7f7f;
+	border-color:rgba(255,0,0, .5);
+	background:linear-gradient(180deg, red, transparent 1px), linear-gradient(90deg, red, transparent 1px);
+	background-size:10px 10px;
+}
+/*]]>*/</style>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="DiagonalStripes">Diagonal Stripes</h3>
+
+
+
+
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="small-12 medium-4 column">
+
+
+
+<h2 id="Link">Reference Link</h2>
+<ol class="bo">
+<li><a href="https://desandro.github.io/3dtransforms/" target="_blank" title="새 창">Intro to CSS <b class="em0">3D transforms</b></a> <i class="label1 round">*</i></li>
+<li><a href="https://1stwebdesigner.com/css-shapes/" target="_blank" title="새 창"><b class="em6">How to Create Shapes in CSS</b></a></li>
+<li><a href="https://css-tricks.com/examples/ShapesOfCSS/" target="_blank" title="새 창">The Shapes of CSS</a> | css-tricks.com</li>
+<li><a href="https://www.bybe.net/css3-simple-shapes-cheat-sheet/" target="_blank" title="새 창">CSS3 SHAPES CHEAT SHEET</a></li>
+<li><a href="http://www.land-of-web.com/freebies/css3-simple-shapes-cheat-sheet.html" target="_blank" title="새 창">CSS3 Simple Shapes – Cheat Sheet</a> | land-of-web</li>
+</ol>
+
+
+
+</div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+</div>
+<!-- /even-grid -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+| 20170331~
+20180404.
+20170721. 20170706. 20170601. 20170418. 20170417. 20170331.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

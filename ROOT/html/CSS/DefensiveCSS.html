@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Defensive CSS | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1">Defensive CSS</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">방어적(Defensive) CSS (ishadeed.com)</h2>
+
+
+((( <a href="https://news.hada.io/topic?id=5512" target="_blank" rel="noopener" title="새 창">
+	방어적(Defensive) CSS (ishadeed.com)
+</a>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<table class="t3 tlf tt2pdlr0 tt3pdlr0 tt4pdlr0 tt5pdlr0 tt6pdlr0 tttac">
+<caption>
+	<h3 class="hb1 h3 mgtD">
+		CSS3 Properties 21 or more
+		<span class="mgl05em fwn fs12px">v.20211221~</span>
+	</h3>
+</caption>
+<col style="width:12em;" />
+<col span="5" style="width:2em;" />
+<col style="" />
+<col style="" />
+<thead class="tt1pdlr0 tt1tac">
+<tr>
+<th scope="col" rowspan="2">Properties</th>
+<th scope="col" colspan="5">Browser Support</th>
+<th scope="col" rowspan="2">Note</th>
+<th scope="col" rowspan="2">Code</th>
+</tr>
+<tr>
+<th scope="col">CR</th>
+<th scope="col">SF</th>
+<th scope="col">FF</th>
+<th scope="col">EG</th>
+<th scope="col">IE</th>
+</tr>
+</thead>
+<tbody class=" tt1tal tt7tal tt8tal">
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">
+	20211221 현재
+	<span class="dpib">적용(중)</span>
+</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">11</td>
+<td colspan="2">
+<pre class="mg0">
+- (O) Flexbox 줄바꿈 → <code>flex-wrap: wrap;</code>
+- (O) 여유 공간 주기 → <code>margin-right: 1rem;</code>
+- (O) 줄바꿈 되지 않아야할 긴 콘텐츠 → <code>text-overflow: ellipsis; white-space:nowrap; overflow: hidden;</code>
+- (O) 이미지 늘려짐/찌그러짐 방지 → <code>object-fit: cover;</code>
+- (O) 고정 높이 → height 보다는 <code>min-height</code> 사용
+- (O) 고정 넓이 → width 보다 <code>min-width</code> 사용
+- (O) 배경 반복 제거 → <code>background-repeat: no-repeat;</code>
+- (O) 이미지 위에 하얀 텍스트 올리때 이미지 로딩 실패시 대응 → <code>background-color: grey;</code> 사용
+- (O) 필요할때만 스크롤바 보이기 → <code>overflow-y: auto;</code>
+- (O) Flexbox 에서 최소 콘텐츠 사이즈 지정 → <code>min-width: 0;</code> (기본값이 auto 여서 overflow 발생 )
+- (O) 이미지 최대 넓이 지정 → <code>max-width: 100%;</code>
+- (XO) 그룹 셀렉터 지정은 다른 브라우저에서는 안될수 있으니 각각으로 분리할 것 →
+<code>input::-webkit-input-placeholder {
+	color: #222;
+}
+input:-moz-placeholder {
+	color: #222;
+}
+</code></pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">@@@</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">?</td>
+<td colspan="2">
+<pre class="mg0">
+@@@
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">scrollbar-gutter</th>
+<td title="CR">O</td>
+<td title="SF">X</td>
+<td title="FF">X</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+스크롤바 생길때 레이아웃 변화 없애기
+→ <code>scrollbar-gutter: stable;</code>
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">overscroll-behavior-y</th>
+<td title="CR">O</td>
+<td title="SF">X</td>
+<td title="FF">O</td>
+<td title="EG">V</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+스크롤 연쇄 잠금
+→ <code>overscroll-behavior-y: contain;</code>
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">var()</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+CSS 변수 폴백 값 주기
+→ <code>max-width: calc(100% - var(--actions-width, 70px));</code>
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">position:sticky</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+버티컬 미디어 쿼리 활용
+→ position:sticky 같은거 쓸 때 특정 세로크기 이상에서만 적용
+<code>@media (min-height:600px) {
+	div{position:sticky;}
+}</code>
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">gap</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+Flexbox 아이템 배열시 justify-content: space-between; 대신
+→ <code>gap: 1rem;</code> 사용
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">Grid</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">V</td>
+<td colspan="2">
+<pre class="mg0">
+CSS Grid 위에서 고정 값 사용은 조심
+→ 항상 미디어 쿼리 사용할 것
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">minmax()</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+CSS Grid에서 최소 콘텐츠 사이즈 지정
+→ <code>minmax()</code> 사용
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">grid-template-rows: repeat()</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">X</td>
+<td colspan="2">
+<pre class="mg0">
+CSS Grid 사용시 Auto Fit vs. Auto Fill
+→ 대부분의 경우 <code>auto-fill</code> 이 나음
+</pre>
+</td>
+</tr>
+<tr><!-- ◇◆◇◆ -->
+<th scope="row">Grid align-self</th>
+<td title="CR">O</td>
+<td title="SF">O</td>
+<td title="FF">O</td>
+<td title="EG">O</td>
+<td title="IE">V</td>
+<td colspan="2">
+<pre class="mg0">
+CSS Grid 컨테이너 차일드에 postition: sticky 사용시
+→ <code>align-self: start;</code> 적용
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Reference Link</h2>
+
+
+<ol class="bo">
+	<li>
+		<a href="https://news.hada.io/topic?id=5512" target="_blank" rel="noopener" title="새 창">
+			방어적(Defensive) CSS (ishadeed.com)
+		</a>
+	</li>
+</ol>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+| 20211221~
+20211222.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

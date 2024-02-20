@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Naming | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Naming, Labeling : 네이밍(폴더/파일명), 라벨링</h1>
+
+<!-- preamble -->
+<div class="preamble">
+<ul>
+<li><a href="#n1">레이아웃 - id/class 선택자 선언 규약</a></li>
+<li><a href="#n2">기본 /폴더/파일 설명</a></li>
+<li><a href="#n3">네이밍 규칙 (/폴더/파일명 명명규칙)</a></li>
+<li><a href="#n4">한글 서비스명 - 영문명 예시</a></li>
+</ul>
+</div>
+<!-- //preamble -->
+
+
+
+<h2 id="n1">레이아웃 - id/class 선택자 선언 규약 <span class="fs12">| <a href="http://html.nhndesign.com/?guidelines/naming">Naver Naming Guidelines</a> 참고하여 수정</span></h2>
+
+<!-- layout -->
+<div class="layout" style="width: 1000px;">
+<!-- container -->
+<div style="width: 830px; border:10px dashed #ccc; padding: 5px; margin-bottom:1em; position:relative">
+<strong>#container</strong> : 콘테이너 - 페이지 전체(#head, #wrap, #foot) 담기.
+<!-- head -->
+<div style="width: 664px; border:6px solid #333; padding:.5em; margin:.5em; position:relative;">
+<strong>#head</strong> : 머리<br />
+　h1#logo : 사이트 로고<br />
+　#globalmenu : (Site Menu) - 홈, 로그인, 사이트맵, 외국어 등<br />
+　#search : 통합검색 폼<br />
+　#topmenu : (Local Menu) - 주메뉴<br />
+</div>
+<!-- //head -->
+<!-- wrap -->
+<div style="width: 664px; border:6px dashed #333; padding:.5em; margin:.5em; position:relative; overflow:hidden; _width:664px">
+<strong>#wrap</strong> :  랩 - 옆구리(#sidebar)와 몸통(#body)을 감싸기.
+<!-- visual -->
+<div style="border:3px solid #666; padding:.5em; margin:.5em; height:5em;">
+<strong>#visual</strong> : 비쥬얼 - 보통 #wrap 밖에 있지만, 랩 밑에 깔아서 안에 있는 것처럼 보입니다.
+</div>
+<!-- //visual -->
+<!-- side -->
+<div style="border:3px solid #666; padding:.5em; margin:.5em; float:left; width:180px; position:relative; _left:-.5em">
+<strong>#sidebar</strong> : 옆구리
+<div style="border:2px solid #999999; padding:.5em; margin:.5em;">#sidemenu : 부메뉴</div>
+<div style="border:2px solid #999999; padding:.5em; margin:.5em">#sm1 : 보충 메뉴들</div>
+</div>
+<!-- //side -->
+<!-- colgroup -->
+<div style="border:3px dashed #ccc; padding:.5em; margin:.5em; float:left; width:424px; position:relative; _left:-.5em">
+<strong>.colgroup</strong> : 컬럼 그룹핑 (.colgroup 와 #aside 는 거의 안씀)
+<!-- body -->
+<div style="border:3px solid #666; padding:.5em; margin:.5em; float:left; width:250px;">
+<strong>#body</strong> : 몸통
+<!-- body_head -->
+<div style="border:2px solid #999999; padding:.5em; margin:.5em;">
+<strong>#body_head</strong> : <br />
+　#location : 문서 경로(현재 위치)<br />
+　#body_title : &lt;h1&gt; 본문 제목<br />
+　#bodyutil : 본문 유틸리티
+</div>
+<!-- //body_head -->
+<!-- body_content -->
+<div style="border:2px solid #ff9900; padding:.5em; margin:.5em;">
+<strong>#body_content</strong> : 본문 내용<br />
+　&lt;h2&gt; 본문 소제목 1차 (본문 2차 메뉴)<br />
+</div>
+<!-- //body_content -->
+<!-- body_foot -->
+<div style="border:2px solid #999999; padding:.5em; margin:.5em;">
+<strong>#body_foot</strong> : <br />
+　#charge : 본문 책임자, 최종수정일<br />
+　#satisfaction : 만족도조사<br />
+</div>
+<!-- //body_foot -->
+</div>
+<!-- //body -->
+<!-- aside -->
+<div style="border:3px solid #666; padding:.5em; margin:.5em; float:left; width:110px">
+<strong>#aside</strong> : 곁가지
+<div style="border:2px solid #999999; padding:.5em; margin:.5em">#am1 : 추가</div>
+</div>
+<!-- //aside -->
+</div>
+<!-- //colgroup -->
+<br style="display:block; width:0; height:0; clear:both" />
+</div>
+<!-- //wrap -->
+<!-- foot -->
+<div style="width: 664px; border:6px solid #333; padding:.5em; margin:.5em; position:relative;">
+<strong>#foot</strong> : 다리<br />
+　#siteutil : 사이트 유틸<br />
+　#siteguide : 사이트 안내 및 정책<br />
+　#familysite : 패밀리 사이트<br />
+　#authorinfo : 작성자 정보 (연락처 및 저작권)<br />
+</div>
+<!-- //foot -->
+<!-- wing -->
+<div style=" position: absolute; right: 0; top: 144px; width: 100px; margin:.5em; padding:.5em; border:6px dashed #333;">
+<strong>#wing</strong> : 날개<br />
+　#wm1 : 퀵메뉴<br />
+　.gotop : 위로<br />
+</div>
+<!-- //wing -->
+</div>
+<!-- //container -->
+</div>
+<!-- //layout -->
+
+<p>
+※ 레이아웃 유형, 구축 시기에 따라 조금 다를 수 있습니다.
+</p>
+
+
+<h2 id="n2">기본 /폴더/파일 설명</h2>
+
+<table class="t3" summary=""><caption class="blind"></caption>
+<colgroup><col style="white-space: nowrap;"><col style="white-space: nowrap;"><col span="2"></colgroup>
+<thead>
+<tr>
+<th>구분</th>
+<th>/폴더/파일</th>
+<th>설명</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<th>/index.html</th>
+<td>루트 폴더에는 메인페이지로 가는 기본문서 1개만 둔다</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>폴더</td>
+<th>/01alphabet/ ~ /06alphabet/</th>
+<td>주메뉴 페이지 폴더명은 2자리순번과 1차메뉴영문명 을 조합해서 만든다.<br />
+예) 전자민원 - /01appeal/
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/data/</th>
+<td>다운로드 자료, 멀티미디어 파일들 : hwp, doc, pdf, ppt, xls, wmv 등..<br />
+필요에 따라 하위 폴더를 자료 종류별 혹은 주메뉴 분류별로 생성한다.<br />
+<em>※주의 : /img/ 에 첨부 파일 자료를 절대 넣지마세요!!</em>
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/etc/</th>
+<td>기타, 추가페이지 : 주메뉴에 분류되지 않는 페이지 들, sitemap.jsp 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/flash/</th>
+<td>모든 플래시 파일.. swf, 퍼블리시한 html 파일,</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/</th>
+<td>모든 이미지파일은 이 폴더 아래에둔다. 필요에따라 하위폴더 생성해서 정리<br />
+<em>※주의 : 웹페이지 디자인 이미지 외에 첨부 파일 자료를 절대 넣지마세요!!</em>
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/main/</th>
+<td>메인페이지 및 메인에만 사용하는 인클루드 파일 등<br />
+메인페이지는 ~/main/ 폴더 까지만으로도 페이지가 열리도록 기본문서를 사용한다.
+</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/</th>
+<td>공유폴더</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>이미지</td>
+<th>/img/01/ ~ /img/06/</th>
+<td>이미지 폴더명은 1차메뉴 순번(2자리)으로 한다. - 이미지 경로가 너무 길어지는거 방지.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/all/</th>
+<td>본문에 공용으로 사용하는 이미지.. 불릿 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/banner/</th>
+<td>배너이미지 - 메인과 서브 배너모음 페이지 등에서 공통사용</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/board/</th>
+<td>멀티게시판용 이미지</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/etc/</th>
+<td>/etc/ 문서용 이미지 폴더</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/inc/</th>
+<td>인클루드 파일에 사용되는 이미지.. 로고, 주메뉴, 비쥬얼 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/inc/side/</th>
+<td>부메뉴를 이미지로 만들 때 사용</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/inc/title/</th>
+<td>본문 타이틀 이미지용</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/main/</th>
+<td>메인페이지에 사용되는 이미지</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/main/picpr/</th>
+<td>메인 이지미홍보(팝업존)에 사용되는 이미지</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>스타일시트</td>
+<th>/share/css/</th>
+<td>모든 스타일시트 파일들</td>
+<td></td>
+</tr>
+<tr>
+<td>200.08이전</td>
+<th>/share/css/all.css</th>
+<td>스타일시트 @import 및 모든페이지 공용 스타일시트 정의</td>
+<td></td>
+</tr>
+<tr>
+<td>200.08이전</td>
+<th>/share/css/base.css</th>
+<td>기본 태그에 정의한 스타일시트 img, form { margin: 0; border: 0; } 등.. 수정 거의 필요 없음</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/css/board.css</th>
+<td>멀티게시판용</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/css/content.css</th>
+<td>본문 콘텐츠용 개별 스타일시트 정의</td>
+<td></td>
+</tr>
+<tr>
+<td>200.08이전</td>
+<th>/share/css/layout.css</th>
+<td>전체 레이아웃용 : head, foot, body_head, body_foot, wing, 사이트맵 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/css/main.css</th>
+<td>메인 페이지용</td>
+<td></td>
+</tr>
+<tr>
+<td>200.08이전</td>
+<th>/share/css/template.css</th>
+<td>사이트 템플릿 스타일시트 정의. &lt;h1&gt;~&lt;h6&gt; 등</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>인클루드</td>
+<th>/share/inc/</th>
+<td>레이아웃용 인클루드 파일들 ** 본문에서 인클루드가 필요한 경우 해당 폴더에서 만듦</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/body_foot.jsp</th>
+<td>본문 푸트 영역 : 담당자, 업데이트 날짜, 인쇄버튼, 뒤로버튼, 위로버튼 등&nbsp;</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/body_head.jsp</th>
+<td>본문 헤드 영역 : 3차(2차)타이틀, 현재 위치 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/foot.jsp</th>
+<td>푸트 영역 : 하단 로그, 하단 메뉴, 주소, 연락처, 카피라이트, 카운터 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/head.jsp</th>
+<td>헤드 영역 : 로그, 글로벌 메뉴, 주메뉴(1,2차) 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/html_head.jsp</th>
+<td>&lt;head&gt;&lt;/head&gt;태그 사이에 공통으로 들어가는 것</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/menu_all.jsp</th>
+<td>메뉴명, 메뉴링크, 메뉴 onclick 스크립트를 배열로 정의해 놓음. 4차메뉴까지를 기본으로 정의한다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/openwin.jsp</th>
+<td>새창 코드 샘플</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/printpage.html</th>
+<td>프린트 스크립트로 불러오는 공용 프린트페이지</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/sidebar.jsp</th>
+<td>사이드바 영역 : 1차타이틀, 부메뉴(2,3차), 서브 공통 메뉴 등</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/inc/wing.jsp</th>
+<td>날개 메뉴 영역 : 퀵메뉴, 서브 공통 메뉴</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>자바스크립트</td>
+<th>/share/js/</th>
+<td>모든 자바스크립트 파일들</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/js/all.js</th>
+<td>모든페이지에 공용으로 쓰는 자바스크립트</td>
+<td></td>
+</tr>
+<tr class="alt">
+<td>게시판</td>
+<th>/share/board/</th>
+<td>게시판 코드 샘플</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/board.jsp</th>
+<td>게시판 전체 포함한 페이지&nbsp;</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/board_inc.jsp</th>
+<td>게시판 전문, 콘텐츠 메뉴 샘플</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/comment.jsp</th>
+<td>댓글</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/find.jsp</th>
+<td>아이디/비밀번호 찾기</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/list.jsp</th>
+<td>목록</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/list_gallery.jsp</th>
+<td>목록 - 갤러리형</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/list_webzine.jsp</th>
+<td>목록 - 웹진형</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/login.jsp</th>
+<td>로긴폼</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/view.jsp</th>
+<td>내용</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/share/board/write.jsp</th>
+<td>쓰기폼</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="n3">네이밍 규칙 (/폴더/파일명 명명규칙)</h2>
+
+<table class="t3">
+<thead>
+<tr>
+<th>구분</th>
+<th>예시</th>
+<th>규칙</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>기본 명명규칙</th>
+<th></th>
+<td>모든 폴더, 파일명은 소문자로 만든다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th></th>
+<td>긴 이름은 소문자_소문자 형태로 만든다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>00_inc.jsp</th>
+<td>인클루드 파일 확장자도 개발언어 확장자를 사용한다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th></th>
+<td>링크주소, 이미지경로는 절대경로를 사용하고 부득이한 경우 상대경로를 사용한다.</td>
+<td></td>
+</tr>
+<tr>
+<th>폴더/웹문서명</th>
+<th></th>
+<td>/1차메뉴영문명/2차메뉴영문명_3차메뉴영문명.개발언어확장자</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th></th>
+<td>작업 간소화를 위해  2자리 순번으로 파일명을 생성할 수도 있다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/01appeal/index.jsp</th>
+<td>1차메뉴의 서브메인(인덱스)페이지 : 기본문서로 만든다.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/01appeal/01.jsp</th>
+<td>1차메뉴1번째_2차메뉴1번째</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/01appeal/02_01.jsp</th>
+<td>1차메뉴1번째_2차메뉴2번째_3차메뉴1번째페이지</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/01appeal/01_inc.jsp</th>
+<td>1차메뉴1번째_2차메뉴1번째의 인클루드파일 (켄텐츠안 메뉴 등을 만들 때)</td>
+<td></td>
+</tr>
+<tr>
+<th>이미지명</th>
+<th></th>
+<td>이미지파일명은 작업자가 알아서 명명</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/01/01_01_p01.gif</th>
+<td>1차메뉴1번째_2차메뉴1번째_3차메뉴1번째 웹문서에 1번째로 사용한 이미지(picture)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/img/01/01_01_p02.gif</th>
+<td>1차메뉴1번째_2차메뉴1번째_3차메뉴1번째 웹문서에 2번째로 사용한 이미지(picture)</td>
+<td></td>
+</tr>
+<tr>
+<th>추가 폴더</th>
+<th>/pop/</th>
+<td>팝업용 폴더</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/pop/popup.js</th>
+<td>팝업용 자바스크립트</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/pop/20070628/</th>
+<td>1개의 팝업에 1개의 폴더생성.. 하위폴더는 만들지 않음 (페이지와 이미지를 한 폴더에 둔다.)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<th>/program/</th>
+<td>프로그램 폴더</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h3 id="n4">한글 서비스명 - 영문명 예시</h3>
+
+<h4>주메뉴 <span class="">main menu</span></h4>
+<dl class="tag">
+<dt>전자민원</dt>
+<dd>appeal petition complaint</dd>
+<dt>참여마당</dt>
+<dd>partin</dd>
+<dt>문화관광</dt>
+<dd>tour</dd>
+<dt>행정정보</dt>
+<dd><ins>govern</ins> <del>administration</del></dd>
+<dt>생활정보</dt>
+<dd>life</dd>
+<dt>우리시소개</dt>
+<dd>about</dd>
+<dt>열린시장실</dt>
+<dd>mayor</dd>
+<dt>열린군수실</dt>
+<dd>headman<br /></dd>
+<dt>이용안내</dt>
+<dd>guide</dd>
+<dt>기타정보</dt>
+<dd>etc</dd>
+<dt>기업경제</dt>
+<dd>biz</dd>
+<dt>생활경제</dt>
+<dd>economy</dd>
+</dl>
+<h4>사이트 안내 및 정책 <span class="">guide</span></h4>
+<dl class="tag">
+<dt>사이트맵</dt>
+<dd>sitemap</dd>
+<dt>개인정보 보호정책</dt>
+<dd>privacy</dd>
+<dt>저작권정책</dt>
+<dd>copyright</dd>
+<dt>이메일 무단 수집 거부</dt>
+<dd>nophishing<br /></dd>
+<dt>홈페이지 이용안내</dt>
+<dd>siteuse(siteguide)</dd>
+<dt>홈페이지 오류신고</dt>
+<dd>siteerrorreport(sitereport)</dd>
+<dt>홈페이지 의견수렴(개선건의)</dt>
+<dd>siteopinion<br /></dd>
+<dt>뷰어프로그램 받기</dt>
+<dd>viewer</dd>
+<dt>배너모음</dt>
+<dd>banner</dd>
+<dt>네티켓</dt>
+<dd>netiquette</dd>
+<dt>찾아오시는 길</dt>
+<dd>way</dd>
+</dl>
+<h4>회원 <span class="">member</span></h4>
+<dl class="tag">
+<dt>로그인</dt>
+<dd>login</dd>
+<dt>아이디 찾기</dt>
+<dd>findid</dd>
+<dt>비밀번호 찾기</dt>
+<dd>findpw</dd>
+<dt>이용약관</dt>
+<dd>agree</dd>
+<dt>회원가입</dt>
+<dd>join</dd>
+<dt>회원정보수정</dt>
+<dd>modify</dd>
+</dl>
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20090508. 레이아웃 #wing 추가<br />
+20081010. 레이아웃 id/class 추가<br />
+20080604. 한글 서비스명 - 영문명 예시 추가<br />
+20080515. 담고 있는 정보를 대표하지 못하는 이름, 너무 긴 이름들 수정함. <em>폰트 모양</em>으로 표시함<br />
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

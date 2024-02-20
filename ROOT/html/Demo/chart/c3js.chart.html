@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211026 | @m | 최초작성
+ * 20211026 | @m | 최초완성
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>c3.js Charts Demo by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	c3.js Charts Demo
+</h1>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css" />
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Line</h2>
+
+
+<div id="chart"></div>
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				]
+			}
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Additional Axis</h3>
+
+
+<div id="chart2"></div>
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart2',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				],
+				axes: {
+					data2: 'y2' // ADD
+				}
+			},
+			axis: {
+				y2: {
+					show: true // ADD
+				}
+			}
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Show Axis Label</h3>
+
+
+<div id="chart3"></div>
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart3',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				],
+				axes: {
+					data2: 'y2'
+				}
+			},
+			axis: {
+				y: {
+					label: { // ADD
+						text: 'Y Label',
+						position: 'outer-middle'
+					}
+				},
+				y2: {
+					show: true,
+					label: { // ADD
+						text: 'Y2 Label',
+						position: 'outer-middle'
+					}
+				}
+			}
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Change Chart Type</h3>
+
+
+<div id="chart4"></div>
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart4',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				],
+				axes: {
+					data2: 'y2'
+				},
+				types: {
+					data2: 'bar' // ADD
+				}
+			},
+			axis: {
+				y: {
+					label: {
+						text: 'Y Label',
+						position: 'outer-middle'
+					}
+				},
+				y2: {
+					show: true,
+					label: {
+						text: 'Y2 Label',
+						position: 'outer-middle'
+					}
+				}
+			}
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Format values</h3>
+
+
+<div id="chart5"></div>
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart5',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				],
+				axes: {
+					data2: 'y2'
+				},
+				types: {
+					data2: 'bar'
+				}
+			},
+			axis: {
+				y: {
+					label: {
+						text: 'Y Label',
+						position: 'outer-middle'
+					},
+					tick: {
+						format: d3.format("$,") // ADD
+					}
+				},
+				y2: {
+					show: true,
+					label: {
+						text: 'Y2 Label',
+						position: 'outer-middle'
+					}
+				}
+			}
+	});
+/*]]>*/</script>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Use APIs | Customize Style</h3>
+
+
+<div id="chart6"></div>
+
+<button type="button" class="button load">Load</button>
+<button type="button" class="button unload">Unload</button>
+<button type="button" class="button hide">Hide</button>
+<button type="button" class="button show">Show</button>
+<button type="button" class="button style">Style</button>
+
+
+<script>/*<![CDATA[*/
+	var chart = c3.generate({
+			bindto: '#chart6',
+			data: {
+				columns: [
+					['data1', 30, 200, 100, 400, 150, 250],
+					['data2', 50, 20, 10, 40, 15, 25]
+				]
+			}
+	});
+
+	// 데이터 로드
+	function doLoad(){
+		chart.load({
+			columns: [
+				['data1', 300, 100, 250, 150, 300, 150, 500],
+				['data2', 100, 200, 150, 50, 100, 250],
+				['data3', 200, 300, 250, 300, 200, 350]
+			]
+		});		
+	}
+
+	// 데이터 언로드
+	function doUnload(){
+		chart.unload({
+				ids: ['data2', 'data3']
+		});	
+	}
+	
+	// 버튼 클릭
+	$('.button.load').on('click', function(){
+		doLoad();
+	});
+	$('.button.unload').on('click', function(){
+		doUnload();
+	});
+	$('.button.hide').on('click', function(){
+		chart.hide(['data2', 'data3']);
+	});
+	$('.button.show').on('click', function(){
+		chart.show(['data2', 'data3']);
+	});
+	$('.button.style').on('click', function(){
+		$('#chart6 .c3-line-data2').css({
+			'stroke-width': '5px'
+		});
+	});
+
+
+/*]]>*/</script>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

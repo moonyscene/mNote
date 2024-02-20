@@ -1,0 +1,212 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="author" content="MoonYoungShin" />
+<title>CSS3</title>
+<link rel="stylesheet" type="text/css" href="../share/css/all.css">
+</head>
+<body style="margin: 2em;">
+
+
+<h1 class="h">CSS3</h1>
+
+<h2 class="h">CSS3 Properties</h2>
+
+<table border="1" class="t3" summary=""><caption>CSS3 Properties</caption>
+<col style="width: 10%;" /><col style="width: 10%;" /><col />
+<thead>
+<tr>
+<th scope="col">Properties</th>
+<th scope="col">Browser's Support</th>
+<th scope="col">적용가부타진</th>
+<th scope="col">Code</th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s10"><big>text-shadow</big></a></th>
+<td>[SF][FF][OP]<em>[IE]</em></td>
+<td>나쁜디자인 - 큰디자인에는 효과적.</td>
+<td>
+text-shadow: 5px 5px 0 #ccc;<br />
+filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=5,OffY=5,Color=#ccc,Positive=true);<br />
+display: inline-block; zoom: 1;<br />
+</td>
+<td>
+box-shadow: X좌표, Y좌표, blur값, 그림자색;<br />
+blur값 생략 가능 기본값 0<br />
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s12"><big>text-overflow</big></a></th>
+<td>[CR][SF]<del>[FF]</del>[OP]<em>[IE]</em></td>
+<td>효과적. [FF] 방법부터 찾자</td>
+<td>
+text-overflow: ellipsis; -o-text-overflow: ellipsis;
+</td>
+<td>[FF]방법?</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s14"><big>word-wrap</big></a></th>
+<td>[CR][SF][FF][OP]<em>[IE]</em></td>
+<td>효과적.</td>
+<td>
+word-wrap:break-word;
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s16"><big>@font-face</big></a></th>
+<td>[CR][SF][FF][OP]<em>[IE]</em></td>
+<td>효과적.</td>
+<td>
+@font-face{ font-family: ngttf; src: url(NanumGothic.ttf);}<br />
+@font-face{ font-family: ngeot; src: url(NanumGothic.eot);}<br />
+body, input, textarea, select, button{ font-family: NanumGothic,"나눔고딕",ngttf,ngeot; }<br />
+</td>
+<td>
+<a href="http://naradesign.net/ouif/css3/img/NanumGothic.ttf">NanumGothic.ttf</a><br />
+<a href="http://naradesign.net/ouif/css3/img/NanumGothic.eot">NanumGothic.eot</a>
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s18"><big>opacity</big></a></th>
+<td>[CR][SF][FF][OP]<em>[IE]</em></td>
+<td>효과적.</td>
+<td>
+opacity: 0.5; filter: alpha(opacity=50);
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s20"><big>box-shadow</big></a></th>
+<td>[CR][SF][FF][OP]<em>[IE]</em></td>
+<td><!-- 나쁜디자인 -->큰디자인에 효과적.<br />
+
+</td>
+<td>
+box-shadow: 10px 10px 10px #eee;<br />
+-moz-box-shadow: 10px 10px 10px #eee;<br />
+-webkit-box-shadow: 10px 10px 10px #eee;<br />
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=135,strength=20);<br />
+</td>
+<td>
+box-shadow: X좌표, Y좌표, blur값, 그림자색;<br />
+blur값 생략 가능 기본값 0<br />
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s22">border-radius</a></th>
+<td>[CR][SF][FF][OP]<del>[IE]</del></td>
+<td><!-- 나쁜디자인 -->큰디자인에 효과적.<br />
+IE지원까지 적용보류<br />
+<em>버튼에 적용해보자~</em>
+</td>
+<td>
+네 방향 모두 적용하는 경우.<br />
+border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;<br />
+원하는 방향에만 적용하는 경우.<br />
+border-radius: 30px 0;<br />
+-moz-border-radius: 30px 0;<br />
+-webkit-border-top-left-radius: 30px;<br />
+-webkit-border-bottom-right-radius: 30px;<br />
+</td>
+<td>
+웹킷 브라우저 가운데 사파리4가 단축 속성을 지원하지 않아 현재로써는 단축 속성을 사용할 수 없다.
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s25">background(s)</a></th>
+<td>[CR][SF][FF][OP]<del>[IE]</del></td>
+<td>효과적.<br />IE지원까지 적용보류</td>
+<td>
+background:<br />
+url(bg.gif) no-repeat left top,<br />
+url(bg.gif) no-repeat right top,<br />
+url(bg.gif) no-repeat left bottom,<br />
+url(bg.gif) no-repeat right bottom;<br />
+</td>
+<td>
+배경 이미지 사용 횟수 무한대
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s27"><big>gradient</big></a></th>
+<td>[CR][SF][FF]<del>[OP]</del><em>[IE]</em></td>
+<td>효과적다. 이미지가 더 쉽고 유연한 디자인 가능.</td>
+<td>
+background: #3EAF0E -webkit-gradient(linear, 0 0, 0 100%, from(#3EAF0E), to(#fff));<br />
+background: #3EAF0E -moz-linear-gradient(top, #3EAF0E, #fff);<br />
+filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#3EAF0E, endColorStr=#ffffff);<br />
+</td>
+<td>
+속성 및 값 선언 방식 모두 다름.<br />
+webkit[SF,CR]은 (타입, X시작점 Y시작점, X종료점 Y종료점, 시작색, 종료색)<br />
+moz[FF]는 (시작점, 시작색, 종료색)<br />
+gradient 미지원 위해 기본 배경색을 지정 필요<br />
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s29"><big>transform</big></a></th>
+<td>[CR][SF][FF][OP]<em>[IE]</em></td>
+<td>효과적다. 텍스트일 경우 적용해보자. 이미지 적용은 별로다.</td>
+<td>
+-o-transform: rotate(90deg); -o-transform-origin: 0 100%;<br />
+-moz-transform: rotate(90deg); -moz-transform-origin: 0 100%;<br />
+-webkit-transform: rotate(90deg); -webkit-transform-origin: 0 100%;<br />
+filter:progid:DXImageTransform.Microsoft.Matrix(M11=6.123031769111886e-17, M12=-1, M21=1, M22=6.123031769111886e-17, sizingmethod='auto expand');<br />
+</td>
+<td>
+시계 방향으로 90도 회전시키는 코드.<br />
+translate, scale, rotate, skew(비틀기) 가능.<br />
+transform-origin 는 transform의 축 지정<br />
+기본 값 50%(X축) 50%(Y축)은 생략 가능.<br />
+IE는 사용법이 다소 복잡하다.
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s31">transition</a></th>
+<td>[CR][SF]<del>[FF]</del>[OP]<del>[IE]</del></td>
+<td>효과적, IE지원까지 보류.</td>
+<td>
+a { padding: 10px 15px; margin: 0; -o-transition: .2s; -webkit-transition: .2s; -moz-transition: .2s; }<br />
+a:hover { padding:15px 20px; margin: -6px; opacity: 0.8; }<br />
+</td>
+<td>
+transition 속성의 값으로는 어떤 속성을 몇 초간 진행할 것인지 정의한다.<br />
+어떤 속성을 transition 할 것인지 지정하지 않으면 기본 값 all이 지정되어 모든 속성을 transition 시킨다.<br />
+파이어폭스 브라우저는 3.7 버전부터 지원을 기대할 수 있다.<br />
+</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://naradesign.net/ouif/css3/presentation.html#s33">animation</a></th>
+<td>[CR][SF]<del>[FF]</del><del>[OP]</del><del>[IE]</del></td>
+<td>필요한 곳이 있을까?, IE지원까지 보류.</td>
+<td>
+a:hover { -webkit-animation: webkitFire infinite 1s linear; }<br />
+@-webkit-keyframes 'webkitFire'{<br />
+	from{ -webkit-transform: rotate(0deg); }<br />
+	to{ -webkit-transform: rotate(360deg); }<br />
+}<br />
+</td>
+<td>
+'webkitFire'라는 사용자 정의 애니메이션이 a:hover 상태에서 실행.<br />
+:hover 동안 일정한 속도로 1초에 한 바퀴씩 영원히 돈다.
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<hr />
+
+<hr />
+<h2 class="h">Revision</h2>
+<p>
+2010.11.29.
+</p>
+
+
+
+</body>
+</html>

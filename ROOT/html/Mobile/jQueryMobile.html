@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery Mobile | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>jQuery Mobile</h1>
+
+
+<ul class="bu">
+<li><a href="#Contents">Table of Contents</a></li>
+<li><a href="#Template">Create a basic page template</a></li>
+<li><a href="#Multi-page">Multi-page template</a></li>
+<li><a href="#Link">Reference Link</a></li>
+</ul>
+
+<h2 id="Contents">Table of Contents</h2>
+
+
+
+
+
+
+<table border="1" class="t3" summary="respond.min.js 와 css3-mediaqueries.js 특징 비교"><caption><a href="http://jquerymobile.com/demos/1.2.0/">jQuery Mobile: Demos and Documentation</a></caption>
+<col /><col />
+<thead>
+<tr>
+<th scope="col">Overview/Components/API</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Intro to jQuery Mobile 소개</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Quick start guide 퀵 스타트 가이드</th>
+<td>
+<a href="http://jquerymobile.com/demos/1.2.0/docs/pages/page-anatomy.html" id="" title="page-anatomy">page template</a>
+| <a href="http://jquerymobile.com/demos/1.2.0/docs/about/page-template.html">View boilerplate template</a>
+| <a href="http://jquerymobile.com/demos/1.2.0/docs/pages/multipage-template.html">View multi-page template</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Features 특징</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Accessibility 접근성</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Supported platforms 지원 플랫폼</th>
+<td></td>
+</tr>
+
+<tr>
+<th scope="row">Pages &amp; dialogs 페이지 및 대화 상자</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Toolbars 도구 모음</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Buttons 버튼</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Content formatting 콘텐츠 형식</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Form elements 양식 요소</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Listviews 목록보기</th>
+<td></td>
+</tr>
+
+<tr>
+<th scope="row">Configuring defaults 구성 기본값</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Events 이벤트</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Methods &amp; Utilities 메서드 및 유틸리티</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Data attribute reference 데이터 속성 참조</th>
+<td></td>
+</tr>
+<tr>
+<th scope="row">Theme framework 테마 프레임 워크</th>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="Template">Create a basic page template</h2>
+
+<xmp class="xmp">
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+<div data-role="header">
+<h1>My Title</h1>
+</div><!-- /header -->
+
+<div data-role="content">
+
+<p>Hello world</p>
+
+<ul data-role="listview" data-inset="true" data-filter="true">
+<li><a href="#">Acura</a></li>
+<li><a href="#">Audi</a></li>
+<li><a href="#">BMW</a></li>
+<li><a href="#">Cadillac</a></li>
+<li><a href="#">Ferrari</a></li>
+</ul>
+
+<form>
+<label for="slider-0">Input slider:</label>
+<input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
+</form>
+
+<a href="#" data-role="button" data-icon="star">Star button</a>
+<a href="#" data-role="button" data-icon="star" data-theme="c">Button</a> 
+
+</div><!-- /content -->
+
+<div data-role="footer">
+<h4>Page Footer</h4>
+</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>
+</xmp>
+
+<h2 id="Multi-page">Multi-page template</h2>
+
+<xmp class="xmp">
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Multi-page template</title> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+
+	
+<body> 
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>One</h2>
+		
+		<p>I have an <code>id</code> of "one" on my page container. I'm first in the source order so I'm shown when the page loads.</p>	
+		
+		<p>This is a multi-page boilerplate template that you can copy to build your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a <a href="page-template.html"> single page template</a> that has just one page within it.</p>	
+		<p>Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.</p>
+		<p>You link to internal pages by referring to the <code>id</code> of the page you want to show. For example, to <a href="#two" >link</a> to the page with an <code>id</code> of "two", my link would have a <code>href="#two"</code> in the code.</p>	
+
+		<h3>Show internal pages:</h3>
+		<p><a href="#two" data-role="button">Show page "two"</a></p>	
+		<p><a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-theme="d">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<h1>Two</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<h2>Two</h2>
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>	
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>	
+		<p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>	
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+
+	<div data-role="header" data-theme="e">
+		<h1>Dialog</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d">	
+		<h2>Popup</h2>
+		<p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>		
+		<p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>	
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+</body>
+</html>
+</xmp>
+
+
+
+<hr />
+<h2 id="Link">Reference Link</h2>
+<ol class="bu">
+<li><a href="http://jquerymobile.com/">jQuery Mobile</a></li>
+<li><a href="http://www.jqmgallery.com/">http://www.jqmgallery.com/</a></li>
+</ol>
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130515.
+20130122.
+</p>
+<hr />
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

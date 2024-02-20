@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '웹접근성 실태조사 + 품질마크 대비 보완 작업 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>제5회 웹 접근성 품질마크 대비 보완 작업 : <em>~2009.3.13까지 완료</em> <strong>[대외비]</strong></h1>
+
+<p>
+- Update : 
+v2009.03.09
+</p>
+
+<p>
+
+</p>
+
+<!-- box4 -->
+<div class="box4">
+
+<ul class="bu">
+<li><strong>수신</strong> : 전직원(경영지원 제외)</li>
+<li><strong>제목</strong> : 2009년 장애인 웹 접근성 실태조사 대비 보완 작업 요청</li>
+<li><strong>일정</strong> : 2009.03.09(월)~03.13(금)PM18:00 기간내 작업자별로 1일 내외 작업</li>
+<li><strong>관련근거</strong> :
+	<ul class="bu">
+	<li><a href="http://www.iabf.or.kr/Lab/News/NoticeView.asp?board=notice&bseq=147">제5회 웹 접근성 품질마크 인증제도 시행안내</a> - 접수기간(2009.03.02~03.10) - 심사기간(2009.03~2009.05)<br />
+	- 첨부파일 : <a href="http://www.iabf.or.kr/Lab/lib/common/download.asp?path=wpds&file=품질마크 안내(제5회).hwp">품질마크 안내(제5회).hwp</a>, <a href="http://www.iabf.or.kr/Lab/lib/common/download.asp?path=wpds&file=품질마크 심사기준.hwp">품질마크 심사기준.hwp</a>
+	</li>
+	</ul>
+</li>
+<li><strong>참고자료</strong> : <em>심사기준이 26개 지표 53개 체크리스트 → 18개 지표로 재조정</em> (모든 직원 내용 숙지 반드시 필요함.)
+	<ul class="bu">
+	<li style="font-size: 1.5em;"><a href="http://www.iabf.or.kr/lib/common/download.asp?path=pds&file=090202 웹 접근성 국가표준 기술 가이드라인_Final.pdf">웹 접근성 국가표준 기술 가이드라인_Final.pdf (2009년 품질마크 기준)</li>
+	<li><a href="../Accessibility/accessibility_guideline.html">웹 접근성 평가 가이드라인(안)</a> - 2009년 기술 가이드라인과 내용 동일 -  핵심 내용과 이전 기준에서  달라진 점 참고.</li>
+	<li><a href="../Accessibility/accessibility_validation.html">웹 접근성 작업 안내</a> - 2007, 2008년 실태조사+품질마크 기준 - 본인 정리</li>
+	<li><a href="http://www.iabf.or.kr/Lab/Pds/PdsView.asp?board=dataroom&pg=3&bseq=89&md=&sf=&ss=">웹 접근성을 고려한 콘텐츠 제작 기법(2004.12).pdf</a> - 국내 최초 웹 접근성 가이드 - 정문원</li>
+	</ul>
+</li>
+<li><strong>기타</strong> : 웹접근성보완작업 FTP정보는 유지보수팀에 문의바람.</li>
+</ul>
+
+</div>
+<!-- //box4 -->
+
+<h2>2009년 제5회 품질마크(3月~5月) 대비 보완 작업</h2>
+
+
+<p>
+<em>※ 주의 : 접근성 보완 작업과 유지보수 작업이 겹치지 않도록 작업자는 서로 협의바랍니다..</em>
+
+</p>
+
+
+
+<h3>작업 대상 범위</h3>
+
+<ul class="bu">
+<li><strong>웹사이트</strong> : <a href="#table1">[표1]</a> 진해, 창녕, 사천, 산청, 의령 (본청, 회원로그인, 열린시장(군수)실, 참여시스템, 문화관광)<br />.. 과업에 포함되지 않더라도 본청에서 해당 링크가 있으면 점검 필요.</li>
+<li><strong>웹페이지</strong> : 18개 지표에 포함되는 콘텐츠가 있는 모든 웹페이지 (플래시, 동영상, 그래픽, 서식 등)</li>
+<li><strong>실작업자</strong> : <a href="#table1">[표1]</a> 디자인코더, 프로그래머<br /></li>
+</li>
+</ul>
+
+
+<h3 id="work_site">사이트별 작업 방법</h3>
+
+<!-- box4 -->
+<div class="box4">
+
+<br />
+<h4>사전 심사 대비 <span class=""><em>~3/11이전에 작업완료 필요!</em></span></h4>
+<ul class="bu">
+<li>본청 대체텍스트 제공 (자동, 90%이상) - <a href="../Accessibility/accessibility_kado-wah.html">KADO-Wah 자동 평가</a><br />
+※ 주의 : 본청 하위 폴더에 존재하는 사이트로 인하여 90%이상 안나오면 하위 도메인으로 변경 등의 대책을 클라이언트에 제시하자!!<br />
+</li>
+<li>테이블 의미태그 (수동, 70%이상) - 데이터 테이블은 summary, caption, h1~h6 중 하나라도 제공, thead, tbody, th 태그 사용.</li>
+<li>온라인 서식 레이블 (수동, 90%이상) - label의 for 속성과 id값 연결.</li>
+</ul>
+<p>
+사전 심사에서 부적합 받으면 전문가 심사도 진행하지 않고 평가 결과 보고서도 받을 수 없으므로 반드시 작업하도록 하세요!!
+</p>
+
+<h4>전문가 심사 대비</h4>
+
+<ul class="bu">
+<li><a href="http://www.iabf.or.kr/lib/common/download.asp?path=pds&file=090202 웹 접근성 국가표준 기술 가이드라인_Final.pdf">장애인 웹 접근성 국가표준 준수 기술 가이드라인 18개 지표</a> 모두 준수 기준에 적합하도록 작업한다.<br /></li>
+</ul>
+위 지표에 언급되지 않은 것( scope="col" 등)도 분명 접근성을 개선하는데 필요하지만, 이번 품질마크 대비 작업에서는 신경쓰지 않아도 됩니다.
+
+
+<h4>제출 과제</h4>
+<p>
+<em>~2009년 03월 13일(금) 오후6시까지</em> 작업 완료 여부만 저(문영신)에게 알려주세요.
+</p>
+
+</div>
+<!-- //box4 -->
+
+
+
+
+
+
+
+
+<table id="table1" class="t3" summary="작업대상 사이트별 디자인코딩, 프로그램 담당자와 비고를 보여주는 테이블" ><caption><h3>[표1] 웹접근성 프로젝트 작업대상</h3></caption>
+<colgroup style="white-space: nowrap;"><col><col style="font-weight: bold;"><col><col><col style="background: #ffe;"><col style="background: #efe;"><col style="background: #eff;"><col><col style="white-space: normal;"><col style="white-space: normal;"></colgroup>
+<thead>
+<th scope="col">No.<br />[런칭일]</th>
+<th scope="col">본청</th>
+<th scope="col">2007<br />실태조사<br />결과</th>
+<th scope="col">제4회<br />품질마크<br />결과</th>
+<th scope="col">제5회<br />품질마크<br />신청</th>
+<th scope="col">디자인<br />코더</th>
+<th scope="col">프로<br />그래머</th>
+<th scope="col">확인</th>
+<!-- <th scope="col" title="(대체텍스트,테이블,서식레이블)">사전심사</th> -->
+<th scope="col">전문가 지적 수정 요청<br />(2009.04.20~04.28)</th>
+<th scope="col">비고</th>
+</thead>
+<tbody>
+<tr>
+<th scope="row">01<br />08.09.16</th>
+<td><a href="http://www.jinhae.go.kr/">진해시</a><br />asp</td>
+<td>개편전<br />91.1</td>
+<td>申請<br />부적합</td>
+<td>申請<br />부적합</td>
+<td>방문준<br />完了</td>
+<td>배대훈<br />完了</td>
+<td>작업자</td>
+<td><em>@유지보수.. 대체텍스트, 키보드, 서식, 자바스크립트 과업내 작업완료.<br />
+@방문준.. 회원로그인관련.. 휴먼정보에 조언.</em></td>
+<td>회원로그인 타업체 작업완료.<br />
+동영상 대본 요청했으나 대본 없어서 평가기간 동안 메뉴 제거함.<br />
+시장에게 바란다 확인해보니 실명인증 lable 연결 오류 수정 완료.<br />
+나머지 프로그램 작업들에 대한 체크 후 보완 완료.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">02<br />08.10.28</th>
+<td><a href="http://www.cng.go.kr/">창녕군</a><br />asp</td>
+<td>개편전<br />81.0</td>
+<td>n/a</td>
+<td>申請<br />부적합</td>
+<td>김호정<br />完了</td>
+<td>남태형<br />完了</td>
+<td>작업자</td>
+<td><em>@유지보수.. 새창, 자바스크립트, 작업완료.<br />
+날개(퀵메뉴) 논리적순서가 맞지 않음. - 주관적이라 보류?<br />
+@갑 요청으로 인터넷방송 링크 임시삭제</em></td>
+<td>회원로그인없음<br />미결사항없음<br />
+</td>
+</tr>
+<tr>
+<th scope="row">03<br />08.12.23</th>
+<td><a href="http://www.uiryeong.go.kr/">의령군</a><br />asp</td>
+<td>개편전<br />81.5</td>
+<td>n/a</td>
+<td>申請<br /><em>우수기관</em></td>
+<td>양미정<br />完了</td>
+<td>남태형<br />完了</td>
+<td>작업자</td>
+<td><em>@양미정,남태형.. 색상,키보드,서식 작업완료.</em></td>
+<td>회원로그인없음<br />미결사항없음<br />
+</td>
+</tr>
+<tr>
+<th scope="row">04<br />09.01.05</th>
+<td><a href="http://www.sacheon.go.kr/">사천시</a><br />asp</td>
+<td>개편전<br />79.4</td>
+<td>n/a</td>
+<td>申請 안함</td>
+<td>이미숙</td>
+<td>이녕길</td>
+<td>작업자</td>
+<td></td>
+<td>갑曰 시정100선 등 보강해서 다음에 신청예정.<br />
+작업중 중단.. 동영상 대본 요청중~
+</td>
+</tr>
+<tr>
+<th scope="row">05<br />09.02.09</th>
+<td><a href="http://www.sancheong.ne.kr/">산청군</a><br />asp</td>
+<td>개편전<br />85.0</td>
+<td>n/a</td>
+<td>申請<br />부적합</td>
+<td>김호정<br />完了</td>
+<td>남태형<br />完了</td>
+<td>작업자</td>
+<td></td>
+<td>회원로그인 - my는 과업 아니지만 작업완료</td>
+</tr>
+</tbody>
+<tfoot>
+<tr style="background: #f7f7f7;">
+<th scope="row" style="background: #f7f7f7;">비고</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+
+<p>
+※ 完了는 작업 완료 여부를 알려온 것을 의미함. 비고란에.. 미결, 불가 사항 등 남김.
+</p>
+<hr />
+
+
+
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

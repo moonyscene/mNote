@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'WAS (Web Application Server) | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+
+/* 다단.[IE10+][CR.FF.OP]OK. 20160315.
+속성불가)
+	height:400px;
+	max-height:400px;
+과제1) 화면 세로 넘지 않는 방법?
+과제2) 단별 너비 다르게 지정?
+*/
+.multicol1{padding:2%;border:1px solid #e9f1f3;background:#f3f7f9;
+	-webkit-column-count: 1; /* 2~ */
+	-moz-column-count: 1; /* 2~ */
+	column-count: 1; /* 2~ */
+	-webkit-column-gap: 40px;
+	-moz-column-gap: 40px;
+	column-gap: 40px;
+	-webkit-column-rule: 1px dotted #ddd;
+	-moz-column-rule: 1px dotted #ddd;
+	column-rule: 1px dotted #ddd;
+}
+.multicol1 .cbh1{ /* content block headline1 */
+	margin-top:0;
+	-webkit-column-span: all;
+	column-span: all;	
+}
+
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+<!-- container -->
+<div class="container">
+
+
+
+
+
+<h1 class="hb1 h1">WAS (Web Application Server)</h1>
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+<p>개요.시작.기본.응용.실전.중급.고급 || 과제.할일.미완.완료 || 부록.링크</p>
+</div>
+<!-- /panel1 -->
+
+<!-- mtab1 -->
+<div class="mtab1">
+	<menu>
+	<li><a href="#Outline">Outline</a></li>
+	<li><a href="#Start">Start</a></li>
+	<li><a href="#Basic">Basic</a></li>
+	<li><a href="#Advance">Advance <!-- ( Applications. Best Practice. Intermediate. Advanced.) --></a></li>
+	<li><a href="#Task">Task</a></li>
+	<li><a href="#ToDo">ToDo</a></li>
+	<li><a href="#Unfinished">Unfinished</a></li>
+	<li><a href="#Finished">Finished</a></li>
+	<li><a href="#Appendix">Appendix</a></li>
+	<li><a href="#Link">Link</a></li>
+	</menu>
+</div>
+<!-- /mtab1 -->
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Outline">Outline</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Start">Start</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock multicol1">
+
+
+<h3 class="hb1 h3 cbh1">Apache Tomcat</h3>
+
+<!-- panel1 -->
+<div class="panel1 clearfix">
+과제1) 톰캣 버전이 달라도 server.xml 호환될까?<br />
+과제3) 기본문서 index.jsp, index.html 에 더 추가?<br />
+</div>
+<!-- /panel1 -->
+
+
+<h4 class="hb1 h4">톰캣 설치 (윈도우)</h4>
+
+C: 드라이브 (OS 설치된) 대신 다른 드라이브 (설명은 M:) 에 설치하기
+
+<ol class="ol1 bo1">
+<li>C:\Program Files\Java 복제 ))) M:\Program Files\Java</li>
+<li>apache-tomcat-8.0.30.exe 실행<br />
+[Next] 클릭 하다가 중간에 아래처럼 설치된 자바 폴더와 설치할 톰캣 폴더를 입력하고..<br />
+[Next] 클릭 하면 설치 완료 및 Start Service 한다.
+-- 아래 --
+M:\Program Files\Java
+M:\Program Files\Apache Software Foundation
+--
+</li>
+</ol>
+
+<h4 class="hb1 h4">톰캣에서 웹사이트 여러개 운영하기</h4>
+
+<ol class="ol1 bo1">
+<li>M:\Program Files\Apache Software Foundation\Tomcat 8.0\conf\server.xml 
+복제하고 원본 파일이름 변경하여 보관해둔다. ))) server.(설치원본).xml</li>
+<li>복제한 server.xml 파일을 에디터로 연다.</li>
+<li>웹사이트 서비스는 Service 태그에 정의한다.<br />
+
+<xmp class="xmp">
+<Service name="Catalina">
+…
+</Service>
+</xmp>
+
+이미 8080 포트롤 운영하는 웹서비스가 있다면..<br />
+… 에서 아래 코드를 찾아서 포트 8080 을 다른 값으로 변경한다. (다른값은 그대로)<br />
+
+<xmp class="xmp">
+<Connector port="8088" protocol="HTTP/1.1"
+	connectionTimeout="20000"
+	redirectPort="8443" />
+</xmp>
+
+웹사이트 서비스를 추가하려면 Service 태그 복제해서 주석을 제거한다.<br />
+Connector port="8080" protocol="HTTP/1.1" 에서 port 값을 변경한다.<br />
+appBase="" 속성값에 웹사이트 폴더를 기입한다.<br />
+<em class="em">웹사이트 루트는 appBase 경로의 하위 폴더 /ROOT/ 로 설정된다.</em><br />
+
+<xmp class="xmp">
+<Service name="Catalina8880">
+	<Connector port="8880" protocol="HTTP/1.1" 
+		maxThreads="150" connectionTimeout="20000" 
+		redirectPort="8443" />
+	<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+	<Engine name="Catalina" defaultHost="localhost">
+		<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+			resourceName="UserDatabase"/>
+		<Host name="localhost" appBase="M:/work/Project/☆★P2015_(270))244)횡성군.통합재구축/web/[#횡성군#대표포털+#es]"
+			unpackWARs="true" autoDeploy="true"
+			xmlValidation="false" xmlNamespaceAware="false">
+		</Host>
+	</Engine>
+</Service>
+</xmp>
+
+Configure Tomcat 을 실행하여 [Stop Service] 하고, [Start Service] 한다.<br />
+
+</li>
+<li>톰캣 재설치하고 기존 운영하던 server.xml 가져와도 정상적으로 동작한다.<br />
+조건) apache-tomcat-8.0.30 같은 버전<br />
+과제) 톰캣 버전이 달라도 server.xml 호환될까? ★☆<br />
+</li>
+</ol>
+
+<h4 class="hb1 h4">/ROOT/ 를 변경하려면?</h4>
+
+Host 태그 자식으로 아래와 같이 Context 추가한다.<br />
+
+<xmp class="xmp">
+<Context path="" docBase="." reloadable="true" />
+</xmp>
+
+추가한 Host 태그 완성본..<br />
+
+<xmp class="xmp">
+<Host name="localhost" appBase="M:/myshin/web/mNote.v2"
+	unpackWARs="true" autoDeploy="true"
+	xmlValidation="false" xmlNamespaceAware="false">
+	<Context path="" docBase="." reloadable="true" />
+</Host>
+</xmp>
+
+<b class="em">루트폴더가 되긴하는데.. 파일접근 안된다. 하위경로 파일은 접근된다.</b>★☆ ToDo(할일) ~<br />
+
+
+
+</div>
+<!-- /contentsBlock /◇◆19 -->
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Basic">Basic</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Advance">Advance ( Applications. Best Practice. Intermediate. Advanced.)</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Task">Task</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="ToDo">ToDo</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Unfinished">Unfinished</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Finished">Finished</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Appendix">Appendix</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Link</h2>
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20160429~
+20160728.
+</small></p>
+
+
+
+</div>
+<!-- /container -->
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

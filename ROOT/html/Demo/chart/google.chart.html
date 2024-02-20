@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211026 | @m | 최초작성
+ * 20211026 | @m | 최초완성
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Google Charts Demo by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	Google Charts Demo
+</h1>
+
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Pie</h2>
+
+
+<div id="piechart" style="width: 100%; height: 500px;"></div>
+
+<script>/*<![CDATA[*/
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+
+		var data = google.visualization.arrayToDataTable([
+			['Task', 'Hours per Day'],
+			['Work',     11],
+			['Eat',      2],
+			['Commute',  2],
+			['Watch TV', 2],
+			['Sleep',    7]
+		]);
+
+		var options = {
+			title: 'My Daily Activities'
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+		chart.draw(data, options);
+	}
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Line</h2>
+
+
+<div id="linechart" style="width: 100%; height: 500px;"></div>
+
+<script>/*<![CDATA[*/
+	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawBasic);
+
+	function drawBasic() {
+
+		var data = new google.visualization.DataTable();
+		data.addColumn('number', 'X');
+		data.addColumn('number', 'Dogs');
+
+		data.addRows([
+			[0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+			[6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+			[12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+			[18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+			[24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+			[30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+			[36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+			[42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+			[48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+			[54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+			[60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+			[66, 70], [67, 72], [68, 75], [69, 80]
+		]);
+
+		var options = {
+			hAxis: {
+				title: 'Time'
+			},
+			vAxis: {
+				title: 'Popularity'
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+
+		chart.draw(data, options);
+	}
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Column (bar)</h2>
+
+
+<div id="barchart" style="width: 100%; height: 500px;"></div>
+
+<script>/*<![CDATA[*/
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+	google.charts.setOnLoadCallback(drawMultSeries);
+
+	function drawMultSeries() {
+		var data = new google.visualization.DataTable();
+		data.addColumn('timeofday', 'Time of Day');
+		data.addColumn('number', 'Motivation Level');
+		data.addColumn('number', 'Energy Level');
+
+		data.addRows([
+			[{v: [8, 0, 0], f: '8 am'}, 1, .25],
+			[{v: [9, 0, 0], f: '9 am'}, 2, .5],
+			[{v: [10, 0, 0], f:'10 am'}, 3, 1],
+			[{v: [11, 0, 0], f: '11 am'}, 4, 2.25],
+			[{v: [12, 0, 0], f: '12 pm'}, 5, 2.25],
+			[{v: [13, 0, 0], f: '1 pm'}, 6, 3],
+			[{v: [14, 0, 0], f: '2 pm'}, 7, 4],
+			[{v: [15, 0, 0], f: '3 pm'}, 8, 5.25],
+			[{v: [16, 0, 0], f: '4 pm'}, 9, 7.5],
+			[{v: [17, 0, 0], f: '5 pm'}, 10, 10],
+		]);
+
+		var options = {
+			title: 'Motivation and Energy Level Throughout the Day',
+			hAxis: {
+				title: 'Time of Day',
+				format: 'h:mm a',
+				viewWindow: {
+					min: [7, 30, 0],
+					max: [17, 30, 0]
+				}
+			},
+			vAxis: {
+				title: 'Rating (scale of 1-10)'
+			}
+		};
+
+		var chart = new google.visualization.ColumnChart(
+			document.getElementById('barchart'));
+
+		chart.draw(data, options);
+	}
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Area</h2>
+
+
+<div id="areachart" style="width: 100%; height: 500px;"></div>
+
+<script>/*<![CDATA[*/
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['Year', 'Sales', 'Expenses'],
+			['2013',  1000,      400],
+			['2014',  1170,      460],
+			['2015',  660,       1120],
+			['2016',  1030,      540]
+		]);
+
+		var options = {
+			title: 'Company Performance',
+			hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+			vAxis: {minValue: 0}
+		};
+
+		var chart = new google.visualization.AreaChart(document.getElementById('areachart'));
+		chart.draw(data, options);
+	}
+/*]]>*/</script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">Controls and Dashboards</h2>
+
+
+<a href="https://developers-dot-devsite-v2-prod.appspot.com/chart/interactive/docs/gallery/controls.html" target="_blank" rel="noopener" title="새 창" class="a1">
+	Controls and Dashboards
+</a>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

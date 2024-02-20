@@ -1,0 +1,125 @@
+/**
+ * 20211018 | @m | 최초작성 (( Origin
+ * 20211018 | @m | 최초완성
+ */
+
+html,body {
+	/* font-family: Arial,Helvetica,sans-serif */
+}
+
+.bcBar svg {
+	/* font-family: Arial,Helvetica,sans-serif */
+}
+
+.bcBar svg .title-text {
+	/* font-size: 14px */
+}
+
+.bcBar .yaxis text,.bcBar .xaxis text {
+	/* font-size: 10px */
+}
+
+.bcBar .x_lines line,
+.bcBar .y_lines line {
+	stroke: rgba(0,0,0, .066);
+	stroke-width: 1px;
+}
+
+.bcBar .x_lines path,
+.bcBar .y_lines path {
+	stroke-width: 0;
+}
+
+.bcBar .legend_div {
+	display:flex; /* ☆ */
+	justify-content:center;
+	margin: 0 40px 5px;
+	color:#666;
+	text-align:center;
+}
+
+.bcBar .legend_div ul {
+	flex:auto;
+	display:inline-flex; /* ☆ */
+	flex-wrap:wrap;
+	list-style-type: none;
+	padding: 0;
+	margin: auto;
+	text-align:left;
+}
+
+.bcBar .legend_div ul li {
+	display: inline-block;
+	padding: 0 1em;
+	vertical-align: middle;
+}
+
+.bcBar .legend_div ul li p {
+	display: inline-block;
+	font-size: 14px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.bcBar .legend_div ul li div {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+		vertical-align: middle;
+}
+
+.bcBar .svg_legend_div_side {
+	display: table-cell;
+	width: 100%
+}
+
+.bcBar .legend_div_side {
+	display: table-cell;
+	margin-bottom: 5px;
+	vertical-align: middle
+}
+
+.bcBar .legend_div_side ul {
+	display: table
+	list-style-type: none;
+	padding: 0;
+}
+
+.bcBar .legend_div_side ul li {
+	display: block
+}
+
+.bcBar .legend_div_side ul li p {
+	display: inline-block;
+	font-size: 14px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.bcBar .legend_div_side ul li div {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+/* ◇◆ */
+@media only screen and (max-width: 767px) {
+	.bcBar .legend_div ul li p,
+	.bcBar .legend_div_side ul li p {
+		font-size: .75em;
+		vertical-align: middle;
+	}
+}
+
+/* ◇◆ @m */
+.bcBar svg .xaxis .domain,
+.bcBar svg .yaxis .domain,
+.bcBar svg .xaxis .tick line,
+.bcBar svg .yaxis .tick line{
+	stroke: none !important;
+}
+.bcBar svg .tick text{
+	fill: #888 !important;
+}

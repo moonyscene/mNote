@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Markup misc | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+
+<h1 class="hb1 h1">Markup misc</h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#imageMap">imageMap</a></li>
+<li><a href="#email">Newsletter (email template)</a></li>
+<li><a href="#meta">meta</a></li>
+<li><a href="#link">link</a></li>
+</menu>
+<menu>
+<li><a href="../Markup/div.html" target="_self">div</a></li>
+<li><a href="../Markup/table.html" target="_self">table</a></li>
+<li><a href="../Markup/flash.html" target="_self">flash</a></li>
+<li><a href="../Markup/movie.html" target="_self">movie</a></li>
+<li><a href="../Markup/iframe.html" target="_self">iframe, frame</a></li>
+<li><a href="../Markup/form.html" target="_self">form</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+
+
+<h2 class="hb1 h2" id="imageMap">imageMap. img usemap map area</h2>
+
+<ul class="bu">
+<li>html 에서 map 태그 코드 위치는?<br />
+상관없다.  usemap="#?" 속성을 가진 요소의 위치만 논리적으로 맞으면 된다.
+단, map 요소 안의 area 논리적 순서는 지켜야 한다.
+</li>
+</ul>
+
+<h2 class="hb1 h2" id="email">Newsletter (email template)</h2>
+
+
+<h3 class="hb1 h3">Coding Hint</h3>
+
+<ul class="bu">
+<li>table+div 배치하고 텍스트는 inline CSS 사용</li>
+<li>이미지 아래 줄간격 발생<br />
+<xmp class="xmp">
+네이버메일 5px 간격,
+다음한메일 5px 간격,
+구글지메일 3px 간격,
+아웃룩익스프레스 간격 없음.<br />
+[해결] 불가! 네이버, 다음은 style="margin:0 0 -5px 0;" 사용가능. 구글지메일은 인라인 style 사용불가. 아웃룩익스프레스 간격 없으므로..
+</xmp>
+</li>
+<li>이미지맵 적극 활용. map 요소 코드 위치 고민</li>
+<li>동적 콘텐츠 외 모든 정적 콘텐츠는 이미지로 하는게 쉽다.</li>
+<li>== 코딩 시험단계 == 
+* 네이버메일, 다음한메일, 구글지메일 테스트, 아웃룩익스프레스 OK<br />
+(메일 서비스마다 처리해주는 것이 다르므로 콘텐츠 배치 간격 등의 미세한 차이는 발생할 수 있습니다.)<br />
+* 웹표준(W3C Validator Passed) OK<br />
+* 키보드 전진 후진 동작, 초점 표시, 본문 프린트 [IE8] OK<br />
+* 접근성(웹 접근성 품질마크 자가진단 서비스 준수율100%) OK 제목 제공 여부: 0% -- 당연한 결과<br />
+* 호환성[IE8,7(,6),FF,SF,CR,OP] OK<br />
+</li>
+</ul>
+
+
+<h3 class="hb1 h3">Ref</h3>
+
+<ul class="bu">
+<li><a href="http://lab.jinbo.net/drupal/book/export/html/109">웹기술 공유 강좌</a> 웹 페이지 내 검색 (IE는 [Ctrl+F]) "메일로 발송되는 뉴스레터" </li>
+<li>[m] <a href="../CSS/css_misc.html#c5">메일 발송용 페이지 코드 작성시 주의사항  - <em>table 배치 사용하자!!</em></a></li>
+</ul>
+
+
+<h2 class="hb1 h2" id="meta">&lt;meta /&gt; Tag</h2>
+
+<xmp class="xmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!-- HTML4.01 콘텐츠 타입 text/html 문자 인코딩 utf-8 -->
+<meta charset="utf-8" /><!-- HTML5 문자 인코딩 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- 유저 에이전트 호환 설정 -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- 뷰포트 YYYYMMDD.★☆ToEdit) ☆ -->
+
+<meta http-equiv="content-Style-Type" content="text/css" /><!-- 디폴트 스타일시트 집합 설정 -->
+<meta http-equiv="content-Script-Type" content="text/javascript" /><!-- 디폴트 스크립트 언어 설정 -->
+
+<meta http-equiv="Cache-Control" content="no-cache" /><!-- 캐쉬가 안되게 HTTP1.1 -->
+<meta http-equiv="Pragma" content="no-cache" /><!-- 캐쉬 안되게 HTTP1.0 , HTML5에서 사용하면 문법 오류. -->
+<meta http-equiv="Expire" content="-1" /><!-- 캐쉬 파기시간을 정의 -->
+<meta http-equiv="Expires" content="Mon, 08 Sep 2003 10:10:10 GMT" /><!-- 캐쉬 만료(파기)일 -->
+<meta http-equiv="Last-Modified" content="Mon,15 Jul 2009 11:25:08" /><!-- 마지막수정일을 정의. -->
+
+<meta http-equiv="Refresh" content="60" /><!-- 60초 마다 새로고침 -->
+<meta http-equiv="Refresh" content="30; url=주소" /><!-- 주소로 30초 후 이동 -->
+<meta http-equiv="Refresh" content="0; url=http://itlab.tistory.com/" /><!-- 페이지 자동 이동 (Redirect) -->
+
+<meta http-equiv="Page-Enter" content="RevealTrans(Duration=1, Transition=12)" /><!-- 페이지 들어갈 때 duration 초 동안 장면 전환 효과 -->
+<meta http-equiv="Page-Exit" content="RevealTrans(Duration=1, Transition=12)" /> <!-- 페이지 나갈 때 duration 초 동안 장면 전환 효과 -->
+
+<meta http-equiv="Imagetoolbar" content="no" /><!-- 그림위에 마우스 오버시 이미지 관련 툴바가 생기지 않음. -->
+
+<meta name="Author" content="myshin, MoonYoungshin" /><!-- 페이지 제작자 / 저작권 / 만든사람 이름 -->
+<meta name="Subject" content="잉글랜드 프리미어 리그" /><!-- 웹사이트 제목 -->
+<meta name="Title" content="????" /><!-- 웹사이트 이름 -->
+<meta name="Keywords" content="HTML, CSS, XML, XHTML, JavaScript, 태그, 스타일시트, 자바스크립트" /><!-- 검색엔진에서 검색되는 키워드 , 쉼표로 구분 입력 -->
+<meta name="Description" content="Free Web tutorials on HTML and CSS" /><!-- 문서의 요약 / 페이지에 대한 정보 / 설명문 입력 -->
+<meta name="Generator" content="EditPlus3" /><!-- 페이지 생성 프로그램(제작 에디터) -->
+<meta name="Revised" content="Hege Refsnes, 23/10/2011" /><!-- 개정,수정정보 -->
+
+<meta name="Classification" content="카테고리위치(분류)" />
+<meta name="Publisher" content="만든단체/회사 이름" />
+<meta name="Other Agent" content="웹책임자 이름" />
+<meta name="Reply-To(Email)" content="메일주소 입력" />
+<meta name="Filename" content="파일이름 입력" />
+<meta name="Author-Date(Date)" content="제작일" />
+<meta name="Location" content="위치" />
+<meta name="Distribution" content="배포자" />
+<meta name="Copyright" content="2003 RANGS" /><!-- 저작권에 관한 정보 -->
+
+<meta name="Robots" content="ALL" /><!-- 모든 내용을 긁어감 -->
+<meta name="Robots" content="index,follow" /><!-- 이 문서도 긁어가고 링크된 문서도 긁어감. -->
+<meta name="Robots" content="noindex,follow" /><!-- 이 문서는 긁어가지 말고 링크된 문서만 긁어감. -->
+<meta name="Robots" content="index,nofollow" /><!-- 이 문서는 긁어가되, 링크는 무시함. -->
+<meta name="Robots" content="noindex,nofollow" /><!-- 이 문서도 긁지 않고, 링크도 무시함. -->
+
+<meta name="CODE_LANGUAGE" content="C#" />
+<meta name="CODE_MADE" content="SK Communications" />
+<meta name="AutoComplete" content="off" />
+
+<meta name="msapplication-task" content="name=Daum;action-uri=http://www.daum.net/;icon-uri=/favicon.ico" />
+<meta name="msapplication-task" content="name=미디어다음;action-uri=http://media.daum.net/;icon-uri=/media_favicon.ico" />
+<meta name="msapplication-task" content="name=tv팟;action-uri=http://tvpot.daum.net;icon-uri=/tvpot_favicon.ico" />
+<meta name="msapplication-task" content="name=메일;action-uri=http://mail.daum.net;icon-uri=/mail_favicon.ico" />
+
+<meta name="msapplication-starturl" content="http://www.nate.com/" />
+<meta name="msapplication-task" content="name=받은 메일함 보기; action-uri=http://mail3.nate.com/?go_url=listmail&amp;mboxid=10&amp;lt=main; icon-uri=nate_mail.ico" />
+<meta name="msapplication-task" content="name=모아보기; action-uri=http://www.cyworld.com/etc/bridgeJumplist.asp?category=clog; icon-uri=cy_clog.ico" />
+<meta name="msapplication-task" content="name=내 미니홈피 가기; action-uri=http://www.cyworld.com/etc/bridgeJumplist.asp?category=minihp; icon-uri=cy_minihp.ico" />
+<meta name="msapplication-task" content="name=내 블로그 가기; action-uri=http://www.cyworld.com/etc/bridgeJumplist.asp?category=blog; icon-uri=cy_blog.ico" />
+<meta name="msapplication-task" content="name=내 BGM 듣기; action-uri=http://music.cyworld.com/note/mymusic/mysong.asp; icon-uri=cy_mymusic.ico" />
+
+<meta itemprop="image" content="/images/google_favicon_128.png" />
+</xmp>
+
+ 
+<h3 class="hb1 h3">Transition 값 효과</h3>
+ 
+<ul class="bu">
+<li><i>0</i> Box in - 네모난 박스가 바깥에서 안쪽으로 만들어지면서 이미지 변환 </li>
+<li><i>1</i> Box out - 네모난 박스가 안쪽에서 바깥쪽으로 만들어지면서 이미지 변환 </li>
+<li><i>2</i> Circle in - 원이 바깥에서 안쪽으로 만들어지면서 이미지 변환 </li>
+<li><i>3</i> Circle out- 원이 안쪽에서 바깥쪽으로 만들어지면서 이미지 변환 </li>
+<li><i>4</i> Wipe up - 이미지의 아래에서 위쪽으로 수직 이동하면서 변환 </li>
+<li><i>5</i> Wipe down - 이미지의 위쪽에서 아래로 수직 이동하면서 변환 </li>
+<li><i>6</i> Wipe right - 이미지의 왼쪽에서 오른쪽으로 수평 이동하면서 변환 </li>
+<li><i>7</i> Wipe left - 이미지의 오른쪽에서 왼쪽으로 수평 이동하면서 변환 </li>
+<li><i>8</i> Vertical blinds - 수직 브라인드가 쳐지는 형태로 이미지 변환 </li>
+<li><i>9</i> Horizontal blinds - 수평 브라인드가 쳐지는 형태로 이미지 변환 </li>
+<li><i>10</i> Checkerboard across - 바둑판 형태의 격자가 왼쪽에서 오른쪽으로 생기면서 이미지 변환 </li>
+<li><i>11</i> Checkerboard down - 바둑판 형태의 격자가 위에서 아래로 생기면서 이미지 변환 </li>
+<li><i>12</i> Random dissove - 안개낀 형태로 이미지가 바뀌면서 변환 </li>
+<li><i>13</i> Split vertical in - 왼쪽과 오른쪽 끝에서 중앙으로 수직이동하면서 이미지 변환 </li>
+<li><i>14</i> Split vertical out - 중앙에서 왼쪽과 오른쪽 끝으로 수직 이동하면서 이미지 변환 </li>
+<li><i>15</i> Split Horizontal in - 위쪽과 아래쪽에서 중앙으로 수평이동하면서 이미지 변환 </li>
+<li><i>16</i> Split Horizontal ou - 중앙에서 위쪽과 아래쪽으로 수평이동하면서 이미지 변환t </li>
+<li><i>17</i> Strips left down - 오른쪽 위에서 왼쪽 아래로 이동하면서 이미지 변환 </li>
+<li><i>18</i> Strips left up - 오른쪽 아래에서 왼쪽 위로 이동하면서 이미지 변환 </li>
+<li><i>19</i> Strips right down - 왼쪽 위에서 오른쪽 아래로 이동하면서 이미지 변환 </li>
+<li><i>20</i> Strips right up - 왼쪽 아래에서 오른쪽 위로 이동하면서 이미지 변환 </li>
+<li><i>21</i> Random bars horizontal - 수평선이 무작위로 생기면서 이미지 변환 </li>
+<li><i>22</i> Random bars vertical - 수직선이 무작위로 생기면서 이미지 변환 </li>
+<li><i>23</i> Random - 임의로 지정됨</li>
+</ul>
+
+
+<h2 class="hb1 h2" id="link">&lt;link /&gt; Tag</h2>
+
+<xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="/css/main_20120309.css" />
+<link rel="alternate" type="application/rss+xml" title="Daum - Top Stories [RSS]" href="http://www.daum.net/rss.xml" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://top-sc.daum-img.net/w3c/OpenSearch.xml" title="다음" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</xmp>
+
+
+<h2 class="hb1 h2">Link</h2>
+<ul class="bu">
+<li><a href="http://html5ref.clearboth.org/doku.php?id=html5:attribute:http-equiv_meta">http-equiv 속성 (meta)</a></li>
+<li><a href="http://html5ref.clearboth.org/doku.php?id=html5:element:link">link 요소</a></li>
+<li><a href="http://naradesign.net/wp/page/39/">http://naradesign.net/wp/page/39/</a> HTML 명세서 읽기</li>
+</ul>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20120320.~
+20191114.
+20131119.
+20130528.
+20130415.
+20130329.
+20130104.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

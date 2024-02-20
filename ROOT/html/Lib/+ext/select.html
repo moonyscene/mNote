@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OUIF : Select</title>
+<link rel="stylesheet" type="text/css" href="select.css"/>
+<style type="text/css">
+@charset "utf-8"; 
+/* Select */
+.select{ position:relative; line-height:normal; display:inline-block; *display:inline; vertical-align:middle; background:#fff; *zoom:1;}
+.select *{ margin:0; padding:0; cursor:pointer; font-size:12px; font-family:Tahoma, Sans-serif;}
+.select .myValue{ position:relative; z-index:2; left:0; top:0; border:1px solid #bababa; color:#666; line-height:19px; _line-height:normal; text-align:left; overflow:visible; background:transparent;}
+.select .myValue.selected{ font-weight:bold;}
+.select.open .myValue,
+.select .myValue.outLine{ border:1px solid #999;}
+.select button.myValue{ height:21px; width:100%; text-indent:5px; *text-indent:0; *padding-left:5px;}
+.select div.myValue{ height:19px; text-indent:8px;}
+.select .ctrl{ position:absolute; top:0; right:0; width:18px; height:19px; border:1px solid #bababa; border-left:1px solid #eaeaea; background:#fff;}
+.select .arrow{ position:absolute; width:0; height:0; top:9px; right:6px; line-height:0; font-size:0; border-top:3px solid #999; border-left:3px solid #fff; border-right:3px solid #fff;}
+.select ul{ top:20px; left:0; width:100%; list-style:none; border:0; border-top:1px solid #bababa; border-bottom:1px solid #bababa; background:#fff; overflow:hidden;}
+.select ul.aList{ display:none;}
+.select.open ul.aList{ display:block;}
+.select ul.iList{ left:-2000%;}
+.select.open ul.iList{ left:0;}
+.select li{ position:relative; overflow:hidden; white-space:nowrap; height:18px; border-left:1px solid #bababa; border-right:1px solid #bababa;}
+.select li input.option{ position:absolute; width:100%; height:20px; line-height:20px;}
+.select li label{ position:absolute; left:0; top:0; width:100%; text-indent:8px; *text-indent:6px; height:18px; line-height:18px; color:#767676; background:#fff;}
+.select li a{ display:block; text-indent:8px; *text-indent:6px; height:18px; line-height:18px; color:#767676; background:#fff; text-decoration:none;}
+.select li.hover *{ background:#999; color:#fff;}
+</style>
+</head>
+<body>
+<h1>Anchor : Drop Down Link</h1>
+<p><cite><a href="http://naradesign.net/wp/2010/02/18/1192/">※ CSS Drop Down : Emulate Select/Option</a></cite></p>
+<div class="select open" style="width:200px;">
+	<span class="ctrl"><span class="arrow"></span></span>
+	<button type="button" class="myValue">Select Link</button>
+	<ul class="aList">
+		<li><a href="#1">Link_1</a></li>
+		<li><a href="#2">Link_2</a></li>
+		<li><a href="#3">Link_3</a></li>
+	</ul>
+</div>
+<div class="select open" style="width:200px;">
+	<span class="ctrl"><span class="arrow"></span></span>
+	<button type="button" class="myValue">Select Link</button>
+	<ul class="aList">
+		<li><a href="#1">Link_1</a></li>
+		<li><a href="#2">Link_2</a></li>
+		<li><a href="#3">Link_3</a></li>
+	</ul>
+</div>
+<hr />
+<h1>Single Select Form : Radio Input(Emulate Select/Option)</h1>
+<form action="">
+	<div class="select open" style="width:200px;">
+		<span class="ctrl"><span class="arrow"></span></span>
+		<div class="myValue"></div>
+		<ul class="iList">
+			<li><input name="c" id="c0" class="option" type="radio" checked="checked" /><label for="c0">Select Option1</label></li>
+			<li><input name="c" id="c1" class="option" type="radio" value="" /><label for="c1">Option_1</label></li>
+			<li><input name="c" id="c2" class="option" type="radio" value="" /><label for="c2">Option_2</label></li>
+			<li><input name="c" id="c3" class="option" type="radio" value="" /><label for="c3">Option_3</label></li>
+		</ul>
+	</div>
+	<div class="select open" style="width:200px;">
+		<span class="ctrl"><span class="arrow"></span></span>
+		<div class="myValue"></div>
+		<ul class="iList">
+			<li><input name="d" id="d0" class="option" type="radio" checked="checked" /><label for="d0">Select Option2</label></li>
+			<li><input name="d" id="d1" class="option" type="radio" value="" /><label for="d1">Option_1</label></li>
+			<li><input name="d" id="d2" class="option" type="radio" value="" /><label for="d2">Option_2</label></li>
+			<li><input name="d" id="d3" class="option" type="radio" value="" /><label for="d3">Option_3</label></li>
+		</ul>
+	</div>
+	<button type="submit">GO</button>
+	<button type="reset">RESET</button>
+</form>
+<hr />
+<button type="button" onclick="$('link').attr('href', ''); $('*').attr('style','')">CSS(X)</button>
+<button type="button" onclick="location.reload()">CSS(O)</button>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+jQuery(function($){
+	
+	// Common
+	var select_root = $('div.select');
+	var select_value = $('.myValue');
+	var select_a = $('div.select>ul>li>a');
+	var select_input = $('div.select>ul>li>input[type=radio]');
+	var select_label = $('div.select>ul>li>label');
+	
+	// Radio Default Value
+	$('div.myValue').each(function(){
+		var default_value = $(this).next('.iList').find('input[checked]').next('label').text();
+		$(this).append(default_value);
+	});
+	
+	// Line
+	select_value.bind('focusin',function(){$(this).addClass('outLine');});
+	select_value.bind('focusout',function(){$(this).removeClass('outLine');});
+	select_input.bind('focusin',function(){$(this).parents('div.select').children('div.myValue').addClass('outLine');});
+	select_input.bind('focusout',function(){$(this).parents('div.select').children('div.myValue').removeClass('outLine');});
+	
+	// Show
+	function show_option(){
+		$(this).parents('div.select:first').toggleClass('open');
+	}
+	
+	// Hover
+	function i_hover(){
+		$(this).parents('ul:first').children('li').removeClass('hover');
+		$(this).parents('li:first').toggleClass('hover');
+	}
+	
+	// Hide
+	function hide_option(){
+		var t = $(this);
+		setTimeout(function(){
+			t.parents('div.select:first').removeClass('open');
+		}, 1);
+	}
+	
+	// Set Input
+	function set_label(){
+		var v = $(this).next('label').text();
+		$(this).parents('ul:first').prev('.myValue').text('').append(v);
+		$(this).parents('ul:first').prev('.myValue').addClass('selected');
+	}
+	
+	// Set Anchor
+	function set_anchor(){
+		var v = $(this).text();
+		$(this).parents('ul:first').prev('.myValue').text('').append(v);
+		$(this).parents('ul:first').prev('.myValue').addClass('selected');
+	}
+
+	// Anchor Focus Out
+	$('*:not("div.select a")').focus(function(){
+		$('.aList').parent('.select').removeClass('open');
+	});
+	
+	select_value.click(show_option);
+	select_root.find('ul').css('position','absolute');
+	select_root.removeClass('open');
+	select_root.mouseleave(function(){$(this).removeClass('open');});
+	select_a.click(set_anchor).click(hide_option).focus(i_hover).hover(i_hover);
+	select_input.change(set_label).focus(set_label);
+	select_label.hover(i_hover).click(hide_option);
+	
+	// Form Reset
+	$('input[type="reset"], button[type="reset"]').click(function(){
+		$(this).parents('form:first').find('.myValue').each(function(){
+			var origin = $(this).next('ul:first').find('li:first label').text();
+			$(this).text(origin).removeClass('selected');
+		});
+	});
+	
+});
+</script>
+</body>
+</html>

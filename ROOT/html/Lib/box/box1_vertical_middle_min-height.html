@@ -1,0 +1,248 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8" />
+<title>box1 vertical middle min-height</title>
+<style type="text/css">/*<![CDATA[*/
+/* Base */
+*{font-style:normal;font-family:'나눔고딕','돋움',Dotum,sans-serif;}
+body{margin:10px;background:#fff;/* color:#333;*/font-size:75%;line-height:1.5;word-wrap:break-word;}
+table,pre{font-size:1em;}
+a{text-decoration:none;}
+a:link,a:visited{color:#36c;cursor:pointer;}
+a:link:hover,a:link:active,a:link:focus{color:#380;text-decoration:underline;}
+a:visited:hover,a:visited:active,a:visited:focus{color:#380;text-decoration:underline;}
+img{border:0;}
+hr{display:none;}
+em{color:#e00;}
+pre{white-space:pre-wrap;word-wrap:break-word;}
+h1,h2,h3,h4,h5,h6,p,ul,ol,dl,menu,blockquote,fieldset,form,pre{margin-top:1.5em;margin-bottom:1.5em;}
+ul li img{vertical-align:top;}
+* html .png24{tmp:expression(setPng24(this));}
+.skip,.blind{position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden;filter:alpha(opacity=0);opacity:0;}
+.clear,.brclear{display:block;clear:both;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;}
+
+/* box1vm1 */
+.box1vm1{display:table;position:relative;width:100%;min-height:120px;height:auto !important;height:120px;margin:0 -3px 10px;border:3px solid #eee;}
+.box1vm1 .cell{display:table-cell;vertical-align:middle;}
+.box1vm1 .inner{position:relative;padding:20px;overflow:hidden;}
+.box1vm1 .inner p{margin:0;}
+.box1vm2 .inner img{float:left;margin:0 20px 0 0;}
+*+html .box1vm1 .cell{display:inline-block;position:absolute;left:0;top:50%}
+*+html .box1vm1 .inner{top:-50%;height:1%;}
+*+html .box1vm1.expand .cell{position:static;}
+*+html .box1vm1.expand .inner{top:auto;}
+* html .box1vm1 .cell{display:inline-block;position:absolute;left:0;top:50%;}
+* html .box1vm1 .inner{top:-50%;height:1%;}
+* html .box1vm1.expand .cell{position:static;}
+* html .box1vm1.expand .inner{top:auto;}
+/* text-align:center; */
+.box1vm1.tac{text-align:center;}
+*+html .box1vm1.tac .cell{float:right;position:relative;left:-50%;top:50%;}
+*+html .box1vm1.tac .inner{float:left;left:50%;top:-50%;height:1%;}
+* html .box1vm1.tac .cell{float:right;position:relative;left:-50%;top:50%;}
+* html .box1vm1.tac .inner{float:left;left:50%;top:-50%;height:1%;}
+
+/* box1vm2 */
+.box1vm2{display:table;position:relative;width:100%;min-height:160px;height:auto !important;height:160px;margin:0 -3px 10px;border:3px solid #eee;}
+.box1vm2 .cell{display:table-cell;vertical-align:middle;}
+.box1vm2 .inner{position:relative;padding:20px;overflow:hidden;}
+.box1vm2 .inner p{margin:0;}
+.box1vm2 .inner img{float:left;margin:0 20px 0 0;}
+* html .box1vm2 .cell{display:inline-block;position:absolute;left:0;top:50%;}
+*+html .box1vm2 .cell{display:inline-block;position:absolute;left:0;top:50%}
+* html .box1vm2 .inner{top:-50%;height:1%;}
+*+html .box1vm2 .inner{top:-50%;height:1%;}
+
+/* box1vm3 */
+.box1vm3{display:table;position:relative;width:100%;min-height:160px;height:auto !important;height:160px;margin:0 -3px 10px;border:3px solid #eee;}
+.box1vm3 .cell{display:table-cell;height:160px;vertical-align:middle;}
+.box1vm3 .inner{position:relative;padding:0 20px 0 200px;}
+.box1vm3 .inner p{margin:0;}
+.box1vm3 .inner img{position:absolute;left:20px;top:50%;margin:-60px 0 0 0;}
+* html .box1vm3 .cell{display:inline-block;position:absolute;left:0;top:50%;height:auto;}
+*+html .box1vm3 .cell{display:inline-block;position:absolute;left:0;top:50%;height:auto;}
+* html .box1vm3 .inner{top:-50%;height:1%;}
+*+html .box1vm3 .inner{top:-50%;height:1%;}
+
+/* box1vm4 */
+.box1vm4outer{overflow:hidden;}
+.box1vm4{display:table;float:left;position:relative;width:200px;min-height:160px;height:auto !important;height:160px;margin:0 0 0 10px;border:3px solid #eee;}
+.box1vm4:hover{border:3px solid #f90;cursor:pointer;}
+.box1vm4 .cell{display:table-cell;float:left;text-align:center;vertical-align:middle;}
+.box1vm4 .inner{float:left;position:relative;padding:20px;line-height:1;}
+.box1vm4 .inner img{float:left;}
+.box1vm4 .mask{float:left;position:absolute;left:0;top:0;width:100%;height:160px;background:#0ff;filter:alpha(opacity=0);opacity:0;}
+* html .box1vm4 .cell{display:inline-block;position:relative;left:50%;top:50%;}
+*+html .box1vm4 .cell{display:inline-block;position:relative;left:50%;top:50%;}
+* html .box1vm4 .inner{left:-50%;top:-50%;}
+*+html .box1vm4 .inner{left:-50%;top:-50%;}
+
+/*]]>*/</style>
+</head>
+<body>
+<h1>box1 vertical middle min-height</h1>
+
+<ol class="num">
+<li>
+</li>
+</ol>
+
+<h2>box1vm1</h2>
+<!-- box1vm1 -->
+<div class="box1vm1 expand">
+	<div class="cell">
+		<div class="inner">
+			<p>
+			컨텐츠의 수직정렬이 가능한 div 박스 입니다.<br />
+			텍스트, 이미지 그리고 다양한 혼용 가능합니다.<br />
+			여기는 텍스트 문단만 사용한 예입니다.<br />
+			동일한 크기의 박스안에 높이가 다른 사이즈의 컨텐츠를 담을 때 사용합니다.<br />
+			콘텐츠가 늘어나면 박스 높이도 같이 늘어났으면 좋겠습니다.<br />
+			[IE8이상] 표준브라우저는 display:table; 적용되어 박스 높이가 콘텐츠 높이에 맞춰 확장됩니다.<br />
+			하지만, [IE6,7] 은 특정 크기 이상일 경우 박스 밖으로 넘쳐나므로, 수동으로 class 를 추가하거나, 자동으로 js 를 개발해야 됩니다.<br />
+			박스 높이가 확장되도록하려면 class="box1vm1 expand" 하면 됩니다. 하지만, 박스 보다 작으면 "expand" 를 제거하셔야 합니다.
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm1 -->
+
+<!-- box1vm1 -->
+<div class="box1vm1">
+	<div class="cell">
+		<div class="inner">
+			<p>
+			여기는 텍스트 문단만 사용한 예입니다.<br />
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm1 -->
+
+<!-- box1vm1 -->
+<div class="box1vm1 tac">
+	<div class="cell">
+		<div class="inner">
+			여기는 텍스트 문단만 사용한 예입니다.<br />
+			그리고, tac 클래스 추가하여 가로 중앙 정렬한 예입니다.<br />
+			여기는 텍스트 문단만 사용한 예입니다.<br />
+			여기는 텍스트 문단만 사용한 예입니다.<br />
+		</div>
+	</div>
+</div>
+<!-- /box1vm1 -->
+
+<!-- box1vm1 -->
+<div class="box1vm1">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="80" height="60" alt="" />
+			<p>
+			여기는 이미지와 텍스트를 사용한 예입니다. 원하는 모양이 아니라구요?
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm1 -->
+
+<h2>box1vm2</h2>
+<!-- box1vm2 -->
+<div class="box1vm2">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+			<img src="../img/win7/Koala.jpg" width="80" height="60" alt="" />
+			<p>{이미지} 좌 플로트 {텍스트} 문단<br />
+			여기서는 플로트를 사용하였기에.. 제일 키 큰 요소는 세로 중앙 정렬인데.. 다른거는 안되는 군요.
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm2 -->
+
+<h2>box1vm3</h2>
+<!-- box1vm3 -->
+<div class="box1vm3">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+			<p>{이미지} 좌 플로트 {텍스트} 문단<br />
+			여기서는 포지션을 사용하여 해결하였다.<br />
+			여기서는 포지션을 사용하여 해결하였다.<br />
+			여기서는 포지션을 사용하여 해결하였다.<br />
+			여기서는 포지션을 사용하여 해결하였다.<br />
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm3 -->
+<!-- box1vm3 -->
+<div class="box1vm3">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+			<p>{이미지} 좌 플로트 {텍스트} 문단<br />
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm3 -->
+<!-- box1vm3 -->
+<div class="box1vm3">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+			<p>{이미지} 좌 플로트 {텍스트} 문단<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm3 -->
+<!-- box1vm3 -->
+<div class="box1vm3">
+	<div class="cell">
+		<div class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+			<p>{이미지} 좌 플로트 {텍스트} 문단<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십<br />
+			</p>
+		</div>
+	</div>
+</div>
+<!-- /box1vm3 -->
+
+
+<h2>box1vm4</h2>
+
+<div class="box1vm4outer">
+<!-- box1vm4 -->
+<a href="http://goo.gl" class="box1vm4">
+	<span class="cell">
+		<span class="inner">
+			<img src="../img/win7/Koala.jpg" width="160" height="120" alt="" />
+		</span>
+	</span>
+	<span class="mask"></span>
+</a>
+<!-- /box1vm4 -->
+</div>
+
+
+<br />
+<hr />
+<p>
+20140922. .box1vm1.tac 추가. 가로중앙정렬도가능하게..
+20120612.
+</p>
+
+
+</body>
+</html>

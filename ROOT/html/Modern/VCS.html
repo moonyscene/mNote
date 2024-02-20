@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var _$ = {
+	nowPage: {
+		id: [0,1,0,0,0],
+		title: 'VCS(Version Control System)', // Home | mNote
+		pageType: 'sub',
+		layoutType: 'sub'
+	}
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>VCS(Version Control System). DVCS(Distributed Version Control System)</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="Outline">Outline</h2>
+
+<table class="t3 w100" data-summary="★표요약.[HTML5]Invalid.~최신Spec따르시오!">
+<caption class="blind"><strong class="h1 blind">★표제목</strong></caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Categorize</th>
+<th scope="col">Tool</th>
+<th scope="col">Outline / Start</th>
+<th scope="col">Note : Task / Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">VCS</th>
+<td>
+<a href="http://subversion.apache.org" target="_blank" title="새 창">SVN (서브버전 SubVersioN)</a>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">DVCS</th>
+<td>
+<a href="https://git-scm.com" target="_blank" title="새 창">Git</a> &amp; <a href="https://github.com" target="_blank" title="새 창">GitHub</a>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="Start">Start</h2>
+
+
+<h3 class="hb1 h3">버전 관리 시스템, 'Git(깃)' (( <a href="https://backlogtool.com/git-guide/kr/" target="_blank" title="새 창">누구나 쉽게 이해할 수 있는 Git 입문</a></h3>
+
+
+<h4 class="hb1 h4">Git의 기본</h4>
+
+<p>Git으로 파일을 관리하면, 업데이트 이력이 Git에 저장되지.
+매번 백업용 파일 복사본을 만들 필요가 없으니까 엄청 편하고 깔끔하다구!</p>
+
+<ol class="ol1">
+<li>저장소(Git repository)<br />
+　원격 저장소(Remote Repository)<br />
+　로컬 저장소(Local Repository)<br />
+</li>
+<li>커밋(commit)<br />
+각 커밋에는 영문/숫자로 이루어진 40자리 고유 이름이 붙습니다. 저장소에선 이 40자리 이름을 보고 각 커밋을 구분하고 선택합니다.
+<pre class="mg0">
+<kbd class="xmp">
+커밋 내의 변경 내용을 요약
+빈 칸
+변경한 이유
+</kbd>
+</pre>
+</li>
+<li>작업 트리(Work tree)<br />
+Git 에서는 우리가 흔히 말하는 폴더를 '작업 트리'(Work Tree)라고 부릅니다.
+</li>
+<li>인덱스(Index)<br />
+커밋을 실행하기 전의 저장소와 작업 트리 사이에 존재하는 공간을 '인덱스'라고 합니다.
+</li>
+</ol>
+
+<p>Git의 '커밋' 작업은 '작업 트리'에 있는 변경 내용을 저장소에 바로 기록하는 것이 아니라 그 사이 공간인 '인덱스'에 파일 상태를 기록(stage - 스테이징 한다고 표현하기도 합니다)하게 되어 있습니다. 따라서 저장소에 변경 사항을 기록하기 위해서는, 기록하고자 하는 모든 변경 사항들이 '인덱스'에 존재해야 합니다.</p>
+<p>예를 들어, 10개의 파일을 수정했지만 그 중에 7개만 저장소에 공개하고 싶을 때를 생각해 보세요. 변경한 10개의 파일 중 7개를 선택하는 작업이 바로 '인덱스에 등록' 또는 '스테이징(stage)'이라 표현하는 작업 입니다.</p>
+<p>이렇게 인덱스란 공간(가상이지만요!)이 중간에 있는 덕분에 작업 트리 안에 있는 커밋이 필요 없는 파일들을 커밋에 포함하지 않을 수 있고, 파일에서 내가 원하는 일부 변경 사항만 인덱스에 등록해 커밋할 수 있습니다.</p>
+
+
+<h4 class="hb1 h4">Git 설치</h4>
+
+Windows(GUI)
+Mac(GUI)
+콘솔(커맨드 라인)
+
+<h5 class="hb1 h5">Windows 환경에 설치</h5>
+
+TortoiseGit을 이용하려면, 먼저 msysgit를 설치<br />
+<a href="http://msysgit.github.io/" target="_blank" title="새 창">http://msysgit.github.io/</a> <br />
+오픈소스 Git 클라이언트 'TortoiseGit'과 그 언어팩까지 설치<br />
+<a href="http://code.google.com/p/tortoisegit/" target="_blank" title="새 창">http://code.google.com/p/tortoisegit/</a><br />
+[Next]...[Finish]<br />
+데스크톱의 적당한 곳에 우클하면 Git의 메뉴 항목이 추가되어 있을테니,<br />
+TortoiseGit > Settings 를 클릭.<br />
+General 화면의 Language에서 한국어를 선택한 후 OK를 클릭. (@m)) 한국어 보이지 않음.<br />
+우클릭 > TortoiseGit > Settings > Git > User Info란에 사용자명과 메일을 입력.<br />
+<br />
+<a href="http://backlogtool.com/" target="_blank" title="새 창">Backlog</a> 에 원격 저장소 생성하기
+https://code.backlogtool.com/ (code m myshin@naver.com)(m7)<br />
+프로젝트 추가
+프로젝트 설정
+...
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Task">Task</h2>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 id="Link">Link</h2>
+
+<ol class="ol1 bo1 num00">
+<li><a href="http://surpreem.com/archives/1394#sthash.jz1hEPQB.Nxq1whGf.dpbs" target="_blank" title="새 창">지극히 편파적인 버전 관리 시스템에 대한 기억</a></li>
+<li><a href="https://backlogtool.com/git-guide/kr/" target="_blank" title="새 창">Git을 이용한 버전 관리 【Git의 기본】 | 누구나 쉽게 이해할 수 있는 Git 입문~버전 관리를 완벽하게 이용해보자~</a></li>
+</ol>
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<hr />
+<p>
+<small class="fwn"><strong>History</strong>
+20150615. ~
+20161017.
+20150615.</small>
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'jQuery Plugin - owl.carousel.js | mNote',
+	page'default'
+};
+/*]]>*/</script>
+<!-- <link rel="stylesheet" type="text/css" href="../../share/css/_css/_grid_row_content-box_margin.css" /> --><!-- ★☆ToEdit) -->
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+
+
+/* 상위10개강조 */
+.emtop10{list-style-position:inside;margin:0;padding:0 0 0 1em;overflow:hidden;}
+.emtop10 li{z-index:1;position:relative;margin:0;padding:.5em 0;}
+.emtop10 li:after{content:'';display:block;z-index:-1;position:absolute;left:-100%;top:0;bottom:0;width:200%;border-bottom:1px solid #eee9dd;}
+.emtop10 li:not(:nth-child(n+11)){font-size:12.5px;} /* ☆ */
+.emtop10 li:not(:nth-child(n+11)):after{border-bottom:1px solid #eee9dd;background:#fcf9ee;}
+.emtop10 li:not(:nth-child(n+11))>a{color:#069;font-weight:600;}
+.emtop10 li:nth-child(1):after{border-top:1px solid #eee9dd;}
+
+
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h1 class="hb1 h1"><a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank" rel="noopener" title="새 창">owl.carousel.js</a></h1>
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Options">Options</a></li>
+<li><a href="#Classes">Classes</a></li>
+<li><a href="#Events">Events</a>
+	<ul>
+	<li><a href="#Callbacks">Callbacks</a></li>
+	<li><a href="#Data">Data</a></li>
+	<li><a href="#Carousel">Carousel</a></li>
+	<li><a href="#Lazy">Lazy</a></li>
+	<li><a href="#Autoplay">Autoplay</a></li>
+	<li><a href="#Video">Video</a></li>
+	</ul>
+</li>
+</menu>
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+
+	))) [m]<a href="../../__lab.get/OwlCarousel/OwlCarousel2-2.3.4/docs/demos/autoplay_@m.html" target="_blank" rel="noopener" title="새 창">
+		Demo Autoplay
+	</a><em class="em4">[IE8+]</em><br />
+	))) [m]<a href="../../__lab.get/OwlCarousel/OwlCarousel2-2.3.4/docs/demos/center_@m.html" target="_blank" rel="noopener" title="새 창">
+		Demo Center
+	</a><em class="em4">[IE8+]</em><br />
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">API</h2>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Options">
+	<a href="https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html" target="_blank" rel="noopener" title="새 창">
+		Options
+	</a>
+</h3>
+
+<p></p>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1">: 빌트인 플러그인 video, lazyload, autoheight 및 animate 로부터의 모든 옵션을 포함하는 목록.</span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col">Default:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><em class="em">items</em></th>
+<td>Number</td>
+<td>3</td>
+<td>화면에 표시 할 항목 수</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">margin</em></th>
+<td>Number</td>
+<td>0</td>
+<td>항목 간격 margin-right (px).</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">loop</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>무한 루프. 루프로 착각하도록 맨뒤와 맨앞 항목들을 복제.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">center</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>
+	항목을 가운데로. 홀수 항목에서도 잘 작동.<br />
+	아이템 순번은 { center: true } 옵션에서만 자동으로 된다.<br />
+	<em class="em2">{ center: true } 는 도트, 이전, 다음 버튼 모두 아이템 순번으로만 제어된다.</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row"><em class="em4">mouseDrag</em></th>
+<td>Boolean</td>
+<td>true</td>
+<td>마우스 끌기 활성화</td>
+</tr>
+<tr>
+<th scope="row"><em class="em4">touchDrag</em></th>
+<td>Boolean</td>
+<td>true</td>
+<td>터치 드래그 사용 설정</td>
+</tr>
+<tr>
+<th scope="row">pullDrag</th>
+<td>Boolean</td>
+<td>true</td>
+<td>스테이지를 끝까지 당깁니다.</td>
+</tr>
+<tr>
+<th scope="row">freeDrag</th>
+<td>Boolean</td>
+<td>false</td>
+<td>항목을 가장자리까지 당깁니다.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">stagePadding</em></th>
+<td>Number</td>
+<td>0</td>
+<td>무대 좌우 이웃을 숫자값px 만큼 볼 수 있음</td>
+</tr>
+<tr>
+<th scope="row">merge</th>
+<td>Boolean</td>
+<td>false</td>
+<td>항목 병합. item 내부에 data-merge = '{number}'이 (가) 있습니다.</td>
+</tr>
+<tr>
+<th scope="row">mergeFit</th>
+<td>Boolean</td>
+<td>true</td>
+<td>화면이 항목 값보다 작으면 병합된 항목을 맞춥니다.</td>
+</tr>
+<tr>
+<th scope="row">autoHeight</th>
+<td>Boolean</td>
+<td>false</td>
+<td>
+	<a href="https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html" target="_blank" rel="noopener" title="새 창">
+		API Options
+	</a> 에 누락!
+	autoHeight를 사용하려면 true로 설정합니다.
+	owl-stage 에 항목 1 개일 때만 사용됩니다.
+	의도는 보이는 모든 항목을 계산하고 가장 키큰 항목에 따라 높이를 변경하는 것입니다.
+	<a href="https://owlcarousel2.github.io/OwlCarousel2/demos/autoheight.html" target="_blank" rel="noopener" title="새 창">
+		))Demo
+	</a>
+</td>
+</tr>
+<tr>
+<th scope="row">autoWidth</th>
+<td>Boolean</td>
+<td>false</td>
+<td>그리드가 아닌 콘텐츠를 설정합니다. div에서 너비 스타일을 사용해보십시오.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">startPosition</em></th>
+<td>Number/String</td>
+<td>0</td>
+<td>
+	시작 위치 또는 '#id'와 같은 해시 문자열.
+<pre class="mg0">
+<code class="xmp">
+startPosition: 'URLHash'
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">URLhashListener</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>해시 변경 내용을 청취하십시오. 항목에 대한 데이터 해시가 필요합니다.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">nav</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td><em class="em">이전 / 다음 button 표시</em></td>
+</tr>
+<tr>
+<th scope="row">rewind</th>
+<td>Boolean</td>
+<td>true</td>
+<td>경계에 도달하면 뒤로 이동하십시오.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">navText</em></th>
+<td>Array</td>
+<td>['prev', 'next']</td>
+<td>HTML 허용됨
+<xmp class="xmp">
+navText: [
+  '<i class="ic1"></i> <span class="t1">이전</span>',
+  '<i class="ic1"></i> <span class="t1">다음</span>'
+]
+</xmp>
+</td>
+</tr>
+<tr>
+<th scope="row">navElement</th>
+<td>String</td>
+<td>div</td>
+<td>단일 방향 탐색 링크에 대한 DOM 요소 유형입니다.</td>
+</tr>
+<tr>
+<th scope="row">slideBy</th>
+<td>Number/String</td>
+<td>1</td>
+<td>x로 탐색 슬라이드. '페이지'문자열은 페이지별로 슬라이드하도록 설정할 수 있습니다.</td>
+</tr>
+<tr>
+<th scope="row">slideTransition</th>
+<td>String</td>
+<td>``</td>
+<td>예를 들어 사용하려는 무대의 전환을 정의 할 수 있습니다. 선의.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">dots</em></th>
+<td>Boolean</td>
+<td>true</td>
+<td>쪽순 도트 탐색 표시</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">dotsEach</em></th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td><em class="em">각 항목을 도트로 표시</em></td>
+</tr>
+<tr>
+<th scope="row">dotsData</th>
+<td>Boolean</td>
+<td>false</td>
+<td>데이터 - 점 콘텐츠에 사용됩니다.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em3">lazyLoad</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>게으른로드 이미지. data-src 및 data-src-retina가 있습니다. 또한 요소가 &lt;img&gt;가 아닌 경우 배경 인라인 스타일로 이미지를로드하십시오.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em3">lazyLoadEager</em></th>
+<td>Number</td>
+<td>0</td>
+<td>미리로드 할 항목 수에 따라 이미지를 오른쪽으로 미리로드합니다 (루프가 활성화되면 왼쪽으로).</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">autoplay</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>자동 재생</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">autoplayTimeout</em></th>
+<td>Number</td>
+<td>5000</td>
+<td>자동 재생 간격 제한 시간</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">autoplayHoverPause</em></th>
+<td>Boolean</td>
+<td>false</td>
+<td>마우스를 올리면 일시 중지됩니다.</td>
+</tr>
+<tr>
+<th scope="row">smartSpeed</th>
+<td>Number</td>
+<td>250</td>
+<td>속도 계산. 더 많은 정보가 ..</td>
+</tr>
+<tr>
+<th scope="row">fluidSpeed</th>
+<td>Boolean</td>
+<td>Number</td>
+<td>속도 계산. 더 많은 정보가 ..</td>
+</tr>
+<tr>
+<th scope="row">autoplaySpeed</th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td>자동 재생 속도</td>
+</tr>
+<tr>
+<th scope="row">navSpeed</th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td>탐색 속도</td>
+</tr>
+<tr>
+<th scope="row">dotsSpeed</th>
+<td>Boolean</td>
+<td>Number/Boolean</td>
+<td>페이지 매김 속도</td>
+</tr>
+<tr>
+<th scope="row">dragEndSpeed</th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td>드래그 끝 속도</td>
+</tr>
+<tr>
+<th scope="row">callbacks</th>
+<td>Boolean</td>
+<td>true</td>
+<td>콜백 이벤트를 사용합니다.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">responsive</em></th>
+<td>Object</td>
+<td>empty object</td>
+<td>
+	반응형 옵션을 포함하는 객체입니다. 반응형 기능을 제거하려면 false로 설정할 수 있습니다.
+<pre class="mg0">
+<code class="xmp">
+responsive: {
+	000: { items: 1 },
+	640: { items: 2 },
+	960: { items: 3 }
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th scope="row">responsiveRefreshRate</th>
+<td>Number</td>
+<td>200</td>
+<td>반응형 재생 빈도</td>
+</tr>
+<tr>
+<th scope="row">responsiveBaseElement</th>
+<td>DOM element</td>
+<td>window</td>
+<td>모든 DOM 요소에 설정하십시오. ie8과 같은 반응이없는 브라우저에 관심이 있다면 기본 래퍼에서 사용하십시오. 이것은 미친 크기 조정을 방지합니다.</td>
+</tr>
+<tr>
+<th scope="row">video</th>
+<td>Boolean</td>
+<td>false</td>
+<td>YouTube / Vimeo / Vzaar 동영상을 가져올 수 있습니다.</td>
+</tr>
+<tr>
+<th scope="row">videoHeight</th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td>동영상의 높이를 설정하십시오.</td>
+</tr>
+<tr>
+<th scope="row">videoWidth</th>
+<td>Number/Boolean</td>
+<td>false</td>
+<td>동영상 너비를 설정하십시오.</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">animateOut</em></th>
+<td>String/Boolean</td>
+<td>false</td>
+<td>
+	퇴장 아이템 동작 CSS3 클래스
+	(( <a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener" title="새 창">animate.css</a>
+</td>
+</tr>
+<tr>
+<th scope="row"><em class="em2">animateIn</em></th>
+<td>String/Boolean</td>
+<td>false</td>
+<td>
+	등장 아이템 동작 CSS3 클래스
+	(( <a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener" title="새 창">animate.css</a>
+</td>
+</tr>
+<tr>
+<th scope="row">fallbackEasing</th>
+<td>String</td>
+<td>swing</td>
+<td>CSS2 $.animate 를 위한 이징값</td>
+</tr>
+<tr>
+<th scope="row">info</th>
+<td>Function</td>
+<td>false</td>
+<td>기본 정보 (현재 항목 / 페이지 / 너비)를 검색하는 콜백 Info 함수의 두 번째 매개 변수는 Owl DOM 객체 참조입니다.</td>
+</tr>
+<tr>
+<th scope="row">nestedItemSelector</th>
+<td>String/Class</td>
+<td>false</td>
+<td>항목이 일부 생성 된 콘텐츠 안에 깊이 중첩되어있는 경우 사용합니다. (예 : 'youritem') 클래스 이름 앞에 점을 사용하지 마십시오.</td>
+</tr>
+<tr>
+<th scope="row">itemElement</th>
+<td>String</td>
+<td>div</td>
+<td>owl-item의 DOM 요소 유형입니다.</td>
+</tr>
+<tr>
+<th scope="row">stageElement</th>
+<td>String</td>
+<td>div</td>
+<td>owl-stage의 DOM 요소 유형입니다.</td>
+</tr>
+<tr>
+<th scope="row">navContainer</th>
+<td>String/Class/ID/Boolean</td>
+<td>false</td>
+<td>이전 다음 내비게이션에 대한 컨테이너 설정</td>
+</tr>
+<tr>
+<th scope="row">dotsContainer</th>
+<td>String/Class/ID/Boolean</td>
+<td>false</td>
+<td>순번 도트 내비게이션에 대한 컨테이너 설정</td>
+</tr>
+<tr>
+<th scope="row">checkVisible</th>
+<td>Boolean</td>
+<td>true</td>
+<td>회전목마가 항상 보인다면 값 비싼 브라우저 레이아웃이 $element.is(':visible') 의 reflow를 방지하기 위해 false로 설정할 수 있습니다.</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Classes">Classes</h3>
+
+
+<pre class="mg0">
+<code class="xmp">
+&lt;div class="<em class="em">owl-carousel owl-theme owl-loaded</em>"&gt;
+    &lt;div class="<em class="em">owl-stage-outer</em>"&gt;
+        &lt;div class="<em class="em">owl-stage</em>"&gt;
+            &lt;div class="<em class="em">owl-item</em>"&gt;...&lt;/div&gt;
+            &lt;div class="<em class="em">owl-item</em>"&gt;...&lt;/div&gt;
+            &lt;div class="<em class="em">owl-item</em>"&gt;...&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<em class="em">owl-nav</em>"&gt;
+        &lt;div class="<em class="em">owl-prev</em>"&gt;prev&lt;/div&gt;
+        &lt;div class="<em class="em">owl-next</em>"&gt;next&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<em class="em">owl-dots</em>"&gt;
+        &lt;div class="<em class="em">owl-dot active</em>"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="<em class="em">owl-dot</em>"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div class="<em class="em">owl-dot</em>"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col">Default:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">refreshClass</th>
+<td>String</td>
+<td>owl-refresh</td>
+<td>새로 고침하는 동안 클래스</td>
+</tr>
+<tr>
+<th scope="row">loadingClass</th>
+<td>String</td>
+<td>owl-loading</td>
+<td>로드 중 클래스</td>
+</tr>
+<tr>
+<th scope="row">loadedClass</th>
+<td>String</td>
+<td><em class="em">owl-loaded</em></td>
+<td>로드 후 클래스</td>
+</tr>
+<tr>
+<th scope="row">rtlClass</th>
+<td>String</td>
+<td>owl-rtl</td>
+<td>오른쪽에서 왼쪽 모드의 클래스</td>
+</tr>
+<tr>
+<th scope="row">dragClass</th>
+<td>String</td>
+<td><em class="em">owl-drag</em></td>
+<td>마우스 드래그 모드의 클래스.</td>
+</tr>
+<tr>
+<th scope="row">grabClass</th>
+<td>String</td>
+<td>owl-grab</td>
+<td>마우스 드래그 중 클래스.</td>
+</tr>
+<tr>
+<th scope="row">stageClass</th>
+<td>String</td>
+<td>owl-stage</td>
+<td>스테이지 클래스</td>
+</tr>
+<tr>
+<th scope="row">stageOuterClass</th>
+<td>String</td>
+<td>owl-stage-outer</td>
+<td>스테이지 아우터(래퍼) 클래스.</td>
+</tr>
+<tr>
+<th scope="row">navContainerClass</th>
+<td>String</td>
+<td>owl-nav</td>
+<td>탐색 컨테이너 클래스</td>
+</tr>
+<tr>
+<th scope="row">navClass</th>
+<td>Array</td>
+<td>[&#x27;owl-prev&#x27;,&#x27;owl-next&#x27;]</td>
+<td>탐색 컨테이너 클래스</td>
+</tr>
+<tr>
+<th scope="row">dotClass</th>
+<td>String</td>
+<td>owl-dot</td>
+<td>도트 클래스</td>
+</tr>
+<tr>
+<th scope="row">dotsClass</th>
+<td>String</td>
+<td>owl-dots</td>
+<td>도트 컨테이너 클래스</td>
+</tr>
+<tr>
+<th scope="row">autoHeightClass</th>
+<td>String</td>
+<td>owl-height</td>
+<td>자동 높이 클래스</td>
+</tr>
+<tr>
+<th scope="row">responsiveClass</th>
+<td>String|Boolean</td>
+<td>false</td>
+<td>
+	선택적 헬퍼 클래스.
+	메인 요소에 '&lt;respondiveClass&gt; - &lt;breakpoint&gt;'클래스를 추가하십시오. 지정된 중단 점에서 내용을 양식화하는 데 사용할 수 있습니다.</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3" id="Events">Events</h3>
+
+<p>이벤트는 Owl Carousel에서 전략 코드 위치에 제공됩니다. 이를 통해 변경 사항을 수신하고 자신의 작업을 수행 할 수 있습니다.</p>
+
+<pre class="mg0">
+<code class="xmp">
+var owl = $('.owl-carousel');
+owl.owlCarousel();
+// Listen to owl events:
+owl.on(<em class="em">'changed.owl.carousel'</em>, function(event) {
+    ...
+})
+</code>
+</pre>
+
+<p>올빼미 회전 목마를 제어하기 위해 스스로 이벤트를 실행할 수도 있습니다.</p>
+
+<pre class="mg0">
+<code class="xmp">
+var owl = $('.owl-carousel');
+owl.owlCarousel();
+// Go to the next item
+$(<em class="em">'.customNextBtn'</em>).click(function() {
+    owl.trigger(<em class="em">'next.owl.carousel'</em>);
+})
+// Go to the previous item
+$(<em class="em">'.customPrevBtn'</em>).click(function() {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger(<em class="em">'prev.owl.carousel'</em>, [<em class="em4-5">300</em>]);
+})
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Callbacks">Callbacks</h4>
+
+
+<p>이벤트 핸들러를 연결하는 대신 Owl Carousel의 옵션에 콜백을 추가 할 수도 있습니다.</p>
+
+
+<pre class="mg0">
+<code class="xmp">
+$('.owl-carousel').owlCarousel({
+    onDragged: <b class="em5">callback</b>
+});
+function <b class="em5">callback</b>(event) {
+    ...
+}
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Data">Data</h4>
+
+
+<p>각 이벤트는 이벤트 객체 내에서 매우 유용한 정보를 전달합니다. 위의 예를 기반으로 :</p>
+
+
+<pre class="mg0">
+<code class="xmp">
+function callback(event) {
+    // 코어에 의해 제공됨
+    var element   = event.target;         // DOM 요소 .owl-carousel
+    var name      = event.type;           // 이벤트 이름
+    var namespace = event.namespace;      // 이벤트 네임 스페이스 owl.carousel
+    var items     = <em class="em">event.item.count</em>;     // 항목 수
+    var item      = <em class="em">event.item.index</em>;     // 현재 항목의 위치
+    // 탐색 플러그인에서 제공됨
+    var pages     = <em class="em">event.page.count</em>;     // 페이지 수
+    var page      = <em class="em">event.page.index</em>;     // 현재 페이지의 위치
+    var size      = <em class="em">event.page.size</em>;      // 페이지 당 항목 수
+}
+</code>
+</pre>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Carousel">Carousel</h4>
+
+
+<table class="t3 w100 tttal ttvat lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:10em;" /><col /><col style="width:12em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col"></th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">initialize.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onInitialize</td>
+<td>플러그인이 초기화 시작하면</td>
+</tr>
+<tr>
+<th scope="row">initialized.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onInitialized</td>
+<td>플러그인이 초기화된 종료하면</td>
+</tr>
+<tr>
+<th scope="row">resize.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onResize</td>
+<td>플러그인 크기가 조정 시작하면</td>
+</tr>
+<tr>
+<th scope="row">resized.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onResized</td>
+<td>플러그인 크기가 조정 종료하면</td>
+</tr>
+<tr>
+<th scope="row">refresh.owl.carousel</th>
+<td>attachable, cancelable, <em class="em4">triggerable</em></td>
+<td>Callback: onRefresh<br />Parameter: [event, speed]</td>
+<td>플러그인의 내부 상태가 갱신 시작하면</td>
+</tr>
+<tr>
+<th scope="row">refreshed.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: <em class="em">onRefreshed</em></td>
+<td>
+	플러그인의 내부 상태가 갱신 종료하면<br />
+	[m] 로드 또는 리사이즈 하여 너비 갱신된 후, 쪽당 항목 수 변경된 후..<br />
+	[m] <em class="em">initialized, resized 와 동시 발생</em>
+</td>
+</tr>
+<tr>
+<th scope="row">drag.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onDrag</td>
+<td>드래그 시작하면</td>
+</tr>
+<tr>
+<th scope="row">dragged.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onDragged</td>
+<td>드래그 종료하면</td>
+</tr>
+<tr>
+<th scope="row">translate.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onTranslate</td>
+<td>무대 전환이 시작되면</td>
+</tr>
+<tr>
+<th scope="row">translated.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: <em class="em">onTranslated</em></td>
+<td>
+	무대 전환이 종료되면<br />
+	[m] <em class="em">아이템 이동 후</em>
+</td>
+</tr>
+<tr>
+<th scope="row">change.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: onChange<br />Parameter: property</td>
+<td>속성값 변경 시작하면</td>
+</tr>
+<tr>
+<th scope="row">changed.owl.carousel</th>
+<td>attachable</td>
+<td>Callback: <em class="em">onChanged</em><br />Parameter: property</td>
+<td>
+	속성값 변경 종료하면<br />
+	[m] 로드 + 리사이즈 + 아이템 이동 후 모두 발생<br />
+	[m] <em class="em">initialized, resized 와 동시 발생 translated 이전에 발생</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">next.owl.carousel</em></th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: [speed]</td>
+<td>다음 항목으로 이동</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">prev.owl.carousel</em></th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: [speed]</td>
+<td>이전 항목으로 이동</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">to.owl.carousel</em></th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: [position, speed, boolean]</td>
+<td>인덱스 위치로 이동
+
+<pre class="mg0">
+<code class="xmp">
+// 아이템 위치로 이동
+$('.goItem .to-m', $my).on('click', function(event){
+  $owl.trigger( 'to.owl.carousel', [$(this).index(), , true] );
+});
+
+// 페이지 위치로 이동
+$('.goPage .to-m', $my).on('click', function(event){
+  $owl.trigger( 'to.owl.carousel', [$(this).index()] );
+});
+</code>
+</pre>
+
+
+</td>
+</tr>
+<tr>
+<th scope="row">destroy.owl.carousel</th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter:</td>
+<td>회전목마를 파괴</td>
+</tr>
+<tr>
+<th scope="row">replace.owl.carousel</th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: data</td>
+<td>현재 내용을 제거하고 매개 변수에 전달 된 새 내용을 추가</td>
+</tr>
+<tr>
+<th scope="row">add.owl.carousel</th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: [data, position]</td>
+<td>주어진 위치에 새 항목을 추가</td>
+</tr>
+<tr>
+<th scope="row">remove.owl.carousel</th>
+<td><em class="em4">triggerable</em></td>
+<td>Parameter: position</td>
+<td>지정된 위치에서 항목을 제거</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Lazy">Lazy</h4>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col">Callback:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">load.owl.lazy</th>
+<td>attachable</td>
+<td>onLoadLazy</td>
+<td>게으른 이미지 로드될 때</td>
+</tr>
+<tr>
+<th scope="row">loaded.owl.lazy</th>
+<td>attachable</td>
+<td>onLoadedLazy</td>
+<td>게으른 이미지 로드된 후</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Autoplay">Autoplay</h4>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col">Parameter:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><em class="em">play.owl.autoplay</em></th>
+<td><em class="em4">triggerable</em></td>
+<td>[timeout, speed]</td>
+<td>
+	자동 재생을 실행<br />
+	$('.play', $my).on('click',function(){ $owl.trigger('play.owl.autoplay',[2000]); });
+</td>
+</tr>
+<tr>
+<th scope="row"><em class="em">stop.owl.autoplay</em></th>
+<td><em class="em4">triggerable</em></td>
+<td></td>
+<td>
+	자동 재생을 중지<br />
+	$('.stop', $my).on('click',function(){ $owl.trigger('stop.owl.autoplay'); });
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- ◇◆◇◆◇◆ -->
+<h4 class="hb1 h4" id="Video">Video</h4>
+
+
+<table class="t3 w100 tttal ttvam lhD">
+<caption>
+	<strong class="h1 blind">★표제목</strong>
+	<span class="summary1 blind">: ★표요약,구조,탐색방법</span>
+</caption>
+<col style="width:10em;" /><col />
+<thead>
+<tr>
+<th scope="col">Option</th>
+<th scope="col">Type:</th>
+<th scope="col">Callback:</th>
+<th scope="col">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">stop.owl.video</th>
+<td>attachable</td>
+<td>onStopVideo</td>
+<td>비디오가 언로드된 경우</td>
+</tr>
+<tr>
+<th scope="row">play.owl.video</th>
+<td>attachable</td>
+<td>onPlayVideo</td>
+<td>비디오가 로드된 경우</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small>
+<strong>History</strong>
+: 20190307~
+20201006.
+20190403. 20190325. 20190320. 20190314. 20190313. 20190312.
+</small></p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

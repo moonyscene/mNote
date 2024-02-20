@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Network | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Network</h1>
+
+<h2>misc.</h2>
+
+<ol class="bo1 num00">
+<li><strong>프록시 <small lang="en">proxy</small>&nbsp; 설정</strong>
+<pre>
+[IE8] 도구 > 인터넷옵션 ..또는..  제어판 > 인터넷 옵션 선택.
+연결 > LAN 설정 > 프록시 서버 체크.. 고급 >
+프록시 설정 창에서 서버, 예외 입력
+HTTP(H):
+Secure(S):
+예외: IP;Domain 다 가능
+----
+<a href="http://checkip.dyndns.org/">http://checkip.dyndns.org/</a> 웹 접속하면.. Current IP Address: xxx.xxx.xxx.xxx 확인 가능하다.
+proxy 정상적으로 설정되었는지 확인해 볼 수 있다.
+[m?] https://checkip.dyndns.org/ 이렇게는 확인 안되네.. secure 설정 올바른지 확인은?
+----
+[IE6,7,8, CR, SF] 설정 동일하게 사용
+[OP] 설정값 가져옴. 서버만 가져오고, 예외는 설정안되어 있음.
+[FF] Current IP Address: 파이어폭스만 proxy 접속 안됨. 설정은? 
+
+-- 해결1) -- 
+파이어폭스 메뉴 [도구]-[설정]-[네트워크]-연결[설정] 
+에서.. 
+"프록시 사용 안 함" 을 "시스템 프록시 설정 사용" 
+으로 수정하니.. 
+Current IP Address: 시스템 프록시(Window XP 제어판 > 인터넷 옵션) 설정대로 나옴.
+proxy 접속 설정 바르게 해결된거 맞죠? 
+
+-- 사용중인 브라우저 웹 접속 모두 확인 필요할 듯.. --
+</pre>
+</li>
+</ol>
+
+
+<h2>Reference Link</h2>
+
+<ol class="bo num">
+<li></li>
+</ol>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130409.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

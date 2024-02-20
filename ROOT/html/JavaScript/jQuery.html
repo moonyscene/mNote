@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Javascript - jQuery | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>jQuery</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Usage">Usage</a>
+	<ul>
+	<li>jQuery Library 로드</li>
+	<li>jQuery Code 작성</li>
+	<li>JS Library (Prototype, ..) 와 $ 충돌 방지</li>
+	</ul>
+</li>
+<li><a href="#PluginDev">jQuery 플러그인 개발</a></li>
+<li><a href="#misc">misc.</a></li>
+<li><a href="#Link">Link</a></li>
+<li><a href="#Library">JavaScript Library, Framework</a></li>
+<!-- <li><a href="../JavaScript/jqueryCheatSheet.html"><b>jQuery Cheat Sheet</b></a></li> -->
+<!-- <li><a href="../JavaScript/jquery_plugin.html"><b>jQuery Plugin</b></a></li> -->
+</menu>
+</div>
+<!-- /mtab1 -->
+
+
+
+<!-- contentsBlock -->
+<div class="contentsBlock">
+
+<h2 id="Usage">Usage</h2>
+
+<h3 id="Start">Start</h3>
+
+<h4>jQuery Library 로드</h4>
+<xmp class="xmp">
+<!-- 용법1) 같은 서버로 가져와서 이용 -->
+<script src="/share/js/jquery-latest.min.js"></script>
+<!-- 또는 용법2) jquery.com CDN 이용 -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 또는 용법3) google CDN 이용한다. /latest/jquery.min.js 는 없으니 주의바람. -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</xmp>
+
+<h4>jQuery Code 작성</h4>
+<em>[Q] jQuery loading.. Image 로딩 완료 후 크기 계산?</em>
+<xmp class="xmp">
+<script>/*<![CDATA[*/
+
+var globalVar=""; // 전역 변수 선언은 function(){} 밖에서 하면 되고,
+var domObject = document.getElementById('a'); // DOM 객체 선언
+var jQueryObject = $('a'); // jQuery 객체 선언
+
+// DOM 준비 후 코드 실행 메서드. 단, 다른 관련 파일들(CSS, 이미지 등)의 다운로드 완료 상태와 상관없이.. 
+// 용법1)
+$(document).ready(function(){
+	// jQuery Code ..
+});
+// 용법2)
+$().ready(function(){
+	// jQuery Code ..
+});
+// 용법3) 을 이용한다.
+$(function(){
+	// jQuery Code ..
+});
+
+/*]]>*/</script>
+</xmp>
+
+<h4>JS Library (Prototype, ..) 와 $ 충돌 방지</h4>
+
+<xmp class="xmp">
+// 용법1) $() 팩터리 함수 사용
+(function($){
+	var jQueryObject = $('a');
+})(jQuery);
+
+// 용법2) jQuery() 함수 사용
+var jQueryObject = jQuery('a');
+
+// 용법3) noConflict() 실행 후 $() 사용
+jQuery.noConflict();
+// noConflict() 실행 후 아래와 같이 $ 를 인수로 전달하여 function($){} 안에서 사용한다.
+jQuery(document).ready(function($){
+	var jQueryObject = $('a');
+});
+jQuery().ready(function($){
+	var jQueryObject = $('a');
+});
+jQuery(function($){
+	var jQueryObject = $('a');
+});
+</xmp>
+
+<!-- /* ㅁ전각기호＃＆＊＠§※☆★○●◎◇◆□■△▲▽▼→←↑↓↔〓◁◀▷▶♤♠♡♥♧♣⊙◈▣◐◑▒▤▥▨▧▦▩♨☏☎☜☞¶†‡↕↗↙↖↘♭♩♪♬㉿㈜№㏇™㏂㏘℡®ªº */ -->
+
+<h2 id="PluginDev">jQuery 플러그인 개발</h2>
+
+<pre class="mg0" style="margin-right:-66%;">
+<code class="xmp">
+/** ◇◆ jQmEaseEffect1.20130513.MoonYoungShin. 20141006. Code Patterned
+ * !required: [jquery-1.8.0.min.js] 이상, [jquery.easing.1.3.js] required for 'easeInOutBack'
+ * Use)
+ $('#visual .t1').jQmEaseEffect1({action:'slide',delay:1000});
+ $('#visual .v1').jQmEaseEffect1({duration:2000});
+ $('#visual .v2').jQmEaseEffect1({action:'slide',duration:750,delay:1500});
+ /----
+ * Task) Advancement!
+ */
+<b>$.fn.jQmEaseEffect1 = function(options){</b>
+	<ins class="">if(!this) return false;
+	var config = {
+		action: '',
+		duration: 1000,
+		delay: 0
+	};
+	$.extend(config,options);
+	return this.each(function(){
+		var $this = $(this);</ins>
+		$this.css0 = { // css 에 설정된 최종값
+			width: $this.css('width'),
+			height: $this.css('height'),
+			left: $this.css('left'),
+			top: $this.css('top'),
+			opacity: $this.css('opacity')
+		};
+		$this.afterAction = function(){
+			/* $this.action 後 */
+		};
+		($this.action = function(effect){//액션
+			if(!$.support.leadingWhitespace){ // [IE6~8]
+				$('>img',$this).attr({ // png24투명 animate 오류 해결
+					style: "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="+$('>img',$this).attr('src')+", sizingMethod='image')",
+					src: '/img/all/b.png'
+				});
+			}
+			switch(effect){
+			case'slide':
+				$this.css({
+					left: parseInt($this.css('left')) + parseInt($this.css('width')) / 2 + 'px',
+					top: parseInt($this.css('top'))+'px', opacity:0
+				}); // 초기화
+				$this.delay(<i class="ic1">config.delay</i>).animate({
+					left: $this.css0.left,
+					top: $this.css0.top,
+					opacity: $this.css0.opacity
+				}, <i class="ic1">config.duration</i>, 'easeInOutBack', $this.afterAction);
+				break;
+			default:
+				$this.css({opacity: 0}); // 초기화
+				$this.delay(<i class="ic1">config.delay</i>).animate({
+					opacity: $this.css0.opacity
+				}, <i class="ic1">config.duration</i>, 'easeInOutBack', $this.afterAction);
+			}
+		})(<i class="ic1">config.action</i>); // 한번 실행
+	<ins class="">});</ins>
+}
+</code>
+</pre>
+
+
+
+
+
+
+<h2 id="misc">misc</h2>
+
+<h3 id="Tip">Tip</h3>
+
+<ol class="bo dfn">
+<li><strong>스크롤</strong> ※ <a href="http://jewonagency.com/%ED%8A%B9%EC%A0%95-%ED%83%80%EA%B2%9F%EC%9C%BC%EB%A1%9C-%EB%B6%80%EB%93%9C%EB%9F%BD%EA%B2%8C-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EB%90%98%EB%8A%94-%EC%BD%94%EB%93%9C-jquery/">특정 타겟으로 부드럽게 스크롤 되는 코드</a>
+<code class="xmp">
+$(".scrollToMenu a").click(function(event){            
+	event.preventDefault();
+	$('html, body').animate({<em>scrollTop</em>:$(this.hash).offset().top}, 500);
+	$(this.hash).attr({tabindex:0}).css({outline:0}).focus();
+});
+</code>
+</li>
+<li><strong>console.log()</strong> ([IE]오류 발생) 대용 Test 값 확인<br />
+<xmp class="xmp">
+$('<samp>').text("mnum:"+pr1.mnum+" | onnum:"+pr1.onnum)
+	.appendTo('body').css({position:'fixed',left:'0',top:'0',background:'#fe0'});
+</xmp>
+</li>
+<li><strong>jQuery 객체를 DOM 요소로 제공하기</strong> - <cite>Learning jQuery1.3 p30</cite> - <br />
+다른 JS 라이브러리가 사용할 요소 집합을 DOM 으로 제공해야 할 때,<br />
+DOM 요소의 태그 이름으로 접근할 때 필요하다.<br />
+<xmp class="xmp">
+var mTag = $('#m-el').get(0).tagName;
+</xmp>
+아래처럼 간편한 방식을 사용할 수도 있다.
+<xmp class="xmp">
+var mTag = $('#m-el')[0].tagName;
+</xmp>
+<xmp class="xmp">
+if($(this).next()[0]&&$(this).next()[0].tagName=='UL'){}
+</xmp>
+</li>
+<li><strong><a href="http://docs.jquery.com/Using_jQuery_with_Other_Libraries">Using jQuery with Other Libraries</a></strong>
+<xmp class="xmp">
+<script src="prototype.js"></script>
+<script src="jquery.js"></script>
+<script>
+ jQuery.noConflict();
+ jQuery(document).ready(function($){
+	$("div").hide(); // Do jQuery stuff using $
+ });
+ $('someid').hide(); // Use Prototype with $(...), etc.
+</script>
+</xmp>
+</li>
+<li><strong><a href="http://blogdoc.nate.com/467437">객체의 존재 유무 판단하기</a></strong>
+<xmp class="xmp">
+if($('#myid').length>0){//#myid있으면
+}else{//#myid없으면
+}
+</xmp>
+<xmp class="xmp">
+if(!$('#myid').length){//#myid없으면
+	return;
+}
+</xmp>
+
+</li>
+<li><strong><a href="http://stackoverflow.com/questions/2458109/jquery-prevent-focus-on-click">jquery prevent focus on click</a></strong>
+</li>
+
+<li><strong><a href="http://blog.naver.com/PostView.nhn?blogId=take0415&logNo=60133069023&categoryNo=39&viewDate=&currentPage=1&listtype=0">jQuery extend()</a></strong>
+<xmp class="xmp">
+var object1 = { apple : 0,  banana : {weight : 52, price : 100}, cherry : 97 };
+var object2 = { banana : {price : 200},  durian : 100 };
+$.extend(object1, object2);
+</xmp>
+// 결과 (object2 의 값이 object1의 값을 덮어쓰며 병합되었습니다.)<br />
+object1 = { apple: 0, <em>banana: { price: 200 }</em>, cherry: 97, <em>durian: 100</em> };<br />
+</li>
+
+</ol>
+
+</div>
+<!-- /contentsBlock -->
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<!-- contentsBlock -->
+<div class="contentsBlock">
+<h2 id="Link">Link</h2>
+
+<h3>jQuery</h3>
+<ol class="bo num">
+<li>jQuery : <a href="http://jquery.com/" target="_blank">http://jquery.com/</a></li>
+<li><b>★ <a href="http://www.futurecolors.ru/jquery/" target="_blank"><b>jQuery 1.x API Cheat Sheet</b></a></b></li>
+<li><b>★ <a href="http://oscarotero.com/jquery/" target="_blank"><strong>jQuery Quick API Reference</strong></a></b> - 버전별 <!-- 한눈에 볼수 있는 --> 비교 reference</li>
+</ol>
+
+<h3>jQuery Plugin Search</h3>
+<ol class="bo num">
+<li><b>jQuery - plugins: <a href="http://plugins.jquery.com/" >http://plugins.jquery.com/</a></b></li>
+<li>GitHub : <a href="http://github.com/">http://github.com/</a></li>
+<li>jQuery UI : <a href="http://jqueryui.com/">http://jqueryui.com/</a></li>
+<li>jQuery UI - Themeroller : <a href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a></li>
+<li>jQuery Menus :<a href="http://apycom.com/">http://apycom.com/</a></li>
+<li>jQuery TOOLs : <a href="http://jquerytools.org/demos/">http://jquerytools.org/demos/</a></li>
+</ol>
+
+<h3>한글 정보</h3>
+
+<ol class="bo num">
+<li><a href="http://findfun.tistory.com/category/jQuery">http://findfun.tistory.com/category/jQuery</a></li>
+<li><b><a href="http://www.webdongne.com/">웹동네</a> - 스터디 -JQuery</b></li>
+<li><a href="http://cafe.naver.com/ArticleList.nhn?search.clubid=12566436&search.menuid=184&search.boardtype=L">하코사 jQuery plugin</a></li>
+<li>
+<a href="http://cooldragon.tistory.com/51">Selector (선택자)</a> |
+<a href="http://cooldragon.tistory.com/52">CSS (스타일시트)</a> |
+<a href="http://cooldragon.tistory.com/53">Manipulation (조작) </a> |
+<a href="http://cooldragon.tistory.com/57">Events (이벤트) </a> |
+<li><a href="http://www.jquerykorea.pe.kr/">http://www.jquerykorea.net/</a></li>
+<li><a href="http://www.jquery.kr/">http://www.jquery.kr/</a></li>
+</ol>
+
+<h3>misc.</h3>
+<ol class="bo num">
+<li><a href="http://firejune.com/1527">jQuery 1.4 버전에 추가된 새 기능 15개</a></li>
+<li><a href="http://mytory.co.kr/archives/1174">[jQuery] 가시영역의 이미지만 로딩 - Lazy Load Plugin for jQuery (특정영역에만 적용가능)</a></li>
+<li><a href="http://mytory.co.kr/archives/445">[소개:영어] 꼭 알아야 할 신종 jQuery 플러그인 10종</a></li>
+<li><a href="http://hyeonseok.com/soojung/javascript/2011/06/04/658.html"><em>제이쿼리 기본 API</em></a> - 신현석</li>
+<li><a href="http://naradesign.net/wp/2011/07/20/1663/">jQuery 입문: form 데이터 유효성 검사. - NARADESIGN</a></li>
+<li><a href="http://www.ibm.com/developerworks/kr/library/x-ajaxjquery.html">jQuery로 Ajax 개발을 단순화 하기</a></li>
+<li><a href="http://taeyo.net/Columns/List.aspx?SEQ=29&amp;IDX=1" class="external text" title="http://taeyo.net/Columns/List.aspx?SEQ=29&amp;IDX=1">Taeyo.NET의 jQuery 강좌</a></li>
+<li><a href="http://w3schools.com/jquery/jquery_ref_effects.asp">jQuery Effect Methods</a></li>
+<li><a href="http://remysharp.com/2008/09/10/the-silky-smooth-marquee/">SepThe Silky Smooth Marquee</a></li>
+<li><a href="http://findfun.tistory.com/83">jQuery 를 이용한 슬라이드 이미지</a></li>
+<li><a href="http://www.madeincima.eu/samples/jquery/easyAccordion/">jQuery Easy Accordion Plugin</a></li>
+<li><a href="http://lifewriter.tistory.com/58">모바일 이미지 Touch Slider 만들기</a></li>
+<li><a href="http://webnoon.net/entry/jQuery-강좌4-이미지-바꾸기">jQuery 강좌4. 이미지 바꾸기</a></li>
+</ol>
+
+<h2 id="Library">JavaScript Library, Framework</h2>
+
+<ul class="bu">
+<li><a href="http://jquery.com/"><strong>jquery</strong></a> -
+<a href="http://w3techs.com/technologies/overview/javascript_library/all">Usage of JavaScript libraries for websites</a>
+<em>JQuery 79.8% market share - W3Techs.com, 27 July 2011</em>
+</li>
+<li><a href="http://www.prototypejs.org/">prototype</a></li>
+<li><a href="http://script.aculo.us/">script.aculo.us</a></li>
+<li><a href="http://code.google.com/p/jeslib/">jes</a></li>
+<li><a href="http://www.sencha.com/products/extjs/">ExtJS</a> -
+<a href="http://hilldan.springnote.com/pages/1206052?print=1">ExtJS 간단정리</a></li>
+<li><a href="http://dev.naver.com/projects/jindo">Jindo</a> by NHN</li>
+</ul>
+
+
+</div>
+<!-- /contentsBlock -->
+
+
+
+
+
+<div class="brclear clearfix"></div>
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20101214.~
+20170331.
+20140410.
+20131210. 20130819. 20130627. 20130513. 20130308. 20130215. 20130207. 20130128.
+20120529. 20120525.
+20110812. 20110728. 20110727. 20101221. 20101214.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

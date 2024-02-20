@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Web Compatibility | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Web Compatibility</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Test">호환성 진단</a></li>
+<li><a href="#IEview">호환성 보기</a></li>
+<li><a href="#Guaranteed">호환성 보장</a></li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+<h2 id="Test">호환성 진단</h2>
+
+<!-- box2 -->
+<div class="box2">
+<b><a href="http://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2000000081605">전자정부서비스 호환성 준수지침</a></b>
+ [시행 2012.10.10] [행정안전부고시 제2012-44호, 2012.10.10, 일부개정]
+- 국가법령정보센터 -
+<cite></cite>
+<blockquote cite=""><div>
+<q cite="">동작, 레이아웃, 플러그인 호환성</q><br />
+<q cite="">크로스 브라우징 테스트 : 3종 웹브라우저 ( IE, Chrome, Firefox, Safari, Opera 에서 선택)</q><br />
+</div></blockquote>
+</div><!-- /box2 -->
+
+
+<h3 id="n2">실제 진단 결과</h3>
+
+<!-- box3 -->
+<div class="box3 fl" style="width:45%;">
+<h4 id="MarkupValidatorErrors">웹 표준 문법 준수(W3C Markup Validator Errors) (2009 행안부 진단)</h4>
+<ol>
+<li>특수문자(&)를 Name Code(&amp;amp;) 형태로 사용하지 않은 경우.<br /></li>
+<li>HTML4.01 에서 종료 태그가 없는 홀로 쓰이는 태그에 종료 표시를 해준 경우. &lt;meta /&gt; &lt;link /&gt; &lt;base /&gt; &lt;col /&gt; &lt;area /&gt; &lt;frame /&gt;<br /></li>
+<li>비표준 속성 allowtransparency="true" 를 사용한 경우. (웹표준 아니지만, 대부분의 브라우저에서 지원.)</li>
+<li>img 요소의 필수 속성 alt 가 없는 경우.</li>
+<li>script 요소의 필수 속성 type 이 없는 경우.</li>
+<li>요소에 없는 속성을 사용한 경우. onfocus, onblur, target 등..</li>
+<li>같은 속성을 중복해서 사용한 경우. tabindex="0" 등.. </li>
+<li>&lt;/a&gt;&lt;/li&gt;&lt;/a&gt;&lt;/li&gt; 와 같이 잘 구성(well-formed)되어 있지 않은 경우.</li>
+<li>&lt;ul&gt; 하위에 &lt;li&gt; 없이 다른 요소를 사용한 경우.</li>
+<li>&lt;a href="#"&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/a&gt; 와 같이 중첩 앵커를 사용한 경우.</li>
+<li>종료 태그 &lt;/div&gt; &lt;/span&gt; 등이 모자라거나 남는 경우.</li>
+<li>태그의 속성 값들에 따옴표(" 또는 ')를 사용하지 않은 경우.</li>
+<li>""(따옴표)를 중복으로 코딩한 경우.</li>
+<li>주석 안에 불필요한 -(dash)가 있는 경우. &lt;!-- &lt;!--  --&gt;</li>
+<li>document.write(); 함수 안의 마크업 코드가 문법 오류로 해석된 경우.</li>
+<li>&lt;html&gt;&lt;/html&gt; 외부에 자바스크립트 코드 등을 사용한 경우.</li>
+<li>인라인 요소 안에 블럭 요소가 포함된 경우.</li>
+</ol>
+</div>
+<!-- //box3 -->
+
+<!-- box3 -->
+<div class="box3 fr" style="width:45%;">
+<h4 id="MarkupValidatorErrors">웹 표준 문법 준수(W3C CSS Validator Errors) (행안부 진단 결과 정리하자!!)</h4>
+<ol>
+<li><em><b class="em">ime-mode: active;</b> 속성의 경우 비표준이나 예외적으로 허용함.</em><br />
+(근거)
+2009_웹호환성_준수수준_진단결과_부산광역시.hwp
+붙임1_2010년_행정기관_웹호환성_준수수준_진단결과(부산광역시).hwp
+
+<!-- panel1 -->
+<div class="panel1">
+@m. 20150930 )))<br />
+<a href="http://jigsaw.w3.org/css-validator/#validate_by_input" target="_blank" title="새 창">http://jigsaw.w3.org/css-validator/#validate_by_input</a><br />
+아래 코드 검사<br />
+div{ime-mode:active;}<br />
+CSS2.1 오류<br />
+CSS3 유효성 통과<br />
+※
+<a href="https://developer.mozilla.org/ko/docs/Web/CSS/ime-mode" target="_blank" title="새 창">(3)</a>
+<a href="http://htglss.tistory.com/41" target="_blank" title="새 창">(4)</a>
+<a href="http://firejune.com/1657/CSS%EC%9D%98+%22ime-mode%22+%EC%86%8D%EC%84%B1%EC%97%90+%EB%8C%80%ED%95%98%EC%97%AC" target="_blank" title="새 창">(1)</a>
+<a href="http://hookstudy.tistory.com/59" target="_blank" title="새 창">(2)</a><br />
+
+<blockquote cite=""><div>
+auto; 기본값. 한글/영문 중 선택된 mode<br />
+normal; [IE]지원 안함. 이 값은 페이지의 설정을 대체하는 사용자 스타일 시트에 사용될 수있다.
+active; 활성화 한글. IME 기본 설정 언어로 입력됨. (한글로 되어있으면 한글)<br />
+inactive; 비활성화. 영문이 기본으로 입력됨.<br />
+disabled; 한/영 전환키를 사용해도 영문만 입력. 한글이 허용되지 않는 아이디와 비밀번호 등에서 사용.<br />
+</div></blockquote>
+
+※ IME
+<a href="https://ko.wikipedia.org/wiki/%EC%9E%85%EB%A0%A5%EA%B8%B0" target="_blank" title="새 창">(1)</a>
+<a href="http://windows.microsoft.com/ko-kr/windows-8/input-method-editors" target="_blank" title="새 창">(2)</a>
+
+</div>
+<!-- /panel1 -->
+
+</li>
+</ol>
+</div>
+<!-- //box3 -->
+
+<!-- box3 -->
+<div class="box3 fl clb" style="width:45%;">
+<h4 id="MarkupValidatorErrors">웹 호환성 오류 (2012 행안부 진단)</h4>
+<ol class="bo num">
+<li>스크립트 : 페이지 로딩 시 스크립트 오류 발생 : Firefox</li>
+<li>동작 : 관리자 메일 버튼 : Chrome/Safari/Opera</li>
+<li>동작 : 즐겨찾기 버튼 : Chrome/Firefox/Safari/Opera</li>
+<li>동작 : 본문 푸터. 인쇄? 통계보기? 만족도조사 의견남기기 : Opera/<em>IE9</em></li>
+<li>동작 : 빠른서비스 기능 중 일부 동작 하지 않음 : Firefox --[m]블럭 영역, z-index 문제</li>
+<li>동작 : 메인페이지 콘텐츠 링크 동작하지 않음 : Firefox</li>
+<li>동작 : 전체지도보기 go 동작하지 않음 : Firefox</li>
+<li>레이아웃 : 전체메뉴 활성화 시 서브메뉴의 겹침으로 인한 레이아웃 오류 발생 : Chrome/Safari/Opera/FireFox</li>
+<li>레이아웃 : <i>전체페이지 글자크기</i> 확대버튼 클릭 시 레이아웃 오류 : <em>IE8</em></li>
+<li>레이아웃 : <i>메인페이지 확대</i> 시 레이아웃 오류 발생 : <em>IE8/IE9</em>/Firefox/Chrome/Safari/Opera</li>
+<li>레이아웃 : 전체메뉴와 레이어팝업 겹침 오류 : Firefox</li>
+<li>플러그인 : 동영상 재생되지 않음 : Chrome/Safari/Opera/Firefox</li>
+<li>플러그인 : 보안 부가 기능 작동하지 않음  : Chrome/Firefox/Safari/Opera</li>
+<li>레이아웃 : CSS 오류 : Safari</li>
+</ol>
+</div>
+<!-- //box3 -->
+
+
+<hr />
+<div class="brclear"></div>
+
+
+<h2 id="IEview">IE 호환성 보기</h2>
+
+
+<h3>[호환성 보기] 아이콘 사라지는 경우?</h3>
+<ol class="num">
+<li>meta http-equiv="X-UA-Compatible"</li>
+<li>
+[개발자 도구] - [브라우저 모드] 중 하나를 선택하거나 [개발자 도구] - [문서 모드] 중 (페이지 기본) 이외 중 하나를 선택하면,<br />
+웹 페이지를 새로 고침하고 [호환성 보기] 아이콘은 사라진다.<br />
+이후에는 현재 창의 [호환성 보기] 아이콘은 다시는 나타나지 않는다. [개발자 도구] 를 닫거나 새로고침, 다른 페이지 불러오거나 해도 소용없다.<br />
+새 창을 열면 [호환성 보기] 아이콘을 다시 볼 수 있다.<br />
+</li>
+</ol>
+<p>※ Internet Explorer 9에 제공되는 네 가지 렌더링 모드(Internet Explorer 9 표준, Internet Explorer 8 표준, Internet Explorer 7 표준 또는 쿼크)</p>
+
+<h4>[개발자 도구] - [브라우저 모드][문서 모드]</h4>
+
+<ol class="num">
+<li>[IE7][쿼크]<br /></li>
+<li>[IE7][IE7 표준] (페이지 기본)<br /></li>
+<li>[IE8][쿼크]<br /></li>
+<li>[IE8][IE7 표준]<br /></li>
+<li>[IE8][IE8 표준] (페이지 기본)<br /></li>
+<li>[IE8 호환성 보기][쿼크]<br /></li>
+<li>[IE8 호환성 보기][IE7 표준] (페이지 기본)<br /></li>
+<li>[IE8 호환성 보기][IE8 표준]<br /></li>
+</ol>
+
+<p>※ <a href="http://go.microsoft.com/fwlink/?LinkId=214495">IE8 호환성 보기와 IE7 간의 차이점</a></p>
+
+
+<h2 id="Guaranteed">호환성 보장</h2>
+
+<h3>메타 태그</h3>
+
+<p>개발자는 메타 태그의 콘텐츠 특성을 사용하여 웹 페이지에 대해 콘텐츠가 렌더링되는 모드를 지정할 수 있습니다. Internet Explorer 8 표준 렌더링 모드를 사용하여 콘텐츠가 표시되게 하려면 IE=EmulateIE8 또는 IE=8 값을 지정합니다. Internet Explorer 9 표준 렌더링 모드를 사용하여 콘텐츠가 표시되게 하려면 IE=EmulateIE9 또는 IE=9 값을 지정합니다. Internet Explorer 9에서 Internet Explorer 7 렌더링 동작을 사용하여 콘텐츠를 표시하려면 IE=EmulateIE7 또는 IE=7을 지정합니다. Internet Explorer 5.5 또는 쿼크를 사용하여 콘텐츠가 표시되게 하려면 IE=5 값을 지정합니다.</p>
+
+<xmp class="xmp">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+</xmp>
+
+<a href="http://jsp-making.tistory.com/201" target="_blank">[펌]</a>
+2라인 코드는 크롬과 IE 모두 설치된 PC 에서는 크롬의 렌더링 엔진을 차용해서 화면에 뿌려주지만,
+아닌 경우에는 그냥 IE 모습 그대로.. ㅠ.
+그래도, 호환성보기 옵션을 선택할 수 없게 된다는 것 자체에 의미를 두어야.. ^^.
+<br />
+head 요소 안에서 위치는 &lt;meta charset="utf-8" /&gt; 바로 다음이 좋을 듯하다.<br />
+그 앞에 넣어도 되지만, link 요소, script 요소 다음에 오면 동작 안한다.<br />
+또한, HTML5 유효성 통과 못한다. 20140730 현재.<br />
+유효성 통과 위해.. 조건주석문, 스크립트 안에 넣는 방법 등을 사용해보니.. 유효성은 통과되나, 동작하지를 않는다.<br />
+
+<em class="em1">[m] ",chrome=1" 없이 사용하면 HTML5 문법 유효성 통과한다.</em>
+<xmp class="xmp">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+</xmp>
+
+<p>호환성 및 X-UA-Compatible 헤더에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/ko-KR/library/cc288325%28VS.85%29.aspx">문서 호환성 정의</a>를 참조하십시오.</p>
+
+<h3>HTTP 헤더</h3>
+
+<p>웹 사이트에는 수천 또는 수만 개의 개별 페이지가 포함될 수 있으므로 각 문서에서 이 값을 설정하는 것은 비효율적입니다. 모든 페이지나 폴더별로 선택한 페이지 컬렉션에 대해 메타 태그를 설정하여 사이트가 작동하는 경우 서버 구성을 조정하고 <a href="http://technet.microsoft.com/ko-kr/library/jj822325.aspx" target="_blank" title="가능한 호환성 문제 및 해결 방법 확인">HTTP 헤더에 X-UA-Compatible 메타데이터를 추가하는 것이 좋습니다.</a></p>
+
+<p>다음 표는 Internet Explorer 9의 문서 호환 모드에 대해 설명합니다.</p>
+
+<table border="1" class="t3" summary=""><caption>Internet Explorer 9의 문서 호환 모드</caption>
+<col style="width: 20%;" /><col />
+<thead>
+<tr>
+<th scope="col">콘텐츠 값</th>
+<th scope="col">의미</th>
+<th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">IE=5</th>
+<td>"쿼크" 모드</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">IE=7</th>
+<td>항상 Internet Explorer 7 모드를 사용합니다.</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><em>IE=EmulateIE7</em></th>
+<td>사이트에 쿼크 DOCTYPE이 없는 경우 Internet Explorer 7 모드로 표시됩니다.</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">IE=8</th>
+<td>항상 Internet Explorer 8 모드를 사용합니다.</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">IE=EmulateIE8</th>
+<td>사이트에 쿼크 DOCTYPE이 없는 경우 Internet Explorer 8 모드로 표시됩니다.<br />
+또한 이 태그를 사용하여 클라이언트 컴퓨터에서 호환성 보기를 무시하고 Internet Explorer 8 모드를 강제 적용합니다.<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">IE=9</th>
+<td>항상 Internet Explorer 9 모드를 사용합니다.</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row">IE=EmulateIE9</th>
+<td>사이트에 쿼크 DOCTYPE이 없는 경우 Internet Explorer 9 모드로 표시됩니다.<br />
+또한 이 태그를 사용하여 클라이언트 컴퓨터에서 호환성 보기를 무시하고 Internet Explorer 9 모드를 강제 적용합니다.<br />
+</td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><em>IE=Edge</em></th>
+<td>최신 모드로 표시합니다. Internet Explorer 9에서는 IE=9과 같습니다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>조건 주석문</h3>
+<p>설치용 wordpress 웹사이트 코드 참고!</p>
+<xmp class="xmp">
+<code><!doctype html>
+<!--[if !IE]><html class="no-js non-ie" lang="ko"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="ko"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="ko"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9" lang="ko"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="ko"><!--<![endif]-->
+<head>
+</code></xmp>
+
+
+
+<h2 id="Link">Link</h2>
+
+<ol class="bo num">
+<li>IE 버전별 차이
+	<ol>
+	<li><a href="http://support.microsoft.com/kb/2536204/ko">Internet Explorer 9에서 호환성 보기 방법 [Step by Step]</a></li>
+	<li><a href="http://technet.microsoft.com/ko-kr/library/ff943760(v=ws.10)">Internet Explorer 6에서 Internet Explorer 8 사이의 브라우저 차이점</a></li>
+	<li>마이그레이션 및 응용 프로그램 호환성 &gt;<a href="http://technet.microsoft.com/ko-kr/library/gg699448">완화 전략 및 해결 방법</a></li>
+	<li>마이그레이션 및 응용 프로그램 호환성 &gt;<a href="http://technet.microsoft.com/ko-kr/library/gg699436">Internet Explorer 6과 Internet Explorer 9 간의 브라우저 변경 내용</a></li>
+	</ol>
+</li>
+<li>브라우저 사용률
+	<ol>
+	<li><a href="http://ie6funeral.com/">IE 장례식</a> [m] Link Error</li>
+	<li><a href="http://www.ie6countdown.com/">IE6 사용률 0% 기원</a></li>
+	<li><a href="http://www.netmarketshare.com/">넷 마켓쉐어</a> - <a href="http://marketshare.hitslink.com/browser-market-share.aspx?spider=1&qprid=3">Browser </a></li>
+	<li><a href="http://trend.logger.co.kr/report/trend_report.tsp?currRptType=pie&rptCode=4050&tps=2013%2F03%2F02&tpe=2013%2F03%2F30&rptType=pie&rptStep=week&subSel=&bigCat=">InternetTrend - 분석리포트 - 방문자 환경 - 웹브라우저 버전</a></li>
+	<li><a href="http://weblog2-001.cafe24.com/env/?cont=envBrowser">cafe24 > 통계서비스 > 시스템 환경 분석 > 웹 브라우저</a> --[m]표본은 적지만 참고하시길..</li>
+	</ol>
+</li>
+<li>웹 호환 테스트 웹 서비스
+	<ol>
+	<li><a href="http://spoon.net/Browsers">BROWSER SANDBOX</a> [m] 회원가입 후 70MByte 프로그램 설치 요구해서 중단함.</li>
+	<li><a href="https://browserlab.adobe.com/en-us/index.html">Adobe BrowserLab</a></li>
+	<li><a href="http://browsershots.org/">Browser shots</a></li>
+	</ol>
+</li>
+<li>윈도우 웹 저작 도구
+	<ol>
+	<li><a href="http://dol82.net/442">노트패드+</a> 무료</li>
+	<li><a href="http://www.editplus.com/kr/">에디트플러스</a> 쉐어</li>
+	<!-- <li><a href="?">익스프레스 웹</a> </li>
+	<li><a href="?">비주얼 웹 디벨로퍼</a></li> -->
+	</ol>
+</li>
+</ol>
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20150930. ime-mode
+20150211. 조건주석문.
+20130509. 조건주석문.
+20130401.
+20120629.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

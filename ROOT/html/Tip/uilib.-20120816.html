@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - UI Library | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+.new {  }
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+<h1>UI Library Factory</h1>
+
+<p>
+<strong>기본</strong>은 최고의 <em>테크닉</em>이고, <strong>단순</strong>은 최고의 <em>디자인</em>이다.
+jQuery = <b>jQ</b>
+</p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#TemplateCodeGenerator">Template Code Generator</a></li>
+<li><a href="#UICodeGenerator">UI Code Generator</a></li>
+<li><a href="#UICodePattern">UI Code Pattern</a>
+	<ol>
+	<li><a href="#mBox">01. <em>Box</em> 박스 상자</a></li>
+	<li><a href="#mButton">02. <em>Button</em> 버튼, 단추</a></li>
+	<li><a href="#mForm">03. Form 폼, 서식 </a></li>
+	<li><a href="#mHeading">04. <em>Heading</em> 헤딩, 제목</a></li>
+	<li><a href="#mLayout">05. Layout 레이아웃, 배치</a></li>
+	<li><a href="#mList">06. List 리스트, 목록</a></li>
+	<li><a href="#mLogin">07. Login 로그인, 로긴, 인증, Member 멤버, 회원</a></li>
+	<li><a href="#mMenu">08. <em>Menu</em> 메뉴, 차림표, 본문 메뉴, 활성on, 다른 기능 없이 단순한 것</a></li>
+	<li><a href="#mNavigation">09. Navigation 내비게이션, 주메뉴, 부메뉴, 탑메뉴, 사이드메뉴</a></li>
+	<li><a href="#mPaginate">10. Paginate 페이지 수를 매기다. 쪽 수를 매기다. Paging</a></li>
+	<li><a href="#mPopup">11. Popup 팝업, Tooltip 툴팁, 톡 튀어 오르는</a></li>
+	<li><a href="#mRolling">12. Rolling 구르기, 회전, 가로 흔들림</a></li>
+	<li><a href="#mRotator">13. <em>Rotator</em> 회전하는 것, 순환</a></li>
+	<li><a href="#mScrollFloater">14. Scroll Floater 스크롤 대응 플로터, 부동, 뜨는 것</a></li>
+	<li><a href="#mSelectMenu">15. <em>Select</em> Menu Layer 셀렉트 메뉴 레이어, 선택 상자, 콤보 박스, Pull-Down Menus, 목록 상자, 여닫기</a></li>
+	<li><a href="#mSlide">16. Slide 슬라이드, Accordion 아코디언, Swipe</a></li>
+	<li><a href="#mTab">17. <em>Tab</em> 탭, 딱지, 라벨, 색인표, 꼬리표</a></li>
+	<li><a href="#mTable">18. <em>Table</em> 테이블, 표</a></li>
+	<li><a href="#mTimetable">19. Timetable 타임테이블, 시간표, 일정표, 예정표</a></li>
+	<li><a href="#mUI">20. UI Etc. 유저인터페이지 기타 등등.</a></li>
+	</ol>
+</li>
+<li><a href="#UICodeCommonComplex">UI Code Common Complex</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#ReferenceLink">Reference Link</a></li>
+<li><a href="#Epilogue">Epilogue</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<h2 id="TemplateCodeGenerator">Template Code Generator</h2>
+<ol class="num">
+<li><a href="http://192.168.0.73/Lab/mIAMarkup/mIAMarkup.html">Make IA Markup.jsp(실험실)</a>
+<a href="http://192.168.0.73/Lab/mIAMarkup/mIAMarkup.UIO.jsp.html">jsp</a>
+<a href="http://192.168.0.73/Lab/mIAMarkup/mIAMarkup.UIO.asp.html">asp</a>
+<a href="http://192.168.0.73/Lab/mIAMarkup/mIAMarkup.UIO.php.html">php</a>
+</li>
+</ol>
+
+<h2 id="UICodeGenerator">UI Code Generator</h2>
+<ol class="num">
+<li>Layout</li>
+<li>Thumbnail Module</li>
+<li>Table</li>
+<li>Table2List</li>
+</ol>
+
+<h2 id="UICodePattern">UI Code Pattern</h2>
+
+<p>CSS Version, Image Version</p>
+
+<ol reserved="reserved">
+<li id="mBox"><strong class="big">Box</strong> 박스 상자
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/box/box1border1.html">박스 타입</a> box1, box2, box3, box4</td>
+	<td>제목 내용</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>이미지 박스 Image Full .vs. Frame Full</td>
+	<td><a href="../Lib/box/box1_vertical_middle_min-height.html">이미지 세로 중앙 정렬</a></td>
+	<td>세로 중앙 정렬 높이 가변</td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/box/box2round1.html">둥근 모서리</a> 이미지, CSS3<br />가변 라운드</td>
+	<td></td>
+	<td>배경 장식, 그림자, CSS3</td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mButton"><strong class="big">Button</strong> 버튼, 단추
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/button/button1.html">라운드 가변</a></td>
+	<td>텍스트</td>
+	<td>불릿+텍스트<br />텍스트+불릿</td>
+	<td>아이콘</td>
+	<td>아이콘+텍스트</td>
+	</tr>
+	</table>
+
+</li>
+<li id="mForm"><strong class="big">Form</strong> 폼, 서식 <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>table 테이블</td>
+	<td>dl 정의 목록</td>
+	<td>search 검색</td>
+	<td>AutoComplete 자동완성 레이어</td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mHeading"><strong class="big">Heading</strong> 헤딩, 제목, <strong>Location</strong> 내 위치, 현재 위치, <strong>Path</strong>경로</li>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/heading/heading1.html">h1~h6</a></td>
+	<td>제목 디자인 가변</td>
+	<td>대제목 - 소제목</td>
+	<td>내 위치, 현재 위치, 경로</td>
+	<td></td>
+	</tr>
+	</table>
+
+<li id="mLayout"><strong class="big">Layout</strong> 레이아웃, 배치<br />
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>고정폭 2단(side)<br /> ※ <a href="http://youth.samcheok.go.kr/">삼척.청소년수련시설</a></td>
+	<td>고정폭 2단(aside)<br /> ※ <a href="http://news.busan.go.kr/sub/news01.jsp">부산시 인터넷신문 BUVI News</a></td>
+	<td>고정폭 3단(side+aside)<br /> ※ <a href="?">?</a></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>가변폭 1단<br /> ※ 모바일<a href="?">?</a></td>
+	<td>가변폭 2단(side)<br /> ※ <a href="?">?</a></td>
+	<td>가변폭 2단(aside)<br /> ※ <a href="?">?</a></td>
+	<td>가변폭 3단(side+aside)<br /> ※ <a href="?">?</a></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>중앙배치 - foot 100%<br /> ※ <a href="http://herb.yc.go.kr/">제8회.영천한약장수축제</a></td>
+	<td>중앙배치 - head, foot 100%<br /> ※ <a href="http://mayor.hsg.go.kr/">횡성.열린군수실</a></td>
+	<td>중앙배치 - 배경over1000px우측만<br /> ※ <a href="http://www.wtb.kr/">원주시.시정홍보관및시정방송</a></td>
+	<td>중앙배치 - 배경over1000px좌우상이<br /> ※ <a href="http://www.krx.co.kr/">한국거래소</a></td>
+	<td>중앙배치 - wing fixed, head, foot 100%, 배경over1000px<br /> ※ <a href="http://www.tripitaka2011.com/">경남.대장경천년세계문화축전</a></td>
+	</tr>
+	<tr>
+	<td>5Depth - 5차메뉴활성, 메뉴배열 캐시사용, 1차메뉴별 인클루드파일 구분<br /> ※ <a href="http://busan.go.kr/">부산시2007-2008</a></td>
+	<td>4Depth - 동일 레이아웃에 도메인3개 공존, 상단주메뉴 3차까지<br /> ※ <a href="http://busan.go.kr/">횡성군2008</a></td>
+	<td>5Depth - xml<br /> ※ <a href="http://krx.co.kr/">한국거래소</a></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mList"><strong class="big">List</strong> 리스트, 목록
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>UL 기본 불릿</td>
+	<td>제목</td>
+	<td>제목 날짜</td>
+	<td>그룹 제목 날짜</td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>OL 순서 번호</td>
+	<td>순서 배경</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>DL 정의</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mLogin"><strong class="big">Login</strong> 로그인, 로긴, 인증, <strong class="big">Member</strong> 멤버, 회원
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/member/login1.html">로그인</a></td>
+	<td>회원가입</td>
+	<td>실명인증</td>
+	<td>이용약관</td>
+	<td>회원정보 입력</td>
+	</tr>
+	</table>
+
+</li>
+<li id="mMenu"><strong class="big">Menu</strong> 메뉴, 차림표, 본문 메뉴, 활성on, 다른 기능 없이 단순한 것.
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/menu/menu1text1.html">텍스트</a></td>
+	<td>텍스트 불릿</td>
+	<td>텍스트 분리 우 좌</td>
+	<td>텍스트 세로</td>
+	<td><em>텍스트 다단</em> - 김해시청</td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/menu/menu1pict1.html">이미지</a></td>
+	<td>이미지 불릿</td>
+	<td>이미지 분리 우 좌</td>
+	<td>이미지 세로</td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/menu/menu1pict1text1.html">이미지장식 Sprite 텍스트</a></td>
+	<td>이미지정보 下 텍스트</td>
+	<td>이미지정보 下 텍스트 가변</td>
+	<td>이미지정보 右 텍스트</td>
+	<td>이미지정보 右 텍스트 가변</td>
+	</tr>
+	</table>
+
+</li>
+<li id="mNavigation"><strong class="big">Navigation</strong> 내비게이션, 주메뉴, 부메뉴, 탑메뉴, 사이드메뉴 <b>[JS]</b>
+<strong>GNB</strong> (Global Navigation Bar)
+<strong>LNB</strong> (Local Navigation Bar)
+<strong>SNB</strong> (Side Navigation Bar)
+<br />
+
+	<table border="1" class="t3" summary="">
+	<col style="width: 20%;" /><col />
+	<thead>
+	<tr>
+	<th scope="col">함수명</th>
+	<th scope="col">설명</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<th scope="row">initTopMenu();</th>
+	<td>주메뉴. 마우스오버(키보드포커스) 하면 하위 메뉴&lt;ul&gt; 펼침</td>
+	</tr>
+	<tr>
+	<th scope="row">initGnb();</th>
+	<td>주메뉴. 마우스오버(키보드포커스) 하면 하위 메뉴&lt;div&gt; 펼침</td>
+	</tr>
+	<tr>
+	<th scope="row">initSideMenu();</th>
+	<td>부메뉴. 마우스클릭(키보드엔터) 하면 웹페이지 이동 있고 하위 메뉴&lt;ul&gt; 펼침</td>
+	</tr>
+	<tr>
+	<th scope="row">initSnb();</th>
+	<td>부메뉴. 마우스클릭(키보드엔터) 하면 웹페이지 이동 없고 하위 메뉴&lt;div&gt; 펼침</td>
+	</tr>
+	</tbody>
+	</table>
+
+
+	<table border="1" class="t2 w100"><caption class="bu1"><strong>가로형</strong></caption><col span="5" style="width:20%;" />
+	<tr>
+	<td>주메뉴 텍스트-텍스트<br /> ※ <a href="http://gimhae.go.kr/main/">김해시</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>주메뉴 이미지-텍스트<br /> 2차메뉴분리배경<br /> ※ <a href="?">This Site</a></td>
+	<td>주메뉴 이미지-텍스트<br /> 2차배경가변폭, 1차메뉴분리배경<br /> ※ <a href="http://www.hanbanghub.or.kr/">진주.HUB보건소</a></td>
+	<td>주메뉴 이미지-텍스트<br /> 2차배경고정폭, 2차메뉴불릿<br /> ※ <a href="http://herb.yc.go.kr/">제8회.영천한약장수축제</a></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>주메뉴 이미지-텍스트<br /> 2차배경png24고정폭<br /> ※ <a href="http://www.yc.go.kr/">영천시</a></td>
+	<td>주메뉴 이미지-텍스트<br /> 2차배경png24가변폭<br /> ※ <a href="http://youth.samcheok.go.kr/">삼척.청소년수련시설</a></td>
+	<td>주메뉴 이미지-텍스트<br /> 2차배경png24가변폭, 2차메뉴불릿<br /> ※ <a href="http://mayor.hsg.go.kr/">횡성.열린군수실</a></td>
+	<td>주메뉴 이미지-텍스트<br /> 2차메뉴세로배치다펼침, 2차메뉴불릿<br /> ※ <a href="http://www.tripitaka2011.com/">경남.대장경천년세계문화축전</a></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>주메뉴 이미지-이미지<br /> 2차배경가변폭, 2차메뉴분리배경<br /> ※ <a href="http://forest.busan.go.kr/main/">(부산)화명수목원</a></td>
+	<td>주메뉴 이미지-텍스트-텍스트<br /></td>
+	<td>주메뉴 이미지-텍스트-텍스트<br /> ※ <a href="http://www.busan.go.kr/">부산시</a>(3차는세로)</td>
+	<td>주메뉴 이미지-이미지-텍스트<br /> ※ <a href="http://www.hsg.go.kr/">횡성군</a>(1차클릭후2차표시)</td>
+	<td></td>
+	</tr>
+	</table>
+
+	<table border="1" class="t2 w100"><caption class="bu1"><strong>세로형</strong></caption><col span="5" style="width:20%;" />
+	<tr>
+	<td>부메뉴 텍스트-텍스트 ※ <a href="?">This Site</a></td>
+	<td>부메뉴 이미지-텍스트 ※ <a href="http://www.krx.co.kr/m11/m11_1/m11_1_4/UHPKOR11001_04.html">KRX</a>, <a href="http://mayor.hsg.go.kr/sub/02_01.asp">횡성군열린군수실</a></td>
+	<td>부메뉴 이미지-이미지 ※ <a href="http://www.ncktpab.go.kr/">국립부산국악원</a></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>주메뉴 텍스트-텍스트 ※ <a href="http://agri.uiryeong.go.kr/">의령농업기술센터</a></td>
+	<td>주메뉴 이미지-텍스트 1차오버포커스시2차표시 ※ <a href="http://dojamall.gimhae.go.kr/">김해도자몰</a>	</td>
+	<td>주메뉴 이미지-이미지 1차오버포커스시2차표시 ※ <a href="?">?</a></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mPaginate"><strong class="big">Paginate</strong> 페이지 수를 매기다. 쪽 수를 매기다. Paging
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>Text<br />텍스트</td>
+	<td>Image<br />이미지</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mPopup"><strong class="big">Popup</strong> 팝업, <strong>Tooltip</strong> 툴팁, 톡 튀어 오르는 <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>Layer Popup<br /> 레이어 팝업</td>
+	<td>ZipCode Finder<br /> 우편번호 검색기</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mRolling"><strong class="big">Rolling</strong> 구르기, 회전, 가로 흔들림 <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>initTickerH(); 좌우방향선택 기능<br /> ※ <a href="http://eng.sancheong.ne.kr/">산청군 영문</a> - 개선필요! 마우스오버 멈추나 키보드포커스 안멈춤</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mRotator"><strong class="big">Rotator</strong>  회전하는 것, 자동 순환 Automatic Rotation Action <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><caption class="bu1"><strong>initmTicker(); 무브티커(배너존,..) [이전,다음,멈춤,시작] 순환 or 롤링</strong></caption><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/rotator/ticker1pict1.html">이미지 一줄</a><br />※ <a href="http://youth.samcheok.go.kr/main/index3.jsp">삼척.청소년수련시설</a> - 배너</td>
+	<td>이미지 多줄</td>
+	<td>이미지 크기 다양<br />#<a href="http://portal.hc.정보행동.co.kr/main/">합천군</a> - 배너</td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/rotator/ticker1text1.html">텍스트 一줄</a><br />#<a href="http://new.gimhae.정보행동.co.kr/main/">김해시</a> - 배너</td>
+	<td>텍스트 多줄<br />※ <a href="http://youth.samcheok.go.kr/main/index3.jsp">삼척.청소년수련시설</a> - 일정</td>
+	<td>텍스트 이미지 혼합<br />#<a href="http://portal.hc.정보행동.co.kr/main/">합천군</a> - 활로그</td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+	<table border="1" class="t2 w100"><caption class="bu1"><strong>initPicpr(); 이미지홍보(팝업존,알림판) [이전,다음,멈춤,시작,순번] 순환</strong></caption><col span="5" style="width:20%;" />
+	<tr>
+	<td>이미지 一줄<br />
+	※ <a href="../main/?">This Site</a><br />
+	※ <a href="http://mayor.hsg.go.kr/">횡성.열린군수실</a> - 공약사항
+	</td>
+	<td>이미지 多줄</td>
+	<td>picpr.js 2개이상</td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>텍스트 一줄</td>
+	<td>텍스트 多줄</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mScrollFloater"><strong class="big">Scroll Floater</strong> 스크롤 대응 플로터, 부동, 뜨는 것 <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>고정위치 ※ <a href="http://jspcoding.정보행동.co.kr/sub/01_01_01.jsp">웹 코딩 개발 가이드</a></td>
+	<td>스크롤 따라 움직이다 화면 벗어나면 화면 상단으로 이동 ※ <a href="http://www.krx.co.kr/m11/m11_1/m11_1_4/UHPKOR11001_04.html">KRX</a></td>
+	<td>스크롤 따라 움직이다 화면 벗어나면 부드럽게 화면 상단으로 이동 ※ ref) <a href="http://english.visitkorea.or.kr/enu/AK/AK_EN_1_4_1.jsp">Korea Tourism Organization</a></td>
+	<td>스크롤 따라 부드럽게 이동(left지정,세로중앙) ※ <a href="http://gimhae.go.kr/03intro/02_01.jsp">김해시</a></td>
+	<td>스크롤 따라 부드럽게 이동(left,top지정) ※ ref) <a href="http://www.cwd.go.kr/kr/cheongwadae/organization/public.php">청와대</a></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mSelectMenu"><strong class="big">Select Menu Layer</strong> Select Menu Layer 셀렉트 메뉴 레이어, 선택 상자, 콤보 박스, Pull-Down Menus, 목록 상자, 여닫기 <b>[JS]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/select/select1.html">제목, 열기, 닫기, 목록, 닫기</a></td>
+	<td><a href="../Lib/select/mselect1.html">제목 클릭하면 메뉴 보임. 메뉴 클릭 및 외부 클릭하면 감춤, 활성 제목 뷰</a></td>
+	<td>제목 클릭하면 메뉴 보임. 메뉴 클릭 및 마우스(포커스)아웃하면 감춤</td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mSlide"><strong class="big">Slide</strong>  슬라이드, <strong>Accordion</strong> 아코디언, Swipe <b>[jQ]</b>
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>FAQ</td>
+	<td>공약, 비전, ..</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mTable"><strong class="big">Table</strong> 테이블, 표
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/table/table1border1.html">표선 타입</a></td>
+	<td>.t1 가로선</td>
+	<td>.t2 가로선 세로선</td>
+	<td>.t3 가로선 세로內선</td>
+	<td>중첩</td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/table/table1bg1.html">배경 장식</a></td>
+	<td>둥근 모서리</td>
+	<td>셀 배경</td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/table/table1css3.html">CSS3</a></td>
+	<td>둥근 모서리</td>
+	<td>그라데이션</td>
+	<td>그림자</td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mTab"><strong class="big">Tab</strong> 탭, 딱지, 라벨, 색인표, 꼬리표
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td><a href="../Lib/tab/tab1text1.html">탭 텍스트</a><br /> </td>
+	<td>탭 목록</td>
+	<td>탭 콘텐츠</td>
+	<td></td>
+	<td></td>
+	<tr>
+	<td><a href="../Lib/tab/tab1pict1.html">탭 이미지</a><br /> </td>
+	<td>탭 겹침. 분리자</td>
+	<td>더보기 겹침</td>
+	<td>포커스 게시판</td>
+	<td>중첩</td>
+	</tr>
+	<tr>
+	<td><a href="../Lib/tab/tab1pict1s1.html">탭 이미지 sprite</a><br /> </td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mTimetable"><strong class="big">Timetable</strong> 타임테이블, 시간표, 일정표, 예정표
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>캘린더(월) - 날짜 선택 일별 일정 롤링 ※ <a href="http://youth.samcheok.go.kr/main/index3.jsp">삼척.청소년수련시설</a></td>
+	<td>캘린더(월) - 휴관일/행사일표시, 월별 일정 롤링 ※ <a href="http://www.myclib.or.kr/">밀양시립도서관</a>, <a href="http://multiculturelib.gimhae.go.kr/">김해시다문화도서관</a></td>
+	<td>캘린더(월) - 날짜 선택 활성 및 일별 일정 표시 ※ <a href="http://fc.gimhae.go.kr/">김해시축구단</a></td>
+	<td>캘린더(월) - 날짜 클릭시 링크로 이동 ※ <a href="http://www.kamaco.co.kr/">구리농수산물도매시장</a></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>캘린더(주), 일별 일정 롤링 ※ <a href="http://hdspirithealth.hadong.go.kr/">함양군 정신보건센터</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>일정 多아이콘 표시. 오버(포커스) 일정 제목 - 클릭</td>
+	<td>일정 목록 표시.  오버(포커스) 일정 제목 - 클릭</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+<li id="mUI"><strong class="big">UI Etc.</strong> 유저인터페이지 기타 등등.<br />
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>Graph<br /> 그래프</td>
+	<td>수평 그래프</td>
+	<td>수직 그래프</td>
+	<td>정보 그래프</td>
+	<td>도형 그래프</td>
+	</tr><tr>
+	<td>Modal window<br /> 모달 윈도우</td>
+	<td>Rating<br /> 별점</td>
+	<td>Select box design<br /> 디자인 셀렉트박스</td>
+	<td>Skipped navigation<br /> 스킵 내비게이션</td>
+	<td>Tag Cloud<br /> 태그 구름</td>
+	</tr><tr>
+	<td>Calendar<br /> 캘린더</td>
+	<td>Progress bar<br /> 진행 상태 바</td>
+	<td>Step progress bar<br /> 진행 단계 바</td>
+	<td>View All Categories<br /> 카테고리 전체 보기</td>
+	<td>Loading layer<br /> 로딩 레이어</td>
+	</tr><tr>
+	<td>More<br /> 더보기</td>
+	<td>Route map<br /> 노선도</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+</ol>
+
+<h2 id="UICodeCommonComplex">UI Code Common Complex</h2>
+
+<ol reserved="reserved">
+<li>Comment 코멘트, 덧글, 댓글</li>
+<li>Event 이벤트, 행사</li>
+<li>Footer 푸터, 하단 영역, 꼬리말</li>
+<li>Loading 로딩, 로드 중</li>
+<li>Satisfaction 만족도 평가, 별점</li>
+<li>STA (Service Title Area) 서비스 타이틀 에어리어, 제목 영역</li>
+<li>Utility 유틸리티, 유용한 도구, 실용품<br />
+
+	<table border="1" class="t2 w100"><col span="5" style="width:20%;" />
+	<tr>
+	<td>Variable round<br />본문 인쇄</td>
+	<td>뒤로 가기</td>
+	<td>위로 가기</td>
+	<td>즐겨찾기 추가</td>
+	<td>스크랩</td>
+	</tr>
+	<tr>
+	<td>SNS 퍼가기</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	</tr>
+	</table>
+
+</li>
+</ol>
+
+<h2 id="Task">Task</h2>
+<ol reserved="reserved">
+<li><a href="http://www.samsungcard.com/">삼성카드</a> 주메뉴</li>
+<li><a href="http://www.daum.net/">다음넷</a> 탭 디자인</li>
+</ol>
+
+<h3>To Do (Unfinish)</h3>
+
+<ol reserved="reserved">
+<li>이미지 갤러리 관련. 완성한거 같은데..</li>
+<li>JQuery - animation, touch, gesture, loading</li>
+<li>이미지 크기 부모 가로 이상이면 부모 가로 크기로 줄여주기</li>
+</ol>
+
+<h4>Plug-in</h4>
+
+
+<h3>Finished</h3>
+<ol reserved="reserved">
+<li></li>
+</ol>
+
+<h2 id="ReferenceLink">Reference Link</h2>
+<ol reserved="reserved">
+<li><a href="http://html.nhndesign.com/uio_factory">http://html.nhndesign.com/uio_factory</a></li>
+</ol>
+
+
+<h2 id="Epilogue">Epilogue</h2>
+
+<p>180/7 = 25~26 ea</p>
+<p>콘텐츠 블록은 class="menu1text1right1" 로 네이밍한다. 네이밍은.. 구조명, 콘텐츠 형태명, 기능명과 번호로 한다. 번호명은 의미 없이.. 구분하기 위해 생성 순으로 한다.<br />
+사이트 적용 시 id="menu1" id="menu2" id="bbs1" id="banner1" id="hot1" 구조명 &gt; 의미명 번호로 간략하게 네이밍한다.<br />
+class="menu1text1right1" 과 id="menu1" 에서의 menu1 은 같은 의미로 사용된 것이 아닌 별개다.<br /></p>
+
+
+<h3>Revision</h3>
+<p>
+20120813.
+20120808.
+20120613.
+20120327.
+20101028.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

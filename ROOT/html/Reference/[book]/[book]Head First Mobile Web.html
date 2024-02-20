@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [book]Head First Mobile Web | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+
+
+<h1>[book]Head First Mobile Web</h1>
+| <a href="http://www.yes24.com/24/goods/7436273?scode=032&OzSrank=1">View</a>
+| Demo
+| <a href="http://www.hanb.co.kr/exam/1954/">Exam</a>
+| QnA
+| <a href="http://it-ebooks.info/go.php?id=359-1372319060-18d6d9ed3a65c9c524b9b804909122b5">PDF</a> (Publication Date: December 29, 2011)
+| | Read 480p/16h = 30/h ???
+
+<h2 id="Exam">Table of Contents + Exam Code</h2>
+
+<pre>
+<h3>서문</h3>
+__ 모바일 웹에 빠져 보세요. 여러분은 무언가를 배우기 위해 이 책을 보고 있지만 여러분의 두뇌는 배운 내용을 받아들이려 하지 않습니다. 아마 “어떤 야생 동물을 피해야 하는지에 대한 정보나, 불이 났을 때 블랙베리 볼드폰으로 스프링클러를 작동시키는 방법 같은 더 중요한 것을 위해 자리를 남겨 두어야 해”라고 생각하고 있을 겁니다. 모바일 웹을 알아야만 더 나은 삶을 살 수 있다고 믿도록 만들려면 어떻게 해야 할까요?
+
+<h3>1장 모바일 웹 시작하기: 반응형 웹 디자인</h3>
+__ 그럼 모바일에 빠져들 준비가 되었나요? 모바일 웹 개발은 아주 재미있는 분야입니다. 매력적이고 흥미진진하며, ‘바로 이거구나!’라고 느끼는 순간을 많이 만나게 될 겁니다. 물론 힘들거나 까다로운 부분도 있습니다. 모바일 기술은 정신없을 정도로 빠르게 발전하며 알아야 할 내용도 무척 많습니다. 서두르지 마세요. 우선 <strong>반응형 웹 디자인
+(Responsive Web Design, RWD)</strong>이라 부르는 웹사이트를 만드는 것부터 시작하겠습니다. 여러분이 이미 알고 있는 웹 기술에 이것을 더하면 어느 모바일 장치에서도 멋지게 출력되는 웹사이트를 만들 수 있습니다.
+
+이미지 수정
+<xmp class="xmp">
+img, object{max-width:100%;}
+</xmp>
+유투브 비디오 수정
+<xmp class="xmp">
+<iframe src="http://www.youtube.com/embed/OjOEAufDQ4" style="max-width:100%"></iframe>
+</xmp>
+Responsive design is also a state of mind
+<strong>Responsive Web Design!</strong> =
+	+ Fluid-grid layouts
+	+ CSS media queries
+	+ Fluid images/media
+	+ A state of mind
+Letting go of pixel-perfect layouts and instead designing our content to adapt to different (browser or device) environments
+
+<h3>2장 제대로 반응하기: 모바일 우선(Mobile First)의 반응형 웹 디자인</h3>
+__ 아름다운 모바일 사이트군요. 그런데 화장발이네요. 한 겹 벗겨내면 완전히 다릅니다. 겉으로 보기엔 모바일 사이트이지만, 이건 모바일 화장을 한 데스크톱 사이트에 불과합니다. 이 사이트가 모바일에서도 빠르게 동작하도록 만들려면 모바일 우선 전략을 써야 합니다. 먼저 현재 사이트를 해부해서 모바일 안에 숨어 있는 데스크톱 골격을 찾아내야 합니다. 그런 다음에 <em>모바일에 맞는 기본적인 화면부터 시작해서 데스크톱 화면까지 이끌어내는 점진적 향상 방법을 적용</em>하는 겁니다. 그렇게 하면 화면 크기와 상관없이 최적화된 페이지를 만들어낼 수 있습니다.
+
+YSlow
+<a href="www.blaze.io/mobile">Blaze Mobitest</a> [m] 접속안되어 구글링하니.. <a href="http://mobitest.akamai.com/">http://mobitest.akamai.com/</a>
+- 테스트할 페이지 샘플 : <a href="http://hf-mw.com/ch2/chapter2/ontap.html">http://hf-mw.com/ch2/chapter2/ontap.html</a>
+[View HAR (HTTP Archive Report) file] - [Rreview] 더 자세한 폭포형 그래프
+[View HAR (HTTP Archive Report) file] - [Rreview] - [Show Statistics]
+HAR 에 대한 정보 <a href="http://httparchive.org">httparchive.org</a>
+Progressive enhancement 점진적 향상 방법
+조건주석문
+<xmp class="xmp">
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link rel="stylesheet" type="text/css" href="layout.css" media="all" />
+<![endif]--></xmp>
+See the full syntax for conditional comments at <a href="http://bit.ly/ie-comments">http://bit.ly/ie-comments</a>
+Charles Proxy
+Mobile Perf Bookmarklet (http://bit.ly/mw-perf) includes many performance tools.
+weinre (http://bit.ly/mweinre) and Opera Dragonfly (http://opera.com/dragonfly) let you run Web Inspector on your desktop and examine what is going on in the phone browser.
+
+<b>Q:</b> It seems like the order of content may often be different between desktop and mobile. How do you handle this in more complex pages?
+데스크톱과 모바일에서 페이지 내용의 순서가 다릅니다. 더 복잡한 페이지에서는 어떻게 처리해야 하나요?
+<b>A:</b> Ah, you caught that, huh? Yes, this is one of the common challenges for Responsive Web Design. In the long run, the Flexible Box Module (Flexbox) in CSS3 promises an easy way to reorder content in stylesheets. Combine Flexbox with media queries, and you can completely reorder pages as needed. Unfortunately, Flexbox is still young and isn’t fully supported. So developers resort to JavaScript to reorder content or combine RWD with device detection (see Chapter 5). Frankly, content ordering and image handling remain two of the biggest challenges for RWD.
+눈치 채셨군요? 맞습니다. 이것이 반응형 웹 디자인의 기능 중 하나입니다.
+CSS3의 플렉스박스(FlexBox: Flexible Box Model)는 스타일시트에서 쉽게 내용을 재배치할 수 있는 기능을 조만간 제공할 거라고 합니다.
+미디어 쿼리와 플렉스박스를 조합하면 원하는 대로 내용을 쉽게 재배치할 수 있을 겁니다.
+그러나 플렉스박스는 아직 완전하지 않습니다.
+따라서 개발자들은 자바스크립트와 장치 추적 기능(5장 참조) 그리고 RWD 를 조합하여 이 기능을 구현합니다.
+사실 내용 배치와 이미지 처리가 RWD의 가장 큰 두 가지 숙제입니다.
+
+Respond.js
+
+- 테스트할 페이지 샘플 - 모바일 우선, .header 배경 모바일에서만 불러오게 처리함 : <a href="http://hf-mw.com/ch2/ex/3/ontap.html">http://hf-mw.com/ch2/ex/3/ontap.html</a>
+
+이미지 최적화 : <a href="http://www.smushit.com">www.smushit.com</a>
+
+A responsive image server to the rescue If the browser can’t ask the server for the right image, the server will just have to figure it out for itself.
+That’s what Sencha.io Src attempts to do. (The image resizing service formerly known as TinySRC)
+We can use Sencha.io Src to deliver the best-sized image for every device.
+브라우저가 알맞은 이미지를 서버에 요청할 수 없다면 서버가 스스로 알아내야 합니다.
+Sencha.io Src 는 바로 이를 위한 것입니다. (TinySRC로 알려져 있던 이미지 크기 조정 서비스입니다.
+<b>Sencha.io Src</b> 를 이용하면 장치에 맞는 크기의 이미지를 전달받을 수 있습니다.
+<xmp class="xmp">
+<img src="http://src.sencha.io/http://[DOMAIN]/[PATH]/brews_images/bensons_bubbler.jpg" alt="Benson's Bubbler">
+</xmp>
+Sencha.io Src에 이미지 크기를 지정하면 그에 맞게 작업해 줍니다. <a href="http://bit.ly/senchasrc">http://bit.ly/senchasrc</a>
+반응형 이미지에 대한 자세한 설명 <a href="http://bit.ly/rwdimgs1">http://bit.ly/rwdimgs1</a>
+
+- 테스트할 페이지 샘플 - Sencha.io Src 이용, 이미지 화질 낮추어 저장 : <a href="http://hf-mw.com/ch2/ex/4/ontap.html">http://hf-mw.com/ch2/ex/4/ontap.html</a>
+
+Q: Sencha.io Src 을 대신할 만한 것은 없나요? img 태그 문제에 대한 클라이언트 쪽 해결책은 없나요?
+A: 반응형 디자인에서 img 태그를 처리하는 데에는 여러 가지 방법이 있습니다.
+또한 장치 추적 기능 없이 이 문제를 해결하는 많은 방법도 계속 연구 중에 있습니다.
+우리가 적용했던 해결책은 물론이고 모든 방법에는 장단점이 있습니다.
+관련 기술에 대한 자세한 설명을 보고 싶다면 <a href="http://bit.ly/rwdimgs2">http://bit.ly/rwdimgs2</a> 에 가 보세요.
+
+<h4>확대</h4>
+<xmp class="xmp">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</xmp>
+
+<h4>자바스크립트로 의사-미디어 쿼리 만들기</h4>
+<xmp class="xmp">
+<div id="mapcontainer">
+<p id="maplink"><a href="http://g.co/maps/jm2pw">View Google Map</a></p>
+</div>
+<!-- <iframe id="map" width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com..."></iframe> -->
+</xmp>
+<xmp class="xmp">
+…
+<script>
+var breakpoint = 481,
+	id = 'mapcontainer',
+	viewportWidth = window.innerWidth;
+if (viewportWidth > breakpoint) {
+	var mapElement = document.createElement('iframe');
+	mapElement.id = 'map';
+	mapElement.width = '300';
+	mapElement.height = '300';
+	mapElement.frameborder = '0';
+	mapElement.scrolling = 'no';
+	mapElement.marginheight = '0';
+	mapElement.marginwidth = '0';
+	mapElement.src = 'http://maps.google.com/maps?f=q&so
+	urce=s_q&hl=en&geocode=&q=334+NW+11th+Ave,+Portland,+OR+97209&aq=&sll=37.0625,-95.677068&sspn=58.164117,80.332031&vpsrc=0&ie=UTF8&hq=&hnear=334+NW+11th+Ave,+Portland,+Oregon+97209&t=m&ll=45.525472,-122.68218&spn=0.01804,0.025749&z=14&output=embed';
+	document.getElementById(id).insertBefore(mapElement,maplink);
+}
+</script>
+</body>
+</html>
+</xmp>
+- 테스트할 페이지 샘플 - 자바스크립트로 모바일에서 구글 지도 안보이게 : <a href="http://hf-mw.com/ch2/ex/5/ontap.html">http://hf-mw.com/ch2/ex/5/ontap.html</a>
+
+미디어 쿼리를 적용하는 기준으로 480px을 사용하는 것은 문제가 있습니다.
+모든 전화기가 같은 폭을 갖이 않기 때문입니다.
+물론 지금은 480px이 가장 흔하지만 나중에는 540px이 가장 일반적인 크기가 될지 아무도 모르는 일입니다.
+따라서 페이지 콘텐츠에 직접 물어보고 레이아웃을 언제 바꿀지 결정하는 것이 더 나은 방법입니다.
+일반적인 모바일 화면돠 데스크톱 화면 크기에 집착하지 마세요.
+페이지 레이아웃이 깨지기 시작하면 그 때가 미디어 쿼리가 자바스크립트를 적용할 시점입니다.
+
+<a href="http://hf-mw.com/ch2/ex/6/ontap.html">http://hf-mw.com/ch2/ex/6/ontap.html</a>
+
+브라우저 크기 북마클릿 <a href="http://bit.ly/window-resize">http://bit.ly/window-resize</a>
+구글 크롬 확장 프로그램 브라우저 크기, 창을 화면해상도에 맞춰 바꾸어줌. <a href="http://bit.ly/chrome-resizer">http://bit.ly/chrome-resizer</a>
+웹 개발자 툴킷 <a href="http://bit.ly/webdevtoolkit">http://bit.ly/webdevtoolkit</a> - 파이어폭스와 크롬에서 작동.
+
+줌 기능 사용 후 iOS 가로모드 화면 잘리는 버그 해결. 자바스크립트를 이용한 차선책 <a href="https://gist.github.com/901295">https://gist.github.com/901295</a>
+
+//----
+
+<h3>3장 별도의 모바일 웹사이트: 그리 환상적이지 않은 현실과 만나기</h3>
+__ 하나의 반응형 웹은 아름다운 환상일 뿐입니다... 모바일 우선의 접근 방법으로 구성된 하나의 레이아웃으로 어디에서나 문제없이 출력된다면 정말 좋을 겁니다. 그러나 짜증나는 현실에서 과연 그럴 수 있을까요? 구형 시스템, 오래된 장치, 또는 고객의 예산이 부족한 경우에는 어떻게 할까요? 심지어 데스크톱과 모바일을 모두 지원하도록 만들기는커녕 일부러 분리해야 할 때도 있습니다. 이 장에서는 <strong>모바일 사용자를 알아내는 방법</strong>과 <strong>구형 전화기를 지원하는 방법</strong> 그리고 <strong>별도의 모바일 사이트를 구축하는 방법</strong>에 대해 알아봅니다.
+
+<strong>user-agent sniffing</strong> -- 브라우저가 보내는 HTTP 요청의 일부분인 UA header 를 검사하는 것입니다. 사용자가 자신의 user agent 를 조작 가능하다는 약점이 있다.
+<strong>user-agent spoofing</strong> -- UA 헤더 (고의로) 바꾸기
+<a href="http://www.useragentstring.com/">http://www.useragentstring.com/</a> -- user-agent 문자열 자세히 알고 싶다면..
+UAProf -- 신뢰할 수 없다.
+
+서버 쪽 스크립트를 이용하여 모바일 브라우저의 user-agent 문자열을 찾아내는 간단한 방법을 소개
+<a href="http://detectmobilebrowsers.com/">http://detectmobilebrowsers.com/</a> -- 모바일 장치 추적 스크립트를 무료로 구하기
+
+redirect.php 수정
+<xmp class="xmp">
+<?php
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+$mobile_location = 'http://' . $_SERVER['HTTP_HOST'] . '/index_mobile.html';
+if(preg_match(...))
+header('Location: ' . $mobile_location);
+?>
+</xmp>
+모바일 목업(mockup, 모형 페이지) 만들기
+
+index.php 수정
+<xmp class="xmp">
+<?php require_once('redirect.php'); ?>
+</xmp>
+
+<strong>오페라 미니 브라우저</strong>
+<a href="http://www.opera.com/mobile/demo/?ver=4">Opera Mini 4.2 simulator</a> 에서 예제 <a href="http://hf-mw.com/ch3/ex/1/">http://hf-mw.com/ch3/ex/1/</a> 열어서 확인
+오페라 미니는 HTML5 DOCTYPE 을 보고 데스크톱 브라우저처럼 행동해야 한다고 해석한다.
+
+<strong>XHTML Mobile Profile (XHTML-MP 1.2)</strong>
+<xmp class="xmp">
+<?xml version="1.0" encoding="UTF-8" ?>
+< !DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+</xmp>
+<div class="box1">target 속성을 지원하지 않는다.
+iframe 을 지원하지 않는다.
+access key 를 제공한다.
+WML(<sub class="">Wireless Markup Language</sub>)
+C-HTML (<sub class="">Compact HTML</sub>)
+XHTML-MP 가 WML 등 이전의 모바일 마크업 언어를 대신한다고 보면 됩니다.
+마크업을 깔끔하게 작성해야 합니다.
+&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;col&gt;, or &lt;colgroup&gt; 은 안됩니다.
+</div><!-- /contentsBlock -->
+<strong>액세스 키</strong>
+<xmp class="xmp">
+<a href="#dashboard" accesskey="1">Your Dashboard</a>
+</xmp>
+
+XHTML-MP 1.2는 2008년에 XHTML-Basic 으로 대체되었습니다.
+<strong>XHTML-Basic 1.1</strong> 은 XHTML-MP 1.2 의 모든 기능을 지원할 뿐만 아니라 몇 가지 추가 기능도 있습니다.
+a 태그에 target 속성이 지원됩니다.(그렇지만 사용을 권장하지는 않습니다.)
+sup 와 sub 같은 몇 가지 태그도 추가되었습니다.
+
+01. !DOCTYPE 을 XHTML-Basic 로 변환
+<xmp class="xmp">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+</xmp>
+02. 일단 CSS를 지우세요.
+03. &lt;ul&gt; 을 &lt;ol&gt; 로 바꾸세요.
+04. &lt;a&gt; 태그에 accesskey 속성을 넣으세요.
+05. floating, &lt;div&gt; 를 table 로 바꾸세요.
+
+데스크톱 브라우저에서 <strong>엑세스 키 작동 확인</strong>
+<div class="box1">* Windows
+Chrome or Safari: ALT-[accesskey]
+FireFox: ALT-SHIFT-[accesskey]
+Internet Explorer: ALT-[accesskey]
+* Linux
+Chrome: ALT-[accesskey]
+FireFox: ALT-SHIFT-[accesskey]
+* Mac
+Chrome or Safari: CTRL-OPT [accesskey]
+FireFox: CRTL-[accesskey]
+</div><!-- /box1 -->
+
+유효성 검사
+<a href="http://validator.w3.org">http://validator.w3.org</a>
+
+<strong>CSS Mobile Profile 2.0 (CSS-MP)</strong>
+모든 기능을 다 할 수는 없지만 CSS@의 기능 대부분과 CSS3의 일부 기능을 구현할 수 있습니다.
+브라우저마다 모바일 CSS의 지원 상황이 다양합니다.
+따라서 불쌍한 개발자가 모든 책임을 지고 문제없도록 테스트하고 제대로 작동하는지 확인하는 수밖에 없습니다.
+
+<div class="box1">background-image, background-repeat 는 지원되긴 하지만 낭비이므로 지운다.
+background-positon 은 지원되지 않는다.
+background-color 지원도 장담할 수 없다.
+border-radius 지원되지 않는다.
+overflow 의 값이 auto 인 경우에만 제대로 지원한다.
+float 속성은 사용하지 않는다.
+list-style-position: inside; 를 지원하지 않는다.
+</div><!-- /box1 -->
+
+순번 있는 링크를 버튼 모양으로 만들려면 다시 ul 로 수정하고, 링크 텍스트에 액세스 숫자 키를 넣어야 한다.
+<xmp class="xmp">
+<div id="tools">
+<ul>
+<li><a href="#dashboard" accesskey="1">1. Your Dashboard</a></li>
+<li><a href="#" accesskey="2">2. Messages (2)</a></li>
+<li><a href="#" accesskey="3">3. Your Schedule</a></li>
+<li><a href="#" accesskey="4">4. Request Supplies</a></li>
+<li><a href="#" accesskey="5">5. Request Personnel</a></li>
+<li><a href="#" accesskey="6">6. Call HQ</a></li>
+</ul>
+</div>
+</xmp>
+
+It’s important to choose the appropriate DOCTYPE for your mobile web project and pay attention to keeping your markup valid—bad code can make phones behave very badly.
+모바일 웹 프로젝트에 <em>알맞은 DOCTYPE 결정</em>은 매우 중요합니다.
+그리고 <em>유효하지 않은 마크업</em>을 사용하면 전화기가 이상하게 동작할 수 있으니 주의해야 합니다.
+
+모바일 장치 전용의 자바스크립트 ECMAScript Mobile Profile 있지만 신뢰하지 않는게 좋다.
+
+실수 혹은 user agent 스푸핑해서 브라우저를 잘못 인식한다면 데스크톱 트래픽이 모바일 사이트로 잘못 보내져서 나오지 못하는 상황이 될 수도 있나요?
+해결1) 돌아갈 수 있는 링크를 넣는다.
+해결2) 쿠키값을 설정한다.
+
+유효한 웹사이트가 원하는 대로 구현되지 않는다면..
+타협하거나 포기해야 할 것도 있다. 상황에 따라 규칙을 어길 경우도 있겠지만 기본적으로 올바른 규칙을 숙지하는 것이 가장 좋은 자세입니다.
+
+XHTML-Basic 이용이 별로 내키지 않는데요.
+'경우에 따라 달라요' “it depends.”
+
+CSS-MP 에서 지원되는 속성과 지원되지 않는 속성 목록 자세히.. <a href="http://www.w3.org/TR/css-mobile">CSS Mobile Profile 2.0 spec</a>
+
+
+<h3>4장 무엇을 지원할지 결정하기: 어느 장치를 지원해야 할까요?</h3>
+__ 모든 장치를 테스트해 볼 시간은 없습니다. <em>어디까지 지원할지 선을 그어야 합니다.</em> 그런데 어떻게 결정해야 할까요? 테스트해 볼 수 없는 장치를 사용하는 사람들은 어떻게 하죠? 들어본 적도 없는 장치에서도 웹사이트를 문제없이 출력하도록 만드는 게 가능할까요? 이 장에서는 고객들이 원하는 기능과 사이트 개발에 필요한 사항을 적절히 보완하여 어느 장치를 지원할 것인지 그리고 지원하지 않는 장치는 어떻게 할지 알아봅니다
+<div class="box2">어느 장치를 지원할 것인가?
+지원하지 않는 장치는 어떻게 되는가?
+지원할 수 없는 장치는 어떻게 되는가?
+</div><!-- /contentsBlock -->
+<em>지원할 수 없더라도 세심한 배려로 친절하게 고객을 대해야 합니다.</em>
+
+고객은 누구인지?
+무슨 기능이 중요한지?
+어떤 기능을 선택 사항으로 넣을지?
+어떻게 작동해야 하는지?
+
+장치의 기능.. 위치 정보, 카메라, 자이로스코프 필요?
+브라우저의 특징.. 쿠기, HTTPS 지원, 비디오 재생 기능?
+하드웨어 성능.. CPU, 메모리, CSS효과에 하드웨어 성능이 필요
+온라인? 오프라인?..
+고객의 사용 현황.. 가장 많이 사용하는 장치는?
+회사 임원의 장치..
+연결 속도.. 비디오가 강화된 사이트는 전송 속도가 빨라야만 제대로 작동합니다.
+
+고객 설문 조사.. 많이 물어볼수록 좋다!
+분석 자료
+지역에 따른 선호도
+장치 데이터베이스
+인구 통계학.. 수입, 나이, 성별, ..
+
+<a href="http://bit.ly/m-stats">http://bit.ly/m-stats</a> -- 모바일 통계에 대해 알기 쉽게 설명
+
+- 사례 연구
+- 필요 사항
+-- 필수 사항
+-- 선택 사항
+
+모바일 사이트 개발자 대부분은 어떤 장치를 지원해야 할지 확실히 알지 못합니다.
+단지 최선을 다해 생각하고 완벽한 사이트가 될 때까지 계속 수정해 나갑니다.
+
+경험과 직관력을 믿으세요.
+
+<h3>5장 장치 데이터베이스와 클래스: 그룹으로 만들기</h3>
+__ 어느 장치를 지원할지 범위를 정하더라도 여전히 해결하기 힘든 문제가 있습니다. 콘텐츠를 사용자의 장치로 전송하기 전에 사용자의 모바일 브라우저가 콘텐츠를 제대로 출력할 수 있는지 어떻게 알 수 있을까요? 구형 장치에서도 문제없는 멋진 콘텐츠를 만들려면 어떻게 해야 할까요? 어떻게 하면 수많은 장치 정보를 헷갈리지 않도록 정리할 수 있을까요? 이 장에서는 <em>장치의 기능에 대해 알아보고 장치 데이터베이스를 이용하여 원하는 정보를 가져오는 방법</em>에 대해 배웁니다. 그리고 장치들을 분류해서 <strong>장치 클래스</strong>를 만드는 방법도 알아봅니다.
+
+<h4>WURFL (Wireless Universal Resource FiLe, usually pronounced “wuhr-full”)</h4>
+은 오픈 소스 장치 데이터베이스로서, 하드웨어, OS, 브라우저 모두에 대한 방대한 정보를 담고 있습니다.
+
+모바일 브라우저에서 <a href="http://www.tera-wurfl.com/explore">http://www.tera-wurfl.com/explore</a> 접속 - See my capabilities
+데스크톱 브라우저에서 uesr-agent 문자열 검색할 수도 있다.
+
+장치 데이터는 거대한 하나의 XML 파일에 들어 있으며, 이 파일은 정기적으로 갱신됩니다.
+<a href="wurfl.sourceforge.net">wurfl.sourceforge.net</a> 에 가면 최신 버전을 볼 수 있습니다.
+
+WURFL 에서 맞는 정보를 찾을 수 없다면 DeviceAtlas, DetectRight, and MobileAware 같은 다른 장치 데이터베이스를 이용해보세요.
+
+WURFL community -- 메일링 리스트  <a href="http://tech.groups.yahoo.com/group/wmlprogramming/">wml-programming</a>
+
+//---- ~p192
+
+장치 클래스는 공통된 기능을 기반으로 장치들을 모은 추상적인 개념입니다.
+
+서버 쪽 장치 추적과 장치에 따른 콘텐츠 출력은 클라이언트 쪽 기능과 조합될 수 있습니다.
+
+<h3>6장 프레임워크를 이용하여 모바일 웹앱 만들기: 타탄 만들기</h3>
+__ “앱이 필요합니다!” 몇 년 전만 해도 이 말은 지원하고자 하는 플랫폼에 맞는 네이티브 코드 개발과 운용을 의미했습니다. 그러나 요즘에는 모바일 브라우저를 위한 웹 기반 앱이 대세가 되었으며, 특히 <strong>HTML5</strong>와 그의 동료인 <strong>CSS3</strong>, <strong>자바스크립트</strong>가 뜨거운 관심을 받고 있습니다. 이제 모바일 웹앱을 쉽게 개발하도록 돕는 코드 툴인 <strong>모바일 프레임워크</strong>를 이용하여 모바일 웹앱의 세계로 발을 내디뎌 봅시다!
+
+Head First HTML5 Programming
+
+<h4>jQuery Mobile</h4>
+<a href="http://www.caniuse.com">http://www.caniuse.com</a> -- HTML5 와 관련 웹 기술에 대해 자세히
+<a href="http://jquerymobile.com/themeroller/">http://jquerymobile.com/themeroller/</a> -- 테마 롤러 : 테마를 쉽게 사용하게 해준다.
+<a href="http://jquerymobile.com/gbs/">http://jquerymobile.com/gbs/</a> -- 현재 지원되는 장치와 브라우저 목록
+
+<h3>7장 모바일 웹앱의 진면목: 슈퍼 모바일 웹앱</h3>
+__ 모바일 웹앱은 철없는 천재와 비슷합니다. 아주 매력적이고 놀라운 것을 만들어내는 능력은 있지만, 이해하기 힘들고 예측할 수 없는 문제를 야기하기도 합니다. 그 동안 범위를 정하고 문제점을 상기하면서 에너지 넘치는 천재를 제어해 왔지만, 이제 모바일 웹의 타고난 재능을 발휘할 때가 되었습니다. <strong>점진적 향상 방법</strong>을 통해 어느 브라우저에서나 깔끔한 인터페이스를 갖도록 만들고, 불안정한 연결 문제는 <strong>오프라인 모드</strong>로 멋지게 해결합시다. 그리고 <strong>지오로케이션</strong>으로 모바일의 진수를 느껴보세요. 이제 슈퍼 모바일 웹앱을 만들어 봅시다!
+
+
+
+<h3>8장 폰갭으로 하이브리드 모바일 앱 만들기: 타탄 찾기, 네이티브 이용</h3>
+__ 때로는 <strong>네이티브 앱</strong>이 필요합니다. 모바일 브라우저에서 아직 지원되지 않는 작업을 해야 할 때도 있고, 고객이 반드시 앱스토어에 앱을 올려야 한다고 요청할 때도 있기 때문입니다. 누구나 브라우저 상에서 모든 일을 처리하고, 모바일 웹앱을 매혹적인 네이티브 앱처럼 즐기는 환상적인 미래를 원합니다. 하지만 현재로서는 하이브리드 개발 방법이 최선의 해결책입니다. 즉, 계속해서 <em>웹 표준을 따르는 코드를 작성하되, 이 코드와 장치의 네이티브 기능 간의 차이를 이어주는 라이브러리를 이용</em>하는 겁니다. 웹 기술로 플랫폼 간에 호환되는 네이티브 앱을 만든다? 꽤 괜찮은 협상 아닌가요?
+
+
+
+<h3>9장 미래 지향적인 자세: 불확실한 미래 인정하기</h3>
+__ <strong>반응형 웹 디자인</strong>, 장치 추적, 모바일 웹앱, 폰갭, 이 중에서 무엇을 사용해야 할까요? 모바일 웹을 개발하는 방법은 수없이 많습니다. 어떤 프로젝트에서는 여러 가지 기술을 섞어서 사용하기도 합니다. <em>정답이 없다고 걱정할 필요 없습니다. 흐름에 맞춰 계속 배워나가면 됩니다.</em> 불확실한 미래를 인정하세요. 미래 지향적인 마음으로 대세를 따르고, 미래가 어떻게 변하든 잘 맞추어 나갈 수 있다는 확신을 가지세요.
+
+
+
+부록 1. 6가지 중요한 이야기
+부록 2. 웹 서버 환경 구축
+부록 3. WURFL 설치하기
+부록 4. 안드로이드 SDK와 도구 설치
+</pre>
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130723.
+20130701.
+20130627.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Performance | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css">/*<![CDATA[*/
+.new {  }
+/*]]>*/</style>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 class="hb1 h1">High Performance Web Sites  웹 사이트 성능 최적화</h1>
+
+
+
+<!-- mtab1 -->
+<div class="mtab1">
+<ol class="num">
+<li><a href="#Link">Link</a></li>
+<li><a href="#CSSReflow">CSS Reflow</a></li>
+<li><a href="#YSlow">YSlow</a></li>
+<li><a href="#PageSpeed">PageSpeed</a></li>
+</ol>
+</div>
+<!-- /mtab1 -->
+
+
+<!-- panel3 -->
+<div class="panel3 hue2 clearfix">
+
+<ol>
+<li>[~IE8] nth-* 선택자가 JS 에 의해 변경되는 경우 브라우저가 멈출 수 있다.</li>
+</ol>
+
+
+</div>
+<!-- /panel3 -->
+
+
+<!-- contentsBlock -->
+<div class="contentsBlock" style="float:right;width:25%;margin:0 0 0 20px;">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Link">Link</h2>
+
+
+<ol>
+<li>
+	<a href="https://website.grader.com/" target="_blank" rel="noopener" title="새 창">website.grader.com</a><br />
+	분석결과 )) Performance, Mobile, Seo, Security 
+</li>
+<li>
+	<a href="https://www.webpagetest.org/" target="_blank" title="새 창">webpagetest</a><br />
+	웹페이지 속도 측정 : Time, Requests, Bytes In, Cost<br />
+</li>
+<li>
+	<a href="https://gtmetrix.com/" target="_blank" title="새 창" class="fwb fsL">GTmetrix</a>
+	웹페이지 속도 측정
+</li>
+<li>
+	<a href="http://html.nhncorp.com/blog/1132468" target="_blank" title="새 창">Minify와 Gzip이 페이지 로딩시간(PLT)에 미치는 영향</a>
+	[m] beautify
+</li>
+<li><a href="http://httparchive.org/trends.php" target="_blank" title="새 창">HttpArchive.org</a></li>
+</ol>
+
+
+</div>
+<!-- /contentsBlock -->
+<!-- contentsBlock -->
+<div class="contentsBlock" style="overflow:hidden;">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="CSSReflow">CSS Reflow를 피하거나 그 영향을 최소화하는 방법</h2>
+
+
+<cite>(( <a href="http://daumui.tistory.com/12" target="_blank" title="새 창">[성능] Reflow 원인과 마크업 최적화 Tip</a> - 다룸</cite>
+
+
+<ol class="bo dfn">
+<li>클래스 변화에 따른 스타일 변화를 원할 경우, 최대한 DOM 구조 상 끝단에 위치한 노드에 주어라. </li>
+<li>인라인 스타일을 최대한 배제하라.</li>
+<li>애니메이션이 들어간 엘리먼트는 가급적 position:fixed 또는 position:absolute 로 지정하라.</li>
+<li>퀄리티와 퍼포먼스 사이에서 타협하라.</li>
+<li>테이블 레이아웃을 피하라.<br />
+	<em class="em">table-layout:fixed</em> 속성을 주는 것이 디폴트값인 auto에 비해 성능면에서 더 좋다
+</li>
+<li>IE의 경우, CSS에서의 JS표현식을 피하라.</li>
+<li>JS를 통해 스타일변화를 주어야 할 경우, 가급적 한번에 처리하라.<br />
+<pre class="mg0">
+<code class="xmp">
+var toChange = document.getElementById('elem');
+toChange.style.background = '#333';
+toChange.style.color = '#fff';
+toChange.style.border = '1px solid #ccc';
+</code>
+</pre>
+
+때문에 위와 같은 방법보다는 다음과 같은 방법으로, 단 한번의 변화만을 발생시키는 것이 더욱 효과적이다.
+
+<pre class="mg0">
+<code class="xmp">
+/* CSS */
+#elem { border:1px solid #000; color:#000; background:#ddd; }
+.highlight { border-color:#00f; color:#fff; background:#333; }
+/* js */
+document.getElementById('elem').className = 'highlight';
+</code>
+</pre>
+
+</li>
+<li><em class="em">CSS Rules는 필요한 만큼만 정리하라.</em><br />
+첫번째 예보다 두번째 예가 성능이 좋다.<br />
+코드 가독성을 위해서라면 차라리 해당 분류 묶음에 CSS 주석처리를 하는 것이 효과적이다.<br />
+<pre class="mg0">
+<code class="xmp">
+.section .list li .box .btn-more { display:block; … }
+</code>
+</pre>
+<pre class="mg0">
+<code class="xmp">
+.section .list .btn-more { display:block; … }
+</code>
+</pre>
+
+</li>
+<li>position:relative 사용 시 주의하자.<br />
+position:relative가 오히려 position:absolute 또는 float 속성보다 더 큰 비용을 가진다.<br />
+(Box model → Normal flow → Positioning 의 3단계를 모두 거치므로)<br />
+때문에 ul 또는 ol과 같은 목록에서 상당수 반복되는 li 요소에 position:relative 와 top,left 속성등을 주는 경우, 퍼포먼스 하락이 발생할 가능성이 크다.<br />
+</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="YSlow">YSlow</h2>
+
+<p>▶<a href="https://chrome.google.com/webstore/detail/ninejjcohidippngpapiilnmkgllmakh">YSlow  크롬 확장 프로그램 추가</a></p>
+
+<ol class="num">
+<li><a href="../Guide/high_performance.html#rule1">Make Fewer HTTP Requests</a>  <b class="em">HTTP</b> 요청을 줄여라</li>
+<li><a href="../Guide/high_performance.html#rule2">Use a Content Delivery Network</a> 콘텐츠 전송 네트워크(<b class="em">CDN</b>)를 이용하라</li>
+<li><a href="../Guide/high_performance.html#rule3">Add an Expires Header</a> 헤더에 만료기한을 추가하라 (<b class="em">Expires</b> 헤더를 추가하라)</li>
+<li><a href="../Guide/high_performance.html#rule4">Gzip Components</a> <b class="em">Gzip</b> 압축을 사용하라</li>
+<li><a href="../Guide/high_performance.html#rule5">Put Stylesheets at the Top</a> 스타일시트(<b class="em">CSS</b>)는 위에 넣어라</li>
+<li><a href="../Guide/high_performance.html#rule6">Put Scripts at the Bottom</a> 스크립트(<b class="em">JavaScript</b>)는 아래에 넣어라</li>
+<li><a href="../Guide/high_performance.html#rule7">Avoid CSS Expressions</a> <b class="em">CSS Expression</b> 사용을 자제하라</li>
+<li><a href="../Guide/high_performance.html#rule8">Make JavaScript and CSS External</a> 자바스크립트와 스타일시트를 <b class="em">외부파일</b>로 분리하라</li>
+<li><a href="../Guide/high_performance.html#rule9">Reduce DNS Lookups</a> <b class="em">DNS</b> 조회를 줄여라</li>
+<li><a href="../Guide/high_performance.html#rule10">Minify JavaScript</a> 자바스크립트를 <b class="em">최소화</b>하라</li>
+<li><a href="../Guide/high_performance.html#rule11">Avoid Redirects</a> <b class="em">리다이렉트</b>를 피하라</li>
+<li><a href="../Guide/high_performance.html#rule12">Remove Duplicate Scripts</a> <b class="em">중복</b>되는 스크립트를 제거하라</li>
+<li><a href="../Guide/high_performance.html#rule13">Configure ETags</a> <b class="em">ETag</b> 헤더를 설정하라</li>
+<li><a href="../Guide/high_performance.html#rule14">Make Ajax Cacheable</a> <b class="em">AJAX Cache</b>를 만들어라.</li>
+<li><a href="../Guide/high_performance.html#rule15">iframe</a> <b class="em">아이프레임</b>을 현명하게 사용하라</li>
+</ol>
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="PageSpeed">PageSpeed</h2>
+
+<p>▶<a href="https://chrome.google.com/webstore/detail/gplegfbjlmmehdoakndmohflojccocli">PageSpeed Insights 크롬 확장 프로그램 추가</a></p>
+
+<h3 class="hb1 h3">Test</h3>
+<h4 class="hb1 h4">20120802</h4>
+
+<pre class="box1">
+구글 메인 https://www.google.co.kr/ 99점
+네이버 메인 http://www.naver.com/ 89점~90점
+김해시 대표포털 개발서버 http://new.gimhae.정보행동.co.kr/main/ 9점
+합천시 대표포털 개발서버 http://portal.hc.정보행동.co.kr/main/ 0점
+==>수정 후 확인..
+Keep-Alive 사용 37점
+Keep-Alive 사용 + 브라우저 캐싱 활용 60점
+Keep-Alive 사용 + 브라우저 캐싱 활용 + Vary: Accept-Encoding 헤더 지정 62점
+Keep-Alive 사용 + 브라우저 캐싱 활용 + Vary: Accept-Encoding 헤더 지정 + 압축 사용 69점
+Keep-Alive 사용 + 브라우저 캐싱 활용 + Vary: Accept-Encoding 헤더 지정 + 압축 사용 + 이미지 최적화 69점
+Keep-Alive 사용 + 브라우저 캐싱 활용 + Vary: Accept-Encoding 헤더 지정 + 압축 사용 + 이미지 최적화 69점
+외부 css (배경 이미지) 제거 해도 점수 무변화~
+img 요소 제거하니..  점수 95점
+결론. 이미지 최소화하고, 높은 우선순위를 해결해야 고득점 가능하다.
+
+- 높은 우선순위(4개)
+Keep-Alive 사용
+CSS 스프라이트로 이미지 통합
+브라우저 캐싱 활용
+압축 사용
+- 낮은 우선순위(7개)
+자바스크립트 축소
+자바스크립트 파싱 지연
+이미지 최적화
+HTML 축소
+CSS 축소
+이미지 크기 지정
+Vary: Accept-Encoding 헤더 지정
+</pre>
+
+<h4 class="hb1 h4">20120802</h4>
+
+<pre class="box1">
+합천시.대표포털.메인 개발서버  http://portal.hc.정보행동.co.kr/_lib/x.html
+00점 
+69점 - 높은 우선순위 서버 세팅 3가지 하면..
+83점 - 76개 img 요소 삭제 (JS생성 주메뉴1차이미지, 검색버튼 이미지 제외)
+95점 - img 요소 전부 삭제 (JS생성 주메뉴1차이미지, 검색버튼 이미지 포함 제외 상관없이)
+95점 - CSS 제거 (배경이미지 제거) -- 변화없음.
+99점 - 외부 JS 제거
+99점 - 인라인 JS 제거 -- 변화없음.
+100점 - 주석 제거
+</pre>
+
+
+</div>
+<!-- /contentsBlock -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+: 20120802~
+20190114.
+20181128.
+20171025. Link
+20161130. Link
+20161124. CSS Reflow를 피하거나 그 영향을 최소화하는 방법
+20150410.
+20130415.
+20120802.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

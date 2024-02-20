@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211007 | @m | 최초작성
+ * 20211008 | @m | 최초완성
+ * 20211015 | @m | 멀티 막대 차트 추가. 최근순으로 정리
+ * 20211018 | @m |
+ * 20211019 | @m |
+ * 20211020 | @m |
+ * 20211021 | @m |
+ * 20211022 | @m |
+ * 20211025 | @m |
+ * 20211026 | @m | d3.js korea map 추가..
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chart Demo by@m</title>
+<style>/*<![CDATA[*/
+
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{
+		display:inline-flex; /* ☆ */
+		z-index:0;
+		position:relative;
+		margin:0;
+		font-size:1.25em;
+	}
+	.hb1.h3:before{content:'';
+		display:block;
+		z-index:-1;
+		position:absolute;left:0;right:0;top:100%;
+		margin:-.5em 0 0;
+		border-bottom:.5em solid #fec;
+	}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+	.em{
+		color:#390 !important;
+		font-style:normal;
+	}
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+
+
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">Chart Demo v0.2</h1>
+
+
+<h2 class="hb1 h2">Tool / Skill</h2>
+
+
+<ol class="bo">
+	<li>
+		<a href="https://www.chartjs.org/">Chart.js</a> [canvas] ( v2.9.4 [IE11](O) 이용 || 버전 3부터 IE 지원이 중단 ) <br />
+		<small class="dpib">데이터 시각화를 위한 무료 오픈 소스 JavaScript 라이브러리로 막대, 선, 영역, 파이, 버블, 레이더, 극좌표 및 산포의 8 가지 차트 유형을 지원합니다.</small>
+	</li>
+	<li>
+		<a href="https://d3js.org/">D3.js</a> [svg] ( v4 [IE9+](O) || v5+ [IE](X) )<br />
+		with. <a href="https://github.com/vnidev/animated-bar-chart">Animated bar chart - jQuery plugin</a>
+			 : 멀티막대그래프
+	</li>
+	<li>
+		 [svg+css+js]
+		 : 도넛 프로그레스
+	</li>
+	<li>
+		 [html+css]
+		 : 막대그래프
+	</li>
+</ol>
+
+
+<h2 class="hb1 h2">Demo</h2>
+
+
+<ol class="bo">
+	<li>
+		<h3 class="hb1 h3">Line 라인</h3>
+		<ol class="bo">
+			<li><a href="./mChart.line.chartjs.html" class="em">샘플</a> [Chart.js](멀티3) 20211021<br />
+					| 툴팁 옵션
+					| 색상 자동
+			</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_03.php">덕스 - 학생진도율확인</a> [Chart.js](단일.멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/video1view2.php">두런 - 영상상세</a> - 영상 조회수 추세 [Chart.js](멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/youtuber1dashboard1.php">두런 - 유튜버 마이페이지 - 대시보드 - 유튜버</a> [Chart.js](멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/youtuber1video1analysis1.php">두런 - 유튜버 마이페이지 - 영상분석</a> [Chart.js](멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/teacher1dashboard1.php">두런 - 강사 마이페이지 - 대시보드 - 강사</a> [Chart.js](멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/teacher1dashboard2.php">두런 - 강사 마이페이지 - 대시보드 - 강사</a> [Chart.js](단일)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/teacher1dashboard3.php">두런 - 강사 마이페이지 - 대시보드 - 강사</a> [Chart.js](단일)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/ty1youtuber1intro2.php">두런 - 유튜버 소개</a> [Chart.js](단일.멀티2)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/manage1/html/sub/lecture1intro1.php">두런 - 강좌관리상세 - 강좌정보</a> [Chart.js](단일)</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Bar 막대</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.bar.chartjs.html" class="em">샘플</a> [Chart.js](세로막대.멀티3|가로막대.멀티3) 20211015<br />
+					| 색상 자동
+					| 패턴
+					| 업데이트
+			</li>
+			<li>
+				<a href="./mChart.bar.d3js.html" class="em">샘플</a> [d3.js](세로막대.멀티3) 20211018
+				※ <a href="https://www.aipendux.co/duxAdm/account/lst_tonggye_grapth1.php">덕스 - 관리자 - 통계</a>
+			</li>
+			<li><a href="http://toolo.dataedu.kr/_res/A/_lib/tp.home.php">툴로 - 관리자 - 대시보드</a> [Chart.js](세로막대.단일)</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_02_character2.php">덕스 - 학생성적확인</a> [Chart.js](세로막대.단일)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/teacher1dashboard2.php">두런 - 강사 마이페이지 - 대시보드 - 강사</a> [html+css](가로막대.단일.전체평균)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/ty1youtuber1intro2.php">두런 - 유튜버 소개</a> - 관련 채널 분석 - 채널 평점 비교 [html+css](가로막대.단일|세로막대.멀티2)</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Doughnut 도넛 / Pie 파이</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.doughnut.chartjs.html" class="em">샘플</a> [Chart.js] 20211021<br />
+					| 툴팁 옵션
+					| 색상 자동. 사용자색상
+					| 패턴 
+			</li>
+			<li><a href="http://toolo.dataedu.kr/_res/A/_lib/tp.home.php">툴로 - 관리자 - 대시보드</a> [Chart.js](단일)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/teacher1dashboard1.php">두런 - 강사 마이페이지 - 대시보드 - 강사</a> [Chart.js](단일)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/manage1/html/sub/lecture1intro1.php">두런 - 강좌관리상세 - 강좌정보</a> [Chart.js](단일)</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Radar 레이더</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.radar.chartjs.html" class="em">샘플</a> [Chart.js] 20211020<br />
+					| 색상 자동
+			</li>
+			<li><a href="http://toolo.dataedu.kr/_res/default/html/quiz/quiz_report_nor_01.php">툴로 - 퀴즈 학습 리포트</a> [Chart.js+html+css+js](멀티2)(항목툴팁)</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_02.~20210705.M0.(Phonics).php">덕스 - 학생성적확인</a> [Chart.js](멀티3)</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_02_character2.php">덕스 - 학생성적확인</a> [Chart.js](멀티6)</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Polar Area 극지</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.polar.chartjs.html" class="em">샘플</a> [Chart.js] 20211019<br />
+					| 색상 자동. 사용자색상
+			</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Scatter 산점도</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.scatter.chartjs.html" class="em">샘플</a> [Chart.js] 20211019<br />
+					| 색상 자동. 사용자색상
+			</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/youtuber1dashboard1.php">두런 - 유튜버 마이페이지 - 대시보드 - 유튜버</a> [Chart.js](단일)</li>
+		</ol>
+	</li>
+
+	<li>
+		<h3 class="hb1 h3">Bubble 버블</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.bubble.chartjs.html" class="em">샘플</a> [Chart.js] 20211019<br />
+					| 색상 자동
+			</li>
+		</ol>
+	</li>
+	<!-- <li>
+		<h3 class="hb1 h3">Area</h3>
+		<ol class="bo">
+			<li><a href="./mChart.area.chartjs.html">샘플</a> [Chart.js] 20211019</li>
+		</ol>
+	</li> -->
+	<li>
+		<h3 class="hb1 h3">Mixed 혼합</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.mixed.chartjs.html" class="em">샘플</a> [Chart.js] 20211019<br />
+					| 라인+막대
+			</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Progress 진행 (도넛 프로그레스)</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.progress.html" class="em">샘플</a> [svg+css+js] 20211025<br />
+			</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_02.~20210705.M0.(Phonics).php">덕스 - 학생성적확인</a> [svg+css+js](진행시간동일)</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_02_character2.php">덕스 - 학생성적확인</a> [svg+css+js](동일속도.진행시간상이)</li>
+			<li><a href="https://www.aipendux.co/_res/default/html/sub/05_01_01_01_03.php">덕스 - 학생진도율확인</a> [svg+css+js](동일속도.진행시간상이)</li>
+			<li><a href="http://new.dolearn.co.kr/_res/dolearn/html/sub/ty1youtuber1intro2.php">두런 - 유튜버 소개</a> - 관련 채널 분석 - 채널 평점 비교 [svg+css+js](진행시간동일)</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Timer 타이머</h3>
+		<ol class="bo">
+			<li>
+				<a href="./mChart.timer.html" class="em">샘플</a> [svg+css+js] 20211025<br />
+			</li>
+			<li><a href="http://new.dolearn.co.kr/_res/learn/html/sub/learn1list1exam1start1.php">두런 - 강좌 학습 - 시험강의 – 시작</a>[svg+css+js]()</li>
+			<li><a href="http://new.dolearn.co.kr/_res/learn/html/sub/learn1list1exam1onepage1.php">두런 - 강좌 학습 - 시험강의 – 2 (원페이지)</a>[svg+css+js]()</li>
+		</ol>
+	</li>
+	<li>
+		<h3 class="hb1 h3">Map 지도</h3>
+		<ol class="bo">
+			<li>
+				<a href="http://myshin.dothome.co.kr/d3_koreaMap-master/korea.html" class="em">샘플</a> [d3.js](한국지도) 20211026<br />
+			</li>
+		</ol>
+	</li>
+</ol>
+
+
+<h2 class="hb1 h2">Plugin</h2>
+
+
+<ol class="bo">
+	<li>자동 색상 구성표 적용<br />
+		<a href="https://nagix.github.io/chartjs-plugin-colorschemes/">chartjs-plugin-colorschemes</a>
+		:: Color Chart | GitHub<br />
+		<small class="dpib">
+			Chart.js에 대해 미리 정의된 색 구성표입니다.
+			데이터 시각화를 위한 완벽한 색상 조합을 선택하십시오.
+		</small>
+	</li>
+	<li>배경 패턴<br />
+		<a href="https://github.com/ashiguruma/patternomaly">patternomaly.js</a><br />
+		CDN: https://cdnjs.cloudflare.com/ajax/libs/patternomaly/1.3.2/patternomaly.min.js<br />
+		<small class="dpib">
+			데이터 그래픽에 사용할 패턴을 쉽게 생성합니다.
+		</small>
+	</li>
+</ol>
+
+
+<h2 class="hb1 h2">To Do</h2>
+
+
+<ol class="bo">
+	<li>범례 위 여백 ))) 옵션값 없다 ))) 대안. canvas 와 분리해서 코딩</li>
+	<li>차트 업데이트 ))) 막대 샘플 참조</li>
+</ol>
+
+
+<h2 class="hb1 h2">Link Ref</h2>
+
+
+<ol class="bo">
+	<li>
+		<a href="https://c3js.org/">c3.js</a> <br />
+		Dependency D3.js ^4.12.0 [IE9+](O)<br />
+		( Note: If you need to use D3 v3.x, please use C3 v0.4.22, which is compatible with D3 v3.x.)<br />
+	</li>
+	<li>
+		<a href="https://developers.google.com/chart">Google Charts</a> <br />
+		[IE9+](O)<br />
+	</li>
+</ol>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

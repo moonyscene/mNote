@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Reference - [Book]Smashing CSS | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+
+
+<h1 id="SmashingCSS">[Book] <a href="http://www.wiley.com/go/smashingcss/">에릭 마이어의 CSS 노하우</a></h1>
+
+<p>원제 : Smashing CSS: Professional Techniques for Modern Layout</p>
+
+<h2>Book Summary</h2>
+
+<h3>Tip</h3>
+<ol>
+<li>FF FireBug Validate Local</li>
+<li>font:1em sans-serif; font:1em/1.5 sans-serif;</li>
+<li>line-height:1;</li>
+<li>border:2px #777; border:2px #777 none; border:2px #777 solid; border:2px #777 outset;</li>
+<li>.hide{display:none;} obj.style.display=''; {visibility:hidden;}<br />
+.hide{position:absolute;left:-9999em;top:-9999em;}
+.show{position:static;}
+</li>
+<li>h1{height:140px;text-indent:-9999px;background:url(h1.gif);}
+@media print{h1{text-indent:0;background:none;}}
+</li>
+<li><xmp class="xmp"><link rel="stylesheet" type="text/css" media="print" href="print.css" /></xmp>
+*{background:transparent;color:black;}
+</li>
+<li><xmp class="xmp">
+<link rel="stylesheet" type="text/css" href="basic.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="theme.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+</xmp>
+</li>
+<li>#sidebar ul a{display:block;}</li>
+<li>body, ul, ol{margin:0;padding:0;}</li>
+<li>ul{list-style:none;text-indent:-2em;}</li>
+<li>
+<xmp class="xmp">
+<li><div></div></li>
+</xmp>
+</li>
+<li>
+ul.stars li.m:before{content:url(star-m.gif);margin-right:8px;}<br />
+ul.stars li.k:before{content:url(star-k.gif);margin-right:8px;}<br />
+ul.stars li{text-indent:-20px;list-style:none;}<br />
+</li>
+<li>
+html{text-align:center;}
+body{width:800px;margin:0 auto;text-align:left;}
+</li>
+</ol>
+<h3>Layout</h3>
+<ol>
+<li>outline:1px dashed red;</li>
+<li>margin:0 auto;</li>
+<li>float:left;<br />
+	<ol>
+	<li>div#main{overflow:auto;width:100%;}</li>
+	<li>div#main{float:left;width:100%;} div#main+*{float:left;}</li>
+	<li><xmp class="xmp"><br class="clearfix" /></xmp> .clearfix{display:block;clear:both;height:0;font-size:0;}</li>
+	<li>content: 최근 브라우저들이 생성된 내용을 처리하는 방법을 바꿨기 때문에 쓰기 어렵기.. <br />
+	<strong>[m]</strong>오류없이 잘 사용중인데..? #wrap:after{content:'';display:block;clear:both;height:0;visibility:hidden;}
+	</li>
+	<li>div.last+*{clear:both;}</li>
+	</ol>
+</li>
+<li>Faux Columns</li>
+<li>Liguid Bleach.. % 단위로 했더니 경계선이 한두 픽셀씩 어긋난다고 생각되면 경계션에 투명한 부분을 한두 픽셀 추가해봅시다.</li>
+<li>The One True Layout</li>
+<li>The Holy Grail -- 고정/유동 하이브리드 레이아웃<br />
+body{min-width:50em;}
+.contain{padding:0 2em;border:1em solid white;border-width:0 15em 0 13em;}
+</li>
+<li>Fluid Grid<br />
+#contain{width:90%;min-width:960px;margin:0 5%;}</li>
+<li>em based Layout <xmp class="xmp"><img src="tex.img" alt="텍스트" style="width:5.5em;" /></xmp></li>
+<li>minus margin</li>
+<li>position:absolute;</li>
+<li>position:fixed;</li>
+</ol>
+
+<h3>Effect</h3>
+<ol>
+<li>Complexspiral</li>
+<li>CSS Popup</li>
+<li>CSS Menu<br />
+li.sub:hover ul{display:block;} -- <strong>[m]</strong> IE7이하는 불가!
+</li>
+<li>Boxpunching</li>
+<li>Rounded Corner 고전방식</li>
+<li>Rounded Corner CSS3<br />
+{border-radius:20px/60px;}
+{border-radius:20px 60px;}
+</li>
+<li>CSS Sprite</li>
+<li>Sliding Doors -- <strong>[m]</strong> :hover 사용시 주의!</li>
+<li>CSS 착시</li>
+<li>들쑥날쑥한 플로트</li>
+<li>이미지를 박스에 넣기</li>
+<li>img{display:block;max-width:100%;margin:0 auto;}<br />
+[IE6]이미지 품질개선 AlphaImageLoader
+</li>
+</ol>
+
+<h3>Table</h3>
+<ol>
+<li>th[scope="col"]{} th[scope="row"]{} -- <strong>[m]</strong>[IE6]속성선택자불가!</li>
+<li>Column Style
+col{width:10em;border:1px solid #ccc;background:#eee;} --<strong>[m]</strong>모두 동작!
+visibility:collapse; -- 브라우저별로 다른 동작!<br />
+<xmp class="xmp">
+<table>
+<body>
+<tr>
+<td class="c1">Row 1 cell 1</td>
+<td class="c2">Row 1 cell 2</td>
+<td class="c3">Row 1 cell 3</td>
+</tr>
+<tr>
+<td class="c1">Row 2 cell 1</td>
+<td class="c2">Row 2 cell 2</td>
+<td class="c3">Row 2 cell 3</td>
+</tr>
+</body>
+</table>
+</xmp>
+클래스를 쓰지 않는다면.. tr:last-child td:first-child+td{}  -- <strong>[m]</strong>[IE8이하] 안된다.
+</li>
+<li>table.map{display:block;}</li>
+<li>table.graph{display:block;position:relative;}</li>
+<li></li>
+</ol>
+
+<h3>Future</h3>
+<ol>
+<li>HTML5 Style</li>
+<li>HTML5 Class</li>
+<li>Media Query</li>
+<li>:nth-child(4n+1){}<br /> :nth-of-type(4n+1){}</li>
+<li>RGBA<br />
+{color:#000;color:rgba(0,0,0,0.75);}
+</li>
+<li>HSL, HSLA<br />
+{color:hsla(0,0%,100%,0.5);}
+</li>
+<li>Drop Shadow<br />
+{text-shadow:gray 0.33em 0.25em 0.1em}<br />
+{text-shadow:gray 0.33em 0.25em 0.1em, -10px 4px 7px blue;}<br />
+{box-shadow:gray 0.33em 0.25em 0.25em;}<br />
+{box-shadow:gray 0.33em 0.25em 0.25em, -10px 2px 6px blue;}<br />
+</li>
+<li>Background(s)</li>
+<li>Transform</li>
+</ol>
+
+
+
+<br />
+<hr class="dash" />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130329.
+20130208.
+</p>
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

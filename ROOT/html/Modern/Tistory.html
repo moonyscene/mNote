@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'Tistory | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>Tistory</h1>
+
+<p><b><b>시작하자!!</b></b></p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Link">Link</a></li>
+</menu>
+</div>
+<!-- /mtab1 -->
+
+<p>
+블로그, 웹사이트 제작 플랫폼. 사용자 입맛대로 구성 <br />
+메뉴 : 대시보드<br />
+테마 : 스킨 설정<br />
+위젯 : 카테고리, 아카이브, CSS, LINK, 달력 등.. 방문자 편의 제공<br />
+플러그인 : 기능 추가, SNS 연결<br />
+가입형 <a href="http://wordpress.com/">wordpress.com</a> : 구글 애드센스 사용 불가, JavaScript 지원 안됨.
+uinux<br />
+설치형 <a href="http://wordpress.org/">wordpress.org</a> :<br />
+</p>
+
+<!-- mnote1 -->
+<div class="mnote1 dpib">
+※ 가입형 블로그 : 네이버, 야후, 다음, 티스토리<br />
+※ 설치형 블로그 : 텍스트큐브, 워드프레스<br />
+</div>
+<!-- /mnote1 -->
+
+
+<h2 id="Start">Start</h2>
+
+<h3>가입형 워드프레스 시작하기</h3>
+
+<p>시작이 반이다!!</p>
+
+<h3>설치형 워드프레스 시작하기</h3>
+
+<h4>설치와 접속</h4>
+
+<ol class="bo num">
+<li>도메인 구입. <a href="http://domain.nida.or.kr/jsp/domain/registrationInfo/regAgencyInfo.jsp">도메인 등록 대행자</a>, <a href="http://hosting.kr">hosting.kr</a></li>
+<li>호스팅 세팅. <a href="http://www.cafe24.com/">cafe24</a>. DBName / SQL user ID / FTP password</li>
+<li>워드프레스 설치.<br />
+	<ol>
+	<li><a href="?">http://wordpress.org/</a> 에서 영문버전(오류 확률 낮음) 다운로드.</li>
+	<li>wordpress-3.5.1.zip 압축 풀면 /wordpress/ 폴더 자동 생성된다.</li>
+	<li>FTP 접속. 기본 폴더 (cafe24 는 /www/ 임. 다른 곳은 /public_html/ 등..) 에 /wordpress/ 하위 폴더/파일 을 모두 업로드</li>
+	<li>Web 접속. .. [Create a Configuration File] 클릭! [Let's go!] 클릭!<br />
+	Database Name : // 입력<br />
+	User Name : // 입력<br />
+	Password : // 입력<br />
+	Database Host : localhost // 수정할 필요 없음.<br />
+	Table Prefix : wp_main // 하나의 계정에 워드프레스 둘 이상 설치한 경우 아니면 그대로 둠.<br />
+	[Submit] 클릭!<br />
+	</li>
+	<li>[Run the install] 클릭! (혹시 mySQL 버전 문제 발생하면 호스팅업체에 문의. mysql 4.x 에서 5.x로 변환신청필요)<br />
+	Site Title : // 입력<br />
+	Username :  // 입력<br />
+	Password, twice : // 입력<br />
+	Your E-mail : // 입력<br />
+	[Install WordPress] 클릭!
+	</li>
+	<li>Success! ▷ wordpress 로그인 아이디와 패스워드 설정 
+	Username : // 입력<br />
+	Password : // 입력<br />
+	[Log In] 클릭!<br />
+	</li>
+	</ol>
+</li>
+<li>워드프레스 로그인하면 메인 Dashboard 화면 접속된다. 앞으로 모든 작업은 Dashboard 를 통해서 한다.<br />
+웹주소가 domain.kr 이면  로그인 주소는 http://domain.kr/wp-login.php 이다.<br />
+</li>
+</ol>
+
+<h4>스킨 설정</h4>
+
+<ol class="bo num">
+<li>테마의 종류도 다양하고 유료에서부터 무료까지 선택의 폭도 넓습니다. </li>
+<li>스킨 쇼핑<br />
+1. 워드프레스 공식 테마 사이트 <a href="http://wordpress.org/extend/themes/">http://wordpress.org/extend/themes/</a><br />
+2. 무료 테마 사이트 <a href="http://wordpressthemesbase.com/">http://wordpressthemesbase.com/</a><br />
+3. best of best <a href="http://www.wpthemespot.com/">http://www.wpthemespot.com/</a><br />
+</li>
+해당 테마의 zip 파일을 다운받아서 압축 풀지 않고 그대로 보관
+<li>Dashboard > Appearance > Themes > Install Themes > Upload 클릭!</li>
+<li>ZIP화일을 통째로 선택하여 [Install Now] 클릭!</li>
+<li>Active 클릭하여 테마 설치 완료</li>
+<li>테마 설정 : Dashboard > Appereance 항목 조절</li>
+<li>서로 연동되는 테마가 있다. 예) autofocus pro 테마는 Thematic 0.9.7.7 를 먼저 설치 후 다시 활성화해야 한다.</li>
+</ol>
+
+<h4>플러그인 설치</h4>
+
+<ol class="bo num">
+<li>Dashboard > Plugins 메뉴 선택</li>
+<li>[Add New] 버튼 클릭!</li>
+<li>검색은 |Search| 선택. 플러그인이 있으면 |Upload| 선택</li>
+<li>Install Now 선택... Activate Plugin 선택</li>
+<li>Setting</li>
+</ol>
+
+<h5>플러그인 소개</h5>
+
+<ol class="bo num">
+<li><a href="http://jetpack.me/">http://jetpack.me/</a> 유용한 기능 8가지 (방문자통계, ..)</li>
+<li><a href="http://www.google.com/analytics/">http://www.google.com/analytics/</a> 방문자통계</li>
+</ol>
+
+<h4>구글 애드센스</h4>
+<p>사이즈, 색상 조절 선택 가능</p>
+
+<h5>Way1) 위젯 덧붙이기</h5>
+<ol class="bo num">
+<li>Dashboard > Widgets > TEXT 드래그앤드롭</li>
+<li>드롭다운 버튼 클릭</li>
+<li>Title 텍스트상자 : // 입력</li>
+<li>입력상자 : // 구글 애드센스에서 받은 코드 붙임</li>
+</ol>
+
+<h5>Way2) 포스트에 덧붙이기</h5>
+
+<ol class="bo num">
+<li>Post layout 플러그인 (포스트에 일정하게 무엇인가를 집어 넣고 싶을때 사용)</li>
+<li>Dashboard > Plugins > post layout 검색 > Install now > Activate > Setting</li>
+<li>After the content(포스트 말미), .. 중 선택해서 입력</li>
+</ol>
+
+
+
+<h2 id="Link">Link</h2>
+
+<ul class="bu">
+<li><a href="http://www.word-press.co.kr/?cat=8">워드프레스 활용법</a></li>
+<li><a href="http://30eggs.tistory.com/search/워드프레스">워드프레스를 시작하자! - 하나의 데이타베이스에 두개의 워드프레스 설치하기</a></li>
+<li><a href="http://cafe.naver.com/wphome/">http://cafe.naver.com/wphome/</a></li>
+</ul>
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20130313.
+20130312.
+20121025.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

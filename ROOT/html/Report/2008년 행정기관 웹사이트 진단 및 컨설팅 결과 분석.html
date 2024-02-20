@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '2008년 행정기관 웹사이트 진단 및 컨설팅 결과 분석',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+<style type="text/css" title="myshin_css">
+body { margin: 20px; color: #000; font-size: 75%; font-family: AppleGothic,"돋움",sans-serif; line-height: 1.5; }
+input, select, textarea { border: 1px solid #999; color: #555; font-size: 1em; line-height: 1.2; }
+a, a:link { color: #06c; text-decoration: none; cursor: pointer; }
+a:visited { /* color: #369; */ }
+a:hover, a:active, a:focus { color: #00c; text-decoration: underline; }
+table.t3 { border-collapse: collapse; width: auto; margin: 3px 0 3px 0px; border: 0px solid #9cf; border-width: 2px 0 0 0; }
+table.t3 tr { text-align: left; vertical-align: top; } /* colgroup 으로 td 스타일제어하려면 tr에 정의  */
+table.t3 th, table.t3 td { border: 1px solid #ddd; border-width: 1px 1px 1px 0; padding: 3px 8px; }
+table.t3 thead th, table.t3 tfoot th { background: #f4f4f4; vertical-align: middle; }
+table.t3 th { background: #fcfcfc; font-weight: normal; text-align: left; }
+
+em { font-style: normal; color: #f00; }
+</style>
+</head>
+<body>
+
+<div id="head"><!-- /share/inc/head.html --></div>
+
+
+<h1>2008년 행정기관 웹사이트 진단 및 컨설팅 결과 분석</h1>
+
+<p>
+v2009.04.02
+v2009.03.24
+v2009.03.20
+</p>
+
+
+<ul class="bu">
+<li><a href="#n1">기관별 보고서 Ⅳ. 기술진단 결과</a></li>
+<li><a href="#n2">맥사마인 보고서 분석 및 대응 방안</a></li>
+<li><a href="#n3">Ⅵ. 기술 진단 ==> 이의 제기!</a></li>
+</ul>
+
+<p>
+*** 시군ㄱㄴㄷ순
+</p>
+
+<h2 id="n1"><a href="/wa/%2B행정기관%20웹사이트%20진단%20및%20컨설팅%20-%20행자부기술평가→행안부/2008/">기관별 보고서 Ⅳ. 기술진단 결과</a></h2>
+
+<span class=""><em>빨간의견</em>은 보완 개선이 필요</span>
+|
+<a href="#tbl_result" onclick="var obj=document.getElementById('test_help');obj.style.display=''; return false;">맥사마인 보고서 진단방법 보이기</a>
+
+<table class="t3" summary="기술진단">
+<colgroup><col /><col /><col span="2" id="test_help" style="display: none;" /><col span="9" /><col /></colgroup>
+<thead>
+<tr>
+<th scope="col" colspan="2">기술진단</th>
+<th scope="col">맥사마인 보고서</th>
+<th scope="col">진단방법</th>
+<th scope="col">마산</th>
+<th scope="col">사천</th>
+<th scope="col">산청</th>
+<th scope="col">양산</th>
+<th scope="col">의령</th>
+<th scope="col">창녕</th>
+<th scope="col">칠곡</th>
+<th scope="col">하동</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th rowspan="2">기타/상태</th>
+<th>Reports</th>
+<th></th>
+<td></td>
+<td title="마산">O</td>
+<td title="사천">O</td>
+<td title="산청">O</td>
+<td title="양산"></td>
+<td title="의령">O</td>
+<td title="창녕">O</td>
+<td title="칠곡"></td>
+<td title="하동"></td>
+<td></td>
+</tr>
+<tr>
+<th>보완</th>
+<th></th>
+<td></td>
+<td title="마산">New PJ 포함.<br /> 5월예정</td>
+<td title="사천">이미숙/양현미<br /></td>
+<td title="산청">김호정<br />전체 보완 완료<br />(테이블제외)</td>
+<td title="양산"></td>
+<td title="의령">양미정<br />1.1) 1.2) 완료</td>
+<td title="창녕">양현미<br />링크오류만작업</td>
+<td title="칠곡"></td>
+<td title="하동"></td>
+<td></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<th rowspan="2">1. 내비게이션</th>
+<th>1) 내부링크 무결성</th>
+<td>사이트 무결성 - 내부 컨텐츠 무결성<br />
+(끊어진 링크를 가진 페이지/총 HTML 페이지)
+</td>
+<td>결함률=오류수/전체수</td>
+<td title="마산">7.46%<br /> <em>높음</em><br /></td>
+<td title="사천">21.85%<br /> <em>매우높음</em><br />
+맥사마인 7.26%(=171/2354)
+</td>
+<td title="산청">1.03%<br /> 낮음</td>
+<td title="양산">-</td>
+<td title="의령">5.08%<br /> <em>높음</em></td>
+<td title="창녕">-</td>
+<td title="칠곡">1.55%<br /> 낮음</td>
+<td title="하동">0.82%<br /> 매우낮음</td>
+<td><strong>진단의견 문제</strong><br />
+<strong>맥사마인 문제</strong></td>
+</tr>
+<tr>
+<th>2) 외부링크 무결성</th>
+<td>사이트 무결성 - 외부 컨텐츠 무결성<br />
+(연결되지 않는 외부 오브젝트/참조되어진 총 외부 오브젝트)
+</td>
+<td>결함률=오류수/전체수</td>
+<td title="마산">4.64%<br /> 낮음</td>
+<td title="사천">61.68%<br /> <em>매우낮음?</em><br />
+맥사마인 2.39%(=7/293)
+</td>
+<td title="산청">3.51%<br /> 낮음</td>
+<td title="양산">-</td>
+<td title="의령">6.61%<br /> <em>보통</em></td>
+<td title="창녕">-</td>
+<td title="칠곡">4.53%<br /> 낮음</td>
+<td title="하동">97.16%<br /> <em>매우높음?</em></td>
+<td><strong>진단의견 문제</strong></td>
+</tr>
+<tr>
+<th rowspan="4">2. 가용성 및 성능</th>
+<th>1) 가용성</th>
+<td><em>툴?상세보고서?</em></td>
+<td>가용성=성공수/메인접속수</td>
+<td title="마산">98.48%<br /> 높음</td>
+<td title="사천">99.48%<br /> 높음</td>
+<td title="산청">100%<br /> 매우높음</td>
+<td title="양산">-</td>
+<td title="의령">100%<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">99.12%<br /> 높음</td>
+<td title="하동">99.05%<br /> 높음</td>
+<td></td>
+</tr>
+<tr>
+<th>2) 응답속도</th>
+<td><em>툴?상세보고서?</em></td>
+<td>메인로딩완료시간</td>
+<td title="마산">6.66초<br /> 빠름</td>
+<td title="사천">3.63초<br /> 매우빠름</td>
+<td title="산청">9.50초<br /> <em>보통</em></td>
+<td title="양산">-</td>
+<td title="의령">4.96초<br /> 매우빠름</td>
+<td title="창녕">-</td>
+<td title="칠곡">4.90초<br /> 매우빠름</td>
+<td title="하동">7.66초<br /> <em>보통</em></td>
+<td></td>
+</tr>
+<tr>
+<th>3) 시간별 수신량</th>
+<td><em>툴?상세보고서?</em></td>
+<td>메인시간별수신량=사이즈/응답속도</td>
+<td title="마산">258.95KB<br /> 매우높음</td>
+<td title="사천">414.84KB<br /> 매우높음</td>
+<td title="산청">122.97KB<br /> <em>낮음</em></td>
+<td title="양산">-</td>
+<td title="의령">367.94KB<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">453.19KB<br /> 매우높음</td>
+<td title="하동">348.69KB<br /> 매우높음</td>
+<td></td>
+</tr>
+<tr>
+<th>4) 콘텐츠 중복성</th>
+<td>사이트 접근성 - 컨텐츠 중복성<br />
+(중복된 데이타 사이즈/총 데이타 사이즈)
+</td>
+<td>중복사이즈/전체사이즈</td>
+<td title="마산">0.10%<br /> 매우낮음</td>
+<td title="사천">0.15%<br /> 매우낮음</td>
+<td title="산청">0.01%<br /> 매우낮음</td>
+<td title="양산">-</td>
+<td title="의령">0.22%<br /> 매우낮음</td>
+<td title="창녕">-</td>
+<td title="칠곡">0.00%<br /> 매우낮음</td>
+<td title="하동">0.01%<br /> 매우낮음</td>
+<td></td>
+</tr>
+<tr>
+<th rowspan="6">3. 접근성 준수</th>
+<th>1) 문서 타입의 준수성</th>
+<td>접근성준수여부 - WCAG 3.2 - DOCTYPE<br />
+(부정확한 Doctypes을 가진 페이지 비율)</td>
+<td>표준문법오류페이지수/전체페이지수</td>
+<td title="마산">43.54%<br /> <em>낮음</em></td>
+<td title="사천">38.79%<br /> <em>낮음</em></td>
+<td title="산청">0.52%<br /> 매우낮음</td>
+<td title="양산">3.33%<br /> 매우낮음</td>
+<td title="의령">0.20%<br /> 매우낮음</td>
+<td title="창녕">12.43%<br /> 매우낮음</td>
+<td title="칠곡">59.08%<br /> <em>보통</em></td>
+<td title="하동">91.51%<br /> <em>매우높음</em></td>
+<td><strong>맥사마인 문제</strong><br />
+<strong>진단의견 문제</strong>
+</td>
+</tr>
+<tr>
+<th>2) 비텍스트 콘텐츠 인식성</th>
+<td>접근성준수여부 - WCAG 1.1 - 대체 텍스트<br />
+(대체 텍스트나 타이틀을 가진 링크의 비율)</td>
+<td>대체텍스트를가진수/전체비텍스트수</td>
+<td title="마산">93.97%<br /> 매우높음</td>
+<td title="사천">93.50%<br /> 매우높음</td>
+<td title="산청">84.48%<br /> 높음</td>
+<td title="양산">0.35%<br /> <em>매우낮음</em></td>
+<td title="의령">96.00%<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">95.59%<br /> 매우높음</td>
+<td title="하동">86.42%<br /> 높음</td>
+<td><strong>맥사마인 문제</strong></td>
+</tr>
+<tr>
+<th>3) 데이터 테이블 정확성</th>
+<td>접근성준수여부 - WCAG 5.1 - 테이블 해더<br />
+(값이다름?)</td>
+<td>데이터테이블존재페이지수/테이블존재페이지전체수</td>
+<td title="마산">80.58%<br /> <em>매우낮음</em></td>
+<td title="사천">94.53%<br /> <em>매우낮음</em></td>
+<td title="산청">78.30%<br /> <em>매우낮음</em></td>
+<td title="양산">50.17%<br /> <em>낮음</em></td>
+<td title="의령">61.52%<br /> <em>매우낮음</em></td>
+<td title="창녕">73.26%<br /> <em>매우낮음</em></td>
+<td title="칠곡">95.88%<br /> <em>매우낮음</em></td>
+<td title="하동">98.58%<br /> <em>보통</em></td>
+<td><strong>진단의견 문제</strong><br />
+<strong>맥사마인 문제</strong></td>
+</tr>
+<tr>
+<th>4) 검색의 용이성</th>
+<td>검색 용이성 - 타이틀 무결성<br />
+(타이틀이 없는 페이지 수로 계산)</td>
+<td>title태그존재페이지수/전체페이지수</td>
+<td title="마산">97.57%<br /> 매우높음</td>
+<td title="사천">84.26%<br /> <em>낮음</em></td>
+<td title="산청">94.32%<br /> 높음</td>
+<td title="양산">55.63%<br /> <em>매우낮음</em></td>
+<td title="의령">99.22%<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">62.95%<br /> <em>매우낮음</em></td>
+<td title="하동">96.95%<br /> 매우높음</td>
+<td><strong>맥사마인 문제</strong></td>
+</tr>
+<tr>
+<th>5) 프레임 사용 준수성</th>
+<td>접근성준수여부 - WCAG 12.1 - 프레임 타이틀<br />
+(타이틀을 가진 프레임 비율)</td>
+<td>title속성존재프레임수/전체프레임수</td>
+<td title="마산">80.36%<br /> 높음</td>
+<td title="사천">1.43%<br /> <em>매우낮음</em></td>
+<td title="산청">100%<br /> 매우높음</td>
+<td title="양산">55.56%<br /> <em>낮음</em></td>
+<td title="의령">100%<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">100%<br /> 매우높음</td>
+<td title="하동">30.00%<br /> 매우낮음</td>
+<td></td>
+</tr>
+<tr>
+<th>6) 이미지맵 사용 준수성</th>
+<td>접근성준수여부 - WCAG 1.5 - 클라이언트 사이드 맵<br />
+(100-대체 텍스트 링크가 있는 클라이언트 사이드 이미지 맵의 비율)</td>
+<td>alt존재이미지맵수/전체이미지맵수</td>
+<td title="마산">99.14%<br /> 매우높음</td>
+<td title="사천">77.59%<br /> 매우높음</td>
+<td title="산청">82.04%<br /> 매우높음</td>
+<td title="양산">68.75%<br /> 매우높음</td>
+<td title="의령">84.57%<br /> 매우높음</td>
+<td title="창녕">-</td>
+<td title="칠곡">94.44%<br /> 매우높음</td>
+<td title="하동">100%<br /> 매우높음</td>
+<td><strong>진단의견 문제</strong><br />
+<strong>맥사마인 문제</strong></td>
+</tr>
+</tbody>
+</table>
+<p>
+※ 가용성, 응답속도, 시간별 수신량은 진단 기간 방법 등을 알 수 없음.<br />
+※ 데이터 테이블 정확성은 진단 결과 계산 방법을 알 수 없음.<br />
+
+</p>
+<p>
+※ 마산 스캔페이지 www.masan.go.kr 만 1525p 진단 평균 기간: 77.95 일 (<em>날짜?</em>)<br />
+※ 산청 스캔페이지 www.sancheong.ne.kr 만 387p 진단 평균 기간: 4.04 일 (<em>날짜?</em>)<br />
+</p>
+
+
+
+<br />
+
+<h2 id="n2"><a href="http://www.winibiz.com/main.asp?lmf=menu3&cdf=winibiz_m3-3-2">맥사마인 보고서</a> 분석 및 대응 방안</h2>
+
+<table class="t3" summary="기술진단">
+<colgroup><col /><col /><col span="9" /><col /></colgroup>
+<thead>
+<tr>
+<th scope="col" colspan="2">기술진단</th>
+<th scope="col">맥사마인 보고서</th>
+<th>체크항목</th>
+<th>오류유형</th>
+<th><em>맥사마인 문제</em></th>
+<th>대응책</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th rowspan="2">1. 내비게이션</th>
+<th>1) 내부링크 무결성</th>
+<td>사이트 무결성 - 내부 컨텐츠 무결성<br />
+마산,산청=(끊어진 링크를 가진 페이지/총 HTML 페이지)<br />
+의령=(총 끊어진 링크/총 HTML 페이지)
+</td>
+<td title="체크항목">
+&lt;a href=""&gt;<br />
+&lt;form action=""&gt;<br />
+&lt;img src=""&gt;<br />
+&lt;script src=""&gt;<br />
+&lt;object codebase=""&gt;<br />
+</td>
+<td title="오류유형">실과 본문의 중복된<br /> html태그와 존재하지 않는 js 참조 &lt;script src=""&gt; </td>
+<td title="맥사마인 문제"><em>한글 링크</em></td>
+<td title="대응책">
+* 콘텐츠 담당자에게 확인/자료 요청하여 작업<br />
+* Object not found (404) 목록에서 codebase="" 속성 삭제(그래도 작동가능).
+</td>
+<td></td>
+</tr>
+<tr>
+<th>2) 외부링크 무결성</th>
+<td>사이트 무결성 - 외부 컨텐츠 무결성<br />
+(연결되지 않는 외부 오브젝트/참조되어진 총 외부 오브젝트)
+</td>
+<td title="체크항목">
+HTTP timeout<br />
+HTTP connection error<br />
+Unknown error (999) - 일시적오류<br />
+Service unavailable or host not found by proxy (503)<br />
+Object not found (404)<br />
+Request forbidden (403)<br />
+Bad request (400)<br />
+-- 아래는 연결되는 거 --<br />
+Temporary object redirection (302)<br />
+Object permanently moved (301)<br />
+Object created, new URI returned (201)<br />
+Request completed (200)<br />
+</td>
+<td title="오류유형">임시주소 수정 안한거 newwww..</td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">
+* 콘텐츠 담당자에게 확인/자료 요청하여 작업<br />
+* 링크 오류인 HTTP timeout ~ Bad request (400) 까지만 확인하여 수정하면 된다.<br />
+* 링크되지 않은 참조를 가진 페이지 목록은 꼭 작업할 필요없다.
+(이런 툴들에서 점검되어지므로 차기 작업에서는 링크를 걸도록 한다.)
+</td>
+<td></td>
+</tr>
+<tr>
+<th rowspan="4">2. 가용성 및 성능</th>
+<th>1) 가용성</th>
+<td>?</td>
+<td title="체크항목"></td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">* 서버, 네트워크 문제</td>
+<td></td>
+</tr>
+<tr>
+<th>2) 응답속도</th>
+<td>?</td>
+<td title="체크항목"></td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">
+* 서버, 네트워크 문제<br />
+* <a href="../Guide/high_performance.html">웹사이트 최적화</a><br />
+- 이미지, 플래시 용량과 개수를 줄여라<br />
+* 메인 용량 1MB이상인지 점검.
+</td>
+<td></td>
+</tr>
+<tr>
+<th>3) 시간별 수신량</th>
+<td>?</td>
+<td title="체크항목"></td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">* 서버, 네트워크 문제</td>
+<td></td>
+</tr>
+<tr>
+<th>4) 콘텐츠 중복성</th>
+<td>사이트 접근성 - 컨텐츠 중복성<br />
+(불필요하게 사용된 공간 비율=중복된 데이타 사이즈/총 데이타 사이즈)
+</td>
+<td title="체크항목">중복된 이미지와 문서</td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">* 그냥 하던대로 작업</td>
+<td></td>
+</tr>
+<tr>
+<th rowspan="6">3. 접근성 준수</th>
+<th>1) 문서 타입의 준수성</th>
+<td>접근성준수여부 - WCAG 3.2 - DOCTYPE<br />
+(부정확한 Doctypes을 가진 페이지 비율)</td>
+<td title="체크항목">DOCTYPE 준수하고 문법 오류 있는 페이지 수</td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"><em>접근성 무관</em><br />
+<em>비표준이 더 높은 점수</em>
+</td>
+<td title="대응책">
+* <strong>이의제기!</strong><br />
+* 그냥 하던대로 작업 (HTML 4.01 Transitional 문법 최대한 준수하여 작업하되 브라우저 호환을 우선시한다.)
+</td>
+<td></td>
+</tr>
+<tr>
+<th>2) 비텍스트 콘텐츠 인식성</th>
+<td>접근성준수여부 - WCAG 1.1 - 대체 텍스트<br />
+(대체 텍스트나 타이틀을 가진 링크의 비율)</td>
+<td title="체크항목">
+alt 와 longdesc 속성이 누락된 이미지와 이미지 맵 <br />
+타이틀이 누락된 프레임을 가진 페이지<br />
+description 이 누락된 애플릿과 객체를 가진 페이지<br />
+(n개의 alt 텍스트가 누락된 객체를.. 라고 나옴)<br />
+</td>
+<td title="오류유형">
+실과, 읍면 등 직접 올린 콘텐츠<br />
+과업범위외 하위폴더에 구축한 웹페이지<br />
+</td>
+<td title="맥사마인 문제"><em>object 에 없는 alt 속성 존재 진단</em><br />
+<a href="http://trio.co.kr/webrefer/html/struct/objects.html#h-13.3">※ 참고 : W3C HTML 4명세 13.3 일반적 포함: OBJECT 엘레멘트</a>
+</td>
+<td title="대응책">
+* 사용자(관리자) DB 입력 콘텐츠 작업불가.<br />
+* 하위 폴더 웹사이트들은 하위 도메인으로 변경.
+</td>
+<td></td>
+</tr>
+<tr>
+<th>3) 데이터 테이블 정확성</th>
+<td>접근성준수여부 - WCAG 5.1 - 테이블 해더<br />
+(값이다름?)</td>
+<td title="체크항목">모든 table 에 th 존재 여부</td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"><em>배치용 table도 진단</em><br />
+<a href="http://www.iabf.or.kr/Lab/Board/ConsultView.asp?bCode=&cSeq=276&sf=cSubject&ss=테이블">※ 참고 : 레이아웃 목적의 테이블 사용시 주의점</a>
+</td>
+<td title="대응책">
+* <strong>이의제기!</strong><br />
+* 현존 사이트 작업불가.<br />
+* 앞으로 div + css 배치만 사용</td>
+<td></td>
+</tr>
+<tr>
+<th>4) 검색의 용이성</th>
+<td>검색 용이성 - 타이틀 무결성<br />
+(타이틀이 없는 페이지 수로 계산)</td>
+<td title="체크항목">타이틀(title태그)이 없는 페이지</td>
+<td title="오류유형">과업범위외 하위폴더 웹페이지</td>
+<td title="맥사마인 문제"><em>화면 없는 프로그램 처리 페이지도 오류로 검출</em></td>
+<td title="대응책">
+* 하위 폴더 웹사이트들은 하위 도메인으로 변경.<br />
+* 팝업, 인쇄 미리보기, 사진 크게보기, longdesc 등 주의.
+</td>
+<td></td>
+</tr>
+<tr>
+<th>5) 프레임 사용 준수성</th>
+<td>접근성준수여부 - WCAG 12.1 - 프레임 타이틀<br />
+(타이틀을 가진 프레임 비율)</td>
+<td title="체크항목">타이틀(title속성)이 누락된 프레임을 가진 페이지</td>
+<td title="오류유형">과업범위외 하위폴더 웹페이지</td>
+<td title="맥사마인 문제"></td>
+<td title="대응책">
+* 하위 폴더 웹사이트들은 하위 도메인으로 변경.<br />
+* 과업외라도 가능하면 하자.<br />
+* 내용 없는 빈 프레임의 경우에도 title="내용 없음" 등과 같이 제공.
+</td>
+<td></td>
+</tr>
+<tr>
+<th>6) 이미지맵 사용 준수성</th>
+<td>접근성준수여부 - WCAG 1.5 - 클라이언트 사이드 맵<br />
+(100-대체 텍스트 링크가 있는 클라이언트 사이드 이미지 맵의 비율)</td>
+<td title="체크항목">대체 텍스트 링크가 없는 클라이언트 사이드 이미지 맵을 가진 페이지</td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"><em>img 와 area 모두 alt 있어도 longdesc 없으면 오류로 검출</em><br />
+<a href="http://www.iabf.or.kr/News/NoticeView.asp?board=notice&bseq=2860">※ 참고 : 웹 접근성 향상을 위한 국가표준 기술 가이드라인 - 4페이지 참조</a>
+|
+<a href="http://gregshin.pe.kr/wcag/#gl-provide-equivalents">WCAG 지침1</a>
+</td>
+<td title="대응책">
+* <strong>이의제기!</strong><br />
+* 결과 중 alt 속성 없는 것 작업.
+</td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<td title="체크항목"></td>
+<td title="오류유형"></td>
+<td title="맥사마인 문제"></td>
+<td title="대응책"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<br />
+
+<h2 id="n3">Ⅵ. 기술 진단 <em>==> 이의 제기!</em> <span style="font-size: .6em;">산청군 진단 결과, 맥사마인 보고서를 토대로 마산시 참조하여 작성함.</span></h2>
+
+<!-- pre -->
+<pre>
+1. 진단 종합
+2. 부문별 진단 결과
+
+기술 진단은 내비게이션, 가용성 및 성능, 접근성 준수의 3 가지 부문에 대해 정량 진단 툴을 이용하여 진단함
+
+<h3>진단 종합</h3>
+
+<h4>종합 평가 </h4>
+
+산천군청 웹 사이트는 페이지성능, 문서타입 표준성, 데이터 테이블 정확성을 보완해야 함.   
+
+<h4>진단 결과</h4>
+
+<h6>강점 및 개선점</h6>
+강점 - 네비게이션 부분에서 매우 높은 준수를 보임
+개선점 - 가용성 및 성능 부분의 개선이 필요함
+
+<h3>부문별 진단 결과</h3>
+
+<h4>1. 네비게이션</h4>
+
+진단 결과
+
+<h5>1.1)내부링크 무결성</h5>
+
+◎ 측정기간 동안 전체 오브젝트 수는 387개이며, 이중 결함이 있는 오브젝트의 비율은 1.03%로 결함율은 낮음.
+
+전체 오브젝트 수 387
+끊어진 오브젝트 수 4
+내부링크 결함율(%) 1.03
+
+<em><ins>==> <strong>진단 의견에 문제가 있습니다.</strong>
+행정기관별 보고서마다 결함율 계산 방법이 다릅니다.
+기관A 내부링크 결함율=(끊어진 링크를 가진 페이지/총 HTML 페이지)
+기관B 내부링크 결함율=(총 끊어진 링크/총 HTML 페이지)</ins>
+
+==> <strong>맥사마인 보고서에 문제가 있습니다.</strong>
+끊어진 링크를 가지고 있는 페이지에 한글로 된 링크들을 모두 오류로 분류시키고 있습니다.
+이건 웹사이트(utf-8)와 맥사마인 보고서(utf-8)의 인코딩 차이로 인한 것 같은데..
+실제 웹사이트에서 확인해보면 이상 없음을 알 수 있습니다.
+그리고 <a href="#">행정기관 홈페이지 구축, 운영 표준지침(2005.4)</a> 을 보면 어디에도 utf-8 대신 utf-8로 사이트를 구축하라는 내용은 없습니다.</em>
+
+<h5>1.2)외부링크 무결성</h5>
+
+◎ 측정기간 동안 전체 오브젝트 수는 228개이며 이중 결함이 있는 오브젝트의 비율은 3.51%로 결함율은 낮음.
+
+참조되어진 총 외부 오브젝트 수 228
+연결되지 않는 외부 오브젝트 수 8
+외부링크 결함율(%) 3.51
+
+<em>==> <strong>진단 의견에 문제가 있습니다.</strong>
+여기서는 바로 되어 있는 것 같지만, 어떤 기관의 경우..
+“결함이 있는 오브젝트의 비율은 61.68%로 결함율은 매우 낮음“ 으로 표시되어 있습니다.
+결함비율이 61.68% 이나 되는데, 결함율이 매우 낮다고 진단내려서 혼란을 주고 있습니다.</em>
+
+<h4>2. 가용성 및 성능</h4>
+
+<em>==> 맥사마인 보고서에는 여기에 관련된 내용이 없는데, 어떻게 진단을 하였는지 알려주십시오.
+맥사마인 보고서 사이트 기본정보에 보면 "평균 (스캔) 기간<em><em>: 산청군은 4.04 일</em></em>" 만 나오고, 정확한 진단 기간이 없습니다.
+진단 툴, 시기, 방법 등을 상세히 알아야 향후 웹사이트 성능 개선에 활용할 수 있습니다.
+이번 진단 및 컨설팅의 취지는 웹사이트를 개선시키자는 것이 아닌가요?
+<em>참고로 저희가 파이어폭스-YSlow 툴로 측정해본 산청군 메인페이지 응답속도는 4초대였습니다.</em></em>
+
+진단 결과
+
+<h5>2.1)가용성</h5>
+
+◎ 상시적으로 사이트 메인페이지에 접속하였을 때 서비스의 장애 없이 가용이 되고 있는지를 점검.
+* 가용성 = (성공 횟수) / (사이트 접속 횟수) * 100 (정상적인 페이지 이외 다른 페이지 내용이 표시 및 서비스의 장애가 발생, 60초 이내 완료가 안 되었을 때 가용성이 저하됨)
+
+◎ 측정기간 동안 일정한 간격의 시간을 두고 메인페이지에 접속한 수는 192회 이며,이중 총 0건이 실패로 나타났으며 전체 가용성은 100%로 매우 높은 수준임.
+
+사이트 접속 횟수 192
+성공 횟수 192
+가용성(%) 100
+
+<h5>2.2)응답속도</h5>
+
+◎ 사이트의 메인페이지에 접속한 후 페이지가 정상적으로 로딩 되는지를 확인하고 완료 되는데 까지 걸리는 사용자 관점의 평균 응답시간.
+* PC의 성능이나 회선의 속도의 따라 차이가 있을 수 있으므로, 현재 가장 일반적으로 사용하는 PC 사양과 ADSL 회선을 사용자 관점에서의 응답시간을 측정.
+* 초기 페이지의 응답을 빠르게 하기 위해서는, 초기 페이지 구성에서 큰 용량의 이미지나 플래시 등의 오브젝트 사이즈와 수를 제한하여 전체 페이지 사이즈를 줄이는 것이 좋다.
+
+◎ 측정기간 동안 평균 응답속도는 약 9.50초이고, 응답속도 품질분포는 전체 공공기관 사이트 중 20%에 포함되며 속도는 보통임.
+
+응답 시간(초) 9.50
+
+응답 시간 품질
+매우 빠름(5초미만) 10.83%
+빠름 (7초미만) 21.67%
+보통 (10초미만) 20%
+느림 (12초미만) 20%
+매우 느림(12초이상) 27.5%
+
+<h5>2.3)시간별 수신량</h5>
+
+◎ 사이트 메인페이지 접속 후 응답속도 대비 이미지, 플래시 등과 같은 각 요소들의 총 사이즈의 수신량을 점검.
+* 시간별 수신량 =  메인 페이지 평균 사이즈 / 메인 페이지 평균 응답속도
+* 수신량이 많을수록 페이지 사이즈에 대비하여 응답시간이 빠르다는 것으로 성능이 좋다는 의미이다.
+
+◎ 측정기간 동안 실행 된 메인 페이지의 평균 사이즈는 1,168.26KB이며 평균응답 속도 대비 수신량은 122.97KB로 낮은 수준임.
+
+메인페이지 평균 사이즈(KB) 1,168.26
+메인페이지 평균 응답속도(초) 9.50
+시간별 수신량(KB) 122.97
+
+<h5>2.4)콘텐츠 중복성</h5>
+
+◎ 동일한 이미지나 파일이 서버에 다른 이름으로 다른 장소에 중복되어 있는가를 점검.
+* 콘텐츠 중복성 = (중복 사이즈) / (전체 사이즈) * 100
+* 사용자의 컴퓨터에서 사이트의 파일이나 이미지를 브라우징 시 재사용 저해. 사이트의 속도 향상을 위해 Cache화 할 때 불필요한 공간 낭비
+
+◎ 측정기간 동안 실행된 총 데이터 크기는 104,535.48KB이며 그 중 중복된 데이터로 인해 불필요하게 사용된 공간 비율은 0.01%로 공간 낭비가 매우 낮은 편임.
+
+전체 사이즈(KB) 104,535.48
+중복 사이즈(KB) 7.31
+콘텐츠 중복성(%) 0.01
+
+<h4>3. 접근성 준수</h4>
+
+<em>==> <strong>진단 툴로만 접근성을 평가할 수 없습니다.</strong>
+현재 정보문화원에서 실시하는 웹 접근성 품질마크 인증심사를 보면,
+툴로 자동 평가하는 항목은 대체텍스트 제공 여부뿐이고 나머지 항목은 전부 수동 심사를 하고 있습니다.
+왜 간편한 툴을 두고 수동 검사를 실시하고 있는지는 <a href="http://www.iabf.or.kr/Lab/">정보문화진흥원 - 웹 접근성 연구소</a>에 문의해보시면 알 수 있습니다.
+※ 참고 : <a href="http://www.iabf.or.kr/Lab/Certification/품질마크인증심사기준.zip">http://www.iabf.or.kr/Lab/Certification/품질마크인증심사기준.zip</a></em>
+
+<h5>3.1) 문서 타입의 준수성</h5>
+
+◎ 문서타입이 누락된 페이지가 있는가를 점검.
+* 문서타입의 준수성 = (문서타입을 가진 수) / (전체 페이지 수) * 100
+* 문서타입을 정의하지 않았을 경우 브라우저나 뷰어 등에서 문제를 일으킬 수 도 있으므로, 정확한 문서타입을 정의하고 HTML 코딩을 하는 것이 좋다.
+
+◎ 측정기간 동안 실행된 전체 페이지 중에 문서타입을 가진 페이지는 0.52%로 매우 낮은 편임.
+
+전체 페이지수 387
+문서타입을 가진 수 2
+문서타입의 준수성(%) 0.52
+
+<em>==> <strong>진단의견에 문제가 있습니다.</strong>
+위에서 "문서타입을 가진 수" 는 맥사마인 보고서를 보니, "부정확한 Doctypes을 가진 페이지" 수 이고,
+정확하게 고치면 "문서타입을 가졌지만 웹 표준 문법 오류가 발견되는 페이지"입니다.
+<em><em>고로, 산청군의 진단의견은 문서 타입의 결함률이 0.52%로 매우 낮은 편(매우 우수)이라고 해야 맞습니다.</em></em>
+
+그리고, 웹 표준 문법은 접근성과는 그다지 관계가 없습니다.
+현재 대부분의 웹사이트 구축 시, 웹 표준 마크업 문법은 브라우저에서의 지원 정도가 차이가 있으므로, 브라우저 호환 여부만 확인하고 있습니다.
+이는 개발 방향이 잘못된 것이 아니라, 웹이 흘러온 역사에 의해 그렇게 할 수 밖에 없는 구조적 한계가 있는 것입니다.
+
+오히려 맥사마인 보고서의 "누락된 Doctypes을 가진 페이지"가 비표준 태그를 무분별하게 사용하고 있는데도 이에 대한 진단 내용은 없습니다.
+
+==> <strong>맥사마인 보고서에 문제가 있습니다.</strong>
+"부정확한 Doctypes을 가진 페이지" 는 "문서타입을 가졌지만 웹 표준 문법 오류가 발견되는 페이지" 로 수정되어야 합니다.
+
+※ 참고 : <a href="http://www.iabf.or.kr/Lab/Certification/Cites.asp">웹 접근성 품질마크 인증사이트</a>를 보면,
+<a href="http://www.itall.or.kr/">도움나라</a>의 경우 올바르지 않는 문서타입인데도 접근성 품질마크를 획득하였고,
+<a href="http://www.president.go.kr/">청와대</a>의 경우 올바른 문서타입을 가졌지만 <a href="http://validator.w3.org/">웹 표준 마크업 유효성 검사</a>를 통과하지 못하고 있습니다.</em>
+그렇지만, 둘 다 웹 접근성이 우수한 사이트 임은 분명합니다.
+
+<h5>3.2) 비텍스트 콘텐츠 인식성</h5>
+
+◎ 이미지나 동영상 같은 글로 표현되지 않는 콘텐츠에 대해서는 표현하고자 했던 의미나 기능을 대체 텍스트로 설명을 해서 장애인들이 스크린 리더와 같은 프로그램으로 인식이 가능토록 한다.
+*  비텍스트 콘텐츠 인식성 = (대체 텍스트를 가진 콘텐츠 수) / (전체 비텍스트 콘텐츠 수) * 100
+
+◎ 측정기간 동안 실행된 전체 비텍스트 페이지 중에 대체 텍스트를 가진 콘텐츠 비율은 84.48%로 높은 편임.
+
+전체 비텍스트 페이지 수 13,195
+대체 텍스트를 가진 콘텐츠 수 11,147
+비텍스트 콘텐츠 인식성(%) 84,48
+
+<em>==> <strong>맥사마인 보고서에 문제가 있습니다.</strong>
+object 에 없는 alt 속성 존재 여부를 진단하여 결함이 아닌 것을 결함이라고 표시하고 있습니다.
+※ 참고 : <a href="http://trio.co.kr/webrefer/html/struct/objects.html#h-13.3">W3C HTML 4명세 13.3 일반적 포함: OBJECT 엘레멘트</a></em>
+
+<h5>3.3) 데이터 테이블 정확성</h5>
+
+◎ 데이터 테이블은 표로 나타내기에 적당한 논리적인 정보들을 머리글 부분과 일반 내용 부분으로 나누어 표현한 표로서 테이블을 구성하는 데이터 셀의 내용에 대한 정보가 충분히 전달될 수 있어야 한다.
+* 데이터 테이블 정확성 = (데이터 테이블을 가진 페이지 수) / (테이블을 가진 페이지 전체 목록) * 100
+
+◎ 측정기간 동안 실행된 전체 페이지 중에 테이블을 가진 페이지 전체 목록 중에 데이터 테이블을 가진 페이지 목록은 78.30%로 매우 낮은 편임.
+
+데이터 테이블을 가진 전체 페이지 수 318
+문서타입을 가진 수 249
+데이터 테이블 정확성(%) 78.30
+
+<em>==> <strong>진단 의견에 문제가 있습니다.</strong>
+* 데이터 테이블 정확성 = (데이터 테이블을 가진 페이지 수) / (테이블을 가진 페이지 전체 목록) * 100
+은 다음과 같이 수정되는 것이 맞지 않을까요?
+* 데이터 테이블 정확성 = (제목 셀과 내용 셀을 구분할 수 있는 데이터 테이블 수) / (데이터 테이블 수) * 100
+
+그리고, 표 2번째 행에서 “문서타입을 가진 수“ 라고 항목을 틀리게 표시하고 있습니다.
+
+데이터 테이블 정확성(%)의 값이 어떻게 나온 건지 알 수 없습니다. (맥사마인 보고서로 알 수 없음)
+
+==><strong>맥사마인 보고서에 문제가 있습니다.</strong>
+배치용 table은 제목셀과 내용셀의 구분을 할 수 없는데도 결함이 있는 걸로 진단하고 있습니다.
+
+데이터 테이블 정확성은 수동검사로 진단하여야만 합니다.
+
+※ 참고 : <a href="http://www.iabf.or.kr/Lab/Certification/품질마크인증심사기준.zip">http://www.iabf.or.kr/Lab/Certification/품질마크인증심사기준.zip</a></em>
+
+<h5>3.4) 검색의 용이성</h5>
+
+◎ 검색전용 엔진에 노출이 잘 될 수 있도록 “Title"을 가졌는지를 점검.
+*  검색의 용이성 = (타이틀을 가진 페이지) / (전체 페이지) * 100
+
+◎ 측정기간 동안 실행된 전체 페이지 중에 타이틀을 가지 페이지 비율은 94.32%로 높은 편임.
+
+전체 페이지수 387
+타이틀을 가진 페이지 수 365
+검색의 용이성(%) 94.32
+
+<em>==> <strong>맥사마인 보고서에 문제가 있습니다.</strong>
+검색엔진 노출이 필요 없는 프로그램 처리 페이지도 오류로 검출하고 있습니다.
+예를 들어 글쓰기 전송 버튼을 클릭했을 때 글을 DB에 입력한 후 처리 완료 페이지로 이동하는 그런 페이지는
+서버측 내부에서 처리되는 것이기에 검색엔진에 노출되는 것이 아닐뿐더러, title 을 가질 필요도 없습니다.</em>
+
+<h5>3.5) 프레임 사용 준수성</h5>
+
+◎ 콘텐츠를 구성하는 프레임의 수는 최소한으로 하며, 프레임을 사용할 경우에는 프레임별로 타이틀을 붙어야 한다.
+* 프레임 사용 준수성 = (타이틀을 가진 프레임 수 ) / (전체 프레임 수) * 100
+
+◎ 측정기간 동안 실행된 전체 프레임 수 중에 타이틀을 가진 프레임 비율은 100%로 매우 높은 편임.
+
+전체 프레임 수 3
+타이틀을 가진 프레임 수 3
+프레임 사용 준수성(%) 100
+
+
+<h5>3.6) 이미지맵 사용 준수성</h5>
+
+◎ 서버 이미지맵 사용은 가급적 피하는 것이 좋으며, 클라이언트 이미지맵 사용시 longdesc 속성을 이용해 별도의 파일에서 자세하게 설명하되, 이미지에 대한 대체 텍스트를 빠뜨리지 말고 반드시 넣어야 한다.
+*  이미지맵 준수성 = (대체 텍스트를 가진 이미지맵 수 ) / (이미지맵을 가진 페이지 수) * 100
+
+◎ 측정기간 동안 이미지맵을 가진 페이지 중 대체 텍스트를 가진 이미지맵  비율은 82.04%로 매우 높은 편임.
+
+이미지맵을 가진 페이지 수 1,136
+대체 텍스트를 가진 이미지맵 수 932
+이미지맵 준수성(%) 82.04
+
+<em>==> <strong>진단 의견에 문제가 있습니다.</strong>
+"대체 텍스트를 가진 이미지맵 수"가 아닌 "longdesc를 가진 이미지맵 수" 로 이미지맵 준수성을 계산하고 있습니다.
+
+==> <strong>맥사마인 보고서에 문제가 있습니다.</strong>
+img 와 area 모두 alt(대체텍스트)가 있어도 longdesc가 없으면 오류로 검출됩니다.
+이는 WCAG 에 “클라이언트측 이미지 맵에 있는 링크에 대한 대체 텍스트를 찾아 표시해 주는 웹 표시 장치가 널리 보급되기 전에는” 이라는 전제를 무시하고 진단한 겁니다.
+현재 이미지맵은 널리 보급되어 있고, longdesc는 오히려 거의 지원되지 않습니다.
+longdesc는 alt 로 부족한 경우만 사용하면 되는 것이고, 현재 오류로 검출되는 것들은 대부분 longdesc가 불필요한데도 오류로 진단하고 있습니다.
+
+이 부분의 정확한 진단은 수동 검사로만 할 수 있습니다.
+
+※ 참고 : <a href="http://gregshin.pe.kr/wcag/#gl-provide-equivalents">WCAG 지침1</a> | <a href="http://www.iabf.or.kr/News/NoticeView.asp?board=notice&bseq=2860">웹 접근성 향상을 위한 국가표준 기술 가이드라인</a> - 4페이지 참조 </em>
+
+</pre>
+<!-- //pre -->
+
+
+
+
+
+</body>
+</html>

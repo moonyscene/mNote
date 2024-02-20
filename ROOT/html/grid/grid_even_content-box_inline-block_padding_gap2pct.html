@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko" class="indy">
+<head>
+<meta charset="utf-8" />
+<!-- html_head -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="myNote.v2" />
+<title>Grid Even content-box inline-block padding Gap 2% | mNote.v2</title>
+<link rel="stylesheet" type="text/css" href="../../share/css/base.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/lib.css" />
+<link rel="stylesheet" type="text/css" href="../../share/css/_css/_grid_even_content-box_inline-block_padding_gap2pct.css" /><!-- ☆(Added) -->
+<style type="text/css">/*<![CDATA[*/
+
+/* ◇◆ _Demo Page_ ◇◆◇◆◇ */
+.column .sample{display:block;padding:1em;background:#def;text-align:center;
+	min-height:0; /* [IE7]fix */
+}
+/* [~IE8] selectivizr.js 폴리필로 nth-child(2n-1) 동작하려면.. 외부파일.css 이어야 한다.  */
+.column:nth-child(2n-1) .sample{background:#dec;}
+
+
+/*]]>*/</style>
+
+<!-- ☆(take) -->
+<script src="../../share/js/iscroll-min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../../share/js/jquery-1.11.1.min.js"></script>
+<script src="../../share/js/jquery.easing.1.3.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="../../share/js/selectivizr.js"></script>
+<script src="../../share/js/respond.min.js"></script>
+<script src="../../share/js/jquery.backgroundSize.js"></script>
+<![endif]-->
+<!-- ☆(make) -->
+<script src="../../share/js/jq.js"></script>
+<script>/*<![CDATA[*/
+(function(){
+	$(function(){
+
+	});
+}());
+/*]]>*/</script>
+<!-- /html_head -->
+</head>
+<body style="background:#eee;">
+<!-- container -->
+<div id="container" style="max-width:1200px;margin:0 auto;padding:0 2.5%;background:#fff;">
+
+
+
+
+
+<h1 class="hb1 h1">12 Grid <em class="em1">Even</em> content-box <em class="em2">inline-block</em> padding <em class="em3">Gap 2%</em> RWD</h1>
+
+<p><em class="em">[~IE8] 반응형은 온라인에서 확인하세요!!</em></p>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<!-- <menu>
+<li><a href="#Outline">Outline</a></li>
+<li><a href="#Start">Start</a></li>
+<li><a href="#Task">Task</a></li>
+<li><a href="#Link">Link</a></li>
+</menu> -->
+</div>
+<!-- /mtab1 -->
+
+<!-- <h2 id="Prepare">Prepare</h2> -->
+
+<!-- box1 -->
+<div class="box1">
+	<strong class="h1">Compatible</strong>
+	<ol class="bo1 num00">
+	<li>[IE7+](O)<br /></li>
+	</ol>
+	<strong class="h1">Reference</strong>
+	<ol class="bo1 num00">
+	<li><a href="http://selectivizr.com/">selectivizr-min.js</a>
+		)) <a href="http://html5please.com/#selector">When you sunset IE6~8 support, you can use:</a>
+	</li>
+	</ol>
+</div>
+<!-- /box1 -->
+
+
+<h3 class="hb1 h3">Source Code</h3>
+
+<!-- panel -->
+<div class="panel clearfix">
+<strong class="h1">CSS</strong>
+<pre>
+<code>
+/* even-grid 20151109~20160616 */
+.even-grid{list-style:none;min-height:0;margin:1% -1%;padding:0;}
+.even-grid:before,
+.even-grid:after{content:'';display:table;clear:both;}
+.even-grid>.column{<b class="em0">display:inline-block;</b>
+	width:23%;
+	<b class="em2">margin:0 -.25em 0 0;</b>
+	<b class="em1">padding:1%;</b> <em class="em">/* 갭2% */</em>
+	vertical-align:top;
+}
+<b class="em4">*+html .even-grid>.column{display:inline;
+	margin-right:-1px;
+}</b>
+.even-grid[class*='evenmix-1']>.column{width:98%;}
+.even-grid[class*='evenmix-2']>.column{width:48%;}
+.even-grid[class*='evenmix-3']>.column{width:31.333%;}
+/* collapse */
+.even-grid.collapse{margin:0;padding:0 0 1px 0;}
+.even-grid.collapse>.column{width:25%;margin-bottom:-1px;padding:0;}
+.even-grid.collapse[class*='evenmix-1']>.column{width:100%;}
+.even-grid.collapse[class*='evenmix-2']>.column{width:50%;}
+.even-grid.collapse[class*='evenmix-3']>.column{width:33.333%;}
+@media all and (min-width:768px){
+	.even-grid[class*='evenmix-12']>.column{width:48%;}
+	.even-grid[class*='evenmix-13']>.column,
+	.even-grid[class*='evenmix-23']>.column{width:31.333%;}
+	.even-grid[class*='evenmix-14']>.column,
+	.even-grid[class*='evenmix-24']>.column{width:23%;}
+	.even-grid.collapse[class*='evenmix-12']>.column{width:50%;}
+	.even-grid.collapse[class*='evenmix-13']>.column,
+	.even-grid.collapse[class*='evenmix-23']>.column{width:33.333%;}
+	.even-grid.collapse[class*='evenmix-14']>.column,
+	.even-grid.collapse[class*='evenmix-24']>.column{width:25%;}
+}
+@media all and (min-width:1000px){
+	.even-grid[class*='evenmix-123']>.column{width:31.333%;}
+	.even-grid[class*='evenmix-124']>.column,
+	.even-grid[class*='evenmix-234']>.column{width:23%;}
+	.even-grid[class*='evenmix-246']>.column{width:14.666%;}
+	.even-grid.collapse[class*='evenmix-123']>.column{width:33.333%;}
+	.even-grid.collapse[class*='evenmix-124']>.column,
+	.even-grid.collapse[class*='evenmix-234']>.column{width:25%;}
+	.even-grid.collapse[class*='evenmix-246']>.column{width:16.666%;}
+}
+@media all and (min-width:1200px){
+	.even-grid[class*='evenmix-1234']>.column{width:23%;}
+	.even-grid[class*='evenmix-135']>.column,
+	.even-grid[class*='evenmix-2345']>.column{width:18%;}
+	.even-grid[class*='evenmix-2468']>.column{width:10.5%;}
+	.even-grid.collapse[class*='evenmix-1234']>.column{width:25%;}
+	.even-grid.collapse[class*='evenmix-135']>.column,
+	.even-grid.collapse[class*='evenmix-2345']>.column{width:20%;}
+	.even-grid.collapse[class*='evenmix-2468']>.column{width:12.5%;}
+}
+</code>
+</pre>
+</div>
+<!-- /panel -->
+
+<br />
+
+<!-- panel -->
+<div class="panel clearfix">
+<strong class="h1">HTML</strong>
+<pre><code>&lt;!-- even-grid --&gt;
+&lt;div class="<b class="em0">even-grid</b> <b class="em2">collapse</b> <b class="em1">evenmix-1234</b>"&gt;
+	&lt;div class="column"&gt; …01… &lt;/div&gt;
+	&lt;div class="column"&gt; …02… &lt;/div&gt;
+	&lt;div class="column"&gt; …03… &lt;/div&gt;
+	&lt;div class="column"&gt; …04… &lt;/div&gt;
+	&lt;div class="column"&gt; …05… &lt;/div&gt;
+	&lt;div class="column"&gt; …06… &lt;/div&gt;
+	&lt;div class="column"&gt; …07… &lt;/div&gt;
+	&lt;div class="column"&gt; …08… &lt;/div&gt;
+	&lt;div class="column"&gt; …09… &lt;/div&gt;
+	&lt;div class="column"&gt; …10… &lt;/div&gt;
+	&lt;div class="column"&gt; …11… &lt;/div&gt;
+	&lt;div class="column"&gt; …12… &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- /even-grid --&gt;
+</code></pre>
+</div>
+<!-- /panel -->
+
+
+<br />
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2" id="Demo">Demo</h2>
+
+<!-- overflow-x:hidden --><!-- ★☆ToEdit) 수평스크롤바 감추려 overflow-x:hidden; 하였다. 상황에 따라 넣든지 하세요. -->
+<div style="overflow-x:hidden">
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Basic</h3>
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-1"</h4>
+<div class="even-grid evenmix-1">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-2"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-2">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-3"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-3">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-1234"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-1234">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid collapse evenmix-1234"</h4>
+<!-- even-grid -->
+<div class="even-grid collapse evenmix-1234">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<h3 class="hb1 h3">Advanced</h3>
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-12"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-12">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-13"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-13">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-23"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-23">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-14"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-14">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-24"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-24">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-123"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-123">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-124"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-124">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-234"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-234">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-246"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-246">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-1234"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-1234">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-135"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-135">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-2345"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-2345">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+<h4 class="hb1 h4">class="even-grid evenmix-2468"</h4>
+<!-- even-grid -->
+<div class="even-grid evenmix-2468">
+	<div class="column"><div class="sample">01</div></div>
+	<div class="column"><div class="sample">02</div></div>
+	<div class="column"><div class="sample">03</div></div>
+	<div class="column"><div class="sample">04</div></div>
+	<div class="column"><div class="sample">05</div></div>
+	<div class="column"><div class="sample">06</div></div>
+	<div class="column"><div class="sample">07</div></div>
+	<div class="column"><div class="sample">08</div></div>
+	<div class="column"><div class="sample">09</div></div>
+	<div class="column"><div class="sample">10</div></div>
+	<div class="column"><div class="sample">11</div></div>
+	<div class="column"><div class="sample">12</div></div>
+</div>
+<!-- /even-grid -->
+
+
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+</div>
+<!-- /overflow-x:hidden -->
+
+
+
+
+
+<br />
+<hr class="show" />
+<p><small class="fwn"><strong>History</strong>
+: 20160802~
+20160802.
+20160802.
+</small></p>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>

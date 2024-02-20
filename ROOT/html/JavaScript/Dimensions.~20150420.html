@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript">/*<![CDATA[*/
+var $meta = {
+	title: 'JavaScript Dimensions | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script type="text/javascript" src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>JavaScript Dimensions : Size, Position</h1>
+
+<!-- mtab1 -->
+<div class="mtab1">
+<menu>
+<li><a href="#HTMLElement">HTMLElement</a></li>
+<li><a href="#Document">Document</a></li>
+<li><a href="#Window">Window</a></li>
+<li><a href="#Screen">Screen</a></li>
+<li><a href="#MouseEvent">Mouse Event</a></li>
+</menu>
+</div><!-- /mtab1 -->
+
+
+<h5 id="HTMLElement">HTMLElement 객체</h5>
+<b>[m]</b> 요소의 크기, 위치값을 구하려면.. <em class="em1">요소가 Layout 성질을 가져야 한다.</em> (display:block; 또는 float:left; ..)
+<table border="1" class="t3 w100" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"><strong>JavaScript</strong> method() | property</th>
+<th scope="col"><strong>jQuery</strong></th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b>offset</b>Parent</th>
+<th scope="row"><b>offset</b>Parent()</th>
+<td><em>컨테이너 엘리먼트 (기준 좌표 요소)</em></td>
+</tr>
+<tr>
+<th scope="row">offsetWidth<br />offsetHeight</th>
+<th scope="row">outerWidth()<br />outerHeight()</th>
+<td>엘리먼트의 너비와 높이 : <em>margin 제외</em>, border, padding, scrollBar 포함<br />
+<em>outerWidth(true), outerHeight(true)</em> : margin, border, padding, scrollBar 포함<br />
+</td>
+</tr>
+<tr>
+<th scope="row">offsetLeft<br />offsetTop</th>
+<th scope="row">position().left<br />position().top</th>
+<td><b>컨테이너(offsetParent) 기준</b>으로 엘리먼트의 x, y 좌표</td>
+</tr>
+<tr>
+<th scope="row"><b>scroll</b>Width<br />scrollHeight</th>
+<th scope="row">-</th>
+<td>엘리먼트의 너비와 높이 -- {overflow:scroll;} 인 경우 스크롤되어 넘치는 영역까지 포함<br />
+[T]<em> UA 편차 크다.</em> <b>[m]</b> Test 필요!?
+</td>
+</tr>
+<tr>
+<th scope="row">scrollLeft<br />scrollTop</th>
+<th scope="row">scrollLeft()<br />scrollTop()</th>
+<td>스크롤된 x, y 좌표<br />
+[T]<em> UA 편차 크다.</em> <b>[m]</b> Test 필요!?
+</td>
+</tr>
+<tr>
+<th scope="row"><b>client</b>Width<br />clientHeight</th>
+<th scope="row">-</th>
+<td>엘리먼트 내부 영역의 너비와 높이 : <em>margin, border, padding, scrollBar 제외</em></td>
+</tr>
+<tr>
+<th scope="row">clientLeft<br />clientTop</th>
+<th scope="row">-</th>
+<td>엘리먼트 기준으로  엘리먼트 내부 영역의 x, y 좌표
+border-width 값과 같다.
+<em>[m]</em> padding 이 있는 경우는?
+</td>
+</tr>
+<tr>
+<th scope="row">getBoundingClientRect()</th>
+<th scope="row">offset().left<br />offset().top</th>
+<td><b>Document 기준</b>(body 좌측상단으로 생각하면 된다.)으로 엘리먼트의 left, top, right, bottom, width, height 를 반환<br />
+getBoundingClientRect().right : getBoundingClientRect().left + getBoundingClientRect().width<br />
+getBoundingClientRect().bottom : getBoundingClientRect().top + getBoundingClientRect().height<br />
+</td>
+</tr>
+<tr>
+<th scope="row">-</th>
+<th scope="row">width()<br />height()</th>
+<td>style 에 작성된 너비와 높이
+<em>[m] style 에 국한되지 않고, 부모와 자손 크기 고려되어 산정된 값인 것 같다.</em>
+</td>
+</tr>
+<tr>
+<th scope="row">-</th>
+<th scope="row">innerWidth()<br />innerHeight()</th>
+<td>엘리먼트의 너비와 높이 : <em>margin, border 제외</em>, padding, scrollBar 포함
+</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="Document">Document 객체</h5>
+
+<table border="1" class="t3 w100" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"><strong>JavaScript</strong> method() | property</th>
+<th scope="col"><strong>jQuery</strong></th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b>document.body</b>.scrollWidth<br />document.body.scrollHeight</th>
+<th scope="row">$(document).width()<br />$(document).height()</th>
+<td>Document 영역의 전체 너비와 높이</td>
+</tr>
+<tr>
+<th scope="row"><b>document</b>.elementFromPoint(x, y)</th>
+<th scope="row">-</th>
+<td>x, y 위치에 있는 엘리먼트 -- <b>[m]</b> [IE8+표준] 만 된다는 내용 봤다.<br />
+<xmp class="xmp">
+function onMouseMove(oEvent){
+	var e = document.elementFromPoint(oEvent.pageX, oEvent.pageY);
+	console.log(e);
+}
+document.onmousemove = onMouseMove;
+</xmp>
+<b>[m]</b> #hash 주소의 웹페이지는 null 값을 반환하더라.<br />
+</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="Window">Window 객체</h5>
+
+<strong>UA 점검표 완벽 정리 필요!</strong>
+<pre>
+윈도우 창영역
+윈도우 뷰영역(스크롤바 포함)
+웹문서 뷰영역(스크롤바 제외)
+<a href="/share/ui/mailto.jsp?id=webmaster&amp;site=domain.com" onclick="alert(window.innerWidth+'   '+document.documentElement.clientWidth+'   '+document.body.clientWidth+'\n'+window.outerWidth+'   '+document.documentElement.offsetWidth+'   '+document.body.offsetWidth); return false;" target="_blank" title="새 창" class="link">alert 말고 표로 정리하자!</a>
+</pre>
+
+<table border="1" class="t3 w100" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"><strong>JavaScript</strong> method() | property</th>
+<th scope="col"><strong>jQuery</strong></th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">window.<b>inner</b>Width<br />window.innerHeight</th>
+<th scope="row">-</th>
+<td><em><i>테두리선, 메뉴바, 툴바, 제외</i>, 스크롤바 포함</em>한 window 의 너비와 높이<br />
+<!-- <b>[m]</b> 웹문서 뷰영역<br /> -->
+<strong>[~IE8] undefined</strong> -- So, 아래 호환 코드 사용바람.<br />
+<xmp class="xmp">
+var windowInnerWidth = window.innerWidth||document.documentElement.clientWidth;
+var windowInnerHeight = window.innerHeight||document.documentElement.clientHeight;
+</xmp>
+<b>[m]</b>20140210현재. [IE9+표준] 값 동일하다. window.innerWidth == document.documentElement.clientWidth<br />
+단, <i>document.body.clientHeight</i> 는 웹 문서의 높이를 나타낸다. [IE6_+표준] 호한 점검완료.<br />
+</td>
+</tr>
+<tr>
+<th scope="row">window.<b>outer</b>Width<br />window.outerHeight</th>
+<th scope="row">-</th>
+<td><em>테두리선, 메뉴바, 툴바, 스크롤바 포함</em>한 window 의 너비와 높이<br />
+<!-- <b>[m]</b> 윈도우 창영역<br /> -->
+<strong>[~IE8] undefined</strong> -- So, 아래 호환 코드 사용바람.<br />
+<xmp class="xmp">
+var windowOuterWidth = window.outerWidth||document.documentElement.offsetWidth;
+var windowOuterHeight = window.outerHeight||document.documentElement.offsetHeight;
+</xmp>
+</td>
+</tr>
+<th scope="row">window.<b>screen</b>Left<br />window.screenTop</th>
+<th scope="row">-</th>
+<td>screen(모니터 화면) 기준 window 의 x, y 좌표</td>
+</tr>
+<tr>
+<th scope="row">window.screenX<br />window.screenY</th>
+<th scope="row">-</th>
+<td>screen(모니터 화면) 기준 window 의 x, y 좌표<br />
+<em>[m]</em> screenLeft, screenTop 와 차이? 마우스 이벤트와 헷갈려서 그러나?
+</td>
+</tr>
+<tr>
+<th scope="row">window.<b>pageX</b>Offset<br />window.pageYOffset</th>
+<th scope="row">-</th>
+<td>스크롤된 x, y 좌표</td>
+</tr>
+<tr>
+<tr>
+<th scope="row">window.<b>scroll</b>To(posX, posY)</th>
+<th scope="row">-</th>
+<td>posX, posY 위치로 스크롤</td>
+</tr>
+<tr>
+<th scope="row">window.scrollBy(dx, dy)</th>
+<th scope="row">-</th>
+<td>현재 스크롤 위치에서 dx, dy 만큼 스크롤</td>
+</tr>
+<tr>
+<th scope="row">-</th>
+<th scope="row">$(window).width()<br />$(window).height()</th>
+<td><em>메뉴바, 툴바, 스크롤바 제외</em>한 window 의 너비와 높이</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="Screen">Screen 객체</h5>
+
+<table border="1" class="t3 w100" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"><strong>JavaScript</strong> method() | property</th>
+<th scope="col"><strong>jQuery</strong></th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">screen.width<br />screen.height</th>
+<th scope="row">-</th>
+<td>모니터 화면 해상도. 작업표시줄 포함한 화면 크기</td>
+</tr>
+<tr>
+<th scope="row">screen.<b>avail</b>Width<br />screen.availHeight</th>
+<th scope="row">-</th>
+<td>작업표시줄 제외한 화면 크기</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="MouseEvent">Mouse Event 객체</h5>
+
+<table border="1" class="t3 w100" summary="★표요약"><caption class="blind">★표제목</caption>
+<col style="width:20%;" /><col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col"><strong>JavaScript</strong> method() | property</th>
+<th scope="col"><strong>jQuery</strong></th>
+<th scope="col">note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><b>screen</b>X<br />screenY</th>
+<th scope="row">// 좌동</th>
+<td><em>모니터 화면 기준</em> 이벤트 발생 지점의 x, y 좌표</td>
+</tr>
+<tr>
+<th scope="row"><b>page</b>X<br />pageY</th>
+<th scope="row">// 좌동</th>
+<td><em>웹페이지 문서 기준</em> 이벤트 발생 지점의 x, y 좌표 -- {overflow:scroll;} 인 경우 스크롤된 위치까지 포함.<br />
+(event.pageX, event.pageY) = (event.clientX + pageXOffset, event.clientY + pageYOffset)<br />
+JS [IE] 작동 안함 -- <em><b>[m]</b> jQuery 에서의 작동 여부 테스트 필요!</em><br />
+</td>
+</tr>
+<tr>
+<th scope="row"><b>client</b>X<br />clientY</th>
+<th scope="row">// 좌동</th>
+<td><em>브라우저(window.innerWidth window.innerHeight) 좌상단 기준</em> 이벤트 발생 지점의 x, y 좌표<br />
+비표준이지만  최신 UA 대부분 제공<br />
+</td>
+</tr>
+<tr>
+<th scope="row"><b>offset</b>X<br />offsetY</th>
+<th scope="row">// 좌동</th>
+<td><em>이벤트 발생 엘리먼트(offsetWidth offsetHeight) border 포함한 좌상단 기준</em> 이벤트 발생 지점의 x, y 좌표<br />
+비표준이지만 최신 UA 대부분 제공<br />
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140401.
+20140210.
+</p>
+
+
+
+
+
+<script type="text/javascript" src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

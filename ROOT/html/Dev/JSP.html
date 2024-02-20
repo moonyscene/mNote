@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: 'JSP | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+
+<h1>JSP</h1>
+
+<div class="contentsBlock" style="float:left;width:59%;margin:0 1% 0 0;"><!-- contentsBlock -->
+
+<h2>Java</h2>
+
+<h3><cite><a href="http://opentutorials.org/course/1223">[Site]생활코딩 - Java</a></cite></h3>
+<div class="box3"><!-- box3 -->
+<span class="markingpen2">
+커버 페이지
+|| 언어소개
+|| <b class="cd">Java의 설치</b>
+<span class="fade1">| 리눅스에 Java 설치하기</span>
+<span class="fade1">| 리눅스에 Java 다운로드해서 설치하기</span>
+| 윈도우에 Java 설치하기
+<span class="fade1">| OSX에 자바 설치하기</span>
+|| <b class="cd">실행</b>
+<span class="fade1">| 리눅스에서 실행</span>
+<span class="fade1">| OSX에서 실행</span>
+| 윈도우에서 실행
+|| <b class="cd">개발도구와 이클립스</b>
+<span class="fade1">| OSX에서 이클립스 설치 및 실행</span>
+| 윈도우에서 이클립스 설치 및 실행
+<span class="fade1">| 리눅스에서 이클립스 설치 및 실행</span>
+|| 이클립스의 기능과 예제의 사용법
+|<br />
+| 숫자와 문자
+| 변수
+| 데이터 타입
+| 상수
+| 형변환
+| 연산자
+| 비교와 Boolean
+| 조건문
+| 논리 연산자
+| 반복문
+| 배열
+| 메소드
+| 입력과 출력
+| 객체 지향 프로그래밍
+| 클래스와 인스턴스 그리고 객체
+| 클래스 맴버와 인스턴스 맴버
+| 유효범위
+| 초기화와 생성자
+| 상속
+| 상속과 생성자
+| overriding
+| overloading
+| 클래스 패스
+| 패키지
+| API와 API 문서 보는 법
+| 접근 제어자
+| abstract
+| final
+| 인터페이스
+| 다형성
+| 예외 1 - 문법
+| 예외 2 - 예외 던지기
+| 예외 3 - 만들기
+| Object 클래스
+| 상수와 enum
+<!-- /.markingpen2 --></span>
+| 제네릭 준비중
+| 라이브러리 준비중
+<!-- /box3 --></div>
+
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ -->
+
+
+<pre>
+----
+언어소개
+Java의 설치
+<div class="box1"><!-- box1 -->
+<strong>자바 프로그램의 동작</strong>
+코드 작성  컴파일 - 실행
+<strong>용어</strong>
+<b>Java SE</b>(Java Platform, Standard Edition)
+<b>JDK</b>(Java Development Kit)
+	<b>Java SE</b> (Standard Edition) : 자바의 핵심으로 일반적으로 자바라고 하면 Java SE를 의미한다.
+	<b>Java EE</b> (Enterprise Edition) : 기업용 시장에서 사용하는 자바 개발환경
+	<b>Jave Me</b> (Micro Edition) : 모바일 개발을 위해서 사용하는 자바 버전
+<b>JRE</b>(Java Runtime Environment)
+<b>JVM</b>(Java Virtual Machine)
+현재 2013년 12월 기준으로 Java의 정식 명칭은 'Java SE 7'이다. 하지만 이것을 JDK 1.7이라고도 하고, JDK 7이라고도 하므로 혼란이 있다.
+<!-- /box1 --></div>
+리눅스에 Java 설치하기 -- [m] <b><i>리눅스에 Java 패키지 관리자를 이용해서 설치하기</i></b>
+<div class="box1"><!-- box1 -->
+<strong>환경</strong> : 리눅스 배포판 중의 하나인 Ubuntu (12.04)를 기준으로 진행.
+<strong>PPA를 이용해서 자바 설치하기</strong>
+<kbd class="xmp">
+sudo apt-get install python-software-properties;
+sudo apt-get install software-properties-common;
+sudo apt-add-repository ppa:webupd8team/java;
+sudo apt-get update;
+sudo apt-get install oracle-jdk7-installer;
+</kbd>
+<em>-- [m] Aptana 설치와는 사전 설치 앞 2개의 명령이 다르네..</em>
+sudo apt-get install python-software-properties;
+sudo apt-get install software-properties-common;
+<strong>설치확인</strong>
+<samp class="xmp">
+터미널에서 아래 명령 실행
+<kbd class="xmp">
+java -version
+</kbd>
+java version "1.7.0_51"
+OpenJDK Runtime Environment (IcedTea 2.4.4) (7u51-2.4.4-0ubuntu0.12.04.2)
+OpenJDK Client VM (build 24.45-b08, mixed mode, sharing)
+</samp>
+<strong>환경변수 등록</strong>
+<kbd class="xmp">
+sudo nano /etc/profile
+</kbd>
+열린 파일 소스 끝에 아래 코드 추가하고 저장
+<code class="xmp">
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+</code><!-- <em>-- [m] sudo nano /etc/profile 실행하면.. 파일 열리는데.. 그 다음엔 어떻게? -- 동영상 보자!</em> -->
+아래 명령을 입력해서 환경 변수를 적용한다.
+<kbd class="xmp">
+. /etc/profile
+</kbd>
+[m] 동영상 내용 추가함. 터미널에서 아래 명령 실행
+<kbd class="xmp">
+m@m-VirtualBox:~$ echo $JAVA_HOME
+</kbd>
+아래 내용 나오는거 확인함.
+<samp class="xmp">
+/usr/lib/jvm/java-7-openjdk-i386/jre/
+</samp>
+<!-- /box1 --></div>
+
+리눅스에 Java 다운로드해서 설치하기
+윈도우에 Java 설치하기
+<div class="box1"><!-- box1 -->
+<a href="https://wikidocs.net/201">자바설치</a> - 점프 투 자바
+<div class="box2"><!-- box2 -->
+JDK 설치 : <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>
+도스창(cmd.exe)을 열고 다음 명령어를 실행
+C:\>java -- 정상 설치
+C:\>javac -- 'javac'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다.
+C:\>set PATH=%PATH%;c:\Program Files\Java\jdk1.7.0_25\bin
+C:\>javac -- 정상 설치
+</xmp>
+<!-- /box2 --></div>
+<!-- /box1 --></div>
+OSX에 자바 설치하기
+실행
+<div class="box1"><!-- box1 -->
+<a href="https://wikidocs.net/201">자바설치</a> - 점프 투 자바
+<div class="box2"><!-- box2 -->
+텍스트 에디터로 아래 작성
+<xmp class="xmp">
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+</xmp>
+M:\Y\Java>javac HelloWorld.java
+M:\Y\Java>java HelloWorld
+Hello World
+<!-- /box2 --></div>
+<!-- /box1 --></div>
+리눅스에서 실행
+OSX에서 실행
+윈도우에서 실행
+개발도구와 이클립스
+<div class="box1"><!-- box1 -->
+아래 URL로 접근하면 이클립스를 다운로드 받을 수 있다. 목록 중 가장 상단에 링크 되어 있는 Eclipse Standard를 다운받으면 된다.
+<a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a>
+이클립스는 특별한 인스톨러가 필요하지 않다. 그냥 다운받은 후에 압축을 풀면 된다.
+<!-- /box1 --></div>
+OSX에서 이클립스 설치 및 실행
+윈도우에서 이클립스 설치 및 실행 <em>-- [m] 동영상 보자!</em>
+리눅스에서 이클립스 설치 및 실행
+이클립스의 기능과 예제의 사용법 <em>-- [m] 동영상 보자!</em>
+숫자와 문자
+<div class="box1"><!-- box1 -->
+System.out.println('생'); // 자바에서 문자는 '(작은따옴표)로 감싸야 한다. (실행)
+System.out.println("생활코딩"); // 문자열은 "(큰따옴표)로 감싸야 한다. (실행)
+System.out.println('생활코딩'); // 만약 문자열을 작은 따옴표로 감싸면 에러가 발생한다. (실행)
+System.out.println("생"); // 하나의 문자를 큰따옴표로 감싼다고 에러가 발생하지는 않는다. 한 글자도 문자열이 될 수 있기 때문이다. (실행)
+<!-- /box1 --></div>
+변수
+<div class="box1"><!-- box1 -->
+int a; // 정수
+double a = 1.1; // 실수
+String first = "coding"; // 문자열
+<!-- /box1 --></div>
+데이터 타입
+<div class="box1"><!-- box1 -->
+<table border="1" class="t3">
+<tbody>
+<tr>
+<td>데이터 타입</td>
+<td>메모리의 크기</td>
+<td>표현 가능 범위</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>1 byte</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2 byte</td>
+<td>-32,769 ~ 32,767</td>
+</tr>
+<tr>
+<td><b>int</b></td>
+<td>4 byte</td>
+<td>-2,147,483,648~2,147,483,647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8 byte</td>
+<td>-9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807</td>
+</tr>
+</tbody>
+</table>
+결과적으로 말해서 정수를 저장할 때는 int를 사용하면 된다. int 형을 처리 할 때 CPU의 처리속도가 빠르고, int는 충분히 큰 수를 표현할 수 있는 데이터 타입이기 때문이다.
+<table border="1" class="t3">
+<tbody>
+<tr>
+<td>float</td>
+<td>4byte</td>
+<td>±1.40129846432481707e-45 ~ 3.40282346638528860e+38</td>
+</tr>
+<tr>
+<td><b>double</b></td>
+<td>8byte</td>
+<td>
+<p>±4.94065645841246544e-324d ~ 1.79769313486231570e+308d</p>
+</td>
+</tr>
+</tbody>
+</table>
+실수형은 float과 double이 있다. 실수를 사용할 때는 double을 사용하도록 하자.
+문자 char	2byte	모든 유니코드 문자
+불린 boolean	1byte	true / false
+<!-- /box1 --></div>
+상수
+<div class="box1"><!-- box1 -->
+double a = 2.2;
+float a = 2.2F;
+int a = 2147483648; // 오류가 발생. int의 최댓값인 2147483647 보다 1 많기 때문이다.
+long a = 2147483648L; // 오류 해결.
+byte a = 100; // 자바는 byte와 short 타입에 대해서는 int 형을 허용하기 때문에 오류가 발생하지 않는다.
+short b = 200; // 자바는 byte와 short 타입에 대해서는 int 형을 허용하기 때문에 오류가 발생하지 않는다.
+<!-- /box1 --></div>
+형변환
+<div class="box1"><!-- box1 -->
+<strong>자동 형 변환</strong>
+자바는 이러한 형 변환을 자동으로 처리해주는데 이러한 전환작업을 자동(암시적) 형 변환(implicit Conversion)이라고 부른다.
+double a = 3.0F; // 타입을 변경해도 정보의 손실이 일어나지 않는 경우 자동 형 변환이 일어난다.
+float a = 3.0; // double 형 값을 표현 범위가 좁은 float에 넣으려고 하기 때문에 오류가 발생한다.
+자동 형 변환의 원칙은 표현범위가 좁은 데이터 타입에서 넓은 데이터 타입으로의 변환만 허용된다는 것이다.
+아래는 자동 형 변환이 일어나는 규칙을 보여준다.
+<table>
+<tr>
+<td>byte</td>
+<td><img src="../img/all/arrowd3.gif" width="30" height="30" alt="화살표.좌에서우" style="margin:6px 0 0 0;" /></td>
+<td>short<br />char</td>
+<td><img src="../img/all/arrowd3.gif" width="30" height="30" alt="화살표.좌에서우" style="margin:6px 0 0 0;" /></td>
+<td>int</td>
+<td><img src="../img/all/arrowd3.gif" width="30" height="30" alt="화살표.좌에서우" style="margin:6px 0 0 0;" /></td>
+<td>long</td>
+<td><img src="../img/all/arrowd3.gif" width="30" height="30" alt="화살표.좌에서우" style="margin:6px 0 0 0;" /></td>
+<td>float</td>
+<td><img src="../img/all/arrowd3.gif" width="30" height="30" alt="화살표.좌에서우" style="margin:6px 0 0 0;" /></td>
+<td>double</td>
+</tr>
+</table>
+<strong>명시적 형 변환</strong>
+float a = (float)100.0;
+int b = (int)100.0F;
+<!-- /box1 --></div>
+연산자
+<div class="box1"><!-- box1 -->
+산술 연산자
+단항 연산자
+연산의 우선순위
+<!-- /box1 --></div>
+비교와 Boolean
+<div class="box1"><!-- box1 -->
+<strong>.equals</strong>는 문자열을 비교할 때 사용하는 메소드다.
+String a = "Hello world";
+String b = new String("Hello world");
+System.out.println(a == b); // false
+System.out.println(a.equals(b)); // true
+<!-- /box1 --></div>
+조건문
+<div class="box1"><!-- box1 -->
+<strong>if 문</strong>
+<xmp class="xmp">
+String id = args[0];
+String password = args[1];
+if (id.equals("egoing")) {
+	if (password.equals("111111")) {
+		System.out.println("right");
+	} else {
+		System.out.println("wrong");
+	}
+
+} else {
+	System.out.println("wrong");
+}
+</xmp>
+컴파일 후 실행 : java LoginDemo2 egoing 111111
+
+<strong>switch 문</strong>
+switch 문을 사용할 때 한가지 주의 할 것은 switch의 조건으로는 몇가지 제한된 데이터 타입만을 사용할 수 있다.
+byte, short, char, int, enum, String, Character, Byte, Short, Integer
+<!-- /box1 --></div>
+논리 연산자
+<div class="box1"><!-- box1 -->
+&&    ||    !
+<!-- /box1 --></div>
+반복문
+<div class="box1"><!-- box1 -->
+<strong>while</strong>
+<strong>for</strong>
+break
+continue
+반복문의 중첩
+<!-- /box1 --></div>
+배열
+<div class="box1"><!-- box1 -->
+String[] classGroup = { "최진혁", "최유빈", "한이람", "이고잉" };
+<strong>for-each</strong>
+<xmp class="xmp">
+String[] members = { "최진혁", "최유빈", "한이람" };
+for (String e : members) {
+	System.out.println(e + "이 상담을 받았습니다");
+}
+</xmp>
+<strong>배열의 한계</strong>
+<em>배열은 초기화할 때 그 크기가 정해진다. 그래서 정해진 크기 이상의 값을 넣을 수 없다.</em> 비유하면, 학생의 수요를 예측하고 그에 따라서 교실을 지으면 그 이상의 학생을 수용 할 수 없는 것과 같다. 부시고 다시 짓든지 새로운 교실을 만들든지 해야 한다. 이러한 한계는 c와 같은 언어에 익숙한 사람에게는 당연한 것이지만, JavaScript나 Python, PHP와 같은 언어에 익숙한 사람에게는 의아할 것이다. 후자의 언어들은 배열의 크기를 미리 정의하고 사용하지 않는다. 물론 방법이 있다. 자바에는 컬렉션 <b>Collection</b>이라는 기능이 있다. <i class="ic">Container라고도 부르는 이 기능을 이용하면 JavaScript의 배열과 같이 유연하게 배열을 사용할 수 있다.</i> 컬렉션은 매우 중요한 주제이지만 지금 단계에서는 이것을 이해하기 위한 부품이 부족하다. 객체지향에 대해서 일정한 이해가 있을 때 컬렉션에 대해서도 온전하게 이해할 수 있기 때문이다.
+<!-- /box1 --></div>
+메소드
+<div class="box1"><!-- box1 -->
+지금까지 배운 것으로도 얼마든지 프로그램을 만들 수 있다. 반복문, 조건문, 변수, 상수와 같은 것들은 사실상 프로그램을 만드는 가장 중요한 도구들이라고 할 수 있다. 지금부터 배우게 될 메소드나 객체지향과 같은 개념들은 웅장하고, 결함이 없고, 유지보수가 쉬운 애플리케이션을 만들기 위한 기법들이라고 할 수 있다. 이것들 없이도 프로그램을 만들 수는 있지만, 이것들 없이 규모있는 애플리케이션을 만든다는 것은 현실적으로 어려운 일이다. 지금까지 만드는 방법을 배웠다면 이제부터는 잘 만드는 방법을 익히는 것이라고 해도 과언이 아니다.
+<strong>메소드의 형식</strong>
+<code style="margin:.5em 0;padding:.5em 1em;font-size:1.5em;">
+public static <em>void main(String[] args){
+	return
+}</em>
+</code>
+<strong>메소드의 정의와 호출</strong>
+직접 메소드를 만드는 것을 <b>정의</b>라고 하고, 만들어진 메소드를 실행하는 것을 <b>호출</b>이라고 한다.
+<strong>main 메소드</strong>
+<strong>입력과 출력</strong>
+<strong>매개변수(parameter)와 인자(argument)</strong>
+여기서 limit이라는 변수는 메소드 numbering의 정의 부에 있는 로직들에게 5라는 값을 전달하고 있다.
+호출에서 입력한 값을 로직으로 매개 한다는 의미에서 이러한 변수를 매개변수라고 부른다. 영어로는 parameter다.
+그리고 메소드를 호출할 때 전달된 값인 5를 '인자' 영어로는 argument라고 한다.
+관습적으로는 매개변수와 인자를 구분하지 않고 부르는 경우도 많다.
+<strong>복수의 인자</strong>
+<strong>return</strong>
+메소드 내에서 사용한 return은 return 뒤에 따라오는 값을 메소드의 결과로 <em>반환한다. 동시에 메소드를 종료시킨다.</em>
+한가지 잊지 말아야 할 점은 return을 통해서 반환할 값의 데이터 형식을 메소드의 이름 옆에 명시해주어야 한다는 것이다.
+만약 반환 값이 없다면 아래와 같이 <b>void</b>를 적어준다.
+<strong>복수의 리턴</strong>
+<!-- /box1 --></div>
+입력과 출력
+<div class="box1"><!-- box1 -->
+<strong>앱이 실행중에 입력 받기</strong>
+<xmp class="xmp">
+package org.opentutorials.javatutorials.io;
+
+import java.util.Scanner;
+
+public class Scanner2Demo {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextInt()) {
+            System.out.println(sc.nextInt()*1000);
+        }
+        sc.close();
+    }
+
+}
+</xmp>
+<strong>여러형태의 입출력</strong>
+out.txt라는 파일을 입력 받아서 화면에 출력하는 예
+<strong>GUI</strong>
+<strong>이클립스에서 입력 값 사용하기</strong>
+<strong>시즌1을 마치며</strong>
+<!-- /box1 --></div>
+객체 지향 프로그래밍
+<div class="box1"><!-- box1 -->
+<strong>객체지향 프로그래밍(Object-Oriented Programming)</strong>
+은 좀 더 나은 프로그램을 만들기 위한 프로그래밍 패러다임으로 로직을 <b>상태(state)와 행위(behave)로 이루어진 객체로 만드는 것</b>이다.
+<em>객체는 변수와 메소드를 그룹핑한 것이다.</em>
+<strong>문법과 설계</strong>
+객체지향 프로그래밍 교육은 크게 두 가지로 구분된다.
+<b>문법</b>
+하나는 언어가 제공하는 기능을 익히는 것이다. 이 문법을 이해하고, 숙지해야 객체를 만들 수 있다.
+<b>설계</b>
+두번째는 좋은 객체를 만드는 법이다. 이것을 다른 말로는 설계를 잘하는 법이라고 할 수 있다.
+좋은 설계는 현실을 잘 반영해야 한다. 현실은 복잡하다. 하지만 그 복잡함 전체가 필요한 것은 아니다. 아래의 그림을 보자.
+[이미지] 실물 지도, , , 지하철 노선도
+실물 지도는 현실의 복잡함을 나타낸다. 지하철 노선도는 지하철 탑승자의 관심사만을 반영하고 있다. 역 간의 거리나 실제 위치와 같은 요소들은 모두 배제하고 있다. 복잡함 속에서 필요한 관점만을 추출하는 행위를 추상화라고 한다.
+<em>프로그램을 만든다는 것은 소프트웨어의 추상화</em>라고 할 수 있다.
+<em>좋은 설계</em>는 문법을 배우는 것보다 훨씬 어려운 일이다. 심지어 이것은 지식을 넘어서 <em>지혜의 영역이다.</em>
+<em>일단은 지식부터 익히자</em>는 것이다.
+언어가 지원하는 객체지향 문법을 배우고, 이것들이 어떻게 동작하는지를 충분히 이해한 다음에 비로소 설계 원칙도 이야기할 수 있고, 객체와 사물의 비유도 시도해 볼 수 있을 것이다.
+<strong>부품화</strong>
+객체 지향 프로그래밍의 핵심은 <em>연관된 메소드와 그 메소드가 사용하는 변수들을 분류하고 그룹핑</em>하는 것이다.
+<strong>은닉화, 캡슐화</strong>
+내부의 동작 방법을 단단한 케이스 안으로 숨기고 사용자에게는 그 부품의 사용방법만을 노출하고 있는 것이다.
+이러한 컨셉을 정보의 <b>은닉화(Information Hiding), 또는 캡슐화(Encapsulation)</b>라고 부른다. 자연스럽게 사용자에게는 그 부품을 사용하는 방법이 중요한 것이 된다.  
+<strong>인터페이스</strong>
+소프트웨어는 하드웨어가 아니다. 하드웨어가 할 수 없는 것을 소프트웨어는 할 수 있다. 그 중의 하나가 복제와 상속이다.
+<!-- /box1 --></div>
+클래스와 인스턴스 그리고 객체
+<div class="box1"><!-- box1 -->
+<strong>클래스와 인스턴스 이전의 프로그래밍</strong>
+<strong>메소드화</strong>
+<strong>클래스</strong>
+클래스는 연관되어 있는 변수와 메소드의 집합이다.
+<strong>인스턴스</strong>
+클래스 : 설계도
+인스턴스 : 제품
+즉 클래스를 만든다는 것은 사용자 정의 데이터 타입을 만드는 것과 같은 의미다.
+변수 : 상태
+메소드 : 행동
+즉 하나의 클래스를 바탕으로 서로 다른 상태를 가진 인스턴스를 만들면 서로 다른 행동을 하게 된다는 것을 알 수 있다.
+<!-- /box1 --></div>
+클래스 맴버와 인스턴스 맴버
+<div class="box1"><!-- box1 -->
+맴버(member)는 영어로 구성원이라는 뜻이다. 객체도 구성원이 있는데 아래와 같다.
+변수
+메소드
+<strong>클래스 변수</strong>
+<em><b>static</b>을 맴버(변수,메소드) 앞에 붙이면 클래스의 맴버가 된다.</em>
+클래스 변수의 용도를 정리해보면 아래와 같다.
+1) 인스턴스에 따라서 변하지 않는 값이 필요한 경우 (위의 예에서는 PI)<br />(이런 경우 final을 이용해서 상수로 선언하는 것이 바람직 하지만 final을 아직 배우지 않았기 때문에 언급하지 않았다)
+2) 인스턴스를 생성할 필요가 없는 값을 클래스에 저장하고 싶은 경우
+3) 값의 변경 사항을 모든 인스턴스가 공유해야 하는 경우
+<strong>클래스 메소드</strong>
+1) 인스턴스 메소드는 클래스 맴버에 접근 할 수 있다.
+2) 클래스 메소드는 인스턴스 맴버에 접근 할 수 없다.
+인스턴스 변수는 인스턴스가 만들어지면서 생성되는데, 클래스 메소드는 인스턴스가 생성되기 전에 만들어지기 때문에 클래스 메소드가 인스턴스 맴버에 접근하는 것은 존재하지 않는 인스턴스 변수에 접근하는 것과 같다.
+인스턴스 변수 -> Non-Static Field
+클래스 변수 -> Static Field
+필드(<b>field</b>)라는 것은 클래스 전역에서 접근 할 수 있는 변수를 의미하는데 이에 대한 자세한 내용은 유효범위 수업에서 알아보겠다.
+<!-- /box1 --></div>
+/----
+유효범위
+<div class="box1"><!-- box1 -->
+<strong>유효범위 (Scope 스코프)</strong>
+출현배경
+다양한 유효범위들
+<xmp class="xmp">
+ public class ScopeDemo6 {
+    static int i = 5;
+    static void a() {
+        int i = 10;
+        b();
+    }
+    static void b() {
+        System.out.println(i);
+    }
+    public static void main(String[] args) {
+        a(); // 결과는 5다.
+    }
+}
+</xmp>
+메소드 내(b)에서 지역변수가 존재하지 않는다면 그 메소드가 소속된 클래스의 전역변수를 사용하게 된다.
+이러한 방식을 <b>정적 스코프(<strong>static scope</strong>), 렉시컬 스코프(<strong>lexical scope</strong>)</b>라고도 부른다. 즉 '{'와 '}' 안에서 선언된
+<div class="box2"><!-- box2 -->
+동적 스코프라는 것도 있다. 만약 메소드 b의 결과가 10이라면 메소드 b는 메소드 a의 유효범위에 소속된 것이라고 할 수 있다. 하지만 자바는 동적 스코프를 채택하지 않고 있다. 대부분의 현대적인 언어들이 정적 스코프 방식을 선택하고 있다.
+<!-- /box2 --></div>
+<strong>인스턴스의 유효범위</strong>
+인스턴스에서의 유효범위도 클래스와 거의 동일하지만 결정적인 차이점은 this에 있다고 할 수 있다.
+<em><strong>this</strong>는 인스턴스 자신을 의미하는 키워드라고 할 수 있다.</em>
+<strong>교훈</strong>
+이렇게해서 유효범위를 알아봤다. 유효범위란 변수를 전역변수, 지역변수 나눠서 좀 더 관리하기 편리하도록 한 것이다. 객체라는 개념이 존재하지 않는 <b>절차지향 프로그래밍</b>에서는 모든 메소드에서 접근이 가능한 변수의 사용을 죄악시하는 경향이 있다. 전역적인 사용의 효용이 분명한 데이터에 한해서 제한적으로 전역변수를 사용하도록 하고 있는 것이다. 객체지향 프로그래밍은 바로 이런 문제를 극복하기 위한 노력이라도고 볼 수 있다. 즉 연관된 변수와 메소드를 그룹핑 할 수 있도록 함으로서 좀 더 마음놓고 객체 안에서 전역변수를 사용할 수 있도록 한 것이다. 전역변수는 더 이상 죄악시할 대상이 아닌 것이 된다. 이렇듯 도구와 사람의 마음은 밀접한 연관이 있다.
+부품의 관점에서도 생각해볼 수 있다. 어떤 메소드가 전역변수를 사용하고 있다는 것은 그 메소드는 그 전역변수에 의존한다는 의미다. 전역변수에 의존한다는 것은 이 메소드가 다른 완제품의 부품으로서 사용될 수 없다는 의미다. 객체지향 덕분에 좀 더 안심하고 전역변수를 사용하게 되었지만, 객체도 크기가 커지면 관리의 이슈가 생겨난다.
+<em>객체지향 프로그래밍에서도 가급적이면 전역변수의 사용을 자제하는 것이 좋고, 동시에 단일 객체가 너무 비대해지지 않도록 적절하게 규모를 쪼개는 것도 중요하다.</em>
+<!-- /box1 --></div>
+/----
+초기화와 생성자
+<div class="box1"><!-- box1 -->
+<strong>초기화</strong>
+객체 지향 프로그래밍도 초기화에 해당하는 기능이 제공되는데 이것을 <b>생성자(<strong>constructor</strong>)</b>라고 한다.
+.. 이러한 절차를 기억해야 한다는 것은 사용자 입장에서는 불편할 뿐 아니라 잘못된 사용으로 오류가 발생할 확률을 높이는 결과를 초래 할 수 있다.
+<strong>생성자</strong>
+그래서 사용하는 것이 생성자(Constructor)이다.
+<xmp class="xmp">
+class Calculator {
+    int left, right;
+    public Calculator(int left, int right) {
+        this.left = left;
+        this.right = right;
+    }
+    public void sum() {
+        System.out.println(this.left + this.right);
+    }
+    public void avg() {
+        System.out.println((this.left + this.right) / 2);
+    }
+}
+</xmp>
+<xmp class="xmp">
+Calculator c1 = new Calculator(10, 20);
+</xmp>
+생성자 덕분에 Calculator 객체를 사용하기 위해서 사실상 반드시 필요한 작업이라고 할 수 있는 좌항(left)과 우항(right)의 값을 설정하는 과정을 객체 생성 과정에서 강제할 수 있게 되었다.
+절차를 하나 줄인 것뿐이지만, 객체를 사용하기 위해서는 객체를 생성해야 한다는 사실은 기본적으로 숙지하고 있는 절차이기 때문에 이 절차에 필수적인 작업을 포함시킨다는 것은 중요한 의미를 갖게 된다.
+<strong>생성자의 특징</strong>
+◦ 값을 반환하지 않는다.
+생성자는 인스턴스를 생성해주는 역할을 하는 특수한 메소드라고 할 수 있다.
+반환 값이 없기 때문에 return도 사용하지 않고, 반환 값을 메소드 정의에 포함시키지도 않는다.
+◦ 생성자의 이름은 클래스의 이름과 동일하다.
+자바에서 클래스의 이름과 동일한 메소드는 생성자로 사용하기로 약속되어 있다.
+<!-- /box1 --></div>
+상속
+<div class="box1"><!-- box1 -->
+객체지향을 통해서 달성하고자 하는 목표 중에서 가장 중요한 것은 재활용성일 것이다.
+<strong>상속(Inheritance)</strong>
+부모 클래스와 자식 클래스의 관계를 상위(super) 클래스와 하위(sub) 클래스라고 표현하기도 한다. 또한 기초 클래스(base class), 유도 클래스(derived class)라고도 부른다.
+<code class="xmp">
+class SubstractionableCalculator <em>extends</em> Calculator {
+    public void substract() {
+        System.out.println(this.left - this.right);
+    }
+}
+</code>
+이것은 클래스 Calculator를 상속 받는다는 의미다. 따라서 SubstaractableCalculator는 Calculator에서 정의한 메소드를 사용할 수 있게 된다.
+<!-- /box1 --></div>
+상속과 생성자 <em>-- [m] 다시 읽자!</em>
+<div class="box1"><!-- box1 -->
+<strong>super</strong> 는 상위 클래스를 가리키는 키워드다.
+super 키워드는 부모 클래스를 의미한다. 여기에 ()붙이면 부모 클래스의 생성자를 의미하게 된다. 이렇게 하면 부모 클래스의 기본 생성자가 없어져도 오류가 발생하지 않는다.
+하위 클래스의 생성자에서 super를 사용할 때 주의할 점은 super가 가장 먼저 나타나야 한다는 점이다. 즉 부모가 초기화되기 전에 자식이 초기화되는 일을 방지하기 위한 정책이라고 생각하자.
+<!-- /box1 --></div>
+overriding
+<div class="box1"><!-- box1 -->
+<strong>창의적인 상속</strong>
+상속은 상위 클래스의 기능을 하위 클래스에게 물려주는 기능이다. 그렇다면 하위 클래스는 상위 클래스의 메소드를 주어진 그대로 사용해야 할까? 만약 그래야 한다면 제약이 상당할 것이다. 이런 제약을 벗어나려면 하위 클래스가 부모 클래스의 기본적인 동작방법을 변경할 수 있어야 한다.
+이런 맥락에서 도입된 기능이 <strong>메소드 오버라이딩(overriding)</strong>이다.
+<strong>오버라이딩의 조건</strong>
+오버라이딩을 하기 위해서는 아래의 조건을 충족시켜야 한다.
+◦ 메소드의 이름
+◦ 메소드 매개변수의 숫자와 데이터 타입 그리고 순서
+◦ 메소드의 리턴 타입
+위와 같이 메소드의 형태를 정의하는 사항들을 통털어서 메소드의 서명(signature)라고 한다. 즉 위의 에러는 메소드들 간의 서명이 달라서 발생한 문제다.
+상위 클래스
+<code class="xmp">
+public <em>int</em> avg() {
+	return ((this.left + this.right) / 2);
+}
+</code>
+하위 클래스
+<code class="xmp">
+public <em>int</em> avg() {
+	return <em>super</em>.avg();
+}
+</code>
+<!-- /box1 --></div>
+overloading
+<div class="box1"><!-- box1 -->
+이름은 같지만 시그니처는 다른 메소드를 중복으로 선언 할 수 있는 방법을 메소드 <strong>오버로딩(overloading)</strong>이라고 한다.
+<strong>오버로딩의 규칙</strong> <em>-- [m] 다시 읽자!</em>
+<strong>상속과 오버로딩</strong> <em>-- [m] 다시 읽자!</em>
+<strong>overriding VS overloading</strong>
+오버라이딩과 오버로딩은 용어가 참으로 헷갈린다. 당연하다. 중요한 것은 오버라이딩이 무엇이고 오버로딩이 무엇인가를 구분하는 것은 아니다. riding(올라탄다)을 이용해서 부모 클래스의 메소드의 동작방법을 변경하고, loading을 이용해서 같은 이름, 다른 매개변수의 메소드들을 여러개 만들 수 있다는 사실을 아는 것이 중요하다. 다만 학습이나 협업의 과정에서 개념을 주고 받을 때는 용어가 중요해진다. 필자의 생각에 이 개념들이 헷갈리는 이유는 over라는 공통분모 때문이다. over를 제외하고 알아두면 덜 헷갈리지 않을까 싶다.
+<!-- /box1 --></div>
+클래스 패스
+<div class="box1"><!-- box1 -->
+<strong>클래스 패스</strong>
+클래스 하나는 하나의 클래스 파일이 된다는 것을 알 수 있다.
+<strong>클래스의 경로</strong>
+<kbd class="xmp fs150" >
+M:\java>java <em>-classpath "<i>.;lib</i>"</em> ClasspathDemo2
+</kbd>
+현재 디렉터리에 없다면 현재 디렉터리의 하위 디렉터리 중 lib에서 클래스를 찾는다는 의미다.
+실행 할 때마다 클래스 패스를 지정하는 것이 귀찮다면 클래스 패스를 시스템의 환경변수로 지정하면 된다.
+<strong>환경변수</strong>
+환경변수는 운영체제에 지정하는 변수로 자바 가상머신과 같은 애플리케이션들은 환경변수의 값을 참고해서 동작하게 된다. 자바는 클래스 패스로 환경변수 CLASSPATH를 사용하는데 이 값을 지정하면 실행할 때마다 -classpath 옵션을 사용하지 않아도 되기 때문에 편리하다. 하지만 운영체제를 변경하면 클래스 패스가 사라지기 때문에 이식성면에서 불리할 수 있다.
+<strong>동시대적 감수성</strong>
+<!-- /box1 --></div>
+패키지
+<div class="box1"><!-- box1 -->
+<strong>패키지(Package)</strong>는 하나의 클래스 안에서 같은 이름의 클래스들을 사용하기 위한 방법이라고 할 수 있다.
+<strong>패키지 만들기</strong>
+"배우고 익히고 잊어버려라"
+패키지는 기본적으로 디렉터리와 일치한다. 그렇기 때문에 아래의 패키지들은 물리적으로 같은 디렉터리에 존재할 수 없다.
+<code class="xmp">
+package org.opentutorials.javatutorials.packages.example2;
+<em>import</em> org.opentutorials.javatutorials.packages.example1.<em>A</em>;
+</code>
+서로 다른 패키지에 있는 클래스를 가져오려면 import를 통해서 다른 패키지의 클래스를 현재의 소스코드로 불러와야 한다. 만약 특정 패키지에 있는 모든 클래스를 로드하고 싶다면 아래와 같이 하면 된다.
+<code class="xmp">
+package org.opentutorials.javatutorials.packages.example2;
+<em>import</em> org.opentutorials.javatutorials.packages.example1.<em>*</em>;
+</code>
+<strong>손 컴파일</strong>
+<kbd class="xmp">
+javac src/org/opentutorials/javatutorials/packages/example3/*.java <em>-d bin</em>
+</kbd>
+-d bin은 컴파일된 결과를 bin 디렉토리 하위에 위치시킨다는 의미다. 자바 컴파일러는 자동으로 클래스의 패키지에 해당하는 디렉토리를 생성해준다.<br />
+<strong>중복의 회피</strong>
+<xmp class="xmp">
+B b = new B();
+</xmp>
+클래스 B의 이름이 중복되기 때문에 애매함(ambiguous)의 문제가 발생한다. 아래와 같은 방법으로 이 문제를 우회할 수 있다.
+<xmp class="xmp">
+org.opentutorials.javatutorials.packages.example2.B b = new org.opentutorials.javatutorials.packages.example2.B();
+</xmp>
+<!-- /box1 --></div>
+API와 API 문서 보는 법
+<div class="box1"><!-- box1 -->
+<strong>기본 패키지와 사용자 정의 로직</strong>
+<code class="xmp">
+package org.opentutorials.javatutorials.library;
+<em>import java.lang.*;</em>
+public class LibraryDemo1 {
+    public static void main(String[] args) {
+        <em>System.out.println</em>(1);
+    }
+</code>
+패키지 java.lang은 자바 프로그래밍을 하기 위해서 필수적인 클래스들을 모아둔 패키지다. 따라서 사용자의 편의를 위해서 자동으로 로딩을 하고 있는 것이다.
+클래스 System은 바로 이 java.lang의 소속이다.
+자바 애플리케이션을 만든다는 것은 결과적으로 자바에서 제공하는 패키지들을 부품으로 조립해서 사용자 정의 로직을 만드는 과정이라고 할 수 있다.
+
+<strong>API</strong>
+API란 자바 시스템을 제어하기 위해서 자바에서 제공하는 명령어들을 의미한다. Java SE(JDK)를 설치하면 자바 시스템을 제어하기 위한 API를 제공한다. 자바 개발자들은 자바에서 제공한 API를 이용해서 자바 애플리케이션을 만들게 된다. 패키지 java.lang.*의 클래스들도 자바에서 제공하는 API 중의 하나라고 할 수 있다.
+API가 무엇인지 궁금하다면 <a href="http://opentutorials.org/course/1189/6205">아래의 동영상</a>을 시청하자.
+
+<strong>API 문서</strong>
+아래 페이지는 Java의 각종 문서들을 모아둔 웹페이지다.
+<a href="http://docs.oracle.com/javase/">http://docs.oracle.com/javase/</a>
+이중에서 <a href="http://docs.oracle.com/javase/7/docs/api/index.html">API Documentation</a>을 클릭한다. 아래와 같은 웹사이트가 보일 것이다.
+자바를 통해서 어떤 문제를 해결하기 위해서는 우선 자신이 필요한 로직이 담겨있을 것으로 기대되는 패키지의 후보군을 선정해야 한다. 자바에서 제공하는 기본 패키지들은 아래와 같은 기능을 담고 있다.
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<tbody>
+<tr>
+<th scope="row">java.lang</th>
+<td>자바 프로그래밍을 위한 가장 기본적인 패키지와 클래스를 포함하고 있다.</td>
+</tr>
+<tr>
+<th scope="row">java.util</th>
+<td>프로그램을 제어하기 위한 클래스와 데이터를 효율적으로 저장하기 위한 클래스들을 담고 있다.</td>
+</tr>
+<tr>
+<th scope="row">java.io</th>
+<td>키보드, 모니터, 프린터, 파일등을 제어할 수 있는 클래스들의 모음</td>
+</tr>
+<tr>
+<th scope="row">java.net</th>
+<td>통신을 위한 기능들을 담고 있다.</td>
+</tr>
+</tbody>
+</table>
+<!-- /box1 --></div>
+접근 제어자
+<div class="box1"><!-- box1 -->
+<strong>자유와 규제</strong>
+프로그래밍 도구의 기본적인 목표는 생각하는 것을 자유롭게 표현할 수 있도록 하는 것이다. 하지만 자유만으로는 부족하다. 프로그래밍은 작은 것에서 거대한 것, 단순한 것에서 복잡한 것, 단독 작업에서 협업으로 나아가게 된다. 이러한 변화를 수용하기 위해서는 다양한 규제가 필요해지게 된다.
+추상 클래스, final, 접근 제어자, 인터페이스 등은 바로 이 규제에 해당하는 것이다.
+
+<strong>접근 제어자</strong>
+접근 제어자는 클래스의 맴버(변수와 메소드)들의 접근 권한을 지정한다.
+<code class="xmp">
+package org.opentutorials.javatutorials.accessmodifier;
+class A {
+    public String y(){
+        return "public void y()";
+    }
+    <em>private</em> String z(){
+        return "public void z()";
+    }
+    public String x(){
+        return z();
+    }
+}
+public class AccessDemo1 {
+    public static void main(String[] args) {
+        A a = new A();
+        System.out.println(a.y());
+        // 아래 코드는 오류가 발생한다.
+        //System.out.println(a.z());
+        System.out.println(a.x());
+    }
+}
+</code>
+private은 클래스(A) 밖에서는 접근 할 수 없다는 의미다. 바로 이 private의 자리에 오는 것들을 접근 제어자(access modifier)라고 한다.
+그럼 사용할 수 없는 메소드를 왜 정의하고 있는 것일까? 내부적으로 사용하기 위해서다.
+
+<strong>접근 제어자를 사용하는 이유</strong>
+<strong>세밀한 제어</strong>
+<img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/module/516/1996.jpg" alt="접근 제어자 별로 접근의 허용범위를 그림으로 나타낸 것이다. 안쪽에 있을수록 접근 통제가 삼엄하고, 밖에 있을수록 접근이 허용된다." />
+<table border="1" class="t3" summary="★표요약"><caption class="blind">★표제목</caption>
+<thead>
+<tr>
+<th scope="col">&nbsp;</th>
+<th scope="col"><strong>public</strong></th>
+<th scope="col"><strong>protected</strong></th>
+<th scope="col"><strong>default</strong></th>
+<th scope="col"><strong>private</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>같은 패키지, 같은 클래스</td>
+<td>허용</td>
+<td>허용</td>
+<td>허용</td>
+<td>허용</td>
+</tr>
+<tr>
+<td>같은 패키지, 상속 관계</td>
+<td>허용</td>
+<td>허용</td>
+<td>허용</td>
+<td><em>불용</em></td>
+</tr>
+<tr>
+<td>같은 패키지, 상속 관계 아님</td>
+<td>허용</td>
+<td>허용</td>
+<td>허용</td>
+<td><em>불용</em></td>
+</tr>
+<tr>
+<td>다른 패키지, 상속 관계</td>
+<td>허용</td>
+<td>허용</td>
+<td><em>불용</em></td>
+<td><em>불용</em></td>
+</tr>
+<tr>
+<td>다른 패키지, 상속 관계 아님</td>
+<td>허용</td>
+<td><em>불용</em></td>
+<td><em>불용</em></td>
+<td><em>불용</em></td>
+</tr>
+</tbody>
+</table>
+위의 관계는 필드(변수)에도 적용되기 때문에 변수를 위한 예제는 따로 언급하지 않겠다. 또한 클래스 맴버(static)에게도 적용된다. 궁금하면 직접 예제를 만들어보자.
+
+<strong>클래스의 접근 제어자</strong>
+클래스의 접근 제어자는 총 2개로 public과 default이다. 접근 제어자를 붙이지 않은 경우 default가 된다.
+<strong>public</strong>인 클래스는 다른 패키지의 클래스에서도 사용할 수 있고,
+<strong>default</strong>인 클래스는 같은 패키지에서만 사용 가능하다.
+한가지 중요한 제약 사항이 있다. public 클래스가 포함된 소소코드는 public 클래스의 클래스 명과 소스코드의 파일명이 같아야 한다.
+코드를 보자. 이 코드의 이름은 PublicNameDemo.java이다.
+<code class="xmp">
+package org.opentutorials.javatutorials.accessmodifier.inner;
+//public class PublicName {}
+public class PublicNameDemo {}
+</code>
+주석처리된 부분은 오류가 발생한다. 퍼블릭 클래스의 이름과 소스코드의 이름이 일치하지 않기 때문이다. 그 말은 하나의 소스 코드에는 하나의 public 클래스가 존재 할 수 있다는 의미다.
+
+접근 제어자는 그것이 무엇인지, 또 어떤 접근 제어자가 있는지 정도만 일단 알아두자. 그리고 당분간은 public과 private만 구분해서 사용만해도 더 안전하고 결고한 에플리케이션을 만들 수 있을 것이다. 다시 한번 강조 하지만 각박하게 외우지 말자. 느긋하게 이해하자. <em>충분한 이해는 암기의 양을 비약적으로 줄여준다.</em>
+<!-- /box1 --></div>
+abstract
+<div class="box1"><!-- box1 -->
+<strong>abstract</strong> (추상) 라는 것이 상속을 강제하는 일종의 규제라고 생각하자. 즉 abstarct 클래스나 메소드를 사용하기 위해서는 반드시 상속해서 사용하도록 강제하는 것이 abstarct다.
+<strong>추상 메소드</strong> 란 메소드의 시그니처만이 정의된 비어있는 메소드를 의미한다.
+<code class="xmp">
+package org.opentutorials.javatutorials.abstractclass.example1;
+<em>abstract</em> class A{
+    public <em>abstract</em> int b();
+    //본체가 있는 메소드는 abstract 키워드를 가질 수 없다.
+    //public abstract int c(){System.out.println("Hello")}
+    //추상 클래스 내에는 추상 메소드가 아닌 메소드가 존재 할 수 있다.
+    public void d(){
+        System.out.println("world");
+    }
+}
+public class AbstractDemo {
+    public static void main(String[] args) {
+        A obj = new A(); // [m] 추상 클래스 A를 인스턴스화하면 오류가 발생한다.
+    }
+}
+</code>
+이 메소드의 구체적인 구현은 하위 클래스에서 오버라이딩 해야 한다는 의미다. 이렇게 내용이 비어있는 메소드를 추상 메소드라고 부른다.
+추상 메소드를 하나라도 포함하고 있는 클래스는 추상 클래스가 되고, 자연스럽게 클래스의 이름 앞에 abstarct가 붙는다.
+추상 클래스 A를 인스턴스화하면 오류가 발생한다. 그것은 추상 클래스는 구체적인 메소드의 내용이 존재하지 않기 때문에 인스턴스화시켜서 사용할 수 없기 때문이다.
+그럼 어떻게 해야 클래스 A를 사용할 수 있을까? 또 이렇게 불편한 추상 클래스는 왜 사용하는 것일까?
+
+<strong>추상 클래스의 상속</strong>
+<code class="xmp">
+package org.opentutorials.javatutorials.abstractclass.example2;
+<em>abstract</em> class A{
+    public <em>abstract</em> int b();
+    public void d(){
+        System.out.println("world");
+    }
+}
+class B <em>extends</em> A{ // 클래스 A를 상속한 하위 클래스를 만들고
+    public int b(){return 1;} // 추상 메소드를 오버라이드해서 내용있는 메소드를 만들어야 한다.
+}
+public class AbstractDemo {
+    public static void main(String[] args) {
+        B obj = new B(); // 클래스 A의 하위 클래스 B를 인스턴스화하여
+        System.out.println(obj.b());  // 클래스 B의 상위 클래스 A 메소드 b()를 사용할 수 있다.
+    }
+}
+</code>
+
+<strong>추상 클래스를 사용하는 이유</strong>
+추상 클래스는 상속을 강제하기 위한 것이다. 즉 부모 클래스에는 메소드의 시그니처만 정의해놓고 그 메소드의 실제 동작 방법은 이 메소드를 상속 받은 하위 클래스의 책임으로 위임하고 있다. 사실 코드를 이런 식으로 작성하는 경우는 작은 규모의 프로젝트에서는 거의 없다. 예제를 통해서 추상 클래스의 용도를 생각해보자.
+<code class="xmp">
+</code>
+위의 예제는 합계(sum)를 실행하고 평균(avg)을 실행하는 절차를 메소드 run을 통해서 한 번에 실행되도록 한 코드이다. 그런데 경우에 따라서 합계와 평균을 화면에 출력하는 모습을 달리해야 하는 경우가 있다고 치자. 그런 경우에 상황에 따라서 동작 방법이 달라지는 메소드(sum, avg)는 추상 메소드로 만들어서 하위 클래스에서 구현하도록 하고 모든 클래스의 공통분모(setOprands, run)의 경우에는 상위 클래스에 두어서 코드의 중복, 유지보수의 편의성 등을 꾀할 수 있다.
+
+<strong>디자인 패턴</strong>
+이러한 개발 방법을 <strong>template method pattern</strong>이라고도 한다.
+
+즉, 위의 예제를 통해서도 알 수 있지만 프로그래밍이라는 것은 반복되는 패턴이 있다. 이런 패턴들을 모아서 정리한 것이 <strong>디자인 패턴(design pattern)</strong>이다. 물론 시각 디자이너들의 디자인이 아니라 좋은 소프트웨어를 만들기 위한 <b>설계</b>로서 디자인이라는 표현을 쓰고 있는 것이다. 디자인 패턴의 장점은 크게 두가지이다. 하나는 <i>좋은 설계를 단기간에 학습</i>할 수 있다는 점이다. 물론 비교적 단기간이라는 뜻이다. 다른 하나는 <i>소통에 도움</i>이 된다는 점이다. 설계 방법을 토의하거나 전달할 때 설계 방법에 따라 적절한 이름이 있다면 상호간에 생각을 일치시키는 데 큰 도움이 될 것이다.
+
+지금 당장 디자인 패턴이 필요하지는 않겠지만 이러한 것이 있다는 것은 기억해두자. 프로그래밍에 대한 권태가 왔을 때 시작하기 딱 좋은 주제가 디자인 패턴이다.
+<!-- /box1 --></div>
+final
+<div class="box1"><!-- box1 -->
+추상이 상속을 강제하는 것이라면 final은 상속/변경을 금지하는 규제다.
+
+<strong>final 필드</strong>
+실행되는 과정에서 한번 값이 정해진 이후에는 필드(변수) 내의 값이 바뀌지 않도록하는 규제다.
+<code class="xmp">
+class Calculator {
+    static <em>final</em> double PI = 3.14;
+    int left, right;
+
+    public void setOprands(int left, int right) {
+        this.left = left;
+        this.right = right;
+        Calculator.PI = 6; // final 변수는 그 값을 바꿀 수 없다. 클래스 변수 PI 값은 변하지 않고 3.14 그대로이다.
+    }
+}
+</code>
+
+이러한 특징은 클래스 변수의 예를 들었지만 인스턴스 변수에도 적용된다.
+
+<strong>final 메소드</strong>
+<code class="xmp">
+class A{
+    <em>final</em> void b(){}
+}
+class B extends A{
+    void b(){} // final 메소드 b를 상속하려하기 때문에 오류가 발생한다.
+}
+</code>
+<strong>final 클래스</strong>
+<code class="xmp">
+<em>final</em> class C{
+    final void b(){}
+}
+class D extends C{} // final 클래스를 상속하려하고 있다. 따라서 오류가 발생한다.
+</code>
+
+<!-- /box1 --></div>
+인터페이스
+<div class="box1"><!-- box1 -->
+<strong>인터페이스(interface)</strong>
+어떤 객체가 있고 그 객체가 특정한 인터페이스를 사용한다면 그 객체는 반드시 인터페이스의  메소드들을 구현해야 한다. 만약 인터페이스에서 강제하고 있는 메소드를 구현하지 않으면 이 에플리케이션은 컴파일 조차 되지 않는다.
+<code class="xmp">
+<em>interface</em> I{
+    public void z();
+}
+class A <em>implements</em> I{ // 클래스 A는 인터페이스 I를 '구현' 한다.
+    public void z(){} // 이 행을 삭제하면.. 컴파일 에러가 발생할 것이다.
+}
+</code>
+인터페이스와 상속은 다르다. 상속이 상위 클래스의 기능을 하위 클래스가 물려 받는 것이라고 한다면, 인터페이스는 하위 클래스에 특정한 메소드가 반드시 존재하도록 강제한다.
+
+<strong>인터페이스의 실질적인 쓰임</strong>
+클래스 Calculator를 사용할 개발자가 이 클래스가 가지고 있어야 할 메소드를 인터페이스로 만들어서 제공하는 것이다. 반대의 경우도 가능하다. 만드는 쪽에서 인터페이스를 제공하면 된다. 양쪽의 개발자는 이 인터페이스를 구현한 클래스 Calculator와 CalculatorDummy를 각각 구현하면 된다.
+이렇게해서 인터페이스를 이용한 협업에 대해서 알아봤다. 인터페이스를 이용해서 서로가 동일한 메소드를 만들도록 규약을 만들어서 공유한 결과 각자가 상대의 일정이나 구현하는 방식에 덜 영향을 받으면서 에플리케이션을 구축 할 수 있었다.
+
+<strong>인터페이스의 규칙</strong>
+1) <b>하나의 클래스가 여러개의 인터페이스를 구현 할 수 있다.</b>
+<code class="xmp">
+<em>interface</em> I1{
+    public void x();
+}
+<em>interface</em> I2{
+    public void z();
+}
+class A <em>implements</em> I1, I2{
+    public void x(){}
+    public void z(){}
+}
+</code>
+2) <b>인터페이스도 상속이 된다.</b>
+<code class="xmp">
+<em>interface</em> I3{
+    public void x();
+}
+<em>interface</em> I4 <em>extends</em> I3{
+    public void z();
+}
+class B <em>implements</em> I4{
+    public void x(){}
+    public void z(){}
+}
+</code>
+3) <b>인터페이스의 맴버는 반드시 public이다.</b>
+public을 생략하면 접근 제어자 default가 되는 것이 아니라 public이 된다.
+<code class="xmp">
+<em>interface</em> I5{
+    private void x(); // 오류를 발생한다.
+}
+</code>
+4) <b>abstract vs interface</b>
+인터페이스와 추상 클래스는 서로 비슷한 듯 다른 기능이다. 인터페이스는 클래스가 아닌 인터페이스라는 고유한 형태를 가지고 있는 반면 추상 클래스는 일반적인 클래스다. 또 인터페이스는 구체적인 로직이나 상태를 가지고 있을 수 없고, 추상 클래스는 구체적인 로직이나 상태를 가지고 있을 수 있다.
+<!-- /box1 --></div>
+다형성
+<div class="box1"><!-- box1 -->
+<strong>다형성(Polymorphism)</strong> 이란 하나의 메소드나 클래스가 있을 때 이것들이 다양한 방법으로 동작하는 것을 의미한다.
+<strong>overloading과 다형성</strong>
+오버로딩은 가장 이해하기 쉬운 다형성의 예라고 할 수 있다.
+<strong>클래스와 다형성</strong> <em>-- [m] 다시 읽자!</em>
+<strong>인터페이스와 다형성</strong> <em>-- [m] 다시 읽자!</em>
+<strong>비유</strong>
+사람은 다면적인 존재다. Steve라는 사람이 있다. 이 사람은 집에서는 아버지이고 직업적으로는 프로그래머이고 또 종교단체 내에서는 신도(believer)가 될 수 있다. 하나의 사람이지만 그가 어디에 있는가? 누구와 관계하는가에 따라서 아버지이면서 프로그래머이고 또 신도인 것이다.
+
+Rachel는 집에서는 엄마고 직장에서는 프로그래머다.
+
+Steve와 Rachel이 같은 직장(Workspace)에 다니고 있다고 한다면 직장 입장에서는 두사람이 프로그래머라는 점이 중요할 뿐 이들의 가족관계나 종교성향에는 관심이 없다. 직장 입장에서 두사람은 프로그래머이고 프로그래머는 코딩을 통해서 무엇인가를 창조하는 사람들이다.
+<!-- /box1 --></div>
+예외 1 - 문법
+<div class="box1"><!-- box1 -->
+<strong>성공과 실패</strong>
+예외는 실패하지 않는 법에 대한 수업이다.
+덜 실패하는 법은 실패의 크기를 줄여주는 효과 뿐 아니라 실패에 대한 두려움을 억제해서 성공하는 법을 보다 적극적으로 시도할 수 있게 촉진한다는 점에서 중요하다.
+
+<strong>예외(Exception)</strong>
+프로그램을 만든 프로그래머가 상정한 정상적인 처리에서 벗어나는 경우에 이를 처리하기 위한 방법이다.
+
+<strong>try...catch</strong>
+<strong>뒷수습의 방법</strong>
+<code class="xmp">
+<strong>try {</strong> // 예외 상황이 발생할 것으로 예상되는 로직
+	System.out.print("계산결과는 ");
+	System.out.print(this.left/this.right);
+	System.out.print(" 입니다.");
+<strong>} catch(<em>Exception</em> e){</strong> // 예외가 발생했을 때 실행되는 로직. 변수 e 의 데이터 타입이 Exception
+	System.out.println("오류가 발생했습니다 : "+e.getMessage());
+	System.out.println("\n\ne.getMessage()\n"+<em>e.getMessage()</em>); // 오류에 대한 기본적인 내용.
+	System.out.println("\n\ne.toString()\n"+<em>e.toString()</em>); // 좀 더 자세한 예외 정보를 제공.
+	System.out.println("\n\ne.printStackTrace()");
+	<em>e.printStackTrace()</em>; // 가장 자세한 예외 정보를 제공. 내부적으로 예외 결과를 화면에 출력한다.
+<strong>}</strong>
+</code>
+Exception은 자바에서 기본적으로 제공하는 클래스로 java.lang에 소속되어 있다. 예외가 발생하면 자바는 마치 메소드를 호출하듯이 catch를 호출하면서 그 인자로 Exception 클래스의 인스턴스를 전달하는 것이다.
+e.getMessage()는 자바가 전달한 인스턴스의 메소드 중 getMessage를 호출하는 코드인데, getMessage는 오류의 원인을 사람이 이해하기 쉬운 형태로 리턴하도록 약속되어 있다.
+
+<strong>다양한 예외들</strong>
+<strong>finally</strong> 는 try 구문에서 예외가 발생하는 것과 상관없이 언제나 실행되는 로직이다.
+<code class="xmp">
+<strong>try {</strong>
+	System.out.println(arr[first] / arr[second]);
+<strong>} catch(<em>ArrayIndexOutOfBoundsException</em> e){</strong> //
+	System.out.println("ArrayIndexOutOfBoundsException");
+<strong>} catch(<em>ArithmeticException</em> e){</strong> //
+	System.out.println("ArithmeticException");
+<strong>} catch(<em>Exception</em> e){</strong> //
+	System.out.println("Exception");
+<strong>} finally {</strong>
+	System.out.println("finally");
+<strong>}</strong>
+</code>
+Exception 은 보다 포괄적인 예외를 의미하므로 이후에 등장하는 catch 문은 실행될 수 없어서 끝에 둔다.
+그럼 finally는 언제 사용하는 것일까?
+예를 들어 데이터베이스를 사용한다면 데이터베이스 서버에 접속해야 한다. 이때 데이터베이스 서버와 여러분이 작성한 에플리케이션은 서로 접속상태를 유지하게 되는데 데이터베이스를 제어하는 과정에서 예외가 발생해서 더 이상 후속 작업을 수행하는 것이 불가능한 경우가 있을 수 있다. 예외가 발생했다고 데이터베이스 접속을 끊지 않으면 데이터베이스와 연결 상태를 유지하게 되고 급기야 데이터베이스는 더 이상 접속을 수용할 수 없는 상태에 빠질 수 있다. 접속을 끊는 작업은 예외 발생여부와 상관없기 때문에 finally에서 처리하기에 좋은 작업이라고 할 수 있다. 말하자면 finally는 작업의 뒷정리를 담당한다고 볼 수 있다.
+<!-- /box1 --></div>
+예외 2 - 예외 던지기
+<div class="box1"><!-- box1 -->
+<strong>예외의 강제</strong>
+
+FileReader라는 클래스를 API문서에서 찾아보자. <a href="http://docs.oracle.com/javase/7/docs/api/java/io/FileReader.html#FileReader%28java.io.File%29">FileReader의 생성자를 문서</a>에서 찾아보면 아래와 같은 부분이 있다.
+
+Throws는 한국어로는 '던지다'로 번역된다. 위의 내용은 생성자 FileReader의 인자 fileName의 값에 해당하는 파일이 디렉토리이거나 어떤 이유로 사용할 수 없다면 FileNotFoundException을 발생시킨다는 의미다.
+
+이것은 FileReader의 생성자가 동작할 때 파일을 열 수 없는 경우가 생길 수 있고, 이런 경우 생성자 FileReader에서는 이 문제를 처리할 수 없기 때문에 이에 대한 처리를 생성자의 사용자에게 위임하겠다는 의미다. 그것을 던진다(throw)고 표현하고 있다. 따라서 API의 사용자 쪽에서는 예외에 대한 처리를 반드시 해야 한다는 의미다. 따라서 아래와 같이 해야 FileReader 클래스를 사용할 수 있다.
+
+<code class="xmp">
+package org.opentutorials.javatutorials.exception;
+import java.io.*;
+public class CheckedExceptionDemo {
+    public static void main(String[] args) {
+        BufferedReader bReader = null; // 유효범위 주의!
+        String input = null; // 유효범위 주의!
+        try {
+            bReader = new BufferedReader(new FileReader("out.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try{
+            input = bReader.readLine();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println(input);
+    }
+}
+</code>
+<strong>throw와 throws</strong>
+throw는 예외처리를 다음 사용자에게 넘기는 것이다. 다음 사용자는 누구일까?
+<code class="xmp">
+package org.opentutorials.javatutorials.exception;
+import java.io.*;
+class B{
+    void run() <em><strong>throws</strong> IOException, FileNotFoundException</em>{
+        BufferedReader bReader = null;
+        String input = null;
+        bReader = new BufferedReader(new FileReader("out.txt"));
+        input = bReader.readLine();
+        System.out.println(input);
+    }
+}
+class C{
+    void run() <em><strong>throws</strong> IOException, FileNotFoundException</em>{
+        B b = new B();
+        b.run();
+    }
+}
+public class ThrowExceptionDemo {
+    public static void main(String[] args) {
+        C c = new C();
+        <em>try {
+            c.run();
+        } catch (FileNotFoundException e) {
+            System.out.println("out.txt 파일은 설정 파일 입니다. 이 파일이 프로잭트 루트 디렉토리에 존재해야 합니다.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }</em>
+    }
+}
+</code>
+
+<!-- /box1 --></div>
+예외 3 - 만들기
+<div class="box1"><!-- box1 -->
+<strong>소비자에서 생산자로</strong>
+<code class="xmp">
+if(right == 0){
+	throw new IllegalArgumentException("두번째 인자의 값은 0이 될 수 없습니다.");
+}
+</code>
+<code class="xmp">
+if(this.right == 0){
+	throw new ArithmeticException("0으로 나누는 것은 허용되지 않습니다.");
+}
+</code>
+<table border="1" class="t3" summary="★표요약"><caption>기억할만한 주요 Exception들의 리스트다. (<a href="http://www.yes24.com/24/Goods/3384342?Acode=101">effective Java p338 참고</a>)</caption>
+<col style="width:20%;" /><col />
+<thead>
+<tr>
+<th scope="col">예외</th>
+<th scope="col">사용해야 할 상황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IllegalArgumentException</td>
+<td>매개변수가 의도하지 않은 상황을 유발시킬 때</td>
+</tr>
+<tr>
+<td>IllegalStateException</td>
+<td>메소드를 호출하기 위한 상태가 아닐 때</td>
+</tr>
+<tr>
+<td>NullPointerException</td>
+<td>매개 변수 값이 null 일 때</td>
+</tr>
+<tr>
+<td>IndexOutOfBoundsException</td>
+<td>인덱스 매개 변수 값이 범위를 벗어날 때</td>
+</tr>
+<tr>
+<td>ArithmeticException</td>
+<td>산술적인 연산에 오류가 있을 때</td>
+</tr>
+</tbody>
+</table>
+<strong>예외의 여러가지 상황들</strong>
+예제의 핵심은 IOException은 예외처리를 강제하고 있지만 ArithmeticException은 그렇지 않다 점이다. 그 이유를 알아보자.
+
+<strong>예외의 선조 - Throwable</strong>
+우선 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ArithmeticException.html">ArithmeticException의 API 문서</a>를 통해서 예외들의 가계도를 살펴보자. 아래 그림은 API 문서의 일부를 캡처한 것이다.
+이것을 통해서 ArithmeticException의 부모 클래스 중에 java.lang.Exception 클래스가 있다는 사실을 알 수 있다.
+그리고 상속 관계를 자세히 보면 java.lang.Throwable 클래스가 있다. 이 클래스를 클릭해서 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html">Throwable 클래스의 페이지</a>로 이동해보면 아래와 같은 내용을 발견할 수 있다.
+우리가 지금까지 사용했던 getMessage, printStackTrace, toString이 Throwable 클래스에서 정의 되어 있었던 것이다! 또 이 클래스의 이름이 Throwable이다. '던질 수 있는'이라는 뜻이다. 즉 예외로 '던질 수 있는' 클래스는 반드시 Throwable 클래스를 상 받아야 한다.
+
+<strong>예외의 종류</strong>
+그럼 위에서 이야기한 것을 개념적으로 정리해보자. 우선 중요한 예외 클래스들은 아래와 같다.
+<div class="box2"><!-- box2 -->
+<b>Throwable</b>
+<b>Error</b> : 여러분의 애플리케이션의 문제가 아니라 그 애플리케이션이 동작하는 가상머신에 문제가 생겼을 때 발생하는 예외다.
+<b>Exception</b> :  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html">Exception 클래스의 하위 클래스들의 목록</a>을 살펴보자. 저 많은 클래스 중의 하나가 RuntimeException이다.
+<b>RuntimeException</b>
+<!-- /box2 --></div>
+이 클래스 간의 상속 관계를 그림으로 나타내면 아래와 같다.
+
+<img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/module/516/2099.png" alt="" />
+
+checked 예외 - RuntimeException을 제외한 Exception의 하위 클래스
+unchekced 예외 - RuntimeException의 하위 클래스
+
+checked 예외는 반드시 예외처리를 해야 하는 되는 것이고, unchekced는 해도 되고 안 해도 되는 예외다.
+바로 이 지점이 IOException과 ArithmeticException의 차이점이다.
+
+<strong>나만의 예외 만들기</strong>
+표준 예외 클래스로도 많은 예외 상황을 표현할 수 있다. 하지만 그렇지 않은 경우도 있을 것이다. 이런 때는 직접 예외를 만들면 된다.
+
+예외를 만들기 전에 해야 할 것은 자신의 예외를 checked로 할 것인가? unchecked로 할 것인가를 정해야 한다. 그 기준은 모호한 문제다. 하지만 기준이 없는 것도 아니다.
+
+API 쪽에서 예외를 던졌을 때 API 사용자 쪽에서 예외 상황을 복구 할 수 있다면 checked 예외를 사용한다. checked 예외는 사용자에게 문제를 해결할 기회를 주는 것이면서 예외처리를 강제하는 것이다. 하지만 checked 예외를 너무 자주 사용하면 API 사용자를 몹시 힘들게 할 수 있기 때문에 적정선을 찾는 것이 중요하다.
+
+사용자가 API의 사용방법을 어겨서 발생하는 문제거나 예외 상황이 이미 발생한 시점에서 그냥 프로그램을 종료하는 것이 덜 위험 할 때 unchecked를 사용한다.
+
+<code class="xmp">
+<em>class DivideException extends RuntimeException {
+    DivideException(){
+        super();
+    }
+    DivideException(String message){
+        super(message);
+    }
+}</em>
+class Calculator{
+    int left, right;
+    public void setOprands(int left, int right){
+        this.left = left;
+        this.right = right;
+    }
+    public void divide(){
+        if(this.right == 0){
+            throw new <em>DivideException</em>("0으로 나누는 것은 허용되지 않습니다.");
+        }
+        System.out.print(this.left/this.right);
+    }
+}
+</code>
+만약 DivideException을 Exception으로 바꾸면 어떻게 될까?
+아래와 같이 컴파일 에러가 발생한다.
+이를 해결하려면 두가지 방법이 있다. 하나는 예외처리를 하는 것이다. <em>-- [m] 다시 읽자!</em>
+혹은 사용자에게 예외를 던진다. 사용자는 반드시 예외에 대한 처리를 해야 한다. <em>-- [m] 다시 읽자!</em>
+<!-- /box1 --></div>
+Object 클래스
+<div class="box1"><!-- box1 -->
+<strong>상속</strong>
+자바에서 모든 클래스는 사실 Object를 암시적으로 상속받고 있는 것이다. 그런 점에서 <em>Object는 모든 클래스의 조상</em>이라고 할 수 있다. 그 이유는 모든 클래스가 공통으로 포함하고 있어야 하는 기능을 제공하기 위해서다.
+Object 클래스 API 문서를 보자. : <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html</a>
+메소드의 목록을 살펴보자. 입문 단계에서 이해할 수 있는 API들을 살펴보자.
+
+<strong>toString</strong> 은 객체를 문자로 표현하는 메소드이다.
+<code class="xmp">
+System.out.println(c1); // 결과 org.opentutorials.javatutorials.progenitor.<em>Calculator@11be650f</em>
+</code>
+이것은 인스턴스 c1이 클래스 Calculator의 인스턴스라는 의미다. @ 뒤의 내용은 인스턴스에 대한 고유한 식별 값이라고 생각하자.
+toString을 직접 호출하지 않아도 어떤 객체를 <em>System.out.print로 호출하면 자동으로 toString이 호출되도록 약속</em>되어 있다.
+
+<strong>equals</strong> 는 객체와 객체가 같은 것인지를 비교하는 API이다.
+<code class="xmp">
+…
+Student s1 = new Student("egoing");
+Student s2 = new Student("egoing");
+System.out.println(s1 == s2); // <em>false</em>. s1과 s2가 서로 다른 객체이기 때문이다.
+System.out.println(s1.equals(s2)); // <em>true</em>. 하지만 두 개의 객체가 논리적으로는 egoing이라는 값을 가지고 있기 때문에 객체를 만든 필자는 저 두 개의 객체가 같은 객체로 간주 되었으면 좋겠다. 이럴 때 클래스 Object의 메소드 equals를 overiding하면 된다.
+</code>
+… <em>-- [m] 다시 읽자!</em>
+
+메소드 equals에 대해서 필자가 권고하는 입장은 아래와 같다.
+1. 객체 간에 동일성을 비교하고 싶을 때는 ==를 사용하지 말고 equals를 이용하자.
+2. equals를 직접 구현해야 한다면 hashCode도 함께 구현해야 함을 알고 이에 대한 분명한 학습을 한 후에 구현하자.
+3. equals를 직접 구현해야 한다면 eclipse와 같은 개발도구들은 equals와 hashCode를 자동으로 생성해주는 기능을 가지고 있다. 이 기능을 이용하는 것을 고려해보자. 아래 그림을 참고하자.
+4. 그 이유가 분명하지 않다면 비교 연산자 == 은 원시 데이터형을 비교할 때만 사용하자.
+
+<b>원시 데이터 형(Primitive Data Type)</b>이란 자바에서 기본적으로 제공하는 데이터 타입으로 <b>byte, short, int, long, float, double, boolean, char</b>가 있다. 이러한 데이터 타입들은 new 연산자를 이용해서 생성하지 않아도 사용될 수 있다는 특징이 있다.
+
+<strong>finalize</strong> 는 객체가 소멸될 때 호출되기로 약속된 메소드이다.
+여기서는 이 메소드의 취지만 이해하면 된다. 많은 자바의 전문가들이 이 메소드의 사용을 만류하고 있다.
+
+이 메소드 보다는 <strong>가비지 컬렉션(garbage collection)</strong>에 대해서 알아보자.
+많은 프로그래밍 언어들이 램을 효율적으로 사용하기 위해서 더 이상 사용하지 않는 데이터를 램에서 제거할 수 있는 방법들을 제공한다.
+하지만 자바에서는 이러한 방법이 제한적으로 제공되고 있는데 그것은 자동으로 해주기 때문이다. 이 작업을 자동화한 것을 가비지 컬렉션이라고 한다.
+<a href="http://helloworld.naver.com/helloworld/1329" target="_blank">Java Garbage collection(NHN Hello world 블로그)</a>
+
+<strong>clone</strong> 은 복제라는 뜻이다. 어떤 객체가 있을 때 그 객체와 똑같은 객체를 복제해주는 기능이 clone 메소드의 역할이다.
+… <em>-- [m] 다시 읽자!</em>
+<!-- /box1 --></div>
+상수와 enum
+<div class="box1"><!-- box1 -->
+<strong>상수</strong> 는 변하지 않는 값이다.
+변수도 상수가 될 수 있다. 변수를 지정하고 그 변수를 final로 처리하면 한번 설정된 변수의 값은 더 이상 바뀌지 않는다. 또한 바뀌지 않는 값이라면 인스턴스 변수가 아니라 클래스 변수(static)로 지정하는 것이 더 좋을 것이다.
+<b>네임스페이스</b>
+<b>인터페이스</b>
+<code class="xmp">
+<em>interface</em> FRUIT{
+    int APPLE=1, PEACH=2, BANANA=3;
+}
+<em>interface</em> COMPANY{
+    int GOOGLE=1, APPLE=2, ORACLE=3;
+}
+public class ConstantDemo {
+    public static void main(String[] args) {
+        <em>int type = FRUIT.APPLE;
+        switch(type){
+            case FRUIT.APPLE:
+                System.out.println(57+" kcal");
+                break;
+            case FRUIT.PEACH:
+                System.out.println(34+" kcal");
+                break;
+            case FRUIT.BANANA:
+                System.out.println(93+" kcal");
+                break;
+        }</em>
+    }
+}
+</code>
+인터페이스를 이렇게 사용할 수 있는 것은 인터페이스에서 선언된 변수는 무조건 public static final의 속성을 갖기 때문이다.
+… <em>-- [m] 다시 읽자!</em>
+
+<strong>enum</strong> 은 열거형(enumerated type)이라고 부른다. 열거형은 서로 연관된 상수들의 집합이라고 할 수 있다.
+<code class="xmp">
+<em>enum</em> Fruit{
+    APPLE, PEACH, BANANA;
+}
+<em>enum</em> Company{
+    GOOGLE, APPLE, ORACLE;
+}
+public class ConstantDemo {
+    public static void main(String[] args) {
+        /*
+        if(Fruit.APPLE == Company.APPLE){
+            System.out.println("과일 애플과 회사 애플이 같다.");
+        }
+        */
+        <em>Fruit type = Fruit.APPLE;
+        switch(type){
+            case APPLE:
+                System.out.println(57+" kcal");
+                break;
+            case PEACH:
+                System.out.println(34+" kcal");
+                break;
+            case BANANA:
+                System.out.println(93+" kcal");
+                break;
+        }</em>
+    }
+}
+</code>
+enum은 class, interface와 동급의 형식을 가지는 단위다. 하지만 enum은 사실상 class이다. 편의를 위해서 enum만을 위한 문법적 형식을 가지고 있기 때문에 구분하기 위해서 enum이라는 키워드를 사용하는 것이다.
+enum을 사용하는 이유를 정리하면 아래와 같다.
+1) 코드가 단순해진다.
+2) 인스턴스 생성과 상속을 방지한다.
+3) 키워드 enum을 사용하기 때문에 구현의 의도가 열거임을 분명하게 나타낼 수 있다.
+
+<strong>enum과 생성자</strong>
+… <em>-- [m] 다시 읽자!</em>
+열거형의 특성을 정리해보자. 열거형은 연관된 값들을 저장한다. 또 그 값들이 변경되지 않도록 보장한다. 뿐만 아니라 열거형 자체가 클래스이기 때문에 열거형 내부에 생성자, 필드, 메소드를 가질 수 있어서 단순히 상수가 아니라 더 많은 역할을 할 수 있다.
+<!-- /box1 --></div>
+제네릭
+<div class="box1"><!-- box1 -->
+준비중
+<!-- /box1 --></div>
+라이브러리
+<div class="box1"><!-- box1 -->
+클래스 변수를 이용해서 다른 디렉터리의 클래스를 로드하는 것은 공통적으로 사용되는 자바 로직을 여러 개의 자바 애플리케이션에서 공유하기 위한 방법이라고 볼 수 있다. 이러한 로직을 흔히 <strong>라이브러리(library)</strong>라고 부른다.
+재사용되는 공용로직을 라이브러리라고 부른다. (실무에서 도서관이라고 번역해서 부르지는 않는다. 또한 lib이라고 줄임말을 사용하는 경우도 많다)
+
+<strong>jar(Java ARchive)</strong>
+라이브러리는 보통 하나의 파일로 이루어진 것이 아니라 많은 클래스 파일과 설정 파일 그리고 이미지 파일 등으로 이루어져 있을 수 있다. 이것을 하나의 단일 파일로 만들 수 있을까? 가능하다. jar 파일로 만들면 된다.
+<kbd class="xmp">
+jar cvf item.jar Item2.class
+</kbd>
+jar는 jdk에 포함되어 있는 jar를 다루는 애플리케이션이다. cvf는 jar의 옵션인데 그 의미는 아래와 같다.
+<b>c</b> : jar 파일을 생성(create) 한다.
+<b>v</b> : 처리 과정을 화면에 출력(view) 한다.
+<b>f</b> : jar 파일의 이름(file)을 명시적으로 지정한다.
+<kbd class="xmp">
+java -classpath ".;Item2.jar" ClasspathDemo2
+</kbd>
+옵션 -classpath의 값에 Item2.jar를 명시함으로서 ClasspathDemo2를 실행할 때 Item2.jar 안에 포함된 클래스들을 사용하고 있다.
+<div class="box2"><!-- box2 -->
+<a href="https://www.google.co.kr/search?q=jar+%EC%8B%A4%ED%96%89%ED%8C%8C%EC%9D%BC+%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;oq=jar+%EC%8B%A4%ED%96%89&amp;aqs=chrome.2.69i57j0l5.4614j0j7&amp;sourceid=chrome&amp;espv=210&amp;es_sm=93&amp;ie=UTF-8#es_sm=93&amp;espv=210&amp;newwindow=1&amp;q=jar+%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank">jar 만들기</a>
+<a href="https://www.google.co.kr/search?q=jar+%EC%8B%A4%ED%96%89%ED%8C%8C%EC%9D%BC+%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;oq=jar+%EC%8B%A4%ED%96%89&amp;aqs=chrome.2.69i57j0l5.4614j0j7&amp;sourceid=chrome&amp;espv=210&amp;es_sm=93&amp;ie=UTF-8#es_sm=93&amp;espv=210&amp;newwindow=1&amp;q=jar+%EC%8B%A4%ED%96%89+%ED%8C%8C%EC%9D%BC+%EB%A7%8C%EB%93%A4%EA%B8%B0" target="_blank">jar 실행 파일 만들기</a>
+<a href="https://www.google.co.kr/search?q=jar+%EC%8B%A4%ED%96%89%ED%8C%8C%EC%9D%BC+%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;oq=jar+%EC%8B%A4%ED%96%89&amp;aqs=chrome.2.69i57j0l5.4614j0j7&amp;sourceid=chrome&amp;espv=210&amp;es_sm=93&amp;ie=UTF-8#es_sm=93&amp;espv=210&amp;newwindow=1&amp;q=jar+%EB%A7%8C%EB%93%A4%EA%B8%B0+%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4+" target="_blank">jar 만들기 이클립스</a>
+<!-- /box2 --></div>
+<div class="xmp mnote1">
+개발에서 검색은 필수적인 수단이 되었다. 검색 없이 개발을 한다는 것은 현실적이지 않은 일이다. 그렇기 때문에 적절한 검색어를 찾아서 문제를 해결하는 능력은 프로그래머에게 아주 중요한 능력이다. 이후로 수업에서 다루지 못하는 부분에 대한 검색어 키워드를 제시하도록 하겠다. 검색에 대해서 좀 더 자세히 알고 싶다면 생활코딩 페이스북 그룹에 정성태님이 공유해주신 <a href="https://www.facebook.com/groups/codingeverybody/670473076326565/" target="_blank">Google 검색엔진, 효과적으로 사용하기</a>를 참고하자.
+</div>
+<!-- /box1 --></div>
+/----
+</pre>
+
+<h2>misc.</h2>
+
+<ol class="num">
+<li><strong>[jsp] 마크업 코드 잘리는 문제?</strong><br />
+<div class="cont">
+foot.jsp 의 &lt;%=mTitle[0][2][51][0]%&gt; 를 &lt;%=mTitle[0][2][5][0]%&gt; 로 바르게 수정하니 해결됨.
+TT 잘못된 코드 이전의 코드가 잘리는 현상으로.. 찾기 어려웠당TT
+특징은.. 잘리는 코드 이전을 첨삭하면, 잘리는 코드 위치가 달라진다는 것..
+이럴땐.. 이후 코드를 의심해봐야겠다.<br />
+<br />
+20131030.  jsp 오류로 IE 에서 마크업 나오다가 끊길 때 바로 다음 코드가 아닌 더 뒤의 코드에서 문제가 발생한 것일 수도 있다.
+배열 선언한 크기보다 더 큰 인덱스를 사용할 경우에 발생하였음.<br />
+<br />
+</div>
+</li>
+</ol>
+
+<h2>Start</h2>
+
+
+<h2>Basic</h2>
+
+
+<!-- /contentsBlock --></div>
+<!-- ◇◆◇◆◇◆◇◆◇◆◇◆ -->
+<div class="contentsBlock" style="float:left;width:39%;margin:0 10 0 1%;"><!-- contentsBlock -->
+
+
+<h2>Reference Link</h2>
+
+<ol class="bo num">
+<li><a href="http://opentutorials.org/course/1223">생활코딩 - Java</a>
+	<blockquote cite=""><div>
+	<a href="http://docs.oracle.com/javase/">자바 홈페이지</a><br />
+	<a href="http://www.orentec.co.kr/teachlist/JAVA_BASIC_1/teach_sub1.php">난 정말 자바를 공부한 적이 없어요</a><br />
+	<a href="http://www.jabook.com/">소설 자바</a><br />
+	<a href="https://wikidocs.net/book/31">점프 투 자바</a><br />
+	</div></blockquote>
+</li>
+<li><a href="http://www.hanb.co.kr/ebook/look.html?isbn=9788968486098">BACK TO THE BASIC, JAVA 핵심 요약 노트 : 빠르게 훑어보는 자바 프로그래밍</a> - 한빛미디어 eBook -
+	<ol class="bo num">
+	<li>Java 튜토리얼Tutorial : <a href="http://docs.oracle.com/javase/tutorial/">http://docs.oracle.com/javase/tutorial/</a></li>
+	<li>자바 API 문서(한글) : <a href="http://docs.xrath.com/java/se/6/docs/ko/api/">http://docs.xrath.com/java/se/6/docs/ko/api/</a></li>
+	<li><a href="http://www.oracle.com/technetwork/java/codeconventions-150003.pdf">http://www.oracle.com/technetwork/java/codeconventions-150003.pdf</a></li>
+	<li><a href="http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html">Java Code Conventions</a> - Oracle -</li>
+	<li><a href="http://docs.oracle.com/javase/specs/jls/se5.0/html/j3TOC.html">The Java Language Specification</a></li>
+	</ol>
+</li>
+<li><a href="http://www.hanb.co.kr/web/sample/1498/sample_chapter5.pdf">JSP 기본 문법</a></li>
+<li><a href="http://www.okjsp.pe.kr/">okjsp</a></li>
+</ol>
+
+<!-- /contentsBlock --></div>
+
+
+
+
+
+<hr />
+<br />
+<hr class="show" />
+<p>
+<strong>History</strong>
+20140313. 생활코딩 준비중 이외 일단완료! 동영상만 보면 된다.
+20130310. 20130408.
+</p>
+
+
+
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

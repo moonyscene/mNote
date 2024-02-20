@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<script>/*<![CDATA[*/
+var $meta = {
+	title: '행안부 행정기관 웹사이트 진단 및 컨설팅 대비 보완 작업 | mNote',
+	pageType: 'default'
+};
+/*]]>*/</script>
+<script src="../../share/inc/html_head.js"></script>
+</head>
+<body>
+<script src="../../share/inc/all_header.js"></script>
+
+
+<h1>행안부 2010년 행정기관 웹사이트 진단 및 컨설팅 대비 보완 작업 10.15(금)~10.29(금) <strong>[대외비]</strong></h1>
+
+
+<ul class="bu">
+<li><a href="#c1">개요</a></li>
+<li><a href="#c4">참고자료</a></li>
+<li><a href="#c6">결과 보고서</a></li>
+</ul>
+
+<p style="font-size: 2em;"><strong><em>
+품질관리가 요구되는 웹사이트와 평가는 계속 증가한다. 최초 구축시 한 번에 바로하자!!
+</em></strong></p>
+
+<h2 id="c5">작업 대상 Site</h2>
+
+
+<table border="1" class="t3" summary="">
+<caption>작업 대상 Site ▶<a href="#sitepage">작업 대상 사이트별 보완할 페이지</a>
+<span class="fr">※ 보완 작업할 프로그래머 배정해주시기 바랍니다.</span>
+</caption>
+<col style="width: 5%;" />
+<thead>
+<tr>
+<th scope="col">갑 Site</th>
+<th scope="col">Note</th>
+<th scope="col">DTD선언</th>
+<th scope="col">Encoding선언</th>
+<th scope="col">HTML4.01/XHTML1.0/1.1<br />
+<a href="http://validator.w3.org/">Markup Error</a></th>
+<th scope="col"><a href="http://jigsaw.w3.org/css-validator/">CSS Error</a></th>
+<th scope="col"><a href="https://addons.mozilla.org/ko/firefox/addon/1843">Javascript/DOM Error</a></th>
+<th scope="col">Windows XP기준<br />IE6 IE7 IE8 FF SF</th>
+<th scope="col">을 담당자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><a href="http://www.jinju.go.kr/">진주시</a></th>
+<td title="Note">10/15 점검 - 메인<br />
+10/25 전페이지 디자인 코딩 완료.<br />
+프로그램 부분 로직 변경이 필요해서 일부 남음.<br />
+</td>
+<td title="DTD">HTML 4.01 Transitional</td>
+<td title="Encoding">utf-8</td>
+<td title="Markup">82</td>
+<td title="CSS">3</td>
+<td title="Javacript">0</td>
+<td title="Compatibility"></td>
+<td>최석문(→심윤정→정창신),방문준,박경오(→?),정대석</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.hadong.go.kr/">하동군</a></th>
+<td title="Note">10/15 점검 - 메인<br />
+10/25 전페이지 디자인코딩 부분 완료<br />
+프로그램 부분 일부 남음<br />
+커뮤니티 회원가입,아이디/비밀번호 찾기 완료.<br />
+커뮤니티 메인은 예전 코드여서 미결<br />
+</td>
+<td title="DTD">HTML 4.01 Transitional</td>
+<td title="Encoding">utf-8</td>
+<td title="Markup">135</td>
+<td title="CSS">1</td>
+<td title="Javacript">0</td>
+<td title="Compatibility"></td>
+<td>최석문(→정창신),이옥희(→방문준),남태형(→정미진)</td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.gimhae.go.kr/">김해시</a></th>
+<td title="Note">
+10/15 점검 - 메인<br />
+10/19 보완<br />
+10/20 CSS보완완료<br />
+Markup보완일단완료<br />
+10/21 동적코드까지모두완료<br />
+10/29 김해허성원주사전화옴<br />
+==>경고수정불필요함. 1,2차메뉴보완했음.<br />
+11/01 김해허성원주사전화옴<br />
+1,2,3차메뉴까지보완예정.<br />
+==>모르는거물어봐라<br />
+==><em>1,2차메뉴보완완료.</em><br />
+</td>
+<td title="DTD">HTML 4.01 Transitional</td>
+<td title="Encoding">utf-8</td>
+<td title="Markup">136</td>
+<td title="CSS">1</td>
+<td title="Javacript">0</td>
+<td title="Compatibility"></td>
+<td>강광일(→정창신),문영신,주인선(→?),김수진(→김봉규)</td>
+</tr>
+<tr>
+<td></td>
+<td title="Note">
+http://gimhae.go.kr/main/<br />
+http://gimhae.go.kr/01appeal/<br />
+http://public.gimhae.go.kr/ - 타도메인제외<br />
+http://gimhae.go.kr/03intro/<br />
+http://gimhae.go.kr/05administration/<br />
+http://gimhae.go.kr/06life/<br />
+http://gimhae.go.kr/07info/<br />
+http://gimhae.go.kr/08guide/<br />
+http://gimhae.go.kr/08guide/sitemap.jsp<br />
+<a href="http://gimhae.go.kr/01appeal/02_01.jsp">민원실안내</a><br />
+<a href="http://gimhae.go.kr/03intro/01_01.jsp">시민헌장</a><br />
+<a href="http://gimhae.go.kr/05administration/02_01.jsp">청사안내도</a><br />
+<a href="http://gimhae.go.kr/flash/office_guide/office_guide.jsp">청사안내도Flash</a><br />
+<a href="http://gimhae.go.kr/05administration/02_03_01.jsp">약도Flash</a><br />
+<a href="http://gimhae.go.kr/05administration/02_03_01_car.html">약도Flash-크게보기</a><br />
+<a href="http://gimhae.go.kr/06life/01_01_01.jsp">소비자피해구제</a><br />
+<a href="http://gimhae.go.kr/06life/01_03.jsp">소비자상담실</a><br />
+<a href="http://gimhae.go.kr/07info/01_01.jsp">김해홍보 > 김해갤러리 > 동영상갤러리</a><br />
+<a href="http://gimhae.go.kr/08guide/01_01.jsp">이용안내 > 홈페이지이용안내 > 홈페이지는</a><br />
+<a href="http://gimhae.go.kr/program/member/joining.jsp">이용안내 > 김해시 통합회원 > 회원가입</a><br />
+<a href="http://gimhae.go.kr/program/member/agree.jsp?gubun=G">이용안내 > 김해시 통합회원 - 약관동의</a><br />
+<a href="http://gimhae.go.kr/program/member/generJoin.jsp?gubun=G">이용안내 > 김해시 통합회원 - 본인확인</a><br />
+<a href="http://gimhae.go.kr/program/member/member.jsp">이용안내 > 김해시 통합회원 - 회원정보입력</a><br />
+<a href="http://gimhae.go.kr/program/member/main_find_id.jsp">이용안내 > 김해시 통합회원 > 아이디찾기</a><br />
+<a href="http://gimhae.go.kr/program/member/main_find_password.jsp">이용안내 > 김해시 통합회원 > 비밀번호찾기</a><br />
+<a href="http://gimhae.go.kr/servlet/multipleBoard2Control?cmd=list&idx=22&design=220000">열린시정 > 알림마당 > 김해핫이슈(목록)</a><br />
+<a href="http://gimhae.go.kr/servlet/multipleBoard2Control?cmd=view&seq=150291&idx=2&start=17&departIdx=0&dongIdx=0&orgIdx=0&scope=&keyword=&hitting=hit&design=020000&dept_code=0&dong_code=0&mmain=1&sub1=1&sub2=1&sub3=1">열린시정 > 알림마당 > 김해소식(내용 1650)</a><br />
+http://gimhae.go.kr/ (인트로)<br />
+11/01 작업한 2차메뉴 url 생략<br />
+</td>
+<td title="DTD"></td>
+<td title="Encoding"></td>
+<td title="Markup">
+136▶2▶0▶3▶0<br />
+80▶0<br />
+68<br />
+1▶0<br />
+1▶0<br />
+1▶0<br />
+1▶0<br />
+1▶0<br />
+0<br />
+0<br />
+0<br />
+4▶0<br />
+7▶0<br />
+0<br />
+0<br />
+0<br />
+2▶0<br />
+5▶0<br />
+0<br />
+0<br />
+2▶0<br />
+2▶0<br />
+8▶4 - 툴접근오류▶0<br />
+15▶6▶0<br />
+12▶6▶0<br />
+358▶0<br />
+73▶0 - 게시글오류15개제외<br />
+1▶0<br />
+</td>
+<td title="CSS">
+1▶0<br />
+1▶0<br />
+56<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+66▶0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+2▶0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+</td>
+<td title="Javacript">
+0
+</td>
+<td title="Compatibility"></td>
+<td></td>
+</tr>
+<tr>
+<th scope="row"><a href="http://www.yc.go.kr/">영천시</a></th>
+<td title="Note">
+10/15 점검 - 메인<br />
+10/19 Markup보완완료<br />
+회원가입로그인없음<br />
+10/20 CSS보완완료<br />
+<em>11/01 1,2차메뉴보완완료.</em><br />
+</td>
+<td title="DTD">HTML 4.01 Transitional</td>
+<td title="Encoding">utf-8</td>
+<td title="Markup">634</td>
+<td title="CSS">6</td>
+<td title="Javacript">0</td>
+<td title="Compatibility"></td>
+<td>손정은,문영신,김호정,남태형(→도경희)</td>
+</tr>
+<tr>
+<td></td>
+<td title="Note">
+http://www.yc.go.kr/main/<br />
+http://www.yc.go.kr/01appeal/<br />
+http://www.yc.go.kr/02partin/<br />
+http://www.yc.go.kr/03economy/<br />
+http://www.yc.go.kr/04life/<br />
+http://www.yc.go.kr/05about/<br />
+http://www.yc.go.kr/07guide/sitemap.asp<br />
+<a href="http://www.yc.go.kr/01appeal/04_01.asp">전자민원신청</a><br />
+<a href="http://www.yc.go.kr/01appeal/04_04.asp">민원처리공개</a><br />
+<a href="http://www.yc.go.kr/program/incprogram/lstBoardDoc.asp?cidx=1001">새소식(목록)</a><br />
+<a href="http://www.yc.go.kr/program/incprogram/outBoardDoc.asp?cidx=1001&amode=modOT&SType=&SString=&page=1&cate=&de=1&idx=2465&same=2465&robot=&depart=&sec=&mefidx=&pub=&num=280">새소식(내용-공지사항)</a><br />
+<a href="http://www.yc.go.kr/program/incprogram/lstBoardDoc.asp?cidx=1007">모집/채용(목록)</a><br />
+<a href="http://www.yc.go.kr/01appeal/01_01.asp">민원실안내</a><br />
+<a href="http://www.yc.go.kr/program/publicboard/lstBoardDoc.asp?cidx=1067">시민알림터</a><br />
+<a href="http://www.yc.go.kr/03economy/01_01_01.asp">기업지원정책 > 운전자금 융자지원</a><br />
+<a href="http://www.yc.go.kr/04life/01_01.asp">정보화교육 > 교육안내</a><br />
+<a href="http://www.yc.go.kr/05about/01.asp">열린시장실</a><br />
+<a href="http://www.yc.go.kr/05about/03_04.asp">찾아오시는 길Flash</a><br />
+<a href="http://www.yc.go.kr/program/publicboard/inRealName.asp?path=/program/publicboard/inBoardDoc.asp&query=cidx=1067|SType=|SString=|page=1|cate=|idx=|same=|robot=|depart=|num=|sec=|mefidx=|pub=|amode=modIN&cidx=1067&sec=&mefidx=">실명인증</a><br />
+<a href="http://www.yc.go.kr/program/publicboard/inBoardDoc.asp?cidx=1067&SType=&SString=&page=1&cate=&idx=&same=&robot=&depart=&num=&sec=&mefidx=&pub=&amode=modIN">글쓰기</a><br />
+11/01 작업한 2차메뉴 url 생략<br />
+</td>
+<td title="DTD"></td>
+<td title="Encoding"></td>
+<td title="Markup">
+634▶0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+0<br />
+18▶0<br />
+2▶0<br />
+8▶0<br />
+355▶0<br />
+0 - 게시글오류2개제외<br />
+0<br />
+0<br />
+26▶0<br />
+1▶0<br />
+0<br />
+0<br />
+0<br />
+10▶0<br />
+28▶0<br />
+</td>
+<td title="CSS">
+6▶0<br />
+6▶0<br />
+6▶0<br />
+6▶0<br />
+6▶0<br />
+6▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+61▶0<br />
+</td>
+<td title="Javacript">0</td>
+<td title="Compatibility"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="bu">
+<li><em>DTD 수정하지말고 HTML 4.01 Transitional 그대로 작업합니다.</em><br />
+※ HTML 4.01 Transitional 에서 XHTML 1.0 Transitional 로 변경하니..
+"진주/하동/김해/영천" 각각
+"211/219/203/649" Markup Errors 로 모두 증가되었다.
+</li>
+<li><em>비표준 CSS 는 JavaScript 안에서 선언하여 CSS 오류가 나오지 않도록 합니다.</em> 예) ime-mode: active;<br />
+또는 JavaScript 안에서 참조된 all.css, sub.css 등에 속성 정의하자!
+</li>
+<li>위 4개 사이트들은 <em>유지보수 작업시 오류가 추가 발생하지 않도록 각별히 주의</em>해주시기 바랍니다.</li>
+</ul>
+
+<h3>진단 대상 페이지: 기관 대표 홈페이지의</h3>
+<p><strong>※ 대표페이지, 민원신청, 회원가입 등 대민접촉이 많은 페이지를 중심으로 17개 페이지 선정</strong></p>
+<ol>
+<li>메인페이지</li>
+<li>서브페이지(메인페이지의 하위1 ,2단계 페이지)</li>
+<li>목록페이지(공지사항,게시판,자료실)</li>
+<li>부가기능페이지(동영상,플래시 등 멀티미디어 페이지)</li>
+</ol>
+
+
+<h2 id="c1">개요</h2>
+
+<!-- box4 -->
+<div class="box4">
+<pre>
+2010.10.15
+==>@정대석,박태공,정창신,양현미,방문준
+
+▶이사님,사장님 지시 사항 전달합니다.
+아래 내용 보시고 적극 협조 부탁드립니다.
+세밀한 작업 지침은 다시 정리해서 알려드리겠습니다.
+
+<h3>행안부 2010년 행정기관 웹사이트 진단 및 컨설팅 대비 작업</h3>
+(호환성이라고 하던데.. 웹표준+크로스브라우징 이라고 생각하세요)
+* <strong>정부업무평가 및 지자체 합동평가 진단 - 웹 호환성 진단</strong>
+
+* 진단기간 ~ 2010.10.18~2010.11.30
+
+* 작업기간 ~ 2010.10.15~2010.10.30
+
+* 작업 개요
+W3C Markup(HTML) Validator (<a href="http://validator.w3.org/">http://validator.w3.org/</a>) 통과 
+W3C CSS Validator (<a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a>) 통과 
+Cross Browing (IE6/7/8, Firefox, Safari) 동등한 레이아웃 및 기능 구현
+
+<h4 id="sitepage">작업 대상 사이트별 보완할 페이지</h4>
+##진주 - <em>메인, 1차메뉴들 클릭시 첫페이지, 민원신청, 회원가입로그인관련</em> + 할 수 있는 만큼 더 많이
+##하동 - 메인, 1차메뉴들 클릭시 첫페이지, 민원신청, 회원가입로그인관련 + 시간되면 더 (혹은 김해하고 같은 수준)
+##김해 - 메인, 1차메뉴들 클릭시 첫페이지, 민원신청, 회원가입로그인관련(우리거 아니지만 할 수 있으면 한다)
+##영천 - 메인, 1차메뉴들 클릭시 첫페이지, 민원신청, 회원가입로그인관련
+
+▶이사님,사장님 전달사항
+- 다른 시군은 보완 안합니다. - 이사님과 협의하도록 유도하세요~
+- 유지보수 게시판에 관련 작업 의뢰 올리면 안하는 것이 회사 입장입니다.
+조그만 건은 처리 가능하면 하셔도 되나, 분할해서 다량 요청하는 거는 하지 마시기 바랍니다.
+</pre>
+</div>
+<!-- //box4 -->
+
+
+<br />
+<hr class="show" />
+
+<table border="1" class="t3 w100" summary="HTML 4.01 문서의 W3C Markup Validator 결과"><caption>!DOCTYPE 이 HTML 4.01 Transitional (or Strict) 일 경우 W3C Markup Validator 결과</caption>
+<col style="width: 20%;" /><col />
+<tbody>
+<tr>
+<th scope="row"><em>* Errors</em></th>
+<td><xmp class="xmp"> <meta /> <link /> <base /> <col /> <area /> <frame /> </xmp></td>
+</tr>
+<tr>
+<th scope="row"><em>* warning(s)</em></th>
+<td><xmp class="xmp"> <img /> <input /> <param /> <br /> <hr /> </xmp></td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<h4 id="c4">참고자료</h4>
+<ul class="bu">
+<li><a href="../Report/2009년%20행정기관%20웹사이트%20진단%20및%20컨설팅%20결과%20분석.html#n2">2009년 행정기관 웹사이트 진단 및 컨설팅 결과 분석 - 상세 진단 결과</a></li>
+<li><a href="http://192.168.0.60:7060/sub/01_01_03.jsp">웹 개발 가이드 - 웹표준</a></li>
+<li><a href="http://192.168.0.60:7060/sub/01_01_04.jsp">웹 개발 가이드 - 호환성</a></li>
+</ul>
+
+
+<h2 id="c6">결과 보고서</h2>
+
+<pre>
+2010.12.15.
+@방문준(@정창신)
+##부산광역시
+2009_웹호환성_준수수준_진단결과_부산광역시.hwp
+붙임1_2010년_행정기관_웹호환성_준수수준_진단결과(부산광역시).hwp
+붙임2_전자정부서비스_호환성_준수지침(행안부고시_제2010-40호).hwp
+-->IME-MODE : Active 속성의 경우 비표준이나 예외적으로 허용함
+==>2009와 점수산정 동일하나, 현대정책연구원 보고서(5%미만 오류도 점수부여)와는 달리 문법 오류가 없는 페이지만 점수부여
+==>주요 오류는 우리 과업 아닌 페이지에서 발생.
+- DTD선언 #문화관광 http://tour.busan.go.kr/
+- 브라우저호환성 #법무행정정보 https://www.busan.go.kr/open_content/administrative/laws/legislation/6260000-arc-2.0-001.jsp
+</pre>
+
+
+<br />
+<h5 class="box">표준 답변</h5>
+<h6>W3C Markup Validator</h6>
+<pre>
+==> W3C 웹표준 문법은 권고일뿐입니다.
+브라우저들이 표준 권고안을 따르긴 하지만 표준을 모두 지원하는 것은 아닙니다.
+또한 표준 문법은 권고안마다 달라집니다.
+새로운 표준이 이전 문법을 오류로 하거나 오류인 것을 표준으로 받아들이기도 합니다.
+브라우저들은 하위 버전과 상위 버전의 호환을 고려하여 렌더링하므로
+문법이 조금 다르더라도 호환성에 문제가 발생한다고 볼 수 없으며
+문법을 모두 맞췄다고 호환이 해결된다고도 볼 수 없습니다.
+
+그러므로, 변경될지도 모를 문법을 완벽하게 맞추기보다는
+가능한 문법에 따라 코딩을 하면서 브라우저 호환을 고려하는 것이 중요합니다.
+언어에서 문법이 필요는 하지만 시대에 따라 변하며
+지켜야 하는 것은 맞지만 의사소통이 더 중요하다라는 것과 같다고 생각하시면 됩니다.
+
+저희가 개발한 웹문서들은 이런 점들을 잘 고려하여 제작되었고,
+W3C Markup(HTML) Validator (http://validator.w3.org/) 결과의 오류들이 호환성 문제를 발생시키지는 않습니다.
+
+행안부 행정기관 웹사이트 진단 결과의 점수는 평가 편의를 위해 기계에만 의존한 것이고,
+제대로된 전문가의 컨설팅이 없다면.. 가치 없는 진단 결과일뿐니다.
+</pre>
+<h6>W3C CSS Validator</h6>
+<pre>
+==> CSS 2.1 오류 여부로 웹사이트 호환성을 판단하는것 자체가 잘못된 진단입니다.
+CSS의 사용에 있어서 중요한 것은 사실상의 표준인 현존하는 웹 브라우저들의 지원 여부에 따르는 겁니다.
+그렇게함으로써 최신 웹 브라우저를 선택한 사용자에게는 보다 향상된 경험을 제공할 수 있습니다. 
+
+CSS 문법 유효성 검사 결과는 현실 세계에서 중요하지 않습니다.
+만약 누군가 CSS의 문법 유효성을 완벽하게 지켜야 한다고 주장한다면 W3C 웹 사이트의 CSS 소스 코드를 열어보라고 하십시요.
+http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.w3.org%2F&profile=css21&usermedium=all&warning=1&lang=ko
+CSS 문법 오류들이 발견됩니다. 그러나 누구도 W3C가 사용자를 차별했다고 말하지는 않습니다.
+
+브라우저 호환을 위해서라도 오류가 검출되지 않게 할 수 없습니다.
+
+작년의 행안부 웹사이트 진단에서는 아래와 같이..
+개별 *.css 파일을 직접 검사하지 않고 css 를 참조하는 웹문서로 CSS 유효성 검사를 하였습니다.
+
+http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.busan.go.kr%2F00_main%2F&profile=css21&usermedium=all&warning=1&lang=ko
+
+CSS 유효성 검사를 통과하고 싶으시면.. 오류로 검출되는 인라인 스타일시트를 이 웹페이지에서 참조중인 외부CSS파일(layout.css)에 정의하면 됩니다.
+(www.busan.go.kr 사이트 설계할 때 그렇게 만들었습니다.)
+
+PS) 오류로 발견된 ime-mode: active; 는 인풋박스 선택시 자동으로 한글 입력모드로 만들어줍니다.
+이것은 ime-mode: 속성을 지원하는 브라우저의 사용성을 향상시키는 것이지,
+입력을 못하게 한다든지 하는 호환성 문제는 전혀 없습니다.
+</pre>
+
+
+<br />
+<hr class="dash" />
+<p>
+<strong>Revision</strong>
+2010.10.15. 최초작성
+</p>
+
+
+<script src="../../share/inc/all_footer.js"></script>
+</body>
+</html>

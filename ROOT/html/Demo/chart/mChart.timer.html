@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!--
+/**
+ * 20211025 | @m | 최초작성
+ * 20211025 | @m | 최초완성
+ */
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chart Timer [svg+css+js] by@m</title>
+<style>/*<![CDATA[*/
+	
+	/* @import url(../../share/css/base.css); */
+
+	/* 배치.전체 20211008 */
+	html{
+		/* height:100%; */
+	}
+	body{
+		background:linear-gradient(180deg, #fff 0, #eee 100%);
+		color:#000; /* (((#555 */
+		font-weight:400; /* ☆ */
+		font-size:.875em; /* (((16px */
+		font-family:
+			'Apple SD Gothic Neo', /* 맥용 */
+			/* 'Lato', */'Open Sans',OpenSans, /* 영문 */
+			'Microsoft JhengHei', /* 한자 */
+			'Meiryo', /* 일문 */
+			'맑은 고딕','Malgun Gothic', /* 한글 */
+			'돋움',Dotum,
+			Helvetica,'Helvetica Neue',
+			Arial,sans-serif;
+		line-height:1.75; /* (((1.75 */
+		letter-spacing:-.03125em; /* (-.5px/16px) */
+		overflow-x:hidden; /* ★ Mobile 가로범람 방지 */
+	}
+	#container{
+		position:relative;
+		box-sizing:border-box; /* ☆ */
+		width:90%;
+		max-width:1000px;
+		margin:calc(.625rem + 3%) auto;
+		padding:calc(.3125rem + 3%) calc(.625rem + 3%);
+		border:1px solid #ccc;
+		border-radius:6px;
+		background:#fff;
+	}
+
+	/* 초기화 20211008 */
+	a:link,a:visited{
+		color:#06c;
+		text-decoration:none;
+	}
+	ol{
+		list-style:decimal-leading-zero;
+		margin:1.25em 0;
+	}
+
+	/* CSS 20211019 */
+
+	/* 제목 */
+	.hb1{
+		display:block;
+		margin:0 0 1em;
+		padding:0;
+		border:0;
+		background:transparent;
+		color:#000;
+		font-weight:600;
+		line-height:1.375;
+		letter-spacing:-.03125em;
+	}
+	.hb1~.hb1{
+		margin-top:1.5em;
+	}
+	/* ( (40 26 22 20 18 16)/16 ) */
+	.hb1.h1{
+		margin:0 0 1em;
+		font-size:2.5em;
+	}
+	.hb1.h1:after{content:'';
+		display:block;
+		margin:.25em 0;
+		height:.125em;
+		background:linear-gradient(90deg, #047 0, #09f 100%);
+	}
+	.hb1.h2{font-size:1.625em;}
+	.hb1.h3{font-size:1.25em;}
+	.hb1.h4{font-size:1.125em;}
+	.hb1.h5{font-size:1em;}
+	.hb1.h6{font-size:.875em;}
+
+
+	/* 순번목록 */
+	ol[class*='bo']{
+		list-style:decimal-leading-zero;
+		padding:0 0 0 1.8em;
+		text-align:left;
+	}
+	ol[class*='bo']>li{
+		/* margin:.375em 0; */
+		padding:0;
+	}
+
+		/* 속성 */
+	.mgt0{margin-top:0 !important;}
+	.mgb0{margin-top:0 !important;}
+
+
+	/* 차트.원.타이머 20211022. 20211025 */
+	.cp2chart1timer1{
+		display:inline-block;
+		z-index:0;
+		position:relative;
+		width:6.875em;
+		height:6.875em;
+		margin:auto;
+		background:#f7f7f7;
+		font-size:1em;
+		line-height:1.375;
+	}
+	.cp2chart1timer1.s2{}
+	.cp2chart1timer1.s3{}
+	/* 값 */
+	.cp2chart1timer1 .t1{
+		z-index:10;
+		position:absolute;left:50%;top:50%;
+		transform:translate(-50%, -50%);
+		white-space:nowrap;
+	}
+	.cp2chart1timer1 .t0{
+		color:inherit;	
+	}
+	/* 원 */
+	.cp2chart1timer1 svg.chart{
+		position:relative;
+		width:100%;
+		height:100%;
+		background:inherit;
+	}
+	.cp2chart1timer1 circle{
+		fill:transparent;
+		stroke-width:20; /* ☆ */
+		stroke-dasharray:628;
+		stroke-dashoffset:628;
+		/* stroke-linecap:round; */
+	}
+	.cp2chart1timer1 circle.fg{
+		transform:rotate(-90deg);
+		transform-origin:50% 50%;
+		/* animation:kf1draw1 2s forwards; )) [JS] */
+	}
+	.cp2chart1timer1 circle.bg{
+		stroke:rgba(0,0,0, .1);
+		stroke-dashoffset:0;
+	}
+	.cp2chart1timer1 circle.fg{
+		stroke:#09c;
+	}
+	/* .type2 */
+	.cp2chart1timer1.type2 circle.fg{
+		stroke:#f53;
+	}
+	/* @keyframes kf1draw1{
+		0% {stroke-dashoffset:0;}
+		100% {stroke-dashoffset:628;}
+	} */
+
+
+
+	/* RWD ◇◆◇◆ */
+	/* ◇◆ */
+	@media all and (max-width:767px){
+
+		body{
+			font-size:.75em;
+		}
+
+	}
+	/* ◇◆ */
+	@media all and (min-width:640px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:768px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1000px){
+	}
+	/* ◇◆ */
+	@media all and (min-width:1260px){
+	}
+/*]]>*/</style>
+</head>
+<body>
+<!-- container -->
+<div id="container">
+
+
+
+
+
+<h1 class="hb1 h1">
+	Chart Timer
+	<small class="dpib">[svg+css+js]</small>
+</h1>
+
+
+<!-- 
+<script src="../../share/vendor/jquery-3.6.0.min.js"></script>
+<script src="../../share/vendor/jquery.easing.1.3.js"></script>
+ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+
+
+<!-- ◇◆◇◆◇◆◇◆◇◆ -->
+<h2 class="hb1 h2">
+	Circle
+</h2>
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a1">
+	<span class="t1"><span class="t1t1" data-num="0" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a2 type2">
+	<span class="t1"><span class="t1t1" data-num="0" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a3">
+	<span class="t1"><span class="t1t1" data-num="30" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a4 type2">
+	<span class="t1"><span class="t1t1" data-num="60" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a5">
+	<span class="t1"><span class="t1t1" data-num="30" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a6 type2">
+	<span class="t1"><span class="t1t1" data-num="0" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<!-- cp2chart1timer1 -->
+<div class="cp2chart1timer1 cp2chart1timer1a7">
+	<span class="t1"><span class="t1t1" data-num="0" title="남은시간(초)"></span></span>
+	<svg class="chart" viewBox="0 0 220 220">
+		<circle class="bg" cx="110" cy="110" r="100"></circle>
+		<circle class="fg" cx="110" cy="110" r="100"></circle>
+	</svg>
+</div>
+<!-- /cp2chart1timer1 -->
+
+
+<script>/*<![CDATA[*/
+	/** ◇◆ SVG. 원 그래프 애니메이션 + 타이머. 20211025. @m.
+	 */
+	(function(){
+
+		MJS = window.MJS || {};
+		MJS.doTimer2 = function(selector, sec){
+
+			var $my = $(selector); // 20211025
+
+			// 애니메이션 
+			//(function animateChart(){
+			
+				$my.each(function(){
+
+					var timer; // setInterval
+					var $item = $(this);
+					var $title = $('.t1t1', $item);
+					var $circle = $('circle.fg', $item);
+					
+					$title.attr({'data-num': sec}); // sec 가 undefined 이면 data-num 값 그대로 유지
+
+					var targetNum = $title.data('num');
+					var setTime = targetNum || 0; // 기본 설정 초 0
+					var hms, h, m, s;
+
+					// 애니메이션
+					$({rate: 0}).animate({rate: targetNum},{
+						duration: targetNum * 1000,
+						easing: 'linear',
+						progress: function(){
+							var now = this.rate;
+							var amount = ( 628 * now / targetNum );
+							//$title.text( Math.floor(now) ); // 값카운트 )) hmsTime() 로 대체
+							$circle.css({strokeDashoffset: amount}); // 선그리기
+						}
+					});
+
+					// 타이머글
+					function hmsTime(){
+						h = Math.floor(setTime / 3600); // 남은 시
+						m = Math.floor((setTime % 3600) / 60); // 남은 분
+						s = (setTime % 60); // 남은 초
+						h = (h < 10)? '0' + h: h;
+						m = (m < 10)? '0' + m: m;
+						s = (s < 10)? '0' + s: s;
+						if( parseInt(h) == 0 ){
+							hms = m + ':' + s + '';
+						}else{
+							hms = h + ':' + m + ':' + s + '';
+						}
+						$title.html(hms);
+						setTime--; // 1초씩 감소
+						if (setTime < 0) {
+							clearInterval(timer);
+							$title.html('<span class="t0">00:00</span>');
+						}
+					}
+					hmsTime(); // 즉시 호출
+					timer = setInterval(hmsTime, 1000); // 1초마다 갱신
+				});
+
+			//})();
+
+		};
+
+		// 호출 (재 호출은 안됨)
+		MJS.doTimer2('.cp2chart1timer1a1', 6); // 타이머시간  6초
+		MJS.doTimer2('.cp2chart1timer1a2', 3600); // 타이머시간 1시간
+		MJS.doTimer2('.cp2chart1timer1a3', ); // data-num 값 그대로 유지
+		MJS.doTimer2('.cp2chart1timer1a4'); // data-num 값 그대로 유지
+		MJS.doTimer2('.cp2chart1timer1a5', 120); // data-num 값을 60 으로 재설정
+		MJS.doTimer2('.cp2chart1timer1a6', 0); // 타임아웃
+		//MJS.doTimer2('.cp2chart1timer1a7'); // 호출 안하면. 원배경만 보이고 동작 없음
+
+	})();
+/*]]>*/</script>
+
+
+
+
+
+</div>
+<!-- /container -->
+</body>
+</html>
