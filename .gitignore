@@ -1,0 +1,17 @@
+## .gitignore ## 20240220
+
+# 폴더 무시
+#~past/
+ROOT/data/
+
+# 파일 무시
+#x.html
+*.~*.html
+
+# 확장자 무시
+#*.text
+#*.exe
+#*.zip
+#*.tmp
+#*.mp4
+#*.pdf
